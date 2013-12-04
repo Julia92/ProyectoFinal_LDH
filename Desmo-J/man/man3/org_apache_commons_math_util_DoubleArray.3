@@ -1,0 +1,154 @@
+.TH "org.apache.commons.math.util.DoubleArray" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.util.DoubleArray \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBgetNumElements\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetElement\fP (int index)"
+.br
+.ti -1c
+.RI "void \fBsetElement\fP (int index, double value)"
+.br
+.ti -1c
+.RI "void \fBaddElement\fP (double value)"
+.br
+.ti -1c
+.RI "double \fBaddElementRolling\fP (double value)"
+.br
+.ti -1c
+.RI "double[] \fBgetElements\fP ()"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides a standard interface for double arrays\&. Allows different array implementations to support various storage mechanisms such as automatic expansion, contraction, and array 'rolling'\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+480440 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2006-11-29 00:14:12 -0700 (Wed, 29 Nov 2006) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void org\&.apache\&.commons\&.math\&.util\&.DoubleArray\&.addElement (doublevalue)"
+Adds an element to the end of this expandable array
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP to be added to end of array 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.util\&.DoubleArray\&.addElementRolling (doublevalue)"
+Adds an element to the end of the array and removes the first element in the array\&. Returns the discarded first element\&. The effect is similar to a push operation in a FIFO queue\&. 
+.PP
+Example: If the array contains the elements 1, 2, 3, 4 (in that order) and addElementRolling(5) is invoked, the result is an array containing the entries 2, 3, 4, 5 and the value returned is 1\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP the value to be added to the array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value which has been discarded or 'pushed' out of the array by this rolling insert 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.util\&.DoubleArray\&.clear ()"
+Clear the double array 
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.util\&.DoubleArray\&.getElement (intindex)"
+Returns the element at the specified index\&. Note that if an out of bounds index is supplied a ArrayIndexOutOfBoundsException will be thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index to fetch a value from 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+value stored at the specified index 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIArrayIndexOutOfBoundsException\fP if \fCindex\fP is less than zero or is greater than \fC\fBgetNumElements()\fP - 1\fP\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+.SS "double [] org\&.apache\&.commons\&.math\&.util\&.DoubleArray\&.getElements ()"
+Returns a double[] array containing the elements of this \fC\fBDoubleArray\fP\fP\&. If the underlying implementation is array-based, this method should always return a copy, rather than a reference to the underlying array so that changes made to the returned array have no effect on the \fC\fBDoubleArray\fP\&.\fP
+.PP
+\fBReturns:\fP
+.RS 4
+all elements added to the array 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.util\&.DoubleArray\&.getNumElements ()"
+Returns the number of elements currently in the array\&. Please note that this may be different from the length of the internal storage array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+number of elements 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.util\&.DoubleArray\&.setElement (intindex, doublevalue)"
+Sets the element at the specified index\&. If the specified index is greater than \fC\fBgetNumElements()\fP - 1\fP, the \fCnumElements\fP property is increased to \fCindex +1\fP and additional storage is allocated (if necessary) for the new element and all (uninitialized) elements between the new element and the previous end of the array)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index to store a value in 
+.br
+\fIvalue\fP value to store at the specified index 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIArrayIndexOutOfBoundsException\fP if \fCindex\fP is less than zero\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

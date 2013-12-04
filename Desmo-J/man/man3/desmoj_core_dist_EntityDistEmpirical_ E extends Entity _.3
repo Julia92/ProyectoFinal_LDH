@@ -1,0 +1,188 @@
+.TH "desmoj.core.dist.EntityDistEmpirical< E extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.EntityDistEmpirical< E extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits EntityDist< E >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntityDistEmpirical\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBadd\fP (E e, double probability)"
+.br
+.ti -1c
+.RI "void \fBchangeProbability\fP (E e, double newProbability)"
+.br
+.ti -1c
+.RI "boolean \fBcontains\fP (E e)"
+.br
+.ti -1c
+.RI "boolean \fBremove\fP (E e)"
+.br
+.ti -1c
+.RI "E \fBsample\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNonNegative\fP (boolean newValue)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Empirically distributed stream of entities\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<E>\fP the element type 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.Distribution\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, Philip Joschko, Johannes Go\*(4bel 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.EntityDistEmpirical (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of entities, where an individual probability can be assigned to each entity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.add (Ee, doubleprobability)"
+Adds an entity (type E) to the range of this distribution, unless it is already present\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The entity to be added to the range of this distribution\&. 
+.br
+\fIprobability\fP double : The relative probability of this distribution sampling Entity e\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True, if the entity has been added to the range of this distribution (false, if it was already present)\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.changeProbability (Ee, doublenewProbability)"
+Adjusts the relative probability of an entity (type E from the range of this distribution being sampled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The entity whose relative probability is adjusted\&. 
+.br
+\fInewProbability\fP double : The new relative probability of this distribution sampling Entity e\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.contains (Ee)"
+Checks whether an entity is present (i\&.e\&. potentially sampled) by this distribution
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The entity to be checked\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True, if the entity is included in the range of this distribution and false otherwise\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.createReporter ()"
+Creates the default reporter for the EntityDistEmpirical distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the EntityDistEmpirical distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+EntityDistEmpiricalReporter 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.remove (Ee)"
+Removes an entity (type E) from the range of this distribution, if it is included\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The entity to be removed from the range of this distribution\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True, if the entity has been removed from the range of this distribution (false, if it was not present)\&. 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.sample ()"
+Returns the next empirically distributed entity sample\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The next empirically distributed entity sample 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.EntityDistEmpirical< E extends \fBEntity\fP >\&.setNonNegative (booleannewValue)"
+Overrides the same method of \fCdesmoj\&.dist\&.Distribution\fP\&. A warning that it makes no sense to set a \fCEntityDistEmpirical\fP to be (not) negative is printed since the distribution samples are not numerical\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewValue\fP boolean : No effect\&. A warning is issued\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

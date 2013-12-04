@@ -1,0 +1,526 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}\index{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter@{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Internal\-Transporter} ({\bf Model} owner, String name, int capac, double speed\-Load, double speed\-Empty, {\bf T\-\_\-\-Control} ts, boolean show\-In\-Trace)
+\item 
+{\bf Crane} {\bf get\-Crane} ()
+\item 
+void {\bf set\-Crane} ({\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-Crane} c)
+\item 
+void {\bf drive\-Load} (double distance)
+\item 
+void {\bf drive\-Empty} (double distance)
+\item 
+void {\bf set\-Speed\-Empty} (double s)
+\item 
+double {\bf get\-Speed\-Empty} ()
+\item 
+void {\bf set\-Speed\-Load} (double s)
+\item 
+double {\bf get\-Speed\-Load} ()
+\item 
+void {\bf set\-Job} ({\bf Job} j)
+\item 
+{\bf Job} {\bf get\-Job} ()
+\item 
+void {\bf set\-Current\-Capacity} (int c)
+\item 
+int {\bf get\-Current\-Capacity} ()
+\item 
+abstract void {\bf import\-Job\-Cycle} ({\bf Job} j)
+\item 
+abstract void {\bf export\-Job\-Cycle} ({\bf Job} j)
+\item 
+void {\bf life\-Cycle} ()
+\item 
+long {\bf get\-Num\-Empty\-Drives} ()
+\item 
+long {\bf get\-Num\-Loaded\-Drives} ()
+\item 
+double {\bf get\-Time\-Empty\-Drives} ()
+\item 
+double {\bf get\-Time\-Loaded\-Drives} ()
+\item 
+void {\bf pick\-Up} ({\bf Sim\-Time} time)
+\item 
+void {\bf pick\-Down} ({\bf Sim\-Time} time)
+\item 
+void {\bf reset} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} represents any kind of vehicle (A\-G\-V, V\-C, chassis) which carries goods (containers) around in a container terminal. It has a certain loaded and empty speed when he drives in a terminal and is loaded or empty. He has also a certain transporter control which he gets his {\ttfamily \doxyref{Job}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job}} to do by. \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} is derived from Transporter. Because of that he has a certain capacity (maximum number of goods which can be carried around at once) and a minimum load (minimum number of goods which will be carried) that one is. Its {\ttfamily \doxyref{life\-Cycle()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abe3c62357c772f13e4307dff335adb7c}} is already implemented and spezifies the behavior of the \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. But its methods {\ttfamily \doxyref{import\-Job\-Cycle(\-Job j)}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abcf92d061120dfb76e4dce1c12ba11b5}} and {\ttfamily Export\-Job\-Cycle(\-Job j)} must be ipmlemented by the user in order to specify the behavior of the \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} if he does an emport or export job.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter_a323b774f8ac4b46fd4810e2dfb47f0fb} 
+
+\doxyref{T\-\_\-\-Control}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_t___control} 
+
+\doxyref{Job}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Eugenia Neufeld
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!Internal\-Transporter@{Internal\-Transporter}}
+\index{Internal\-Transporter@{Internal\-Transporter}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{Internal\-Transporter}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-Internal\-Transporter (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{capac, }
+\item[{double}]{speed\-Load, }
+\item[{double}]{speed\-Empty, }
+\item[{{\bf T\-\_\-\-Control}}]{ts, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_ab66a898937554fb8654e34fc6a25ffa7}
+Constructs an Internal Transporter which will carry around containers (goods) in a container terminal. Implement its {\ttfamily \doxyref{import\-Job\-Cycle(\-Job j)}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abcf92d061120dfb76e4dce1c12ba11b5}} method and {\ttfamily \doxyref{export\-Job\-Cycle(\-Job j)}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a75e895f8d93d684cd28f398aab453685}} to specify its behavior when he gets an ex-\/ or import job. An Internal Transporter has like a Transporter a capacity (maximum number of goods which can be transported) and a mimimum load ( a minimum number of goods it will carry). Both must not be zero or negative. The capacity default value is one. The minimum load has always value one.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter_a323b774f8ac4b46fd4810e2dfb47f0fb} It has a certain loaded and empty speed when he drives in a terminal and is loaded or empty. Both must not be zero or negative. He has also a certain transporter control which he gets his job to do by. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+{\em capac} & int \-: The maximum number of goods this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} can carry around. \\
+\hline
+{\em speed\-Load} & double \-: The loaded speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+{\em speed\-Empty} & double \-: The empty speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+{\em ts} & {\ttfamily \doxyref{T\-\_\-\-Control}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_t___control}}\-: The transporter control wchich this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} belongs to. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} should produce a trace output or not. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_ab66a898937554fb8654e34fc6a25ffa7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!drive\-Empty@{drive\-Empty}}
+\index{drive\-Empty@{drive\-Empty}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{drive\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-drive\-Empty (
+\begin{DoxyParamCaption}
+\item[{double}]{distance}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_add7d72a2a4a668fe5c9c5e34fe88c2c6}
+This method describes the driving the certain distance of the internal transporter if he is empty (has no goods). In this simple case only the time it takes to drive the distance with his empty speed. The number and time of empty drives were counted in this method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & double \-: The distance to drive \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_add7d72a2a4a668fe5c9c5e34fe88c2c6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!drive\-Load@{drive\-Load}}
+\index{drive\-Load@{drive\-Load}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{drive\-Load}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-drive\-Load (
+\begin{DoxyParamCaption}
+\item[{double}]{distance}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_ab421eaedbfda8288d245153f365b6d07}
+This method describes the driving the certain distance of the internal transporter if he is loaded (has some goods). In this simple case only the time it takes to drive the distance with his loaded speed. The number and time of loaded drives were counted in this method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & double \-: The distance to drive \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_ab421eaedbfda8288d245153f365b6d07_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!export\-Job\-Cycle@{export\-Job\-Cycle}}
+\index{export\-Job\-Cycle@{export\-Job\-Cycle}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{export\-Job\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-export\-Job\-Cycle (
+\begin{DoxyParamCaption}
+\item[{{\bf Job}}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a75e895f8d93d684cd28f398aab453685}
+Override this method in a subclass of \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} to implement that internal transporter's specific behaviour if he has to do an export job in a container terminal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & {\ttfamily \doxyref{Job}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job}}\-: The export job of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Crane@{get\-Crane}}
+\index{get\-Crane@{get\-Crane}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Crane}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crane} desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Crane (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a63bb9b6ba4712b308024fb2ecdedbdb8}
+Returns the crane (containerbridge) which this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} is assigned to.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily \doxyref{Crane}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane}}\-: The assigned crane of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Current\-Capacity@{get\-Current\-Capacity}}
+\index{get\-Current\-Capacity@{get\-Current\-Capacity}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Current\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Current\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a1d0b20992d18162c2337fd467c643237}
+Returns the current capacity of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. That is the number of goods (containers) he carries at the moment.
+
+\begin{DoxyReturn}{Returns}
+int \-: The current capacity of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Job@{get\-Job}}
+\index{get\-Job@{get\-Job}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Job}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Job} desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Job (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a50aa99ffa5e0d9d327557ae8ae4de516}
+Returns the current job of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily \doxyref{Job}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job}}\-: The job of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Num\-Empty\-Drives@{get\-Num\-Empty\-Drives}}
+\index{get\-Num\-Empty\-Drives@{get\-Num\-Empty\-Drives}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Num\-Empty\-Drives}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Num\-Empty\-Drives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a59373cecebc1dad6cc67b663a434ca82}
+Returns the number of empty drives that this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} has done.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of empty drives of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Num\-Loaded\-Drives@{get\-Num\-Loaded\-Drives}}
+\index{get\-Num\-Loaded\-Drives@{get\-Num\-Loaded\-Drives}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Num\-Loaded\-Drives}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Num\-Loaded\-Drives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a2fd246bbf813da7c439e8495675e345e}
+Returns the number of loaded drives that this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} has done.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of loaded drives of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Speed\-Empty@{get\-Speed\-Empty}}
+\index{get\-Speed\-Empty@{get\-Speed\-Empty}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Speed\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Speed\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a32603ca716ec06988d1e51a9e54ff479}
+Returns the empty speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The empty speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Speed\-Load@{get\-Speed\-Load}}
+\index{get\-Speed\-Load@{get\-Speed\-Load}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Speed\-Load}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Speed\-Load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a38696f95c2f04dc09b8aa3e8227c3e44}
+Returns the loaded speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The loaded speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Time\-Empty\-Drives@{get\-Time\-Empty\-Drives}}
+\index{get\-Time\-Empty\-Drives@{get\-Time\-Empty\-Drives}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Time\-Empty\-Drives}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Time\-Empty\-Drives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abb6bee5b3787a7c6024036aec7cd3a1c}
+Returns the whole time of empty drives that this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} has done.
+
+\begin{DoxyReturn}{Returns}
+long \-: The whole time of empty drives of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!get\-Time\-Loaded\-Drives@{get\-Time\-Loaded\-Drives}}
+\index{get\-Time\-Loaded\-Drives@{get\-Time\-Loaded\-Drives}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{get\-Time\-Loaded\-Drives}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-get\-Time\-Loaded\-Drives (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a535d547aa4ef1c5df9165435f26de1f4}
+Returns the whole time of loaded drives that this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} has done.
+
+\begin{DoxyReturn}{Returns}
+long \-: The whole time of loaded drives of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!import\-Job\-Cycle@{import\-Job\-Cycle}}
+\index{import\-Job\-Cycle@{import\-Job\-Cycle}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{import\-Job\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-import\-Job\-Cycle (
+\begin{DoxyParamCaption}
+\item[{{\bf Job}}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abcf92d061120dfb76e4dce1c12ba11b5}
+Override this method in a subclass of \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} to implement that internal transporter's specific behaviour if he has to do an import job in a container terminal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & {\ttfamily \doxyref{Job}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job}}\-: The import job of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!life\-Cycle@{life\-Cycle}}
+\index{life\-Cycle@{life\-Cycle}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{life\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-life\-Cycle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abe3c62357c772f13e4307dff335adb7c}
+This method implements the internal transporter specific behaviour. This behavior is always the same therefore there is no need to implement that in a subclass of \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. This method starts after an internal transporter has been created and activated by the scheduler. 
+
+Implements {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Transporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter_a28be8efaf796c5643c95edc7b6db744b}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abe3c62357c772f13e4307dff335adb7c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!pick\-Down@{pick\-Down}}
+\index{pick\-Down@{pick\-Down}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{pick\-Down}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-pick\-Down (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Time}}]{time}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_aee4ec51622eba75124a8a989e236048f}
+This method describes the unloading of the internal transporter. In this simple case only the time it takes to unload a good/container from itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Sim\-Time \-: The needed time to unload. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_aee4ec51622eba75124a8a989e236048f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!pick\-Up@{pick\-Up}}
+\index{pick\-Up@{pick\-Up}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{pick\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-pick\-Up (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Time}}]{time}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a89ff33c4507e36e02404302ae2ba8562}
+This method describes the loading of the internal transporter. In this simple case only the time it takes to load a container/good on itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Sim\-Time \-: The needed time to load. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a89ff33c4507e36e02404302ae2ba8562_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!reset@{reset}}
+\index{reset@{reset}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_aab9f359df283b232901f3c7b93d5d137}
+To reset all the statistics about this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!set\-Crane@{set\-Crane}}
+\index{set\-Crane@{set\-Crane}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{set\-Crane}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-set\-Crane (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-Crane}}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abcef01a208cd0a3945e908b78a0d968d}
+Sets the crane that this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} must be assigned to.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & {\ttfamily \doxyref{Crane}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane}}\-: The new assigned crane of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!set\-Current\-Capacity@{set\-Current\-Capacity}}
+\index{set\-Current\-Capacity@{set\-Current\-Capacity}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{set\-Current\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-set\-Current\-Capacity (
+\begin{DoxyParamCaption}
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a6f94098a8df99d820784a43be554498f}
+Sets the current capacity of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} to a new value. The new value must not be negative.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & int \-: The new current capacity of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a6f94098a8df99d820784a43be554498f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!set\-Job@{set\-Job}}
+\index{set\-Job@{set\-Job}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{set\-Job}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-set\-Job (
+\begin{DoxyParamCaption}
+\item[{{\bf Job}}]{j}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a7580ce8f83a69f98863daedf96ea1bd3}
+Sets the job of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} that he has to do.
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & {\ttfamily \doxyref{Job}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job}}\-: The new job of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!set\-Speed\-Empty@{set\-Speed\-Empty}}
+\index{set\-Speed\-Empty@{set\-Speed\-Empty}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{set\-Speed\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-set\-Speed\-Empty (
+\begin{DoxyParamCaption}
+\item[{double}]{s}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a7ec9cb39bfe01bea63b3bd0564424bab}
+Sets the empty speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} to a new value. The new value must not be zero or negative.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & double \-: The new empty speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a7ec9cb39bfe01bea63b3bd0564424bab_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}!set\-Speed\-Load@{set\-Speed\-Load}}
+\index{set\-Speed\-Load@{set\-Speed\-Load}!desmoj::extensions::applicationDomains::harbour::InternalTransporter@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Internal\-Transporter}}
+\subsubsection[{set\-Speed\-Load}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter.\-set\-Speed\-Load (
+\begin{DoxyParamCaption}
+\item[{double}]{s}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a2e9ac3c6b71f8ee68f8d63454d47a1f4}
+Sets the loaded speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter} to a new value. The new value must not be zero or negative.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & double \-: The new loaded speed of this \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_a2e9ac3c6b71f8ee68f8d63454d47a1f4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/harbour/Internal\-Transporter.\-java\end{DoxyCompactItemize}

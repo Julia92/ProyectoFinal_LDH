@@ -1,0 +1,807 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kind="class" prot="public">
+    <compoundname>desmoj::extensions::applicationDomains::harbour::CranesSystem</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" prot="public" virt="non-virtual">desmoj.core.simulator.QueueBased</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a19e8d91185b6c040557cf264a94e03af" prot="protected" static="no" mutable="no">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;</type>
+        <definition>ProcessQueue&lt;SimProcess&gt; desmoj.extensions.applicationDomains.harbour.CranesSystem.transporterQueue</definition>
+        <argsstring></argsstring>
+        <name>transporterQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The queue, actually storing the transporter processes waiting for cranes to unload/load them. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="39" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a75d0c3d3faaebfb6131db2e661833fcd" prot="protected" static="no" mutable="no">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref> &gt;</type>
+        <definition>ProcessQueue&lt;Crane&gt; desmoj.extensions.applicationDomains.harbour.CranesSystem.workingCranesQueue</definition>
+        <argsstring></argsstring>
+        <name>workingCranesQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The queue, actually storing the working cranes processes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="44" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab48a858388e093a35d43225262c4a7be" prot="protected" static="no" mutable="no">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref> &gt;</type>
+        <definition>ProcessQueue&lt;Crane&gt; desmoj.extensions.applicationDomains.harbour.CranesSystem.cranesQueue</definition>
+        <argsstring></argsstring>
+        <name>cranesQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The queue, actually storing the cranes processes that are idle. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="49" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ad25ec1ddcfa0cdb44a9ab4587bae2ca3" prot="protected" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.harbour.CranesSystem.sumNumLoadedUnits</definition>
+        <argsstring></argsstring>
+        <name>sumNumLoadedUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counter for the whole number of the loaded units of all the cranes of this CranesSystems. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="55" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aed1684756383ae24efd560dcce93bca5" prot="protected" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.harbour.CranesSystem.sumNumUnloadedUnits</definition>
+        <argsstring></argsstring>
+        <name>sumNumUnloadedUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counter for the whole number of the unloaded units of all the cranes of this CranesSystems. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="61" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a4aa85b09be03eb346599ef42a982947b" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.harbour.CranesSystem.sumLoadTime</definition>
+        <argsstring></argsstring>
+        <name>sumLoadTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counter for the whole time that all the cranes of this CranesSystems needed for the loading of the transporters. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="67" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aa76372e75402b8d11f6cb190b9ff37b9" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.harbour.CranesSystem.sumUnloadTime</definition>
+        <argsstring></argsstring>
+        <name>sumUnloadTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counter for the whole time that all the cranes of this CranesSystems needed for the unloading of the transporters. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="73" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a1309d610edc0d6317f8c6709b367a57c" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String desmoj.extensions.applicationDomains.harbour.CranesSystem.where</definition>
+        <argsstring></argsstring>
+        <name>where</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates the method where something has gone wrong. Is passed as a parameter to the methods <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab4ffe4e94b3460f70271f4ff684b41ac" kindref="member">checkProcess()</ref></computeroutput> and <computeroutput>checkCondition</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="80" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aa9a33b8849708cad270d0ff5b4eb46e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.applicationDomains.harbour.CranesSystem.CranesSystem</definition>
+        <argsstring>(Model owner, String name, int cSortOrder, int cQCapacity, int tSortOrder, int tQCapacity, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>CranesSystem</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cSortOrder</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cQCapacity</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tSortOrder</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tQCapacity</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref>. The queueing discipline and the capacity limit of the underlying queues for the cranes and for the transporters can be chosen.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref>&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>csortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying cranes queue implementation. Choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> or ... </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cQCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The capacity of the cranes queue, that is how many cranes can be enqueued. Zero (0) means unlimited capacity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tsortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying transporter queue implementation. Choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> or ... </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tQCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The capacity of the transporter queue, that is how many transporters can be enqueued. Zero (0) means unlimited capacity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> should produce a report or not. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for trace to produce trace messages. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="114" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="114" bodyend="211"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" compoundref="_queue_based_8java" startline="138">desmoj.core.simulator.QueueBased.FIFO</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab48a858388e093a35d43225262c4a7be" compoundref="_cranes_system_8java" startline="49">desmoj.extensions.applicationDomains.harbour.CranesSystem.cranesQueue</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a75d0c3d3faaebfb6131db2e661833fcd" compoundref="_cranes_system_8java" startline="44">desmoj.extensions.applicationDomains.harbour.CranesSystem.workingCranesQueue</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a19e8d91185b6c040557cf264a94e03af" compoundref="_cranes_system_8java" startline="39">desmoj.extensions.applicationDomains.harbour.CranesSystem.transporterQueue</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aff4f409939a1d0ca18894427fe4abc84" compoundref="_cranes_system_8java" startline="420" endline="436">desmoj.extensions.applicationDomains.harbour.CranesSystem.reset</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a65ebc647c1fec9b92f5ac26192ee99a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.harbour.CranesSystem.getSumNumLoadedUnits</definition>
+        <argsstring>()</argsstring>
+        <name>getSumNumLoadedUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of the loaded units of all the cranes.</para><para><simplesect kind="return"><para>long : The number of the loaded by the cranes units. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="218" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab94c09ba5dc7fb1719ae07c9b0350a94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.harbour.CranesSystem.addSumNumLoadedUnits</definition>
+        <argsstring>(long n)</argsstring>
+        <name>addSumNumLoadedUnits</name>
+        <param>
+          <type>long</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the number of the loaded units of all the cranes to a new value.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long : The number of loaded units of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> that must be added to the old value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="230" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="230" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a56941e0465e9314d5a68e84dd96b4f4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.harbour.CranesSystem.getSumNumUnloadedUnits</definition>
+        <argsstring>()</argsstring>
+        <name>getSumNumUnloadedUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of the unloaded units of all the cranes.</para><para><simplesect kind="return"><para>long : The number of the unloaded by the cranes units. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="240" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="240" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1abaa1bcc73f1d77f16f3b31dbb89d5261" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.harbour.CranesSystem.addSumNumUnloadedUnits</definition>
+        <argsstring>(long n)</argsstring>
+        <name>addSumNumUnloadedUnits</name>
+        <param>
+          <type>long</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the number of the unloaded units of all the cranes to a new value.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long : The number of unloaded units of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> that must be added to the old value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="252" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="252" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1af3ae2a6d10eb755887d10192088a912b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref></type>
+        <definition>Reporter desmoj.extensions.applicationDomains.harbour.CranesSystem.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <reimplements refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a2e84c8f20fbf625475d4764c03e5a249">createReporter</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a Reporter to produce a report about this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref>.</para><para><simplesect kind="return"><para>desmoj.report.Reporter : The Reporter for the queues inside this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="263" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="263" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a76a21b7bae2ee13bc2c86bfaa036f53e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.harbour.CranesSystem.addCrane</definition>
+        <argsstring>(Crane c)</argsstring>
+        <name>addCrane</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is used to add a crane to the cranes queue of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref> : The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref> to enqueue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="276" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="276" bodyend="311"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" compoundref="_model_component_8java" startline="173" endline="177">desmoj.core.simulator.ModelComponent.currentSimProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab4ffe4e94b3460f70271f4ff684b41ac" compoundref="_cranes_system_8java" startline="320" endline="344">desmoj.extensions.applicationDomains.harbour.CranesSystem.checkProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab48a858388e093a35d43225262c4a7be" compoundref="_cranes_system_8java" startline="49">desmoj.extensions.applicationDomains.harbour.CranesSystem.cranesQueue</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" compoundref="_model_component_8java" startline="325" endline="327">desmoj.core.simulator.ModelComponent.currentlySendDebugNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" compoundref="_model_component_8java" startline="309" endline="317">desmoj.core.simulator.ModelComponent.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" compoundref="_model_component_8java" startline="410" endline="412">desmoj.core.simulator.ModelComponent.currentlySendTraceNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" compoundref="_model_component_8java" startline="388" endline="402">desmoj.core.simulator.ModelComponent.sendTraceNote</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aba81748608db752afa6b7b73fd773114" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref>[]</type>
+        <definition>Crane [] desmoj.extensions.applicationDomains.harbour.CranesSystem.getCranes</definition>
+        <argsstring>(int n)</argsstring>
+        <name>getCranes</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the n cranes of this cranes system that are idle now.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref>[] : The idle cranes. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="351" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="351" bodyend="393"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab48a858388e093a35d43225262c4a7be" compoundref="_cranes_system_8java" startline="49">desmoj.extensions.applicationDomains.harbour.CranesSystem.cranesQueue</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a813d4d8369341a9e032c4da210b96f42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref> &gt;</type>
+        <definition>ProcessQueue&lt;Crane&gt; desmoj.extensions.applicationDomains.harbour.CranesSystem.getCranesQueue</definition>
+        <argsstring>()</argsstring>
+        <name>getCranesQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the cranes queue of this cranes system.</para><para><simplesect kind="return"><para><computeroutput>ProcessQueue&lt;Crane&gt;</computeroutput>: The cranes queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="400" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="400" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab948dc9a42733a5fd6998db212144070" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;</type>
+        <definition>ProcessQueue&lt;SimProcess&gt; desmoj.extensions.applicationDomains.harbour.CranesSystem.getTransporterQueue</definition>
+        <argsstring>()</argsstring>
+        <name>getTransporterQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the transporter queue of this cranes system.</para><para><simplesect kind="return"><para><computeroutput>ProcessQueue&lt;SimProcess&gt;</computeroutput>: The transporter queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="410" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="410" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aff4f409939a1d0ca18894427fe4abc84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.harbour.CranesSystem.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets all statistical counters to their default values. Both, cranes queue and transporter queue are reset. The mininum and maximum length of the queues are set to the current number of queued objects. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="420" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="420" bodyend="436"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ad25ec1ddcfa0cdb44a9ab4587bae2ca3" compoundref="_cranes_system_8java" startline="55">desmoj.extensions.applicationDomains.harbour.CranesSystem.sumNumLoadedUnits</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aed1684756383ae24efd560dcce93bca5" compoundref="_cranes_system_8java" startline="61">desmoj.extensions.applicationDomains.harbour.CranesSystem.sumNumUnloadedUnits</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a4aa85b09be03eb346599ef42a982947b" compoundref="_cranes_system_8java" startline="67">desmoj.extensions.applicationDomains.harbour.CranesSystem.sumLoadTime</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aa76372e75402b8d11f6cb190b9ff37b9" compoundref="_cranes_system_8java" startline="73">desmoj.extensions.applicationDomains.harbour.CranesSystem.sumUnloadTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a230704601f16a15ea5c1b3cbb5548699" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.harbour.CranesSystem.addTransporter</definition>
+        <argsstring>(SimProcess t)</argsstring>
+        <name>addTransporter</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is used to add a transporter (external/internal) to the transporter queue of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>SimProcess</computeroutput>: The transporter that me be enqueued. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="446" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="446" bodyend="481"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" compoundref="_model_component_8java" startline="173" endline="177">desmoj.core.simulator.ModelComponent.currentSimProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab4ffe4e94b3460f70271f4ff684b41ac" compoundref="_cranes_system_8java" startline="320" endline="344">desmoj.extensions.applicationDomains.harbour.CranesSystem.checkProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a19e8d91185b6c040557cf264a94e03af" compoundref="_cranes_system_8java" startline="39">desmoj.extensions.applicationDomains.harbour.CranesSystem.transporterQueue</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" compoundref="_model_component_8java" startline="325" endline="327">desmoj.core.simulator.ModelComponent.currentlySendDebugNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" compoundref="_model_component_8java" startline="309" endline="317">desmoj.core.simulator.ModelComponent.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" compoundref="_model_component_8java" startline="410" endline="412">desmoj.core.simulator.ModelComponent.currentlySendTraceNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" compoundref="_model_component_8java" startline="388" endline="402">desmoj.core.simulator.ModelComponent.sendTraceNote</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a403f304481ced20a9b96b1471d18f5e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+        <definition>SimProcess desmoj.extensions.applicationDomains.harbour.CranesSystem.getTransporter</definition>
+        <argsstring>()</argsstring>
+        <name>getTransporter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last transporter of the transporter queue.</para><para><simplesect kind="return"><para>SimProcess : The last transporter of the transporter queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="488" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="488" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a364cf4d6a33cdfb02fa11a55f444384e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.harbour.CranesSystem.avgUsage</definition>
+        <argsstring>()</argsstring>
+        <name>avgUsage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the average utilization of a crane of this cranes system.</para><para><simplesect kind="return"><para>double : The average utilisation pro a crane. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="498" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="498" bodyend="507"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" compoundref="_model_component_8java" startline="187" endline="190">desmoj.core.simulator.ModelComponent.currentTime</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a151d1a7d55ca4be029abd9bb80904fb9" compoundref="_cranes_system_8java" startline="524" endline="527">desmoj.extensions.applicationDomains.harbour.CranesSystem.getSumUnloadTime</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab48a858388e093a35d43225262c4a7be" compoundref="_cranes_system_8java" startline="49">desmoj.extensions.applicationDomains.harbour.CranesSystem.cranesQueue</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a49d946ae6d8843e418b1d3a4965e3ab4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.harbour.CranesSystem.getSumLoadTime</definition>
+        <argsstring>()</argsstring>
+        <name>getSumLoadTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the whole loading time of all the cranes.</para><para><simplesect kind="return"><para>double : The whole loading time of this cranes system. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="514" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="514" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a151d1a7d55ca4be029abd9bb80904fb9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.harbour.CranesSystem.getSumUnloadTime</definition>
+        <argsstring>()</argsstring>
+        <name>getSumUnloadTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the whole unloading time of all the cranes.</para><para><simplesect kind="return"><para>double : The whole unloading time of this cranes system. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="524" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="524" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a1ff7a059c1e1c9a74c16648208832573" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.harbour.CranesSystem.addSumLoadTime</definition>
+        <argsstring>(double t)</argsstring>
+        <name>addSumLoadTime</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the whole time that all the cranes needed to load the transporters to a new value.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The loading time of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> that must be added to the old value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="537" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="537" bodyend="540"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1afe782cda157b6089294069d37b91c46c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.harbour.CranesSystem.addSumUnloadTime</definition>
+        <argsstring>(double t)</argsstring>
+        <name>addSumUnloadTime</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the whole time that all the cranes needed to unload the transporters to a new value.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The unloading time of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> that must be added to the old value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="550" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="550" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1adfa59aafa188e88719f98bb0018d1409" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_crane" kindref="compound">Crane</ref> &gt;</type>
+        <definition>ProcessQueue&lt;Crane&gt; desmoj.extensions.applicationDomains.harbour.CranesSystem.getWorkingCranes</definition>
+        <argsstring>()</argsstring>
+        <name>getWorkingCranes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the queue of the now working cranes of this cranes system.</para><para><simplesect kind="return"><para><computeroutput>ProcessQueue</computeroutput>: The queue of the working cranes. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="560" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="560" bodyend="563"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab4ffe4e94b3460f70271f4ff684b41ac" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.harbour.CranesSystem.checkProcess</definition>
+        <argsstring>(SimProcess p, String where)</argsstring>
+        <name>checkProcess</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the process using the <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> is a valid process.</para><para><simplesect kind="return"><para>boolean : Returns whether the sim-process is valid or not. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SimProcess : Is this SimProcess a valid one? </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="320" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="320" bodyend="344"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" compoundref="_model_component_8java" startline="288" endline="294">desmoj.core.simulator.ModelComponent.isModelCompatible</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system" kindref="compound">CranesSystem</ref> represents the system of the cranes that manages the queues of the cranes and transporter (external/internal), give the statistics about the cranes and both queues.</para><para><simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a8d9c9825a806f8a873dd470a8e4afb3b" kindref="member">QueueBased</ref></para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Eugenia Neufeld</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="6933">
+        <label>desmoj::core::observer::Subject&lt; QueueBased, QueueAction &gt;</label>
+      </node>
+      <node id="6930">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="6931" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6928">
+        <label>desmoj.extensions.applicationDomains.harbour.CranesSystem</label>
+        <link refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system"/>
+        <childnode refid="6929" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6932">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="6931">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="6932" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6929">
+        <label>desmoj.core.simulator.QueueBased</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based"/>
+        <childnode refid="6930" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6933" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6939">
+        <label>desmoj::core::observer::Subject&lt; QueueBased, QueueAction &gt;</label>
+      </node>
+      <node id="6941">
+        <label>ProcessQueue&lt; desmoj.extensions.applicationDomains.harbour.Crane &gt;</label>
+      </node>
+      <node id="6940">
+        <label>ProcessQueue&lt; desmoj.core.simulator.SimProcess &gt;</label>
+      </node>
+      <node id="6936">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="6937" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6934">
+        <label>desmoj.extensions.applicationDomains.harbour.CranesSystem</label>
+        <link refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system"/>
+        <childnode refid="6935" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6940" relation="usage">
+          <edgelabel>transporterQueue</edgelabel>
+        </childnode>
+        <childnode refid="6941" relation="usage">
+          <edgelabel>cranesQueue</edgelabel>
+          <edgelabel>workingCranesQueue</edgelabel>
+        </childnode>
+      </node>
+      <node id="6938">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="6937">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="6938" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6935">
+        <label>desmoj.core.simulator.QueueBased</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based"/>
+        <childnode refid="6936" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6939" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" line="33" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/CranesSystem.java" bodystart="33" bodyend="564"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a76a21b7bae2ee13bc2c86bfaa036f53e" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addCrane</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a228dcc2954674a0c0207c5d87b1902c9" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addItem</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a5d97d0eb15a51637fe2e0e039776ff43" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addObserver</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a1ff7a059c1e1c9a74c16648208832573" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addSumLoadTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab94c09ba5dc7fb1719ae07c9b0350a94" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addSumNumLoadedUnits</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1abaa1bcc73f1d77f16f3b31dbb89d5261" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addSumNumUnloadedUnits</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1afe782cda157b6089294069d37b91c46c" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addSumUnloadTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a230704601f16a15ea5c1b3cbb5548699" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>addTransporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fe5490ee8b4b97283dd14ddf2c3bf73" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>averageLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3f14e0a00eee2105755f45bd18db345b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>averageWaitTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a364cf4d6a33cdfb02fa11a55f444384e" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>avgUsage</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab4ffe4e94b3460f70271f4ff684b41ac" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>checkProcess</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab48a858388e093a35d43225262c4a7be" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>cranesQueue</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aa9a33b8849708cad270d0ff5b4eb46e7" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>CranesSystem</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1af3ae2a6d10eb755887d10192088a912b" prot="public" virt="virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a9eb8dd37c34964335719390c9899d773" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>deleteItem</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ab6889531700a179e3c4d5603ce8b0267" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>deleteObserver</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>FIFO</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aba81748608db752afa6b7b73fd773114" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getCranes</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a813d4d8369341a9e032c4da210b96f42" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getCranesQueue</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a31c3c86b4383672c4fbe2e62f2fa422f" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getQueueLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a49d946ae6d8843e418b1d3a4965e3ab4" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getSumLoadTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a65ebc647c1fec9b92f5ac26192ee99a2" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getSumNumLoadedUnits</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a56941e0465e9314d5a68e84dd96b4f4d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getSumNumUnloadedUnits</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a151d1a7d55ca4be029abd9bb80904fb9" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getSumUnloadTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a403f304481ced20a9b96b1471d18f5e0" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getTransporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ab948dc9a42733a5fd6998db212144070" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getTransporterQueue</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1adfa59aafa188e88719f98bb0018d1409" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>getWorkingCranes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>length</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>LIFO</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ae3d7503eeef122e1cadd7bed59b40a52" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>maxLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9a6fb6c1900ca0afa9b92bffcede1f1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>maxLengthAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9b6e0712082ec19d05eb40d8f8e9d95" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>maxWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fb151320bc886571d70149ab429b49d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>maxWaitTimeAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a5315117b6e8cd502879d6ab94e2653fe" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>minLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aa7e209d871686741f7dcc5af156ddd83" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>minLengthAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a15b6374dcdf8d4207f714666b08181ed" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>notifyObservers</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1af8d3586ec66b651675b529f3c4e0959f" prot="package" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>qImpWarn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a8d9c9825a806f8a873dd470a8e4afb3b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>QueueBased</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aaec6c34c002dc7b42f90f89b40208dc3" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>queueLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ab75f0cb4d842794c20f122ef35f351d3" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>RANDOM</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aff4f409939a1d0ca18894427fe4abc84" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a692e70493310a8ece9cdef9d92e993bc" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ae90bd940a68e9c31498ff056b10849f3" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>setQueueImpWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a461a97e743cd8d7c7f3fc1596ef92a2f" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>stdDevLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aeebbbebc1fb5f5054aaa71d61b708358" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>stdDevWaitTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a4aa85b09be03eb346599ef42a982947b" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sumLoadTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1ad25ec1ddcfa0cdb44a9ab4587bae2ca3" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sumNumLoadedUnits</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aed1684756383ae24efd560dcce93bca5" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sumNumUnloadedUnits</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1aa76372e75402b8d11f6cb190b9ff37b9" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>sumUnloadTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>traceOn</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a19e8d91185b6c040557cf264a94e03af" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>transporterQueue</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a6313c9a30a034711ddb8caceac6f0430" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>UNDEFINED</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0c1d587b2483ce6391aa8c375fc42a45" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>updateStatistics</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a1309d610edc0d6317f8c6709b367a57c" prot="private" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>where</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_1a75d0c3d3faaebfb6131db2e661833fcd" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>workingCranesQueue</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a371b24e5676321a34c1a8ee59a7f6a45" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::harbour::CranesSystem</scope><name>zeroWaits</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

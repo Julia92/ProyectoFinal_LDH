@@ -1,0 +1,258 @@
+.TH "desmoj.extensions.applicationDomains.production.TransportJunction" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.TransportJunction \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits WaitQueue\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransportJunction\fP (\fBModel\fP owner, String name, int mSortOrder, int mQCapacity, int sSortOrder, int sQCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTransportJunction\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "synchronized \fBSimProcess\fP[] \fBavailableSet\fP (Condition cond)"
+.br
+.ti -1c
+.RI "\fBTransporter\fP \fBavailTransporter\fP (Condition cond)"
+.br
+.ti -1c
+.RI "boolean \fBcooperate\fP (\fBTransportation\fP transportation)"
+.br
+.ti -1c
+.RI "boolean \fBcooperate\fP (\fBTransportation\fP transportation, Condition cond)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetPassBy\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPassBy\fP (boolean newPassBy)"
+.br
+.ti -1c
+.RI "boolean \fBtransport\fP (\fBTransportation\fP transportation)"
+.br
+.ti -1c
+.RI "boolean \fBtransport\fP (\fBTransportation\fP transportation, Condition cond)"
+.br
+.ti -1c
+.RI "boolean \fBwaitOnCoop\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBwaitOnTransport\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBTransportJunction\fP is the place where \fC\fBTransporter\fP\fP s pick up the goods to move them around in a manufacturing system\&. The goods are normally modeled as some kind of \fCSimProcess\fP es\&. So what happens at the \fBTransportJunction\fP is some kind of Rendez-vous synchronisation, where \fC\fBTransporter\fP\fP s meet the goods to carry them around\&. There is one wait queue for the masters (\fC\fBTransporter\fP\fPs) and one queue for the slaves (\fCSimProcess\fP es), where they have to wait for each other to cooperate\&. The \fC\fBTransporter\fP\fP s are the masters which perform the transportation\&. The corporate transportation process is described in the method \fCcooperation\fP in a subclass of \fC\fBTransportation\fP\fP\&. The goods (\fCSimProcess\fP es) transported as slaves keep still during the transport and will be reactivated thereafter\&. The main difference to a normal \fCWaitQueue\fP is, that in this case one master (\fC\fBTransporter\fP\fP) can cooperate with more than one slave process at a time\&. The number of slaves processes which will be transported togehter will be determined by the master \fC\fBTransporter\fP\fP process\&. It depends on the number of available slaves and will be between the minLoad and the capacity of the \fC\fBTransporter\fP\fP\&. Note that a \fC\fBTransporter\fP\fP with a large minimumLoad in front of the wait queue might block all following \fC\fBTransporter\fP\fP s in the queue until enough goods are available to satisfy his minimum load\&. Use different priorities for the different \fC\fBTransporter\fP\fP s to cope with this problem\&. Or set the passBy flag to \fCtrue\fP to make it possible for transporters with a low minimumLoad to pass by the other transporters\&. Use the methods \fC\fBsetPassBy()\fP\fP and \fC\fBgetPassBy()\fP\fP\&. The first sort criteria for the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit can be determined by the user (default is FIFO and unlimited capacity)\&. \fBTransportJunction\fP is derived from \fCWaitQueue\fP which in turn is derived from \fCQueueBased\fP, which provides all the statistical functionality for the queues\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue 
+.PP
+\fBdesmoj\&.core\&.simulator\&.QueueBased\fP 
+.PP
+desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.TransportJunction (\fBModel\fPowner, Stringname, intmSortOrder, intmQCapacity, intsSortOrder, intsQCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBTransportJunction\fP\&. There are two waiting-queues constructed, one internal \fCQueueList\fP for the \fC\fBTransporter\fP\fP s (masters) and one separate \fCProcessQueue\fP for the slave processes\&. The queueing discipline and the capacity limit of the underlying queues can be chosen\&. Highest priority are always first in the queues\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTransportJunction\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTransportJunction\fP\&. 
+.br
+\fImSortOrder\fP int : determines the sort order of the underlying master queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fImQCapacity\fP int : The capacity of the master queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIsSortOrder\fP int : determines the sort order of the underlying slave queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIsQCapacity\fP int : The capacity of the slave queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBTransportJunction\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBTransportJunction\fP should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.TransportJunction (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBTransportJunction\fP\&. There are two waiting-queues constructed, one internal \fCQueueList\fP for the \fC\fBTransporter\fP\fP s (masters) and one separate \fCProcessQueue\fP for the slave processes\&. Both queues have a FIFO sort order and no capacity limit\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTransportJunction\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBTransportJunction\fP's name 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBTransportJunction\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBTransportJunction\fP should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "synchronized \fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.availableSet (Conditioncond)"
+Returns an array of available slave SimProcesses which comply to a given condition at this moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess[] : The array of available slave SimProcesses which comply to the given condition\&. If no suitable SimProcess is available \fCnull\fP will be returned\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP desmoj\&.Condition : The condition to which the sim-processes we are looking for must comply\&. 
+.RE
+.PP
+
+.SS "\fBTransporter\fP desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.availTransporter (Conditioncond)"
+Returns a transporter process waiting in the transporter (master) queue complying to the given condition\&. If there is no such transporter waiting \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTransporter\fP : Returns the first transporter in the master queue which complies to the given condition\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the trasnporter must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.cooperate (\fBTransportation\fPtransportation)"
+This method is inherited from the class \fCWaitQueue\fP and will be overwritten here to use the more suitable method \fC\fBtransport(Transportation)\fP\fP\&. If the capacity limit of the master queue is reached, the process will not be enqueued and \fCfalse\fP returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransportation\fP \fBTransportation\fP : The transportation process transportation is describing the joint action of the processes\&. The transport to be carried out has to be implemented by the user in the class: \fC\fBTransportation\fP\fP in the method: \fCcooperation()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.cooperate (\fBTransportation\fPtransportation, Conditioncond)"
+This method is inherited from the class \fCWaitQueue\fP and will be overwritten here to use the more suitable method \fC\fBtransport(Transportation, Condition)\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransportation\fP \fBTransportation\fP : The transportation process transportation is describing the joint action of the processes\&. The transport to be carried out has to be implemented by the user in the class: \fC\fBTransportation\fP\fP in the method: \fCcooperation()\fP\&. 
+.br
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the slave process must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBTransportJunction\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queues inside this \fBTransportJunction\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.getPassBy ()"
+Returns whether a transporter can pass by other transporters which are enqueued before him in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Indicates whether transporters can pass by other transporters which are enqueued before them in the queue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.setPassBy (booleannewPassBy)"
+Sets the flag passBy to a new value\&. PassBy is indicating whether transporters can pass by other transporters which are enqueued before them in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPassBy\fP boolean : The new value of passBy\&. Set it to \fCtrue\fP if you want transporters to pass by other transporters which are enqueued before them in the queue\&. Set it to \fCfalse\fP if you don't want transporters to overtake other transporters in the queue\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.transport (\fBTransportation\fPtransportation)"
+This method is to be called from a \fC\fBTransporter\fP\fP which wants to transport goods as a master\&. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in the master waiting-queue, until enough suitable slaves are available\&. If the capacity limit of the master queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. When enough suitable slaves are available their \fCprepareTransport()\fP method (in the class \fCSimProcess\fP) will be called\&. During the transportation process the master process is the only active one\&. The slave process is passive and will be reactivated after the transportation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransportation\fP \fBTransportation\fP : The transportation process transportation is describing the joint action of the processes\&. The transportation to be carried out has to be implemented by the user in the class: \fC\fBTransportation\fP\fP in the method: \fC\fBtransport()\fP\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.transport (\fBTransportation\fPtransportation, Conditioncond)"
+This method is to be called from a \fC\fBTransporter\fP\fP who wants to transport goods which comply to a certain condition\&. The condition must be specified in the method \fCcheck()\fP in a class derived from \fCCondition\fP\&. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in the master waiting-queue, until enough suitable slaves are available\&. If the capacity limit of the master queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. When enough suitable slaves are available their \fCprepareTransport()\fP method (in the class \fCSimProcess\fP) will be called\&. During the transportation process the master process is the only active one\&. The slave process is passive and will be reactivated after the transportation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransportation\fP \fBTransportation\fP : The transportation process is describing the joint action of the processes\&. The transportation to be carried out has to be implemented by the user in the class: \fC\fBTransportation\fP\fP in the method: \fC\fBtransport()\fP\fP\&. 
+.br
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the slave process must comply\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.waitOnCoop ()"
+This method is inherited from the class \fCWaitQueue\fP and will be overwritten here to use the more suitable method \fC\fBwaitOnTransport()\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process requesting the transportation has been transported successfully to his destination, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the slave queue is reached)\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\&.waitOnTransport ()"
+This method is called from a sim-process which wants to be transported as a slave\&. If no suitable master process (transporter) is available at the moment, the slave process will be stored in the slave queue, until a suitable master (transporter) is available\&. If the capacity limit of the slave queue is reached, the process will not be enqueued and \fCfalse\fP will be returned\&. During the transportation the master process (transporter) is the only active one\&. The slave process is passive and will be reactivated after the transportation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process requesting the transportation has been transported successfully to his destination, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the slave queue is reached)\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

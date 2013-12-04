@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1report_1_1_report_manager" kind="class" prot="public">
+    <compoundname>desmoj::core::report::ReportManager</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_named_object" prot="public" virt="non-virtual">desmoj.core.simulator.NamedObject</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1report_1_1_report_manager_1a521310daab333f21ae7e539b94ff1456" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; <ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref> &gt;</type>
+        <definition>ArrayList&lt;Reporter&gt; desmoj.core.report.ReportManager._reporters</definition>
+        <argsstring></argsstring>
+        <name>_reporters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Keeps references to all Reporters of this experiment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="32" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_manager_1ade0e498a9a274e86922ef90c32a7d44d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.report.ReportManager.ReportManager</definition>
+        <argsstring>(String name)</argsstring>
+        <name>ReportManager</name>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new reportmanager with the given name.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : the reportmanager&apos;s name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="40" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="40" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_manager_1a260c056f123c239b4d34efdfe2593fb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportManager.addLast</definition>
+        <argsstring>(Reporter r)</argsstring>
+        <name>addLast</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref></type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a report to the very end of the vector hanlded by this reportmanager. This is needed to place submodel reporters behind existing model reporters to prevent multiple models to be mixed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.report.Reporter </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="56" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="56" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_manager_1aab775a92bc19c0e9ece52c8adfa5cb06" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportManager.deRegister</definition>
+        <argsstring>(Reporter rep)</argsstring>
+        <name>deRegister</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref></type>
+          <declname>rep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>De-registers the given reporter from the experiment&apos;s reportmanager. The reporter will be removed from the list of current available reporters and thus will not produce output whenever a report has to be produced. When de-registering, the order according to group-ID is preserved. If an invalid parameter is given (i.e. a <computeroutput>null</computeroutput> reference) this method simply returns</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.report.Reporter : The reporter to be de-registered </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="76" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="76" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_manager_1a6589188e35644f8c3b6db6b02534db11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref> &gt;</type>
+        <definition>List&lt;Reporter&gt; desmoj.core.report.ReportManager.elements</definition>
+        <argsstring>()</argsstring>
+        <name>elements</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list view of all registered reporters in the appropriate order.</para><para><simplesect kind="return"><para>java.util.List : The list of reporters registered at the reportmanager </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="93" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_manager_1a6524b140f7d05165fff111469dcace80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.report.ReportManager.isEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>isEmpty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a boolean value indicating whether this reportmanager contains reporters to be sent to the reportoutput or not.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the reportmanager conatains reporters, <computeroutput>false</computeroutput> otherwise </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="106" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="106" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_manager_1a0a77f3ac749c6a098393e3599e3db52a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportManager.register</definition>
+        <argsstring>(Reporter rep)</argsstring>
+        <name>register</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref></type>
+          <declname>rep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers the given reporter at the experiment&apos;s reportmanager. All reporters registered will be sent to the reportout whenever a report has to be produced. When registering, the order according to group-ID is preserved.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.report.Reporter : The reporter to be registered </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="121" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="121" bodyend="150"/>
+        <references refid="classdesmoj_1_1core_1_1report_1_1_reporter_1a61685140a0617f81314554c5e7f4fde9" compoundref="_reporter_8java" startline="254" endline="258">desmoj.core.report.Reporter.isLarger</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Controls all reports given by reportable model components used during an experiment.</para><para><simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Tim Lechler</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="10153">
+        <label>desmoj.core.report.ReportManager</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_report_manager"/>
+        <childnode refid="10154" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10154">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10155">
+        <label>desmoj.core.report.ReportManager</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_report_manager"/>
+        <childnode refid="10156" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10156">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" line="27" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportManager.java" bodystart="27" bodyend="151"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_manager_1a521310daab333f21ae7e539b94ff1456" prot="private" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>_reporters</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_manager_1a260c056f123c239b4d34efdfe2593fb1" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>addLast</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_manager_1aab775a92bc19c0e9ece52c8adfa5cb06" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>deRegister</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_manager_1a6589188e35644f8c3b6db6b02534db11" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>elements</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_manager_1a6524b140f7d05165fff111469dcace80" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>isEmpty</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_manager_1a0a77f3ac749c6a098393e3599e3db52a" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>register</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_manager_1ade0e498a9a274e86922ef90c32a7d44d" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>ReportManager</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportManager</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

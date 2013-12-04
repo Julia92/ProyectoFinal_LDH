@@ -1,0 +1,104 @@
+.TH "desmoj.extensions.applicationDomains.harbour.Loading" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.Loading \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ProcessCoop\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLoading\fP (\fBModel\fP owner, String name, NumericalDist<?> loadTimeStream, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBsetLoadTimeStream\fP (NumericalDist<?> loadTimeStream)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcooperation\fP (\fBSimProcess\fP master, \fBSimProcess\fP slave)"
+.br
+.ti -1c
+.RI "\fBSimTime\fP \fBgetLoadTimeSample\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBLoading\fP is the object representing the process cooperation between a \fC\fBInternalTransporter\fP\fP or \fC\fBCrane\fP\fP process and the \fBTruck\fP or an Internal Transporter he is loading\&. It is intended that this \fBLoading\fP is used with the \fCWaitQueue\fP construct, where a \fCInernalTransporter\fP or \fC\fBCrane\fP\fP>( as a master process) is waiting for a truck or an internal transporter to load it\&. During the \fBLoading\fP the master is active and the slaves is passive\&. The unloading carried out together is described in the method \fCcooperation\fP, which can be overwritten by the user to build more complex models\&. Until now this method only models the time it takes to load the truck/ an internal transporter\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Loading\&.Loading (\fBModel\fPowner, Stringname, NumericalDist<?>loadTimeStream, booleanshowInTrace)"
+Constructs a \fBLoading\fP process where a master ( \fC\fBInternalTransporter\fP\fP) or \fC\fBCrane\fP\fP is loading slave (\fC\fBTruck\fP\fP or \fC\fBInternalTransporter\fP\fP) in a cooperate process\&. The time it takes to load the containers (goods) is determined by the specified loadTimeStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBLoading\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : the name of this \fBLoading\fP\&. 
+.br
+\fIloadTimeStream\fP NumericalDist<?> : The random number stream determining the time it takes to load the containers\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBLoading\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Loading\&.cooperation (\fBSimProcess\fPmaster, \fBSimProcess\fPslave)\fC [protected]\fP"
+This method describes the loading process carried out by the master process (some kind of \fC\fBInternalTransporter\fP\fP or \fC\fBCrane\fP\fP)\&. In this simple case only the time it takes to load the containers (goods) is taken into consideration\&. If the user building the model has to implement a more complex behavior, he has to overwrite this method in a subclass\&. The time it takes to load the containers (goods) is obtained from the method \fC\fBgetLoadTimeSample()\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaster\fP SimProcess : The master process which really loads the cooperation\&. Should be a subclass of \fC\fBInternalTransporter\fP\fP or \fC\fBCrane\fP\fP\&. 
+.br
+\fIslave\fP SimProcess : The slave process which is lead through the cooperation by the master\&. Should be a subclass of \fC\fBInternalTransporter\fP\fP or \fC\fBTruck\fP\fP\&. 
+.RE
+.PP
+
+.SS "\fBSimTime\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Loading\&.getLoadTimeSample ()\fC [protected]\fP"
+Returns a \fCSimTime\fP object representing the time it takes to load the containers (goods) with the transporter or crane\&. The time is taken from the given random number stream loadTimeStream\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimTime : The time it takes to load the containers (goods) with the transporter/crane\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Loading\&.setLoadTimeStream (NumericalDist<?>loadTimeStream)"
+Sets the loadTimeStream to a new \fCRealDist\fP random number stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIloadTimeStream\fP NumericalDist<?> : The new \fCRealDist\fP random number stream determining the time it takes to load the containers (goods)\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

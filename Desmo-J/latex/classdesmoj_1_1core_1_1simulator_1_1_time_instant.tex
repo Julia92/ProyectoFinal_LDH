@@ -1,0 +1,713 @@
+\section{desmoj.\-core.\-simulator.\-Time\-Instant Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant}\index{desmoj.\-core.\-simulator.\-Time\-Instant@{desmoj.\-core.\-simulator.\-Time\-Instant}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Time\-Instant\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Time\-Instant\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Time\-Instant} (long time, Time\-Unit unit)
+\item 
+{\bf Time\-Instant} (long time\-In\-Reference\-Unit)
+\item 
+{\bf Time\-Instant} (double time, Time\-Unit unit)
+\item 
+{\bf Time\-Instant} (double time\-In\-Reference\-Unit)
+\item 
+{\bf Time\-Instant} (Calendar calendar, boolean apply\-Prefferd\-Time\-Zone\-From\-Calendar)
+\item 
+{\bf Time\-Instant} (Calendar calendar)
+\item 
+{\bf Time\-Instant} (Date date)
+\item 
+long {\bf get\-Time\-In\-Epsilon} ()
+\item 
+long {\bf get\-Time\-Truncated} (Time\-Unit unit)
+\item 
+long {\bf get\-Time\-Truncated} ()
+\item 
+long {\bf get\-Time\-Rounded} (Time\-Unit unit)
+\item 
+long {\bf get\-Time\-Rounded} ()
+\item 
+Calendar {\bf get\-Time\-As\-Calender} ()
+\item 
+Date {\bf get\-Time\-As\-Date} ()
+\item 
+double {\bf get\-Time\-As\-Double} (Time\-Unit unit)
+\item 
+double {\bf get\-Time\-As\-Double} ()
+\item 
+double {\bf get\-Time\-Value} ()
+\item 
+Time\-Zone {\bf get\-Preferred\-Time\-Zone} ()
+\item 
+void {\bf set\-Preferred\-Time\-Zone} (Time\-Zone preferred\-Time\-Zone)
+\item 
+{\bf Time\-Instant} {\bf get\-Begin\-Of} (Time\-Unit smallest\-Unit)
+\item 
+int {\bf hash\-Code} ()
+\item 
+boolean {\bf equals} (Object o)
+\item 
+int {\bf compare\-To} ({\bf Time\-Instant} another\-Instant)
+\item 
+String {\bf to\-String} ()
+\item 
+String {\bf to\-String} (int digits)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static boolean {\bf is\-Before} ({\bf Time\-Instant} a, {\bf Time\-Instant} b)
+\item 
+static boolean {\bf is\-After} ({\bf Time\-Instant} a, {\bf Time\-Instant} b)
+\item 
+static boolean {\bf is\-After\-Or\-Equal} ({\bf Time\-Instant} a, {\bf Time\-Instant} b)
+\item 
+static boolean {\bf is\-Equal} ({\bf Time\-Instant} a, {\bf Time\-Instant} b)
+\item 
+static boolean {\bf is\-Before\-Or\-Equal} ({\bf Time\-Instant} a, {\bf Time\-Instant} b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents points in simulation time. Is used to indicate points in simulation time at which the state of the model changes. Each point in simulation time is represented by an individual object of this class and offers its own methods for arithmetic operations.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Felix Klueckmann \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!Time\-Instant@{Time\-Instant}}
+\index{Time\-Instant@{Time\-Instant}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{Time\-Instant}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Instant.\-Time\-Instant (
+\begin{DoxyParamCaption}
+\item[{long}]{time, }
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_ac7f5f0a7f95694d96044c2f12e46c9cc}
+Constructs a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object with the given time value in the time unit of the given parameter. It represents a time instant in simulation time. Note that trying to create a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object The simulation will also stop immediately if the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} is larger than Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E-\/1 (in the unit of epsilon).
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & long \-: The time value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} in the time unit of unit. \\
+\hline
+{\em unit} & Time\-Unit\-: the Time\-Unit \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_ac7f5f0a7f95694d96044c2f12e46c9cc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!Time\-Instant@{Time\-Instant}}
+\index{Time\-Instant@{Time\-Instant}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{Time\-Instant}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Instant.\-Time\-Instant (
+\begin{DoxyParamCaption}
+\item[{long}]{time\-In\-Reference\-Unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a06ada26e8cac5ff0fdd7f1b9fdac12ab}
+Constructs a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object with the given time value in the time unit of the reference time. It represents a time Instant in simulation time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\-In\-Reference\-Unit} & long \-: The time value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} in the time unit of the reference time. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!Time\-Instant@{Time\-Instant}}
+\index{Time\-Instant@{Time\-Instant}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{Time\-Instant}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Instant.\-Time\-Instant (
+\begin{DoxyParamCaption}
+\item[{double}]{time, }
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a818140227f3d65ba7a027349f43c67b3}
+Constructs a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object with the given time value in the time unit given as second parameter. It represents a time Instant in simulation time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & double \-: The time value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} in the time unit of the reference time.\\
+\hline
+{\em unit} & Time\-Unit \-: the time unit \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a818140227f3d65ba7a027349f43c67b3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!Time\-Instant@{Time\-Instant}}
+\index{Time\-Instant@{Time\-Instant}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{Time\-Instant}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Instant.\-Time\-Instant (
+\begin{DoxyParamCaption}
+\item[{double}]{time\-In\-Reference\-Unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a94c7298adc50d7e6235ec535ce81f2c8}
+Constructs a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object with the given time value in the time unit of the reference time. It represents a time Instant in simulation time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\-In\-Reference\-Unit} & double \-: The time value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} in the time unit of the reference time. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!Time\-Instant@{Time\-Instant}}
+\index{Time\-Instant@{Time\-Instant}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{Time\-Instant}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Instant.\-Time\-Instant (
+\begin{DoxyParamCaption}
+\item[{Calendar}]{calendar, }
+\item[{boolean}]{apply\-Prefferd\-Time\-Zone\-From\-Calendar}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a44e47ee494ca9f053e746d4fc9a97b01}
+Constructs a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object that represents the given instant of time specified by the Calendar object. The preferred time zone for output will can either be adopted from the Calendar object or not be set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em calendar} & Calendar \-: the instant of time that is represented by this Time\-Istant \\
+\hline
+{\em apply\-Prefferd\-Time\-Zone\-From\-Calendar} & boolean \-: Use the time zone as set in calendar for output (true) or use U\-T\-C as default time zone for output (false)\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+java.\-util.\-Calendar 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!Time\-Instant@{Time\-Instant}}
+\index{Time\-Instant@{Time\-Instant}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{Time\-Instant}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Instant.\-Time\-Instant (
+\begin{DoxyParamCaption}
+\item[{Calendar}]{calendar}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_aa34c5a8e66a047b88f2d554abe849547}
+Constructs a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object that represents the given instant of time specified by the Calendar object. U\-T\-C will be used as default time zone for output.
+
+\begin{DoxySeeAlso}{See Also}
+java.\-util.\-Calendar 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!Time\-Instant@{Time\-Instant}}
+\index{Time\-Instant@{Time\-Instant}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{Time\-Instant}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Instant.\-Time\-Instant (
+\begin{DoxyParamCaption}
+\item[{Date}]{date}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_aeaaff7337a9a0adfee765d1a33e7517f}
+Constructs a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object that represents the given instant of time specified by the Date object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Date \-: the instant of time that is represented by this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+java.\-util.\-Date 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!compare\-To@{compare\-To}}
+\index{compare\-To@{compare\-To}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{compare\-To}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Time\-Instant.\-compare\-To (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{another\-Instant}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a1129295c5dad1a27eb2899763d0fd291}
+Compares the given \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} to this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}. This method implements the Comparable$<$\-Time\-Instant$>$ Interface
+
+
+\begin{DoxyParams}{Parameters}
+{\em another\-Instant} & \-: The \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} to be compared to this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\-: int\-: Returns a negative integer, zero, or a positive integer as this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} is before, at the same time, or after the given \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a1129295c5dad1a27eb2899763d0fd291_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!equals@{equals}}
+\index{equals@{equals}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Time\-Instant.\-equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{o}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a13bb0b41f87a5473b50456acc8711b1e}
+Indicates whether this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} is equal to the given parameter. Returns true if the obj argument is a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} and represents the same point of time as this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}; false otherwise. This method overrides java.\-lang.\-Object.\-equals()
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & the reference object with which to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\-: true if the obj argument is a \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} and represents the same point of time as this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}; false otherwise. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a13bb0b41f87a5473b50456acc8711b1e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Begin\-Of@{get\-Begin\-Of}}
+\index{get\-Begin\-Of@{get\-Begin\-Of}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Begin\-Of}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Begin\-Of (
+\begin{DoxyParamCaption}
+\item[{Time\-Unit}]{smallest\-Unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_aae1f4e25a10bf902cfe943e20c2d0644}
+Determines that last instant prior to this instant at which a new period of the unit provided \char`\"{}begins\char`\"{}, which means smaller units are zero. \par
+ Examples\-: Assume this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} is 28.\-12.\-2011 11\-:23\-:45\-:678. $<$br$>$ Calling {\ttfamily get\-Begin\-Of(Time\-Unit.\-Time\-Unit.\-D\-A\-Y\-S)} yields 28.\-12.\-2011 00\-:00\-:00\-:000 (begin of current hour).$<$br$>$ Calling {\ttfamily get\-Begin\-Of(Time\-Unit.\-Time\-Unit.\-M\-I\-N\-U\-T\-E\-S)} yields 28.\-12.\-2011 11\-:23\-:00\-:000 (begin of current day).$<$br$>$ Note that days are interpreted with respect to this instant's preferred time zone.
+
+
+\begin{DoxyParams}{Parameters}
+{\em smallest\-Unit} & Time\-Unit \-: the unit to begin (i.\-e. smaller units set to zero); must be Time\-Unit.\-D\-A\-Y\-S, Time\-Unit.\-H\-O\-U\-R\-S, Time\-Unit.\-M\-I\-N\-U\-T\-E\-S, Time\-Unit.\-S\-E\-C\-O\-N\-D\-S or Time\-Unit.\-M\-I\-L\-L\-I\-S\-E\-C\-O\-N\-D\-S.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}\-: The \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} at which the day/hour/minute/second/millisecond of the this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} has begun. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_aae1f4e25a10bf902cfe943e20c2d0644_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Preferred\-Time\-Zone@{get\-Preferred\-Time\-Zone}}
+\index{get\-Preferred\-Time\-Zone@{get\-Preferred\-Time\-Zone}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Preferred\-Time\-Zone}]{\setlength{\rightskip}{0pt plus 5cm}Time\-Zone desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Preferred\-Time\-Zone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a65fd18d2db92dd1da72f71410fc6ab13}
+The preferred time zone for printing this time instant.
+
+\begin{DoxyReturn}{Returns}
+Time\-Zone\-: the time zone to use for printing this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-As\-Calender@{get\-Time\-As\-Calender}}
+\index{get\-Time\-As\-Calender@{get\-Time\-As\-Calender}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-As\-Calender}]{\setlength{\rightskip}{0pt plus 5cm}Calendar desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-As\-Calender (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_aa61063fc01ad8d3c014c70b5059e9102}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a Calender object. Note that the Time\-Zone of the Calender object returend is set to this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}'s preferred Time\-Zone (which defaults to U\-T\-C unless set differently).
+
+\begin{DoxyReturn}{Returns}
+Calendar\-: a Calendar representation of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-As\-Date@{get\-Time\-As\-Date}}
+\index{get\-Time\-As\-Date@{get\-Time\-As\-Date}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-As\-Date}]{\setlength{\rightskip}{0pt plus 5cm}Date desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-As\-Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a8fb7d19c026316c8fba79dcad2870443}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a Date object.
+
+\begin{DoxyReturn}{Returns}
+Date\-: a Date representation of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a8fb7d19c026316c8fba79dcad2870443_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-As\-Double@{get\-Time\-As\-Double}}
+\index{get\-Time\-As\-Double@{get\-Time\-As\-Double}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-As\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-As\-Double (
+\begin{DoxyParamCaption}
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a8950df6fa11e90f358e5b0a7d9cab7d4}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a double type in the time unit given as a parameter.
+
+\begin{DoxyReturn}{Returns}
+double\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a double type in the time unit given as a parameter 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a8950df6fa11e90f358e5b0a7d9cab7d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-As\-Double@{get\-Time\-As\-Double}}
+\index{get\-Time\-As\-Double@{get\-Time\-As\-Double}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-As\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-As\-Double (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a5ea17e5592d9629ffaa964a53cb9ec3a}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a double type in the time unit of the reference time.
+
+\begin{DoxyReturn}{Returns}
+double\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a double type in the time unit given as a parameter 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-In\-Epsilon@{get\-Time\-In\-Epsilon}}
+\index{get\-Time\-In\-Epsilon@{get\-Time\-In\-Epsilon}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-In\-Epsilon}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-In\-Epsilon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a2eec7a9d62a2ba7e62bb4dd75af1be1d}
+Returns the value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit of epsilon
+
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit of epsilon 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-Rounded@{get\-Time\-Rounded}}
+\index{get\-Time\-Rounded@{get\-Time\-Rounded}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-Rounded}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-Rounded (
+\begin{DoxyParamCaption}
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_abd8013fe1af0a8fc0b79edb469760b7e}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit given as a parameter. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em unit} & the Time\-Unit\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_abd8013fe1af0a8fc0b79edb469760b7e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-Rounded@{get\-Time\-Rounded}}
+\index{get\-Time\-Rounded@{get\-Time\-Rounded}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-Rounded}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-Rounded (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a9992aa6501f3b98a228df127b65be172}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit of the reference time. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision.
+
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-Truncated@{get\-Time\-Truncated}}
+\index{get\-Time\-Truncated@{get\-Time\-Truncated}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-Truncated}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-Truncated (
+\begin{DoxyParamCaption}
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_ab4668a7eb30d3e816667ec25225834b9}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit given as a parameter. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision.
+
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-Truncated@{get\-Time\-Truncated}}
+\index{get\-Time\-Truncated@{get\-Time\-Truncated}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-Truncated}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-Truncated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a49de7a55897443e4f6850d7e72086be3}
+Returns the value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit of the reference time. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision.
+
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!get\-Time\-Value@{get\-Time\-Value}}
+\index{get\-Time\-Value@{get\-Time\-Value}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{get\-Time\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Time\-Instant.\-get\-Time\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a564622e31b424826f5dfe14bc1b65d27}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Replaced by \doxyref{get\-Time\-As\-Double()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a5ea17e5592d9629ffaa964a53cb9ec3a}. The value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a double type in the time unit of the reference time.\end{DoxyRefDesc}
+
+
+\begin{DoxyReturn}{Returns}
+double\-: the time value of the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} object as a double type in the time unit given as a parameter 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a564622e31b424826f5dfe14bc1b65d27_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!hash\-Code@{hash\-Code}}
+\index{hash\-Code@{hash\-Code}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{hash\-Code}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Time\-Instant.\-hash\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_acd41cb18e3df4eabfe4627aafcec3e78}
+Returns a hash code value for the object. This method overrides java.\-lang.\-Object.\-hash\-Code() to support efficient treatment in Hash\-Maps.
+
+\begin{DoxyReturn}{Returns}
+\-: int\-: A hash code value for this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!is\-After@{is\-After}}
+\index{is\-After@{is\-After}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{is\-After}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Instant.\-is\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{a, }
+\item[{{\bf Time\-Instant}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a2a6353510e7acdaa4a078dbdb341c1fd}
+Checks if the first of two points of simulation time is after the second. After means, that the time value of \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} a is larger and hence \char`\"{}later\char`\"{} than \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} b. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}} i.\-e. {\ttfamily Time\-Instant.\-is\-After(a,b)} where a and b are valid \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is after (later) than b 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: second comparand \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!is\-After\-Or\-Equal@{is\-After\-Or\-Equal}}
+\index{is\-After\-Or\-Equal@{is\-After\-Or\-Equal}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{is\-After\-Or\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Instant.\-is\-After\-Or\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{a, }
+\item[{{\bf Time\-Instant}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a4c2fada418805548b84a75f290496884}
+Checks if the first of two points of simulation time is after the second or equal to the second. After means, that the time value of \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} a is larger and hence after \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} b. Equal means, that they both describe the same point in simulation time. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}} i.\-e. {\ttfamily Time\-Instant.\-is\-After\-Or\-Equal(a,b)} where a and b are valid time\-Instant objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is after (later than )b or equal to b
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: second comparand \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a4c2fada418805548b84a75f290496884_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!is\-Before@{is\-Before}}
+\index{is\-Before@{is\-Before}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{is\-Before}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Instant.\-is\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{a, }
+\item[{{\bf Time\-Instant}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a12bdb93087022342b553330e3c44d8de}
+Checks if the first of two points of simulation time is before the second. Before means, that the time value of \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} a is smaller and hence \char`\"{}earlier\char`\"{} than \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} b. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}} i.\-e. {\ttfamily Time\-Instant.\-is\-After(a,b)} where a and b are valid \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is before (earlier) than b 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: second comparand \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!is\-Before\-Or\-Equal@{is\-Before\-Or\-Equal}}
+\index{is\-Before\-Or\-Equal@{is\-Before\-Or\-Equal}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{is\-Before\-Or\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Instant.\-is\-Before\-Or\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{a, }
+\item[{{\bf Time\-Instant}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a6b2974038dca1bd7a7b7ada6c10f0e4d}
+Checks if the first of two points of simulation time is before the second or equal to the second. Before means, that the time value of \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} a is smaller and hence before \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} b. Equal means, that they both describe the same point in simulation time. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}} i.\-e. {\ttfamily Time\-Instant.\-is\-Before\-Or\-Equal(a,b)} where a and b are valid time\-Instant objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is before (earlier than )b or equal to b
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: second comparand \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a6b2974038dca1bd7a7b7ada6c10f0e4d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!is\-Equal@{is\-Equal}}
+\index{is\-Equal@{is\-Equal}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{is\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Instant.\-is\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{a, }
+\item[{{\bf Time\-Instant}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a8951449333f9377677aa2393015274ee}
+Checks if the two \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} parameters describe the same point of simulation time. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant}} i.\-e. {\ttfamily Time\-Instant.\-is\-Equal(a,b)} where a and b are valid \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if both parameters describe same point of simulation time 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: second comparand \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!set\-Preferred\-Time\-Zone@{set\-Preferred\-Time\-Zone}}
+\index{set\-Preferred\-Time\-Zone@{set\-Preferred\-Time\-Zone}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{set\-Preferred\-Time\-Zone}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Time\-Instant.\-set\-Preferred\-Time\-Zone (
+\begin{DoxyParamCaption}
+\item[{Time\-Zone}]{preferred\-Time\-Zone}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a0d5fb336af48c6a78c2427b6cdd80e8c}
+Sets the preferred time zone for printing this time instant. Note that this time zone does not affect the internal representation of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} (stored as multiple of \doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment}'s epsilon since the start of the epoch, i.\-e. January 1, 1970, 00\-:00\-:00 G\-M\-T); the preferred Time\-Zone just servers Time\-Formatters generating a convenient output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em preferred\-Time\-Zone} & java.\-util.\-Time\-Zone \-: The time value of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} in the time unit of the reference time. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Time\-Instant.\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a0dcbe1af90df2664559c8246cdbea93c}
+Returns the String Representation of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} according to the \doxyref{Time\-Formatter}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_time_formatter}.
+
+\begin{DoxySeeAlso}{See Also}
+java.\-lang.\-Object\-::to\-String() 
+
+\doxyref{desmoj.\-core.\-simulator.\-Time\-Formatter}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_time_formatter} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Instant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!desmoj::core::simulator::TimeInstant@{desmoj\-::core\-::simulator\-::\-Time\-Instant}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Time\-Instant.\-to\-String (
+\begin{DoxyParamCaption}
+\item[{int}]{digits}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_instant_a466955582dd26f0b566f1a47459f8f1f}
+Returns the String Representation of this \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} according to the \doxyref{Time\-Formatter}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_time_formatter}, truncating digits after the decimal point if necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em digits} & Maximum number of digits after decimal point\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+java.\-lang.\-Object\-::to\-String() 
+
+\doxyref{desmoj.\-core.\-simulator.\-Time\-Formatter}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_time_formatter} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Time\-Instant.\-java\end{DoxyCompactItemize}

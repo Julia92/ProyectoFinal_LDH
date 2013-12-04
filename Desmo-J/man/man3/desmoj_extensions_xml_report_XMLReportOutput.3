@@ -1,0 +1,107 @@
+.TH "desmoj.extensions.xml.report.XMLReportOutput" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.xml.report.XMLReportOutput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.xml\&.report\&.XMLOutput\fP, and \fBdesmoj\&.core\&.report\&.OutputType\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBXMLReportOutput\fP ()"
+.br
+.ti -1c
+.RI "void \fBreceive\fP (\fBReporter\fP r)"
+.br
+.ti -1c
+.RI "void \fBreceive\fP (\fBMessage\fP m)"
+.br
+.ti -1c
+.RI "void \fBopen\fP (String pathname, String name)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBReporter\fP \fBlastR\fP = null"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Class to receive information from reporters and create an xml file out of it\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Gunnar Kiesel 
+.PP
+modified by Nicolas Knaak (1\&.2\&.06)
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.xml\&.report\&.XMLReportOutput\&.XMLReportOutput ()"
+Create a new \fBXMLReportOutput\fP class * 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.xml\&.report\&.XMLReportOutput\&.open (Stringpathname, Stringname)"
+opens a new file for writting the output
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpathname\fP String: path to write in 
+.br
+\fIname\fP String: name of the file 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.OutputType\fP\&.
+.SS "void desmoj\&.extensions\&.xml\&.report\&.XMLReportOutput\&.receive (\fBReporter\fPr)"
+Only work with valid reporters *
+.PP
+If a different kind of reporter is received *
+.PP
+For all reporter rows a new item will be created *
+.PP
+All Reporters that produce two rows *
+.PP
+Histogramm reporters *
+.PP
+All reporters of StockReporter type *
+.PP
+from a Table reporter a 2 dimensional array will be received *
+.PP
+only create tags for parameters that have a value *
+.PP
+All reporters that produce a single item row *
+.PP
+only create tags for parameters that have a value * 
+.SS "void desmoj\&.extensions\&.xml\&.report\&.XMLReportOutput\&.receive (\fBMessage\fPm)"
+Implement this method to define the behaviour of the messagereceiver when messages are sent to it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP Message : The message sent to the messagereceiver 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.MessageReceiver\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

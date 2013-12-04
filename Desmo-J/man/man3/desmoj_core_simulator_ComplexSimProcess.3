@@ -1,0 +1,157 @@
+.TH "desmoj.core.simulator.ComplexSimProcess" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.ComplexSimProcess \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBComplexSimProcess\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "synchronized void \fBaddComponent\fP (\fBSimProcess\fP compnt)"
+.br
+.ti -1c
+.RI "synchronized boolean \fBcontains\fP (\fBSimProcess\fP elem)"
+.br
+.ti -1c
+.RI "synchronized Enumeration
+.br
+< \fBSimProcess\fP > \fBgetComponents\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBhasComponents\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "synchronized void \fBremoveAllComponents\fP ()"
+.br
+.ti -1c
+.RI "synchronized void \fBremoveComponent\fP (\fBSimProcess\fP elem)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fC\fBComplexSimProcess\fP\fP is a \fC\fBSimProcess\fP\fP which serves as a container for other \fC\fBSimProcess\fP\fP es\&. A \fC\fBComplexSimProcess\fP\fP has its own lifecycle\&. As long as this \fC\fBComplexSimProcess\fP\fP is active all its contained Simprocesses are passive\&. That means they are blocked and can not proceed in their lifeCycles\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.ComplexSimProcess\&.ComplexSimProcess (\fBModel\fPowner, Stringname, booleanshowInTrace)"
+Constructs a \fBComplexSimProcess\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBComplexSimProcess\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBComplexSimProcess\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing trace messages of this \fBComplexSimProcess\fP in trace-files\&. Set it to \fCtrue\fP if \fBComplexSimProcess\fP should show up in trace\&. Set it to \fCfalse\fP if \fBComplexSimProcess\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "synchronized void desmoj\&.core\&.simulator\&.ComplexSimProcess\&.addComponent (\fBSimProcess\fPcompnt)"
+Adds a \fBSimProcess\fP as a component to this \fBComplexSimProcess\fP\&. The Sim-process being added to the \fBComplexSimProcess\fP will be passivated and blocked\&. Use method \fC\fBremoveComponent()\fP\fP to remove the Sim-process from the \fBComplexSimProcess\fP again\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcompnt\fP desmoj\&.SimProcess : The \fBSimProcess\fP to be added as a component to this \fBComplexSimProcess\fP\&. 
+.RE
+.PP
+
+.SS "synchronized boolean desmoj\&.core\&.simulator\&.ComplexSimProcess\&.contains (\fBSimProcess\fPelem)"
+Checks if the given \fBSimProcess\fP is contained in this \fBComplexSimProcess\fP already\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if and only if the specified \fBSimProcess\fP is the same as a component in this \fBComplexSimProcess\fP, as determined by the \fCequals()\fP method; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIelem\fP desmoj\&.SimProcess : The \fBSimProcess\fP which might be an element of this ComplexSimPorcess already\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.Vector 
+.RE
+.PP
+
+.SS "synchronized Enumeration<\fBSimProcess\fP> desmoj\&.core\&.simulator\&.ComplexSimProcess\&.getComponents ()"
+Returns all the components of this \fBComplexSimProcess\fP as an \fCjava\&.util\&.Enumeration\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.util\&.Enumeration : All the components of this \fBComplexSimProcess\fP\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.Enumeration 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ComplexSimProcess\&.hasComponents ()"
+Checks if this \fBComplexSimProcess\fP has components or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if and only if this \fBComplexSimProcess\fP has components; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.ComplexSimProcess\&.lifeCycle ()\fC [pure virtual]\fP"
+Override this method in a subclass of \fC\fBComplexSimProcess\fP\fP to implement the specific behaviour of this process\&. This method starts after a \fC\fBComplexSimProcess\fP\fP has been created and activated by the scheduler\&. As long as this \fC\fBComplexSimProcess\fP\fP is active all its contained Simprocesses are passive\&. That means they are blocked and can not proceed in their lifeCycles\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "synchronized void desmoj\&.core\&.simulator\&.ComplexSimProcess\&.removeAllComponents ()"
+Removes all elements (SimProcesses and ComplexSimProcesses) from this \fBComplexSimProcess\fP\&. This will be done for all ComplexSimPorcesses recursively, until all simple SimProcesses are removed\&. The SimProcesses being removed from the \fBComplexSimProcess\fP will be activated after the current \fBSimProcess\fP so they can follow their own lifeCycle again\&. Of course, this does only make sense for SimProcesses which are not terminated already\&. 
+.SS "synchronized void desmoj\&.core\&.simulator\&.ComplexSimProcess\&.removeComponent (\fBSimProcess\fPelem)"
+Removes a \fBSimProcess\fP from the elements of this \fBComplexSimProcess\fP\&. The Sim-process being removed from the \fBComplexSimProcess\fP will be activated after the current \fBSimProcess\fP so it can follow its own lifeCycle again\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIelem\fP desmoj\&.SimProcess : The \fBSimProcess\fP to be removed from the elements of this \fBComplexSimProcess\fP\&. Be careful, it might also be a \fC\fBComplexSimProcess\fP\fP\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.ComplexSimProcess\&.toString ()"
+Returns a \fCString\fP representation of this \fBComplexSimProcess\fP, containing the \fCString\fP representation of each \fC\fBSimProcess\fP\fP component\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : A \fCString\fP representation of this \fBComplexSimProcess\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

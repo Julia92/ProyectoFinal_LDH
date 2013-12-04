@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_parameter_manager_8java" kind="file">
+    <compoundname>ParameterManager.java</compoundname>
+    <innerclass refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager" prot="public">desmoj::core::simulator::ParameterManager</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1core_1_1simulator">desmoj::core::simulator</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.core.simulator;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.text.Collator;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Collection;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.TreeMap;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager" kindref="compound">ParameterManager</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacedesmoj_1_1core_1_1simulator_1_1_model_parameter_manager" kindref="compound">ModelParameterManager</ref>,<sp/><ref refid="interfacedesmoj_1_1core_1_1simulator_1_1_experiment_parameter_manager" kindref="compound">ExperimentParameterManager</ref></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//private<sp/>IdentityHashMap&lt;String,<sp/>Parameter&gt;<sp/>parameters;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>TreeMap&lt;String,<sp/>Parameter&gt;<sp/>_parameters;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1aaed0884e3d79c18d0d8c553c75790962" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1aaed0884e3d79c18d0d8c553c75790962" kindref="member">ParameterManager</ref>()</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//parameters<sp/>=<sp/>new<sp/>IdentityHashMap&lt;String,<sp/>Parameter&gt;();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_parameters<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TreeMap&lt;String,<sp/>Parameter&gt;(Collator.getInstance());</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1ac832fee37bfe9e106b71ee49085c44b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1ac832fee37bfe9e106b71ee49085c44b8" kindref="member">declareExperimentParameter</ref>(Class&lt;?&gt;<sp/>type,<sp/>String<sp/>name)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_parameters.put(name,<sp/>Parameter.createExperimentParameter(type,<sp/>name));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1a21d452d5ceec8b02e78d8ba760243b04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1a21d452d5ceec8b02e78d8ba760243b04" kindref="member">declareExperimentParameter</ref>(Class&lt;?&gt;<sp/>type,<sp/>String<sp/>name,<sp/>Object<sp/>defaultValue)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_parameters.put(name,<sp/>Parameter.createExperimentParameter(type,<sp/>name,<sp/>defaultValue));</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1a08a87ad14c3637353c5e6a9866fefed6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1a08a87ad14c3637353c5e6a9866fefed6" kindref="member">declareModelParameter</ref>(Class&lt;?&gt;<sp/>type,<sp/>String<sp/>name)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_parameters.put(name,<sp/>Parameter.createModelParameter(type,<sp/>name));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1acdc6cc87363fdb15a427428cc3bd3ba2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1acdc6cc87363fdb15a427428cc3bd3ba2" kindref="member">initializeModelParameter</ref>(Class&lt;?&gt;<sp/>type,<sp/>String<sp/>name,<sp/>Object<sp/>value)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_parameters.put(name,<sp/>Parameter.createModelParameter(type,<sp/>name,<sp/>value));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="122" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1afea16df28ea536ea2054d30b494f2ec3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1afea16df28ea536ea2054d30b494f2ec3" kindref="member">assignModelParameter</ref>(String<sp/>name,<sp/>Object<sp/>value)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter" kindref="compound">Parameter</ref><sp/>param<sp/>=<sp/>_parameters.get(name);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(param.<ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_1afedbc8698296e2240754a8c22c278cff" kindref="member">getParameterType</ref>()<sp/>==<sp/>Parameter.ParameterType.MODELPARAMETER)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>param.setValue(value);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>(Exception)<sp/>param<sp/>not<sp/>found.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1aec9a48229374375980ad98e45742f51c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1aec9a48229374375980ad98e45742f51c" kindref="member">assignExperimentParameter</ref>(String<sp/>name,<sp/>Object<sp/>value)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter" kindref="compound">Parameter</ref><sp/>param<sp/>=<sp/>_parameters.get(name);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(param.<ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_1afedbc8698296e2240754a8c22c278cff" kindref="member">getParameterType</ref>()<sp/>==<sp/>Parameter.ParameterType.EXPERIMENTPARAMETER)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>param.setValue(value);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>(Exception)<sp/>param<sp/>not<sp/>found.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1a68b1c14e629f1f87298621d2613bae9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1a68b1c14e629f1f87298621d2613bae9b" kindref="member">getParameterValue</ref>(String<sp/>name)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Object<sp/>result<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_parameters.containsKey(name))</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/>_parameters.get(name).getValue();</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>(Exception)<sp/>param<sp/>+<sp/>name<sp/>+<sp/>not<sp/>declared.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1ad79401dc925472bef1dbe6b3eb368811" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Collection&lt;Parameter&gt;<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_parameter_manager_1ad79401dc925472bef1dbe6b3eb368811" kindref="member">getParameters</ref>()</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_parameters.values();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ParameterManager.java"/>
+  </compounddef>
+</doxygen>

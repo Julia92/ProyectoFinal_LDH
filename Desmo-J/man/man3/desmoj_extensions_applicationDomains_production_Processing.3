@@ -1,0 +1,109 @@
+.TH "desmoj.extensions.applicationDomains.production.Processing" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.Processing \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ProcessCoop\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProcessing\fP (\fBModel\fP owner, String name, NumericalDist<?> processTimeStream, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBsetProcessingTimeStream\fP (NumericalDist<?> newProcessingTimeStream)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcooperation\fP (\fBSimProcess\fP master, \fBSimProcess\fP[] slaves)"
+.br
+.ti -1c
+.RI "void \fBcooperation\fP (\fBSimProcess\fP master, \fBSimProcess\fP slave)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetProcessingTimeSample\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBProcessing\fP is the object representing the processing process taking place at a \fC\fBWorkStation\fP\fP where a \fC\fBWorker\fP\fP process or a \fC\fBMachineProcess\fP\fP are processing some parts (products) to manufacture some new parts (or products)\&. The kind and the number of parts being processed are determined by a \fC\fBPartsList\fP\fP\&. The parts (or products) are represented by \fCSimProcess\fP es\&. The \fC\fBWorker\fP\fP and the \fC\fBMachineProcess\fP\fP are also some kind of \fCSimProcess\fP es\&. But one \fC\fBWorker\fP\fP or \fC\fBMachineProcess\fP\fP is the master process and the other processes are all slave processes\&. It is intended that that this \fBProcessing\fP is used with the \fC\fBWorkStation\fP\fP construct, where a master process ( \fC\fBWorker\fP\fP or \fC\fBMachineProcess\fP\fP) is waiting for parts or products (slave processes) to process them\&. During the \fBProcessing\fP the master process is active and the slave processes are passive\&. The processing taking place at the \fC\fBWorkStation\fP\fP is described in the method \fCcooperation\fP, which should be overwritten by the user to model the manufacturing process taking place at the \fC\fBWorkStation\fP\fP\&. Until now this method only models the time it takes to process the parts in some way\&. Note: when using the \fC\fBWorkStation\fP\fP construct the master (\fBWorker\fP or \fBMachineProcess\fP) will be activated after the processing is done and the slave processes will be activated after the master (if they have not been activated during the processing process already)\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.Processing\&.Processing (\fBModel\fPowner, Stringname, NumericalDist<?>processTimeStream, booleanshowInTrace)"
+Constructs a \fBProcessing\fP process where a master (\fC\fBWorker\fP\fP or \fC\fBMachineProcess\fP\fP) is processing slaves ( \fCSimPorcess\fP es) in a cooperate manufacturing process\&. The time it takes to process the parts is determined by the specified processTimeStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBProcessing\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBProcessing\fP\&. 
+.br
+\fIprocessTimeStream\fP NumericalDist<?> : The random number stream determining the time it takes to process the parts\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBProcessing\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Processing\&.cooperation (\fBSimProcess\fPmaster, \fBSimProcess\fP[]slaves)\fC [protected]\fP"
+This method describes the \fBProcessing\fP process carried out by the master process (some kind of \fC\fBWorker\fP\fP or \fC\fBMachineProcess\fP\fP)\&. In this simple case only the time it takes to process the parts is taken into consideration\&. If the user building the model has to implement a more complex behavior, he has to overwrite this method in a subclass\&. The time it takes to process the parts is obtained from the method \fC\fBgetProcessingTimeSample()\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaster\fP SimProcess : The master process which really carries out the cooperation (and processes the slave parts)\&. Should be a subclass of \fC\fBWorker\fP\fP or \fC\fBMachineProcess\fP\fP\&. 
+.br
+\fIslaves\fP SimProcess[] : The slave processes (parts) which are lead through the process cooperation by the master\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Processing\&.cooperation (\fBSimProcess\fPmaster, \fBSimProcess\fPslave)\fC [protected]\fP"
+The \fC\fBcooperation()\fP\fP method with only one master and one slave is not needed here\&. So we pass it to the more general method with an array of slaves as parameter\&. 
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.Processing\&.getProcessingTimeSample ()\fC [protected]\fP"
+Returns a \fCSimTime\fP object representing the time it takes to process the parts with the worker or machine\&. The time is taken from the given random number stream processingTimeStream\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimTime : The time it takes to process the parts with the worker or machineProcess\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Processing\&.setProcessingTimeStream (NumericalDist<?>newProcessingTimeStream)"
+Sets the processingTimeStream to a new \fCRealDist\fP random number stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewProcessingTimeStream\fP NumericalDist<?> : The new \fCRealDist\fP random number stream determining the time it takes to process the parts\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

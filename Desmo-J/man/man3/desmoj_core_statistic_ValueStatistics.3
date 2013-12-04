@@ -1,0 +1,214 @@
+.TH "desmoj.core.statistic.ValueStatistics" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.ValueStatistics \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.statistic\&.Accumulate\fP, and \fBdesmoj\&.core\&.statistic\&.Tally\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBValueStatistics\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBValueStatistics\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "double \fBgetLastValue\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaximum\fP ()"
+.br
+.ti -1c
+.RI "abstract double \fBgetMean\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMinimum\fP ()"
+.br
+.ti -1c
+.RI "abstract double \fBgetStdDev\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (\fBTimeSpan\fP t)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double val)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBValueSupplier\fP \fBgetValueSupplier\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBValueStatistics\fP\fP class is the super class for all the classes providing a statistic analysis about one value (e\&.g\&. minimum and maximum values)\&. Derived classes are: \fBTally\fP, \fBAccumulate\fP and \fBHistogram\fP (because it is derived from \fBTally\fP)\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.ValueStatistics\&.ValueStatistics (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBValueStatistics\fP object that will be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBValueStatistics\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBValueStatistics\fP object 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBValueStatistics\fP\&. The given \fBValueSupplier\fP will be observed by this \fBValueStatistics\fP object\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBValueStatistics\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBValueStatistics\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.ValueStatistics\&.ValueStatistics (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBValueStatistics\fP object that has NO connection to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBValueStatistics\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBValueStatistics\fP object 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBValueStatistics\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBValueStatistics\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double desmoj\&.core\&.statistic\&.ValueStatistics\&.getLastValue ()"
+Returns the last observed value of this \fBValueStatistics\fP object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The last value observed so far\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.ValueStatistics\&.getMaximum ()"
+Returns the maximum value observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The maximum value observed so far\&. 
+.RE
+.PP
+
+.SS "abstract double desmoj\&.core\&.statistic\&.ValueStatistics\&.getMean ()\fC [pure virtual]\fP"
+Returns the mean value of all the values observed so far\&. Has to be implemented in a derived class\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean value of all the values observed so far\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.statistic\&.Accumulate\fP, and \fBdesmoj\&.core\&.statistic\&.Tally\fP\&.
+.SS "double desmoj\&.core\&.statistic\&.ValueStatistics\&.getMinimum ()"
+Returns the minimum value observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The minimum value observed so far\&. 
+.RE
+.PP
+
+.SS "abstract double desmoj\&.core\&.statistic\&.ValueStatistics\&.getStdDev ()\fC [pure virtual]\fP"
+Returns the standard deviation of all the values observed so far\&. Has to be implemented in a derived class\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation of all the values observed so far\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.statistic\&.Accumulate\fP, and \fBdesmoj\&.core\&.statistic\&.Tally\fP\&.
+.SS "\fBValueSupplier\fP desmoj\&.core\&.statistic\&.ValueStatistics\&.getValueSupplier ()\fC [protected]\fP"
+Returns the \fBValueSupplier\fP object providing all the values\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBValueSupplier\fP : The \fBValueSupplier\fP object providing the values for this \fBValueStatistics\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.ValueStatistics\&.reset ()"
+Resets this \fBValueStatistics\fP object by resetting all variables to 0\&.0 \&. 
+.SS "void desmoj\&.core\&.statistic\&.ValueStatistics\&.update (\fBTimeSpan\fPt)\fC [virtual]\fP"
+Updates this data collector object with a specific \fCTimeSpan\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP TimeSpan : The time span to update this data collector\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBdesmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\fP\&.
+.SS "void desmoj\&.core\&.statistic\&.ValueStatistics\&.update ()"
+Updates this \fC\fBValueStatistics\fP\fP object by fetching the actual value of the \fC\fBValueSupplier\fP\fP and processing it\&. The \fC\fBValueSupplier\fP\fP is passed in the constructor of this \fC\fBValueStatistics\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.ValueStatistics\&.update (doubleval)"
+Updates this \fC\fBValueStatistics\fP\fP object with the double value given as parameter\&. In some cases it might be more convenient to pass the value this \fC\fBValueStatistics\fP\fP will be updated with directly within the \fC\fBupdate(double val)\fP\fP method instead of going via the \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIval\fP double : The value with which this \fC\fBValueStatistics\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.ValueStatistics\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBValueSupplier\fP will be fetched with the \fCvalue()\fP method of the \fBValueSupplier\fP\&. Otherwise it is expected that the actual value is passed in the Object arg\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBValueStatistics\fP\fP is updated\&. Normally a double number or TimeSpan which is added to the statistics or \fCnull\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,207 @@
+.TH "desmoj.core.report.HTMLFileOutput" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.HTMLFileOutput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.FileOutput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHTMLFileOutput\fP (int \fBtimePrecision\fP)"
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "void \fBcloseRow\fP ()"
+.br
+.ti -1c
+.RI "void \fBcloseTable\fP ()"
+.br
+.ti -1c
+.RI "void \fBcloseTableNoTopTag\fP ()"
+.br
+.ti -1c
+.RI "void \fBopen\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBopenRow\fP ()"
+.br
+.ti -1c
+.RI "void \fBopenTable\fP (String s)"
+.br
+.ti -1c
+.RI "boolean \fBrowIsOpen\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBtableIsOpen\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteCell\fP (String s)"
+.br
+.ti -1c
+.RI "void \fBwriteHeading\fP (int style, String s)"
+.br
+.ti -1c
+.RI "void \fBwriteHeadingCell\fP (String s)"
+.br
+.ti -1c
+.RI "void \fBwriteHorizontalRuler\fP ()"
+.br
+.ti -1c
+.RI "String \fBwriteTime\fP (String t)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBtimePrecision\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Extends the StdFileOut writer by the ability to create HTML pages displaying the given text in table format\&. Using the methods \fCvoid \fBopenTable(String name)\fP\fP and \fCvoid \fBcloseTable()\fP\fP multiple distinct HTML tables with individual headings givne as parameter can be written into one file\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by the \fBTableFormatter\fP interface and the classes \fBASCIITableFormatter\fP and \fBHTMLTableFormatter\fP for more flexible simulation output
+.RE
+.PP
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.HTMLFileOutput\&.HTMLFileOutput (inttimePrecision)"
+Creates a TraceOut to write into a HTML page\&. The number of floating point digits for writing simulation time values must be given\&. Only positive values are allowed\&. Otherwise the default (0) is used\&. The actual file is opened using the \fC\fBopen(String name)\fP\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimePrecision\fP int : The number of floating point digits for displaying simulation time values 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.close ()"
+Close the HTML file by writing the footing tags, flushing the buffer and closing the file\&. 
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.closeRow ()"
+Writes the tag to close a row in a table to the file\&. 
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.closeTable ()"
+Inserts the tags needed to close a HTML 3\&.2 table into the file\&. Also inserts a paragraph tag to add some space below the table\&. 
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.closeTableNoTopTag ()"
+Inserts the tags needed to close a HTML 3\&.2 table into the file\&. Also inserts a paragraph tag to add some space below the table\&. But omits the top tag as used in method \fC\fBcloseTable()\fP\fP\&. This is needed if one reportable is generating a report that consists of more than one table (see \fCStockReporter\fP or \fC\fBHistogramReporter\fP\fP) 
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.open (Stringname)"
+Opens a new file with the given fileName for writing a HTML table to\&. If no String is given, the default filename 'unnamed_DESMOJ_file' is used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the file to be created 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.openRow ()"
+Writes the HTML 3\&.2 tags to open a new row in a table to the file\&. A new row can only be started, if the table has alerady been opened and the previous row has been closed\&. 
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.openTable (Strings)"
+Inserts the tags needed to build a HTML 3\&.2 table heading into the file\&. The table's heading text is given with the parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP String : The heading for the table 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.report\&.HTMLFileOutput\&.rowIsOpen ()"
+Returns the status of the current table row that is written to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the method \fC\fBopenRow()\fP\fP has been called last, \fCfalse\fP if the method \fC\fBcloseRow()\fP\fP has been called last 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.report\&.HTMLFileOutput\&.tableIsOpen ()"
+Returns the status of the current table that is written to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the method \fC\fBopenTable()\fP\fP has been called last, \fCfalse\fP if the method \fC\fBcloseTable()\fP\fP has been called last 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.report\&.HTMLFileOutput\&.timePrecision ()\fC [protected]\fP"
+Returns the number of floating point digits to be displayed for simulation time values\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of floating point digits to be displayed for simulation time values 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.writeCell (Strings)"
+Creates a new table cell and writes the given String into that cell\&. Note that there this is raw HTML code so there must not be any special language specific characters that might confuse any browser\&. A new cell can not be written, if neither a table nor a row have been opened yet\&. The method will simply return without action in that case\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP java\&.lang\&.String : The text to be printed into a cell 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.writeHeading (intstyle, Strings)"
+Creates a newcentered heading row to print a title in\&. Note that there this is raw HTML code so the string given must not contain any special language specific characters that might confuse any browser\&. been opened yet\&. The method will simply return without action in that case\&. The number for the HTML heading style must be inside the range [1,6]\&. If not, it will be trimmed to the nearest legal heading style number\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstyle\fP int : The heading style format number for the text to be printed in 
+.br
+\fIs\fP java\&.lang\&.String : The text to be printed as heading 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.writeHeadingCell (Strings)"
+Creates a new table cell and writes the given String into that cell as heading cells in bold letters and with centered text\&. Note that there this is raw HTML code so there must not be any special language specific characters that might confuse any browser\&. A new cell can not be written, if netiher a tbale nor a row have been opened yet\&. The method will simply return without action in that case\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP java\&.lang\&.String : The text to be printed into a cell 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.HTMLFileOutput\&.writeHorizontalRuler ()"
+Writes the HTML tag for inserting a horizontal ruler into the file\&. Note that horizontal rulers are not written into table cells, thus this method simply returns, if a table is still open\&. 
+.SS "String desmoj\&.core\&.report\&.HTMLFileOutput\&.writeTime (Stringt)"
+Returns a String representation of a simulation time value with the given number of floating point digits after the decimal point\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The string representing a simulation time value trimmed to the number of floating points digits specified at this class' constructor 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP java\&.lang\&.String : The trimmed string representing a simulation time value 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,665 @@
+\section{desmoj.\-core.\-simulator.\-Entity Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_entity}\index{desmoj.\-core.\-simulator.\-Entity@{desmoj.\-core.\-simulator.\-Entity}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Entity\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Entity\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity} ({\bf Model} owner, String name, boolean show\-In\-Trace)\label{classdesmoj_1_1core_1_1simulator_1_1_entity_ae07574c58ee8c0287d27141b6d5d8d5e}
+
+\item 
+List$<$ {\bf Event\-Abstract} $>$ {\bf get\-Scheduled\-Events} ()
+\item 
+long {\bf get\-Ident\-Number} ()
+\item 
+int {\bf get\-Queueing\-Priority} ()
+\item 
+int {\bf get\-Priority} ()
+\item 
+Queue\-List$<$?$>$ {\bf get\-Queue} ()
+\item 
+List$<$ {\bf Queue\-Based} $>$ {\bf get\-Queues} ()
+\item 
+boolean {\bf is\-Queued} ()
+\item 
+boolean {\bf is\-Sim\-Process} ()
+\item 
+void {\bf schedule} (Event$<$?$>$ what, {\bf Time\-Span} dt)
+\item 
+void {\bf schedule} (Event$<$?$>$ what, {\bf Time\-Instant} when)
+\item 
+void {\bf schedule} (Event$<$?$>$ what, {\bf Sim\-Time} dt)
+\item 
+void {\bf schedule\-After} ({\bf Schedulable} after, Event$<$?$>$ what)
+\item 
+void {\bf schedule\-Before} ({\bf Schedulable} before, Event$<$?$>$ what)
+\item 
+void {\bf set\-Queuing\-Priority} (int new\-Priority)
+\item 
+void {\bf set\-Priority} (int new\-Priority)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static final boolean {\bf is\-Equal} ({\bf Entity} a, {\bf Entity} b)
+\item 
+static final boolean {\bf is\-Larger} ({\bf Entity} a, {\bf Entity} b)
+\item 
+static final boolean {\bf is\-Larger\-Or\-Equal} ({\bf Entity} a, {\bf Entity} b)
+\item 
+static final boolean {\bf is\-Not\-Equal} ({\bf Entity} a, {\bf Entity} b)
+\item 
+static final boolean {\bf is\-Smaller} ({\bf Entity} a, {\bf Entity} b)
+\item 
+static final boolean {\bf is\-Smaller\-Or\-Equal} ({\bf Entity} a, {\bf Entity} b)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf generate\-Trace\-For\-Scheduling} ({\bf Event\-Abstract} Event, {\bf Entity} who1, {\bf Entity} who2, {\bf Schedulable} after, {\bf Schedulable} before, {\bf Time\-Instant} at)
+\item 
+{\bf Entity} {\bf clone} ()  throws Clone\-Not\-Supported\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Represents the superclass for all entities of a model. Entities are supposed to be scheduled together with a compatible event at a certain point of simulation time or relative to another event in present or future simulation time. 
+
+Entities typically encapsulate all information about a model entity relevant to the modeller. Events can manipulate these informations when the scheduled point of simulation time is reached and thus change the state of the model. When modelling different types of entities you need to derive different classes from this superclass. Each carrying the specific information to represent its counterpart in the system modelled. Thus a simulation of e.\-g. a factory would require both machines and material to be subclasses of class {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}}. They can act on each other by scheduling themselves or other Entities with the appropriate events. To use more than one entity of one type, create multiple instances of the same {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} class. For better identification, all instances created from a subclass of class {\ttfamily \doxyref{Named\-Object}{p.}{classdesmoj_1_1core_1_1simulator_1_1_named_object}} (just as {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} is) get an individual identification number as a suffix to their name so there is no need to name each individual differently yourself. 
+
+Entities can carry a queuing priority that can be modified after the entity has been instantiated, applied for inserting Entities into any kind of Queues\-: The entity's priority determines it's position inside the queue on entering it. Although within a model all attributes of an entity could be made public it is advisable to support data hiding by providing methods for accessing the internal attributes, as always in oo-\/design.
+
+\begin{DoxySeeAlso}{See Also}
+Event 
+
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} 
+
+\doxyref{Named\-Object}{p.}{classdesmoj_1_1core_1_1simulator_1_1_named_object}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler, modified by Justin Neumann
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!clone@{clone}}
+\index{clone@{clone}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} desmoj.\-core.\-simulator.\-Entity.\-clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Clone\-Not\-Supported\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_ac36aa715a5c26139258ce985ca04acb1}
+Creates and returns a copy of this entity. Note that subclasses have to implement the interface java.\-lang.\-Cloneable to actually use this method as otherwise, a Clone\-Not\-Supported\-Exception will be thrown.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: A copy of this entity. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_ac36aa715a5c26139258ce985ca04acb1_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!generate\-Trace\-For\-Scheduling@{generate\-Trace\-For\-Scheduling}}
+\index{generate\-Trace\-For\-Scheduling@{generate\-Trace\-For\-Scheduling}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{generate\-Trace\-For\-Scheduling}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-generate\-Trace\-For\-Scheduling (
+\begin{DoxyParamCaption}
+\item[{{\bf Event\-Abstract}}]{Event, }
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{{\bf Schedulable}}]{after, }
+\item[{{\bf Schedulable}}]{before, }
+\item[{{\bf Time\-Instant}}]{at}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a0c0d6cdc0858a9034d157c63ad10ca84}
+Utility method to generate trace output for scheduling this event (internal use only).
+
+
+\begin{DoxyParams}{Parameters}
+{\em Event} & the event to be scheduled \\
+\hline
+{\em who1} & the second entity scheduled with the event (or {\ttfamily null} if not applicable) \\
+\hline
+{\em who2} & the third entity scheduled with the event (or {\ttfamily null} if not applicable) \\
+\hline
+{\em after} & the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} after which the event is scheduled (or {\ttfamily null} if not applicable) \\
+\hline
+{\em before} & the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} before which the event is scheduled (or {\ttfamily null} if not applicable) \\
+\hline
+{\em at} & the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} at which the event is scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a0c0d6cdc0858a9034d157c63ad10ca84_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!get\-Ident\-Number@{get\-Ident\-Number}}
+\index{get\-Ident\-Number@{get\-Ident\-Number}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{get\-Ident\-Number}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Entity.\-get\-Ident\-Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a8c745e82f4aa6750738ede6375ea5b08}
+Returns the entity's identification number.
+
+\begin{DoxyReturn}{Returns}
+Long \-: The entity's identification number 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!get\-Priority@{get\-Priority}}
+\index{get\-Priority@{get\-Priority}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{get\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Entity.\-get\-Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a0c80f628c282fb71b88e8d5dd86dcdc7}
+Returns the entity's queuing priority. Default priority of an entity is zero. Higher priorities are positive, lower priorities negative.
+
+\begin{DoxyReturn}{Returns}
+int \-: The entity's priority
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Replaced by {\ttfamily \doxyref{get\-Queueing\-Priority()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity_afab683c0ce867051d0afb689bff662ff}} to avoid confusing with the scheduling priority of an event or process. \end{DoxyRefDesc}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!get\-Queue@{get\-Queue}}
+\index{get\-Queue@{get\-Queue}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{get\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-List$<$?$>$ desmoj.\-core.\-simulator.\-Entity.\-get\-Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a508d3e0bd58f9a85fbed6feb30aaac59}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Prefer usage of \doxyref{get\-Queues()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity_ae79c76a9b15bcd2964719ec541a1f3ad} as an entity may be queued in multiple queues, call get\-Queue\-List() to obtaint the Queue\-List$<$?$>$ objects\end{DoxyRefDesc}
+
+
+Returns the {\ttfamily Queue\-List} where this {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} is queued in or {\ttfamily null}.
+
+\begin{DoxyReturn}{Returns}
+Queue\-List \-: The {\ttfamily Queue\-List} or {\ttfamily null}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!get\-Queueing\-Priority@{get\-Queueing\-Priority}}
+\index{get\-Queueing\-Priority@{get\-Queueing\-Priority}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{get\-Queueing\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Entity.\-get\-Queueing\-Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_afab683c0ce867051d0afb689bff662ff}
+Returns the entity's queuing priority. Default priority of an entity is zero. Higher priorities are positive, lower priorities negative.
+
+\begin{DoxyReturn}{Returns}
+int \-: The entity's priority 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!get\-Queues@{get\-Queues}}
+\index{get\-Queues@{get\-Queues}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{get\-Queues}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Queue\-Based}$>$ desmoj.\-core.\-simulator.\-Entity.\-get\-Queues (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_ae79c76a9b15bcd2964719ec541a1f3ad}
+Returns a list of queues and other {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}} objects where this {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} is queued.
+
+\begin{DoxyReturn}{Returns}
+List$<$\-Queue\-Based$>$ \-: The {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}}s containing this entity; may be empty if entity is not queued. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!get\-Scheduled\-Events@{get\-Scheduled\-Events}}
+\index{get\-Scheduled\-Events@{get\-Scheduled\-Events}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{get\-Scheduled\-Events}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Event\-Abstract}$>$ desmoj.\-core.\-simulator.\-Entity.\-get\-Scheduled\-Events (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a52234563cdd9ec4f51bb4d71e2a02920}
+Returns a list of events associated to this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object. If the \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object is not currently scheduled, an empty list will be returned. Remind that all different Event classes can be included.
+
+\begin{DoxyReturn}{Returns}
+List$<$\-Event\-Abstract$>$ \-: The events associated to the entity 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Equal@{is\-Equal}}
+\index{is\-Equal@{is\-Equal}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static final boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{a, }
+\item[{{\bf Entity}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_ad5ba86396f1bb062d820481b96362665}
+Checks if the two entities have the same priority. Note that this is a static method available through calling the entity's class i.\-e. {\ttfamily Entity.\-is\-Equal(a,b)} where {\ttfamily a} and {\ttfamily b} are valid \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if {\ttfamily a} has the same priority as {\ttfamily b},{\ttfamily /false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: First comparand entity \\
+\hline
+{\em b} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: Second comparand entity \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_ad5ba86396f1bb062d820481b96362665_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Larger@{is\-Larger}}
+\index{is\-Larger@{is\-Larger}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Larger}]{\setlength{\rightskip}{0pt plus 5cm}static final boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Larger (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{a, }
+\item[{{\bf Entity}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_accf39c5d2ff6e6287ce827c9a8c231ad}
+Checks if the first of the two entities has a higher priority than the second. Note that this is a static method available through calling the entity's class i.\-e. {\ttfamily Entity.\-is\-Larger(a,b)} where a and b are valid \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if {\ttfamily a} has a larger priority than {\ttfamily b},{\ttfamily /false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: First comparand entity \\
+\hline
+{\em b} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: Second comparand entity \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_accf39c5d2ff6e6287ce827c9a8c231ad_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Larger\-Or\-Equal@{is\-Larger\-Or\-Equal}}
+\index{is\-Larger\-Or\-Equal@{is\-Larger\-Or\-Equal}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Larger\-Or\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static final boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Larger\-Or\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{a, }
+\item[{{\bf Entity}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a3ac9a3f7a4a3147b90ad77aa6890006e}
+Checks if the first of the two entities has higher or same priority than the second. Note that this is a static method available through calling the entity's class i.\-e. {\ttfamily Entity.\-is\-Larger\-Or\-Equal(a,b)} where a and b are valid \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if {\ttfamily a} has a larger or equal priority than {\ttfamily b},{\ttfamily /false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: First comparand entity \\
+\hline
+{\em b} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: Second comparand entity \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a3ac9a3f7a4a3147b90ad77aa6890006e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Not\-Equal@{is\-Not\-Equal}}
+\index{is\-Not\-Equal@{is\-Not\-Equal}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Not\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static final boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Not\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{a, }
+\item[{{\bf Entity}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a1ce61c1a0c8c934dcca2343e7be50361}
+Checks if the first of the two entities have different priorities. Note that this is a static method available through calling the entity's class i.\-e. {\ttfamily Entity.\-is\-Not\-Equal(a,b)} where a and b are valid \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if {\ttfamily a} has a different priority than {\ttfamily b},{\ttfamily /false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: First comparand entity \\
+\hline
+{\em b} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: Second comparand entity \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a1ce61c1a0c8c934dcca2343e7be50361_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Queued@{is\-Queued}}
+\index{is\-Queued@{is\-Queued}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Queued}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Queued (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_aa9909fff8447e3cd96b17c80bfb8fe8a}
+Tests if this {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} queued in a at least one queue or other {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is queued in at least one queue or other {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}}, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Sim\-Process@{is\-Sim\-Process}}
+\index{is\-Sim\-Process@{is\-Sim\-Process}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Sim\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Sim\-Process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a4e247cc35207fd14b5e97bc5a606536e}
+Tests if this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} actually is a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. Although \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} have an individual life-\/cycle, they can also be handled like entities and be scheduled to be manipulated by an event.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is an instance of class {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}},{\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Smaller@{is\-Smaller}}
+\index{is\-Smaller@{is\-Smaller}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Smaller}]{\setlength{\rightskip}{0pt plus 5cm}static final boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Smaller (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{a, }
+\item[{{\bf Entity}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a8502ccbec24d47dd2b01d2880b2d1f9c}
+Checks if the first of the two entities has a lower priority than the second. Note that this is a static method available through calling the entity's class i.\-e. {\ttfamily Entity.\-is\-Smaller(a,b)} where a and b are valid \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if {\ttfamily a} has a lower priority than {\ttfamily b},{\ttfamily /false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: First comparand entity \\
+\hline
+{\em b} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: Second comparand entity \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a8502ccbec24d47dd2b01d2880b2d1f9c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!is\-Smaller\-Or\-Equal@{is\-Smaller\-Or\-Equal}}
+\index{is\-Smaller\-Or\-Equal@{is\-Smaller\-Or\-Equal}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{is\-Smaller\-Or\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static final boolean desmoj.\-core.\-simulator.\-Entity.\-is\-Smaller\-Or\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{a, }
+\item[{{\bf Entity}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a5922d8b8d9a63c9fffe7e8be1f30c40b}
+Checks if the first of the two entities has lower or same priority than the second. Note that this is a static method available through calling the entity's class i.\-e. {\ttfamily Entity.\-is\-Smaller\-Or\-Equal(a,b)} where a and b are valid \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if {\ttfamily a} has a smaller or equal priority than {\ttfamily b}, {\ttfamily /false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: First comparand entity \\
+\hline
+{\em b} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: Second comparand entity \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a5922d8b8d9a63c9fffe7e8be1f30c40b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-schedule (
+\begin{DoxyParamCaption}
+\item[{Event$<$?$>$}]{what, }
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a307dd9ca6793d5849f81bd4cbe71b909}
+Schedules this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be manipulated by the given Event at the current time plus the given offset. Method returns with a warning message if either \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} or Event are already scheduled in the \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em what} & Event \-: The Event that manipulates this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \\
+\hline
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The offset to the current simulation time at which the event is to be scheduled \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Sim\-Clock}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_clock} 
+\end{DoxySeeAlso}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a307dd9ca6793d5849f81bd4cbe71b909_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-schedule (
+\begin{DoxyParamCaption}
+\item[{Event$<$?$>$}]{what, }
+\item[{{\bf Time\-Instant}}]{when}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_aec44f48b5ae8f5d52142b5c0462e3191}
+Schedules this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be manipulated by the given Event at the given point of time. Method returns with a warning message if either \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} or Event are already scheduled in the event-\/list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em what} & Event \-: The Event that manipulates this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \\
+\hline
+{\em when} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time this event is scheduled to happen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Sim\-Clock}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_clock} 
+\end{DoxySeeAlso}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_aec44f48b5ae8f5d52142b5c0462e3191_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-schedule (
+\begin{DoxyParamCaption}
+\item[{Event$<$?$>$}]{what, }
+\item[{{\bf Sim\-Time}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a1bd40a039c5bf7ce1636cfbe7f30aefb}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Replaced by schedule(\-Event what,\-Time\-Span dt). Schedules this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be manipulated by the given Event at the given offset to the current simulation time. Note that the given point in simulation time is the positive offset to the current simulation time as displayed by the simulation clock. Method returns with a warning message if either \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} or Event are already scheduled in the event-\/list.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em what} & Event \-: The Event that manipulates this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \\
+\hline
+{\em dt} & \doxyref{Sim\-Time}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_time} \-: The offset to the current time this event is scheduled to happen \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Sim\-Clock}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_clock} 
+\end{DoxySeeAlso}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a1bd40a039c5bf7ce1636cfbe7f30aefb_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!schedule\-After@{schedule\-After}}
+\index{schedule\-After@{schedule\-After}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{schedule\-After}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-schedule\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{after, }
+\item[{Event$<$?$>$}]{what}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a277d0e309691e52f99736a188320346c}
+Schedules this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} with the given Event to occur directly after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} that is already scheduled. Note that this event's point of simulation time will be set to be the same as the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time. Thus the event will occur directly after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} but the simulation clock will not change. Will return with a warning message if the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} given as parameter is not scheduled. If there are multiple schedules for the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}, the event will be scheduled after the last occurrence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em after} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} should be scheduled after \\
+\hline
+{\em what} & Event \-: The Event to manipulate this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_a277d0e309691e52f99736a188320346c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!schedule\-Before@{schedule\-Before}}
+\index{schedule\-Before@{schedule\-Before}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{schedule\-Before}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-schedule\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{before, }
+\item[{Event$<$?$>$}]{what}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_aae51cf1ae28a26c92c521a3ce19a780c}
+Schedules this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} with the given Event to occur directly before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} that is scheduled. Note that this event's point of simulation time will be set to be the same as the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time. Thus the event will occur directly before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} but the simulation clock will not change. Issues a warning message if the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} given is not scheduled. If there are multiple schedules for the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}, the event will be scheduled before the first occurrence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} should be scheduled before \\
+\hline
+{\em what} & Event \-: The Event to manipulate this \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_entity_aae51cf1ae28a26c92c521a3ce19a780c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!set\-Priority@{set\-Priority}}
+\index{set\-Priority@{set\-Priority}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{set\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-set\-Priority (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Priority}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_abab018529a4ead41108bfea90f465280}
+Sets the entity's queuing priority to a given integer value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Priority} & int \-: The new priority value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Replaced by {\ttfamily set\-Queueing\-Priority(int new\-Priority)} to avoid confusing with the scheduling priority of an event or process. \end{DoxyRefDesc}
+\index{desmoj\-::core\-::simulator\-::\-Entity@{desmoj\-::core\-::simulator\-::\-Entity}!set\-Queuing\-Priority@{set\-Queuing\-Priority}}
+\index{set\-Queuing\-Priority@{set\-Queuing\-Priority}!desmoj::core::simulator::Entity@{desmoj\-::core\-::simulator\-::\-Entity}}
+\subsubsection[{set\-Queuing\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Entity.\-set\-Queuing\-Priority (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Priority}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_entity_a4fe1e980833b0b4cc81fde470a66ce27}
+Sets the entity's queuing priority to a given integer value. The default priority of each entity (unless assigned otherwise) is zero. Negative priorities are lower, positive priorities are higher. All values should be inside the range defined by Java's integral {\ttfamily integer} data type [-\/2147483648, +2147483647].
+
+An entity's queuing priority can be used by the modeller to determine how the entity is treated by queues, though how precisely a queue will use the priority to determine sort order is up to it's queuing strategy\-: 
+\begin{DoxyItemize}
+\item {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} sorts entities by their queuing priority, highest priority first. Entities with the same priority are enqueued based on "first in, first out". 
+\item {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} also sorts entities by their priority, highest priority first. However, entities with the same priority are enqueued based on "last in, first out". 
+\item {\ttfamily Queue\-Based.\-Random} assigns a random position to each entity entering the queue, disregarding priority. 
+\end{DoxyItemize}Of course, the modeller is free to use the queuing priority to determine how entities are processed by the components he implements himself, whether they are queues or not.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Priority} & int \-: The new queuing priority value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Entity.\-java\end{DoxyCompactItemize}

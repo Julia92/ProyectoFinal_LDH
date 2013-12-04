@@ -1,0 +1,76 @@
+.TH "desmoj.extensions.applicationDomains.production.MachineProcess" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.MachineProcess \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMachineProcess\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "abstract void \fBlifeCycle\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBMachineProcess\fP represents any kind of machine which is running at some \fC\fBWorkStation\fP\fP and processing parts (products or goods) there\&. \fBMachineProcess\fP is derived from SimProcess\&. Its \fC\fBlifeCycle()\fP\fP must be implemented by the user in order to specify the behavior of the \fBMachineProcess\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimProcess\fP 
+.PP
+\fBProcessing\fP 
+.PP
+\fBWorkStation\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.MachineProcess\&.MachineProcess (\fBModel\fPowner, Stringname, booleanshowInTrace)"
+A standard constructor for a \fBMachineProcess\fP needs a model he belongs to, a name and a flag stating if trace messages of this \fBMachineProcess\fP should be displayed in the trace file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBMachineProcess\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBMachineProcess\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBMachineProcess\fP should be displayed in the trace file or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract void desmoj\&.extensions\&.applicationDomains\&.production\&.MachineProcess\&.lifeCycle ()\fC [pure virtual]\fP"
+Override this method in a subclass of \fBMachineProcess\fP to implement the \fBMachineProcess\fP specific behaviour\&. It should contain at least something to let this \fBMachineProcess\fP wait in a \fC\fBWorkStation\fP\fP for parts to process them, like 
+.br
+ \fC WorkStationXY\&.cooperate(processing);\fP
+.br
+ This \fC\fBlifeCycle()\fP\fP method starts after a \fBMachineProcess\fP has been created and activated by the scheduler\&. It describes the behavior of this special \fBMachineProcess\fP when he is acting alone\&. All action taking place when this \fBMachineProcess\fP (as a master) acts together with other \fCSimProcess\fP es (as slaves) in some process cooperation is described in that special \fCcooperation\fP method of the class \fC\fBProcessing\fP\fP\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

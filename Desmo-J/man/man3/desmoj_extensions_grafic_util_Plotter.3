@@ -1,0 +1,184 @@
+.TH "desmoj.extensions.grafic.util.Plotter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.grafic.util.Plotter \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlotter\fP (String path, Dimension size)"
+.br
+.ti -1c
+.RI "void \fBsetOnScreen\fP (boolean onScreen)"
+.br
+.ti -1c
+.RI "void \fBsetLocale\fP (Locale locale)"
+.br
+.ti -1c
+.RI "void \fBsetTimeZone\fP (TimeZone timeZone)"
+.br
+.ti -1c
+.RI "void \fBsetTimeRange\fP (\fBTimeInstant\fP begin, \fBTimeInstant\fP end)"
+.br
+.ti -1c
+.RI "void \fBmakeHistogramPlot\fP (\fBHistogram\fP histogram, boolean onscreen)"
+.br
+.ti -1c
+.RI "void \fBmakeHistogramPlot\fP (\fBHistogram\fP histogram)"
+.br
+.ti -1c
+.RI "void \fBmakeHistogramAccumulatePlot\fP (\fBHistogramAccumulate\fP histogram)"
+.br
+.ti -1c
+.RI "void \fBmakeTimeSeriesPlot\fP (\fBTimeSeries\fP ts, boolean onscreen)"
+.br
+.ti -1c
+.RI "void \fBmakeTimeSeriesPlot\fP (\fBTimeSeries\fP ts, int plotType, boolean multipleValues)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBTimeSeries_ScatterPlot\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBTimeSeries_StepChart\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBTimeSeries_LineChart\fP = 2"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to plot DesmoJ histogram, histogramAccumulater and time-series data in jFreeChart \fBPlotter\fP\&. When in DesmoJ dataset getShowTimeSpansInReport() is set, the data values are interpreted as a timespan in a appropriate time unit\&. The DesmoJ datasets are converted in jFreeChart Format\&. Onscreen and offscreen plots are supported\&.
+.PP
+See also \fBPaintPanel\fP and \fBTimeSeriesDataSetAdapter\fP
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de and goebel@informatik.uni-hamburg.de modified at 4\&.12\&.2012 by christian.mueller@th-wildau.de
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.Plotter (Stringpath, Dimensionsize)"
+Constructor to set the path of output directory and the size of created image\&. Default are onScreen = false, locale = Locale\&.getDefault, timeZone = TimeZone\&.getdefault 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP 
+.br
+\fIsize\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.makeHistogramAccumulatePlot (\fBHistogramAccumulate\fPhistogram)"
+make a histogramAccumulate plot with a desmoJ histogram dataset\&. In the case histogram\&.getShowTimeSpansInReport() the data values are interpreted as a timespan in a appropriate time unit\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhistogram\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.makeHistogramPlot (\fBHistogram\fPhistogram, booleanonscreen)"
+make a histogram plot with a desmoJ histogram dataset\&. Deprecated, use setOnScreen(onScreen); makeHistogramPlot(histogram); In the case histogram\&.getShowTimeSpansInReport() the data values are interpreted as a timespan in a appropriate time unit\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhistogram\fP 
+.br
+\fIonScreen\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.makeHistogramPlot (\fBHistogram\fPhistogram)"
+make a histogram plot with a desmoJ histogram dataset\&. In the case histogram\&.getShowTimeSpansInReport() the data values are interpreted as a timespan in a appropriate time unit\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhistogram\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.makeTimeSeriesPlot (\fBTimeSeries\fPts, booleanonscreen)"
+make a time-series plot with a desmoJ time-series dataset\&. Deprecated, use setOnScreen(onScreen); makeTimeSeriesPlot(ts, Plotter\&.TimeSeries_ScatterPlot, true); In the case histogram\&.getShowTimeSpansInReport() the data values are interpreted as a timespan in a appropriate time unit\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIts\fP DesmoJ time-series 
+.br
+\fIonscreen\fP Grafic is shown on screen, stored on file otherwise 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.makeTimeSeriesPlot (\fBTimeSeries\fPts, intplotType, booleanmultipleValues)"
+make a time-series plot with a desmoJ time-series dataset\&. In the case ts\&.getShowTimeSpansInReport() the data values are interpreted as a timespan in a appropriate time unit\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIts\fP DesmoJ time-series 
+.br
+\fIplotType\fP possible Values: Plotter\&.TimeSeries_ScatterPlot, Plotter\&.TimeSeries_StepChart Plotter\&.TimeSeries_LinePlot 
+.br
+\fImultipleValues\fP When multipleValues is set, multiple range values of a time value are allowed\&. In the opposite case only the last range value of a time value is accepted\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.setLocale (Localelocale)"
+set locale for both grafic axis 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlocale\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.setOnScreen (booleanonScreen)"
+Grafic is shown on screen, stored on file otherwise 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIonscreen\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.setTimeRange (\fBTimeInstant\fPbegin, \fBTimeInstant\fPend)"
+set date range for timeseries dateaxis\&. When null its automaticly configured by observations\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbegin\fP 
+.br
+\fIend\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.grafic\&.util\&.Plotter\&.setTimeZone (TimeZonetimeZone)"
+set timeZone for timeseries dateaxis 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeZone\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,423 @@
+.TH "desmoj.extensions.space3D.SpatialEntity" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.SpatialEntity \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Entity\fP, \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP, and \fBdesmoj\&.extensions\&.space3D\&.VisibleObject\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialEntity\fP, and \fBdesmoj\&.extensions\&.space3D\&.SimpleLocation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSpatialEntity\fP (\fBModel\fP owner, String name, String visualModel, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBSpatialEntity\fP (\fBModel\fP owner, String name, String visualModel, boolean showInTrace, \fBExtendedLength\fP startPositionX, \fBExtendedLength\fP startPositionY, \fBExtendedLength\fP startPositionZ)"
+.br
+.ti -1c
+.RI "void \fBaddEntryPoint\fP (String name, \fBExtendedLength\fP xPos, \fBExtendedLength\fP yPos, \fBExtendedLength\fP zPos)"
+.br
+.ti -1c
+.RI "void \fBaddExitPoint\fP (String name, \fBExtendedLength\fP xPos, \fBExtendedLength\fP yPos, \fBExtendedLength\fP zPos)"
+.br
+.ti -1c
+.RI "Set< String > \fBgetEntryPointNames\fP ()"
+.br
+.ti -1c
+.RI "Set< String > \fBgetExitPointNames\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP[] \fBgetEntryPoint\fP (String name)"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP[] \fBgetEntryPointGlobal\fP (String name)"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP[] \fBgetExitPoint\fP (String name)"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP[] \fBgetExitPointGlobal\fP (String name)"
+.br
+.ti -1c
+.RI "Matrix4d \fBgetMatrix\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP \fBgetPosX\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP \fBgetPosY\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP \fBgetPosZ\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetVisualModel\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisMovable\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisVisible\fP ()"
+.br
+.ti -1c
+.RI "void \fBremoveVisible\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetRotation\fP ()"
+.br
+.ti -1c
+.RI "void \fBrotX\fP (double angle)"
+.br
+.ti -1c
+.RI "void \fBrotY\fP (double angle)"
+.br
+.ti -1c
+.RI "void \fBrotZ\fP (double angle)"
+.br
+.ti -1c
+.RI "void \fBsetPosition\fP (\fBExtendedLength\fP x, \fBExtendedLength\fP y, \fBExtendedLength\fP z)"
+.br
+.ti -1c
+.RI "void \fBsetVisible\fP (boolean visible)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBSpatialData\fP \fB_spatialData\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+This class represents the DESMO-J Entities which should be visualized but not movable in the 3D space\&. It implements the \fBSpatialObject\fP interface to handle with the 3D spatial data\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.space3D\&.SpatialEntity\&.SpatialEntity (\fBModel\fPowner, Stringname, StringvisualModel, booleanshowInTrace)"
+Constructs a \fBSpatialEntity\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP The model this entity is associated to\&. 
+.br
+\fIname\fP The name of the entity\&. 
+.br
+\fIvisualModel\fP The visual model attribute belongs to the \fBSpatialObject\fP interface\&. 
+.br
+\fIshowInTrace\fP Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.space3D\&.SpatialEntity\&.SpatialEntity (\fBModel\fPowner, Stringname, StringvisualModel, booleanshowInTrace, \fBExtendedLength\fPstartPositionX, \fBExtendedLength\fPstartPositionY, \fBExtendedLength\fPstartPositionZ)"
+Constructs a \fBSpatialEntity\fP with specific start position\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP The model this entity is associated to\&. 
+.br
+\fIname\fP The name of the entity\&. 
+.br
+\fIvisualModel\fP The visual model attribute belongs to the \fBSpatialObject\fP interface\&. 
+.br
+\fIshowInTrace\fP Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&. 
+.br
+\fIstartPositionX\fP The x start position in \fBExtendedLength\fP\&. 
+.br
+\fIstartPositionY\fP The y start position in \fBExtendedLength\fP\&. 
+.br
+\fIstartPositionZ\fP The z start position in \fBExtendedLength\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.addEntryPoint (Stringname, \fBExtendedLength\fPxPos, \fBExtendedLength\fPyPos, \fBExtendedLength\fPzPos)\fC [virtual]\fP"
+Gets a 4x4 matrix back which represents the coordinates of the \fBSpatialObject\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The double[4][4] where the result will be stored\&. Adds an entry point to this \fBSpatialObject\fP\&. The given position should refer to the local coordinates of this \fBSpatialObject\fP\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of this entry point\&. 
+.br
+\fIxPos\fP The x-position of this entry point in local coordinates\&. 
+.br
+\fIyPos\fP The y-position of this entry point in local coordinates\&. 
+.br
+\fIzPos\fP The z-position of this entry point in local coordinates\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.addExitPoint (Stringname, \fBExtendedLength\fPxPos, \fBExtendedLength\fPyPos, \fBExtendedLength\fPzPos)\fC [virtual]\fP"
+Adds an exit point to this \fBSpatialObject\fP\&. The given position should refer to the local coordinates of this \fBSpatialObject\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of this exit point\&. 
+.br
+\fIxPos\fP The x-position of this exit point in local coordinates\&. 
+.br
+\fIyPos\fP The y-position of this exit point in local coordinates\&. 
+.br
+\fIzPos\fP The z-position of this exit point in local coordinates\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP [] desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getEntryPoint (Stringname)\fC [virtual]\fP"
+Gets the position of the given entry point\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the entry point\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The position of the entry point in local coordinates\&. The first element of the array represents the x-position, the second the y-position and the third the z-position\&. It returns null if the \fBSpatialObject\fP doesn't contain the entry point with the given name\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP [] desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getEntryPointGlobal (Stringname)\fC [virtual]\fP"
+Gets the position of the entry point in global coordinates\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the entry point\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The position of the entry point in global coordinates\&. The first element of the array represents the x-position, the second the y-position and the third the z-position\&. It returns null if the \fBSpatialObject\fP doesn't contain the entry point with the given name\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "Set<String> desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getEntryPointNames ()\fC [virtual]\fP"
+Gets a set of names of all the entry points this \fBSpatialObject\fP contains\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+A set of names of the entry points\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP [] desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getExitPoint (Stringname)\fC [virtual]\fP"
+Gets the position of the given exit point\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the exit point\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The position of the exit point in local coordinates\&. The first element of the array represents the x-position, the second the y-position and the third the z-position\&. It returns null if the \fBSpatialObject\fP doesn't contain the exit point with the given name\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP [] desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getExitPointGlobal (Stringname)\fC [virtual]\fP"
+Gets the position of the exit point in global coordinates\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the exit point\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The position of the exit point in global coordinates\&. The first element of the array represents the x-position, the second the y-position and the third the z-position\&. It returns null if the \fBSpatialObject\fP doesn't contain the exit point with the given name\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "Set<String> desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getExitPointNames ()\fC [virtual]\fP"
+Gets a set of names of all the exit points this \fBSpatialObject\fP contains\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+A set of names of the exit points\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "Matrix4d desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getMatrix ()\fC [virtual]\fP"
+Gets a 4x4 double matrix object which contains the spatial data of the SpatialObejct\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The Matrix4d object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getPosX ()\fC [virtual]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+It returns the x-position of the object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getPosY ()\fC [virtual]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+It returns the y-position of the object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getPosZ ()\fC [virtual]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+It returns the z-position of the object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "String desmoj\&.extensions\&.space3D\&.SpatialEntity\&.getVisualModel ()\fC [virtual]\fP"
+Get the type of the \fBSpatialObject\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The type of the \fBSpatialObject\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.VisibleObject\fP\&.
+.SS "boolean desmoj\&.extensions\&.space3D\&.SpatialEntity\&.isMovable ()\fC [virtual]\fP"
+Check whether this Object is a \fBMovableSpatialObject\fP or not\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Return true if this \fBSpatialObject\fP is also a \fBMovableSpatialObject\fP\&. Else, false\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "boolean desmoj\&.extensions\&.space3D\&.SpatialEntity\&.isVisible ()\fC [virtual]\fP"
+Shows the visibility of the visual representation of this object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+True is this object is visible\&. Else, false\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.VisibleObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.removeVisible ()\fC [virtual]\fP"
+Sends a RemoveEvent to signal the observers that this object isn't needed anymore\&.  WARNING: The \fBSpatialObject\fP will be still existing\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.VisibleObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.resetRotation ()\fC [virtual]\fP"
+Resets the rotation of the object\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.rotX (doubleangle)\fC [virtual]\fP"
+Adds a rotation about the x-axis to the current orientation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The rotation angle in radians 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.rotY (doubleangle)\fC [virtual]\fP"
+Adds a rotation about the y-axis to the current orientation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The rotation angle in radians 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.rotZ (doubleangle)\fC [virtual]\fP"
+Adds a rotation about the z-axis to the current orientation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The rotation angle in radians 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.setPosition (\fBExtendedLength\fPx, \fBExtendedLength\fPy, \fBExtendedLength\fPz)\fC [virtual]\fP"
+Update the current spatial data of the object\&. This method should only be used for the internal coordination, not for the position/orientation manipulation\&. The method will change the 3D properties of the \fBSpatialObject\fP\&. But the visualization instance, if used, won't be informed about the change\&. Therefore the visualization won't be updated\&. Inconsistency could be the result\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImatrix\fP The new matrix in a double[16] for the object\&. The first 4 elements are the first row, the next 4 are the second row etc\&. Update the current spatial data of the object\&. This method should only be used for the internal coordination, not for the position/orientation manipulation\&. The method will change the 3D properties of the \fBSpatialObject\fP\&. But the visualization instance, if used, won't be informed about the change\&. Therefore the visualization won't be updated\&. Inconsistency could be the result\&. 
+.br
+\fImatrix\fP The new matrix in Matrix4d\&. It sets the new position for the object\&. * 
+.br
+\fIx\fP The \fBExtendedLength\fP which contains the new x-position\&. 
+.br
+\fIy\fP The \fBExtendedLength\fP which contains the new y-position\&. 
+.br
+\fIz\fP The \fBExtendedLength\fP which contains the new z-position\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialEntity\&.setVisible (booleanvisible)\fC [virtual]\fP"
+Sets the visibility of the visual representation of this object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvisible\fP True, if visible\&. Else, false\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.VisibleObject\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

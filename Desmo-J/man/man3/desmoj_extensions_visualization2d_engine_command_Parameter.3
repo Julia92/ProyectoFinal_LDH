@@ -1,0 +1,200 @@
+.TH "desmoj.extensions.visualization2d.engine.command.Parameter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.command.Parameter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Cloneable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBParameter\fP (String typ, int min, int max)"
+.br
+.ti -1c
+.RI "String \fBgetTyp\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetMin\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetMax\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetValues\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddValue\fP (String v)"
+.br
+.ti -1c
+.RI "void \fBaddValueCat\fP (String[] v)  throws CommandException"
+.br
+.ti -1c
+.RI "String[] \fBgetValueSplit\fP (int i)"
+.br
+.ti -1c
+.RI "\fBParameter\fP \fBclone\fP ()  throws CloneNotSupportedException"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static String \fBcat\fP (String[] v)  throws CommandException"
+.br
+.ti -1c
+.RI "static String[] \fBsplit\fP (String v)"
+.br
+.ti -1c
+.RI "static String \fBreplaceSyntaxSign\fP (String value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBParameter\fP of a \fBCommand\fP Each parameter has a type (name) and can have between min and max values\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.Parameter (Stringtyp, intmin, intmax)"
+Constructor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItyp\fP Typ of \fBParameter\fP 
+.br
+\fImin\fP Min number of possible values 
+.br
+\fImax\fP Max number of possible values 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.addValue (Stringv)"
+add a value to a parameter 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.addValueCat (String[]v) throws \fBCommandException\fP"
+add a value with value-component to a parameter 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBCommandException\fP\fP 
+.RE
+.PP
+
+.SS "static String desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.cat (String[]v) throws \fBCommandException\fP\fC [static]\fP"
+Parameter-value-components v are connected with a value-separator to one string 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string with connected parameters 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBCommandException\fP,when\fP v[i] contains a \fBCmd\&.VALUE_SEPARATOR\fP 
+.RE
+.PP
+
+.SS "\fBParameter\fP desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.clone () throws CloneNotSupportedException"
+create an clone of an parameter, used by CommandFrame\&.clone 
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.getMax ()"
+get max number of possible values 
+.PP
+\fBReturns:\fP
+.RS 4
+max number of possible values 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.getMin ()"
+get min number of possible values 
+.PP
+\fBReturns:\fP
+.RS 4
+min number of possible values 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.getTyp ()"
+Get type of parameter 
+.PP
+\fBReturns:\fP
+.RS 4
+type of parameter 
+.RE
+.PP
+
+.SS "String [] desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.getValues ()"
+get values of parameter 
+.PP
+\fBReturns:\fP
+.RS 4
+array with parameter-values 
+.RE
+.PP
+
+.SS "String [] desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.getValueSplit (inti)"
+get the i\&.th value from a parameter\&. It's components will be splited in a array 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+i\&.th value of parameter-array 
+.RE
+.PP
+
+.SS "static String [] desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.Parameter\&.split (Stringv)\fC [static]\fP"
+A String v is splited in to its parameter-value-components 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+splitted string 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

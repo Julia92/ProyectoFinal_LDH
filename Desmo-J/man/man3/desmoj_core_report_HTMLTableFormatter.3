@@ -1,0 +1,198 @@
+.TH "desmoj.core.report.HTMLTableFormatter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.HTMLTableFormatter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.AbstractTableFormatter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "void \fBcloseRow\fP ()"
+.br
+.ti -1c
+.RI "void \fBcloseTable\fP ()"
+.br
+.ti -1c
+.RI "void \fBcloseTableNoTopTag\fP ()"
+.br
+.ti -1c
+.RI "void \fBopen\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBopenRow\fP ()"
+.br
+.ti -1c
+.RI "void \fBopenTable\fP (String s)"
+.br
+.ti -1c
+.RI "boolean \fBrowIsOpen\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBtableIsOpen\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteCell\fP (String s, int spanning)"
+.br
+.ti -1c
+.RI "void \fBwriteHeading\fP (int style, String s)"
+.br
+.ti -1c
+.RI "void \fBwriteHeadingCell\fP (String s)"
+.br
+.ti -1c
+.RI "void \fBwriteHorizontalRuler\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetFileFormat\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A table formatter class for writing simulation output to HTML tables\&. This class implements the HTML formatting functionality of the deprecated class desmoj\&.report\&.HTMLFileOuptut
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak 
+.PP
+based on \fBHTMLFileOutput\fP by Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.close ()"
+Close the HTML file by writing the footing tags, flushing the buffer and closing the file\&. 
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.closeRow ()"
+Writes the tag to close a row in a table to the file\&. 
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.closeTable ()"
+Inserts the tags needed to close a HTML 3\&.2 table into the file\&. Also inserts a paragraph tag to add some space below the table\&. 
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.closeTableNoTopTag ()"
+Inserts the tags needed to close a HTML 3\&.2 table into the file\&. Also inserts a paragraph tag to add some space below the table\&. But omits the top tag as used in method \fC\fBcloseTable()\fP\fP\&. This is needed if one reportable is generating a report that consists of more than one table (see \fCStockReporter\fP or \fC\fBHistogramReporter\fP\fP) 
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "String desmoj\&.core\&.report\&.HTMLTableFormatter\&.getFileFormat ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The string \fC'html'\fP 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.open (Stringname)"
+Opens a new file with the given fileName for writing a HTML table to\&. If no String is given, the default filename 'unnamed_DESMOJ_file' is used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the file to be created 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.openRow ()"
+Writes the HTML 3\&.2 tags to open a new row in a table to the file\&. A new row can only be started, if the table has alerady been opened and the previous row has been closed\&. 
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.openTable (Strings)"
+Inserts the tags needed to build a HTML 3\&.2 table heading into the file\&. The table's heading text is given with the parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP String : The heading for the table 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "boolean desmoj\&.core\&.report\&.HTMLTableFormatter\&.rowIsOpen ()"
+Returns the status of the current table row that is written to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the method \fC\fBopenRow()\fP\fP has been called last, \fCfalse\fP if the method \fC\fBcloseRow()\fP\fP has been called last 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "boolean desmoj\&.core\&.report\&.HTMLTableFormatter\&.tableIsOpen ()"
+Returns the status of the current table that is written to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the method \fC\fBopenTable()\fP\fP has been called last, \fCfalse\fP if the method \fC\fBcloseTable()\fP\fP has been called last 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.writeCell (Strings, intspanning)"
+Creates a new table cell and writes the given String into that cell\&. Note that there this is raw HTML code so there must not be any special language specific characters that might confuse any browser\&. A new cell can not be written, if neither a table nor a row have been opened yet\&. The method will simply return without action in that case\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP java\&.lang\&.String : The text to be printed into a cell 
+.br
+\fIspanning\fP number of cells to span 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.writeHeading (intstyle, Strings)"
+Creates a newcentered heading row to print a title in\&. Note that there this is raw HTML code so the string given must not contain any special language specific characters that might confuse any browser\&. been opened yet\&. The method will simply return without action in that case\&. The number for the HTML heading style must be inside the range [1,6]\&. If not, it will be trimmed to the nearest legal heading style number\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstyle\fP int : The heading style format number for the text to be printed in 
+.br
+\fIs\fP java\&.lang\&.String : The text to be printed as heading 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.writeHeadingCell (Strings)"
+Creates a new table cell and writes the given String into that cell as heading cells in bold letters and with centered text\&. Note that there this is raw HTML code so there must not be any special language specific characters that might confuse any browser\&. A new cell can not be written, if netiher a tbale nor a row have been opened yet\&. The method will simply return without action in that case\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP java\&.lang\&.String : The text to be printed into a cell 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.HTMLTableFormatter\&.writeHorizontalRuler ()"
+Writes the HTML tag for inserting a horizontal ruler into the file\&. Note that horizontal rulers are not written into table cells, thus this method simply returns, if a table is still open\&. 
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

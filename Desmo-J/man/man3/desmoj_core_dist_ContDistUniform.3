@@ -1,0 +1,143 @@
+.TH "desmoj.core.dist.ContDistUniform" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDistUniform \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.ContDist\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.RealDistUniform\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDistUniform\fP (\fBModel\fP owner, String name, double lowerBorder, double upperBorder, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetLower\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetUpper\fP ()"
+.br
+.ti -1c
+.RI "Double \fBsample\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNonNegative\fP (boolean newValue)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Uniformly distributed stream of pseudo random numbers of type double\&. Values produced by this distribution are uniformly distributed in the range specified as parameters of the constructor\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDistUniform\&.ContDistUniform (\fBModel\fPowner, Stringname, doublelowerBorder, doubleupperBorder, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of pseudo random numbers following a uniform distribution between the lower and the upper value parameter\&. The specific lower and upper borders of the range of this distribution have to be given here at creation time\&. Note that the lower border in fact has to be lower than the upper border\&. If not, the parameters will be swapped to assign the higher value to the upper border of the distribution\&. Two equal values for upper and lower will be accepted, but result in a constant distribution that will invariably return that given value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIlowerBorder\fP double : The minimum value for this distribution 
+.br
+\fIupperBorder\fP double : The maximum value for this distribution 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.ContDistUniform\&.createReporter ()"
+Creates the default reporter for the \fBRealDistUniform\fP distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the \fBRealDistUniform\fP distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.ContDistUniformReporter\fP 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistUniform\&.getLower ()"
+Returns the lower border of the range of this uniform distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The lower border of the range of this uniform distribution 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistUniform\&.getUpper ()"
+Returns the upper border of the range of this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The upper border of the range of this uniform distribution 
+.RE
+.PP
+
+.SS "Double desmoj\&.core\&.dist\&.ContDistUniform\&.sample ()"
+Returns the next floating point sample from this uniform distribution\&. The value returned is basically the uniformly distributed pseudo random number produced by the underlying random generator stretched to match the range specified by the client via construtor parameters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Double : The next floating point sample from this uniform distribution 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.ContDistUniform\&.setNonNegative (booleannewValue)"
+Overrides the same method of \fCdesmoj\&.dist\&.Distribution\fP\&. It makes no sense to set a \fC\fBRealDistUniform\fP\fP object with a negative lower border to nonNegative\&. In this case a warning will be sent\&. 
+.br
+ Sets the nonNegative switch to the given value\&. If nonNegative is set to \fCtrue\fP the distribution returns positive samples only, otherwise it also produces negative samples, if possible\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewValue\fP boolean : If \fCtrue\fP the distribution is set to return positive samples only, otherwise it also produces negative samples, if possible\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

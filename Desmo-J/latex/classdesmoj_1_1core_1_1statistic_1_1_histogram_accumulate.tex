@@ -1,0 +1,587 @@
+\section{desmoj.\-core.\-statistic.\-Histogram\-Accumulate Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate}\index{desmoj.\-core.\-statistic.\-Histogram\-Accumulate@{desmoj.\-core.\-statistic.\-Histogram\-Accumulate}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Histogram\-Accumulate\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Histogram\-Accumulate\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Histogram\-Accumulate} ({\bf Model} owner\-Model, String name, double lower\-End, double upper\-End, int cells, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Histogram\-Accumulate} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, boolean automatic, double lower\-End, double upper\-End, int cells, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Histogram\-Accumulate} ({\bf Model} owner\-Model, String name, double[$\,$] range, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Histogram\-Accumulate} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, boolean automatic, double[$\,$] range, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+void {\bf change\-Parameters} (double low, double up, int cel)
+\item 
+void {\bf change\-Parameters} (double[$\,$] range)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+int {\bf get\-Cells} ()
+\item 
+double {\bf get\-Mean\-Width} ()
+\item 
+double {\bf get\-Lower\-Limit} (int cell)
+\item 
+int[$\,$] {\bf get\-Most\-Frequented\-Cells} ()
+\item 
+{\bf Time\-Span} {\bf get\-Observations\-In\-Cell} (int cell)
+\item 
+double {\bf get\-Upper\-Limit} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf update} ()
+\item 
+void {\bf update} (double value)
+\item 
+void {\bf update} (Observable o, Object arg)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf check\-Param\-And\-Init\-Range} (double lower\-Limit, double upper\-Limit, int cells)
+\item 
+void {\bf check\-Param\-And\-Init\-Range} (double[$\,$] range)
+\item 
+void {\bf init\-Table} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Histogram\-Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate}} class is providing a statistic analysis about values. With each update an observed value is changed. An interval is divided into sections with an under-\/ and an overflow section. When a value is updated it will be decided to which section it belongs to and the time where the observed value is in that section will be updated. In the end the report will show how long values belong to which section. \par
+
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Chr. M\"{u}ller (T\-H Wildau) 28.\-11.\-12
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!Histogram\-Accumulate@{Histogram\-Accumulate}}
+\index{Histogram\-Accumulate@{Histogram\-Accumulate}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{Histogram\-Accumulate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-Histogram\-Accumulate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{double}]{lower\-End, }
+\item[{double}]{upper\-End, }
+\item[{int}]{cells, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a5a99637382fbdba8b4ce3c62341cb6b4}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with equidistant interval cells that will N\-O\-T be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em lower\-End} & double \-: The lower end of the interval. \\
+\hline
+{\em upper\-End} & double \-: The upper end of the interval. \\
+\hline
+{\em cells} & int \-: The number of cells (sections) the given interval will be divided into. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a5a99637382fbdba8b4ce3c62341cb6b4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!Histogram\-Accumulate@{Histogram\-Accumulate}}
+\index{Histogram\-Accumulate@{Histogram\-Accumulate}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{Histogram\-Accumulate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-Histogram\-Accumulate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{boolean}]{automatic, }
+\item[{double}]{lower\-End, }
+\item[{double}]{upper\-End, }
+\item[{int}]{cells, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a442ee0689c7b95a9c0bb17f8a0951d7f}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with equidistant interval cells that will be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the value for this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em automatic} & boolean \-: Flag for observing the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} at every tick of the Sim\-Clock. Set it to {\ttfamily true} to have it observed at every Sim\-Clock tick. \\
+\hline
+{\em lower\-End} & double \-: The lower end of the interval. \\
+\hline
+{\em upper\-End} & double \-: The upper end of the interval. \\
+\hline
+{\em cells} & int \-: The number of cells (sections) the given interval will be divided into. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a442ee0689c7b95a9c0bb17f8a0951d7f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!Histogram\-Accumulate@{Histogram\-Accumulate}}
+\index{Histogram\-Accumulate@{Histogram\-Accumulate}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{Histogram\-Accumulate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-Histogram\-Accumulate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{double[$\,$]}]{range, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a463f66c1f0e788f653599ac847133cc9}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with user-\/defined interval cells that will N\-O\-T be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em range} & double[] \-: The interval with the lower limit of each cell and the upper limit of the interval as the final value. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a463f66c1f0e788f653599ac847133cc9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!Histogram\-Accumulate@{Histogram\-Accumulate}}
+\index{Histogram\-Accumulate@{Histogram\-Accumulate}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{Histogram\-Accumulate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-Histogram\-Accumulate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{boolean}]{automatic, }
+\item[{double[$\,$]}]{range, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_ab37f7d6581becaedbb2eb269f99e413c}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with user-\/defined interval cells that will be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the value for this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em automatic} & boolean \-: Flag for observing the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} at every tick of the Sim\-Clock. Set it to {\ttfamily true} to have it observed at every Sim\-Clock tick. \\
+\hline
+{\em range} & double[] \-: The interval with the lower limit of each cell and the upper limit of the interval as the final value. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_ab37f7d6581becaedbb2eb269f99e413c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!change\-Parameters@{change\-Parameters}}
+\index{change\-Parameters@{change\-Parameters}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{change\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-change\-Parameters (
+\begin{DoxyParamCaption}
+\item[{double}]{low, }
+\item[{double}]{up, }
+\item[{int}]{cel}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a957a6e9cb39396ea3ea86dfbe9999317}
+Changes the parameters of the interval and its number of segments. Can only be done after construction of a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} or after a reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em low} & double \-: The lower end of the interval. \\
+\hline
+{\em up} & double \-: The upper end of the interval. \\
+\hline
+{\em cel} & int \-: The number of cells (sections) the given interval will be divided into. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a957a6e9cb39396ea3ea86dfbe9999317_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!change\-Parameters@{change\-Parameters}}
+\index{change\-Parameters@{change\-Parameters}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{change\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-change\-Parameters (
+\begin{DoxyParamCaption}
+\item[{double[$\,$]}]{range}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a73e27e3aa6bc3b5a82bd32c1642a481b}
+Changes the parameters of the interval and its number of segments. Can only be done after construction of a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} or after a reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em range} & double[] \-: The array holding the lower limits of the interval sections and the upper limit as the final value. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a73e27e3aa6bc3b5a82bd32c1642a481b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}}
+\index{check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{check\-Param\-And\-Init\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-check\-Param\-And\-Init\-Range (
+\begin{DoxyParamCaption}
+\item[{double}]{lower\-Limit, }
+\item[{double}]{upper\-Limit, }
+\item[{int}]{cells}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a3d3e49d730954718382cc523866ebfb8}
+Checks the segmentation of the given equidistant interval and then initializes the range array. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a3d3e49d730954718382cc523866ebfb8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}}
+\index{check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{check\-Param\-And\-Init\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-check\-Param\-And\-Init\-Range (
+\begin{DoxyParamCaption}
+\item[{double[$\,$]}]{range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a20feb0f674552ecd22902c70c6251dea}
+Checks the segmentation of the given user-\/defined interval and then initializes the range array. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a20feb0f674552ecd22902c70c6251dea_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a793ac27c4771d991b9e68c6f01f8a03a}
+Returns a Reporter to produce a report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!get\-Cells@{get\-Cells}}
+\index{get\-Cells@{get\-Cells}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{get\-Cells}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-get\-Cells (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_aa332cb198592de853933e98967ce4405}
+Returns the number of cells the interval is divided into.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of cells the interval is divided into. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!get\-Lower\-Limit@{get\-Lower\-Limit}}
+\index{get\-Lower\-Limit@{get\-Lower\-Limit}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{get\-Lower\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-get\-Lower\-Limit (
+\begin{DoxyParamCaption}
+\item[{int}]{cell}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_ad7d79937d4e8303e4d55d6ac4c478999}
+Returns the lower limit of the given cell. If the given cell is negative, {\ttfamily U\-N\-D\-E\-F\-I\-N\-E\-D} (-\/1) will be returned.
+
+\begin{DoxyReturn}{Returns}
+double \-: The lower limit of the given cell. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & int \-: The cell for which we want to know its lower limit. Should be zero or positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_ad7d79937d4e8303e4d55d6ac4c478999_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!get\-Mean\-Width@{get\-Mean\-Width}}
+\index{get\-Mean\-Width@{get\-Mean\-Width}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{get\-Mean\-Width}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-get\-Mean\-Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a611abd9f3e1dae758a74478e66b0d65d}
+Returns the mean width of all cells.
+
+\begin{DoxyReturn}{Returns}
+double \-: The mean width of all cells. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a611abd9f3e1dae758a74478e66b0d65d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!get\-Most\-Frequented\-Cells@{get\-Most\-Frequented\-Cells}}
+\index{get\-Most\-Frequented\-Cells@{get\-Most\-Frequented\-Cells}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{get\-Most\-Frequented\-Cells}]{\setlength{\rightskip}{0pt plus 5cm}int [$\,$] desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-get\-Most\-Frequented\-Cells (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a3a19517041ebf107451fcd94b7b6a374}
+Returns the numbers of the most frequented cells, so far.
+
+\begin{DoxyReturn}{Returns}
+int[] \-: An array with the numbers of the most frequented cells. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a3a19517041ebf107451fcd94b7b6a374_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!get\-Observations\-In\-Cell@{get\-Observations\-In\-Cell}}
+\index{get\-Observations\-In\-Cell@{get\-Observations\-In\-Cell}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{get\-Observations\-In\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-get\-Observations\-In\-Cell (
+\begin{DoxyParamCaption}
+\item[{int}]{cell}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a37647c21cd2ed1f6240d0d055b93a9eb}
+Returns the observations made for the given cell, so far.
+
+\begin{DoxyReturn}{Returns}
+long \-: The observations made for the given cell. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & int \-: The cell of which want to get the number of observations made for. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a37647c21cd2ed1f6240d0d055b93a9eb_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!get\-Upper\-Limit@{get\-Upper\-Limit}}
+\index{get\-Upper\-Limit@{get\-Upper\-Limit}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{get\-Upper\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-get\-Upper\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a545179e75a38d6d797867830a1af85b9}
+Returns the upper limit of the whole interval.
+
+\begin{DoxyReturn}{Returns}
+double \-: The upper limit of the whole interval. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!init\-Table@{init\-Table}}
+\index{init\-Table@{init\-Table}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{init\-Table}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-init\-Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_af30a3f5ea331f91bc736f64f4dcba810}
+Initializes the table by setting each cell counter to zero. \index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a4714274d73cb5768b1efd4f39bcc4b03}
+Resets this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object by resetting the counters for each cell to zero. That means the array of the cell counters will be reset, but the interval and the number of sections this interval is divided into will remain the same. The parameters of the interval can be changed with the {\ttfamily change\-Parameters} method after the reset. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a4714274d73cb5768b1efd4f39bcc4b03_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a81187a0dc42385936ee5a64f22ba94ba}
+Updates this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} object by fetching the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and processing it. The {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} is passed in the constructor of this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} object. This {\ttfamily \doxyref{update()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a81187a0dc42385936ee5a64f22ba94ba}} method complies with the one described in D\-E\-S\-M\-O, see [Page91]. \index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-update (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_ad69c70816c1019168e4b20521727649b}
+Updates this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} object with the double value given as parameter. In some cases it might be more convenient to pass the value this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} will be updated with directly within the {\ttfamily \doxyref{update(double val)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_ad69c70816c1019168e4b20521727649b}} method instead of going via the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & double \-: The value with which this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} will be updated. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::HistogramAccumulate@{desmoj\-::core\-::statistic\-::\-Histogram\-Accumulate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram\-Accumulate.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a9c71e52ab9c1ad72d5f5f086a731fc91}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a9c71e52ab9c1ad72d5f5f086a731fc91}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+ If no Object (a{\ttfamily null} value) is passed as arg, the actual value of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be fetched with the {\ttfamily value()} method of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}. Otherwise it is expected that the actual value is passed in the Object arg.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally}} is updated. Normally a double number which is added to the statistics or {\ttfamily null}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate_a9c71e52ab9c1ad72d5f5f086a731fc91_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Histogram\-Accumulate.\-java\end{DoxyCompactItemize}

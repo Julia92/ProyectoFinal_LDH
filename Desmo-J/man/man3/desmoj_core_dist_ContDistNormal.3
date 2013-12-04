@@ -1,0 +1,162 @@
+.TH "desmoj.core.dist.ContDistNormal" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDistNormal \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.ContDist\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.RealDistNormal\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDistNormal\fP (\fBModel\fP owner, String name, double \fBmean\fP, double standardDeviation, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMean\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetStdDev\fP ()"
+.br
+.ti -1c
+.RI "Double \fBsample\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBmean\fP"
+.br
+.ti -1c
+.RI "double \fBstdDev\fP"
+.br
+.ti -1c
+.RI "double \fBnextGaussian\fP"
+.br
+.ti -1c
+.RI "boolean \fBhaveNextGaussian\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Normally (also known as 'Gaussian') distributed stream of pseudo random numbers of type double\&. The algorithm used here is derived from the Java API class \fCjava\&.util\&.Random\fP and modified to also produce antithetic values if antithetic mode is switched on\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP 
+.PP
+java\&.util\&.Random
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDistNormal\&.ContDistNormal (\fBModel\fPowner, Stringname, doublemean, doublestandardDeviation, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of pseud random numbers following a normal (also known as 'Gaussian') distribution\&. The specific mean and standard deviation values have to be given here at creation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fImean\fP double : The mean value of the normal distribution 
+.br
+\fIstandardDeviation\fP double : The standard deviation for this distribution 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.ContDistNormal\&.createReporter ()"
+Creates the default reporter for the \fBRealDistNormal\fP distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the \fBRealDistNormal\fP distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.ContDistNormalReporter\fP 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistNormal\&.getMean ()"
+Returns the mean value of this Normal (also known as 'Gaussian') distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean value of this Normal (a\&.k\&.a\&. 'Gaussian') distribution\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistNormal\&.getStdDev ()"
+Returns the standard deviation of this normal (also known as 'Gaussian') distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation of this normal (also known as 'Gaussian') distribution\&. 
+.RE
+.PP
+
+.SS "Double desmoj\&.core\&.dist\&.ContDistNormal\&.sample ()"
+Returns the next normally (also known as 'Gaussian') distributed sample from this distribution\&. The value depends upon the seed, the number of values taken from the stream by using this method before and the mean and standard deviation values specified for this distribution\&. Computation same as RealDistGaussian plus cast to \fClong\fP\&. The basic algorithm has been taken from the Java API \fCjava\&.util\&.Random\&.nextGaussian()\fP with the feature of antithetic random numbers added\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Double : The next normally (also known as 'Gaussian') distributed sample from this distribution\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.dist\&.ContDistNormal\&.haveNextGaussian\fC [protected]\fP"
+Flag indicates wether there is already a calculated Gaussian value present in the buffer variable \fCnextGaussian\fP\&. Necessary for algorithm taken from Java API class \fCjava\&.util\&.Random\fP\&. When calculating a pseudo random number using the algorithm implemented here, two Gaussian values are computed at a time, so the other value is stored to be used next time the client asks for a new value, thus saving on computation time\&. If \fCtrue\fP, there is a next Gaussian value already calculated, if \fCfalse\fP a new pair of Gaussian values has to be generated\&. 
+.SS "double desmoj\&.core\&.dist\&.ContDistNormal\&.mean\fC [protected]\fP"
+The mean value for this type of distribution\&. 
+.SS "double desmoj\&.core\&.dist\&.ContDistNormal\&.nextGaussian\fC [protected]\fP"
+Buffer for storing the next gaussian value already calculated\&. Necessary for algorithm taken from Java API class \fCjava\&.util\&.Random\fP\&. When computing a Gaussian value two samples of a pseudo random number stream are taken and calculated to produce two gaussian values, even if only one is used\&. So the other value is stored to be delivered next time a Gaussian value is requested by a client\&. 
+.SS "double desmoj\&.core\&.dist\&.ContDistNormal\&.stdDev\fC [protected]\fP"
+The standard deviation for this type of distribution 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

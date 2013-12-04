@@ -1,0 +1,194 @@
+.TH "desmoj.core.dist.DistributionManager" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.DistributionManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.NamedObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDistributionManager\fP (String name, long seed)"
+.br
+.ti -1c
+.RI "void \fBdeRegister\fP (\fBDistribution\fP dist)"
+.br
+.ti -1c
+.RI "void \fBnewSeedAll\fP ()"
+.br
+.ti -1c
+.RI "long \fBnextSeed\fP ()"
+.br
+.ti -1c
+.RI "void \fBregister\fP (\fBDistribution\fP dist)"
+.br
+.ti -1c
+.RI "void \fBresetAll\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAntitheticAll\fP (boolean antitheticMode)"
+.br
+.ti -1c
+.RI "void \fBsetSeed\fP (long newSeed)"
+.br
+.ti -1c
+.RI "long \fBgetSeed\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetRandomNumberGenerator\fP (Class<?extends \fBUniformRandomGenerator\fP > randomNumberGenerator)"
+.br
+.ti -1c
+.RI "java\&.util\&.List< \fBDistribution\fP > \fBgetDistributions\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "Class<?extends 
+.br
+\fBUniformRandomGenerator\fP > \fBgetRandomNumberGenerator\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Controls all distributions used during an experiment\&. Provides the service of automatic seed generation for all distributions registered at the distributionmanager\&. Note that all distributions register at instantiation time at the experiment's distributionmanager automatically\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.DistributionManager\&.DistributionManager (Stringname, longseed)"
+Creates a new distributionManager with the given name and the given initial seed for the seed-generator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The distributionmanager's name 
+.br
+\fIseed\fP long : The initial seed for the seedgenerator 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.dist\&.DistributionManager\&.deRegister (\fBDistribution\fPdist)"
+De-registers a distribution from the experiment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdist\fP desmoj\&.dist\&.Distribution : The distribution to be deregistered 
+.RE
+.PP
+
+.SS "java\&.util\&.List<\fBDistribution\fP> desmoj\&.core\&.dist\&.DistributionManager\&.getDistributions ()"
+Returns a list containing all distributions\&. 
+.SS "Class<? extends \fBUniformRandomGenerator\fP> desmoj\&.core\&.dist\&.DistributionManager\&.getRandomNumberGenerator ()\fC [protected]\fP"
+Returns the underlying pseudo random number generator to be used by all distributions\&. This method is intended for internal use (i\&.e\&. called by \fBDistribution\fP) only\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.LinearCongruentialRandomGenerator\fP 
+.PP
+\fBdesmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\fP 
+.PP
+\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.dist\&.DistributionManager\&.getSeed ()"
+Returns the initial seed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : the initial seed 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.DistributionManager\&.newSeedAll ()"
+Provides all registered distributions with new seed values, thus resetting all distribution statistics at the same time\&. 
+.SS "long desmoj\&.core\&.dist\&.DistributionManager\&.nextSeed ()"
+Returns a new seed value to be used as an initial seed for registered distributions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : A new seed value for a registered distribution 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.DistributionManager\&.register (\fBDistribution\fPdist)"
+Registers a new distribution at the experiment to control antithetic mode and set random seed values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdist\fP desmoj\&.dist\&.Distribution : The distribution to be registered 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.DistributionManager\&.resetAll ()"
+Resets all registered distributions\&. Just calls all distribution's individual reset method\&. 
+.SS "void desmoj\&.core\&.dist\&.DistributionManager\&.setAntitheticAll (booleanantitheticMode)"
+Sets antithetic mode to true on all registered distributions regardless of their previous status\&. No reset of statistical counters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIantitheticMode\fP boolean : The new status of antithetic mode 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.DistributionManager\&.setRandomNumberGenerator (Class<?extends \fBUniformRandomGenerator\fP >randomNumberGenerator)"
+Sets the underlying pseudo random number generator to be used by all distributions created from now on\&. The default generator is \fBLinearCongruentialRandomGenerator\fP; any other generator to be used must implement the interface \fBUniformRandomGenerator\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.LinearCongruentialRandomGenerator\fP 
+.PP
+\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrandomNumberGenerator\fP Class : The random number generator class to be used 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.DistributionManager\&.setSeed (longnewSeed)"
+Sets the seed of the SeedGenerator to the given value\&. If the seed is not set here, its default is zero, unless specified in the experimentoptions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewSeed\fP long : The new seed for the seedgenerator 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

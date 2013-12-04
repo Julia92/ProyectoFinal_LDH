@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_standard_file_out_8java" kind="file">
+    <compoundname>StandardFileOut.java</compoundname>
+    <innerclass refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out" prot="public">desmoj::core::report::StandardFileOut</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1core_1_1report">desmoj::core::report</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.core.report;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.BufferedWriter;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.FileWriter;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Writer;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out" kindref="compound">StandardFileOut</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacedesmoj_1_1core_1_1report_1_1_message_receiver" kindref="compound">MessageReceiver</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>A<sp/>better<sp/>design<sp/>would<sp/>be<sp/>to<sp/>have<sp/>a<sp/>filter<sp/>to<sp/>transform<sp/>the<sp/>messages<sp/>on</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>the<sp/>fly<sp/>to<sp/>whatever<sp/>format<sp/>or<sp/>combinations<sp/>of<sp/>formats<sp/>is<sp/>desired.<sp/>That<sp/>is</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>skipped<sp/>due<sp/>to<sp/>the<sp/>resulting<sp/>design<sp/>effort<sp/>exceeding<sp/>the<sp/>time<sp/>available.</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/>_name;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out_1ab9ab3ef315b80eed6fad1199ea93cb35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Writer<sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out_1ab9ab3ef315b80eed6fad1199ea93cb35" kindref="member">fileOut</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out_1a0c0afe42a365a46d1c34db71bbc06852" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out_1a0c0afe42a365a46d1c34db71bbc06852" kindref="member">StandardFileOut</ref>(String<sp/>fileName)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>for<sp/>proper<sp/>file<sp/>suffix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(fileName.endsWith(</highlight><highlight class="stringliteral">&quot;.html&quot;</highlight><highlight class="normal">))<sp/>&amp;&amp;<sp/>!(fileName.endsWith(</highlight><highlight class="stringliteral">&quot;.HTML&quot;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_name<sp/>=<sp/>fileName<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.html&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_name<sp/>=<sp/>fileName;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>try<sp/>to<sp/>open<sp/>a<sp/>new<sp/>file<sp/>and<sp/>use<sp/>a<sp/>buffered<sp/>Writer<sp/>for<sp/>performance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out_1ab9ab3ef315b80eed6fad1199ea93cb35" kindref="member">fileOut</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>BufferedWriter(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FileWriter(_name));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(IOException<sp/>ioEx)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.out.println(</highlight><highlight class="stringliteral">&quot;IOException<sp/>thrown<sp/>:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>ioEx);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.out.println(</highlight><highlight class="stringliteral">&quot;description:<sp/>Can&apos;t<sp/>create<sp/>file<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>_name</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.html&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.out.println(</highlight><highlight class="stringliteral">&quot;origin<sp/><sp/><sp/><sp/><sp/>:<sp/>Experiment<sp/>auxiliaries&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.out</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.println(</highlight><highlight class="stringliteral">&quot;location<sp/><sp/><sp/>:<sp/>constructor<sp/>of<sp/>class<sp/>StandardFileOut&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.out.println(</highlight><highlight class="stringliteral">&quot;hint<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Check<sp/>access<sp/>to<sp/>the<sp/>file<sp/>and&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>that<sp/>it<sp/>is<sp/>not<sp/>in<sp/>use<sp/>by<sp/>some<sp/>other<sp/>application.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.out</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.println(</highlight><highlight class="stringliteral">&quot;The<sp/>System<sp/>will<sp/>not<sp/>be<sp/>shut<sp/>down.<sp/>But<sp/>the<sp/>file<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>fileName</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>can<sp/>not<sp/>be<sp/>created<sp/>and<sp/>important<sp/>data<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;might<sp/>be<sp/>lost!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>the<sp/>system<sp/>will<sp/>not<sp/>be<sp/>shut<sp/>down,<sp/>because<sp/>this<sp/>may<sp/>disrupt<sp/>other</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>programs<sp/>like<sp/>CoSim<sp/>from<sp/>Ralf<sp/>Bachmann<sp/>(Universtiy<sp/>of<sp/>Hamburg,</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>germany).</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>System.exit(-1);<sp/>//<sp/>radical<sp/>but<sp/>no<sp/>time<sp/>for<sp/>fileselectors<sp/>now</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out_1ac2c377f658248612477c5bbe71e34dfb" kindref="member">receive</ref>(<ref refid="classdesmoj_1_1core_1_1report_1_1_message" kindref="compound">Message</ref><sp/>m);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_standard_file_out_1ac2c377f658248612477c5bbe71e34dfb" kindref="member">receive</ref>(<ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref><sp/>r);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/StandardFileOut.java"/>
+  </compounddef>
+</doxygen>

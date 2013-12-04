@@ -1,0 +1,355 @@
+.TH "desmoj.extensions.space3D.SpatialMovementManager" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.SpatialMovementManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSpatialMovementManager\fP (\fBModel\fP simulationModel, \fBMovableSpatialObject\fP sObject)"
+.br
+.ti -1c
+.RI "void \fBattach\fP (\fBMovableSpatialObject\fP host)"
+.br
+.ti -1c
+.RI "void \fBcancelMovingDoneEvent\fP ()"
+.br
+.ti -1c
+.RI "void \fBcancelRotatingDoneEvent\fP ()"
+.br
+.ti -1c
+.RI "void \fBcleanUpMovement\fP ()"
+.br
+.ti -1c
+.RI "void \fBcleanUpRotation\fP ()"
+.br
+.ti -1c
+.RI "void \fBdetach\fP ()"
+.br
+.ti -1c
+.RI "\fBMovement\fP \fBgetCurrentMovement\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetCurrentPositionDuringAttachment\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetCurrentPositionDuringMovement\fP ()"
+.br
+.ti -1c
+.RI "\fBRotation\fP \fBgetCurrentRotation\fP ()"
+.br
+.ti -1c
+.RI "\fBRotation\fP \fBgetCurrentRotationalDataDuringRotation\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetCurrentSpeedDuringAttachment\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetCurrentSpeedDuringMovement\fP ()"
+.br
+.ti -1c
+.RI "Matrix4d \fBgetMatrixDuringAttachment\fP ()"
+.br
+.ti -1c
+.RI "Matrix4d \fBgetRotationMatrixDuringFocusOnTrack\fP ()"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBSpatialObject\fP destination, String entryPointName, \fBTimeSpan\fP simDuration)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBSpatialObject\fP destination, String entryPointName, \fBTimeSpan\fP simDuration, double maxSpeed, double acc, double dec)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBSpatialObject\fP destination, String entryPointName)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBMovement\fP movement)"
+.br
+.ti -1c
+.RI "\fBSpatialData\fP \fBmovingDone\fP (\fBSpatialData\fP data)"
+.br
+.ti -1c
+.RI "\fBSpatialData\fP \fBrotatingDone\fP (\fBSpatialData\fP data)"
+.br
+.ti -1c
+.RI "void \fBrotX\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBrotY\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBrotZ\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBsetFrontSideVector\fP (Vector3d frontSideVector)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A \fBSpatialMovementManager\fP is (only) associated to every movable descendant of \fBMovableSpatialEntity\fP and \fBMovableSpatialSimProcess\fP\&. It serves the interaction between the SpatialObjects, the IVisualObject, and the simulation model\&. It gets tracks from the model,calculates the duration, holds it self back during the animation and updates the coordinates to the SpatialObjects\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.SpatialMovementManager (\fBModel\fPsimulationModel, \fBMovableSpatialObject\fPsObject)\fC [protected]\fP"
+It constructs a \fBSpatialMovementManager\fP object associated to the \fBMovableSpatialObject\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsimulationModel\fP The model which controls the simulation 
+.br
+\fIsObject\fP The associated \fBMovableSpatialObject\fP which should be a descendant of the \fBMovableSpatialEntity\fP or \fBMovableSpatialSimProcess\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.attach (\fBMovableSpatialObject\fPhost)\fC [protected]\fP"
+Informs the \fBSpatialMovementManager\fP that the associated object is attached to another \fBMovableSpatialObject\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhost\fP The \fBMovableSpatialObject\fP to attach to\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.cancelMovingDoneEvent ()\fC [protected]\fP"
+Cancel the current scheduled or buffered \fBMovingDoneEvent\fP\&. 
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.cancelRotatingDoneEvent ()\fC [protected]\fP"
+Cancel the current scheduled or buffered \fBRotatingDoneEvent\fP\&. 
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.cleanUpMovement ()\fC [protected]\fP"
+Notifies the \fBSpatialMovementManager\fP to cancel the current movement\&. 
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.cleanUpRotation ()\fC [protected]\fP"
+Notifies the \fBSpatialMovementManager\fP to cancel the current rotation\&. 
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.detach ()\fC [protected]\fP"
+Remove attachment to a \fBMovableSpatialObject\fP\&. 
+.SS "\fBMovement\fP desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getCurrentMovement ()\fC [protected]\fP"
+Gets the current \fBMovement\fP object, if it exist\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current \fBMovement\fP object which contains data about the current movement\&. 
+.RE
+.PP
+
+.SS "double [] desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getCurrentPositionDuringAttachment ()\fC [protected]\fP"
+Gets the current position while the object is attached\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current position\&. 
+.RE
+.PP
+
+.SS "double [] desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getCurrentPositionDuringMovement ()\fC [protected]\fP"
+Gets the current position on \fBTrack\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+The current position on \fBTrack\fP 
+.RE
+.PP
+
+.SS "\fBRotation\fP desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getCurrentRotation ()\fC [protected]\fP"
+Gets the current \fBRotation\fP object, if exists\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBRotation\fP object which contains the data about the roation performed now\&. 
+.RE
+.PP
+
+.SS "\fBRotation\fP desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getCurrentRotationalDataDuringRotation ()\fC [protected]\fP"
+Returns a rotation object which contains the current rotational data during a rotation\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+A rotation object with the rotation axis, the rotated angle and the elapsed rotation time\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getCurrentSpeedDuringAttachment ()\fC [protected]\fP"
+Gets the current speed while the object is attached\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current speed\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getCurrentSpeedDuringMovement ()\fC [protected]\fP"
+Gets the current moving speed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current moving speed\&. 
+.RE
+.PP
+
+.SS "Matrix4d desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getMatrixDuringAttachment ()\fC [protected]\fP"
+Gets the current matrix while the object is attached\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current matrix\&. 
+.RE
+.PP
+
+.SS "Matrix4d desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.getRotationMatrixDuringFocusOnTrack ()\fC [protected]\fP"
+Gets the matrix with the rotational information resulted from the moving with FocusOnTack\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The matrix with the rotational information\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.move (\fBSpatialObject\fPdestination, StringentryPointName, \fBTimeSpan\fPsimDuration)\fC [protected]\fP"
+Moves the associated \fBMovableSpatialObject\fP to the position of an other \fBSpatialObject\fP with the given duration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination of the movement\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. 
+.br
+\fIsimDuration\fP The duration of the movement in SimTime\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.move (\fBSpatialObject\fPdestination, StringentryPointName, \fBTimeSpan\fPsimDuration, doublemaxSpeed, doubleacc, doubledec)\fC [protected]\fP"
+Moves the associated \fBMovableSpatialObject\fP to the position of an other \fBSpatialObject\fP with the given duration, maximum speed, acceleration and deceleration\&. The character of the movement depends on the initialized parameters\&. (O = initialized, X = not initialized(means <=0 or null)):
+.PP
+case 1: duration O, maxSpeed O, acc & dec O: The movement will be performed according to the parameters\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 2: duration X, maxSpeed O, acc & dec O: The object will be moved to the destination with the fastest speed possible\&.
+.PP
+case 3: duration O, maxSpeed X, acc & dec O: The object will move to the destination with the given acceleration and deceleration and try to reach the destination in time\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 4: duration X, maxSpeed X, acc & dec O: The object will be accelerated and followed by a decdleration\&. There's no constant phase in the movement\&.
+.PP
+case 5: duration O, maxSpeed O, acc or dec X: The object will start with the speed needed to arrive the destination in the given time and break suddenly to zero at the end of the movement\&. The maxSpeed gives the speed limit of the movement\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 6: duration X, maxSpeed O, acc or dec X: The movement will start with the maxSpeed and stops the destination\&.
+.PP
+case 7: duration O, maxSpeed X, acc or dec X: The movement will start with the speed needed to arrive the destination with the duration given\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination of the movement\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. (optional) 
+.br
+\fIsimDuration\fP The duration of the movement\&. (optional) 
+.br
+\fImaxSpeed\fP The specific maximum speed for this movement\&. (optional) 
+.br
+\fIacc\fP The specific acceleration value for this movement\&. (optional) 
+.br
+\fIdec\fP The specific deceleration value for this movement\&. (optional) 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.move (\fBSpatialObject\fPdestination, StringentryPointName)\fC [protected]\fP"
+Moves the associated \fBMovableSpatialObject\fP to the position of an other \fBSpatialObject\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination of the movement\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.move (\fBMovement\fPmovement)\fC [protected]\fP"
+Move the associated \fBMovableSpatialObject\fP according to the given movement object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovement\fP The movement which should be performed\&. 
+.RE
+.PP
+
+.SS "\fBSpatialData\fP desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.movingDone (\fBSpatialData\fPdata)\fC [protected]\fP"
+Notifies the \fBSpatialMovementManager\fP that a movement is done and begin with the update of the coordinates\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP The \fBSpatialData\fP which should be updated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The updated \fBSpatialData\fP 
+.RE
+.PP
+
+.SS "\fBSpatialData\fP desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.rotatingDone (\fBSpatialData\fPdata)\fC [protected]\fP"
+Notifies the \fBSpatialMovementManager\fP that a rotation is done and begin with the update of the coordinates\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP The \fBSpatialData\fP which should be updated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The updated \fBSpatialData\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.rotX (doubleangle, \fBTimeSpan\fPduration)\fC [protected]\fP"
+Rotate the object with the given angle and duration about the X-axis\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The angle to rotate about the X axis in radians\&. 
+.br
+\fIduration\fP The duration for the rotation\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.rotY (doubleangle, \fBTimeSpan\fPduration)\fC [protected]\fP"
+Rotate the object with the given angle and duration about the Y-axis\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The angle to rotate about the Y axis in radians\&. 
+.br
+\fIduration\fP The duration for the rotation\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.rotZ (doubleangle, \fBTimeSpan\fPduration)\fC [protected]\fP"
+Rotate the object with the given angle and duration about the Z-axis\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The angle to rotate about the Z axis in radians\&. 
+.br
+\fIduration\fP The duration for the rotation\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialMovementManager\&.setFrontSideVector (Vector3dfrontSideVector)\fC [protected]\fP"
+Sets the front side vector in this manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfrontSideVector\fP The front side vector to be set\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,267 @@
+.TH "desmoj.core.simulator.Model" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Model \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBModel\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBconnectToExperiment\fP (\fBExperiment\fP exp)"
+.br
+.ti -1c
+.RI "\fBModelReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "abstract String \fBdescription\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBdoInitialSchedules\fP ()"
+.br
+.ti -1c
+.RI "\fBEntity\fP \fBgetEntity\fP (long ident)"
+.br
+.ti -1c
+.RI "List< \fBEntity\fP > \fBgetEntities\fP (boolean includeSubmodels)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP \fBgetExperiment\fP ()"
+.br
+.ti -1c
+.RI "List< \fBReportable\fP > \fBgetReportables\fP ()"
+.br
+.ti -1c
+.RI "\fBModelParameterManager\fP \fBgetParameterManager\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBhasSubModels\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBinit\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP (\fBModelOptions\fP options)"
+.br
+.ti -1c
+.RI "boolean \fBisConnected\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisMainModel\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisSubModel\fP ()"
+.br
+.ti -1c
+.RI "void \fBregister\fP (\fBReportable\fP r)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcheckCompatibility\fP (\fBModelComponent\fP other)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The model is supposed to carry references to all static modelcomponents associated to a model\&. These are modelcomponents like distributions and statistic counters\&. Note that placing all essential components inside the model class allows you to use object orientation to reuse this model to implement different versions of it using subclassing for changes necessary for using other modelling paradigms\&. This way models can be easily reimplemented following the process-, event-, transaction- or activity- oriented paradigm\&. Note that transaction- and activity-oriented modelling requires the higher process synchronization mechanisms (Res, Bin, WaitQueue, CondQueue) by Soenke Claassen\&. 
+.PP
+The modelcomponents belonging to a model have to be instantiated in the \fC\fBinit()\fP\fP method\&. They must not be instantiated in the model's constructor since most components need access to a valid experiment object\&. This can only be accessed after a model has been connected to an experiment using method \fC\fBconnectToExperiment(Experiment exp)\fP\fP which implicitly calls the \fC\fBinit()\fP\fP method after receiving the valid reference to an experiment\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.Model\&.Model (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructs a model, with the given name and parameters for report and trace files\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of this model 
+.br
+\fIowner\fP \fBModel\fP : The main model this model is associated to 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this model in trace-files\&. Set it to \fCtrue\fP if model should show up in trace, \fCfalse\fP if model should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.simulator\&.Model\&.checkCompatibility (\fBModelComponent\fPother)\fC [protected]\fP"
+Checks the given modelcomponent for compatibility\&. Needed exclusively when submodels are present that want to share modelcomponents between them\&. The standard implementation only checks if the modelcomponent \fCother\fP belongs to \fCthis\fP model\&. For use with multiple models, the user has to specify which other models are compatible to this model by overloading this method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns \fCtrue\fP if the given modelcomponent is compatible to this model, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIother\fP \fBModelComponent\fP : The modelcomponent that needs to be checked for compatibility to this model\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Model\&.connectToExperiment (\fBExperiment\fPexp)"
+Connects this model to an experiment\&. The given experiment must not already be connected to some other model\&. Otherwise an errormessage will be given and the experiment will be stopped\&. Since a model that is not yet connected has no access to the experiment's messaging subsystem, 
+.SS "\fBModelReporter\fP desmoj\&.core\&.simulator\&.Model\&.createReporter ()"
+Creates the default reporter associated with this model\&. The default reporter returned by this method just prints the model's description as implemented in method \fC\fBdescription()\fP\fP and appends the simulation time of the last reset\&. If the user's model offers more information, create a special class derived from class \fCdesmoj\&.report\&.ModelReporter\fP to extract and present that extra information\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBReportable\fP : The reporter associated with this model 
+.RE
+.PP
+
+.SS "abstract String desmoj\&.core\&.simulator\&.Model\&.description ()\fC [pure virtual]\fP"
+Should return the description of the model\&. Implement this method to document the model's intent, creator, date and all other information that needs to be published about this model in a report\&. Please use it generously, other people interested in your model will thank you\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The description of the model as a text String 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.Model\&.doInitialSchedules ()\fC [pure virtual]\fP"
+Implement this method to schedule the entities and/or events needed for your model to start in a defined setting\&. If a model is connected to an experiment and started without any initial schedules, it will not run since no events to process are on the scheduler's event-list\&. This method is called automatically by the framework when the experiment's \fCstart()\fP method is called\&. 
+.SS "List<\fBEntity\fP> desmoj\&.core\&.simulator\&.Model\&.getEntities (booleanincludeSubmodels)"
+Returns a list of this model's entities\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIincludeSubmodels\fP boolean : Do include (true) or exclude (false) submodels' entities in the list\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+List<Entity> : The class will return a list of all existing objects of \fC\fBEntity\fP\fP or null if no list exists\&. 
+.RE
+.PP
+
+.SS "\fBEntity\fP desmoj\&.core\&.simulator\&.Model\&.getEntity (longident)"
+Returns the entity to the belonging identifier\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The class will return the \fC\fBEntity\fP\fP or null if no such exists\&. 
+.RE
+.PP
+
+.SS "\fBExperiment\fP desmoj\&.core\&.simulator\&.Model\&.getExperiment ()"
+Returns the experiment that is connected to this model or \fCnull\fP if the model is not yet connected to an experiment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBExperiment\fP : The experiment that this model is connected to or \fCnull\fP if no connection is established 
+.RE
+.PP
+
+.SS "\fBModelParameterManager\fP desmoj\&.core\&.simulator\&.Model\&.getParameterManager ()"
+Returns the \fBModel\fP's viewpoint of the \fBParameterManager\fP
+.PP
+\fBReturns:\fP
+.RS 4
+\fBModelParameterManager\fP : The \fBParameterManager\fP 
+.RE
+.PP
+
+.SS "List<\fBReportable\fP> desmoj\&.core\&.simulator\&.Model\&.getReportables ()"
+Returns a copy of the dynamic list containing all reportable components of this model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+reportables : A list containing all reportable components of this model\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Model\&.hasSubModels ()"
+Shows, if there are submodels registered with this model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True, if there is at least one submodel registered at this \fBModel\fP, flase if there are no submodels 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.Model\&.init ()\fC [pure virtual]\fP"
+Implement this method to do initialization work for your model\&. All ModelComponents associated with this model are supposed to be instantiated in this method\&. 
+.PP
+\fICaution! Do not use the \fBModel\fP's constructor method to instantiate your modelcomponents!\fP 
+.br
+ This prevents the modelcomponents to get contact to the associated \fBExperiment\fP since a \fBModel\fP can only be connected to an \fBExperiment\fP after itself has been instantiated correctly\&. Thus it is necessary to put all initialization and instantiation work into this method\&. Do not use this method to do the initial schedules needed for the scheduler to start with\&. Use method \fC\fBdoInitialSchedules()\fP\fP instead\&. If there are no events scheduled in the event-list, the scheduler will stop the simulation immediately because there is nothing for him to do\&. If you are using submodels, take care that each of the submodels has its own \fCinit\fP method properly set up\&. 
+.PP
+Implemented in \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\fP\&.
+.SS "void desmoj\&.core\&.simulator\&.Model\&.init (\fBModelOptions\fPoptions)"
+Initializes the model by calling method \fC\fBinit()\fP\fP to set up all model related components as specified in that method\&. After initializing the model, the given ModelOption's \fCsetOption()\fP method is called with this model as parameter\&. This enables the user to specify different model parameter settings for different experiments\&. It even allows automated parameter variation to give a small but handy aid for model optimization\&. Implement the \fBModelOptions\fP to set the parameters for your model\&. Make sure to react properly on the \fBModelOptions\fP given\&. Note that specifiying \fBModelOptions\fP is up to the user\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIoptions\fP \fBModelOptions\fP : The parameter settings for this model 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Model\&.isConnected ()"
+Shows if this model has already been connected to an experiment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP, if model is connected to an experiment, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Model\&.isMainModel ()"
+Shows if this model is a main model and thus is not submodel of other models\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns \fCtrue\fP if the model is a main model, \fCfalse\fP if it is a submodel of other models 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Model\&.isSubModel ()"
+Shows if this model is submodel to another model and thus is not the main models\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns \fCtrue\fP if the model is a submodel of other models, \fCfalse\fP if it is a main model 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Model\&.register (\fBReportable\fPr)"
+Registers a reportable at this model\&. Reports can only be drawn, if the reportbale is registered at his model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIr\fP \fBdesmoj\&.core\&.simulator\&.Reportable\fP : The reportable to be registered 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Model\&.reset ()"
+Resets the statistic counters of this model and of all its registered reportables\&. Also calls all submodels's \fC\fBreset()\fP\fP methods\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

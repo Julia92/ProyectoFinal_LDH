@@ -1,0 +1,537 @@
+\section{desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager Class Reference}
+\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager}\index{desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager@{desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager}}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Spatial\-Movement\-Manager} ({\bf Model} simulation\-Model, {\bf Movable\-Spatial\-Object} s\-Object)
+\item 
+void {\bf attach} ({\bf Movable\-Spatial\-Object} host)
+\item 
+void {\bf cancel\-Moving\-Done\-Event} ()
+\item 
+void {\bf cancel\-Rotating\-Done\-Event} ()
+\item 
+void {\bf clean\-Up\-Movement} ()
+\item 
+void {\bf clean\-Up\-Rotation} ()
+\item 
+void {\bf detach} ()
+\item 
+{\bf Movement} {\bf get\-Current\-Movement} ()
+\item 
+double[$\,$] {\bf get\-Current\-Position\-During\-Attachment} ()
+\item 
+double[$\,$] {\bf get\-Current\-Position\-During\-Movement} ()
+\item 
+{\bf Rotation} {\bf get\-Current\-Rotation} ()
+\item 
+{\bf Rotation} {\bf get\-Current\-Rotational\-Data\-During\-Rotation} ()
+\item 
+double {\bf get\-Current\-Speed\-During\-Attachment} ()
+\item 
+double {\bf get\-Current\-Speed\-During\-Movement} ()
+\item 
+Matrix4d {\bf get\-Matrix\-During\-Attachment} ()
+\item 
+Matrix4d {\bf get\-Rotation\-Matrix\-During\-Focus\-On\-Track} ()
+\item 
+void {\bf move} ({\bf Spatial\-Object} destination, String entry\-Point\-Name, {\bf Time\-Span} sim\-Duration)
+\item 
+void {\bf move} ({\bf Spatial\-Object} destination, String entry\-Point\-Name, {\bf Time\-Span} sim\-Duration, double max\-Speed, double acc, double dec)
+\item 
+void {\bf move} ({\bf Spatial\-Object} destination, String entry\-Point\-Name)
+\item 
+void {\bf move} ({\bf Movement} movement)
+\item 
+{\bf Spatial\-Data} {\bf moving\-Done} ({\bf Spatial\-Data} data)
+\item 
+{\bf Spatial\-Data} {\bf rotating\-Done} ({\bf Spatial\-Data} data)
+\item 
+void {\bf rot\-X} (double angle, {\bf Time\-Span} duration)
+\item 
+void {\bf rot\-Y} (double angle, {\bf Time\-Span} duration)
+\item 
+void {\bf rot\-Z} (double angle, {\bf Time\-Span} duration)
+\item 
+void {\bf set\-Front\-Side\-Vector} (Vector3d front\-Side\-Vector)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \doxyref{Spatial\-Movement\-Manager}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager} is (only) associated to every movable descendant of \doxyref{Movable\-Spatial\-Entity}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity} and \doxyref{Movable\-Spatial\-Sim\-Process}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process}. It serves the interaction between the Spatial\-Objects, the I\-Visual\-Object, and the simulation model. It gets tracks from the model,calculates the duration, holds it self back during the animation and updates the coordinates to the Spatial\-Objects.
+
+\begin{DoxyAuthor}{Author}
+Fred Sun 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!Spatial\-Movement\-Manager@{Spatial\-Movement\-Manager}}
+\index{Spatial\-Movement\-Manager@{Spatial\-Movement\-Manager}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{Spatial\-Movement\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-Spatial\-Movement\-Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{simulation\-Model, }
+\item[{{\bf Movable\-Spatial\-Object}}]{s\-Object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_aaf92a06ea8542d736ae230c3a26cb34c}
+It constructs a \doxyref{Spatial\-Movement\-Manager}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager} object associated to the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} 
+\begin{DoxyParams}{Parameters}
+{\em simulation\-Model} & The model which controls the simulation \\
+\hline
+{\em s\-Object} & The associated \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} which should be a descendant of the \doxyref{Movable\-Spatial\-Entity}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity} or \doxyref{Movable\-Spatial\-Sim\-Process}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!attach@{attach}}
+\index{attach@{attach}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{attach}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-attach (
+\begin{DoxyParamCaption}
+\item[{{\bf Movable\-Spatial\-Object}}]{host}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a154d77b854906f4e98485b1f9b0f654e}
+Informs the \doxyref{Spatial\-Movement\-Manager}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager} that the associated object is attached to another \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. 
+\begin{DoxyParams}{Parameters}
+{\em host} & The \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} to attach to. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!cancel\-Moving\-Done\-Event@{cancel\-Moving\-Done\-Event}}
+\index{cancel\-Moving\-Done\-Event@{cancel\-Moving\-Done\-Event}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{cancel\-Moving\-Done\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-cancel\-Moving\-Done\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ab666ba69be4fcaf1cad905d4f19b21eb}
+Cancel the current scheduled or buffered \doxyref{Moving\-Done\-Event}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_moving_done_event}. \index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!cancel\-Rotating\-Done\-Event@{cancel\-Rotating\-Done\-Event}}
+\index{cancel\-Rotating\-Done\-Event@{cancel\-Rotating\-Done\-Event}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{cancel\-Rotating\-Done\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-cancel\-Rotating\-Done\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a9425c9bf81781768a3d1f7f3c9d87b11}
+Cancel the current scheduled or buffered \doxyref{Rotating\-Done\-Event}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_rotating_done_event}. \index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!clean\-Up\-Movement@{clean\-Up\-Movement}}
+\index{clean\-Up\-Movement@{clean\-Up\-Movement}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{clean\-Up\-Movement}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-clean\-Up\-Movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a0c7755151242608b99c9e2ad5c98abcb}
+Notifies the \doxyref{Spatial\-Movement\-Manager}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager} to cancel the current movement. \index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!clean\-Up\-Rotation@{clean\-Up\-Rotation}}
+\index{clean\-Up\-Rotation@{clean\-Up\-Rotation}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{clean\-Up\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-clean\-Up\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_aa93122b47b61b181bfff5ff180670b2a}
+Notifies the \doxyref{Spatial\-Movement\-Manager}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager} to cancel the current rotation. \index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!detach@{detach}}
+\index{detach@{detach}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{detach}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-detach (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a91205ea53f5b34894862c4fea44bdea0}
+Remove attachment to a \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a91205ea53f5b34894862c4fea44bdea0_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Current\-Movement@{get\-Current\-Movement}}
+\index{get\-Current\-Movement@{get\-Current\-Movement}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Current\-Movement}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Movement} desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Current\-Movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_abbfa6d3756de5278b12f45a6f40cd014}
+Gets the current \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} object, if it exist. \begin{DoxyReturn}{Returns}
+The current \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} object which contains data about the current movement. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Current\-Position\-During\-Attachment@{get\-Current\-Position\-During\-Attachment}}
+\index{get\-Current\-Position\-During\-Attachment@{get\-Current\-Position\-During\-Attachment}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Current\-Position\-During\-Attachment}]{\setlength{\rightskip}{0pt plus 5cm}double [$\,$] desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Current\-Position\-During\-Attachment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_aca62e8e4f73e89d609f1841f9aef8571}
+Gets the current position while the object is attached. \begin{DoxyReturn}{Returns}
+The current position. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Current\-Position\-During\-Movement@{get\-Current\-Position\-During\-Movement}}
+\index{get\-Current\-Position\-During\-Movement@{get\-Current\-Position\-During\-Movement}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Current\-Position\-During\-Movement}]{\setlength{\rightskip}{0pt plus 5cm}double [$\,$] desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Current\-Position\-During\-Movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ab12f4bedd47d575298248c6877bf0dff}
+Gets the current position on \doxyref{Track}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_track} \begin{DoxyReturn}{Returns}
+The current position on \doxyref{Track}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_track} 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Current\-Rotation@{get\-Current\-Rotation}}
+\index{get\-Current\-Rotation@{get\-Current\-Rotation}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Current\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rotation} desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Current\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ad87660309113c85d713f06038f7605ed}
+Gets the current \doxyref{Rotation}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_rotation} object, if exists. \begin{DoxyReturn}{Returns}
+The \doxyref{Rotation}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_rotation} object which contains the data about the roation performed now. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Current\-Rotational\-Data\-During\-Rotation@{get\-Current\-Rotational\-Data\-During\-Rotation}}
+\index{get\-Current\-Rotational\-Data\-During\-Rotation@{get\-Current\-Rotational\-Data\-During\-Rotation}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Current\-Rotational\-Data\-During\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rotation} desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Current\-Rotational\-Data\-During\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ada4cf870c40c7c52d091312b4d258cea}
+Returns a rotation object which contains the current rotational data during a rotation. \begin{DoxyReturn}{Returns}
+A rotation object with the rotation axis, the rotated angle and the elapsed rotation time. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ada4cf870c40c7c52d091312b4d258cea_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Current\-Speed\-During\-Attachment@{get\-Current\-Speed\-During\-Attachment}}
+\index{get\-Current\-Speed\-During\-Attachment@{get\-Current\-Speed\-During\-Attachment}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Current\-Speed\-During\-Attachment}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Current\-Speed\-During\-Attachment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a3f017c821514e5b65da4a891582969e1}
+Gets the current speed while the object is attached. \begin{DoxyReturn}{Returns}
+The current speed. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Current\-Speed\-During\-Movement@{get\-Current\-Speed\-During\-Movement}}
+\index{get\-Current\-Speed\-During\-Movement@{get\-Current\-Speed\-During\-Movement}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Current\-Speed\-During\-Movement}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Current\-Speed\-During\-Movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a8dd31f08d17ddafb7c113a18efd285ea}
+Gets the current moving speed. \begin{DoxyReturn}{Returns}
+The current moving speed. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Matrix\-During\-Attachment@{get\-Matrix\-During\-Attachment}}
+\index{get\-Matrix\-During\-Attachment@{get\-Matrix\-During\-Attachment}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Matrix\-During\-Attachment}]{\setlength{\rightskip}{0pt plus 5cm}Matrix4d desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Matrix\-During\-Attachment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ae27578ab8d5a202d180c908032824696}
+Gets the current matrix while the object is attached. \begin{DoxyReturn}{Returns}
+The current matrix. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!get\-Rotation\-Matrix\-During\-Focus\-On\-Track@{get\-Rotation\-Matrix\-During\-Focus\-On\-Track}}
+\index{get\-Rotation\-Matrix\-During\-Focus\-On\-Track@{get\-Rotation\-Matrix\-During\-Focus\-On\-Track}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{get\-Rotation\-Matrix\-During\-Focus\-On\-Track}]{\setlength{\rightskip}{0pt plus 5cm}Matrix4d desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-get\-Rotation\-Matrix\-During\-Focus\-On\-Track (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a16a4aa0bf1d23ad71697aaebc79d4935}
+Gets the matrix with the rotational information resulted from the moving with Focus\-On\-Tack. \begin{DoxyReturn}{Returns}
+The matrix with the rotational information. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a16a4aa0bf1d23ad71697aaebc79d4935_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{entry\-Point\-Name, }
+\item[{{\bf Time\-Span}}]{sim\-Duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a57b56099c797eb5212ebf5a69461fec4}
+Moves the associated \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} to the position of an other \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} with the given duration. 
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination of the movement. \\
+\hline
+{\em enttry\-Point\-Name} & The name of the specific entry point at the destination object, which should be steered to. \\
+\hline
+{\em sim\-Duration} & The duration of the movement in Sim\-Time. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a57b56099c797eb5212ebf5a69461fec4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{entry\-Point\-Name, }
+\item[{{\bf Time\-Span}}]{sim\-Duration, }
+\item[{double}]{max\-Speed, }
+\item[{double}]{acc, }
+\item[{double}]{dec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_afc4ace17e8f8f1a86faa3dc21096353b}
+Moves the associated \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} to the position of an other \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} with the given duration, maximum speed, acceleration and deceleration. The character of the movement depends on the initialized parameters. (O = initialized, X = not initialized(means $<$=0 or null))\-:
+
+case 1\-: duration O, max\-Speed O, acc \& dec O\-: The movement will be performed according to the parameters. If the given parameters can't be satisfied, an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown.
+
+case 2\-: duration X, max\-Speed O, acc \& dec O\-: The object will be moved to the destination with the fastest speed possible.
+
+case 3\-: duration O, max\-Speed X, acc \& dec O\-: The object will move to the destination with the given acceleration and deceleration and try to reach the destination in time. If the given parameters can't be satisfied, an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown.
+
+case 4\-: duration X, max\-Speed X, acc \& dec O\-: The object will be accelerated and followed by a decdleration. There's no constant phase in the movement.
+
+case 5\-: duration O, max\-Speed O, acc or dec X\-: The object will start with the speed needed to arrive the destination in the given time and break suddenly to zero at the end of the movement. The max\-Speed gives the speed limit of the movement. If the given parameters can't be satisfied, an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown.
+
+case 6\-: duration X, max\-Speed O, acc or dec X\-: The movement will start with the max\-Speed and stops the destination.
+
+case 7\-: duration O, max\-Speed X, acc or dec X\-: The movement will start with the speed needed to arrive the destination with the duration given.
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination of the movement. \\
+\hline
+{\em enttry\-Point\-Name} & The name of the specific entry point at the destination object, which should be steered to. (optional) \\
+\hline
+{\em sim\-Duration} & The duration of the movement. (optional) \\
+\hline
+{\em max\-Speed} & The specific maximum speed for this movement. (optional) \\
+\hline
+{\em acc} & The specific acceleration value for this movement. (optional) \\
+\hline
+{\em dec} & The specific deceleration value for this movement. (optional) \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_afc4ace17e8f8f1a86faa3dc21096353b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{entry\-Point\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a334188bc406ed7b0ab3fe0d9825313a8}
+Moves the associated \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} to the position of an other \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object}. 
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination of the movement. \\
+\hline
+{\em enttry\-Point\-Name} & The name of the specific entry point at the destination object, which should be steered to. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a334188bc406ed7b0ab3fe0d9825313a8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Movement}}]{movement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a871e3986060f594f23715bba8b286632}
+Move the associated \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} according to the given movement object. 
+\begin{DoxyParams}{Parameters}
+{\em movement} & The movement which should be performed. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a871e3986060f594f23715bba8b286632_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!moving\-Done@{moving\-Done}}
+\index{moving\-Done@{moving\-Done}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{moving\-Done}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Spatial\-Data} desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-moving\-Done (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Data}}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a43be6cbb315475abfe7f556d98720fed}
+Notifies the \doxyref{Spatial\-Movement\-Manager}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager} that a movement is done and begin with the update of the coordinates. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The \doxyref{Spatial\-Data}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data} which should be updated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated \doxyref{Spatial\-Data}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data} 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a43be6cbb315475abfe7f556d98720fed_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!rotating\-Done@{rotating\-Done}}
+\index{rotating\-Done@{rotating\-Done}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{rotating\-Done}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Spatial\-Data} desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-rotating\-Done (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Data}}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a56e366e694e41160c8a8be344598a82e}
+Notifies the \doxyref{Spatial\-Movement\-Manager}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager} that a rotation is done and begin with the update of the coordinates. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The \doxyref{Spatial\-Data}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data} which should be updated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated \doxyref{Spatial\-Data}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data} 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!rot\-X@{rot\-X}}
+\index{rot\-X@{rot\-X}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{rot\-X}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-rot\-X (
+\begin{DoxyParamCaption}
+\item[{double}]{angle, }
+\item[{{\bf Time\-Span}}]{duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ab9e40776d3e2bc0f567dd2443445eb29}
+Rotate the object with the given angle and duration about the X-\/axis. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & The angle to rotate about the X axis in radians. \\
+\hline
+{\em duration} & The duration for the rotation. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_ab9e40776d3e2bc0f567dd2443445eb29_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!rot\-Y@{rot\-Y}}
+\index{rot\-Y@{rot\-Y}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{rot\-Y}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-rot\-Y (
+\begin{DoxyParamCaption}
+\item[{double}]{angle, }
+\item[{{\bf Time\-Span}}]{duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a29f69a7793492fb81a9165a0b1dbebf6}
+Rotate the object with the given angle and duration about the Y-\/axis. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & The angle to rotate about the Y axis in radians. \\
+\hline
+{\em duration} & The duration for the rotation. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a29f69a7793492fb81a9165a0b1dbebf6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!rot\-Z@{rot\-Z}}
+\index{rot\-Z@{rot\-Z}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{rot\-Z}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-rot\-Z (
+\begin{DoxyParamCaption}
+\item[{double}]{angle, }
+\item[{{\bf Time\-Span}}]{duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a77900277424f4be240d0b0e0b34730b6}
+Rotate the object with the given angle and duration about the Z-\/axis. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & The angle to rotate about the Z axis in radians. \\
+\hline
+{\em duration} & The duration for the rotation. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_a77900277424f4be240d0b0e0b34730b6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}!set\-Front\-Side\-Vector@{set\-Front\-Side\-Vector}}
+\index{set\-Front\-Side\-Vector@{set\-Front\-Side\-Vector}!desmoj::extensions::space3D::SpatialMovementManager@{desmoj\-::extensions\-::space3\-D\-::\-Spatial\-Movement\-Manager}}
+\subsubsection[{set\-Front\-Side\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Spatial\-Movement\-Manager.\-set\-Front\-Side\-Vector (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{front\-Side\-Vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_movement_manager_aa420b9dd067ae3ca0ee7b9861f66d7d8}
+Sets the front side vector in this manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em front\-Side\-Vector} & The front side vector to be set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/space3\-D/Spatial\-Movement\-Manager.\-java\end{DoxyCompactItemize}

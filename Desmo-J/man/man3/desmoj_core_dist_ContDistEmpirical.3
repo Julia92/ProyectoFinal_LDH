@@ -1,0 +1,134 @@
+.TH "desmoj.core.dist.ContDistEmpirical" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDistEmpirical \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.ContDist\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.RealDistEmpirical\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDistEmpirical\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBaddEntry\fP (double value, double frequency)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisInitialized\fP ()"
+.br
+.ti -1c
+.RI "Double \fBsample\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Empirically distributed stream of pseudo random numbers of type \fCdouble\fP\&. Values produced by this distribution follow an empirical distribution which is specified by entries consisting of the observed value and the frequency (probability) this value has been observed to occur\&. These entries are made by using the \fC\fBaddEntry()\fP\fP method\&. There are a few conditions a user has to meet before actually being allowed to take a sample of this distribution\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.Distribution\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDistEmpirical\&.ContDistEmpirical (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructs an empirical distribution pruducing floating point values\&. Empirical distributions have to be initialized manually before use\&. This is done by calling the \fCaddEntry(long, double)\fP method to add values defining the behaviour of the desired distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.dist\&.ContDistEmpirical\&.addEntry (doublevalue, doublefrequency)"
+Adds a new entry of an empirical value and its associated cumulative frequency\&. No two values may be equal, since there can not be two different frequencies for one observed value\&. Entries with same value/frequency pair as an entry already made before are simply ignored\&.
+.PP
+As soon as there is exactly one value with a cumulative probability of 0 and one value with a cumulative probability of 1, this distribution is considered 'initialized', making it possible to obtain samples via the \fBsample()\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP double : The empirical value observed 
+.br
+\fIfrequency\fP double : The corresponding cumulative frequency of the empirical value 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.ContDistEmpirical\&.createReporter ()"
+Creates the default reporter for the \fBRealDistEmpirical\fP distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the \fBRealDistEmpirical\fP distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+ContDistEmpiricalReporter 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.dist\&.ContDistEmpirical\&.isInitialized ()"
+Shows if the \fBRealDistEmpirical\fP distribution already is initialized\&. Being initialized means that there is exactly one value with a cumulative probability of 0 and one value with a cumulative probability of 1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.SS "Double desmoj\&.core\&.dist\&.ContDistEmpirical\&.sample ()"
+Returns the next sample specified by the empirical distribution\&. Return values are calculated by linear interpolation between the two values surrounding that value given by the random generator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Double : The next sample for this empirical distribution or 0 if the distribution has not been properly initialized yet 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

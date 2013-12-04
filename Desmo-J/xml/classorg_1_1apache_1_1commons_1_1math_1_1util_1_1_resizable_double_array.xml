@@ -1,0 +1,1141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array" kind="class" prot="public">
+    <compoundname>org::apache::commons::math::util::ResizableDoubleArray</compoundname>
+    <basecompoundref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array" prot="public" virt="non-virtual">org.apache.commons.math.util.DoubleArray</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a597a6a5e5ca28715f10fc7e310ad700e" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.apache.commons.math.util.ResizableDoubleArray.serialVersionUID</definition>
+        <argsstring></argsstring>
+        <name>serialVersionUID</name>
+        <initializer>= -3485529955529426875L</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serializable version identifier </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="74" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4b3720d652ac26588c35c15a498c81fa" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.apache.commons.math.util.ResizableDoubleArray.ADDITIVE_MODE</definition>
+        <argsstring></argsstring>
+        <name>ADDITIVE_MODE</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>additive expansion mode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="77" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acd5f6919cde4ee770b01b277d40f7ad0" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.apache.commons.math.util.ResizableDoubleArray.MULTIPLICATIVE_MODE</definition>
+        <argsstring></argsstring>
+        <name>MULTIPLICATIVE_MODE</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>multiplicative expansion mode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="80" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a8877b0c4e1658ea5f15bf40c8646f36a" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float org.apache.commons.math.util.ResizableDoubleArray.contractionCriteria</definition>
+        <argsstring></argsstring>
+        <name>contractionCriteria</name>
+        <initializer>= 2.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The contraction criteria determines when the internal array will be contracted to fit the number of elements contained in the element array + 1. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="87" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float org.apache.commons.math.util.ResizableDoubleArray.expansionFactor</definition>
+        <argsstring></argsstring>
+        <name>expansionFactor</name>
+        <initializer>= 2.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The expansion factor of the array. When the array needs to be expanded, the new array size will be <computeroutput>internalArray.length * expansionFactor</computeroutput> if <computeroutput>expansionMode</computeroutput> is set to MULTIPLICATIVE_MODE, or <computeroutput>internalArray.length + expansionFactor</computeroutput> if <computeroutput>expansionMode</computeroutput> is set to ADDITIVE_MODE. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="97" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1abd57ac08e08c9f448ec3c867c3a0e82d" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.apache.commons.math.util.ResizableDoubleArray.expansionMode</definition>
+        <argsstring></argsstring>
+        <name>expansionMode</name>
+        <initializer>= <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acd5f6919cde4ee770b01b277d40f7ad0" kindref="member">MULTIPLICATIVE_MODE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determines whether array expansion by <computeroutput>expansionFactor</computeroutput> is additive or multiplicative. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="103" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.apache.commons.math.util.ResizableDoubleArray.initialCapacity</definition>
+        <argsstring></argsstring>
+        <name>initialCapacity</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The initial capacity of the array. Initial capacity is not exposed as a property as it is only meaningful when passed to a constructor. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="109" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" prot="protected" static="no" mutable="no">
+        <type>double[]</type>
+        <definition>double [] org.apache.commons.math.util.ResizableDoubleArray.internalArray</definition>
+        <argsstring></argsstring>
+        <name>internalArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The internal storage array. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="114" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.apache.commons.math.util.ResizableDoubleArray.numElements</definition>
+        <argsstring></argsstring>
+        <name>numElements</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of addressable elements in the array. Note that this has nothing to do with the length of the internal storage array. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="120" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.apache.commons.math.util.ResizableDoubleArray.startIndex</definition>
+        <argsstring></argsstring>
+        <name>startIndex</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The position of the first addressable element in the internal storage array. The addressable elements in the array are <computeroutput> internalArray[startIndex],...,internalArray[startIndex + numElements -1] </computeroutput> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="128" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a1e2c01980cd78fb7546d8dfd9351f00c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.apache.commons.math.util.ResizableDoubleArray.ResizableDoubleArray</definition>
+        <argsstring>()</argsstring>
+        <name>ResizableDoubleArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a ResizableArray with default properties. <itemizedlist>
+<listitem>
+<para><computeroutput>initialCapacity = 16</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>expansionMode = MULTIPLICATIVE_MODE</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>expansionFactor = 2.5</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>contractionFactor = 2.0</computeroutput> </para></listitem>
+</itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="139" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="139" bodyend="141"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" compoundref="_resizable_double_array_8java" startline="109">org.apache.commons.math.util.ResizableDoubleArray.initialCapacity</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ad1813cbeb0f34119f5818fba1e6fbc41" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.apache.commons.math.util.ResizableDoubleArray.ResizableDoubleArray</definition>
+        <argsstring>(int initialCapacity)</argsstring>
+        <name>ResizableDoubleArray</name>
+        <param>
+          <type>int</type>
+          <declname>initialCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a ResizableArray with the specified initial capacity. Other properties take default values: <itemizedlist>
+<listitem>
+<para><computeroutput>expansionMode = MULTIPLICATIVE_MODE</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>expansionFactor = 2.5</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>contractionFactor = 2.0</computeroutput> </para></listitem>
+</itemizedlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initialCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial size of the internal storage array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if initialCapacity is not &gt; 0 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="154" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="154" bodyend="157"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab0efdde68c87c78281249d7c577a21f2" compoundref="_resizable_double_array_8java" startline="624" endline="635">org.apache.commons.math.util.ResizableDoubleArray.setInitialCapacity</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a11fcebab040edaefd2a70151c79ce3f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.apache.commons.math.util.ResizableDoubleArray.ResizableDoubleArray</definition>
+        <argsstring>(int initialCapacity, float expansionFactor)</argsstring>
+        <name>ResizableDoubleArray</name>
+        <param>
+          <type>int</type>
+          <declname>initialCapacity</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>expansionFactor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a ResizableArray with the specified initial capacity and expansion factor. The remaining properties take default values: <itemizedlist>
+<listitem>
+<para><computeroutput>expansionMode = MULTIPLICATIVE_MODE</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>contractionFactor = 0.5 + expansionFactor</computeroutput> </para></listitem>
+</itemizedlist>
+</para><para>Throws IllegalArgumentException if the following conditions are not met: <itemizedlist>
+<listitem>
+<para><computeroutput>initialCapacity &gt; 0</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>expansionFactor &gt; 1</computeroutput> </para></listitem>
+</itemizedlist>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initialCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial size of the internal storage array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expansionFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array will be expanded based on this parameter </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if parameters are not valid </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="181" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="181" bodyend="186"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" compoundref="_resizable_double_array_8java" startline="97">org.apache.commons.math.util.ResizableDoubleArray.expansionFactor</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab0efdde68c87c78281249d7c577a21f2" compoundref="_resizable_double_array_8java" startline="624" endline="635">org.apache.commons.math.util.ResizableDoubleArray.setInitialCapacity</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" compoundref="_resizable_double_array_8java" startline="109">org.apache.commons.math.util.ResizableDoubleArray.initialCapacity</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a64acd762fc9f935b349c703753247547" compoundref="_resizable_double_array_8java" startline="553" endline="556">org.apache.commons.math.util.ResizableDoubleArray.setContractionCriteria</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a0c7b4d3f9acbe4ae8c79b05501f8f9b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.apache.commons.math.util.ResizableDoubleArray.ResizableDoubleArray</definition>
+        <argsstring>(int initialCapacity, float expansionFactor, float contractionCriteria)</argsstring>
+        <name>ResizableDoubleArray</name>
+        <param>
+          <type>int</type>
+          <declname>initialCapacity</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>expansionFactor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>contractionCriteria</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a ResizableArray with the specified initialCapacity, expansionFactor, and contractionCriteria. The <computeroutput>expansionMode</computeroutput> will default to <computeroutput>MULTIPLICATIVE_MODE.</computeroutput></para><para>Throws IllegalArgumentException if the following conditions are not met: <itemizedlist>
+<listitem>
+<para><computeroutput>initialCapacity &gt; 0</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>expansionFactor &gt; 1</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>contractionFactor &gt;= expansionFactor</computeroutput> </para></listitem>
+</itemizedlist>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initialCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial size of the internal storage array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expansionFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array will be expanded based on this parameter </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contractionCriteria</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The contraction Criteria. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if parameters are not valid </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="207" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="207" bodyend="213"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" compoundref="_resizable_double_array_8java" startline="97">org.apache.commons.math.util.ResizableDoubleArray.expansionFactor</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a64acd762fc9f935b349c703753247547" compoundref="_resizable_double_array_8java" startline="553" endline="556">org.apache.commons.math.util.ResizableDoubleArray.setContractionCriteria</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab0efdde68c87c78281249d7c577a21f2" compoundref="_resizable_double_array_8java" startline="624" endline="635">org.apache.commons.math.util.ResizableDoubleArray.setInitialCapacity</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" compoundref="_resizable_double_array_8java" startline="109">org.apache.commons.math.util.ResizableDoubleArray.initialCapacity</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a02715736b537526f7a960d51875541e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.apache.commons.math.util.ResizableDoubleArray.ResizableDoubleArray</definition>
+        <argsstring>(int initialCapacity, float expansionFactor, float contractionCriteria, int expansionMode)</argsstring>
+        <name>ResizableDoubleArray</name>
+        <param>
+          <type>int</type>
+          <declname>initialCapacity</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>expansionFactor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>contractionCriteria</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>expansionMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a ResizableArray with the specified properties.</para><para>Throws IllegalArgumentException if the following conditions are not met: <itemizedlist>
+<listitem>
+<para><computeroutput>initialCapacity &gt; 0</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>expansionFactor &gt; 1</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>contractionFactor &gt;= expansionFactor</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>expansionMode in {MULTIPLICATIVE_MODE, ADDITIVE_MODE}</computeroutput>  </para></listitem>
+</itemizedlist>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initialCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial size of the internal storage array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expansionFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array will be expanded based on this parameter </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contractionCriteria</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the contraction Criteria </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expansionMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the expansion mode </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if parameters are not valid </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="236" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="236" bodyend="243"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" compoundref="_resizable_double_array_8java" startline="97">org.apache.commons.math.util.ResizableDoubleArray.expansionFactor</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a64acd762fc9f935b349c703753247547" compoundref="_resizable_double_array_8java" startline="553" endline="556">org.apache.commons.math.util.ResizableDoubleArray.setContractionCriteria</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab0efdde68c87c78281249d7c577a21f2" compoundref="_resizable_double_array_8java" startline="624" endline="635">org.apache.commons.math.util.ResizableDoubleArray.setInitialCapacity</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a10873780079ffd462348f95ffab9c63f" compoundref="_resizable_double_array_8java" startline="609" endline="615">org.apache.commons.math.util.ResizableDoubleArray.setExpansionMode</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" compoundref="_resizable_double_array_8java" startline="109">org.apache.commons.math.util.ResizableDoubleArray.initialCapacity</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a92bf109c1bd11b2b8ad312bbed29e13e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.addElement</definition>
+        <argsstring>(double value)</argsstring>
+        <name>addElement</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_1a347c72406c0b4c85b46a73d66457aa34">addElement</reimplements>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an element to the end of this expandable array.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to be added to end of array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="250" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="250" bodyend="259"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a06f3bead2e00045fbd03b210a5c7a416" compoundref="_resizable_double_array_8java" startline="399" endline="417">org.apache.commons.math.util.ResizableDoubleArray.expand</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a40fa40faec8ec6ade31953fed8e98a2b" compoundref="_resizable_double_array_8java" startline="351" endline="360">org.apache.commons.math.util.ResizableDoubleArray.contract</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a503cbf4a4a334030e27a5a63d2456f4c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized double</type>
+        <definition>synchronized double org.apache.commons.math.util.ResizableDoubleArray.addElementRolling</definition>
+        <argsstring>(double value)</argsstring>
+        <name>addElementRolling</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_1a8aa2fff7b3371a8aa8adf7b74bd40bbc">addElementRolling</reimplements>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds an element to the end of the array and removes the first element in the array. Returns the discarded first element. The effect is similar to a push operation in a FIFO queue. </para><para>Example: If the array contains the elements 1, 2, 3, 4 (in that order) and addElementRolling(5) is invoked, the result is an array containing the entries 2, 3, 4, 5 and the value returned is 1. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to be added to the array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the value which has been discarded or &quot;pushed&quot; out of the array by this rolling insert </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="277" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="277" bodyend="294"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a06f3bead2e00045fbd03b210a5c7a416" compoundref="_resizable_double_array_8java" startline="399" endline="417">org.apache.commons.math.util.ResizableDoubleArray.expand</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a40fa40faec8ec6ade31953fed8e98a2b" compoundref="_resizable_double_array_8java" startline="351" endline="360">org.apache.commons.math.util.ResizableDoubleArray.contract</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a12e1042fcf4e23d2af373f7f0841c424" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_1a010496d02237d3b12b228a378a825720">clear</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear the array, reset the size to the initialCapacity and the number of elements to zero. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="341" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="341" bodyend="344"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" compoundref="_resizable_double_array_8java" startline="109">org.apache.commons.math.util.ResizableDoubleArray.initialCapacity</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a40fa40faec8ec6ade31953fed8e98a2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.contract</definition>
+        <argsstring>()</argsstring>
+        <name>contract</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contracts the storage array to the (size of the element set) + 1 - to avoid a zero length array. This function also resets the startIndex to zero. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="351" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="351" bodyend="360"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7cbc39dbb4280a2e5877bd824a838c99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.discardFrontElements</definition>
+        <argsstring>(int i)</argsstring>
+        <name>discardFrontElements</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Discards the <computeroutput>i<computeroutput> initial elements of the array. For example, if the array contains the elements 1,2,3,4, invoking <computeroutput>discardFrontElements(2)</computeroutput> will cause the first two elements to be discarded, leaving 3,4 in the array. Throws illegalArgumentException if i exceeds numElements.</computeroutput></computeroutput></para><para><computeroutput><computeroutput><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of elements to discard from the front of the array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if i is greater than numElements. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</computeroutput></computeroutput></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="372" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="372" bodyend="388"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a40fa40faec8ec6ade31953fed8e98a2b" compoundref="_resizable_double_array_8java" startline="351" endline="360">org.apache.commons.math.util.ResizableDoubleArray.contract</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7206489dcd50f7959edc7eb2992d1ca4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float org.apache.commons.math.util.ResizableDoubleArray.getContractionCriteria</definition>
+        <argsstring>()</argsstring>
+        <name>getContractionCriteria</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The contraction criteria defines when the internal array will contract to store only the number of elements in the element array. If the <computeroutput>expansionMode</computeroutput> is <computeroutput>MULTIPLICATIVE_MODE</computeroutput>, contraction is triggered when the ratio between storage array length and <computeroutput>numElements</computeroutput> exceeds <computeroutput>contractionFactor</computeroutput>. If the <computeroutput>expansionMode</computeroutput> is <computeroutput>ADDITIVE_MODE</computeroutput>, the number of excess storage locations is compared to <computeroutput>contractionFactor.</computeroutput></para><para><simplesect kind="return"><para>the contraction criteria used to reclaim memory. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="443" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="443" bodyend="445"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a8877b0c4e1658ea5f15bf40c8646f36a" compoundref="_resizable_double_array_8java" startline="87">org.apache.commons.math.util.ResizableDoubleArray.contractionCriteria</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a9175fe9c64ce121b99f1a7a9b76823e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized double</type>
+        <definition>synchronized double org.apache.commons.math.util.ResizableDoubleArray.getElement</definition>
+        <argsstring>(int index)</argsstring>
+        <name>getElement</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_1a4788b0b461ccc0479fdd084bec4c9fec">getElement</reimplements>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the element at the specified index</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index to fetch a value from </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value stored at the specified index </para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArrayIndexOutOfBoundsException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <computeroutput>index</computeroutput> is less than zero or is greater than <computeroutput><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4867e8a1b5286f7a41ceb130d5580694" kindref="member">getNumElements()</ref> - 1</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="455" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="455" bodyend="468"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acf87696cae93f22fbe65ad4d94024b62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized double[]</type>
+        <definition>synchronized double [] org.apache.commons.math.util.ResizableDoubleArray.getElements</definition>
+        <argsstring>()</argsstring>
+        <name>getElements</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_1a1817778927ba7081bdc06b1a268a20de">getElements</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a double array containing the elements of this <computeroutput>ResizableArray</computeroutput>. This method returns a copy, not a reference to the underlying array, so that changes made to the returned array have no effect on this <computeroutput>ResizableArray.</computeroutput> <simplesect kind="return"><para>the double array. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="477" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="477" bodyend="482"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4a27067f85029e987a88e0e8a98e8fa0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float org.apache.commons.math.util.ResizableDoubleArray.getExpansionFactor</definition>
+        <argsstring>()</argsstring>
+        <name>getExpansionFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The expansion factor controls the size of a new aray when an array needs to be expanded. The <computeroutput>expansionMode</computeroutput> determines whether the size of the array is multiplied by the <computeroutput>expansionFactor</computeroutput> (MULTIPLICATIVE_MODE) or if the expansion is additive (ADDITIVE_MODE <ndash/> <computeroutput>expansionFactor</computeroutput> storage locations added). The default <computeroutput>expansionMode</computeroutput> is MULTIPLICATIVE_MODE and the default <computeroutput>expansionFactor</computeroutput> is 2.0.</para><para><simplesect kind="return"><para>the expansion factor of this expandable double array </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="496" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="496" bodyend="498"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" compoundref="_resizable_double_array_8java" startline="97">org.apache.commons.math.util.ResizableDoubleArray.expansionFactor</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab28c913053be5ef3fa0012b133f63779" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.apache.commons.math.util.ResizableDoubleArray.getExpansionMode</definition>
+        <argsstring>()</argsstring>
+        <name>getExpansionMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <computeroutput>expansionMode</computeroutput> determines whether the internal storage array grows additively (ADDITIVE_MODE) or multiplicatively (MULTIPLICATIVE_MODE) when it is expanded.</para><para><simplesect kind="return"><para>Returns the expansionMode. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="507" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="507" bodyend="509"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1abd57ac08e08c9f448ec3c867c3a0e82d" compoundref="_resizable_double_array_8java" startline="103">org.apache.commons.math.util.ResizableDoubleArray.expansionMode</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4867e8a1b5286f7a41ceb130d5580694" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized int</type>
+        <definition>synchronized int org.apache.commons.math.util.ResizableDoubleArray.getNumElements</definition>
+        <argsstring>()</argsstring>
+        <name>getNumElements</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_1a89da043e713a69ce300c5f0f7e8fc087">getNumElements</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of elements currently in the array. Please note that this is different from the length of the internal storage array.</para><para><simplesect kind="return"><para>number of elements </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="529" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="529" bodyend="531"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ac3b418d3c0f45b683127694b2da23302" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized double[]</type>
+        <definition>synchronized double [] org.apache.commons.math.util.ResizableDoubleArray.getValues</definition>
+        <argsstring>()</argsstring>
+        <name>getValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the internal storage array. Note that this method returns a reference to the internal storage array, not a copy, and to correctly address elements of the array, the <computeroutput>startIndex</computeroutput> is required (available via the <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a70c7c35747b386233c1b3ec8901da4d9" kindref="member">start</ref> method). This method should only be used in cases where copying the internal array is not practical. The <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acf87696cae93f22fbe65ad4d94024b62" kindref="member">getElements</ref> method should be used in all other cases.</para><para><simplesect kind="return"><para>the internal storage array used by this object </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="544" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="544" bodyend="546"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a64acd762fc9f935b349c703753247547" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.apache.commons.math.util.ResizableDoubleArray.setContractionCriteria</definition>
+        <argsstring>(float contractionCriteria)</argsstring>
+        <name>setContractionCriteria</name>
+        <param>
+          <type>float</type>
+          <declname>contractionCriteria</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the contraction criteria for this ExpandContractDoubleArray.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>contractionCriteria</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contraction criteria </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="553" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="553" bodyend="556"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a3aaac84b10f64f63c2f09cd154a96726" compoundref="_resizable_double_array_8java" startline="306" endline="335">org.apache.commons.math.util.ResizableDoubleArray.checkContractExpand</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4a27067f85029e987a88e0e8a98e8fa0" compoundref="_resizable_double_array_8java" startline="496" endline="498">org.apache.commons.math.util.ResizableDoubleArray.getExpansionFactor</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a8877b0c4e1658ea5f15bf40c8646f36a" compoundref="_resizable_double_array_8java" startline="87">org.apache.commons.math.util.ResizableDoubleArray.contractionCriteria</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ac2d60b4ce4e53faa27dc45c74a7938ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.setElement</definition>
+        <argsstring>(int index, double value)</argsstring>
+        <name>setElement</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_1a083ed88f659246e6a7557e03b4a763f4">setElement</reimplements>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the element at the specified index. If the specified index is greater than <computeroutput><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4867e8a1b5286f7a41ceb130d5580694" kindref="member">getNumElements()</ref> - 1</computeroutput>, the <computeroutput>numElements</computeroutput> property is increased to <computeroutput>index +1</computeroutput> and additional storage is allocated (if necessary) for the new element and all (uninitialized) elements between the new element and the previous end of the array).</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index to store a value in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value to store at the specified index </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>ArrayIndexOutOfBoundsException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <computeroutput>index</computeroutput> is less than zero. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="571" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="571" bodyend="583"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a1bdc1dfc580dae7b0f9866b6f11f85f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.apache.commons.math.util.ResizableDoubleArray.setExpansionFactor</definition>
+        <argsstring>(float expansionFactor)</argsstring>
+        <name>setExpansionFactor</name>
+        <param>
+          <type>float</type>
+          <declname>expansionFactor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the expansionFactor. Throws IllegalArgumentException if the the following conditions are not met: <itemizedlist>
+<listitem>
+<para><computeroutput>expansionFactor &gt; 1</computeroutput> </para></listitem>
+<listitem>
+<para><computeroutput>contractionFactor &gt;= expansionFactor</computeroutput> </para></listitem>
+</itemizedlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>expansionFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new expansion factor value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if expansionFactor is &lt;= 1 or greater than contractionFactor </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="596" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="596" bodyend="600"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a3aaac84b10f64f63c2f09cd154a96726" compoundref="_resizable_double_array_8java" startline="306" endline="335">org.apache.commons.math.util.ResizableDoubleArray.checkContractExpand</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7206489dcd50f7959edc7eb2992d1ca4" compoundref="_resizable_double_array_8java" startline="443" endline="445">org.apache.commons.math.util.ResizableDoubleArray.getContractionCriteria</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" compoundref="_resizable_double_array_8java" startline="97">org.apache.commons.math.util.ResizableDoubleArray.expansionFactor</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a10873780079ffd462348f95ffab9c63f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.apache.commons.math.util.ResizableDoubleArray.setExpansionMode</definition>
+        <argsstring>(int expansionMode)</argsstring>
+        <name>setExpansionMode</name>
+        <param>
+          <type>int</type>
+          <declname>expansionMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <computeroutput>expansionMode</computeroutput>. The specified value must be one of ADDITIVE_MODE, MULTIPLICATIVE_MODE.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>expansionMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expansionMode to set. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the specified mode value is not valid </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="609" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="609" bodyend="615"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acd5f6919cde4ee770b01b277d40f7ad0" compoundref="_resizable_double_array_8java" startline="80">org.apache.commons.math.util.ResizableDoubleArray.MULTIPLICATIVE_MODE</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4b3720d652ac26588c35c15a498c81fa" compoundref="_resizable_double_array_8java" startline="77">org.apache.commons.math.util.ResizableDoubleArray.ADDITIVE_MODE</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1abd57ac08e08c9f448ec3c867c3a0e82d" compoundref="_resizable_double_array_8java" startline="103">org.apache.commons.math.util.ResizableDoubleArray.expansionMode</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ad869414a896f93dbc179ad13f0f83ab5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.setNumElements</definition>
+        <argsstring>(int i)</argsstring>
+        <name>setNumElements</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function allows you to control the number of elements contained in this array, and can be used to &quot;throw out&quot; the last n values in an array. This function will also expand the internal array as needed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a new number of elements </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <computeroutput>i</computeroutput> is negative. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="645" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="645" bodyend="662"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" compoundref="_resizable_double_array_8java" startline="120">org.apache.commons.math.util.ResizableDoubleArray.numElements</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a70c7c35747b386233c1b3ec8901da4d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized int</type>
+        <definition>synchronized int org.apache.commons.math.util.ResizableDoubleArray.start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the starting index of the internal array. The starting index is the position of the first addressable element in the internal storage array. The addressable elements in the array are <computeroutput> internalArray[startIndex],...,internalArray[startIndex + numElements -1] </computeroutput></para><para><simplesect kind="return"><para>starting index </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="687" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="687" bodyend="689"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" compoundref="_resizable_double_array_8java" startline="128">org.apache.commons.math.util.ResizableDoubleArray.startIndex</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a3aaac84b10f64f63c2f09cd154a96726" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.apache.commons.math.util.ResizableDoubleArray.checkContractExpand</definition>
+        <argsstring>(float contractionCritera, float expansionFactor)</argsstring>
+        <name>checkContractExpand</name>
+        <param>
+          <type>float</type>
+          <declname>contractionCritera</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>expansionFactor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the expansion factor and the contraction criteria and throws an IllegalArgumentException if the contractionCriteria is less than the expansionCriteria</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>expansionFactor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>factor to be checked </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>contractionCritera</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>critera to be checked </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the contractionCriteria is less than the expansionCriteria. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="306" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="306" bodyend="335"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a8877b0c4e1658ea5f15bf40c8646f36a" compoundref="_resizable_double_array_8java" startline="87">org.apache.commons.math.util.ResizableDoubleArray.contractionCriteria</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a06f3bead2e00045fbd03b210a5c7a416" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.expand</definition>
+        <argsstring>()</argsstring>
+        <name>expand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Expands the internal storage array using the expansion factor. </para><para>if <computeroutput>expansionMode</computeroutput> is set to MULTIPLICATIVE_MODE, the new array size will be <computeroutput>internalArray.length * expansionFactor.</computeroutput> If <computeroutput>expansionMode</computeroutput> is set to ADDITIVE_MODE, the length after expansion will be <computeroutput>internalArray.length + expansionFactor</computeroutput> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="399" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="399" bodyend="417"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1abd57ac08e08c9f448ec3c867c3a0e82d" compoundref="_resizable_double_array_8java" startline="103">org.apache.commons.math.util.ResizableDoubleArray.expansionMode</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acd5f6919cde4ee770b01b277d40f7ad0" compoundref="_resizable_double_array_8java" startline="80">org.apache.commons.math.util.ResizableDoubleArray.MULTIPLICATIVE_MODE</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" compoundref="_resizable_double_array_8java" startline="114">org.apache.commons.math.util.ResizableDoubleArray.internalArray</references>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" compoundref="_resizable_double_array_8java" startline="97">org.apache.commons.math.util.ResizableDoubleArray.expansionFactor</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab0efdde68c87c78281249d7c577a21f2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.apache.commons.math.util.ResizableDoubleArray.setInitialCapacity</definition>
+        <argsstring>(int initialCapacity)</argsstring>
+        <name>setInitialCapacity</name>
+        <param>
+          <type>int</type>
+          <declname>initialCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the initial capacity. Should only be invoked by constructors.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initialCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <computeroutput>initialCapacity</computeroutput> is not positive. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="624" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="624" bodyend="635"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" compoundref="_resizable_double_array_8java" startline="109">org.apache.commons.math.util.ResizableDoubleArray.initialCapacity</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae974dcff2ffee6c26f3cd88d4e333a24" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized void</type>
+        <definition>synchronized void org.apache.commons.math.util.ResizableDoubleArray.expandTo</definition>
+        <argsstring>(int size)</argsstring>
+        <name>expandTo</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Expands the internal storage array to the specified size.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the new internal storage array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="424" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="424" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1aa7a98556c965854a9fe04addab92bc5c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized boolean</type>
+        <definition>synchronized boolean org.apache.commons.math.util.ResizableDoubleArray.shouldContract</definition>
+        <argsstring>()</argsstring>
+        <name>shouldContract</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the internal storage array has too many unused storage positions.</para><para><simplesect kind="return"><para>true if array satisfies the contraction criteria </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="670" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="670" bodyend="676"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1afcd5c5730c763bcac1736fd77a9e55d4" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized int</type>
+        <definition>synchronized int org.apache.commons.math.util.ResizableDoubleArray.getInternalLength</definition>
+        <argsstring>()</argsstring>
+        <name>getInternalLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Notice the package scope on this method. This method is simply here for the JUnit test, it allows us check if the expansion is working properly after a number of expansions. This is not meant to be a part of the public interface of this class.</para><para><simplesect kind="return"><para>the length of the internal storage array. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="519" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="519" bodyend="521"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A variable length <ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array" kindref="compound">DoubleArray</ref> implementation that automatically handles expanding and contracting its internal storage array as elements are added and removed. </para><para>The internal storage array starts with capacity determined by the <computeroutput>initialCapacity</computeroutput> property, which can be set by the constructor. The default initial capacity is 16. Adding elements using <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a92bf109c1bd11b2b8ad312bbed29e13e" kindref="member">addElement(double)</ref> appends elements to the end of the array. When there are no open entries at the end of the internal storage array, the array is expanded. The size of the expanded array depends on the <computeroutput>expansionMode</computeroutput> and <computeroutput>expansionFactor</computeroutput> properties. The <computeroutput>expansionMode</computeroutput> determines whether the size of the array is multiplied by the <computeroutput>expansionFactor</computeroutput> (MULTIPLICATIVE_MODE) or if the expansion is additive (ADDITIVE_MODE <ndash/> <computeroutput>expansionFactor</computeroutput> storage locations added). The default <computeroutput>expansionMode</computeroutput> is MULTIPLICATIVE_MODE and the default <computeroutput>expansionFactor</computeroutput> is 2.0. </para><para>The <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a503cbf4a4a334030e27a5a63d2456f4c" kindref="member">addElementRolling(double)</ref> method adds a new element to the end of the internal storage array and adjusts the &quot;usable window&quot; of the internal array forward by one position (effectively making what was the second element the first, and so on). Repeated activations of this method (or activation of <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7cbc39dbb4280a2e5877bd824a838c99" kindref="member">discardFrontElements(int)</ref>) will effectively orphan the storage locations at the beginning of the internal storage array. To reclaim this storage, each time one of these methods is activated, the size of the internal storage array is compared to the number of addressable elements (the <computeroutput>numElements</computeroutput> property) and if the difference is too large, the internal array is contracted to size <computeroutput>numElements + 1.</computeroutput> The determination of when the internal storage array is &quot;too large&quot; depends on the <computeroutput>expansionMode</computeroutput> and <computeroutput>contractionFactor</computeroutput> properties. If the <computeroutput>expansionMode</computeroutput> is <computeroutput>MULTIPLICATIVE_MODE</computeroutput>, contraction is triggered when the ratio between storage array length and <computeroutput>numElements</computeroutput> exceeds <computeroutput>contractionFactor.</computeroutput> If the <computeroutput>expansionMode</computeroutput> is <computeroutput>ADDITIVE_MODE,</computeroutput> the number of excess storage locations is compared to <computeroutput>contractionFactor.</computeroutput> </para><para>To avoid cycles of expansions and contractions, the <computeroutput>expansionFactor</computeroutput> must not exceed the <computeroutput>contractionFactor.</computeroutput> Constructors and mutators for both of these properties enforce this requirement, throwing IllegalArgumentException if it is violated. </para><para><simplesect kind="version"><para></para></simplesect>
+<simplesect kind="rcs"><title>Revision:</title><para>618057 </para></simplesect>
+<simplesect kind="rcs"><title>Date:</title><para>2008-02-03 11:58:54 -0700 (Sun, 03 Feb 2008) </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="10236">
+        <label>org.apache.commons.math.util.DoubleArray</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array"/>
+      </node>
+      <node id="10237">
+        <label>Serializable</label>
+      </node>
+      <node id="10235">
+        <label>org.apache.commons.math.util.ResizableDoubleArray</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array"/>
+        <childnode refid="10236" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10237" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10239">
+        <label>org.apache.commons.math.util.DoubleArray</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array"/>
+      </node>
+      <node id="10240">
+        <label>Serializable</label>
+      </node>
+      <node id="10238">
+        <label>org.apache.commons.math.util.ResizableDoubleArray</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array"/>
+        <childnode refid="10239" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10240" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" line="71" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/ResizableDoubleArray.java" bodystart="71" bodyend="691"/>
+    <listofallmembers>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a92bf109c1bd11b2b8ad312bbed29e13e" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>addElement</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a503cbf4a4a334030e27a5a63d2456f4c" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>addElementRolling</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4b3720d652ac26588c35c15a498c81fa" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>ADDITIVE_MODE</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a3aaac84b10f64f63c2f09cd154a96726" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>checkContractExpand</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a12e1042fcf4e23d2af373f7f0841c424" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>clear</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a40fa40faec8ec6ade31953fed8e98a2b" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>contract</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a8877b0c4e1658ea5f15bf40c8646f36a" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>contractionCriteria</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7cbc39dbb4280a2e5877bd824a838c99" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>discardFrontElements</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a06f3bead2e00045fbd03b210a5c7a416" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>expand</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae974dcff2ffee6c26f3cd88d4e333a24" prot="private" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>expandTo</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a961ef37ef3c91e34036298f30034e713" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>expansionFactor</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1abd57ac08e08c9f448ec3c867c3a0e82d" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>expansionMode</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7206489dcd50f7959edc7eb2992d1ca4" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getContractionCriteria</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a9175fe9c64ce121b99f1a7a9b76823e1" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getElement</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acf87696cae93f22fbe65ad4d94024b62" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getElements</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4a27067f85029e987a88e0e8a98e8fa0" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getExpansionFactor</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab28c913053be5ef3fa0012b133f63779" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getExpansionMode</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1afcd5c5730c763bcac1736fd77a9e55d4" prot="package" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getInternalLength</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a4867e8a1b5286f7a41ceb130d5580694" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getNumElements</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ac3b418d3c0f45b683127694b2da23302" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>getValues</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a6671cf3bcb84e35fe77cfb2dab125262" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>initialCapacity</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a7236a45e5f7edfeeb85a3d0b4a073955" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>internalArray</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1acd5f6919cde4ee770b01b277d40f7ad0" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>MULTIPLICATIVE_MODE</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1af65282ee2e0313572f3655fa7bce74ee" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>numElements</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a1e2c01980cd78fb7546d8dfd9351f00c" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>ResizableDoubleArray</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ad1813cbeb0f34119f5818fba1e6fbc41" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>ResizableDoubleArray</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a11fcebab040edaefd2a70151c79ce3f7" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>ResizableDoubleArray</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a0c7b4d3f9acbe4ae8c79b05501f8f9b9" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>ResizableDoubleArray</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a02715736b537526f7a960d51875541e4" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>ResizableDoubleArray</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a597a6a5e5ca28715f10fc7e310ad700e" prot="private" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>serialVersionUID</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a64acd762fc9f935b349c703753247547" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>setContractionCriteria</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ac2d60b4ce4e53faa27dc45c74a7938ea" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>setElement</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a1bdc1dfc580dae7b0f9866b6f11f85f7" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>setExpansionFactor</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a10873780079ffd462348f95ffab9c63f" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>setExpansionMode</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ab0efdde68c87c78281249d7c577a21f2" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>setInitialCapacity</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ad869414a896f93dbc179ad13f0f83ab5" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>setNumElements</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1aa7a98556c965854a9fe04addab92bc5c" prot="private" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>shouldContract</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1a70c7c35747b386233c1b3ec8901da4d9" prot="public" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>start</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_1ae692a8537b5b22bec16ca2f6d5e6e7ed" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::util::ResizableDoubleArray</scope><name>startIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

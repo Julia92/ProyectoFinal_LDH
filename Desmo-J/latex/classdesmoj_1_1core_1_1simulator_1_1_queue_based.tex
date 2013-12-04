@@ -1,0 +1,507 @@
+\section{desmoj.\-core.\-simulator.\-Queue\-Based Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based}\index{desmoj.\-core.\-simulator.\-Queue\-Based@{desmoj.\-core.\-simulator.\-Queue\-Based}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Queue\-Based\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Queue\-Based\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf Queue\-Action}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Queue\-Based} ({\bf desmoj.\-core.\-simulator.\-Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+void {\bfseries add\-Observer} (Observer$<$ {\bf Queue\-Based}, {\bf Queue\-Action} $>$ observer)\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a5d97d0eb15a51637fe2e0e039776ff43}
+
+\item 
+double {\bf average\-Length} ()
+\item 
+{\bf Time\-Span} {\bf average\-Wait\-Time} ()
+\item 
+abstract \\*
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+void {\bfseries delete\-Observer} (Observer$<$ {\bf Queue\-Based}, {\bf Queue\-Action} $>$ observer)\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_ab6889531700a179e3c4d5603ce8b0267}
+
+\item 
+int {\bf get\-Queue\-Limit} ()
+\item 
+int {\bf length} ()
+\item 
+int {\bf max\-Length} ()
+\item 
+{\bf Time\-Instant} {\bf max\-Length\-At} ()
+\item 
+{\bf Time\-Span} {\bf max\-Wait\-Time} ()
+\item 
+{\bf Time\-Instant} {\bf max\-Wait\-Time\-At} ()
+\item 
+int {\bf min\-Length} ()
+\item 
+{\bf Time\-Instant} {\bf min\-Length\-At} ()
+\item 
+void {\bfseries notify\-Observers} ({\bf Queue\-Based} subject, {\bf Queue\-Action} event\-Object)\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a15b6374dcdf8d4207f714666b08181ed}
+
+\item 
+void {\bf reset} ()
+\item 
+void {\bf set\-Queue\-Imp\-Warning} (boolean warn\-Flag)
+\item 
+double {\bf std\-Dev\-Length} ()
+\item 
+{\bf Time\-Span} {\bf std\-Dev\-Wait\-Time} ()
+\item 
+long {\bf zero\-Waits} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final double {\bf U\-N\-D\-E\-F\-I\-N\-E\-D} = -\/1
+\item 
+static final int {\bf F\-I\-F\-O} = 0
+\item 
+static final int {\bf L\-I\-F\-O} = 1
+\item 
+static final int {\bf R\-A\-N\-D\-O\-M} = 2
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf add\-Item} ()
+\item 
+void {\bf delete\-Item} ({\bf Time\-Instant} entry\-Time)
+\item 
+void {\bf update\-Statistics} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf queue\-Limit} = Integer.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides the typical statistics common to all Model\-Components based on Queues. It is set abstract to prevent users to use it straight without deriving a class first because it only provides the functionality for statistical data extraction, not the functionality for actually queueing Entities. The statistical values provided are the queue's length and its elements' waiting times with minimum, maximum, mean and standard deviation for each. This class should be used when any type of \doxyref{Model\-Component}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component} using Queues is created. In combination with class Queue\-List an automatic insert/remove mechanism including search functionality with condition checking can be set up within a few lines of code. It also provides full automatic statistical data about the Queue used.
+
+\begin{DoxySeeAlso}{See Also}
+Queue\-List
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler 
+
+modified by Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!Queue\-Based@{Queue\-Based}}
+\index{Queue\-Based@{Queue\-Based}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{Queue\-Based}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Queue\-Based.\-Queue\-Based (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-simulator.\-Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b}
+Creates a \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} object and initializes all statistical counters. If this standard constructor is used a queue with Fifo sort order and no limited capacity will be created.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model it belongs to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name for this \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} object \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag if values are shown in report \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag if \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} writes trace messages \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!add\-Item@{add\-Item}}
+\index{add\-Item@{add\-Item}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{add\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue\-Based.\-add\-Item (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a228dcc2954674a0c0207c5d87b1902c9}
+Updates the statistics when a new element is inserted into the underlying queue. Note that this method must always be called whenever an insertion is made. If class {\ttfamily Queue\-List} is used in combination with a \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}, this method gets called automatically whenever a new \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is inserted.
+
+\begin{DoxySeeAlso}{See Also}
+Queue\-List 
+
+Queue\-List\-Fifo 
+
+Queue\-List\-Lifo 
+\end{DoxySeeAlso}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a228dcc2954674a0c0207c5d87b1902c9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!average\-Length@{average\-Length}}
+\index{average\-Length@{average\-Length}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{average\-Length}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Queue\-Based.\-average\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a0fe5490ee8b4b97283dd14ddf2c3bf73}
+Returns the average length of the underlying queue since the last reset. Current length of that queue will be returned, if the time span since the last reset is smaller than the smallest distinguishable timespan epsilon.
+
+\begin{DoxyReturn}{Returns}
+double \-: The average queue length since last reset or current length of queue if no distinguishable periode of time has passed 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a0fe5490ee8b4b97283dd14ddf2c3bf73_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!average\-Wait\-Time@{average\-Wait\-Time}}
+\index{average\-Wait\-Time@{average\-Wait\-Time}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{average\-Wait\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-core.\-simulator.\-Queue\-Based.\-average\-Wait\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3f14e0a00eee2105755f45bd18db345b}
+Returns the average waiting time of all objects who have exited the queue. Value is valid for the time span since the last reset. Returns 0 (zero) if no objects have exited the queue after the last reset.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: Average waiting time of all objects since last reset or 0 if no objects have exited the queue 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3f14e0a00eee2105755f45bd18db345b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-simulator.\-Queue\-Based.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}
+Creates the reporter qualified to produce a report about a class that has been derived from \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}. This method is declared abstract since no real \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} is supposed to be instantiated and thus no r\-Reporter can be defined here. Implement this method in the subclasses of \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} such as in class Queue.
+
+\begin{DoxySeeAlso}{See Also}
+Queue 
+\end{DoxySeeAlso}
+
+
+Implemented in {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-Wait\-Queue$<$ M extends Sim\-Process, S extends Sim\-Process $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_wait_queue_3_01_m_01extends_01_sim_proces4189eb70bf8da2337a5eaf38b2c74e4a_ae6595ef38f797de3ed4bce76ca3bb853}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a7f3b14150b2df548accd7a7bf3079a54}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-Res} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a6802ada3beaba584278defb9d1b3d39c}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Work\-Station} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_aefc244bb6741d494923ab710140ea6dc}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a72d73238769d82ae4d56f065c06a4b26}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a1bf33ea99f59da4e5c1784ea0d2f7465}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_ab233d51e96574a2e66018584232757ef}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends Sim\-Process $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a7cbc187a2b1e12f209bee6e3f48ed470}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-Cranes\-System} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_cranes_system_af3ae2a6d10eb755887d10192088a912b}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-Transporter\-System} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_transporter_system_a036bc292fb3a3c008d4b6cb2f9aae77a}, {\bf desmoj.\-core.\-simulator.\-Queue$<$ E extends Entity $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_ad6bf4ecfe9029d489532982066b8e0e7}, and {\bf desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends Sim\-Process $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_aa60cb329b7e8ed51e4d814e8163c3525}.
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!delete\-Item@{delete\-Item}}
+\index{delete\-Item@{delete\-Item}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{delete\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue\-Based.\-delete\-Item (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{entry\-Time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a9eb8dd37c34964335719390c9899d773}
+Updates the statistics when a new element is exiting the underlying queue. Note that this method must always be called whenever an object is taken from the queue. The simulation time parameter given provides the statistics with the information about the point of time the exiting object had enterd this queue. This is needed to calculate the waiting times. If a \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} is used in conjunction with class queuelist, this method is automatically called whenever an entity is taken from the queuelist to keep track of
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry\-Time} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: Point of simulation time that the object now exiting the \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} had entered it \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a9eb8dd37c34964335719390c9899d773_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!get\-Queue\-Limit@{get\-Queue\-Limit}}
+\index{get\-Queue\-Limit@{get\-Queue\-Limit}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{get\-Queue\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Queue\-Based.\-get\-Queue\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a31c3c86b4383672c4fbe2e62f2fa422f}
+Returns the maximum possible number of entities in the underlying queue.
+
+\begin{DoxyReturn}{Returns}
+int \-: the maximum number of entities in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!length@{length}}
+\index{length@{length}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Queue\-Based.\-length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_acd655bba0795c0fcb54791f86806e428}
+Returns the current length of the underlying queue.
+
+\begin{DoxyReturn}{Returns}
+int \-: The current queue length, zero if empty. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!max\-Length@{max\-Length}}
+\index{max\-Length@{max\-Length}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{max\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Queue\-Based.\-max\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_ae3d7503eeef122e1cadd7bed59b40a52}
+Returns the maximum length of the underlying queue since the last reset.
+
+\begin{DoxyReturn}{Returns}
+int \-: The maximum queue length since last reset 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!max\-Length\-At@{max\-Length\-At}}
+\index{max\-Length\-At@{max\-Length\-At}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{max\-Length\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Queue\-Based.\-max\-Length\-At (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_ad9a6fb6c1900ca0afa9b92bffcede1f1}
+Returns the point of simulation time with the maximum number of objects waiting inside the underlying queue. The value is valid for the period since the last reset.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Time\-Instant \-: Point of time with maximum queue length since last reset 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!max\-Wait\-Time@{max\-Wait\-Time}}
+\index{max\-Wait\-Time@{max\-Wait\-Time}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{max\-Wait\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-core.\-simulator.\-Queue\-Based.\-max\-Wait\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_ad9b6e0712082ec19d05eb40d8f8e9d95}
+Returns the maximum duration in simulation time that an object has spent waiting inside the underlying queue. The value is valid for the period since the last reset.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Time\-Span \-: Longest waiting time of an object in the queue since last reset 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!max\-Wait\-Time\-At@{max\-Wait\-Time\-At}}
+\index{max\-Wait\-Time\-At@{max\-Wait\-Time\-At}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{max\-Wait\-Time\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Queue\-Based.\-max\-Wait\-Time\-At (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a0fb151320bc886571d70149ab429b49d}
+Returns the point of simulation time when the object with the maximum waiting time exited the underlying queue. The value is valid for the period since the last reset.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Time\-Instant \-: The point of simulation time when the object with the maximum waiting time exited the queue 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!min\-Length@{min\-Length}}
+\index{min\-Length@{min\-Length}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{min\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Queue\-Based.\-min\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a5315117b6e8cd502879d6ab94e2653fe}
+Returns the minimumn length of the underlying queue since the last reset.
+
+\begin{DoxyReturn}{Returns}
+int \-: The minimum queue length since last reset 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!min\-Length\-At@{min\-Length\-At}}
+\index{min\-Length\-At@{min\-Length\-At}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{min\-Length\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Queue\-Based.\-min\-Length\-At (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_aa7e209d871686741f7dcc5af156ddd83}
+Returns the point of simulation time with the minimum number of objects waiting inside the underlying queue. The value is valid for the period since the last reset.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Time\-Instant \-: Point of time with minimum queue length since last reset 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue\-Based.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a425a54e4bd446348eb99c2b57cb8d630}
+Resets all statistical counters to their default values. The mininum and maximum length of the queue are set to the current number of queued objects. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a425a54e4bd446348eb99c2b57cb8d630_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!set\-Queue\-Imp\-Warning@{set\-Queue\-Imp\-Warning}}
+\index{set\-Queue\-Imp\-Warning@{set\-Queue\-Imp\-Warning}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{set\-Queue\-Imp\-Warning}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue\-Based.\-set\-Queue\-Imp\-Warning (
+\begin{DoxyParamCaption}
+\item[{boolean}]{warn\-Flag}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_ae90bd940a68e9c31498ff056b10849f3}
+Method switches on warnings issued from the underlying queue implementation if parameter given is {\ttfamily true}. Warnings are suppressed if {\ttfamily false} is given. This method is used for internal debugging only.
+
+
+\begin{DoxyParams}{Parameters}
+{\em warn\-Flag} & boolean \-:{\ttfamily true} switches warnings on, {\ttfamily false} switches warnings off \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!std\-Dev\-Length@{std\-Dev\-Length}}
+\index{std\-Dev\-Length@{std\-Dev\-Length}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{std\-Dev\-Length}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Queue\-Based.\-std\-Dev\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a461a97e743cd8d7c7f3fc1596ef92a2f}
+Returns the standard deviation of the queue's length. Value is weighted over time.
+
+\begin{DoxyReturn}{Returns}
+double \-: The standard deviation for the queue's length weighted over time 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a461a97e743cd8d7c7f3fc1596ef92a2f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!std\-Dev\-Wait\-Time@{std\-Dev\-Wait\-Time}}
+\index{std\-Dev\-Wait\-Time@{std\-Dev\-Wait\-Time}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{std\-Dev\-Wait\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-core.\-simulator.\-Queue\-Based.\-std\-Dev\-Wait\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_aeebbbebc1fb5f5054aaa71d61b708358}
+Returns the standard deviation of the queue's objects waiting times.
+
+\begin{DoxyReturn}{Returns}
+double \-: The standard deviation for the queue's objects waiting times 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_aeebbbebc1fb5f5054aaa71d61b708358_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!update\-Statistics@{update\-Statistics}}
+\index{update\-Statistics@{update\-Statistics}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{update\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue\-Based.\-update\-Statistics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a0c1d587b2483ce6391aa8c375fc42a45}
+Updates the parts of the statistics used by both add\-Item and delete\-Item. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a0c1d587b2483ce6391aa8c375fc42a45_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!zero\-Waits@{zero\-Waits}}
+\index{zero\-Waits@{zero\-Waits}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{zero\-Waits}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Queue\-Based.\-zero\-Waits (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a371b24e5676321a34c1a8ee59a7f6a45}
+Returns the number of objects that have passed through the queue without spending time waiting.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of elements who have passed the queue without waiting 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!F\-I\-F\-O@{F\-I\-F\-O}}
+\index{F\-I\-F\-O@{F\-I\-F\-O}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{F\-I\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}final int desmoj.\-core.\-simulator.\-Queue\-Based.\-F\-I\-F\-O = 0\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}
+Defining a constant for the F\-I\-F\-O (First In First Out) service discipline of the underlying queue\-: An \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} inserted into the queue is removed after all entities already enqueued with the same priority. \index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!L\-I\-F\-O@{L\-I\-F\-O}}
+\index{L\-I\-F\-O@{L\-I\-F\-O}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{L\-I\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}final int desmoj.\-core.\-simulator.\-Queue\-Based.\-L\-I\-F\-O = 1\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}
+Defining a constant for the L\-I\-F\-O (Last In First Out) service discipline of the underlying queue\-: An \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} inserted into the queue is removed before all entities already enqueued with the same priority. \index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!queue\-Limit@{queue\-Limit}}
+\index{queue\-Limit@{queue\-Limit}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{queue\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Queue\-Based.\-queue\-Limit = Integer.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_aaec6c34c002dc7b42f90f89b40208dc3}
+Represents the maximum number of entities in the queue (default is unlimited capacity). \index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!R\-A\-N\-D\-O\-M@{R\-A\-N\-D\-O\-M}}
+\index{R\-A\-N\-D\-O\-M@{R\-A\-N\-D\-O\-M}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{R\-A\-N\-D\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}final int desmoj.\-core.\-simulator.\-Queue\-Based.\-R\-A\-N\-D\-O\-M = 2\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_ab75f0cb4d842794c20f122ef35f351d3}
+Defining a constant for the random service discipline of the underlying queue\-: An \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} inserted into the queue may be removed before or after any other \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} with the same priority. \index{desmoj\-::core\-::simulator\-::\-Queue\-Based@{desmoj\-::core\-::simulator\-::\-Queue\-Based}!U\-N\-D\-E\-F\-I\-N\-E\-D@{U\-N\-D\-E\-F\-I\-N\-E\-D}}
+\index{U\-N\-D\-E\-F\-I\-N\-E\-D@{U\-N\-D\-E\-F\-I\-N\-E\-D}!desmoj::core::simulator::QueueBased@{desmoj\-::core\-::simulator\-::\-Queue\-Based}}
+\subsubsection[{U\-N\-D\-E\-F\-I\-N\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}final double desmoj.\-core.\-simulator.\-Queue\-Based.\-U\-N\-D\-E\-F\-I\-N\-E\-D = -\/1\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a6313c9a30a034711ddb8caceac6f0430}
+Represents the value returned if for a given statistics no valid value can be returned. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Queue\-Based.\-java\end{DoxyCompactItemize}

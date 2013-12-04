@@ -1,0 +1,1104 @@
+\section{desmoj.\-core.\-simulator.\-Scheduler Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler}\index{desmoj.\-core.\-simulator.\-Scheduler@{desmoj.\-core.\-simulator.\-Scheduler}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Scheduler\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Scheduler\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Scheduler} ({\bf Experiment} exp, String name, {\bf Event\-List} event\-List)
+\item 
+boolean {\bf is\-Randomizing\-Concurrent\-Events} ()
+\item 
+String {\bf to\-String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Time\-Instant} {\bf present\-Time} ()
+\item 
+{\bf Entity} {\bf get\-Current\-Entity} ()
+\item 
+List$<$ {\bf Entity} $>$ {\bf get\-All\-Current\-Entities} ()
+\item 
+{\bf Event\-Abstract} {\bf get\-Current\-Event} ()
+\item 
+{\bf Model} {\bf get\-Current\-Model} ()
+\item 
+{\bf Schedulable} {\bf get\-Current\-Source} ()
+\item 
+{\bf Schedulable} {\bf get\-Current\-Schedulable} ()
+\item 
+{\bf Sim\-Process} {\bf get\-Current\-Sim\-Process} ()
+\item 
+double {\bf get\-Execution\-Speed\-Rate} ()
+\item 
+{\bf Sim\-Clock} {\bf get\-Sim\-Clock} ()
+\item 
+boolean {\bf process\-Next\-Event\-Note} ()
+\item 
+void {\bf advance\-Time} ({\bf Time\-Instant} now, {\bf Time\-Instant} next)
+\item 
+void {\bf real\-Time\-Schedule} ({\bf Real\-Time\-Event\-Wrapper} what)
+\item 
+void {\bf re\-Schedule} ({\bf Schedulable} who, {\bf Time\-Span} dt)
+\item 
+void {\bf re\-Schedule} ({\bf Schedulable} who, {\bf Time\-Instant} time)
+\item 
+void {\bf schedule} ({\bf Entity} who, {\bf Event\-Abstract} what, {\bf Time\-Span} dt)
+\item 
+void {\bf schedule} ({\bf Entity} who1, {\bf Entity} who2, Event\-Of2\-Entities$<$?,?$>$ what, {\bf Time\-Span} dt)
+\item 
+void {\bf schedule} ({\bf Entity} who1, {\bf Entity} who2, {\bf Entity} who3, Event\-Of3\-Entities$<$?,?,?$>$ what, {\bf Time\-Span} dt)
+\item 
+void {\bf schedule} ({\bf Entity} who, {\bf Event\-Abstract} what, {\bf Time\-Instant} when)
+\item 
+void {\bf schedule} ({\bf Entity} who1, {\bf Entity} who2, Event\-Of2\-Entities$<$?,?$>$ what, {\bf Time\-Instant} when)
+\item 
+void {\bf schedule} ({\bf Entity} who1, {\bf Entity} who2, {\bf Entity} who3, Event\-Of3\-Entities$<$?,?,?$>$ what, {\bf Time\-Instant} when)
+\item 
+void {\bf schedule\-After} ({\bf Schedulable} after, {\bf Entity} who, {\bf Event\-Abstract} what)
+\item 
+void {\bf schedule\-After} ({\bf Schedulable} after, {\bf Entity} who1, {\bf Entity} who2, Event\-Of2\-Entities$<$?,?$>$ what)
+\item 
+void {\bf schedule\-After} ({\bf Schedulable} after, {\bf Entity} who1, {\bf Entity} who2, {\bf Entity} who3, Event\-Of3\-Entities$<$?,?,?$>$ what)
+\item 
+void {\bf schedule\-Before} ({\bf Schedulable} before, {\bf Entity} who, {\bf Event\-Abstract} what)
+\item 
+void {\bf schedule\-Before} ({\bf Schedulable} before, {\bf Entity} who1, {\bf Entity} who2, Event\-Of2\-Entities$<$?,?$>$ what)
+\item 
+void {\bf schedule\-Before} ({\bf Schedulable} before, {\bf Entity} who1, {\bf Entity} who2, {\bf Entity} who3, Event\-Of3\-Entities$<$?,?,?$>$ what)
+\item 
+void {\bf set\-Execution\-Speed\-Rate} (double execution\-Speed\-Rate)
+\item 
+void {\bf set\-Randomizing\-Concurrent\-Events} (boolean randomizing)
+\item 
+void {\bf signal\-Stop} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Experiment} {\bf my\-Experiment}
+\item 
+{\bf Sim\-Clock} {\bf clock}
+\item 
+{\bf Event\-List} {\bf ev\-List}
+\item 
+boolean {\bf simulation\-Finished}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The scheduler is the main element controlling the run of a simulation. It controls the event-\/list in which all scheduled events are stored, picks the next event to be processed and advances the simulation clock accordingly.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler, modified by Ruth Meyer, Justin Neumann \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!Scheduler@{Scheduler}}
+\index{Scheduler@{Scheduler}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{Scheduler}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Scheduler.\-Scheduler (
+\begin{DoxyParamCaption}
+\item[{{\bf Experiment}}]{exp, }
+\item[{String}]{name, }
+\item[{{\bf Event\-List}}]{event\-List}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a5ce97078bd0765d1d3104a5f39a2062d}
+Constructs a scheduler with given name and the event-\/list (i.\-e. inheritor of {\ttfamily \doxyref{desmoj.\-core.\-simulator.\-Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}}) to use.
+
+
+\begin{DoxyParams}{Parameters}
+{\em exp} & \doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment} \-: The experiment that uses this \doxyref{Scheduler}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler} \\
+\hline
+{\em name} & java.\-lang.\-String \-: The scheduler's name \\
+\hline
+{\em event\-List} & \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list} \-: The event-\/list to store scheduled events \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!advance\-Time@{advance\-Time}}
+\index{advance\-Time@{advance\-Time}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{advance\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-advance\-Time (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{now, }
+\item[{{\bf Time\-Instant}}]{next}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a109f79435484efa957f9d9c2460de2c2}
+This method is called to notify simulator about the time passed between the execution of two events with a positive (non-\/zero) offset. The implementation of this method just sets the scheduler's clock to the new instant; note, though, that extensions to D\-E\-S\-M\-O-\/\-J may overwrite this method to conduct more complex operations, e.\-g. extrapolate variables in continuous simulation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em now} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The current point in simulation time \\
+\hline
+{\em next} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The next point in simulation time to advance the clock to (e.\-g. instant of the next event) \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-All\-Current\-Entities@{get\-All\-Current\-Entities}}
+\index{get\-All\-Current\-Entities@{get\-All\-Current\-Entities}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-All\-Current\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Entity}$>$ desmoj.\-core.\-simulator.\-Scheduler.\-get\-All\-Current\-Entities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ac357dd7b4e2bbb356a97f2327fab9f27}
+Returns the currently active entities. Returns an empty list if the current \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} happens to be an external event or a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}.
+
+\begin{DoxyReturn}{Returns}
+List$<$\-Entity$>$ \-: A list containing the currently active entities 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Current\-Entity@{get\-Current\-Entity}}
+\index{get\-Current\-Entity@{get\-Current\-Entity}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Current\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} desmoj.\-core.\-simulator.\-Scheduler.\-get\-Current\-Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a9d3a04813f8b4e1935e71d339dd9f533}
+Returns the currently active \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}. Returns {\ttfamily null} if the current \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} happens to be an external event or a simprocess. Note that in case the current Event refers to more than one entity ({\ttfamily Event\-Of\-Two\-Entities}, {\ttfamily Event\-Of\-Three\-Entitties}), only the first entity is returned; to obtain all such entities, use {\ttfamily \doxyref{get\-All\-Current\-Entities()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ac357dd7b4e2bbb356a97f2327fab9f27}} instead.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The currently active \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} or {\ttfamily null} in case of an external event or a simprocess being the currently active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Current\-Event@{get\-Current\-Event}}
+\index{get\-Current\-Event@{get\-Current\-Event}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Current\-Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Abstract} desmoj.\-core.\-simulator.\-Scheduler.\-get\-Current\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_af399bc6af8c16ebae50f9f189a0013b1}
+Returns the current active Event or {\ttfamily null}. Note that this method can also return an external event that can not be handled like an Event since it does not support scheduling together with an entity. Returns {\ttfamily null} if the current \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} happens to be a Sim-\/process that has been activated, thus no kind of Event is associated with it.
+
+\begin{DoxyReturn}{Returns}
+Event \-: The currently active Event or external event or {\ttfamily null} if the current \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} happens to be an activated \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Current\-Model@{get\-Current\-Model}}
+\index{get\-Current\-Model@{get\-Current\-Model}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Current\-Model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} desmoj.\-core.\-simulator.\-Scheduler.\-get\-Current\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a6a8e088324bdf35101526b6fd5409d9f}
+Returns the currently active model.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The currently active model or {\ttfamily null} in case of no model being connected so far. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Current\-Schedulable@{get\-Current\-Schedulable}}
+\index{get\-Current\-Schedulable@{get\-Current\-Schedulable}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Current\-Schedulable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Schedulable} desmoj.\-core.\-simulator.\-Scheduler.\-get\-Current\-Schedulable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a0d50629e40005fd8b018725d9afd9a4c}
+Returns the currently active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object. This can be any of its subtypes \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}, \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} or external event in that order. For events referring to multiple enities, the first entity is returned.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The currently active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} 
+
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} 
+
+\doxyref{External\-Event}{p.}{classdesmoj_1_1core_1_1simulator_1_1_external_event} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Current\-Sim\-Process@{get\-Current\-Sim\-Process}}
+\index{get\-Current\-Sim\-Process@{get\-Current\-Sim\-Process}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Current\-Sim\-Process}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} desmoj.\-core.\-simulator.\-Scheduler.\-get\-Current\-Sim\-Process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a3cd0ca0efc51a621b27a06fdc17be43f}
+Returns the current \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. Note that this method can only return a Sim-\/process. If the currently active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is not instance of Sim-\/process or an external event, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} \-: The currently active \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} or {\ttfamily null} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Current\-Source@{get\-Current\-Source}}
+\index{get\-Current\-Source@{get\-Current\-Source}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Current\-Source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Schedulable} desmoj.\-core.\-simulator.\-Scheduler.\-get\-Current\-Source (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_aba8b775074732ae450cd85a00b8c428d}
+Returns the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object that as created the current Event\-Node, thus being responsible for what is going on at the moment
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The source of the currently active object(s). 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} 
+
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} 
+
+\doxyref{External\-Event}{p.}{classdesmoj_1_1core_1_1simulator_1_1_external_event} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Execution\-Speed\-Rate@{get\-Execution\-Speed\-Rate}}
+\index{get\-Execution\-Speed\-Rate@{get\-Execution\-Speed\-Rate}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Execution\-Speed\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Scheduler.\-get\-Execution\-Speed\-Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ac2cf88bcfdf461be31ccc92ddfcfea4b}
+Returns the current execution Speed Rate.
+
+\begin{DoxyReturn}{Returns}
+double \-: The current execution speed rate. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!get\-Sim\-Clock@{get\-Sim\-Clock}}
+\index{get\-Sim\-Clock@{get\-Sim\-Clock}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{get\-Sim\-Clock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Clock} desmoj.\-core.\-simulator.\-Scheduler.\-get\-Sim\-Clock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a43d2aa21050841a09fa98c523bb943bf}
+Returns the actual clock for this model.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Sim\-Clock}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_clock} \-: The actual clock for simulation time 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!is\-Randomizing\-Concurrent\-Events@{is\-Randomizing\-Concurrent\-Events}}
+\index{is\-Randomizing\-Concurrent\-Events@{is\-Randomizing\-Concurrent\-Events}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{is\-Randomizing\-Concurrent\-Events}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Scheduler.\-is\-Randomizing\-Concurrent\-Events (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_aae3db44206d60c1780491496aa63e866}
+Returns if the event-\/list processes concurrent Events in random order or not.
+
+\begin{DoxyReturn}{Returns}
+boolean\-: {\ttfamily true} if concurrent Events are randomized, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Ruth Meyer 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!present\-Time@{present\-Time}}
+\index{present\-Time@{present\-Time}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{present\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Scheduler.\-present\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ac6b57979b59d4096cc275701073587a5}
+Returns the actual simulation time as displayed by the simulation clock.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The current point in simulation time 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!process\-Next\-Event\-Note@{process\-Next\-Event\-Note}}
+\index{process\-Next\-Event\-Note@{process\-Next\-Event\-Note}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{process\-Next\-Event\-Note}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Scheduler.\-process\-Next\-Event\-Note (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a3ebb2196c397436b2bd81a759a964bcd}
+Processes the next event-\/note on the event-\/list. Returns {\ttfamily true} if that \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} has been processed correctly, {\ttfamily false} if an error occurred or the event-\/list is empty.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the next event-\/note was processed correctly, {\ttfamily false} if not 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a3ebb2196c397436b2bd81a759a964bcd_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!real\-Time\-Schedule@{real\-Time\-Schedule}}
+\index{real\-Time\-Schedule@{real\-Time\-Schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{real\-Time\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-real\-Time\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Real\-Time\-Event\-Wrapper}}]{what}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a0fefa2d51f3f09f9514157f8d01b7057}
+Schedules the external event to happen at the simulation time equivalent to the current value of wall-\/clock time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em what} & \doxyref{External\-Event}{p.}{classdesmoj_1_1core_1_1simulator_1_1_external_event} \-: The external event to be scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a0fefa2d51f3f09f9514157f8d01b7057_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!re\-Schedule@{re\-Schedule}}
+\index{re\-Schedule@{re\-Schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{re\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-re\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{who, }
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a57169a31d074668d7b8c1db176753e1d}
+Schedules the event to happen after a specified time. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be scheduled \\
+\hline
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The point in simulation time for the event to happen as an offset to the current simulation time \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a57169a31d074668d7b8c1db176753e1d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!re\-Schedule@{re\-Schedule}}
+\index{re\-Schedule@{re\-Schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{re\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-re\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{who, }
+\item[{{\bf Time\-Instant}}]{time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ae04016822f789b9f58dd0a1e5a808f35}
+Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be scheduled \\
+\hline
+{\em time} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time for the event to happen \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ae04016822f789b9f58dd0a1e5a808f35_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who, }
+\item[{{\bf Event\-Abstract}}]{what, }
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_aeba961207ad7338ea774adb6b820b8ae}
+Schedules the event to happen after a specified time span. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be scheduled \\
+\hline
+{\em what} & Event \-: The event to manipulate the entity \\
+\hline
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The point in simulation time for the event to happen as an offset to the current simulation time \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_aeba961207ad7338ea774adb6b820b8ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{Event\-Of2\-Entities$<$?,?$>$}]{what, }
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_aeb6fdd77fa5b0394a000540e0fb792cd}
+Schedules the event to happen after a specified time span. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em what} & Event\-Of2\-Entities \-: The event to manipulate the two entities \\
+\hline
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The point in simulation time for the event to happen as an offset to the current simulation time \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_aeb6fdd77fa5b0394a000540e0fb792cd_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{{\bf Entity}}]{who3, }
+\item[{Event\-Of3\-Entities$<$?,?,?$>$}]{what, }
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a0ce021e6ee8dad108e105f6b84185a53}
+Schedules the event to happen after a specified time span. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em who3} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The third entity to be scheduled\\
+\hline
+{\em what} & Event\-Of3\-Entities \-: The event to manipulate the two entities \\
+\hline
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The point in simulation time for the event to happen as an offset to the current simulation time \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a0ce021e6ee8dad108e105f6b84185a53_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who, }
+\item[{{\bf Event\-Abstract}}]{what, }
+\item[{{\bf Time\-Instant}}]{when}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_afdb4a2bee362805c031fcac7d01e7de3}
+Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be scheduled \\
+\hline
+{\em what} & Event \-: The event to manipulate the entity \\
+\hline
+{\em when} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time for the event to happen \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_afdb4a2bee362805c031fcac7d01e7de3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{Event\-Of2\-Entities$<$?,?$>$}]{what, }
+\item[{{\bf Time\-Instant}}]{when}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a5fb1d94ee0cc07aab88ea395c31c8e4b}
+Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em what} & Event\-Of2\-Entities \-: The event to manipulate the entity\\
+\hline
+{\em when} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time for the event to happen \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a5fb1d94ee0cc07aab88ea395c31c8e4b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{{\bf Entity}}]{who3, }
+\item[{Event\-Of3\-Entities$<$?,?,?$>$}]{what, }
+\item[{{\bf Time\-Instant}}]{when}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a14fc404adb589e60ad6567de548f445b}
+Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em who3} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The third entity to be scheduled\\
+\hline
+{\em what} & Event\-Of3\-Entities \-: The event to manipulate the entity \\
+\hline
+{\em when} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time for the event to happen \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a14fc404adb589e60ad6567de548f445b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule\-After@{schedule\-After}}
+\index{schedule\-After@{schedule\-After}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule\-After}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{after, }
+\item[{{\bf Entity}}]{who, }
+\item[{{\bf Event\-Abstract}}]{what}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ab6d614946cad32e0767a60652be0a9e0}
+Schedules the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} and Event to happen straight after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is set to be activated. Note that the siulation time for the newly entered \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be set to the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time and the new \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be inserted directly after the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em after} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} after which the new event-\/note is to be scheduled \\
+\hline
+{\em who} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be scheduled \\
+\hline
+{\em what} & Event \-: The event to be scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ab6d614946cad32e0767a60652be0a9e0_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule\-After@{schedule\-After}}
+\index{schedule\-After@{schedule\-After}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule\-After}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{after, }
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{Event\-Of2\-Entities$<$?,?$>$}]{what}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ae617d0af5e583f3f69b2dc126ebb6f53}
+Schedules the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} and Event to happen straight after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is set to be activated. Note that the siulation time for the newly entered \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be set to the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time and the new \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be inserted directly after the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em after} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} after which the new event-\/note is to be scheduled \\
+\hline
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em what} & Event\-Of2\-Entities \-: The event to be scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ae617d0af5e583f3f69b2dc126ebb6f53_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule\-After@{schedule\-After}}
+\index{schedule\-After@{schedule\-After}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule\-After}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{after, }
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{{\bf Entity}}]{who3, }
+\item[{Event\-Of3\-Entities$<$?,?,?$>$}]{what}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a6798fbf8bea8b77f7ac0bd8f3fec7a4b}
+Schedules the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} and Event to happen straight after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is set to be activated. Note that the siulation time for the newly entered \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be set to the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time and the new \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be inserted directly after the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em after} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} after which the new event-\/note is to be scheduled \\
+\hline
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em who3} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The third entity to be scheduled\\
+\hline
+{\em what} & Event\-Of3\-Entities \-: The event to be scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a6798fbf8bea8b77f7ac0bd8f3fec7a4b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule\-Before@{schedule\-Before}}
+\index{schedule\-Before@{schedule\-Before}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule\-Before}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{before, }
+\item[{{\bf Entity}}]{who, }
+\item[{{\bf Event\-Abstract}}]{what}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_af0a1c5db51ab8614a7adc8c76951c4aa}
+Schedules the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} and Event to happen straight before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is scheduled. Note that the simulation time for the newly entered \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be set to the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time and the new \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be inserted directly before the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} before which the new event-\/note is to be scheduled \\
+\hline
+{\em who} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be scheduled \\
+\hline
+{\em what} & Event \-: The event to be scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_af0a1c5db51ab8614a7adc8c76951c4aa_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule\-Before@{schedule\-Before}}
+\index{schedule\-Before@{schedule\-Before}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule\-Before}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{before, }
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{Event\-Of2\-Entities$<$?,?$>$}]{what}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a82fca3d94b2ef9e57592589e9e3d5aea}
+Schedules the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} and Event to happen straight before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is scheduled. Note that the simulation time for the newly entered \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be set to the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time and the new \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be inserted directly before the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} before which the new event-\/note is to be scheduled \\
+\hline
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em what} & Event\-Of2\-Entities \-: The event to be scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a82fca3d94b2ef9e57592589e9e3d5aea_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!schedule\-Before@{schedule\-Before}}
+\index{schedule\-Before@{schedule\-Before}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{schedule\-Before}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-schedule\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{before, }
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{{\bf Entity}}]{who3, }
+\item[{Event\-Of3\-Entities$<$?,?,?$>$}]{what}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_abae04751dbf4ec56196fee6259432c77}
+Schedules the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} and Event to happen straight before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is scheduled. Note that the simulation time for the newly entered \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be set to the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time and the new \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} will be inserted directly before the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+
+ \begin{table}[h]\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}{\bf scheduling type }&{\bf \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} object }&{\bf Event object  }\\\cline{1-3}
+\rowcolor{lightgray}{\bf Event oriented }&Event or \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &Event  \\\cline{1-3}
+\rowcolor{lightgray}{\bf process oriented }&\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} &null  \\\cline{1-3}
+\rowcolor{lightgray}{\bf external event }&null &external event  \\\cline{1-3}
+\end{TabularC}
+\centering
+\caption{Valid scheduling types }
+\end{table}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} before which the new event-\/note is to be scheduled \\
+\hline
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity to be scheduled\\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity to be scheduled\\
+\hline
+{\em who3} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The third entity to be scheduled\\
+\hline
+{\em what} & Event\-Of3\-Entities \-: The event to be scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_abae04751dbf4ec56196fee6259432c77_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!set\-Execution\-Speed\-Rate@{set\-Execution\-Speed\-Rate}}
+\index{set\-Execution\-Speed\-Rate@{set\-Execution\-Speed\-Rate}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{set\-Execution\-Speed\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-set\-Execution\-Speed\-Rate (
+\begin{DoxyParamCaption}
+\item[{double}]{execution\-Speed\-Rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_abad2738909dd49d2a9e0626a820212fe}
+Sets the execution speed rate.
+
+
+\begin{DoxyParams}{Parameters}
+{\em execution\-Speed\-Rate} & double \-: the execution speed rate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Felix Klueckmann 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!set\-Randomizing\-Concurrent\-Events@{set\-Randomizing\-Concurrent\-Events}}
+\index{set\-Randomizing\-Concurrent\-Events@{set\-Randomizing\-Concurrent\-Events}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{set\-Randomizing\-Concurrent\-Events}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-set\-Randomizing\-Concurrent\-Events (
+\begin{DoxyParamCaption}
+\item[{boolean}]{randomizing}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a20726e08dc76b2996bd7c80a307f3c8a}
+Sets the flag indicating if the event-\/list processes concurrent Events in random order or not. If a change occurred the event-\/list has to be changed accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em randomizing} & boolean \-:{\ttfamily true} forces random order, {\ttfamily false} forces \char`\"{}linear\char`\"{} order \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Ruth Meyer 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!signal\-Stop@{signal\-Stop}}
+\index{signal\-Stop@{signal\-Stop}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{signal\-Stop}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Scheduler.\-signal\-Stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a8969fabcea32b4f5c1433b3ff3b0617d}
+Signals that the experiment is stopped.
+
+\begin{DoxyAuthor}{Author}
+Felix Klueckmann 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Scheduler.\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a9d0b75d466c39e59e328a9226bdea2dc}
+Returns a string representation of the current state of the event-\/list. The string is built by concatenating all string representations of the contained entities, events and \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} objects calling their {\ttfamily \doxyref{to\-String()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a9d0b75d466c39e59e328a9226bdea2dc}} methods.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The string representation of the queuelist 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a9d0b75d466c39e59e328a9226bdea2dc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!clock@{clock}}
+\index{clock@{clock}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{clock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Clock} desmoj.\-core.\-simulator.\-Scheduler.\-clock\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_ac7fe1850744da76757a57aa1bf069bd3}
+The actual simulation clock for this scheduler. \index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!ev\-List@{ev\-List}}
+\index{ev\-List@{ev\-List}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{ev\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-List} desmoj.\-core.\-simulator.\-Scheduler.\-ev\-List\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a1946169fd1d9207a6cd4219e3262d4ea}
+The event-\/list used by the scheduler. \index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!my\-Experiment@{my\-Experiment}}
+\index{my\-Experiment@{my\-Experiment}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{my\-Experiment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment} desmoj.\-core.\-simulator.\-Scheduler.\-my\-Experiment\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a409d9c6744b27fbca1c7a45fbc056818}
+The experiment this scheduler serves. \index{desmoj\-::core\-::simulator\-::\-Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}!simulation\-Finished@{simulation\-Finished}}
+\index{simulation\-Finished@{simulation\-Finished}!desmoj::core::simulator::Scheduler@{desmoj\-::core\-::simulator\-::\-Scheduler}}
+\subsubsection[{simulation\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Scheduler.\-simulation\-Finished\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_scheduler_a1ccda7e27f6f44c1f241eca99c92902f}
+Flag to indicate whether the current simulation is running or stopped. If true, the simulation is stopped, if false, the simulation is still running. This flag is especially polled by processes exiting any synchronized method used for passivating the process thus giving control back to the scheduler. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Scheduler.\-java\end{DoxyCompactItemize}

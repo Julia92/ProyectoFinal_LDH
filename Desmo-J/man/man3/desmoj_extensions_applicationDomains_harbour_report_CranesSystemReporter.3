@@ -1,0 +1,102 @@
+.TH "desmoj.extensions.applicationDomains.harbour.report.CranesSystemReporter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.report.CranesSystemReporter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.StockReporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCranesSystemReporter\fP (\fBdesmoj\&.core\&.simulator\&.Reportable\fP informationSource)"
+.br
+.ti -1c
+.RI "String[] \fBgetEntries\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetStockColumnTitles\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetStockEntries\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetStockNumColumns\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Captures all relevant information about the \fC\fBCranesSystem\fP\fP\&. That means from the transporter and the cranes queue\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.CranesSystemReporter\&.CranesSystemReporter (\fBdesmoj\&.core\&.simulator\&.Reportable\fPinformationSource)"
+Constructor for a new \fBCranesSystemReporter\fP\&. Note that although any Reportable is accepted you should make sure that only subtypes of \fBTransporterSystem\fP are passed to this constructor\&. Otherwise the number of column titles and their individual headings will differ from the actual content collected by this reporter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinformationSource\fP desmoj\&.Reportable : The \fBCranesSystem\fP to report about 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.CranesSystemReporter\&.getEntries ()\fC [virtual]\fP"
+Returns an array of Strings each containing the data for the corresponding column in array \fCcolumns[]\fP\&. This method is fetching the data from this \fBCranesSystem\fP\&. Implement this method in a way, that an array of the same length as the column titles is produced containing the data at the point of time this method is called by someone else to produce up-to-date information\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String[] : Array containing the data for reporting\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.StockReporter\fP\&.
+.SS "String [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.CranesSystemReporter\&.getStockColumnTitles ()"
+Returns the titles of the wait queues part of this \fBCranesSystemReporter\fP as an array of Strings\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String[] : Array containing the titles of the wait queues part of this \fBCranesSystemReporter\fP\&. 
+.RE
+.PP
+
+.SS "String [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.CranesSystemReporter\&.getStockEntries ()"
+Returns an array of Strings each containing the data for the corresponding column in array \fCstockColumns[]\fP\&. This method is fetching the data from the master Stock\&. Implement this method in a way, that an array of the same length as the stockColumns titles is produced containing the data at the point of time this method is called by someone else to produce up-to-date information\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String[] : Array containing the data for reporting\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.CranesSystemReporter\&.getStockNumColumns ()"
+Returns the number of columns of the wait queues part of this \fBCranesSystemReporter\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of columns of the wait queues part of this \fBCranesSystemReporter\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

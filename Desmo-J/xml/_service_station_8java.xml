@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_service_station_8java" kind="file">
+    <compoundname>ServiceStation.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1chaining_1_1_service_station_3_01_e_01extends_01_entity_01_4" prot="public">desmoj::extensions::chaining::ServiceStation&lt; E extends Entity &gt;</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1chaining">desmoj::extensions::chaining</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.chaining;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.dist.NumericalDist;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">desmoj.core.simulator.Entity</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.simulator.Event;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">desmoj.core.simulator.Model</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.extensions.chaining.abstractions.HasPredecessor;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.extensions.chaining.abstractions.HasSuccessor;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.extensions.chaining.abstractions.Station;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classdesmoj_1_1extensions_1_1chaining_1_1_service_station_3_01_e_01extends_01_entity_01_4" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ServiceStation&lt;E<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>&gt;<sp/>extends<sp/>Station&lt;E&gt;<sp/>implements<sp/>HasPredecessor&lt;E&gt;,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HasSuccessor&lt;E&gt;<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="classdesmoj_1_1extensions_1_1chaining_1_1_service_station_3_01_e_01extends_01_entity_01_4_1a8d697105ec482cc059d39b4673aff504" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1chaining_1_1_service_station_3_01_e_01extends_01_entity_01_4_1a8d697105ec482cc059d39b4673aff504" kindref="member">ServiceStation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>incomingBufferQueueCapacity,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxEntitiesToHandel,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>parallelHandledEntities,<sp/>NumericalDist&lt;?&gt;<sp/>setupTime,<sp/>NumericalDist&lt;?&gt;<sp/>serviceTime,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NumericalDist&lt;?&gt;<sp/>recoveryTime,<sp/>NumericalDist&lt;?&gt;<sp/>transportTime,<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref><sp/>owner,<sp/>String<sp/>name,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>showInReport,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>showInTrace)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(incomingBufferQueueCapacity,<sp/>maxEntitiesToHandel,<sp/>parallelHandledEntities,<sp/>setupTime,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>serviceTime,<sp/>recoveryTime,<sp/>transportTime,<sp/>owner,<sp/>name,<sp/>showInReport,<sp/>showInTrace);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successorAdministration<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SuccessorAdministration&lt;E&gt;(getModel(),</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ServiceStation.class.getSimpleName()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>name);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="79" refid="classdesmoj_1_1extensions_1_1chaining_1_1_service_station_3_01_e_01extends_01_entity_01_4_1a5b73483ba4e5c93147c68530fc5333bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1chaining_1_1_service_station_3_01_e_01extends_01_entity_01_4_1a5b73483ba4e5c93147c68530fc5333bf" kindref="member">onServiceFinisched</ref>(E<sp/>who)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.sendTraceNote(ServiceStation.this.getName()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>starts<sp/>transporting<sp/>of<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>who.getName()</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>to<sp/>the<sp/>successor<sp/>(next<sp/>station)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successorAdministration.getSuccessorEvent().clone().schedule(who,<sp/>getTransportTime());</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(CloneNotSupportedException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>RuntimeException(e);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>SuccessorAdministration&lt;E&gt;<sp/>successorAdministration;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSuccessor(Event&lt;?<sp/>super<sp/>E&gt;<sp/>eventToScheduleWhenFinished)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successorAdministration.setSuccessor(eventToScheduleWhenFinished);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSuccessor(HasPredecessor&lt;?<sp/>super<sp/>E&gt;<sp/>successor)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successorAdministration.setSuccessor(successor);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/ServiceStation.java"/>
+  </compounddef>
+</doxygen>

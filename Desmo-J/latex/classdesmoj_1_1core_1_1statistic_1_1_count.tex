@@ -1,0 +1,387 @@
+\section{desmoj.\-core.\-statistic.\-Count Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_count}\index{desmoj.\-core.\-statistic.\-Count@{desmoj.\-core.\-statistic.\-Count}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Count\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_count__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Count\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{classdesmoj_1_1core_1_1statistic_1_1_count__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Count} ({\bf Model} owner\-Model, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Count} ({\bf Model} owner\-Model, String name, boolean show\-In\-Report, boolean show\-In\-Trace, boolean is\-Reset\-Resistant)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+void {\bf set\-Corresponding\-Schedulable} ({\bf Schedulable} corresponding\-Schedulable)
+\item 
+long {\bf get\-Maximum} ()
+\item 
+long {\bf get\-Minimum} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf update} ()
+\item 
+void {\bf update} (long n)
+\item 
+void {\bf update} (Observable o, Object arg)
+\item 
+long {\bf get\-Value} ()
+\item 
+boolean {\bf is\-Inter\-Arrival\-Time\-Tally\-Activated} ()
+\item 
+void {\bf activate\-Inter\-Arrival\-Time\-Tally} (Class$<$?extends {\bf Reporter} $>$ reporter\-Class, boolean show\-Time\-Spans\-In\-Report)
+\item 
+void {\bf activate\-Inter\-Arrival\-Time\-Tally} (boolean show\-Time\-Spans\-In\-Report)
+\item 
+void {\bf activate\-Inter\-Arrival\-Time\-Tally} ()
+\item 
+void {\bf deactivate\-Inter\-Arrival\-Time\-Tally} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+long {\bf convert\-Double\-To\-Long} (double dble\-Value)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} class is simply counting something during an experiment. Be careful the counter can be updated with positive and negative integer numbers!
+
+To get this {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} object updated automatically every time a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} has changed, call the {\ttfamily add\-Observer (Observer)} -\/method from the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} of interest, where Observer is this {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} object. \par
+ This must be done by the user in his model! \par
+ Consider usage of class {\ttfamily \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}} to count non-\/integer (i.\-e. double) values.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998 
+
+modified by Ruth Meyer \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!Count@{Count}}
+\index{Count@{Count}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{Count}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Count.\-Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a5f6217a5a8840633fee7e9bb58cf5872}
+Constructor for a \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} object \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report Set it to {\ttfamily true} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should show up in report. Set it to {\ttfamily false} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should not be shown in report. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} in trace files. Set it to {\ttfamily true} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should show up in trace. Set it to {\ttfamily false} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!Count@{Count}}
+\index{Count@{Count}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{Count}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Count.\-Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace, }
+\item[{boolean}]{is\-Reset\-Resistant}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a6baf6d5003486be3fa67e82a95c41bd2}
+Constructor for a \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} object \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report Set it to {\ttfamily true} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should show up in report. Set it to {\ttfamily false} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should not be shown in report. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} in trace files. Set it to {\ttfamily true} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should show up in trace. Set it to {\ttfamily false} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should not be shown in trace. \\
+\hline
+{\em is\-Reset\-Resistant} & boolean \-: Flag for retaining the counter value during resets. Set it to {\ttfamily true} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should retain its current value and only reset min, max and observations to 0. Set it to {\ttfamily false} if this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} should also reset its value to 0. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!activate\-Inter\-Arrival\-Time\-Tally@{activate\-Inter\-Arrival\-Time\-Tally}}
+\index{activate\-Inter\-Arrival\-Time\-Tally@{activate\-Inter\-Arrival\-Time\-Tally}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{activate\-Inter\-Arrival\-Time\-Tally}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-activate\-Inter\-Arrival\-Time\-Tally (
+\begin{DoxyParamCaption}
+\item[{Class$<$?extends {\bf Reporter} $>$}]{reporter\-Class, }
+\item[{boolean}]{show\-Time\-Spans\-In\-Report}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a1944716a618c5bd2dfa1ed8c824506f8}
+Activates the inter-\/arrival-\/time \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally} to observe the timespans between calls of the update-\/\-Method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reporter\-Class} & Class$<$? extends Reporter$>$ \-: A reporter to be used by the \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally}. \\
+\hline
+{\em show\-Time\-Spans\-In\-Report} & boolean \-: Should the Reporter for the \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally} use Time\-Spans in Report? \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_count_a1944716a618c5bd2dfa1ed8c824506f8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!activate\-Inter\-Arrival\-Time\-Tally@{activate\-Inter\-Arrival\-Time\-Tally}}
+\index{activate\-Inter\-Arrival\-Time\-Tally@{activate\-Inter\-Arrival\-Time\-Tally}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{activate\-Inter\-Arrival\-Time\-Tally}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-activate\-Inter\-Arrival\-Time\-Tally (
+\begin{DoxyParamCaption}
+\item[{boolean}]{show\-Time\-Spans\-In\-Report}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a985124e135d6a737caab170ab61e1abd}
+Activates the inter-\/arrival-\/time \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally} to observe the timespans between calls of the update-\/\-Method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em show\-Time\-Spans\-In\-Report} & boolean \-: Should the Reporter for the \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally} use Time\-Spans in Report? \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_count_a985124e135d6a737caab170ab61e1abd_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!activate\-Inter\-Arrival\-Time\-Tally@{activate\-Inter\-Arrival\-Time\-Tally}}
+\index{activate\-Inter\-Arrival\-Time\-Tally@{activate\-Inter\-Arrival\-Time\-Tally}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{activate\-Inter\-Arrival\-Time\-Tally}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-activate\-Inter\-Arrival\-Time\-Tally (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_af8412a72d23bfbe9244b336bfc009627}
+Activates the inter-\/arrival-\/time \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally} to observe the timespans between calls of the update-\/\-Method. \index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!convert\-Double\-To\-Long@{convert\-Double\-To\-Long}}
+\index{convert\-Double\-To\-Long@{convert\-Double\-To\-Long}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{convert\-Double\-To\-Long}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-statistic.\-Count.\-convert\-Double\-To\-Long (
+\begin{DoxyParamCaption}
+\item[{double}]{dble\-Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_count_acd9eda2949be1218e98f24f42e2b2df0}
+Converts a {\ttfamily double} value to a {\ttfamily long} value. If this can not be done without rounding a warning will be produced.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dble\-Value} & double \-: The double value which will be converted to a long value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long \-: The long value the given double is converted to. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_count_acd9eda2949be1218e98f24f42e2b2df0_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-statistic.\-Count.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a7cf8d4fcc1375bda19b90bbf39cb4703}
+Returns a Reporter to produce a report about this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!deactivate\-Inter\-Arrival\-Time\-Tally@{deactivate\-Inter\-Arrival\-Time\-Tally}}
+\index{deactivate\-Inter\-Arrival\-Time\-Tally@{deactivate\-Inter\-Arrival\-Time\-Tally}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{deactivate\-Inter\-Arrival\-Time\-Tally}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-deactivate\-Inter\-Arrival\-Time\-Tally (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a3ea85a284a1c0b591a25e66dd95f4f12}
+Deactivates the inter-\/arrival-\/time \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally} to stop observing the timespans between calls of the update-\/\-Method. \index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!get\-Maximum@{get\-Maximum}}
+\index{get\-Maximum@{get\-Maximum}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{get\-Maximum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-statistic.\-Count.\-get\-Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a64d90be464eba0adb410d86f6002fe25}
+Returns the maximum value observed so far.
+
+\begin{DoxyReturn}{Returns}
+long \-: The maximum value observed so far. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!get\-Minimum@{get\-Minimum}}
+\index{get\-Minimum@{get\-Minimum}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{get\-Minimum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-statistic.\-Count.\-get\-Minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_ac70f32b1728083b02efe2df2a7682cff}
+Returns the minimum value observed so far.
+
+\begin{DoxyReturn}{Returns}
+long \-: The minimum value observed so far. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!get\-Value@{get\-Value}}
+\index{get\-Value@{get\-Value}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-statistic.\-Count.\-get\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a9e392acfc2e12c66532b8334c715311f}
+Returns the current counter value.
+
+\begin{DoxyReturn}{Returns}
+long \-: the current counter value. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!is\-Inter\-Arrival\-Time\-Tally\-Activated@{is\-Inter\-Arrival\-Time\-Tally\-Activated}}
+\index{is\-Inter\-Arrival\-Time\-Tally\-Activated@{is\-Inter\-Arrival\-Time\-Tally\-Activated}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{is\-Inter\-Arrival\-Time\-Tally\-Activated}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-statistic.\-Count.\-is\-Inter\-Arrival\-Time\-Tally\-Activated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a977da301f6e053af283686720b6c02af}
+Is the time between calls of the update-\/method be observed by a \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally}?
+
+\begin{DoxyReturn}{Returns}
+true if the inter-\/arrival-\/time will be observed, false if not. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a83d0dc131a946377e62ea7725c7f3055}
+Resets this \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count} object by resetting (nearly) all variables to zero. If the flag {\ttfamily is\-Reset\-Resistant} is set to {\ttfamily true} the counter value will N\-O\-T be changed. \index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!set\-Corresponding\-Schedulable@{set\-Corresponding\-Schedulable}}
+\index{set\-Corresponding\-Schedulable@{set\-Corresponding\-Schedulable}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{set\-Corresponding\-Schedulable}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-set\-Corresponding\-Schedulable (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{corresponding\-Schedulable}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a54458df31cfbe7cb653cec85931b55f8}
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a7d4a886e988bfec58f0df76c15f6450c}
+Increments the counter of this {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} object by one. \index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-update (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a27d0eca5d0f5e46467b68b41719d559a}
+Increments the counter of this {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} object by the value given in the parameter n.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number that will be added to the counter of this {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_count_a27d0eca5d0f5e46467b68b41719d559a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Count@{desmoj\-::core\-::statistic\-::\-Count}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Count@{desmoj\-::core\-::statistic\-::\-Count}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Count.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_count_a91798f4b474d31d9e77f56ecb2c8097e}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count_a91798f4b474d31d9e77f56ecb2c8097e}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+ If no Object (a{\ttfamily null} value) is passed as arg, the actual value of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be fetched with the {\ttfamily value()} method of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}. Otherwise it is expected that the actual value is passed in the Object arg.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} is updated. Normally a long number which is added to the counter or {\ttfamily null}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_count_a91798f4b474d31d9e77f56ecb2c8097e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Count.\-java\end{DoxyCompactItemize}

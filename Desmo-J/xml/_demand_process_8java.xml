@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_demand_process_8java" kind="file">
+    <compoundname>DemandProcess.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process" prot="public">desmoj::extensions::applicationDomains::production::DemandProcess</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1application_domains_1_1production">desmoj::extensions::applicationDomains::production</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.applicationDomains.production;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.dist.NumericalDist;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">desmoj.core.simulator.Model</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">desmoj.core.simulator.SimProcess</ref>;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process" kindref="compound">DemandProcess</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>NumericalDist&lt;Long&gt;<sp/>demandQuantity;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>NumericalDist&lt;?&gt;<sp/>demandInterval;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot" kindref="compound">Entrepot</ref><sp/>entrepot;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1ab3ed64d73122b13720f772f876a05a7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1ab3ed64d73122b13720f772f876a05a7f" kindref="member">DemandProcess</ref>(<ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref><sp/>owner,<sp/>String<sp/>name,<sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot" kindref="compound">Entrepot</ref><sp/>supplier,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NumericalDist&lt;Long&gt;<sp/>quantity,<sp/>NumericalDist&lt;?&gt;<sp/>interval,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>showInTrace)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(owner,<sp/>name,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>showInTrace);<sp/></highlight><highlight class="comment">//<sp/>make<sp/>a<sp/>sim-process</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>save<sp/>the<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.entrepot<sp/>=<sp/>supplier;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.demandQuantity<sp/>=<sp/>quantity;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.demandInterval<sp/>=<sp/>interval;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1af8a615425bb61fd8ac0c7f39a3751a33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>NumericalDist&lt;?&gt;<sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1af8a615425bb61fd8ac0c7f39a3751a33" kindref="member">getDemandInterval</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>demandInterval;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1a277b94fcac802b455a49c2b66a3b466e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>NumericalDist&lt;Long&gt;<sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1a277b94fcac802b455a49c2b66a3b466e" kindref="member">getDemandQuantity</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>demandQuantity;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1a0a9ddb2763b2d609daddfb3693aa9c83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot" kindref="compound">Entrepot</ref><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1a0a9ddb2763b2d609daddfb3693aa9c83" kindref="member">getEntrepot</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>entrepot;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1add081be259e849260f67f7a117ee43b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1add081be259e849260f67f7a117ee43b0" kindref="member">lifeCycle</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>until<sp/>it<sp/>is<sp/>time<sp/>to<sp/>fetch<sp/>the<sp/>next<sp/>products</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process_1a84095a4ec4ffd1f065b40663c0637903" kindref="member">hold</ref>(demandInterval.sampleTimeSpan());</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>determine<sp/>the<sp/>quantity<sp/>of<sp/>demanded<sp/>products</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>qty<sp/>=<sp/>demandQuantity.sample();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>and<sp/>activate<sp/>a<sp/>CustomerProcess<sp/>to<sp/>let<sp/>him<sp/>fetch<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>products</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_customer_process" kindref="compound">CustomerProcess</ref><sp/>cp<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_customer_process" kindref="compound">CustomerProcess</ref>(<ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" kindref="member">getModel</ref>(),</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;anonymous<sp/>customer&quot;</highlight><highlight class="normal">,<sp/>entrepot,<sp/>qty,<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" kindref="member">traceIsOn</ref>());</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cp.activate();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>debug<sp/>out</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" kindref="member">currentlySendDebugNotes</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" kindref="member">sendDebugNote</ref>(</highlight><highlight class="stringliteral">&quot;demands<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>qty<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>products<sp/>from<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>entrepot.<ref refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" kindref="member">getQuotedName</ref>());</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1ac1e25df92b73e769d343fd83b3b901ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1ac1e25df92b73e769d343fd83b3b901ce" kindref="member">setDemandInterval</ref>(NumericalDist&lt;?&gt;<sp/>newDemandInterval)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.demandInterval<sp/>=<sp/>newDemandInterval;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1a27524203983d8c85d19e4d0391368e47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_1a27524203983d8c85d19e4d0391368e47" kindref="member">setDemandQuantity</ref>(NumericalDist&lt;Long&gt;<sp/>newDemandQuantity)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.demandQuantity<sp/>=<sp/>newDemandQuantity;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/DemandProcess.java"/>
+  </compounddef>
+</doxygen>

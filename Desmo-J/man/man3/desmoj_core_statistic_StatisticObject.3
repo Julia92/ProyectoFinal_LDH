@@ -1,0 +1,181 @@
+.TH "desmoj.core.statistic.StatisticObject" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.StatisticObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP, and Observer\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.statistic\&.Count\fP, \fBdesmoj\&.core\&.statistic\&.Regression\fP, and \fBdesmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStatisticObject\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBsetUnit\fP (String unit)"
+.br
+.ti -1c
+.RI "String \fBgetUnit\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetUnitText\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double \fBround\fP (double d)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final double \fBUNDEFINED\fP = -1\&.0"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBconvertToDouble\fP (Object obj)"
+.br
+.ti -1c
+.RI "void \fBtraceUpdate\fP ()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final double \fBFRACTION_DIGITS\fP = 5\&.0"
+.br
+.ti -1c
+.RI "static final double \fBPRECISION\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fC\fBStatisticObject\fP\fP class is the super class of all other classes collecting statistical data\&. 
+.br
+ It extends the \fC\fBdesmoj\&.core\&.simulator\&.Reportable\fP\fP class so that it can provide a reporter to represent the statistical data in the report\&. 
+.br
+ It also implements the \fCjava\&.util\&.Observer\fP interface\&. So this is the observer part of the observer pattern as described in [Gamm95] that is observing the \fCdesmoj\&.statistic\&.ValueSupplier\fP\&. Whenever the \fC\fBValueSupplier\fP\fP is changing it calls the \fCupdate(Observable, Object)\fP method of this \fC\fBStatisticObject\fP\fP\&. Which happens inside the \fCnotifyObservers()\fP method of the observable \fC\fBValueSupplier\fP\fP\&. 
+.PP
+The virtual method \fCupdate(Observable, Object)\fP has to be implemented in all derived classes so that the \fC\fBStatisticObject\fP\fP is updated when the observed \fC\fBValueSupplier\fP\fP has changed and its \fCnotifyObservers()\fP method is called from its \fCnotifyStatistics()\fP method\&. 
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.statistic\&.ValueSupplier\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.StatisticObject\&.StatisticObject (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBStatisticObject\fP, preliminarily without a unit assigned
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBStatisticObject\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBStatisticObject\fP 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBStatisticObject\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBStatisticObject\fP in trace files\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double desmoj\&.core\&.statistic\&.StatisticObject\&.convertToDouble (Objectobj)\fC [protected]\fP"
+Converts an \fCObject\fP to a \fCdouble\fP -value\&. If the given object is not an instance of a number wrapper class a warning is produced and the UNDEFINED-value (-1\&.0) is returned\&. 
+.br
+ So the \fC\fBStatisticObject\fP\fP can be notified by a \fC\fBValueSupplier\fP\fP with the \fCnotifyStatistics(Object arg)\fP method, where the value is passed as an object in this method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The double value the given object is converted to\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP Object : The Object which will be converted to a double value\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.StatisticObject\&.getUnit ()"
+Get an optional unit of reported value\&. Default is null\&. This value is shown in description reports\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+String : The optional unit 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.StatisticObject\&.getUnitText ()"
+Textually wraps the output of \fC\fBgetUnit()\fP\fP, adding brackets and displaying 'none' if case unit is \fCnull\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "static double desmoj\&.core\&.statistic\&.StatisticObject\&.round (doubled)\fC [static]\fP"
+Rounds a double value with repect to the \fCPRECISION\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The rounded value\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP double : The value to be rounded 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.StatisticObject\&.setUnit (Stringunit)"
+Set an optional unit of reported value\&. Default is null\&. This value is shown in description reports\&. 
+.SS "void desmoj\&.core\&.statistic\&.StatisticObject\&.traceUpdate ()\fC [protected]\fP"
+Leaves a message in the trace that this \fBStatisticObject\fP has been updated\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "final double desmoj\&.core\&.statistic\&.StatisticObject\&.FRACTION_DIGITS = 5\&.0\fC [static]\fP, \fC [protected]\fP"
+The number of digits after the decimal point which will be displayed for the numbers in the reports\&. A precision of more than that is obsolete\&. 
+.SS "final double desmoj\&.core\&.statistic\&.StatisticObject\&.PRECISION\fC [static]\fP, \fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= java\&.lang\&.Math\&.pow(10\&.0,
+            FRACTION_DIGITS)
+.fi
+The number needed for rounding the results to the desired precision\&. 
+.SS "final double desmoj\&.core\&.statistic\&.StatisticObject\&.UNDEFINED = -1\&.0\fC [static]\fP"
+Represents the value returned in case of an error\&. If no valid value can be returned\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

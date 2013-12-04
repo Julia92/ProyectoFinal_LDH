@@ -1,0 +1,203 @@
+.TH "desmoj.extensions.applicationDomains.production.TransportTerminal" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.TransportTerminal \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransportTerminal\fP (\fBModel\fP owner, String name, int numOfTransp, int capac, int minLoad, NumericalDist<?> transportTimeStream, NumericalDist<?> returnTime, int mSortOrder, int mQCapacity, int sSortOrder, int sQCapacity, \fBTransportation\fP transportation, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTransportTerminal\fP (\fBModel\fP owner, String name, int numOfTransp, int capac, NumericalDist<?> transportTimeStream, NumericalDist<?> returnTime, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "synchronized \fBSimProcess\fP[] \fBavailableSet\fP (Condition cond)"
+.br
+.ti -1c
+.RI "\fBTransporter\fP \fBavailTransporter\fP (Condition cond)"
+.br
+.ti -1c
+.RI "\fBTransportJunction\fP \fBgetTransportJunction\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBtransport\fP (\fBTransportation\fP transport)"
+.br
+.ti -1c
+.RI "boolean \fBtransport\fP (\fBTransportation\fP transport, Condition cond)"
+.br
+.ti -1c
+.RI "boolean \fBwaitOnTransport\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBTransportTerminal\fP is a place where a number of transporters (default are \fC\fBSimpleTransporter\fP\fPs) are waiting for goods to transport them around\&. The \fC\fBSimpleTransporter\fP\fP s are generated automatically when a \fBTransportTerminal\fP is initialized\&. It is intended as an easy to use interface (facade) for the user and to hide the different classes and their more or less complex interaction from the user, he normally has to set up when he wants to model transportation in his model\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimpleTransporter\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.TransportTerminal (\fBModel\fPowner, Stringname, intnumOfTransp, intcapac, intminLoad, NumericalDist<?>transportTimeStream, NumericalDist<?>returnTime, intmSortOrder, intmQCapacity, intsSortOrder, intsQCapacity, \fBTransportation\fPtransportation, booleanshowInReport, booleanshowInTrace)"
+Constructor for a simple \fBTransportTerminal\fP where a given number of \fC\fBSimpleTransporter\fP\fP s wait for goods to carry them to their destination\&. The kind of transportation they perform can be determined by the user\&. The class implementing this special transportation can be provided as a parameter\&. The sort order and the capacity of the queues for the transporters and the goods can be chosen, too\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTransportTerminal\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTransportTerminal\fP\&. 
+.br
+\fInumOfTransp\fP int : The number of transporters belonging to this \fBTransportTerminal\fP\&. 
+.br
+\fIcapac\fP int : The maximum number of goods the transporters can carry around\&. 
+.br
+\fIminLoad\fP int : The minimum number of goods the transporters will carry around\&. 
+.br
+\fItransportTimeStream\fP NumericalDist<?> : The random number stream determining the time it takes to transport the goods\&. 
+.br
+\fIreturnTime\fP NumericalDist<?> : The time it takes the transporters to return to their \fBTransportTerminal\fP after carrying the goods to their destination\&. 
+.br
+\fImSortOrder\fP int : The sort order of the transporters waiting-queue\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fImQCapacity\fP int : The capacity of the transporters waiting-queue, that is how many transporters can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIsSortOrder\fP int : The sort order of the goods waiting-queue\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIsQCapacity\fP int : The capacity of the goods waiting-queue, that is how many goods processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fItransportation\fP \fBTransportation\fP : The type of transportation to be performed by the transporters\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBTransportTerminal\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBTransportTerminal\fP should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.TransportTerminal (\fBModel\fPowner, Stringname, intnumOfTransp, intcapac, NumericalDist<?>transportTimeStream, NumericalDist<?>returnTime, booleanshowInReport, booleanshowInTrace)"
+Constructor for a simple \fBTransportTerminal\fP where a given number of \fC\fBSimpleTransporter\fP\fP s wait for goods to carry them to their destination\&. The \fC\fBSimpleTransporter\fP\fP s all have a minimum load of one (1) and they perform just a simple transportation\&. That is, they pick up the goods carry them to their destination and release them there\&. The queues for the transporters and the goods have a FIFO sort order and no capacity limit\&. The following parameters must be specified by the user\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTransportTerminal\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTransportTerminal\fP\&. 
+.br
+\fInumOfTransp\fP int : The number of SimpleTransporters belonging to this \fBTransportTerminal\fP\&. 
+.br
+\fIcapac\fP int : The maximum number of goods the SimpleTransporters can carry around\&. 
+.br
+\fItransportTimeStream\fP NumericalDist<?> : The random number stream determining the time it takes to transport the goods\&. 
+.br
+\fIreturnTime\fP NumericalDist<?> : The time it takes the SimpleTransporters to return to their \fBTransportTerminal\fP after carrying the goods to their destination\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBTransportTerminal\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBTransportTerminal\fP should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "synchronized \fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.availableSet (Conditioncond)"
+Returns an array of available slave SimProcesses which comply to a given condition at this moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess[] : The array of available slave SimProcesses which comply to the given condition\&. If no suitable SimProcess is available \fCnull\fP will be returned\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP desmoj\&.Condition : The condition to which the sim-processes we are looking for must comply\&. 
+.RE
+.PP
+
+.SS "\fBTransporter\fP desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.availTransporter (Conditioncond)"
+Returns a transporter process waiting in the transporter (master) queue complying to the given condition\&. If there is no such transporter waiting \fCnull\fP is returned\&. This method is passed on to the underlying \fC\fBTransportJunction\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTransporter\fP : Returns the first transporter in the master queue which complies to the given condition\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the trasnporter must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "\fBTransportJunction\fP desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.getTransportJunction ()"
+Returns the underlying \fC\fBTransportJunction\fP\fP\&. That is the home base of all the transporters associated to this \fBTransportTerminal\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TransportJunction : The home base of the transporters associated to this \fBTransportTerminal\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.transport (\fBTransportation\fPtransport)"
+This method is to be called from a \fC\fBTransporter\fP\fP which wants to transport goods\&. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in a waiting-queue, until enough suitable slaves are available\&. If the capacity limit of the queue is reached, the transporter will not be enqueued and \fCfalse\fP will be returned\&. When enough suitable slaves are available their \fCcooperate\fP method (in the class \fCSimProcess\fP) will be called\&. During the transportation process the transporter process is the only active one\&. The slave processes are passive and will be reactivated after the transportation is done\&. This method is passed on to the underlying \fC\fBTransportJunction\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the transporter can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the transporter queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransport\fP \fBTransportation\fP : The transportation process transport is describing the joint action of the processes\&. The transport to be carried out has to be implemented by the user in the class: \fC\fBTransportation\fP\fP in the method: \fCcooperation()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.transport (\fBTransportation\fPtransport, Conditioncond)"
+This method is to be called from a \fC\fBTransporter\fP\fP who wants to transport goods which comply to a certain condition\&. The condition must be specified in the method \fCcheck()\fP in a class derived from \fCCondition\fP\&. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in the waiting-queue, until enough suitable slaves are available\&. If the capacity limit of the queue is reached, the transporter will not be enqueued and \fCfalse\fP returned\&. When enough suitable slaves are available their \fCcooperate\fP method (in the class \fCSimProcess\fP) will be called\&. During the transportation process the transporter process is the only active one\&. The slave process is passive and will be reactivated after the transportation is done\&. This method is passed on to the underlying \fC\fBTransportJunction\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the transporter can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransport\fP \fBTransportation\fP : The transportation process transport is describing the joint action of the processes\&. The transport to be carried out has to be implemented by the user in the class: \fC\fBTransportation\fP\fP in the method: \fCcooperation()\fP\&. 
+.br
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the slave process must comply\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\&.waitOnTransport ()"
+This method is called from a sim-process which wants to be transported as a slave\&. If no suitable master process (transporter) is available at the moment, the slave process will be stored in the slave queue, until a suitable transporter is available\&. If the capacity limit of the slave queue is reached, the process will not be enqueued and \fCfalse\fP will be returned\&. During the cooperation the master process is the only active one\&. The slave process is passive and will be reactivated after the cooperation is done\&. This method is passed on to the underlying \fC\fBTransportJunction\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process requesting the transportation has been transported successfully to his destination, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the slave queue is reached)\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

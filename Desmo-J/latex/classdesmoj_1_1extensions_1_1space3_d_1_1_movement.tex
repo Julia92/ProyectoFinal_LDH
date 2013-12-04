@@ -1,0 +1,409 @@
+\section{desmoj.\-extensions.\-space3\-D.\-Movement Class Reference}
+\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement}\index{desmoj.\-extensions.\-space3\-D.\-Movement@{desmoj.\-extensions.\-space3\-D.\-Movement}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Movement} ()
+\item 
+{\bf Movement} ({\bf Track} track, {\bf Time\-Span} acc\-Duration, {\bf Time\-Span} max\-Speed\-Duration, {\bf Time\-Span} dec\-Duration, double initial\-Speed, double max\-Speed, double end\-Speed)
+\item 
+{\bf Movement} ({\bf Track} track, double acc\-Duration, double max\-Speed\-Duration, double dec\-Duration, double initial\-Speed, double max\-Speed, double end\-Speed)
+\item 
+{\bf Time\-Span} {\bf get\-Acc\-Duration} ()
+\item 
+{\bf Extended\-Length} {\bf get\-Current\-Moved\-Distance} ({\bf Time\-Instant} moving\-Start\-Time, {\bf Time\-Instant} now)
+\item 
+Vector3d {\bf get\-Current\-Moving\-Direction} ({\bf Time\-Instant} moving\-Start\-Time, {\bf Time\-Instant} now)
+\item 
+double[$\,$] {\bf get\-Current\-Position} ({\bf Time\-Instant} moving\-Start\-Time, {\bf Time\-Instant} now)
+\item 
+{\bf Time\-Span} {\bf get\-Dec\-Duration} ()
+\item 
+double {\bf get\-End\-Speed} ()
+\item 
+double {\bf get\-Initial\-Speed} ()
+\item 
+double {\bf get\-Max\-Speed} ()
+\item 
+{\bf Time\-Span} {\bf get\-Max\-Speed\-Duration} ()
+\item 
+{\bf Time\-Span} {\bf get\-Total\-Duration} ()
+\item 
+{\bf Track} {\bf get\-Track} ()
+\item 
+boolean {\bf is\-Valid} ()
+\item 
+void {\bf set\-Acc\-Duration} ({\bf Time\-Span} acc\-Duration)
+\item 
+void {\bf set\-Dec\-Duration} ({\bf Time\-Span} dec\-Duration)
+\item 
+void {\bf set\-End\-Speed} (double end\-Speed)
+\item 
+void {\bf set\-Initial\-Speed} (double initial\-Speed)
+\item 
+void {\bf set\-Max\-Speed} (double max\-Speed)
+\item 
+void {\bf set\-Max\-Speed\-Duration} ({\bf Time\-Span} max\-Speed\-Duration)
+\item 
+void {\bf set\-Track} ({\bf Track} track)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} class stores the track, the duration informations of each phase of a movement and its associated speed. A movement will be divided into 3 phases, the acceleration phase, the maximum speed phase and the deceleration phase. It's allowed to set the initial speed greater than the maximum speed. Then the acceleration phase will be used to reduce the speed to the maximum speed. \begin{DoxyAuthor}{Author}
+Fred Sun 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!Movement@{Movement}}
+\index{Movement@{Movement}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{Movement}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-space3\-D.\-Movement.\-Movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_a7d8fb7a1fff0f16a9e67cce4dcca405e}
+Constructs a \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} object with empty values. \index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!Movement@{Movement}}
+\index{Movement@{Movement}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{Movement}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-space3\-D.\-Movement.\-Movement (
+\begin{DoxyParamCaption}
+\item[{{\bf Track}}]{track, }
+\item[{{\bf Time\-Span}}]{acc\-Duration, }
+\item[{{\bf Time\-Span}}]{max\-Speed\-Duration, }
+\item[{{\bf Time\-Span}}]{dec\-Duration, }
+\item[{double}]{initial\-Speed, }
+\item[{double}]{max\-Speed, }
+\item[{double}]{end\-Speed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_aba4a92180e0af5163028e6215227c42b}
+It constructs a \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} object with given speed and duration of each phases. 
+\begin{DoxyParams}{Parameters}
+{\em track} & The track associated to this movement. \\
+\hline
+{\em acc\-Duration} & The duration of the acceleration phase. \\
+\hline
+{\em max\-Speed\-Duration} & The duration of the phase when the movement has the maximum speed. \\
+\hline
+{\em dec\-Duration} & The duration of the deceleration phase. \\
+\hline
+{\em initial\-Speed} & The initial speed. \\
+\hline
+{\em max\-Speed} & The maximum speed. \\
+\hline
+{\em end\-Speed} & The end speed. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!Movement@{Movement}}
+\index{Movement@{Movement}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{Movement}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-space3\-D.\-Movement.\-Movement (
+\begin{DoxyParamCaption}
+\item[{{\bf Track}}]{track, }
+\item[{double}]{acc\-Duration, }
+\item[{double}]{max\-Speed\-Duration, }
+\item[{double}]{dec\-Duration, }
+\item[{double}]{initial\-Speed, }
+\item[{double}]{max\-Speed, }
+\item[{double}]{end\-Speed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ae12701db3cb3c148b61f59bacbaf6942}
+It constructs a \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} object with given speed and duration of each phases. The durations are in double and measured in the unit of the reference time. 
+\begin{DoxyParams}{Parameters}
+{\em track} & The track associated to this movement. \\
+\hline
+{\em acc\-Duration} & The duration of the acceleration phase. \\
+\hline
+{\em max\-Speed\-Duration} & The duration of the phase when the movement has the maximum speed. \\
+\hline
+{\em dec\-Duration} & The duration of the deceleration phase. \\
+\hline
+{\em initial\-Speed} & The initial speed. \\
+\hline
+{\em max\-Speed} & The maximum speed. \\
+\hline
+{\em end\-Speed} & The end speed. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Acc\-Duration@{get\-Acc\-Duration}}
+\index{get\-Acc\-Duration@{get\-Acc\-Duration}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Acc\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Acc\-Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_abfb9f2ddd5e806c5efae582db65ce247}
+Gets the duration of the acceleration phase. \begin{DoxyReturn}{Returns}
+The duration of the acceleration phase. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Current\-Moved\-Distance@{get\-Current\-Moved\-Distance}}
+\index{get\-Current\-Moved\-Distance@{get\-Current\-Moved\-Distance}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Current\-Moved\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Extended\-Length} desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Current\-Moved\-Distance (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{moving\-Start\-Time, }
+\item[{{\bf Time\-Instant}}]{now}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ab5340c8ceef237a235034cc46959f282}
+Gets the moved distance based on the elapsed Sim\-Time. 
+\begin{DoxyParams}{Parameters}
+{\em moving\-Start\-Time} & The Sim\-Time, when the movement has started. \\
+\hline
+{\em now} & The current Sim\-Time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The moved distance in \doxyref{Extended\-Length}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_extended_length}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ab5340c8ceef237a235034cc46959f282_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Current\-Moving\-Direction@{get\-Current\-Moving\-Direction}}
+\index{get\-Current\-Moving\-Direction@{get\-Current\-Moving\-Direction}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Current\-Moving\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Current\-Moving\-Direction (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{moving\-Start\-Time, }
+\item[{{\bf Time\-Instant}}]{now}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_aa7ed667cb0116038105e7fa5475d4a23}
+Gets the current moving direction on this movement based on the elapsed Sim\-Time. 
+\begin{DoxyParams}{Parameters}
+{\em moving\-Start\-Time} & The Sim\-Time, when the movement has started. \\
+\hline
+{\em now} & The current Sim\-Time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current direction in double[3]. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_aa7ed667cb0116038105e7fa5475d4a23_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Current\-Position@{get\-Current\-Position}}
+\index{get\-Current\-Position@{get\-Current\-Position}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Current\-Position}]{\setlength{\rightskip}{0pt plus 5cm}double [$\,$] desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Current\-Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{moving\-Start\-Time, }
+\item[{{\bf Time\-Instant}}]{now}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_aa2dfc5c5240c18129d6e4bb743d6d9f7}
+Gets the current position on this movement based on elapsed Sim\-Time. 
+\begin{DoxyParams}{Parameters}
+{\em moving\-Start\-Time} & The Sim\-Time, when the movement has started. \\
+\hline
+{\em now} & The current Sim\-Time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current position in double[3]. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_aa2dfc5c5240c18129d6e4bb743d6d9f7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Dec\-Duration@{get\-Dec\-Duration}}
+\index{get\-Dec\-Duration@{get\-Dec\-Duration}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Dec\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Dec\-Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ad661100465d4d2330539e6a3a5cbe2c1}
+Gets the duration of the deceleration phase. \begin{DoxyReturn}{Returns}
+The duration of the deceleration phase. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-End\-Speed@{get\-End\-Speed}}
+\index{get\-End\-Speed@{get\-End\-Speed}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-End\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-End\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ac02519b7c8f7766dce33ea9fc8190d53}
+Gets the end speed. \begin{DoxyReturn}{Returns}
+the end speed 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Initial\-Speed@{get\-Initial\-Speed}}
+\index{get\-Initial\-Speed@{get\-Initial\-Speed}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Initial\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Initial\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ae4c3747d6707ec287098c94a06a9e0c8}
+Gets the initial speed. \begin{DoxyReturn}{Returns}
+the initial speed 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Max\-Speed@{get\-Max\-Speed}}
+\index{get\-Max\-Speed@{get\-Max\-Speed}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Max\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Max\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_a5544ed4c653e2ace65f8da514bc9996a}
+Gets the maximum speed. \begin{DoxyReturn}{Returns}
+the maximum speed 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Max\-Speed\-Duration@{get\-Max\-Speed\-Duration}}
+\index{get\-Max\-Speed\-Duration@{get\-Max\-Speed\-Duration}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Max\-Speed\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Max\-Speed\-Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_a1627ad62de5f66d5f5f19520defc5f62}
+Gets the duration when the movement has the maximum speed. \begin{DoxyReturn}{Returns}
+The duration when the movement has the maximum speed. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Total\-Duration@{get\-Total\-Duration}}
+\index{get\-Total\-Duration@{get\-Total\-Duration}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Total\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Total\-Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_a1aa04335e285a04d97b270aa8baf8f38}
+Gets the total duration which is the sum of all the 3 phases. \begin{DoxyReturn}{Returns}
+The total duration. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!get\-Track@{get\-Track}}
+\index{get\-Track@{get\-Track}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{get\-Track}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Track} desmoj.\-extensions.\-space3\-D.\-Movement.\-get\-Track (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_a26bab2672bccae609fd7f35d141bc148}
+Gets the track object of this movement. \begin{DoxyReturn}{Returns}
+the track object of this movement. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!is\-Valid@{is\-Valid}}
+\index{is\-Valid@{is\-Valid}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{is\-Valid}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-space3\-D.\-Movement.\-is\-Valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_af035c5ed993c98f2404d253239b22443}
+Tests if the movement is valid and fully specified. \begin{DoxyReturn}{Returns}
+true if\-: The \doxyref{Track}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_track} object is instantiated and if neither the track length, the total duration and the sum of the speed in each phase is zero. If one of these condition is zero, then all of them should be zero. Otherwise false will be returned. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_af035c5ed993c98f2404d253239b22443_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!set\-Acc\-Duration@{set\-Acc\-Duration}}
+\index{set\-Acc\-Duration@{set\-Acc\-Duration}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{set\-Acc\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Movement.\-set\-Acc\-Duration (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{acc\-Duration}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_afa54f619a90e7ef69c1977080bcb220b}
+Sets the acceleration duration 
+\begin{DoxyParams}{Parameters}
+{\em acc\-Duration} & the acceleration duration to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!set\-Dec\-Duration@{set\-Dec\-Duration}}
+\index{set\-Dec\-Duration@{set\-Dec\-Duration}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{set\-Dec\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Movement.\-set\-Dec\-Duration (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dec\-Duration}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_afdd541256cc3e4fc8f4425ce91853718}
+Sets the deceleration duration. 
+\begin{DoxyParams}{Parameters}
+{\em dec\-Duration} & the deceleration duration to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!set\-End\-Speed@{set\-End\-Speed}}
+\index{set\-End\-Speed@{set\-End\-Speed}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{set\-End\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Movement.\-set\-End\-Speed (
+\begin{DoxyParamCaption}
+\item[{double}]{end\-Speed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ad0eb75df5720dbbbeec54c24de4d2cbd}
+Sets the end speed. 
+\begin{DoxyParams}{Parameters}
+{\em end\-Speed} & the end speed to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!set\-Initial\-Speed@{set\-Initial\-Speed}}
+\index{set\-Initial\-Speed@{set\-Initial\-Speed}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{set\-Initial\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Movement.\-set\-Initial\-Speed (
+\begin{DoxyParamCaption}
+\item[{double}]{initial\-Speed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_a7aab3da50662c4412a773c5795bdd9aa}
+Sets the initial speed. 
+\begin{DoxyParams}{Parameters}
+{\em initial\-Speed} & the initial speed to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!set\-Max\-Speed@{set\-Max\-Speed}}
+\index{set\-Max\-Speed@{set\-Max\-Speed}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{set\-Max\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Movement.\-set\-Max\-Speed (
+\begin{DoxyParamCaption}
+\item[{double}]{max\-Speed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_abaf933b6426799acb907ddeb98192465}
+Sets the maximum speed. 
+\begin{DoxyParams}{Parameters}
+{\em max\-Speed} & the maximum speed to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!set\-Max\-Speed\-Duration@{set\-Max\-Speed\-Duration}}
+\index{set\-Max\-Speed\-Duration@{set\-Max\-Speed\-Duration}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{set\-Max\-Speed\-Duration}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Movement.\-set\-Max\-Speed\-Duration (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{max\-Speed\-Duration}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_a8feea197a3b6f917d734c52272a1057b}
+Sets the duration of the maximum speed. 
+\begin{DoxyParams}{Parameters}
+{\em max\-Speed\-Duration} & the duration with the maximum speed to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}!set\-Track@{set\-Track}}
+\index{set\-Track@{set\-Track}!desmoj::extensions::space3D::Movement@{desmoj\-::extensions\-::space3\-D\-::\-Movement}}
+\subsubsection[{set\-Track}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-space3\-D.\-Movement.\-set\-Track (
+\begin{DoxyParamCaption}
+\item[{{\bf Track}}]{track}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1space3_d_1_1_movement_ad0c450e2e0d82612cd79d6bfbbf43c88}
+Sets the track for the movement. 
+\begin{DoxyParams}{Parameters}
+{\em track} & track to be set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/space3\-D/Movement.\-java\end{DoxyCompactItemize}

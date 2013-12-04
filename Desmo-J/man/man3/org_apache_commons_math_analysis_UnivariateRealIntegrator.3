@@ -1,0 +1,261 @@
+.TH "org.apache.commons.math.analysis.UnivariateRealIntegrator" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.UnivariateRealIntegrator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetMaximalIterationCount\fP (int count)"
+.br
+.ti -1c
+.RI "int \fBgetMaximalIterationCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetMaximalIterationCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMinimalIterationCount\fP (int count)"
+.br
+.ti -1c
+.RI "int \fBgetMinimalIterationCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetMinimalIterationCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetRelativeAccuracy\fP (double accuracy)"
+.br
+.ti -1c
+.RI "double \fBgetRelativeAccuracy\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetRelativeAccuracy\fP ()"
+.br
+.ti -1c
+.RI "double \fBintegrate\fP (double min, double max)  throws ConvergenceException,          FunctionEvaluationException, IllegalArgumentException"
+.br
+.ti -1c
+.RI "double \fBgetResult\fP ()  throws IllegalStateException"
+.br
+.ti -1c
+.RI "int \fBgetIterationCount\fP ()  throws IllegalStateException"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for univariate real integration algorithms\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+620312 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-10 12:28:59 -0700 (Sun, 10 Feb 2008) 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.getIterationCount () throws IllegalStateException"
+Get the number of iterations in the last run of the integrator\&. 
+.PP
+This is mainly meant for testing purposes\&. It may occasionally help track down performance problems: if the iteration count is notoriously high, check whether the function is evaluated properly, and whether another integrator is more amenable to the problem\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the last iteration count 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalStateException\fP if there is no result available, either because no result was yet computed or the last attempt failed 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.getMaximalIterationCount ()"
+Get the upper limit for the number of iterations\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the actual upper limit 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.getMinimalIterationCount ()"
+Get the lower limit for the number of iterations\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the actual lower limit 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.getRelativeAccuracy ()"
+Get the actual relative accuracy\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the accuracy 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.getResult () throws IllegalStateException"
+Get the result of the last run of the integrator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the last result 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalStateException\fP if there is no result available, either because no result was yet computed or the last attempt failed 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.integrate (doublemin, doublemax) throws \fBConvergenceException\fP,          \fBFunctionEvaluationException\fP, IllegalArgumentException"
+Integrate the function in the given interval\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP the lower bound for the interval 
+.br
+\fImax\fP the upper bound for the interval 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of integral 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBConvergenceException\fP\fP if the maximum iteration count is exceeded or the integrator detects convergence problems otherwise 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function 
+.br
+\fIIllegalArgumentException\fP if min > max or the endpoints do not satisfy the requirements specified by the integrator 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.TrapezoidIntegrator\fP, \fBorg\&.apache\&.commons\&.math\&.analysis\&.RombergIntegrator\fP, and \fBorg\&.apache\&.commons\&.math\&.analysis\&.SimpsonIntegrator\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.resetMaximalIterationCount ()"
+Reset the upper limit for the number of iterations to the default\&. 
+.PP
+The default value is supplied by the implementation\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBsetMaximalIterationCount(int)\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.resetMinimalIterationCount ()"
+Reset the lower limit for the number of iterations to the default\&. 
+.PP
+The default value is supplied by the implementation\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBsetMinimalIterationCount(int)\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.resetRelativeAccuracy ()"
+Reset the relative accuracy to the default\&. 
+.PP
+The default value is provided by the implementation\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBsetRelativeAccuracy(double)\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.setMaximalIterationCount (intcount)"
+Set the upper limit for the number of iterations\&. 
+.PP
+Usually a high iteration count indicates convergence problem\&. However, the 'reasonable value' varies widely for different cases\&. Users are advised to use the default value\&.
+.PP
+A \fC\fBConvergenceException\fP\fP will be thrown if this number is exceeded\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcount\fP maximum number of iterations 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.setMinimalIterationCount (intcount)"
+Set the lower limit for the number of iterations\&. 
+.PP
+Minimal iteration is needed to avoid false early convergence, e\&.g\&. the sample points happen to be zeroes of the function\&. Users can use the default value or choose one that they see as appropriate\&.
+.PP
+A \fC\fBConvergenceException\fP\fP will be thrown if this number is not met\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcount\fP minimum number of iterations 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\&.setRelativeAccuracy (doubleaccuracy)"
+Set the relative accuracy\&. 
+.PP
+This is used to stop iterations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaccuracy\fP the relative accuracy 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if the accuracy can't be achieved or is otherwise deemed unreasonable 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

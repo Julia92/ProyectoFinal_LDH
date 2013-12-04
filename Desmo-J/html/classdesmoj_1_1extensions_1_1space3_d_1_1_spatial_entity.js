@@ -1,0 +1,28 @@
+var classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity =
+[
+    [ "SpatialEntity", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a920aeb620bb1fa4b7ea377cf8617d235", null ],
+    [ "SpatialEntity", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a9d3ab82af300dc1e77e91456ce60fb65", null ],
+    [ "addEntryPoint", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a959ff948868d586680fe2e807e146281", null ],
+    [ "addExitPoint", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#ae78b2bd7eb9a7db6513c1baca2dac45e", null ],
+    [ "getEntryPoint", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#adb2057fc483145fb904553ff61a7c757", null ],
+    [ "getEntryPointGlobal", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a2ac50705155992060c00b978ce884924", null ],
+    [ "getEntryPointNames", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#accec2c6f4414b7d7d42903f80507701f", null ],
+    [ "getExitPoint", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a49e28bf014cc34e28857208a5873d383", null ],
+    [ "getExitPointGlobal", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a848bbdc2845a97e779be10f56245dab5", null ],
+    [ "getExitPointNames", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#ab4de658882860b611b9d48354eba5335", null ],
+    [ "getMatrix", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#af9638555c25726020160393dc078a225", null ],
+    [ "getPosX", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#aa22135a3a1368ebb0363fbd0770eaed9", null ],
+    [ "getPosY", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a10d8213673b085027c23d5664efa8a27", null ],
+    [ "getPosZ", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#aa02855b408357581e7dc38e9bab60a24", null ],
+    [ "getVisualModel", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a255c8646e10b4108560b31e0e1da663b", null ],
+    [ "isMovable", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#abdab8c46c9f9ab87df8183a830321738", null ],
+    [ "isVisible", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a0588190058244789b628e6d3e55d9871", null ],
+    [ "removeVisible", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a7062aa1e3005ca68a44e5d05ae765d4d", null ],
+    [ "resetRotation", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#afc6428f22c1a6df3375386801ce90692", null ],
+    [ "rotX", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a181aa74dab06408ca521aff9612ef45b", null ],
+    [ "rotY", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a62688ba5e4ecd9b3c98dc2cdaf7450f1", null ],
+    [ "rotZ", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a69de3a10dfbf307be4be9cd7590b5789", null ],
+    [ "setPosition", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a10bfada5effaed23b26a06f6388dac18", null ],
+    [ "setVisible", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#a148cfe017c8d8517c14c41a442336f2e", null ],
+    [ "_spatialData", "classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_entity.html#acae1e9dbd39f81f733208158a9cb851e", null ]
+];

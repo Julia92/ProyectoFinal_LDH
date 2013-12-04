@@ -1,0 +1,127 @@
+.TH "desmoj.extensions.chaining.Merger< EIn extends Entity, EEx extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.chaining.Merger< EIn extends Entity, EEx extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Station< EIn >, HasPredecessor< EIn >, and HasSuccessor< EEx >\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBMergerStartEvent\fP"
+.br
+.ti -1c
+.RI "class \fBPartsContainer\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMerger\fP (MergerConfig< EIn > mergerConfig, int incomingBufferQueueCapacity, int maxEntitiesToHandle, int parallelHandledEntities, NumericalDist<?> setupTime, NumericalDist<?> serviceTime, NumericalDist<?> recoveryTime, NumericalDist<?> transportTime, \fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "Event< EIn > \fBgetStartEvent\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSuccessor\fP (Event<?super EEx > eventToScheduleWhenFinished)"
+.br
+.ti -1c
+.RI "void \fBsetSuccessor\fP (HasPredecessor<?super EEx > successor)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract EEx \fBmergeEntities\fP (Map< Class<?extends EIn >, List< EIn >> parts)"
+.br
+.ti -1c
+.RI "void \fBonServiceFinisched\fP (EIn who)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Merger merges the in the Mergerconfig defined entities into the EEx entity\&. The Merger waits until enough entities of the required types are in the internal partsQueue and than creates a PartsContainer\&. With this PartsContainer the StationStartevent is scheduled instantly and the common run through the internal Station stages can be conducted\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<EIn>\fP the entity which comes in the Transformer 
+.br
+\fI<EEx>\fP the entity which leaves the Transformer
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christian Mentz
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.chaining\&.Merger< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.Merger (MergerConfig< EIn >mergerConfig, intincomingBufferQueueCapacity, intmaxEntitiesToHandle, intparallelHandledEntities, NumericalDist<?>setupTime, NumericalDist<?>serviceTime, NumericalDist<?>recoveryTime, NumericalDist<?>transportTime, \fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+This Constructor sets the mergerconfig, the given times, initializes the queues and fills the free service capacity queue\&. If a given int is lower than zero the station assumes that there is no restriction\&. This applies to incomingBufferQueueCapacity, maxEntitiesToHandle, parallelHandledEntities\&. Furthermore the incoming entities queue container is initialized to hold the incomming entities\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImergerConfig\fP the Mergerconfig which holds the required entities and ratios 
+.br
+\fIincomingBufferQueueCapacity\fP the capatiy of the income queue 
+.br
+\fImaxEntitiesToHandle\fP the number of max entities the station can handle 
+.br
+\fIparallelHandledEntities\fP the number of max parallel entities a station can handle 
+.br
+\fIsetupTime\fP the time the station needs to set up 
+.br
+\fIserviceTime\fP the time the station needs for the service 
+.br
+\fIrecoveryTime\fP the time the station needs tor recover 
+.br
+\fItransportTime\fP the time the station needs to transport the entitiy to the next station 
+.br
+\fIowner\fP the model owner 
+.br
+\fIname\fP the name of the station 
+.br
+\fIshowInReport\fP should this construct be in the report 
+.br
+\fIshowInTrace\fP should this construct be in the trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Event<EIn> desmoj\&.extensions\&.chaining\&.Merger< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.getStartEvent ()"
+returns the Startevent of the Merger 
+.SS "abstract EEx desmoj\&.extensions\&.chaining\&.Merger< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.mergeEntities (Map< Class<?extends EIn >, List< EIn >>parts)\fC [protected]\fP, \fC [pure virtual]\fP"
+This Method has to be overridden by the user and creates the outgoing entity\&. The user has the possibility to use the incomming entities of the Merger to define the new entity
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparts\fP a reference to the parts list 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the outgoing entity which leaves the Merger 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.chaining\&.Merger< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.onServiceFinisched (EInwho)\fC [protected]\fP"
+This method schedules the successor event with the defined transport time\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

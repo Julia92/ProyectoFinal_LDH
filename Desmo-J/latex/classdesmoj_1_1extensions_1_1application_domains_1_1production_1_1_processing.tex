@@ -1,0 +1,163 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-production.\-Processing Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing}\index{desmoj.\-extensions.\-application\-Domains.\-production.\-Processing@{desmoj.\-extensions.\-application\-Domains.\-production.\-Processing}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Processing\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Processing\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Processing} ({\bf Model} owner, String name, Numerical\-Dist$<$?$>$ process\-Time\-Stream, boolean show\-In\-Trace)
+\item 
+void {\bf set\-Processing\-Time\-Stream} (Numerical\-Dist$<$?$>$ new\-Processing\-Time\-Stream)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf cooperation} ({\bf Sim\-Process} master, {\bf Sim\-Process}[$\,$] slaves)
+\item 
+void {\bf cooperation} ({\bf Sim\-Process} master, {\bf Sim\-Process} slave)
+\item 
+{\bf Time\-Span} {\bf get\-Processing\-Time\-Sample} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing} is the object representing the processing process taking place at a {\ttfamily \doxyref{Work\-Station}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station}} where a {\ttfamily \doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker}} process or a {\ttfamily \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}} are processing some parts (products) to manufacture some new parts (or products). The kind and the number of parts being processed are determined by a {\ttfamily \doxyref{Parts\-List}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list}}. The parts (or products) are represented by {\ttfamily Sim\-Process} es. The {\ttfamily \doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker}} and the {\ttfamily \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}} are also some kind of {\ttfamily Sim\-Process} es. But one {\ttfamily \doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker}} or {\ttfamily \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}} is the master process and the other processes are all slave processes. It is intended that that this \doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing} is used with the {\ttfamily \doxyref{Work\-Station}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station}} construct, where a master process ( {\ttfamily \doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker}} or {\ttfamily \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}}) is waiting for parts or products (slave processes) to process them. During the \doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing} the master process is active and the slave processes are passive. The processing taking place at the {\ttfamily \doxyref{Work\-Station}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station}} is described in the method {\ttfamily cooperation}, which should be overwritten by the user to model the manufacturing process taking place at the {\ttfamily \doxyref{Work\-Station}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station}}. Until now this method only models the time it takes to process the parts in some way. Note\-: when using the {\ttfamily \doxyref{Work\-Station}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station}} construct the master (\doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker} or \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}) will be activated after the processing is done and the slave processes will be activated after the master (if they have not been activated during the processing process already).
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-extensions.\-application\-Domains.\-production.\-Work\-Station}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}!Processing@{Processing}}
+\index{Processing@{Processing}!desmoj::extensions::applicationDomains::production::Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}}
+\subsubsection[{Processing}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-production.\-Processing.\-Processing (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{Numerical\-Dist$<$?$>$}]{process\-Time\-Stream, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_abf8c8dd68a58149d2dc31311b83e5ee2}
+Constructs a \doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing} process where a master ({\ttfamily \doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker}} or {\ttfamily \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}}) is processing slaves ( {\ttfamily Sim\-Porcess} es) in a cooperate manufacturing process. The time it takes to process the parts is determined by the specified process\-Time\-Stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing}. \\
+\hline
+{\em process\-Time\-Stream} & Numerical\-Dist$<$?$>$ \-: The random number stream determining the time it takes to process the parts. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if this \doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing} should produce a trace output or not. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}!cooperation@{cooperation}}
+\index{cooperation@{cooperation}!desmoj::extensions::applicationDomains::production::Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}}
+\subsubsection[{cooperation}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Processing.\-cooperation (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{master, }
+\item[{{\bf Sim\-Process}[$\,$]}]{slaves}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_a177edfd1d3a584d1f2ae27043214d7f3}
+This method describes the \doxyref{Processing}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing} process carried out by the master process (some kind of {\ttfamily \doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker}} or {\ttfamily \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}}). In this simple case only the time it takes to process the parts is taken into consideration. If the user building the model has to implement a more complex behavior, he has to overwrite this method in a subclass. The time it takes to process the parts is obtained from the method {\ttfamily \doxyref{get\-Processing\-Time\-Sample()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_a8be31e0b0e45712f15d1d5fd46803a0c}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em master} & Sim\-Process \-: The master process which really carries out the cooperation (and processes the slave parts). Should be a subclass of {\ttfamily \doxyref{Worker}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker}} or {\ttfamily \doxyref{Machine\-Process}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process}}. \\
+\hline
+{\em slaves} & Sim\-Process[] \-: The slave processes (parts) which are lead through the process cooperation by the master. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_a177edfd1d3a584d1f2ae27043214d7f3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}!cooperation@{cooperation}}
+\index{cooperation@{cooperation}!desmoj::extensions::applicationDomains::production::Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}}
+\subsubsection[{cooperation}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Processing.\-cooperation (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{master, }
+\item[{{\bf Sim\-Process}}]{slave}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_ab933fe4956ae99b6c45437fa595c9506}
+The {\ttfamily \doxyref{cooperation()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_a177edfd1d3a584d1f2ae27043214d7f3}} method with only one master and one slave is not needed here. So we pass it to the more general method with an array of slaves as parameter. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_ab933fe4956ae99b6c45437fa595c9506_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}!get\-Processing\-Time\-Sample@{get\-Processing\-Time\-Sample}}
+\index{get\-Processing\-Time\-Sample@{get\-Processing\-Time\-Sample}!desmoj::extensions::applicationDomains::production::Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}}
+\subsubsection[{get\-Processing\-Time\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-application\-Domains.\-production.\-Processing.\-get\-Processing\-Time\-Sample (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_a8be31e0b0e45712f15d1d5fd46803a0c}
+Returns a {\ttfamily Sim\-Time} object representing the time it takes to process the parts with the worker or machine. The time is taken from the given random number stream processing\-Time\-Stream.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Sim\-Time \-: The time it takes to process the parts with the worker or machine\-Process. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}!set\-Processing\-Time\-Stream@{set\-Processing\-Time\-Stream}}
+\index{set\-Processing\-Time\-Stream@{set\-Processing\-Time\-Stream}!desmoj::extensions::applicationDomains::production::Processing@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Processing}}
+\subsubsection[{set\-Processing\-Time\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Processing.\-set\-Processing\-Time\-Stream (
+\begin{DoxyParamCaption}
+\item[{Numerical\-Dist$<$?$>$}]{new\-Processing\-Time\-Stream}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing_a7dabde35dff18c688a41c64ffc26e076}
+Sets the processing\-Time\-Stream to a new {\ttfamily Real\-Dist} random number stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Processing\-Time\-Stream} & Numerical\-Dist$<$?$>$ \-: The new {\ttfamily Real\-Dist} random number stream determining the time it takes to process the parts. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/production/Processing.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,380 @@
+.TH "org.apache.commons.math.distribution.DistributionFactory" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.DistributionFactory \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract \fBBinomialDistribution\fP \fBcreateBinomialDistribution\fP (int numberOfTrials, double probabilityOfSuccess)"
+.br
+.ti -1c
+.RI "\fBPascalDistribution\fP \fBcreatePascalDistribution\fP (int numberOfSuccesses, double probabilityOfSuccess)"
+.br
+.ti -1c
+.RI "\fBCauchyDistribution\fP \fBcreateCauchyDistribution\fP (double median, double scale)"
+.br
+.ti -1c
+.RI "abstract \fBChiSquaredDistribution\fP \fBcreateChiSquareDistribution\fP (double degreesOfFreedom)"
+.br
+.ti -1c
+.RI "abstract \fBExponentialDistribution\fP \fBcreateExponentialDistribution\fP (double mean)"
+.br
+.ti -1c
+.RI "abstract \fBFDistribution\fP \fBcreateFDistribution\fP (double numeratorDegreesOfFreedom, double denominatorDegreesOfFreedom)"
+.br
+.ti -1c
+.RI "abstract \fBGammaDistribution\fP \fBcreateGammaDistribution\fP (double alpha, double beta)"
+.br
+.ti -1c
+.RI "abstract \fBTDistribution\fP \fBcreateTDistribution\fP (double degreesOfFreedom)"
+.br
+.ti -1c
+.RI "abstract \fBHypergeometricDistribution\fP \fBcreateHypergeometricDistribution\fP (int populationSize, int numberOfSuccesses, int sampleSize)"
+.br
+.ti -1c
+.RI "abstract \fBNormalDistribution\fP \fBcreateNormalDistribution\fP (double mean, double sd)"
+.br
+.ti -1c
+.RI "abstract \fBNormalDistribution\fP \fBcreateNormalDistribution\fP ()"
+.br
+.ti -1c
+.RI "abstract \fBPoissonDistribution\fP \fBcreatePoissonDistribution\fP (double lambda)"
+.br
+.ti -1c
+.RI "\fBWeibullDistribution\fP \fBcreateWeibullDistribution\fP (double alpha, double beta)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBDistributionFactory\fP \fBnewInstance\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDistributionFactory\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This factory provids the means to create common statistical distributions\&. The following distributions are supported: 
+.PD 0
+
+.IP "\(bu" 2
+Binomial 
+.IP "\(bu" 2
+Cauchy 
+.IP "\(bu" 2
+Chi-Squared 
+.IP "\(bu" 2
+Exponential 
+.IP "\(bu" 2
+F 
+.IP "\(bu" 2
+Gamma 
+.IP "\(bu" 2
+HyperGeometric 
+.IP "\(bu" 2
+Poisson 
+.IP "\(bu" 2
+Normal 
+.IP "\(bu" 2
+Student's t 
+.IP "\(bu" 2
+Weibull 
+.IP "\(bu" 2
+Pascal 
+.PP
+.PP
+Common usage:
+.PP
+.nf
+
+\fBDistributionFactory\fP factory = \fBDistributionFactory\&.newInstance()\fP;
+.fi
+.PP
+.PP
+.PP
+.nf
+// create a Chi-Square distribution with 5 degrees of freedom\&.
+\fBChiSquaredDistribution\fP chi = factory\&.createChiSquareDistribution(5\&.0);
+.fi
+.PP
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+545192 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2007-06-07 07:35:04 -0700 (Thu, 07 Jun 2007) 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+pluggability of distribution instances is now provided through constructors and setters\&. 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.DistributionFactory ()\fC [protected]\fP"
+Default constructor\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract \fBBinomialDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createBinomialDistribution (intnumberOfTrials, doubleprobabilityOfSuccess)\fC [pure virtual]\fP"
+Create a binomial distribution with the given number of trials and probability of success\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInumberOfTrials\fP the number of trials\&. 
+.br
+\fIprobabilityOfSuccess\fP the probability of success 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new binomial distribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "\fBCauchyDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createCauchyDistribution (doublemedian, doublescale)"
+Create a new cauchy distribution with the given median and scale\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImedian\fP the median of the distribution 
+.br
+\fIscale\fP the scale 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new cauchy distribution 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.1 
+.RE
+.PP
+
+.SS "abstract \fBChiSquaredDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createChiSquareDistribution (doubledegreesOfFreedom)\fC [pure virtual]\fP"
+Create a new chi-square distribution with the given degrees of freedom\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdegreesOfFreedom\fP degrees of freedom 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new chi-square distribution 
+.RE
+.PP
+
+.SS "abstract \fBExponentialDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createExponentialDistribution (doublemean)\fC [pure virtual]\fP"
+Create a new exponential distribution with the given degrees of freedom\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImean\fP mean 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new exponential distribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "abstract \fBFDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createFDistribution (doublenumeratorDegreesOfFreedom, doubledenominatorDegreesOfFreedom)\fC [pure virtual]\fP"
+Create a new F-distribution with the given degrees of freedom\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInumeratorDegreesOfFreedom\fP numerator degrees of freedom 
+.br
+\fIdenominatorDegreesOfFreedom\fP denominator degrees of freedom 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new F-distribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "abstract \fBGammaDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createGammaDistribution (doublealpha, doublebeta)\fC [pure virtual]\fP"
+Create a new gamma distribution with the given shape and scale parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIalpha\fP the shape parameter 
+.br
+\fIbeta\fP the scale parameter
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new gamma distribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "abstract \fBHypergeometricDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createHypergeometricDistribution (intpopulationSize, intnumberOfSuccesses, intsampleSize)\fC [pure virtual]\fP"
+Create a new hypergeometric distribution with the given the population size, the number of successes in the population, and the sample size\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpopulationSize\fP the population size 
+.br
+\fInumberOfSuccesses\fP number of successes in the population 
+.br
+\fIsampleSize\fP the sample size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new hypergeometric desitribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "abstract \fBNormalDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createNormalDistribution (doublemean, doublesd)\fC [pure virtual]\fP"
+Create a new normal distribution with the given mean and standard deviation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImean\fP the mean of the distribution 
+.br
+\fIsd\fP standard deviation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new normal distribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "abstract \fBNormalDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createNormalDistribution ()\fC [pure virtual]\fP"
+Create a new normal distribution with mean zero and standard deviation one\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a new normal distribution\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "\fBPascalDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createPascalDistribution (intnumberOfSuccesses, doubleprobabilityOfSuccess)"
+Create a Pascal distribution with the given number of successes and probability of success\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInumberOfSuccesses\fP the number of successes\&. 
+.br
+\fIprobabilityOfSuccess\fP the probability of success 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new Pascal distribution 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SS "abstract \fBPoissonDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createPoissonDistribution (doublelambda)\fC [pure virtual]\fP"
+Create a new Poisson distribution with poisson parameter lambda\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlambda\fP poisson parameter 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new poisson distribution\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "abstract \fBTDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createTDistribution (doubledegreesOfFreedom)\fC [pure virtual]\fP"
+Create a new t distribution with the given degrees of freedom\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdegreesOfFreedom\fP degrees of freedom 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new t distribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP\&.
+.SS "\fBWeibullDistribution\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.createWeibullDistribution (doublealpha, doublebeta)"
+Create a new Weibull distribution with the given shape and scale parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIalpha\fP the shape parameter\&. 
+.br
+\fIbeta\fP the scale parameter\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new Weibull distribution\&. 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.1 
+.RE
+.PP
+
+.SS "static \fBDistributionFactory\fP org\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\&.newInstance ()\fC [static]\fP"
+Create an instance of a \fC\fBDistributionFactory\fP\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+a new factory\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

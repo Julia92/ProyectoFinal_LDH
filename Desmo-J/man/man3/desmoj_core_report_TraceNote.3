@@ -1,0 +1,116 @@
+.TH "desmoj.core.report.TraceNote" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.TraceNote \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.Message\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTraceNote\fP (\fBModel\fP origin, String message, \fBTimeInstant\fP time, \fBEntity\fP entityInvolved, \fBEventAbstract\fP eventInvolved)"
+.br
+.ti -1c
+.RI "\fBTraceNote\fP (\fBModel\fP origin, String message, \fBTimeInstant\fP time, List< \fBEntity\fP > entitiesInvolved, \fBEventAbstract\fP eventInvolved)"
+.br
+.ti -1c
+.RI "String \fBgetEntity\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetEvent\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents a message produced by a simulation run whenever entities and / or events are scheduled, created, deleted or enqueued\&. Tracenotes document the changes of state of the model and allow modellers to trace and check the model's dynamic behaviour\&. The basic information needed to trace a model's changes of state are: 
+.PD 0
+
+.IP "\(bu" 2
+The name of the Model this message was produced in 
+.IP "\(bu" 2
+The point of simulation time that this message was created 
+.IP "\(bu" 2
+The name of the event involved in the change of state 
+.IP "\(bu" 2
+The name of the entity or process involved in the change of state 
+.IP "\(bu" 2
+A text to describe the kind of changes made to the model 
+.PP
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.TraceNote\&.TraceNote (\fBModel\fPorigin, Stringmessage, \fBTimeInstant\fPtime, \fBEntity\fPentityInvolved, \fBEventAbstract\fPeventInvolved)"
+Creates a new tracenote with the given parameters as initial values\&. If \fCnull\fP references are given, they are displayed as '----' in the trace output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIorigin\fP Model : The model that produced this tracenote 
+.br
+\fImessage\fP java\&.lang\&.String : The actual trace message 
+.br
+\fItime\fP TimeInstant : The point in simulation time this tracenote was produced 
+.br
+\fIentityInvolved\fP Entity : The entity involved in this change of state 
+.br
+\fIeventInvolved\fP Event : The event involved in this change of state 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.report\&.TraceNote\&.TraceNote (\fBModel\fPorigin, Stringmessage, \fBTimeInstant\fPtime, List< \fBEntity\fP >entitiesInvolved, \fBEventAbstract\fPeventInvolved)"
+Creates a new tracenote with the given parameters as initial values\&. If \fCnull\fP references are given, they are displayed as '----' in the trace output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIorigin\fP Model : The model that produced this tracenote 
+.br
+\fImessage\fP java\&.lang\&.String : The actual trace message 
+.br
+\fItime\fP TimeInstant : The point in simulation time this tracenote was produced 
+.br
+\fIentitiesInvolved\fP List<Entity> : The entities involved in this change of state 
+.br
+\fIeventInvolved\fP Event : The event involved in this change of state 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String desmoj\&.core\&.report\&.TraceNote\&.getEntity ()"
+Returns the name of the entity this tracenote evolved from\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The name of the entity that produced this tracenote 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.report\&.TraceNote\&.getEvent ()"
+Returns the name of the event described in this tracenote from\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The name of the event that produced this tracenote 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,180 @@
+\section{org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic Class Reference}
+\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic}\index{org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic@{org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic}}
+
+
+Inheritance diagram for org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Reference\-Map\-Generic} ()
+\item 
+{\bf Reference\-Map\-Generic} (int {\bf key\-Type}, int {\bf value\-Type})
+\item 
+{\bf Reference\-Map\-Generic} (int {\bf key\-Type}, int {\bf value\-Type}, boolean {\bf purge\-Values})
+\item 
+{\bf Reference\-Map\-Generic} (int {\bf key\-Type}, int {\bf value\-Type}, int capacity, float {\bf load\-Factor})
+\item 
+{\bf Reference\-Map\-Generic} (int {\bf key\-Type}, int {\bf value\-Type}, int capacity, float {\bf load\-Factor}, boolean {\bf purge\-Values})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A {\ttfamily Map} implementation that allows mappings to be removed by the garbage collector. 
+
+When you construct a {\ttfamily \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map}}, you can specify what kind of references are used to store the map's keys and values. If non-\/hard references are used, then the garbage collector can remove mappings if a key or value becomes unreachable, or if the J\-V\-M's memory is running low. For information on how the different reference types behave, see \doxyref{Reference}{p.}{}. 
+
+Different types of references can be specified for keys and values. The keys can be configured to be weak but the values hard, in which case this class will behave like a {\tt {\ttfamily Weak\-Hash\-Map}}. However, you can also specify hard keys and weak values, or any other combination. The default constructor uses hard keys and soft values, providing a memory-\/sensitive cache. 
+
+This map is similar to \doxyref{Reference\-Identity\-Map}{p.}{}. It differs in that keys and values in this class are compared using {\ttfamily \doxyref{equals()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a51f160d58d2e1c71c78911f89b4b1b5d}}. 
+
+This \doxyref{Map}{p.}{} implementation does {\itshape not} allow null elements. Attempting to add a null key or value to the map will raise a {\ttfamily Null\-Pointer\-Exception}. 
+
+This implementation is not synchronized. You can use \doxyref{java.\-util.\-Collections\#synchronized\-Map}{p.}{} to provide synchronized access to a {\ttfamily \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map}}. Remember that synchronization will not stop the garbage collecter removing entries. 
+
+All the available iterators can be reset back to the start by casting to {\ttfamily \doxyref{Resettable\-Iterator}{p.}{interfaceorg_1_1apache_1_1commons_1_1collections_1_1_resettable_iterator}} and calling {\ttfamily reset()}. 
+
+{\bfseries Note that \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map} is not synchronized and is not thread-\/safe.} If you wish to use this map from multiple threads concurrently, you must use appropriate synchronization. The simplest approach is to wrap this map using \doxyref{java.\-util.\-Collections\#synchronized\-Map}{p.}{}. This class may throw exceptions when accessed by concurrent threads without synchronization. 
+
+N\-O\-T\-E\-: As from Commons Collections 3.\-1 this map extends {\ttfamily \doxyref{Abstract\-Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map}} (previously it extended Abstract\-Map). As a result, the implementation is now extensible and provides a {\ttfamily \doxyref{Map\-Iterator}{p.}{interfaceorg_1_1apache_1_1commons_1_1collections_1_1_map_iterator}}.
+
+\begin{DoxySeeAlso}{See Also}
+java.\-lang.\-ref.\-Reference
+\end{DoxySeeAlso}
+\begin{DoxySince}{Since}
+Commons Collections 3.\-0 (previously in main package v2.\-1) 
+\end{DoxySince}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision\-:}
+646777 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Date\-:}
+2008-\/04-\/10 13\-:33\-:15 +0100 (Thu, 10 Apr 2008) 
+\end{DoxyParagraph}
+
+
+\begin{DoxyAuthor}{Author}
+Paul Jack 
+
+Stephen Colebourne 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}!Reference\-Map\-Generic@{Reference\-Map\-Generic}}
+\index{Reference\-Map\-Generic@{Reference\-Map\-Generic}!org::apache::commons::collections::map::ReferenceMapGeneric@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}}
+\subsubsection[{Reference\-Map\-Generic}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic.\-Reference\-Map\-Generic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic_a46a2141b5a2eb59617ef673a7ca5c106}
+Constructs a new {\ttfamily \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map}} that will use hard references to keys and soft references to values. \index{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}!Reference\-Map\-Generic@{Reference\-Map\-Generic}}
+\index{Reference\-Map\-Generic@{Reference\-Map\-Generic}!org::apache::commons::collections::map::ReferenceMapGeneric@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}}
+\subsubsection[{Reference\-Map\-Generic}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic.\-Reference\-Map\-Generic (
+\begin{DoxyParamCaption}
+\item[{int}]{key\-Type, }
+\item[{int}]{value\-Type}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic_a725b4a931cb94cd50bebec910516306c}
+Constructs a new {\ttfamily \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map}} that will use the specified types of references.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\-Type} & the type of reference to use for keys; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+{\em value\-Type} & the type of reference to use for values; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+\end{DoxyParams}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}!Reference\-Map\-Generic@{Reference\-Map\-Generic}}
+\index{Reference\-Map\-Generic@{Reference\-Map\-Generic}!org::apache::commons::collections::map::ReferenceMapGeneric@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}}
+\subsubsection[{Reference\-Map\-Generic}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic.\-Reference\-Map\-Generic (
+\begin{DoxyParamCaption}
+\item[{int}]{key\-Type, }
+\item[{int}]{value\-Type, }
+\item[{boolean}]{purge\-Values}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic_a4c117eb86a184e26e5000a7441a87032}
+Constructs a new {\ttfamily \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map}} that will use the specified types of references.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\-Type} & the type of reference to use for keys; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+{\em value\-Type} & the type of reference to use for values; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+{\em purge\-Values} & should the value be automatically purged when the key is garbage collected \\
+\hline
+\end{DoxyParams}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}!Reference\-Map\-Generic@{Reference\-Map\-Generic}}
+\index{Reference\-Map\-Generic@{Reference\-Map\-Generic}!org::apache::commons::collections::map::ReferenceMapGeneric@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}}
+\subsubsection[{Reference\-Map\-Generic}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic.\-Reference\-Map\-Generic (
+\begin{DoxyParamCaption}
+\item[{int}]{key\-Type, }
+\item[{int}]{value\-Type, }
+\item[{int}]{capacity, }
+\item[{float}]{load\-Factor}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic_a54f3d55185f7855783b3c05d12511816}
+Constructs a new {\ttfamily \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map}} with the specified reference types, load factor and initial capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\-Type} & the type of reference to use for keys; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+{\em value\-Type} & the type of reference to use for values; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+{\em capacity} & the initial capacity for the map \\
+\hline
+{\em load\-Factor} & the load factor for the map \\
+\hline
+\end{DoxyParams}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}!Reference\-Map\-Generic@{Reference\-Map\-Generic}}
+\index{Reference\-Map\-Generic@{Reference\-Map\-Generic}!org::apache::commons::collections::map::ReferenceMapGeneric@{org\-::apache\-::commons\-::collections\-::map\-::\-Reference\-Map\-Generic}}
+\subsubsection[{Reference\-Map\-Generic}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Reference\-Map\-Generic.\-Reference\-Map\-Generic (
+\begin{DoxyParamCaption}
+\item[{int}]{key\-Type, }
+\item[{int}]{value\-Type, }
+\item[{int}]{capacity, }
+\item[{float}]{load\-Factor, }
+\item[{boolean}]{purge\-Values}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map_generic_a470bc506e21923c9516a3901a967d56e}
+Constructs a new {\ttfamily \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map}} with the specified reference types, load factor and initial capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\-Type} & the type of reference to use for keys; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+{\em value\-Type} & the type of reference to use for values; must be \doxyref{H\-A\-R\-D}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af731b002fab45855199994aa132d0c7e}, \doxyref{S\-O\-F\-T}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_a5d616e45811742a81988965e86f403db}, \doxyref{W\-E\-A\-K}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_reference_map_af6dd0361c4cd113da7b56e8515165487} \\
+\hline
+{\em capacity} & the initial capacity for the map \\
+\hline
+{\em load\-Factor} & the load factor for the map \\
+\hline
+{\em purge\-Values} & should the value be automatically purged when the key is garbage collected \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/org/apache/commons/collections/map/Reference\-Map\-Generic.\-java\end{DoxyCompactItemize}

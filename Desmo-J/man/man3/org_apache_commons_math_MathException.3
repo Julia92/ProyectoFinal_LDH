@@ -1,0 +1,232 @@
+.TH "org.apache.commons.math.MathException" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.MathException \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Exception\&.
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.ConvergenceException\fP, \fBorg\&.apache\&.commons\&.math\&.DimensionMismatchException\fP, \fBorg\&.apache\&.commons\&.math\&.DuplicateSampleAbscissaException\fP, \fBorg\&.apache\&.commons\&.math\&.FunctionEvaluationException\fP, and \fBorg\&.apache\&.commons\&.math\&.MathConfigurationException\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMathException\fP ()"
+.br
+.ti -1c
+.RI "\fBMathException\fP (String msg)"
+.br
+.ti -1c
+.RI "\fBMathException\fP (String pattern, Object[] arguments)"
+.br
+.ti -1c
+.RI "\fBMathException\fP (Throwable rootCause)"
+.br
+.ti -1c
+.RI "\fBMathException\fP (String msg, Throwable rootCause)"
+.br
+.ti -1c
+.RI "\fBMathException\fP (String pattern, Object[] arguments, Throwable rootCause)"
+.br
+.ti -1c
+.RI "String \fBgetPattern\fP ()"
+.br
+.ti -1c
+.RI "Object[] \fBgetArguments\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetMessage\fP (Locale locale)"
+.br
+.ti -1c
+.RI "Throwable \fBgetCause\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintStackTrace\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintStackTrace\fP (PrintStream out)"
+.br
+.ti -1c
+.RI "void \fBprintStackTrace\fP (PrintWriter out)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for commons-math checked exceptions\&. 
+.PP
+Supports nesting, emulating JDK 1\&.4 behavior if necessary\&.
+.PP
+Adapted from \fBorg\&.apache\&.commons\&.collections\&.FunctorException\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+620312 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-10 12:28:59 -0700 (Sun, 10 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.MathException\&.MathException ()"
+Constructs a new \fC\fBMathException\fP\fP with no detail message\&. 
+.SS "org\&.apache\&.commons\&.math\&.MathException\&.MathException (Stringmsg)"
+Constructs a new \fC\fBMathException\fP\fP with specified detail message\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP the error message\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+as of 1\&.2, replaced by \fBMathException(String, Object[])\fP 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.MathException\&.MathException (Stringpattern, Object[]arguments)"
+Constructs a new \fC\fBMathException\fP\fP with specified formatted detail message\&. Message formatting is delegated to \fBjava\&.text\&.MessageFormat\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpattern\fP format specifier 
+.br
+\fIarguments\fP format arguments 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.MathException\&.MathException (ThrowablerootCause)"
+Constructs a new \fC\fBMathException\fP\fP with specified nested \fCThrowable\fP root cause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrootCause\fP the exception or error that caused this exception to be thrown\&. 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.MathException\&.MathException (Stringmsg, ThrowablerootCause)"
+Constructs a new \fC\fBMathException\fP\fP with specified detail message and nested \fCThrowable\fP root cause\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP the error message\&. 
+.br
+\fIrootCause\fP the exception or error that caused this exception to be thrown\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+as of 1\&.2, replaced by \fBMathException(String, Object[], Throwable)\fP 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.MathException\&.MathException (Stringpattern, Object[]arguments, ThrowablerootCause)"
+Constructs a new \fC\fBMathException\fP\fP with specified formatted detail message and nested \fCThrowable\fP root cause\&. Message formatting is delegated to \fBjava\&.text\&.MessageFormat\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpattern\fP format specifier 
+.br
+\fIarguments\fP format arguments 
+.br
+\fIrootCause\fP the exception or error that caused this exception to be thrown\&. 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Object [] org\&.apache\&.commons\&.math\&.MathException\&.getArguments ()"
+Gets the arguments used to build the message of this throwable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the arguments used to build the message of this throwable 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SS "Throwable org\&.apache\&.commons\&.math\&.MathException\&.getCause ()"
+Gets the cause of this throwable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the cause of this throwable, or \fCnull\fP 
+.RE
+.PP
+
+.SS "String org\&.apache\&.commons\&.math\&.MathException\&.getMessage (Localelocale)"
+Gets the message in a specified locale\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlocale\fP Locale in which the message should be translated
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+localized message 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SS "String org\&.apache\&.commons\&.math\&.MathException\&.getPattern ()"
+Gets the pattern used to build the message of this throwable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the pattern used to build the message of this throwable 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.MathException\&.printStackTrace ()"
+Prints the stack trace of this exception to the standard error stream\&. 
+.SS "void org\&.apache\&.commons\&.math\&.MathException\&.printStackTrace (PrintStreamout)"
+Prints the stack trace of this exception to the specified stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP the \fCPrintStream\fP to use for output 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.MathException\&.printStackTrace (PrintWriterout)"
+Prints the stack trace of this exception to the specified writer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP the \fCPrintWriter\fP to use for output 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,162 @@
+.TH "desmoj.extensions.applicationDomains.production.SimpleTransporter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.SimpleTransporter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimpleTransporter\fP (\fBModel\fP owner, String name, int minLoad, int capac, \fBTransportation\fP transport, \fBTransportJunction\fP homeBase, NumericalDist<?> returnTime, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBSimpleTransporter\fP (\fBModel\fP owner, String name, int capac, \fBTransportation\fP transport, \fBTransportJunction\fP homeBase, NumericalDist<?> returnTime, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTransportJunction\fP \fBgetHomeBase\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetReturnTimeSample\fP ()"
+.br
+.ti -1c
+.RI "\fBTransportation\fP \fBgetTransportation\fP ()"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetHomeBase\fP (\fBTransportJunction\fP newHomeBase)"
+.br
+.ti -1c
+.RI "void \fBsetTransportation\fP (\fBTransportation\fP newTransportation)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBSimpleTransporter\fP is a simple transporter (vehicle) associated to a \fC\fBTransportJunction\fP\fP\&. There it waits for goods to transport them\&. The goods are transported for a certain time and than released\&. The \fBSimpleTransporter\fP returns to his \fCTranspsortJunction\fP where it waits again for some other goods to transport\&. The time it takes the transporter to return to its \fC\fBTransportJunction\fP\fP must be specified in the parameter \fCreturnTime\fP\&. It must be some kind of \fCdesmoj\&.dist\&.RealDist* \fP random number stream\&. The \fBSimpleTransporter\fP has a certain capacity (maximum number of goods which can be carried around at once) and a minimum load (minimum number of goods which will be carried)\&. The minimum load is one (1) unless something different is specified\&. The SimpleTransporters lifeCycle is kept simple, as it only waits in a \fC\fBTransportJunction\fP\fP for goods to be transported\&. Than, after having transported the goods it returns to its \fC\fBTransportJunction\fP\fP\&. The user can overwrite the method \fC\fBlifeCycle()\fP\fP in a subclass in order to implement a different behavior\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBTransporter\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.SimpleTransporter (\fBModel\fPowner, Stringname, intminLoad, intcapac, \fBTransportation\fPtransport, \fBTransportJunction\fPhomeBase, NumericalDist<?>returnTime, booleanshowInTrace)"
+Constructs a \fBSimpleTransporter\fP which will carry around goods in a manufacturing system, from and to a certain \fC\fBTransportJunction\fP\fP\&. A \fBSimpleTransporter\fP is associated to a certain \fC\fBTransportJunction\fP\fP as his home base\&. He will perform the transportation of the goods as described in the \fBTransportation\fP object\&. He needs a certain time to return to his home base and has a capacity (maximum number of goods which can be transported) and a mimimum load (a minimum number of goods it will carry)\&. Use this constructor to construct a \fBTransporter\fP with a certain minimum load, a specified capacity, a given transportation order, a certain home base ( \fC\fBTransportJunction\fP\fP) and a given return time it takes him to return to his base\&. The minimum load and the capacity must not be zero or negative\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBSimpleTransporter\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBSimpleTransporter\fP\&. 
+.br
+\fIminLoad\fP int : The minimum number of goods this \fBSimpleTransporter\fP will carry around\&. 
+.br
+\fIcapac\fP int : The maximum number of goods this \fBSimpleTransporter\fP can carry around\&. 
+.br
+\fItransport\fP \fBTransportation\fP : The transportation to be carried out by this \fBSimpleTransporter\fP\&. 
+.br
+\fIhomeBase\fP \fBTransportJunction\fP : The home base of this \fBSimpleTransporter\fP; where he comes from and where he returns to\&. 
+.br
+\fIreturnTime\fP NumericalDist<?> : The time it takes the \fBSimpleTransporter\fP to return to his home base after transporting the goods to a certain place\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBSimpleTransporter\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.SimpleTransporter (\fBModel\fPowner, Stringname, intcapac, \fBTransportation\fPtransport, \fBTransportJunction\fPhomeBase, NumericalDist<?>returnTime, booleanshowInTrace)"
+Constructs a \fBSimpleTransporter\fP which will carry around goods in a manufacturing system, from and to a certain \fC\fBTransportJunction\fP\fP\&. A \fBSimpleTransporter\fP is associated to a certain \fC\fBTransportJunction\fP\fP as his home base\&. He will perform the transportation of the goods as described in the \fBTransportation\fP object\&. He needs a certain time to return to his home base and has a capacity (maximum number of goods which can be transported)\&. The mimimum load (a minimum number of goods it will carry) is one\&. Use this constructor to construct a \fBTransporter\fP with a specified capacity, a given transportation order, a certain home base ( \fC\fBTransportJunction\fP\fP), a given return time it takes him to return to his base and a minimum load of one\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBSimpleTransporter\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBSimpleTransporter\fP\&. 
+.br
+\fIcapac\fP int : The maximum number of goods this \fBSimpleTransporter\fP can carry around\&. 
+.br
+\fItransport\fP \fBTransportation\fP : The transportation to be carried out by this \fBSimpleTransporter\fP\&. 
+.br
+\fIhomeBase\fP \fBTransportJunction\fP : The home base of this \fBSimpleTransporter\fP; where he comes from and where he returns to\&. 
+.br
+\fIreturnTime\fP NumericalDist<?> : The time it takes the \fBSimpleTransporter\fP to return to his home base after transporting the goods to a certain place\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBSimpleTransporter\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBTransportJunction\fP desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.getHomeBase ()"
+Returns the home base \fC\fBTransportJunction\fP\fP this \fBSimpleTransporter\fP is associated to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TransportJunction : The home base \fC\fBTransportJunction\fP\fP this \fBSimpleTransporter\fP is associated to\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.getReturnTimeSample ()"
+Returns a \fCTimeSpan\fP object representing the time it takes the \fBSimpleTransporter\fP to return to his home base ( \fC\fBTransportJunction\fP\fP) after having transported the goods to some place\&. The time is taken from the given random number stream returnTimeStream\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The time it takes the \fBSimpleTransporter\fP to return to his home base (\fC\fBTransportJunction\fP\fP) after having transported the goods to some place\&. 
+.RE
+.PP
+
+.SS "\fBTransportation\fP desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.getTransportation ()"
+Returns the \fC\fBTransportation\fP\fP order this \fBSimpleTransporter\fP is supposed to execute\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.Transportation : The \fC\fBTransportation\fP\fP order this \fBSimpleTransporter\fP is supposed to execute\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.lifeCycle ()\fC [virtual]\fP"
+This \fBSimpleTransporter\fP has a very simple lifeCycle\&. He waits in his home base (\fC\fBTransportJunction\fP\fP) for goods to transport\&. As soon as goods arrive at the \fC\fBTransportJunction\fP\fP they will be transported to their destination and the \fBSimpleTransporter\fP returns to his home base\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.setHomeBase (\fBTransportJunction\fPnewHomeBase)"
+Sets a new \fC\fBTransportJunction\fP\fP as the home base this \fBSimpleTransporter\fP is associated to\&. Must not be \fCnull\fP!
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewHomeBase\fP desmoj\&.TransportJunction : The new \fC\fBTransportJunction\fP\fP as the home base of this \fBSimpleTransporter\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\&.setTransportation (\fBTransportation\fPnewTransportation)"
+Sets a new \fC\fBTransportation\fP\fP order this \fBSimpleTransporter\fP is supposed to carry out\&. Must not be \fCnull\fP!
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewTransportation\fP desmoj\&.Transportation : The new \fC\fBTransportation\fP\fP order this \fBSimpleTransporter\fP is supposed to carry out\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,228 @@
+\section{desmoj.\-core.\-report.\-Abstract\-Table\-Formatter Class Reference}
+\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter}\index{desmoj.\-core.\-report.\-Abstract\-Table\-Formatter@{desmoj.\-core.\-report.\-Abstract\-Table\-Formatter}}
+
+
+Inheritance diagram for desmoj.\-core.\-report.\-Abstract\-Table\-Formatter\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-report.\-Abstract\-Table\-Formatter\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean {\bf row\-Is\-Open} ()
+\item 
+boolean {\bf table\-Is\-Open} ()
+\item 
+String {\bf write\-Time} (String t)
+\item 
+int {\bf time\-Precision} ()
+\item 
+void {\bf set\-Output} ({\bf File\-Output} {\bf out})
+\item 
+void {\bf set\-Time\-Precision} (int tf)
+\item 
+void {\bf open\-Row} ({\bf Reporter} rep)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Reporter} {\bf get\-Reporter\-For\-Current\-Row} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean {\bf table\-Open} = false
+\item 
+boolean {\bf row\-Open} = false
+\item 
+{\bf File\-Output} {\bf out} = null
+\item 
+{\bf Reporter} {\bf \-\_\-current\-Reporter} = null
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A basic implementation of the \doxyref{Table\-Formatter}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter} interface realizing common properties of table formatters.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Nicolas Knaak
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!get\-Reporter\-For\-Current\-Row@{get\-Reporter\-For\-Current\-Row}}
+\index{get\-Reporter\-For\-Current\-Row@{get\-Reporter\-For\-Current\-Row}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{get\-Reporter\-For\-Current\-Row}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reporter} desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-get\-Reporter\-For\-Current\-Row (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a7700233d5c3fc9a9dd514129de50cc3d}
+Returns the reporter which is displayed in current row. Maybe null, if \doxyref{open\-Row()}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_a943b4d8214d7c6aedb2b842d059e50d1} insted of \doxyref{open\-Row(\-Reporter)}{p.}{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a1e6878b13e24d1aede81789ce13004af} was called. \begin{DoxyReturn}{Returns}
+the reporter which is displayed in current row. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!open\-Row@{open\-Row}}
+\index{open\-Row@{open\-Row}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{open\-Row}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-open\-Row (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{rep}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a1e6878b13e24d1aede81789ce13004af}
+Opens a new row. Calls \doxyref{open\-Row()}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_a943b4d8214d7c6aedb2b842d059e50d1} and saves reference on reporter which will we displayed in that row. Reference on reporter is not necessary for getting content of reporter!!! But maybe its useful for some kind of extended reports.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rep} & \doxyref{Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_reporter} which will be displayed in new row \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!row\-Is\-Open@{row\-Is\-Open}}
+\index{row\-Is\-Open@{row\-Is\-Open}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{row\-Is\-Open}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-row\-Is\-Open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a4b0cff959fd41986ce642cfe82632f1b}
+Sets table\-Open flag to true. Should always be called from subclass implementations of this method.
+
+\begin{DoxyReturn}{Returns}
+value of row open flag 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-report.\-Table\-Formatter\-::row\-Is\-Open()}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_a7ce439782b97b2d7efea84155a06111a} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Table\-Formatter} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_a7ce439782b97b2d7efea84155a06111a}.
+
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!set\-Output@{set\-Output}}
+\index{set\-Output@{set\-Output}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{set\-Output}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-set\-Output (
+\begin{DoxyParamCaption}
+\item[{{\bf File\-Output}}]{out}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a2bfe135c62402133271b879df61a361d}
+Sets an output file to write the table to
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & desmoj.\-report.\-File\-Output \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Table\-Formatter} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_aecd534799589114d9897fc82f90d6e25}.
+
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!set\-Time\-Precision@{set\-Time\-Precision}}
+\index{set\-Time\-Precision@{set\-Time\-Precision}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{set\-Time\-Precision}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-set\-Time\-Precision (
+\begin{DoxyParamCaption}
+\item[{int}]{tf}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a5687d519fd207b52687e943e1d515c99}
+Sets the time precision
+
+
+\begin{DoxyParams}{Parameters}
+{\em tf} & time precision \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Table\-Formatter} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_a7565a9147d0b19df5d69a0d62cb74cd6}.
+
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!table\-Is\-Open@{table\-Is\-Open}}
+\index{table\-Is\-Open@{table\-Is\-Open}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{table\-Is\-Open}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-table\-Is\-Open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_aeb7480809d766d6dae7fbba2eed908bb}
+\begin{DoxyReturn}{Returns}
+value of table open flag; 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-report.\-Table\-Formatter\-::table\-Is\-Open()}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_a16b86b6f09419454ca0127f5f040af18} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Table\-Formatter} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_a16b86b6f09419454ca0127f5f040af18}.
+
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!time\-Precision@{time\-Precision}}
+\index{time\-Precision@{time\-Precision}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{time\-Precision}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-time\-Precision (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a3448edcd3ad9a2db65ff0b845f2b34ee}
+\begin{DoxyReturn}{Returns}
+time precision 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-report.\-Table\-Formatter\-::time\-Precision()}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_ac0a3e22da30ea0e2499b652e97244709} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Table\-Formatter} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_ac0a3e22da30ea0e2499b652e97244709}.
+
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!write\-Time@{write\-Time}}
+\index{write\-Time@{write\-Time}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{write\-Time}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-write\-Time (
+\begin{DoxyParamCaption}
+\item[{String}]{t}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a5737d93d6ef11c40bb9c834f668fd3f9}
+Returns a formatted time string
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & time string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+formatted version of time string 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-report.\-Table\-Formatter\-::write\-Time}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_ac6bcce5e1013bbba7a2e8f006f6a9386}(java.\-lang.\-String) 
+\end{DoxySeeAlso}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Table\-Formatter} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_table_formatter_ac6bcce5e1013bbba7a2e8f006f6a9386}.
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!\-\_\-current\-Reporter@{\-\_\-current\-Reporter}}
+\index{\-\_\-current\-Reporter@{\-\_\-current\-Reporter}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{\-\_\-current\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reporter} desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-\_\-current\-Reporter = null\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a6f6727d337bf3d4bd50cf78257353a1e}
+The \doxyref{Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_reporter} displayed in current row. \index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!out@{out}}
+\index{out@{out}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{out}]{\setlength{\rightskip}{0pt plus 5cm}{\bf File\-Output} desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-out = null\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_a914e4c6e94abab4fa322594ed798c11b}
+The \doxyref{File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output} this table writer writes to. \index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!row\-Open@{row\-Open}}
+\index{row\-Open@{row\-Open}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{row\-Open}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-row\-Open = false\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_ad72ba47309e644dd13102bed3de32eac}
+Flag indicating if table row is open \index{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}!table\-Open@{table\-Open}}
+\index{table\-Open@{table\-Open}!desmoj::core::report::AbstractTableFormatter@{desmoj\-::core\-::report\-::\-Abstract\-Table\-Formatter}}
+\subsubsection[{table\-Open}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-Abstract\-Table\-Formatter.\-table\-Open = false\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_abstract_table_formatter_ab410b1d9a25ea9f7a25cb769ce75a9f6}
+Flag indicating if table is open 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/report/Abstract\-Table\-Formatter.\-java\end{DoxyCompactItemize}

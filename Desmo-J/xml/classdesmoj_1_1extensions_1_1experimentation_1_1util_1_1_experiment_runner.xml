@@ -1,0 +1,1254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner" kind="class" prot="public">
+    <compoundname>desmoj::extensions::experimentation::util::ExperimentRunner</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Observer</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Runnable</basecompoundref>
+    <basecompoundref refid="interfacedesmoj_1_1core_1_1util_1_1_parameterizable" prot="public" virt="non-virtual">desmoj.core.util.Parameterizable</basecompoundref>
+    <innerclass refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1_1_experiment_parameter_comparator" prot="private">desmoj::extensions::experimentation::util::ExperimentRunner::ExperimentParameterComparator</innerclass>
+    <innerclass refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1_1_lock" prot="private">desmoj::extensions::experimentation::util::ExperimentRunner::Lock</innerclass>
+    <innerclass refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1_1_report_provider" prot="public">desmoj::extensions::experimentation::util::ExperimentRunner::ReportProvider</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a34c2314f6ef0d968ad30eac961ee9099" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int desmoj.extensions.experimentation.util.ExperimentRunner.CREATED</definition>
+        <argsstring></argsstring>
+        <name>CREATED</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Status: model not connected to experiment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="111" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ac090562fe0841192f2dc270a88bb4f9e" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int desmoj.extensions.experimentation.util.ExperimentRunner.INITIALIZED</definition>
+        <argsstring></argsstring>
+        <name>INITIALIZED</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Status: Model created an connected but experiment not started yet </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="114" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2a8d52ae1c6f829baf49d40da4fb3b3e" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int desmoj.extensions.experimentation.util.ExperimentRunner.RUNNING</definition>
+        <argsstring></argsstring>
+        <name>RUNNING</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Status: Experiment currently running </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="117" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acec08adcbd126ee480f89695ef641cbf" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int desmoj.extensions.experimentation.util.ExperimentRunner.PAUSED</definition>
+        <argsstring></argsstring>
+        <name>PAUSED</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Status: Experiment temporarily paused </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="120" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab54025ce19d5e1659f19e23e0a174277" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int desmoj.extensions.experimentation.util.ExperimentRunner.STOPPED</definition>
+        <argsstring></argsstring>
+        <name>STOPPED</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Status: Experiment finally stopped </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="123" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae5eda027bbbbcd8a725bf83cc7d86e1c" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_NAME</definition>
+        <argsstring></argsstring>
+        <name>EXP_NAME</name>
+        <initializer>= &quot;name&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;name&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="126" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acdc75c12a4d023bc4c810d9167486b87" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_OUTPUT_PATH</definition>
+        <argsstring></argsstring>
+        <name>EXP_OUTPUT_PATH</name>
+        <initializer>= &quot;outputPath&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;outputPath&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="129" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8821c0a5131e43006ab01ea08d826417" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_REF_TIME</definition>
+        <argsstring></argsstring>
+        <name>EXP_REF_TIME</name>
+        <initializer>= &quot;referenceTime&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;referenceTime&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="132" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af8b32cbaa5ead70e8089b51c9cc1bed3" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_REF_UNIT</definition>
+        <argsstring></argsstring>
+        <name>EXP_REF_UNIT</name>
+        <initializer>= &quot;referenceUnit&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;referenceUnit&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="135" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad8229f7664944cc98fbf1ebe35e72c93" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_START_TIME</definition>
+        <argsstring></argsstring>
+        <name>EXP_START_TIME</name>
+        <initializer>= &quot;startTime&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;startTime&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="138" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a5ea56b594553bfcb4fa1f8e49f10b2e0" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_STOP_TIME</definition>
+        <argsstring></argsstring>
+        <name>EXP_STOP_TIME</name>
+        <initializer>= &quot;stopTime&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;stopTime&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="141" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a4ff2570672a89a30629c4bcaa3e1c890" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_SHOW_PROG_BAR</definition>
+        <argsstring></argsstring>
+        <name>EXP_SHOW_PROG_BAR</name>
+        <initializer>= &quot;showProgressBar&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;showProgressBar&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="144" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aecadb63e71406899fbe4c7b6b20eda28" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_TRACE_START</definition>
+        <argsstring></argsstring>
+        <name>EXP_TRACE_START</name>
+        <initializer>= &quot;traceStartTime&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;traceStartTime&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="147" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8ffe1c9415ac9fae16af9972b2fc7b78" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_TRACE_STOP</definition>
+        <argsstring></argsstring>
+        <name>EXP_TRACE_STOP</name>
+        <initializer>= &quot;traceStopTime&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;traceStopTime&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="150" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a92c70e03d7ae7d2255c423d6d42c7554" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_RAND_EVENTS</definition>
+        <argsstring></argsstring>
+        <name>EXP_RAND_EVENTS</name>
+        <initializer>= &quot;randomizeConcurrentEvents&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;randomizeConcurrentEvents&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="153" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad64633a8ba1ca4ef711cf9eb18eaf6d8" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_R_OUTTYPE</definition>
+        <argsstring></argsstring>
+        <name>EXP_R_OUTTYPE</name>
+        <initializer>= &quot;reportOutputType&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;formatter&quot; Experiment setting &quot;reportOutputType&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="158" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2f723ae90a01ddd5b0e8aaccd3da9627" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_T_OUTTYPE</definition>
+        <argsstring></argsstring>
+        <name>EXP_T_OUTTYPE</name>
+        <initializer>= &quot;traceOutputType&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;traceOutputType&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="161" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a1c1b534fa6d983f27e58fae3ba8fba79" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_E_OUTTYPE</definition>
+        <argsstring></argsstring>
+        <name>EXP_E_OUTTYPE</name>
+        <initializer>= &quot;errorOutputType&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;errorOutputType&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="164" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af7ab4103c61c146f7b9a945c19b70193" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String desmoj.extensions.experimentation.util.ExperimentRunner.EXP_D_OUTTYPE</definition>
+        <argsstring></argsstring>
+        <name>EXP_D_OUTTYPE</name>
+        <initializer>= &quot;debugOutputType&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment setting &quot;debugOutputType&quot; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="167" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1abea01e0b33f1dfcfcd00467873e6fc1f" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.extensions.experimentation.util.ExperimentRunner.startTime</definition>
+        <argsstring></argsstring>
+        <name>startTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The start time for the experiment running in this thread </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="170" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2c2ddb63c83ba9b2215489fd632f3dd8" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.extensions.experimentation.util.ExperimentRunner.stopTime</definition>
+        <argsstring></argsstring>
+        <name>stopTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The stop time specified in the experiment options </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="173" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a95509c2f7156f949e050117ae87fe334" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></type>
+        <definition>Experiment desmoj.extensions.experimentation.util.ExperimentRunner.experiment</definition>
+        <argsstring></argsstring>
+        <name>experiment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The experiment to be run </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="176" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a98476a46b17ef2ce9111ecccffa2c718" prot="private" static="no" mutable="no">
+        <type>Vector</type>
+        <definition>Vector desmoj.extensions.experimentation.util.ExperimentRunner.experimentListeners</definition>
+        <argsstring></argsstring>
+        <name>experimentListeners</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vector of listeners to the current experiment&apos;s running status changes </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="179" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ac0ffb965a89bbb6feded725be313ad74" prot="private" static="no" mutable="no">
+        <type>Vector</type>
+        <definition>Vector desmoj.extensions.experimentation.util.ExperimentRunner.simClockListeners</definition>
+        <argsstring></argsstring>
+        <name>simClockListeners</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vector of listeners to the contained experiment&apos;s SimClock </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="182" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a4972f8bf78504295108290507af66276" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int desmoj.extensions.experimentation.util.ExperimentRunner.status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The contained experiment&apos;s status </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="185" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af1171ef3a1715d9040856625a4097c1c" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.experimentation.util.ExperimentRunner.reportIsOn</definition>
+        <argsstring></argsstring>
+        <name>reportIsOn</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flag indicating if a report is to be drawn after the experiment stopped </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="188" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a3b8fe2281f7483e99e6f127f0138f36d" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.experimentation.util.ExperimentRunner.delayMillis</definition>
+        <argsstring></argsstring>
+        <name>delayMillis</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Millisecond part of delay between steps of the scheduler. Necessary for online observation of experiments . </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="194" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a53df32d1c5b42d7953865eca673a5977" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int desmoj.extensions.experimentation.util.ExperimentRunner.delayNanos</definition>
+        <argsstring></argsstring>
+        <name>delayNanos</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Nanosecond part of delay between steps of the scheduler. Necessary for online observation of experiments. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="200" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8cfe41b8d06ef011fb67ac5ad923e696" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.experimentation.util.ExperimentRunner.hasDelay</definition>
+        <argsstring></argsstring>
+        <name>hasDelay</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This flag is set to true if the delay time between 2 steps of the scheduler is not 0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="206" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a3e6f7bee533e09a14b8ae2cca215b2a5" prot="private" static="no" mutable="no">
+        <type>Lock</type>
+        <definition>Lock desmoj.extensions.experimentation.util.ExperimentRunner.lock</definition>
+        <argsstring></argsstring>
+        <name>lock</name>
+        <initializer>= new Lock()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A semaphore used to interactively suspend and resume this experiment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="209" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a7ee0c595f755a9c989a52237e2d8a144" prot="private" static="no" mutable="no">
+        <type>Thread</type>
+        <definition>Thread desmoj.extensions.experimentation.util.ExperimentRunner.myThread</definition>
+        <argsstring></argsstring>
+        <name>myThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The thread the experiment should run in </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="212" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a662dda983571e164128a657048d48912" prot="private" static="no" mutable="no">
+        <type>Map&lt; String, <ref refid="interfacedesmoj_1_1core_1_1util_1_1_access_point" kindref="compound">AccessPoint</ref> &gt;</type>
+        <definition>Map&lt;String,AccessPoint&gt; desmoj.extensions.experimentation.util.ExperimentRunner.modelParams</definition>
+        <argsstring></argsstring>
+        <name>modelParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Model parameters </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="215" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a3fe93e54c717bbf0336d8723a41236db" prot="private" static="no" mutable="no">
+        <type>Map&lt; String, <ref refid="interfacedesmoj_1_1core_1_1util_1_1_access_point" kindref="compound">AccessPoint</ref> &gt;</type>
+        <definition>Map&lt;String,AccessPoint&gt; desmoj.extensions.experimentation.util.ExperimentRunner.expSettings</definition>
+        <argsstring></argsstring>
+        <name>expSettings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Experiment parameter names and values </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="218" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae993f431bdae46b343b07cdd5cefe759" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1util_1_1_sim_run_event" kindref="compound">SimRunEvent</ref></type>
+        <definition>SimRunEvent desmoj.extensions.experimentation.util.ExperimentRunner.simRunEvent</definition>
+        <argsstring></argsstring>
+        <name>simRunEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>SimRunEvent sent to all listeners of current experiment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="221" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1abb70fb26311e2d7db5e0fba973b18946" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_reportable" kindref="compound">Reportable</ref></type>
+        <definition>Reportable desmoj.extensions.experimentation.util.ExperimentRunner.reportProvider</definition>
+        <argsstring></argsstring>
+        <name>reportProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An object providing the experiment runner&apos;s report. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="247" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af9731d0423488ad68d9acc3e7e5fd000" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+        <definition>Model desmoj.extensions.experimentation.util.ExperimentRunner.model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The model currently active </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="250" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a046148be471be93b675d6fce5f27dc5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.experimentation.util.ExperimentRunner.ExperimentRunner</definition>
+        <argsstring>(Model model)</argsstring>
+        <name>ExperimentRunner</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new experiment runner for the given model </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="253" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="253" bodyend="268"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a34c2314f6ef0d968ad30eac961ee9099" compoundref="_experiment_runner_8java" startline="111">desmoj.extensions.experimentation.util.ExperimentRunner.CREATED</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a71933e2380bcfbf46a79a1d05d0f657d" compoundref="_experiment_runner_8java" startline="616" endline="648">desmoj.extensions.experimentation.util.ExperimentRunner.createParameters</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab09f9f49f8dd74a8c01d46ae89a7a2e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.experimentation.util.ExperimentRunner.ExperimentRunner</definition>
+        <argsstring>()</argsstring>
+        <name>ExperimentRunner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new experiment runner that is not connected to a model yet. The model must be set consequently using the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a7b0fd07d1bbbaff9753834f160d1bba4" kindref="member">setModel()</ref></computeroutput> method. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="275" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="275" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a7b0fd07d1bbbaff9753834f160d1bba4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.setModel</definition>
+        <argsstring>(Model model)</argsstring>
+        <name>setModel</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current model</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a desmoj.Model </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="285" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="285" bodyend="292"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a71933e2380bcfbf46a79a1d05d0f657d" compoundref="_experiment_runner_8java" startline="616" endline="648">desmoj.extensions.experimentation.util.ExperimentRunner.createParameters</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aec64c1d433965f2bac8ef9a96de72ef1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+        <definition>Model desmoj.extensions.experimentation.util.ExperimentRunner.getModel</definition>
+        <argsstring>()</argsstring>
+        <name>getModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>model running in this experiment runner </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="295" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="295" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1afe0fb916de853a1555ce7e60a2ef605d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the experiment before it is run in the thread </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="300" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="300" bodyend="307"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aefa5080c4980c0064bfe5b1495fa1eef" compoundref="_experiment_runner_8java" startline="581" endline="613">desmoj.extensions.experimentation.util.ExperimentRunner.createExperiment</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aa216355e45e832aa7a424f06571e574d" compoundref="_experiment_runner_8java" startline="651" endline="652">desmoj.extensions.experimentation.util.ExperimentRunner.registerMessageReceivers</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ac090562fe0841192f2dc270a88bb4f9e" compoundref="_experiment_runner_8java" startline="114">desmoj.extensions.experimentation.util.ExperimentRunner.INITIALIZED</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af95296688ea04ab2b2bf9f46a0349fa6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.initParameters</definition>
+        <argsstring>(Map&lt; String, AccessPoint &gt; expSettingsMap, Map&lt; String, AccessPoint &gt; modelParamMap)</argsstring>
+        <name>initParameters</name>
+        <param>
+          <type>Map&lt; String, <ref refid="interfacedesmoj_1_1core_1_1util_1_1_access_point" kindref="compound">AccessPoint</ref> &gt;</type>
+          <declname>expSettingsMap</declname>
+        </param>
+        <param>
+          <type>Map&lt; String, <ref refid="interfacedesmoj_1_1core_1_1util_1_1_access_point" kindref="compound">AccessPoint</ref> &gt;</type>
+          <declname>modelParamMap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inits the experiment runner from a map of model and experiment settings</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>expSettingsMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>map of experiment settings </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>modelParamMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>map of model parameters </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="318" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="318" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a0ddef70963600b43793d90926b2093fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></type>
+        <definition>Experiment desmoj.extensions.experimentation.util.ExperimentRunner.getExperiment</definition>
+        <argsstring>()</argsstring>
+        <name>getExperiment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the experiment running in this experiment runner </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="324" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="324" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae614a09dbfaeffd78fb4e56773375c74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.extensions.experimentation.util.ExperimentRunner.getStartTime</definition>
+        <argsstring>()</argsstring>
+        <name>getStartTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the SimTime the current experiment starts at </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="329" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="329" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae65ad340d5f75017d1bb9e3eccee7ab0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.extensions.experimentation.util.ExperimentRunner.getStopTime</definition>
+        <argsstring>()</argsstring>
+        <name>getStopTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the time the current experiment will finally stop </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="334" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="334" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2894d8c0f20ad0db92c55df6d6ac4ca8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts this thread and the contained experiment with start time 0.0 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="339" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="339" bodyend="350"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ac090562fe0841192f2dc270a88bb4f9e" compoundref="_experiment_runner_8java" startline="114">desmoj.extensions.experimentation.util.ExperimentRunner.INITIALIZED</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a34c2314f6ef0d968ad30eac961ee9099" compoundref="_experiment_runner_8java" startline="111">desmoj.extensions.experimentation.util.ExperimentRunner.CREATED</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1afe0fb916de853a1555ce7e60a2ef605d" compoundref="_experiment_runner_8java" startline="300" endline="307">desmoj.extensions.experimentation.util.ExperimentRunner.init</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad57882c53775bcfc92e5163003d2b9e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.stopExperiment</definition>
+        <argsstring>()</argsstring>
+        <name>stopExperiment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops the experiment running in this experiment runner (forever). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="353" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="353" bodyend="358"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2a8d52ae1c6f829baf49d40da4fb3b3e" compoundref="_experiment_runner_8java" startline="117">desmoj.extensions.experimentation.util.ExperimentRunner.RUNNING</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acec08adcbd126ee480f89695ef641cbf" compoundref="_experiment_runner_8java" startline="120">desmoj.extensions.experimentation.util.ExperimentRunner.PAUSED</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a6fe330206f77764772195d9d2247a35f" compoundref="_experiment_runner_8java" startline="518" endline="537">desmoj.extensions.experimentation.util.ExperimentRunner.setStatus</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab54025ce19d5e1659f19e23e0a174277" compoundref="_experiment_runner_8java" startline="123">desmoj.extensions.experimentation.util.ExperimentRunner.STOPPED</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a0bf76e608cbe2b5e54a65d4a4cb56d20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs the contained experiment by calling it&apos;s appropriate start method </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="361" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="361" bodyend="378"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a6fe330206f77764772195d9d2247a35f" compoundref="_experiment_runner_8java" startline="518" endline="537">desmoj.extensions.experimentation.util.ExperimentRunner.setStatus</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2a8d52ae1c6f829baf49d40da4fb3b3e" compoundref="_experiment_runner_8java" startline="117">desmoj.extensions.experimentation.util.ExperimentRunner.RUNNING</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab54025ce19d5e1659f19e23e0a174277" compoundref="_experiment_runner_8java" startline="123">desmoj.extensions.experimentation.util.ExperimentRunner.STOPPED</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1afce5ece1c09bf65eaf950f745b2b6b12" compoundref="_experiment_8java" startline="1401" endline="1405">desmoj.core.simulator.Experiment.isAborted</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aa089d55463b03df1cf5fd9c103462d22" compoundref="_experiment_runner_8java" startline="384" endline="388">desmoj.extensions.experimentation.util.ExperimentRunner.finishExperiment</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aa089d55463b03df1cf5fd9c103462d22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.finishExperiment</definition>
+        <argsstring>()</argsstring>
+        <name>finishExperiment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lets the experiment report (if desired) and closes all output streams by calling <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1ab05dc729fab10d1aa2e670d2b0a3d926" kindref="member">Experiment.finish()</ref></computeroutput> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="384" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="384" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aef1dd3c3be95758ca3d8b8885d5d6b77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.update</definition>
+        <argsstring>(Observable o, Object value)</argsstring>
+        <name>update</name>
+        <param>
+          <type>Observable</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is implemented for interface observer. It is called by the assigned experiment&apos;s SimClock every time it&apos;s value is increased. The methods tests and waits for the runners semaphore. If a delay time is set, the runner sleeps for the given delay time afterwards.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an observable object </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the updated value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="401" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="401" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af6122d8e1cdeab936a2979d67c8eefec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.setPaused</definition>
+        <argsstring>(boolean pause)</argsstring>
+        <name>setPaused</name>
+        <param>
+          <type>boolean</type>
+          <declname>pause</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>(Un)pauses running the assigned experiment by requiring and releasing the semaphore tested in the experiments proceed loop.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pause</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean value indicating pause (<computeroutput>true</computeroutput>) or restart (<computeroutput>false</computeroutput>). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="425" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="425" bodyend="434"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2a8d52ae1c6f829baf49d40da4fb3b3e" compoundref="_experiment_runner_8java" startline="117">desmoj.extensions.experimentation.util.ExperimentRunner.RUNNING</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a6fe330206f77764772195d9d2247a35f" compoundref="_experiment_runner_8java" startline="518" endline="537">desmoj.extensions.experimentation.util.ExperimentRunner.setStatus</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acec08adcbd126ee480f89695ef641cbf" compoundref="_experiment_runner_8java" startline="120">desmoj.extensions.experimentation.util.ExperimentRunner.PAUSED</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a26ab30cfb0ef711b8cb4726c531cc735" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.experimentation.util.ExperimentRunner.getDelayMillis</definition>
+        <argsstring>()</argsstring>
+        <name>getDelayMillis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the millisecond part of the delay between each step of the scheduler</para><para><simplesect kind="return"><para>A long value representing the delay time in milliseconds </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="442" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="442" bodyend="444"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a393d35c5af1b29a8f702890497c32c1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int desmoj.extensions.experimentation.util.ExperimentRunner.getDelayNanos</definition>
+        <argsstring>()</argsstring>
+        <name>getDelayNanos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the nanosecond part of the delay between each step of the scheduler</para><para><simplesect kind="return"><para>A long value representing the delay time in milliseconds </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="453" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="453" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a7088f3a88cccd2ecd7098eefc38ad591" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.setDelay</definition>
+        <argsstring>(long millis, int nanos)</argsstring>
+        <name>setDelay</name>
+        <param>
+          <type>long</type>
+          <declname>millis</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nanos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the delay between each step of the scheduler.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>delay</parametername>
+<parametername>:</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delay time in milliseconds as a long value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="463" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="463" bodyend="470"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acef625aed9b31cc698dda7063c6f6890" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.addExperimentListener</definition>
+        <argsstring>(ExperimentListener l)</argsstring>
+        <name>addExperimentListener</name>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener" kindref="compound">ExperimentListener</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a listener to the contained experiment&apos;s running status </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="473" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="473" bodyend="478"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a6642ec20746c2a77fe0c41f2de2ef981" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.removeExperimentListener</definition>
+        <argsstring>(ExperimentListener l)</argsstring>
+        <name>removeExperimentListener</name>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener" kindref="compound">ExperimentListener</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes an experiment listener </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="481" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="481" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a50521e4ee72a41faec2b34e963aa60ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.addSimClockListener</definition>
+        <argsstring>(SimClockListener l)</argsstring>
+        <name>addSimClockListener</name>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1core_1_1util_1_1_sim_clock_listener" kindref="compound">SimClockListener</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a listener to the contained experiment&apos;s sim clock </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="487" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="487" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab3d8b446ea2000d86d6cb61d83e1a047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.removeSimClockListener</definition>
+        <argsstring>(SimClockListener l)</argsstring>
+        <name>removeSimClockListener</name>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1core_1_1util_1_1_sim_clock_listener" kindref="compound">SimClockListener</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a SimClock listener </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="495" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="495" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aac7d30f675a4e9dfb1089cb8faf2495c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.addSimRunListener</definition>
+        <argsstring>(SimRunListener l)</argsstring>
+        <name>addSimRunListener</name>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1core_1_1util_1_1_sim_run_listener" kindref="compound">SimRunListener</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>adds a new SimRunListener. Reacts only on SimClockListener and ExperimentListener objects. This method is called from ExperimentRunner.setListeners().</para><para><simplesect kind="author"><para>Ruth Meyer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="507" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="507" bodyend="515"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a50521e4ee72a41faec2b34e963aa60ef" compoundref="_experiment_runner_8java" startline="487" endline="492">desmoj.extensions.experimentation.util.ExperimentRunner.addSimClockListener</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acef625aed9b31cc698dda7063c6f6890" compoundref="_experiment_runner_8java" startline="473" endline="478">desmoj.extensions.experimentation.util.ExperimentRunner.addExperimentListener</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a952512e0045d9cc282fa09f5c44d2ee9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object[][]</type>
+        <definition>Object [][] desmoj.extensions.experimentation.util.ExperimentRunner.getModelParameterArray</definition>
+        <argsstring>()</argsstring>
+        <name>getModelParameterArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array of model parameters for this experiment run The first row contains names, the second row contains values. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="543" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="543" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a679a250078385f3b81ca50f9d5b71805" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object[][]</type>
+        <definition>Object [][] desmoj.extensions.experimentation.util.ExperimentRunner.getExperimentSettingsArray</definition>
+        <argsstring>()</argsstring>
+        <name>getExperimentSettingsArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array of experiment settings for this experiment run The first row contains names, the second row contains values. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="556" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="556" bodyend="563"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a43886299cbe8bf823327d3606a484421" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, <ref refid="interfacedesmoj_1_1core_1_1util_1_1_access_point" kindref="compound">AccessPoint</ref> &gt;</type>
+        <definition>Map&lt;String,AccessPoint&gt; desmoj.extensions.experimentation.util.ExperimentRunner.getModelParameters</definition>
+        <argsstring>()</argsstring>
+        <name>getModelParameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="565" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="565" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1adc05e9a5086a5baeb30773a91669aa55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, <ref refid="interfacedesmoj_1_1core_1_1util_1_1_access_point" kindref="compound">AccessPoint</ref> &gt;</type>
+        <definition>Map&lt;String,AccessPoint&gt; desmoj.extensions.experimentation.util.ExperimentRunner.getExperimentSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getExperimentSettings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="569" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="569" bodyend="571"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a52c97f258da7103f3b5fa220877ec743" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Thread</type>
+        <definition>Thread desmoj.extensions.experimentation.util.ExperimentRunner.getThread</definition>
+        <argsstring>()</argsstring>
+        <name>getThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="573" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="573" bodyend="575"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a71933e2380bcfbf46a79a1d05d0f657d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, <ref refid="interfacedesmoj_1_1core_1_1util_1_1_access_point" kindref="compound">AccessPoint</ref> &gt;</type>
+        <definition>Map&lt;String,AccessPoint&gt; desmoj.extensions.experimentation.util.ExperimentRunner.createParameters</definition>
+        <argsstring>()</argsstring>
+        <name>createParameters</name>
+        <reimplements refid="interfacedesmoj_1_1core_1_1util_1_1_parameterizable_1ac0df0bfd363c179313ab9f4defd83ee1">createParameters</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a map of experiment parameters </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="616" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="616" bodyend="648"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae5eda027bbbbcd8a725bf83cc7d86e1c" compoundref="_experiment_runner_8java" startline="126">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_NAME</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acdc75c12a4d023bc4c810d9167486b87" compoundref="_experiment_runner_8java" startline="129">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_OUTPUT_PATH</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af8b32cbaa5ead70e8089b51c9cc1bed3" compoundref="_experiment_runner_8java" startline="135">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_REF_UNIT</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad8229f7664944cc98fbf1ebe35e72c93" compoundref="_experiment_runner_8java" startline="138">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_START_TIME</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a5ea56b594553bfcb4fa1f8e49f10b2e0" compoundref="_experiment_runner_8java" startline="141">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_STOP_TIME</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a4ff2570672a89a30629c4bcaa3e1c890" compoundref="_experiment_runner_8java" startline="144">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_SHOW_PROG_BAR</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aecadb63e71406899fbe4c7b6b20eda28" compoundref="_experiment_runner_8java" startline="147">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_TRACE_START</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8ffe1c9415ac9fae16af9972b2fc7b78" compoundref="_experiment_runner_8java" startline="150">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_TRACE_STOP</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a92c70e03d7ae7d2255c423d6d42c7554" compoundref="_experiment_runner_8java" startline="153">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_RAND_EVENTS</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad64633a8ba1ca4ef711cf9eb18eaf6d8" compoundref="_experiment_runner_8java" startline="158">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_R_OUTTYPE</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1a7a3b7a1cbba3b1a11f7f5b8d31d9db1c" compoundref="_experiment_8java" startline="70">desmoj.core.simulator.Experiment.DEFAULT_REPORT_OUTPUT_TYPE</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2f723ae90a01ddd5b0e8aaccd3da9627" compoundref="_experiment_runner_8java" startline="161">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_T_OUTTYPE</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1ae93f2620fa13ded3f275ac14b208dafe" compoundref="_experiment_8java" startline="75">desmoj.core.simulator.Experiment.DEFAULT_TRACE_OUTPUT_TYPE</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a1c1b534fa6d983f27e58fae3ba8fba79" compoundref="_experiment_runner_8java" startline="164">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_E_OUTTYPE</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1a9e33c7e79da37a25bfc48877d6ed0c41" compoundref="_experiment_8java" startline="80">desmoj.core.simulator.Experiment.DEFAULT_ERROR_OUTPUT_TYPE</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af7ab4103c61c146f7b9a945c19b70193" compoundref="_experiment_runner_8java" startline="167">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_D_OUTTYPE</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1a3bc1577ad6aedaec7ff2727407df1a74" compoundref="_experiment_8java" startline="85">desmoj.core.simulator.Experiment.DEFAULT_DEBUG_OUTPUT_TYPE</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aa216355e45e832aa7a424f06571e574d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.registerMessageReceivers</definition>
+        <argsstring>()</argsstring>
+        <name>registerMessageReceivers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers new message receivers as output channels of the experiment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="651" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="651" bodyend="652"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a9c6f78d22ee9ffad8abc92be1a0c8ecb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="interfacedesmoj_1_1core_1_1util_1_1_sim_run_listener" kindref="compound">SimRunListener</ref>[]</type>
+        <definition>SimRunListener [] desmoj.extensions.experimentation.util.ExperimentRunner.createSimRunListeners</definition>
+        <argsstring>(GraphicalObserverContext c)</argsstring>
+        <name>createSimRunListeners</name>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_context" kindref="compound">GraphicalObserverContext</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return a new set of listeners to the experiment run represented by the given experiment runner in an array. Returns an array of size 0 by default. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="659" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="659" bodyend="661"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a6fe330206f77764772195d9d2247a35f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.util.ExperimentRunner.setStatus</definition>
+        <argsstring>(int status)</argsstring>
+        <name>setStatus</name>
+        <param>
+          <type>int</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the experiment&apos;s status and notifies registered ExperimentListeners </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="518" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="518" bodyend="537"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a0ddef70963600b43793d90926b2093fc" compoundref="_experiment_runner_8java" startline="324" endline="326">desmoj.extensions.experimentation.util.ExperimentRunner.getExperiment</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2a8d52ae1c6f829baf49d40da4fb3b3e" compoundref="_experiment_runner_8java" startline="117">desmoj.extensions.experimentation.util.ExperimentRunner.RUNNING</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab54025ce19d5e1659f19e23e0a174277" compoundref="_experiment_runner_8java" startline="123">desmoj.extensions.experimentation.util.ExperimentRunner.STOPPED</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acec08adcbd126ee480f89695ef641cbf" compoundref="_experiment_runner_8java" startline="120">desmoj.extensions.experimentation.util.ExperimentRunner.PAUSED</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aefa5080c4980c0064bfe5b1495fa1eef" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></type>
+        <definition>Experiment desmoj.extensions.experimentation.util.ExperimentRunner.createExperiment</definition>
+        <argsstring>()</argsstring>
+        <name>createExperiment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>creates and initializes an experiment with the parameters in expParams. Connects the experiment to the model. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="581" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="581" bodyend="613"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae5eda027bbbbcd8a725bf83cc7d86e1c" compoundref="_experiment_runner_8java" startline="126">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_NAME</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_access_util_1a55f1c4be17f9798f7c41f56f5fcc3c80" compoundref="_access_util_8java" startline="46" endline="49">desmoj.extensions.experimentation.util.AccessUtil.getValue</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acdc75c12a4d023bc4c810d9167486b87" compoundref="_experiment_runner_8java" startline="129">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_OUTPUT_PATH</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad64633a8ba1ca4ef711cf9eb18eaf6d8" compoundref="_experiment_runner_8java" startline="158">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_R_OUTTYPE</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2f723ae90a01ddd5b0e8aaccd3da9627" compoundref="_experiment_runner_8java" startline="161">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_T_OUTTYPE</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a1c1b534fa6d983f27e58fae3ba8fba79" compoundref="_experiment_runner_8java" startline="164">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_E_OUTTYPE</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af7ab4103c61c146f7b9a945c19b70193" compoundref="_experiment_runner_8java" startline="167">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_D_OUTTYPE</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_access_util_1a04faa9a2e405302f935a0d33a20a9d74" compoundref="_access_util_8java" startline="67" endline="69">desmoj.extensions.experimentation.util.AccessUtil.getTimeUnitValue</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af8b32cbaa5ead70e8089b51c9cc1bed3" compoundref="_experiment_runner_8java" startline="135">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_REF_UNIT</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a92c70e03d7ae7d2255c423d6d42c7554" compoundref="_experiment_runner_8java" startline="153">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_RAND_EVENTS</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a4ff2570672a89a30629c4bcaa3e1c890" compoundref="_experiment_runner_8java" startline="144">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_SHOW_PROG_BAR</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_access_util_1a7ac208500f8dc008121f0020c5c08727" compoundref="_access_util_8java" startline="97" endline="99">desmoj.extensions.experimentation.util.AccessUtil.getDoubleValue</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aecadb63e71406899fbe4c7b6b20eda28" compoundref="_experiment_runner_8java" startline="147">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_TRACE_START</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8ffe1c9415ac9fae16af9972b2fc7b78" compoundref="_experiment_runner_8java" startline="150">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_TRACE_STOP</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a5ea56b594553bfcb4fa1f8e49f10b2e0" compoundref="_experiment_runner_8java" startline="141">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_STOP_TIME</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad8229f7664944cc98fbf1ebe35e72c93" compoundref="_experiment_runner_8java" startline="138">desmoj.extensions.experimentation.util.ExperimentRunner.EXP_START_TIME</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A thread a DesmoJ-Experiment can run in. The experiment runner can notifiy registered ExperimentListeners when the assigned experiment is (re)started, stopped or temporarily paused and registered SimClockListeners when the simulation clock is set forth.</para><para><simplesect kind="author"><para>Nicolas Knaak </para><simplesectsep/><para>edited 6.1.2004 by Gunnar Kiesel (seperate output classes for all output Types) </para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="7699">
+        <label>desmoj.core.util.Parameterizable</label>
+        <link refid="interfacedesmoj_1_1core_1_1util_1_1_parameterizable"/>
+      </node>
+      <node id="7697">
+        <label>Observer</label>
+      </node>
+      <node id="7696">
+        <label>desmoj.extensions.experimentation.util.ExperimentRunner</label>
+        <link refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner"/>
+        <childnode refid="7697" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7698" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7699" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7698">
+        <label>Runnable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="7703">
+        <label>desmoj.core.util.Parameterizable</label>
+        <link refid="interfacedesmoj_1_1core_1_1util_1_1_parameterizable"/>
+      </node>
+      <node id="7701">
+        <label>Observer</label>
+      </node>
+      <node id="7700">
+        <label>desmoj.extensions.experimentation.util.ExperimentRunner</label>
+        <link refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner"/>
+        <childnode refid="7701" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7702" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7703" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7702">
+        <label>Runnable</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" line="47" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/util/ExperimentRunner.java" bodystart="47" bodyend="662"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acef625aed9b31cc698dda7063c6f6890" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>addExperimentListener</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a50521e4ee72a41faec2b34e963aa60ef" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>addSimClockListener</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aac7d30f675a4e9dfb1089cb8faf2495c" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>addSimRunListener</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a34c2314f6ef0d968ad30eac961ee9099" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>CREATED</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aefa5080c4980c0064bfe5b1495fa1eef" prot="protected" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>createExperiment</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a71933e2380bcfbf46a79a1d05d0f657d" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>createParameters</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a9c6f78d22ee9ffad8abc92be1a0c8ecb" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>createSimRunListeners</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a3b8fe2281f7483e99e6f127f0138f36d" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>delayMillis</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a53df32d1c5b42d7953865eca673a5977" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>delayNanos</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af7ab4103c61c146f7b9a945c19b70193" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_D_OUTTYPE</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a1c1b534fa6d983f27e58fae3ba8fba79" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_E_OUTTYPE</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae5eda027bbbbcd8a725bf83cc7d86e1c" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_NAME</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acdc75c12a4d023bc4c810d9167486b87" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_OUTPUT_PATH</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad64633a8ba1ca4ef711cf9eb18eaf6d8" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_R_OUTTYPE</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a92c70e03d7ae7d2255c423d6d42c7554" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_RAND_EVENTS</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8821c0a5131e43006ab01ea08d826417" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_REF_TIME</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af8b32cbaa5ead70e8089b51c9cc1bed3" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_REF_UNIT</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a4ff2570672a89a30629c4bcaa3e1c890" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_SHOW_PROG_BAR</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad8229f7664944cc98fbf1ebe35e72c93" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_START_TIME</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a5ea56b594553bfcb4fa1f8e49f10b2e0" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_STOP_TIME</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2f723ae90a01ddd5b0e8aaccd3da9627" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_T_OUTTYPE</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aecadb63e71406899fbe4c7b6b20eda28" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_TRACE_START</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8ffe1c9415ac9fae16af9972b2fc7b78" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>EXP_TRACE_STOP</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a95509c2f7156f949e050117ae87fe334" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>experiment</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a98476a46b17ef2ce9111ecccffa2c718" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>experimentListeners</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a046148be471be93b675d6fce5f27dc5d" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>ExperimentRunner</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab09f9f49f8dd74a8c01d46ae89a7a2e0" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>ExperimentRunner</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a3fe93e54c717bbf0336d8723a41236db" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>expSettings</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aa089d55463b03df1cf5fd9c103462d22" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>finishExperiment</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a26ab30cfb0ef711b8cb4726c531cc735" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getDelayMillis</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a393d35c5af1b29a8f702890497c32c1e" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getDelayNanos</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a0ddef70963600b43793d90926b2093fc" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getExperiment</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1adc05e9a5086a5baeb30773a91669aa55" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getExperimentSettings</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a679a250078385f3b81ca50f9d5b71805" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getExperimentSettingsArray</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aec64c1d433965f2bac8ef9a96de72ef1" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a952512e0045d9cc282fa09f5c44d2ee9" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getModelParameterArray</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a43886299cbe8bf823327d3606a484421" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getModelParameters</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae614a09dbfaeffd78fb4e56773375c74" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getStartTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae65ad340d5f75017d1bb9e3eccee7ab0" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getStopTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a52c97f258da7103f3b5fa220877ec743" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>getThread</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a8cfe41b8d06ef011fb67ac5ad923e696" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>hasDelay</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1afe0fb916de853a1555ce7e60a2ef605d" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>init</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ac090562fe0841192f2dc270a88bb4f9e" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>INITIALIZED</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af95296688ea04ab2b2bf9f46a0349fa6" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>initParameters</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a3e6f7bee533e09a14b8ae2cca215b2a5" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>lock</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af9731d0423488ad68d9acc3e7e5fd000" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>model</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a662dda983571e164128a657048d48912" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>modelParams</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a7ee0c595f755a9c989a52237e2d8a144" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>myThread</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1acec08adcbd126ee480f89695ef641cbf" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>PAUSED</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aa216355e45e832aa7a424f06571e574d" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>registerMessageReceivers</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a6642ec20746c2a77fe0c41f2de2ef981" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>removeExperimentListener</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab3d8b446ea2000d86d6cb61d83e1a047" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>removeSimClockListener</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af1171ef3a1715d9040856625a4097c1c" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1abb70fb26311e2d7db5e0fba973b18946" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>reportProvider</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a0bf76e608cbe2b5e54a65d4a4cb56d20" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>run</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2a8d52ae1c6f829baf49d40da4fb3b3e" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>RUNNING</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a7088f3a88cccd2ecd7098eefc38ad591" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>setDelay</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a7b0fd07d1bbbaff9753834f160d1bba4" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>setModel</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1af6122d8e1cdeab936a2979d67c8eefec" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>setPaused</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a6fe330206f77764772195d9d2247a35f" prot="protected" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>setStatus</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ac0ffb965a89bbb6feded725be313ad74" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>simClockListeners</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ae993f431bdae46b343b07cdd5cefe759" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>simRunEvent</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2894d8c0f20ad0db92c55df6d6ac4ca8" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>start</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1abea01e0b33f1dfcfcd00467873e6fc1f" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>startTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a4972f8bf78504295108290507af66276" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>status</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ad57882c53775bcfc92e5163003d2b9e5" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>stopExperiment</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1ab54025ce19d5e1659f19e23e0a174277" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>STOPPED</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1a2c2ddb63c83ba9b2215489fd632f3dd8" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>stopTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_experiment_runner_1aef1dd3c3be95758ca3d8b8885d5d6b77" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::util::ExperimentRunner</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

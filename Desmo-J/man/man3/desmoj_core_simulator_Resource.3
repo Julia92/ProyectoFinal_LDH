@@ -1,0 +1,106 @@
+.TH "desmoj.core.simulator.Resource" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Resource \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBResource\fP (\fBModel\fP ownerModel, String name, \fBRes\fP resPool, boolean showInTrace)"
+.br
+.ti -1c
+.RI "long \fBgetidNumber\fP ()"
+.br
+.ti -1c
+.RI "\fBRes\fP \fBgetResPool\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisOutOfOrder\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetOutOfOrder\fP (boolean brokenDown)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Resources are objects needed by SimProcesses to perform certain tasks\&. Every \fBResource\fP has its unique ID number, so it can be identified\&. Each \fBResource\fP belongs to a certain resource category (resource pool) and has the status ready (can be used) or \fCoutOfOrder\fP if it is broken down\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.Resource\&.Resource (\fBModel\fPownerModel, Stringname, \fBRes\fPresPool, booleanshowInTrace)"
+Constructs a resource object with the given String as name and the given model as the associated owner of this component\&. Components can only be created after the corresponding model object has been instantiated\&. The default preset for the showInTrace option is \fCfalse\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP \fBModel\fP : The model this resource is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of the resource\&. 
+.br
+\fIresPool\fP Res : The resource pool this resource belongs to\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this resource in trace files\&. Set it to \fCtrue\fP if resource should show up in trace\&. Set it to \fCfalse\fP if resource should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "long desmoj\&.core\&.simulator\&.Resource\&.getidNumber ()"
+Returns the ID number of this resource object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The ID number of this resource object\&. 
+.RE
+.PP
+
+.SS "\fBRes\fP desmoj\&.core\&.simulator\&.Resource\&.getResPool ()"
+Returns the resource pool (Res) this resource belongs to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Res : The resource pool (Res) this resource belongs to\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Resource\&.isOutOfOrder ()"
+Is this resource out of order at the moment and therefore can not be used?
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is this resource out of order at the moment? 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Resource\&.setOutOfOrder (booleanbrokenDown)"
+This resource can be set to out of order (\fCtrue\fP) if it is broken down and can not be used at the moment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbrokenDown\fP boolean : Flag for showing if this resource is out of order and therefore is not available at the moment\&. Set it to \fCtrue\fP if the resource is broken down\&. Set it to \fCfalse\fP if the resource is ready to use\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

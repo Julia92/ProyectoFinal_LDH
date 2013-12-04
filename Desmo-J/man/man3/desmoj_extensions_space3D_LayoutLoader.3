@@ -1,0 +1,136 @@
+.TH "desmoj.extensions.space3D.LayoutLoader" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.LayoutLoader \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLayoutLoader\fP (\fBModel\fP model)"
+.br
+.ti -1c
+.RI "void \fBloadLayout\fP (String filePathName)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimpleLocation\fP \fBcreateSimpleLocation\fP (Element location)"
+.br
+.ti -1c
+.RI "\fBSimpleTrack\fP \fBcreateSimpleTrack\fP (Element track)"
+.br
+.ti -1c
+.RI "abstract \fBSpatialObject\fP \fBcreateSpatialObject\fP (Element spatialObject)"
+.br
+.ti -1c
+.RI "abstract \fBTrack\fP \fBcreateTrack\fP (Element track)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBModel\fP \fB_model\fP"
+.br
+.ti -1c
+.RI "\fBSpatialLayoutManager\fP \fB_layoutManager\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class loads the Layout XML file into the Model\&. The XML file should contain the details about the pre-defined tracks and SpatialObjects\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.space3D\&.LayoutLoader\&.LayoutLoader (\fBModel\fPmodel)"
+Constructs a \fBLayoutLoader\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The model this \fBLayoutLoader\fP is working for\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBSimpleLocation\fP desmoj\&.extensions\&.space3D\&.LayoutLoader\&.createSimpleLocation (Elementlocation)\fC [protected]\fP"
+Create a \fBSimpleLocation\fP object based on the information the \fBTrack\fP Element contains\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlocation\fP The element object extracted from the XML layout file\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBSimpleLocation\fP object\&. 
+.RE
+.PP
+
+.SS "\fBSimpleTrack\fP desmoj\&.extensions\&.space3D\&.LayoutLoader\&.createSimpleTrack (Elementtrack)\fC [protected]\fP"
+Create a \fBSimpleTrack\fP object based on the information the \fBTrack\fP Element contains\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrack\fP The element object extracted from the XML layout file\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBSimpleTrack\fP object\&. 
+.RE
+.PP
+
+.SS "abstract \fBSpatialObject\fP desmoj\&.extensions\&.space3D\&.LayoutLoader\&.createSpatialObject (ElementspatialObject)\fC [protected]\fP, \fC [pure virtual]\fP"
+Creates a \fBSpatialObject\fP based on the \fBSpatialObject\fP element specified in the layout file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspatialObject\fP The specified \fBSpatialObject\fP to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBSpatialObject\fP which is specified by the element\&. 
+.RE
+.PP
+
+.SS "abstract \fBTrack\fP desmoj\&.extensions\&.space3D\&.LayoutLoader\&.createTrack (Elementtrack)\fC [protected]\fP, \fC [pure virtual]\fP"
+Creates a track object based on the track element specified in the layout file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrack\fP The specified track to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBTrack\fP object which is specified by the element\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.LayoutLoader\&.loadLayout (StringfilePathName)"
+Loads the given XML file, create the specified Tracks and SpatialObjects\&. The tracks will be registered into the \fBSpatialLayoutManager\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilePathName\fP A pathname string 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

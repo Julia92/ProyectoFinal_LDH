@@ -1,0 +1,293 @@
+.TH "desmoj.extensions.xml.util.XMLHelper" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.xml.util.XMLHelper \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBwriteNode\fP (Node n, FileOutputStream o)"
+.br
+.ti -1c
+.RI "static Element \fBcreateElement\fP (Document d, String name)"
+.br
+.ti -1c
+.RI "static Comment \fBcreateComment\fP (Document d, String text)"
+.br
+.ti -1c
+.RI "static Text \fBcreateText\fP (Document d, String text)"
+.br
+.ti -1c
+.RI "static Element \fBcreateElement\fP (Document d, String name, String value, boolean isCDATA)"
+.br
+.ti -1c
+.RI "static Element \fBcreateElementLn\fP (Document d, String name, String value, boolean isCDATA)"
+.br
+.ti -1c
+.RI "static Text \fBcreateTextLn\fP (Document d, String text)"
+.br
+.ti -1c
+.RI "static Text \fBcreateTextLn\fP (Document d)"
+.br
+.ti -1c
+.RI "static CDATASection \fBcreateCDATA\fP (Document d, String text)"
+.br
+.ti -1c
+.RI "static Document \fBcreateDocument\fP ()"
+.br
+.ti -1c
+.RI "static void \fBserializeDocument\fP (Document document, Writer out)"
+.br
+.ti -1c
+.RI "static void \fBaddElement\fP (Document document, Element father, String name, String attOneName, String attOneValue)"
+.br
+.ti -1c
+.RI "static void \fBaddElement\fP (Document document, Element father, String name, String attOneName, String attOneValue, String attTwoName, String attTwoValue)"
+.br
+.ti -1c
+.RI "static void \fBapplyXSL\fP (File xmlFile, File xslFile, String outputFilename)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A utility class providing several static methods to handle DOM documents\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak and Gunnar Kiesel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "static void desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.addElement (Documentdocument, Elementfather, Stringname, StringattOneName, StringattOneValue)\fC [static]\fP"
+adds an Element with one attribut to a DOM-tree\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdocument\fP Document: the DOM-tree to add to 
+.br
+\fIfather\fP Element: the new element will be inserted directly under this Element in the tree 
+.br
+\fIname\fP String: the name of the new element 
+.br
+\fIattOneName\fP String: the name of the attribut 
+.br
+\fIattOneValue\fP String: the value of the attribut 
+.RE
+.PP
+
+.SS "static void desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.addElement (Documentdocument, Elementfather, Stringname, StringattOneName, StringattOneValue, StringattTwoName, StringattTwoValue)\fC [static]\fP"
+adds an Element with two attributs to a DOM-tree\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdocument\fP Document: the DOM-tree to add to 
+.br
+\fIfather\fP Element: the new element will be inserted directly under this Element in the tree 
+.br
+\fIname\fP String: the name of the new element 
+.br
+\fIattOneName\fP String: the name of the 1st attribut 
+.br
+\fIattOneValue\fP String: the value of the 1st attribut 
+.br
+\fIattTwoName\fP String: the name of the 2nd attribut 
+.br
+\fIattTwoValue\fP String: the value of the 2nd attribut 
+.RE
+.PP
+
+.SS "static void desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.applyXSL (FilexmlFile, FilexslFile, StringoutputFilename)\fC [static]\fP"
+Transforms an xml-file (xmlFilename) using an xsl-file (xslFilename) and writes the output into file (outputFilename)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxmlFile\fP File: the xml-source-file to be transformed 
+.br
+\fIxslFile\fP File: the xsl-file with the transformation rules 
+.br
+\fIoutputFilename\fP String: the name of the file the result will be written to 
+.RE
+.PP
+
+.SS "static CDATASection desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createCDATA (Documentd, Stringtext)\fC [static]\fP"
+Creates a CDATA section node in an XML document
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created text node 
+.br
+\fItext\fP the text this CDATA section contains 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new CDATA section node\&. 
+.RE
+.PP
+
+.SS "static Comment desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createComment (Documentd, Stringtext)\fC [static]\fP"
+Creates an XML comment with the given text
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created comment 
+.br
+\fItext\fP the comment text 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a comment containing the given text 
+.RE
+.PP
+
+.SS "static Document desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createDocument ()\fC [static]\fP"
+Creates a new DOM document\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a new empty DOM document 
+.RE
+.PP
+
+.SS "static Element desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createElement (Documentd, Stringname)\fC [static]\fP"
+Creates a DOM element node with the given name\&. This node must only be used in the specified document\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created node 
+.br
+\fIname\fP the name of the node 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a node with the given name 
+.RE
+.PP
+
+.SS "static Element desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createElement (Documentd, Stringname, Stringvalue, booleanisCDATA)\fC [static]\fP"
+Creates a DOM element node with the given name and contents\&. If indicated the contents is enclosed in CDATA marks\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created Element 
+.br
+\fIname\fP the name of the element 
+.br
+\fIvalue\fP the element's value 
+.br
+\fIisCDATA\fP a flag indicating if this element contains (unformatted) CDATA\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new DOM Element 
+.RE
+.PP
+
+.SS "static Element desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createElementLn (Documentd, Stringname, Stringvalue, booleanisCDATA)\fC [static]\fP"
+Creates a DOM element node with the given name and contents\&. If indicated the contents is enclosed in CDATA marks\&. The tag ends with a new line character\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created Element 
+.br
+\fIname\fP the name of the element 
+.br
+\fIvalue\fP the element's value 
+.br
+\fIisCDATA\fP a flag indicating if this element contains (unformatted) CDATA\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new DOM Element 
+.RE
+.PP
+
+.SS "static Text desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createText (Documentd, Stringtext)\fC [static]\fP"
+Creates a text node in an XML document
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created text node 
+.br
+\fItext\fP contents of the text node 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new text node 
+.RE
+.PP
+
+.SS "static Text desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createTextLn (Documentd, Stringtext)\fC [static]\fP"
+Creates a text node in an XML document ended by a new line character
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created text node 
+.br
+\fItext\fP contents of the text node 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new text node 
+.RE
+.PP
+
+.SS "static Text desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.createTextLn (Documentd)\fC [static]\fP"
+Creates a text node in an XML document representing a new line character
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP the 'mother' document of the created text node 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a text node containing a single newline character 
+.RE
+.PP
+
+.SS "static void desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.serializeDocument (Documentdocument, Writerout)\fC [static]\fP"
+Saves a DOM tree as XML file
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdocument\fP Document: The DOM-Tree to be saved 
+.br
+\fIout,:\fP Writer: The (file)writer to be used 
+.RE
+.PP
+
+.SS "static void desmoj\&.extensions\&.xml\&.util\&.XMLHelper\&.writeNode (Noden, FileOutputStreamo)\fC [static]\fP"
+Writes a DOM node (and all its ancestors) to the given output stream
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP the node to write 
+.br
+\fIo\fP the output stream to write the node to 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

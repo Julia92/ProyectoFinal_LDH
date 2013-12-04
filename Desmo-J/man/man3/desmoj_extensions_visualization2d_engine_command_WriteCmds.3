@@ -1,0 +1,131 @@
+.TH "desmoj.extensions.visualization2d.engine.command.WriteCmds" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.command.WriteCmds \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\fP, \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.WriteBsp0\fP, and \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.WriteBspArztPraxis0\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBwrite\fP (\fBCommand\fP c)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWriteCmds\fP (String cmdFileName, String logFileName, URL simulationIconDir)"
+.br
+.ti -1c
+.RI "\fBCommandSequence\fP \fBgetCommandSequence\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetFlushSeq\fP (int flushSeq)"
+.br
+.ti -1c
+.RI "void \fBflush\fP ()"
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "void \fBcheckAndLog\fP (\fBCommand\fP c)"
+.br
+.ti -1c
+.RI "void \fBsetIconPathURL\fP (URL url)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "URL \fBiconPathURL\fP = null"
+.br
+.ti -1c
+.RI "String \fBcmdFileName\fP"
+.br
+.ti -1c
+.RI "String \fBlogFileName\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Basic methods for cmds-file generation
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\&.WriteCmds (StringcmdFileName, StringlogFileName, URLsimulationIconDir)\fC [protected]\fP"
+Opens cmds-file and log-file and organize the animation\&.model\&.Model instance (singelton) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcmdFileName\fP 
+.br
+\fIlogFileName\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\&.checkAndLog (\fBCommand\fPc)\fC [protected]\fP"
+checks a command c by syntax (c\&.syntaxCheck) and by semantic (c\&.execute())\&. Also a log-file is written\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP \fBCommand\fP to check 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\&.close ()\fC [protected]\fP"
+close cmdWriter and logWriter 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\&.flush ()\fC [protected]\fP"
+flush CommandFrame\&.writeCmdBuffer into cmdWriter, seted by Constructor 
+.SS "\fBCommandSequence\fP desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\&.getCommandSequence ()\fC [protected]\fP"
+get a \fBCommandSequence\fP Object to read and write cmdFile 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\&.setFlushSeq (intflushSeq)\fC [protected]\fP"
+sets the number of comands, when CommandFrame\&.writeCmdBuffer is flushed in cmdFile\&. Default is 1000 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIflushSeq\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\&.write (\fBCommand\fPc)"
+write a command in CommandFrame\&.writeCmdBuffer\&. When the buffer has more than this\&.flushSeq comands, the buffer is flushed in cmdFile 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP \fBCommand\fP to write 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

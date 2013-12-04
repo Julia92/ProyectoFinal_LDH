@@ -1,0 +1,816 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter" kind="class" prot="public">
+    <compoundname>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</compoundname>
+    <basecompoundref refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer" prot="public" virt="non-virtual">desmoj.extensions.experimentation.ui.GraphicalObserver</basecompoundref>
+    <basecompoundref refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener" prot="public" virt="non-virtual">desmoj.core.util.ExperimentListener</basecompoundref>
+    <basecompoundref refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_owner" prot="public" virt="non-virtual">desmoj.extensions.experimentation.ui.ChartOwner</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Observer</basecompoundref>
+    <innerclass refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1_1_simple_time_series_viewer" prot="public">desmoj::extensions::experimentation::ui::TimeSeriesPlotter::SimpleTimeSeriesViewer</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a066479cd6c493b5e7c9878ec07bf6751" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_panel" kindref="compound">ChartPanel</ref></type>
+        <definition>ChartPanel desmoj.extensions.experimentation.ui.TimeSeriesPlotter.myGUI</definition>
+        <argsstring></argsstring>
+        <name>myGUI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The chart panel (window frame) and observers user interface </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="39" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a550fbe2c634a5b8f4b00f895fde2b14e" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+        <definition>TimeSeries desmoj.extensions.experimentation.ui.TimeSeriesPlotter.myData[]</definition>
+        <argsstring>[]</argsstring>
+        <name>myData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The data set to be plotted </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="42" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1aca4155f07ea5a2052da39ebc6b5b7333" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int desmoj.extensions.experimentation.ui.TimeSeriesPlotter.elements[]</definition>
+        <argsstring>[]</argsstring>
+        <name>elements</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="44" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a380131469cee6dace07886264818599c" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String desmoj.extensions.experimentation.ui.TimeSeriesPlotter.firstlegend</definition>
+        <argsstring></argsstring>
+        <name>firstlegend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="46" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1af020973106cdf1ac24131c41e4b4df2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.experimentation.ui.TimeSeriesPlotter.TimeSeriesPlotter</definition>
+        <argsstring>(String title, GraphicalObserverContext context, TimeSeries data[], int winWidth, int winHeight)</argsstring>
+        <name>TimeSeriesPlotter</name>
+        <param>
+          <type>String</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_context" kindref="compound">GraphicalObserverContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+          <declname>data</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new TimeSeries plotter from the given array of TimeSeries objects.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>window title </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the context to show this observer in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array of TimeSeries data to display </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>width of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>height of window </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="62" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="62" bodyend="68"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a790d7905d46b7212a77422ec67d125e9" compoundref="_time_series_plotter_8java" startline="178" endline="180">desmoj.extensions.experimentation.ui.TimeSeriesPlotter.addTimeSeries</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a3d7289d5e66e8e414b283efd9c593998" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.experimentation.ui.TimeSeriesPlotter.TimeSeriesPlotter</definition>
+        <argsstring>(String title, GraphicalObserverContext context, TimeSeries data, int winWidth, int winHeight)</argsstring>
+        <name>TimeSeriesPlotter</name>
+        <param>
+          <type>String</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_context" kindref="compound">GraphicalObserverContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new TimeSeries plotter from the given TimeSeries object. This is the main constructor. The other constructors finally call this one.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>window title </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the context to show this observer in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TimeSeries to display </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>width of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>height of window </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="85" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a58b1b7ad4c05b70fc703993e5a5ec81c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.experimentation.ui.TimeSeriesPlotter.TimeSeriesPlotter</definition>
+        <argsstring>(String title, GraphicalObserverContext context, TimeSeries data, int winWidth, int winHeight, String legend)</argsstring>
+        <name>TimeSeriesPlotter</name>
+        <param>
+          <type>String</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_context" kindref="compound">GraphicalObserverContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winHeight</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>legend</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new TimeSeries plotter from the given TimeSeries object. This is the main constructor. The other constructors finally call this one.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>window title </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the context to show this observer in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TimeSeries to display </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>width of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>height of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>String</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>legend (only used if further plots are added to this plotter) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="107" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="107" bodyend="122"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a8459f0a9fd5ab5cf19214a85cb181f2e" compoundref="_graphical_observer_8java" startline="99" endline="101">desmoj.extensions.experimentation.ui.GraphicalObserver.getName</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1ae40830ced0a40ab8b91454032baecacc" compoundref="_graphical_observer_8java" startline="78" endline="80">desmoj.extensions.experimentation.ui.GraphicalObserver.setVisible</references>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a4ced2a688faaeae3c3ee7aa68fb344cf" compoundref="_graphical_observer_8java" startline="85" endline="87">desmoj.extensions.experimentation.ui.GraphicalObserver.setSize</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1ac72e5098e9180be62715c040dff18552" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.experimentation.ui.TimeSeriesPlotter.TimeSeriesPlotter</definition>
+        <argsstring>(String title, GraphicalObserverContext context, TimeSeries data, int winWidth, int winHeight, int xLocation, int yLocation)</argsstring>
+        <name>TimeSeriesPlotter</name>
+        <param>
+          <type>String</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_context" kindref="compound">GraphicalObserverContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winHeight</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>xLocation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yLocation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new TimeSeries plotter from the given TimeSeries object.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>window title </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the context to show this observer in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data of time series to display </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>width of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>height of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xLocation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>horizontal position of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yLocation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vertical position of window </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="142" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="142" bodyend="147"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a0014c9f24fa0fa221e61acfaffa234c2" compoundref="_graphical_observer_8java" startline="92" endline="94">desmoj.extensions.experimentation.ui.GraphicalObserver.setLocation</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1afb7d5542f1152fd7f1e200afa09e8047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.experimentation.ui.TimeSeriesPlotter.TimeSeriesPlotter</definition>
+        <argsstring>(String title, GraphicalObserverContext context, TimeSeries data[], int winWidth, int winHeight, int xLocation, int yLocation)</argsstring>
+        <name>TimeSeriesPlotter</name>
+        <param>
+          <type>String</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_context" kindref="compound">GraphicalObserverContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+          <declname>data</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winWidth</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>winHeight</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>xLocation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yLocation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new TimeSeries plotter from the given array of TimeSeries objects.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>window title </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the context to show this observer in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data of time series to display </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>width of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>winHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>height of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xLocation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>horizontal position of window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yLocation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vertical position of window </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="167" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="167" bodyend="172"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a0014c9f24fa0fa221e61acfaffa234c2" compoundref="_graphical_observer_8java" startline="92" endline="94">desmoj.extensions.experimentation.ui.GraphicalObserver.setLocation</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a790d7905d46b7212a77422ec67d125e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.addTimeSeries</definition>
+        <argsstring>(TimeSeries newData)</argsstring>
+        <name>addTimeSeries</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+          <declname>newData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds another TimeSeries statistic object which will be displayed in the chart, using a default legend entry. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another TimeSeries statistic object which will be displayed in the chart. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="178" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="178" bodyend="180"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1ad1d5fc601adccbc2157503b4224ff6d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.addTimeSeries</definition>
+        <argsstring>(TimeSeries newData, String legend)</argsstring>
+        <name>addTimeSeries</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_time_series" kindref="compound">TimeSeries</ref></type>
+          <declname>newData</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>legend</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds another TimeSeries statistic object which will be displayed in the chart. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another TimeSeries statistic object which will be displayed in the chart. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>legend</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A short description. * </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="187" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="187" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a9d96f7e67bf5bcbc9624deddde2d168f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>Component</type>
+        <definition>Component desmoj.extensions.experimentation.ui.TimeSeriesPlotter.getGUI</definition>
+        <argsstring>()</argsstring>
+        <name>getGUI</name>
+        <reimplements refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1aad41bbd78517b95fcf6ecb4f80c73866">getGUI</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the plotter&apos;s GUI (a JFreeCHartPanel)</para><para><simplesect kind="return"><para>a JFreeChart panel to plot the time series </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="216" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="216" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a2894d89ec6796465772b6cd650a97b25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.experimentRunning</definition>
+        <argsstring>(SimRunEvent e)</argsstring>
+        <name>experimentRunning</name>
+        <reimplements refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener_1ad38c5b5ddcd706435d594be3953a4bee">experimentRunning</reimplements>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1util_1_1_sim_run_event" kindref="compound">SimRunEvent</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the experiment is (re)started. Nothing happens</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a SimRunEvent </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="226" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="226" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1aa210ea80c7356c179569008bfb7efc42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.experimentStopped</definition>
+        <argsstring>(SimRunEvent e)</argsstring>
+        <name>experimentStopped</name>
+        <reimplements refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener_1a3f4e7823615631dd9de841270004c9d7">experimentStopped</reimplements>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1util_1_1_sim_run_event" kindref="compound">SimRunEvent</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the experiment is stopped. Update of display</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a SimRunEvent </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="235" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="235" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a03469f42f94d004e66f0e54bb8f9fdad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.experimentPaused</definition>
+        <argsstring>(SimRunEvent e)</argsstring>
+        <name>experimentPaused</name>
+        <reimplements refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener_1a9588945cd901a6caf75bd580fd52cb83">experimentPaused</reimplements>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1util_1_1_sim_run_event" kindref="compound">SimRunEvent</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the experiment is paused. Update of display</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a SimRunEvent </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="245" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="245" bodyend="247"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1aa210ea80c7356c179569008bfb7efc42" compoundref="_time_series_plotter_8java" startline="235" endline="237">desmoj.extensions.experimentation.ui.TimeSeriesPlotter.experimentStopped</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1acb581ee83bbd912eea3ef9555620c281" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.drawChart</definition>
+        <argsstring>(Graphics g)</argsstring>
+        <name>drawChart</name>
+        <reimplements refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_owner_1a656682002639eea9a765c1a317ff7982">drawChart</reimplements>
+        <param>
+          <type>Graphics</type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Draws the values given by the TimeSeries statistic object into the chart. This method is automatically invoked by the chart object, if it has to repaint. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="254" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="254" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a63f432bc755158ef7b603bebb689957f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.update</definition>
+        <argsstring>(Observable x, Object y)</argsstring>
+        <name>update</name>
+        <param>
+          <type>Observable</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The update method (required by interface &apos;Observer&apos;) will be called, if the TimeSeries produces new values. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="283" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="283" bodyend="285"/>
+        <references refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a0d81636e6e0de6be813803df960eb05d" compoundref="_time_series_plotter_8java" startline="295" endline="343">desmoj.extensions.experimentation.ui.TimeSeriesPlotter.updatePlotter</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a0d81636e6e0de6be813803df960eb05d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.experimentation.ui.TimeSeriesPlotter.updatePlotter</definition>
+        <argsstring>()</argsstring>
+        <name>updatePlotter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method updates the chart. The chart will only be repainted if a new scaling is required. If no rescaling is required, then only the new values are painted. Of course this is much faster.</para><para>Because the <ref refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter" kindref="compound">TimeSeriesPlotter</ref> has no bench marks for scaling at the beginning, you have to call this method at least one time, when the upper and lower limits are known. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="295" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="295" bodyend="343"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A simple time series plotter that can be displayed in the experiment launcher.</para><para><simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Nicolas Knaak </para><simplesectsep/><para>Philip Joschko</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="11494">
+        <label>desmoj.extensions.experimentation.ui.IGraphicalObserver</label>
+        <link refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_i_graphical_observer"/>
+      </node>
+      <node id="11493">
+        <label>EventListener</label>
+      </node>
+      <node id="11490">
+        <label>desmoj.extensions.experimentation.ui.TimeSeriesPlotter</label>
+        <link refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter"/>
+        <childnode refid="11491" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11495" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11496" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11497" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11497">
+        <label>Observer</label>
+      </node>
+      <node id="11496">
+        <label>desmoj.extensions.experimentation.ui.ChartOwner</label>
+        <link refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_owner"/>
+      </node>
+      <node id="11491">
+        <label>desmoj.extensions.experimentation.ui.GraphicalObserver</label>
+        <link refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer"/>
+        <childnode refid="11492" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11494" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11495">
+        <label>desmoj.core.util.ExperimentListener</label>
+        <link refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener"/>
+        <childnode refid="11492" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11492">
+        <label>desmoj.core.util.SimRunListener</label>
+        <link refid="interfacedesmoj_1_1core_1_1util_1_1_sim_run_listener"/>
+        <childnode refid="11493" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="11502">
+        <label>desmoj.extensions.experimentation.ui.IGraphicalObserver</label>
+        <link refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_i_graphical_observer"/>
+      </node>
+      <node id="11501">
+        <label>EventListener</label>
+      </node>
+      <node id="11498">
+        <label>desmoj.extensions.experimentation.ui.TimeSeriesPlotter</label>
+        <link refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter"/>
+        <childnode refid="11499" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11503" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11504" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11505" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11505">
+        <label>Observer</label>
+      </node>
+      <node id="11504">
+        <label>desmoj.extensions.experimentation.ui.ChartOwner</label>
+        <link refid="interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_owner"/>
+      </node>
+      <node id="11499">
+        <label>desmoj.extensions.experimentation.ui.GraphicalObserver</label>
+        <link refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer"/>
+        <childnode refid="11500" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11502" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11503">
+        <label>desmoj.core.util.ExperimentListener</label>
+        <link refid="interfacedesmoj_1_1core_1_1util_1_1_experiment_listener"/>
+        <childnode refid="11500" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11500">
+        <label>desmoj.core.util.SimRunListener</label>
+        <link refid="interfacedesmoj_1_1core_1_1util_1_1_sim_run_listener"/>
+        <childnode refid="11501" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" line="36" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/experimentation/ui/TimeSeriesPlotter.java" bodystart="35" bodyend="391"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a790d7905d46b7212a77422ec67d125e9" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>addTimeSeries</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1ad1d5fc601adccbc2157503b4224ff6d4" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>addTimeSeries</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a3734665385cf06e107f31ba2d5cb1414" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>deregister</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1acb581ee83bbd912eea3ef9555620c281" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>drawChart</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1aca4155f07ea5a2052da39ebc6b5b7333" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>elements</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a03469f42f94d004e66f0e54bb8f9fdad" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>experimentPaused</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a2894d89ec6796465772b6cd650a97b25" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>experimentRunning</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1aa210ea80c7356c179569008bfb7efc42" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>experimentStopped</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a380131469cee6dace07886264818599c" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>firstlegend</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1ab195bead12392555434ef63f7dbe7fe1" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>getContext</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a9d96f7e67bf5bcbc9624deddde2d168f" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>getGUI</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a8459f0a9fd5ab5cf19214a85cb181f2e" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a67872800285a711de4daeed87d4ab793" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>GraphicalObserver</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a550fbe2c634a5b8f4b00f895fde2b14e" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>myData</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a066479cd6c493b5e7c9878ec07bf6751" prot="private" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>myGUI</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a7ace6b46f6b3deca7bd0c8592e27dfb8" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>register</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a0014c9f24fa0fa221e61acfaffa234c2" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>setLocation</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a4ced2a688faaeae3c3ee7aa68fb344cf" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>setSize</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1ae40830ced0a40ab8b91454032baecacc" prot="public" virt="virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>setVisible</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1af020973106cdf1ac24131c41e4b4df2b" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>TimeSeriesPlotter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a3d7289d5e66e8e414b283efd9c593998" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>TimeSeriesPlotter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a58b1b7ad4c05b70fc703993e5a5ec81c" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>TimeSeriesPlotter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1ac72e5098e9180be62715c040dff18552" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>TimeSeriesPlotter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1afb7d5542f1152fd7f1e200afa09e8047" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>TimeSeriesPlotter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a63f432bc755158ef7b603bebb689957f" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_graphical_observer_1a378be71bdc2bd55fbdc0e507bc0f5746" prot="public" virt="virtual" ambiguityscope="desmoj::extensions::experimentation::ui::GraphicalObserver."><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_time_series_plotter_1a0d81636e6e0de6be813803df960eb05d" prot="public" virt="non-virtual"><scope>desmoj::extensions::experimentation::ui::TimeSeriesPlotter</scope><name>updatePlotter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

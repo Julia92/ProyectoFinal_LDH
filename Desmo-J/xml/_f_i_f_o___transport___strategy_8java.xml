@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_f_i_f_o___transport___strategy_8java" kind="file">
+    <compoundname>FIFO_Transport_Strategy.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_f_i_f_o___transport___strategy" prot="public">desmoj::extensions::applicationDomains::harbour::FIFO_Transport_Strategy</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1application_domains_1_1harbour">desmoj::extensions::applicationDomains::harbour</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.applicationDomains.harbour;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">desmoj.core.simulator.Model</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component" kindref="compound">desmoj.core.simulator.ModelComponent</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.simulator.ProcessQueue;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.simulator.Queue;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_f_i_f_o___transport___strategy" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_f_i_f_o___transport___strategy" kindref="compound">FIFO_Transport_Strategy</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component" kindref="compound">ModelComponent</ref><sp/>implements</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interfacedesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_transport_strategy" kindref="compound">TransportStrategy</ref><sp/>{</highlight></codeline>
+<codeline lineno="49" refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_f_i_f_o___transport___strategy_1a09b09cdb79758a43a555e9acd7cd4fc7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_f_i_f_o___transport___strategy_1a09b09cdb79758a43a555e9acd7cd4fc7" kindref="member">FIFO_Transport_Strategy</ref>(<ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref><sp/>owner)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(owner,<sp/></highlight><highlight class="stringliteral">&quot;FIFOTransportStrategy&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>make<sp/>a<sp/>ModelComponent</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_f_i_f_o___transport___strategy_1ad1a2db39510c776bf51b12c21783feb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_transporter_job" kindref="compound">TransporterJob</ref>[]<sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_f_i_f_o___transport___strategy_1ad1a2db39510c776bf51b12c21783feb1" kindref="member">getJobs</ref>(ProcessQueue<sp/>transporters,<sp/>Queue<sp/>jobs)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>number<sp/>of<sp/>the<sp/>Jobs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_jobs<sp/>=<sp/>jobs.length();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>number<sp/>of<sp/>the<sp/>transportes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_transporters<sp/>=<sp/>transporters.length();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>number<sp/>of<sp/>the<sp/>TransporterJobs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size_min<sp/>=<sp/>Math.min(size_jobs,<sp/>size_transporters);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_transporter_job" kindref="compound">TransporterJob</ref>[]<sp/>result<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_transporter_job" kindref="compound">TransporterJob</ref>[size_min];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" kindref="member">current</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>first<sp/>job<sp/>of<sp/>the<sp/>queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job" kindref="compound">Job</ref><sp/>j<sp/>=<sp/>(<ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job" kindref="compound">Job</ref>)<sp/>jobs.first();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>first<sp/>transporter<sp/>of<sp/>the<sp/>queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter" kindref="compound">InternalTransporter</ref><sp/>t<sp/>=<sp/>(<ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter" kindref="compound">InternalTransporter</ref>)<sp/>transporters.first();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>while<sp/>there&apos;s<sp/>a<sp/>job<sp/>and<sp/>a<sp/>transporter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((t<sp/>!=<sp/>null)<sp/>&amp;&amp;<sp/>(j<sp/>!=<sp/>null))<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>a<sp/>new<sp/>TransporterJob</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result[<ref refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" kindref="member">current</ref>]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_transporter_job" kindref="compound">TransporterJob</ref>(t,<sp/>j);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current++;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>next<sp/>Job<sp/>of<sp/>the<sp/>Job&apos;s<sp/>queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>=<sp/>(<ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_job" kindref="compound">Job</ref>)<sp/>jobs.succ(j);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>next<sp/>internal<sp/>transporter<sp/>of<sp/>the<sp/>transporter<sp/>queue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t<sp/>=<sp/>(<ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter" kindref="compound">InternalTransporter</ref>)<sp/>transporters.succ(t);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>all<sp/>the<sp/>TransporterJobs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/harbour/FIFO_Transport_Strategy.java"/>
+  </compounddef>
+</doxygen>

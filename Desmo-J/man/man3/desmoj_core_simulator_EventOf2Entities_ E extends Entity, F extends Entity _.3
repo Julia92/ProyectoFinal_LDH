@@ -1,0 +1,203 @@
+.TH "desmoj.core.simulator.EventOf2Entities< E extends Entity, F extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.EventOf2Entities< E extends Entity, F extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.EventAbstract\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEventOf2Entities\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "abstract void \fBeventRoutine\fP (E who1, F who2)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (E who1, F who2, \fBTimeInstant\fP instant)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (E who1, F who2, \fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (E who1, F who2, NumericalDist<?> dist)"
+.br
+.ti -1c
+.RI "void \fBscheduleAfter\fP (\fBSchedulable\fP after, E who1, F who2)"
+.br
+.ti -1c
+.RI "void \fBscheduleBefore\fP (\fBSchedulable\fP before, E who1, F who2)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEventOf2Entities\fP< E, F > \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Provides the class for user defined events to change \fBtwo\fP entities' internal states\&. The state of a discrete model is changed by events that occur at distinct points of simulation time\&.
+.PP
+For events changing the state of \fBone\fP or \fBthree\fP entities, refer to \fCEvent\fP and \fCEventOf3Entities\fP\&. Events not associated to a specific entity are based on \fC\fBExternalEvent\fP\fP\&. 
+.PP
+For type safety it is recommended to generically assign the entity types an \fCEventOf2Entities\fP operates on by using the generic type \fCEventOf2Entities<E,F>\fP where \fCE\fP and \fCF\fP are derived from \fC\fBEntity\fP\fP\&. 
+.PP
+All event object should be used only once\&. Implement the changes of state for the specific entities associated with this event by overriding the abstract method \fC\fBeventRoutine(E who1, F who2)\fP\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBEntity\fP 
+.PP
+\fBExternalEvent\fP 
+.PP
+Event 
+.PP
+EventOf3Entities 
+.PP
+\fBTimeInstant\fP 
+.PP
+\fBTimeSpan\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Justin Neumann
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.EventOf2Entities (\fBModel\fPowner, Stringname, booleanshowInTrace)"
+Creates a new Event of the given model, with the given name and trace option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of this event 
+.br
+\fIowner\fP \fBModel\fP : The model this event is associated to 
+.br
+\fIshowInTrace\fP boolean : Flag for showing Event in trace-files\&. Set it to \fCtrue\fP if Event should show up in trace\&. Set it to \fCfalse\fP if Event should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEventOf2Entities\fP<E,F> desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.clone () throws CloneNotSupportedException\fC [protected]\fP"
+Creates and returns a copy of this event\&. Note that subclasses have to implement the interface java\&.lang\&.Cloneable to actually use this method as otherwise, a CloneNotSupportedException will be thrown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+EventOf2Entities<E,F> : A copy of this event\&. 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.eventRoutine (Ewho1, Fwho2)\fC [pure virtual]\fP"
+Implement this abstract method to express the changes of state this event does to two entities (as \fC\fBSimProcess\fP\fP is a subclass of \fC\fBEntity\fP\fP, processes can be passed as well)\&. 
+.PP
+For type safety, it is recommended to derive your events from the generic type \fCEventOf2Entities<EntityType1,EntityType2>\fP where \fCEntityType1\fP and \fCEntityType2\fP (which are derived from class \fC\fBEntity\fP\fP) represent the entity types your event is supposed to operate on\&. 
+.PP
+Should you decide to derive your event from the raw type \fCEventOf2Entities\fP (which is not recommended), please take extra care in checking the given \fBEntity\fP parameters to your special eventRoutine since any subtype of \fBEntity\fP will be accepted! If your model uses several different entity types, chances are that while developing the model, wrong entity types might be passed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP E : The first entity associated to this event\&. 
+.br
+\fIwho2\fP F : The second entity associated to this event\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.schedule (Ewho1, Fwho2, \fBTimeInstant\fPinstant)"
+Schedules this event to act on the given entities at a certain point in simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP E : The first entity to be manipulated by this event 
+.br
+\fIwho2\fP F : The second entity to be manipulated by this event 
+.br
+\fIinstant\fP \fBTimeInstant\fP : The point in simulation time this event is scheduled to happen\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.schedule (Ewho1, Fwho2, \fBTimeSpan\fPdt)"
+Schedules this event to act the given entities at the specified point in simulation time\&. The point of time is given as an offset to the current simulation time as displayed by the simulation clock\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP E : The first entity this event happens to 
+.br
+\fIwho2\fP F : The second entity this event happens to 
+.br
+\fIdt\fP \fBTimeSpan\fP : The offset to the current simulation time this Event is to happen 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.schedule (Ewho1, Fwho2, NumericalDist<?>dist)"
+Schedules this event to act the given entities at the specified point in simulation time determined by a sample from the distribution provided to the method\&. The sample is interpreted as offset from the the present time in the reference time unit\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP E : The first entity this event happens to 
+.br
+\fIwho2\fP F : The second entity this event happens to 
+.br
+\fIdist\fP NumericalDist<?> : Numerical distribution to sample the offset to the current simulation time from
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.scheduleAfter (\fBSchedulable\fPafter, Ewho1, Fwho2)"
+Schedules this event to act on the given \fBEntity\fP directly after the given \fBSchedulable\fP is already set to be activated\&. Note that this event's point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus this event will occur directly after the given \fBSchedulable\fP but the simulation clock will not change\&. Make sure that the \fBSchedulable\fP given as parameter is actually scheduled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP \fBSchedulable\fP : The \fBSchedulable\fP this entity should be scheduled after 
+.br
+\fIwho1\fP E : The first entity to be manipulated by this event 
+.br
+\fIwho2\fP F : The second entity to be manipulated by this event 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventOf2Entities< E extends \fBEntity\fP, F extends \fBEntity\fP >\&.scheduleBefore (\fBSchedulable\fPbefore, Ewho1, Fwho2)"
+Schedules this event to act on the given \fBEntity\fP directly before the given \fBSchedulable\fP is already set to be activated\&. Note that this event's point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus this event will occur directly before the given \fBSchedulable\fP but the simulation clock will not change\&. Make sure that the \fBSchedulable\fP given as parameter is actually scheduled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP \fBSchedulable\fP : The \fBSchedulable\fP this entity should be scheduled before 
+.br
+\fIwho1\fP E : The first entity to be manipulated by this event 
+.br
+\fIwho2\fP F : The second entity to be manipulated by this event 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,103 @@
+.TH "desmoj.core.simulator.NamedObject" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.NamedObject \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.DistributionManager\fP, \fBdesmoj\&.core\&.report\&.ReportManager\fP, \fBdesmoj\&.core\&.simulator\&.Experiment\fP, \fBdesmoj\&.core\&.simulator\&.InterruptCode\fP, \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP, and \fBdesmoj\&.core\&.simulator\&.Scheduler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNamedObject\fP (String name)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQuotedName\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrename\fP (String newName)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This superclass for every DESMOJ class provides the ability to carry a name for identification\&. Gives objects the ability to carry a name to be shown in reports\&. Each class in the desmoj-Framework is supposed to be able to carry a name for identification and offer methods to reset and tell its name\&. Since all other desmoj classes inherit from this class, it is ensured that any object, even the user's special objects, have a name to be used in a report\&. Offering no default constructor enforces users to give each new object in their models a name\&. The class is set abstract to prevent clients from accidentally creating otherwise functionless (but named) objects\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.NamedObject\&.NamedObject (Stringname)"
+Constructs a named object with the given initial name\&. Note, that this allows clients to produce more than one object with one name, thus being unable to distinguish those objects in reports!
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The given initial name for the named object 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String desmoj\&.core\&.simulator\&.NamedObject\&.getName ()"
+Returns the name of the named object\&. This is the same name displayed in reports and trace files when this named object is shown in those reports or trace files\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The name of the named object 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.NamedObject\&.getQuotedName ()"
+Returns the quoted name of the named object\&. This is the name displayed in reports and trace files when this named object is shown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The quoted name of the named object 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.NamedObject\&.rename (StringnewName)\fC [protected]\fP"
+Changes the name of the named object\&. This might be necessary for automatically created named object of a user defined model, but should not be used for elements of the framework or basic objects of the user model\&. Changing names of objects while runtime will confuse any trace output and generally make traces more difficult if not impossible to follow\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP java\&.lang\&.String : The new name for the named object 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.NamedObject\&.toString ()"
+Overrides the java\&.lang\&.Object's toString method to return the named object's name when given as parameter to a method that expects a string to be passed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The named object's name 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

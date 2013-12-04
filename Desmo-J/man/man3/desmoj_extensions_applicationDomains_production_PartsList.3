@@ -1,0 +1,175 @@
+.TH "desmoj.extensions.applicationDomains.production.PartsList" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.PartsList \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPartsList\fP (\fBModel\fP ownerModel, String name, Class[] kindsOfParts, int[] numOfParts)"
+.br
+.ti -1c
+.RI "\fBPartsList\fP (\fBModel\fP ownerModel, String name, int numberOfDifferentParts)"
+.br
+.ti -1c
+.RI "void \fBaddPart\fP (Class kindOfPart, int numberOfParts)"
+.br
+.ti -1c
+.RI "int \fBgetIndexOfKind\fP (Class kind)"
+.br
+.ti -1c
+.RI "Class \fBgetKindOfPart\fP (int index)"
+.br
+.ti -1c
+.RI "java\&.lang\&.Class[] \fBgetKindOfParts\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNumberOfDiffParts\fP ()"
+.br
+.ti -1c
+.RI "int[] \fBgetNumberOfParts\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetQuantityOfPart\fP (int index)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBPartsList\fP is a listing of all the different kinds of parts and the number (quantity) of them needed to produce a new part (or product)\&. It is used in conjunction with a \fC\fBWorkStation\fP\fP in order to tell the work station how many and of which kind of parts should be assembled there\&. The user can instantiate a \fBPartsList\fP either by providing to arrays of the same length, one with all the different kinds of parts and one with the respective number of each different part, or by instantiating a \fBPartsList\fP with the number of different kinds of parts and then adding pairs of [kindOfPart, number of this kind of parts] using the \fCaddPart\fP method\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.PartsList (\fBModel\fPownerModel, Stringname, Class[]kindsOfParts, int[]numOfParts)"
+Constructs a \fBPartsList\fP with the given arrays of different kinds of parts and the quantities of that kind of part\&. Both arrays must be of the same size, of course\&. The \fBPartsList\fP leaves no messages in the trace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP desmoj\&.Model : The model this \fBPartsList\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBPartsList\fP\&. 
+.br
+\fIkindsOfParts\fP java\&.lang\&.Class[] : The array containing the different kinds of parts\&. 
+.br
+\fInumOfParts\fP int[] : The array constaining the number of each kind of part\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.PartsList (\fBModel\fPownerModel, Stringname, intnumberOfDifferentParts)"
+Constructs a \fBPartsList\fP with enough space to store a number of different kinds of parts with the respective quantity needed of each kind\&. Use the method \fCaddPart\fP to add a pair of [kind of part, quantity of that kind of part]\&. The \fBPartsList\fP leaves no messages in the trace\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP desmoj\&.Model : The model this \fBPartsList\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBPartsList\fP\&. 
+.br
+\fInumberOfDifferentParts\fP int : The number of different kinds of parts\&. Should not be zero or negative! 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.addPart (ClasskindOfPart, intnumberOfParts)"
+Adds a pair of [kind of part, quantity of that kind of part] to the \fBPartsList\fP\&. There can not be added more pairs than the \fBPartsList\fP can hold\&. To check how many pairs a PartList can hold use the method \fC\fBgetNumberOfDiffParts()\fP\fC\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkindOfPart\fP java\&.lang\&.Class : The kind of part as a Class object\&. 
+.br
+\fInumberOfParts\fP int : The number of that kind of part\&. 
+.RE
+.PP
+\fP\fP
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.getIndexOfKind (Classkind)"
+Returns the index of the given kind of part ( \fCjava\&.lang\&.Class\fP)\&. The index is indicating the position in the array of kindOfParts\&. If the given kind of part is not found in this \fBPartsList\fP, undefinded (-1) will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The index of the given kind of part ( \fCjava\&.lang\&.Class\fP)\&. That is the position in the array of kindOfParts\&. Or undefined (-1) if no such kind of part can be found in this \fBPartsList\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkind\fP java\&.lang\&.Class : The kind of part given as an object of \fCjava\&.lang\&.Class\fP\&. 
+.RE
+.PP
+
+.SS "Class desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.getKindOfPart (intindex)"
+Returns the kind of the part at index i as a Class object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.Class : The Class object identifying the kind of the part\&. If there is no entry at this index position in the \fBPartsList\fP \fCnull\fP will be returned\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : The index in the \fBPartsList\fP for which the kind of the part will be returned\&. The index runs from zero to (numberOfDiffParts - 1)\&. 
+.RE
+.PP
+
+.SS "java\&.lang\&.Class [] desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.getKindOfParts ()"
+Returns the whole array of all kinds of parts listed in this \fBPartsList\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.Class[] : the whole array of all kinds of parts listed in this \fBPartsList\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.getNumberOfDiffParts ()"
+Returns the number of different parts (that is the number of entries) in this \fBPartsList\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of different parts (that is the number of entries) in this \fBPartsList\fP\&. 
+.RE
+.PP
+
+.SS "int [] desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.getNumberOfParts ()"
+Returns the whole array of all the different quantities of all different kinds of parts listed in this \fBPartsList\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int[] : The whole array of all the different quantities of all different kinds of parts listed in this \fBPartsList\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\&.getQuantityOfPart (intindex)"
+Returns the quantity of the part at the index i of this \fBPartsList\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The quantity of the kind of part at index i of this \fBPartsList\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : The index in the \fBPartsList\fP for which the quantity of the part will be returned\&. The index runs from zero to (numberOfDiffParts - 1)\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,510 @@
+.TH "desmoj.core.advancedModellingFeatures.Stock" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.advancedModellingFeatures.Stock \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.StockAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStock\fP (\fBModel\fP owner, String name, int prodSortOrder, int prodQCapacity, int consSortOrder, int consQCapacity, long initialUnits, long capacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBStock\fP (\fBModel\fP owner, String name, long initialUnits, long capacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "synchronized void \fBaddPropertyChangeListener\fP (java\&.beans\&.PropertyChangeListener listener)"
+.br
+.ti -1c
+.RI "synchronized void \fBaddPropertyChangeListener\fP (String propertyName, java\&.beans\&.PropertyChangeListener listener)"
+.br
+.ti -1c
+.RI "double \fBavgAvail\fP ()"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBfirePropertyChange\fP (java\&.beans\&.PropertyChangeEvent evt)"
+.br
+.ti -1c
+.RI "void \fBfirePropertyChange\fP (String propertyName, int oldValue, int newValue)"
+.br
+.ti -1c
+.RI "void \fBfirePropertyChange\fP (String propertyName, Object oldValue, Object newValue)"
+.br
+.ti -1c
+.RI "void \fBfirePropertyChange\fP (String propertyName, boolean oldValue, boolean newValue)"
+.br
+.ti -1c
+.RI "long \fBgetAvail\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetCapacity\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetConsQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetConsRefused\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetConsumers\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetInitial\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMaximum\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMinimum\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetPassByConsumers\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetPassByProducers\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetProdQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetProdRefused\fP ()"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBSimProcess\fP > \fBgetProducerQueue\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetProducers\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetWhere\fP ()"
+.br
+.ti -1c
+.RI "synchronized boolean \fBhasListeners\fP (String propertyName)"
+.br
+.ti -1c
+.RI "synchronized void \fBremovePropertyChangeListener\fP (java\&.beans\&.PropertyChangeListener listener)"
+.br
+.ti -1c
+.RI "synchronized void \fBremovePropertyChangeListener\fP (String propertyName, java\&.beans\&.PropertyChangeListener listener)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBretrieve\fP (long n)"
+.br
+.ti -1c
+.RI "void \fBsetPassByConsumers\fP (boolean newPassBy)"
+.br
+.ti -1c
+.RI "void \fBsetPassByProducers\fP (boolean newPassBy)"
+.br
+.ti -1c
+.RI "boolean \fBstore\fP (long n)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivateAsNext\fP (\fBSimProcess\fP process)"
+.br
+.ti -1c
+.RI "void \fBactivateFirstConsumer\fP ()"
+.br
+.ti -1c
+.RI "void \fBactivateFirstProducer\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String where)"
+.br
+.ti -1c
+.RI "java\&.beans\&.PropertyChangeSupport \fBgetPropertyChange\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdateStatistics\fP (long n)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "transient QueueList< \fBSimProcess\fP > \fB_consumerQueue\fP"
+.br
+.ti -1c
+.RI "transient 
+.br
+java\&.beans\&.PropertyChangeSupport \fBpropertyChange\fP"
+.br
+.ti -1c
+.RI "transient ProcessQueue
+.br
+< \fBSimProcess\fP > \fB_producerQueue\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBStock\fP is the place where a certain kind of product can be stored by producers and retrieved by consumers\&. There is no difference between the units of one kind of product, the units are indistinguishable\&. Producers are producing products and store them using \fC\fBstore()\fP\fP in the \fBStock\fP\&. Consumers make the \fBStock\fP \fC\fBretrieve()\fP\fP the products to use them up\&. A \fBStock\fP is also providing a process synchronization between producers and consumers\&. If no or not enough units of a product are available for the consumers, they have to wait in a queue until new units are delivered by a producer\&. The \fBStock\fP has a certain capacity\&. If the \fBStock\fP is filled to it's capacity producers have to wait in a queue until consumers are arriving and taking units out of the \fBStock\fP\&. Then the producers can fill up the freed space\&. This is the major difference to the \fBBin\fP\&. The first sort criteria of the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit of every queue can be determined by the user (default is FIFO and unlimited capacity)\&. \fBStock\fP is derived from QueueBased, which provides all the statistical functionality for the consumer queue\&. The producer queue is managed by an internal ProcessQueue\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP 
+.PP
+\fBBin\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.Stock (\fBModel\fPowner, Stringname, intprodSortOrder, intprodQCapacity, intconsSortOrder, intconsQCapacity, longinitialUnits, longcapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBStock\fP with an initial number of units and a certain capacity; the queueing discipline and the capacity limit of the underlying queues for the producers and consumers can be chosen, too\&. Highest priority are always first in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBStock\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBStock\fP's name, should indicate the kind of product stored in this \fBStock\fP\&. 
+.br
+\fIprodSortOrder\fP int : determines the sort order of the underlying queue implementation for the producers\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIprodQCapacity\fP int : The capacity of the producers queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIconsSortOrder\fP int : determines the sort order of the underlying queue implementation for the consumers\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIconsQCapacity\fP int : The capacity of the consumers queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIinitialUnits\fP long : The units of a product the \fBStock\fP starts with\&. Must be positive! 
+.br
+\fIcapacity\fP long : The maximum capacity of products this \fBStock\fP can hold\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBStock\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.Stock (\fBModel\fPowner, Stringname, longinitialUnits, longcapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBStock\fP with an initial number of units and a certain capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBStock\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBStock\fP's name, should indicate the kind of product stored in this \fBStock\fP\&. 
+.br
+\fIinitialUnits\fP long : The units of a product the \fBStock\fP starts with\&. Must be positive! 
+.br
+\fIcapacity\fP long : The maximum capacity of products this \fBStock\fP can hold\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBStock\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.activateAsNext (\fBSimProcess\fPprocess)\fC [protected]\fP"
+Activates the SimProcess \fCprocess\fP, given as a parameter of this method, as the next process\&. This process should be a SimProcess waiting in a queue for some products\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process that is to be activated as next\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.activateFirstConsumer ()\fC [protected]\fP"
+Activates the first process waiting in the consumer queue\&. That is a process which was trying to take products, but it could not get any because there were not enough products for it or another process was first in the queue to be served\&. This method is called every time a consumer is arriving at the waiting-queue and it is possible for him to pass other processes in front of him in the queue\&. Then we have to check if one of the other process first in the queue could be satisfied before the newly arrived one\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.activateFirstProducer ()\fC [protected]\fP"
+Activates the first process waiting in the producer queue\&. That is a process which was trying to store products, but it could store them because the capacity limit of this stock is reached\&. This method is called every time a producer is arriving at the waiting-queue and it is possible for him to pass other processes in front of him in the queue\&. Then we have to check if one of the other process first in the queue could store his units before the newly arrived one\&. 
+.SS "synchronized void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.addPropertyChangeListener (java\&.beans\&.PropertyChangeListenerlistener)"
+The addPropertyChangeListener method was generated to support the propertyChange field\&. 
+.SS "synchronized void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.addPropertyChangeListener (StringpropertyName, java\&.beans\&.PropertyChangeListenerlistener)"
+The addPropertyChangeListener method was generated to support the propertyChange field\&. 
+.SS "double desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.avgAvail ()"
+Returning the average number of units available in the \fBStock\fP over the time since the last reset of the \fBStock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average number of units available in the \fBStock\fP over the time since the last reset of the \fBStock\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the SimProcess using the \fBStock\fP is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the SimProcess is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBStock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter reporting about the statistics of the two queues (producer and consumer) of this \fBStock\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.firePropertyChange (java\&.beans\&.PropertyChangeEventevt)"
+The firePropertyChange method was generated to support the propertyChange field\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.firePropertyChange (StringpropertyName, intoldValue, intnewValue)"
+The firePropertyChange method was generated to support the propertyChange field\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.firePropertyChange (StringpropertyName, ObjectoldValue, ObjectnewValue)"
+The firePropertyChange method was generated to support the propertyChange field\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.firePropertyChange (StringpropertyName, booleanoldValue, booleannewValue)"
+The firePropertyChange method was generated to support the propertyChange field\&. 
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getAvail ()"
+Gets the available number of products in the \fBStock\fP at the moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The available number of products in the \fBStock\fP at the moment\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getCapacity ()"
+Gets the capacity property (long) value of this \fBStock\fP, that is the number of units this stock can hold at max\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The capacity property value, that is the number of units this stock can hold at max\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getConsQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying consumer queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getConsRefused ()"
+Returns the number of consumers that were refused to be enqueued because the queue for consumers was full\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of consumers that were refused to be enqueued because the queue for consumers was full\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getConsumers ()"
+Gets the consumers property (long) value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The consumers property value\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getInitial ()"
+Gets the initial number of products the \fBStock\fP starts with\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The initial number of products the \fBStock\fP starts with\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getMaximum ()"
+Gets the maximum number of products in the \fBStock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum number of products in the \fBStock\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getMinimum ()"
+Gets the minimum number of units in the \fBStock\fP so far (since the last reset)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The minimum number of units in the \fBStock\fP since the last reset\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getPassByConsumers ()"
+Returns whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Indicates whether entities can pass by other entities which are enqueued before them in the queue\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getPassByProducers ()"
+Returns whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Indicates whether entities can pass by other entities which are enqueued before them in the queue\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getProdQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue for producers as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getProdRefused ()"
+Returns the number of producers that were refused to be enqueued because the queue for producers was full\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of producers that were refused to be enqueued because the queue for producers was full\&. 
+.RE
+.PP
+
+.SS "ProcessQueue<\fBSimProcess\fP> desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getProducerQueue ()"
+Returns the queue where the producers are waiting to deliver their units\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.ProcessQueue : the queue where the producers are waiting to deliver their units\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getProducers ()"
+Gets the producers property (long) value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The producers property value\&. 
+.RE
+.PP
+
+.SS "java\&.beans\&.PropertyChangeSupport desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getPropertyChange ()\fC [protected]\fP"
+Accessor for the propertyChange field\&. 
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getRefused ()"
+Gets the refused property (long) value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The refused property value\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.getWhere ()"
+Gets the where property (String) value denoting the method, where something has gone wrong\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The where property value denoting the method, where something has gone wrong\&. 
+.RE
+.PP
+
+.SS "synchronized boolean desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.hasListeners (StringpropertyName)"
+The hasListeners method was generated to support the propertyChange field\&. 
+.SS "synchronized void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.removePropertyChangeListener (java\&.beans\&.PropertyChangeListenerlistener)"
+The removePropertyChangeListener method was generated to support the propertyChange field\&. 
+.SS "synchronized void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.removePropertyChangeListener (StringpropertyName, java\&.beans\&.PropertyChangeListenerlistener)"
+The removePropertyChangeListener method was generated to support the propertyChange field\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.reset ()"
+Resets all statistical counters of this \fBStock\fP to their default values\&. Both, producer queue and consumer queue are reset\&. The number of available units at this moment and the consumer and producer processes waiting in their queues remain unchanged\&. The maximum length of the queues are set to the current number of enqueued processes\&. 
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.retrieve (longn)"
+Method for consumers to make the \fBStock\fP retrieve a number of n units\&. When there are not enough units available or another consumer is first in the queue to be served (and it is not possible to pass by), the current consumer process will be blocked and inserted in the waiting-queue (for consumers)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the specified number of units can been retrieved successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of units the \fBStock\fP is retrieving for the consumer; must be positive\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.setPassByConsumers (booleannewPassBy)"
+Sets the flag passBy to a new value\&. PassBy is indicating whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPassBy\fP boolean : The new value of passBy\&. Set it to \fCtrue\fP if you want entities to pass by other entities which are enqueued before them in the queue\&. Set it to \fCfalse\fP if you don't want entities to overtake other entities in the queue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.setPassByProducers (booleannewPassBy)"
+Sets the flag passBy to a new value\&. PassBy is indicating whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPassBy\fP boolean : The new value of passBy\&. Set it to \fCtrue\fP if you want entities to pass by other entities which are enqueued before them in the queue\&. Set it to \fCfalse\fP if you don't want entities to overtake other entities in the queue\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.store (longn)"
+Method for producers to make the \fBStock\fP store a number of n units\&. When the capacity of the stock can not hold the additional incoming units or another producer is already waiting at first position in the queue (and it is not possible to pass by), the current producer process will be blocked and inserted in the queue (for producers)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the specified number of units can been stored successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of units the \fBStock\fP is receiving from the producer to store\&. n must be positive\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Stock\&.updateStatistics (longn)\fC [protected]\fP"
+Updates the statistics when producers or consumers access the \fBStock\fP\&. Changes the fieldAvail and fires the PropertyChangeEvent(s)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : Is positive when producers \fC\fBstore()\fP\fP new units in the \fBStock\fP and negative when the \fBStock\fP \fC\fBretrieve()\fP\fP's units for the consumer process\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "transient QueueList<\fBSimProcess\fP> desmoj\&.core\&.advancedModellingFeatures\&.Stock\&._consumerQueue\fC [protected]\fP"
+The queue, actually storing the consumer processes waiting for products 
+.SS "transient ProcessQueue<\fBSimProcess\fP> desmoj\&.core\&.advancedModellingFeatures\&.Stock\&._producerQueue\fC [protected]\fP"
+The queue, actually storing the producer processes waiting to store their units in the stock 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

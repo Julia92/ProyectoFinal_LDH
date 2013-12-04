@@ -1,0 +1,255 @@
+.TH "desmoj.extensions.applicationDomains.production.RestockProcessQT" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.RestockProcessQT \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRestockProcessQT\fP (\fBModel\fP owner, String name, long q, \fBTimeSpan\fP t, \fBStock\fP client, NumericalDist<?> lt, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRestockProcessQT\fP (\fBModel\fP owner, String name, long q, \fBSimTime\fP t, \fBStock\fP client, NumericalDist< Double > lt, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRestockProcessQT\fP (\fBModel\fP owner, String name, long q, \fBTimeSpan\fP t, \fBStock\fP client, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRestockProcessQT\fP (\fBModel\fP owner, String name, long q, \fBSimTime\fP t, \fBStock\fP client, boolean showInTrace)"
+.br
+.ti -1c
+.RI "NumericalDist<?> \fBgetLeadTime\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetOrderQuantity\fP ()"
+.br
+.ti -1c
+.RI "\fBSimTime\fP \fBgetReviewPeriod\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetReviewSpan\fP ()"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetLeadTime\fP (desmoj\&.core\&.dist\&.NumericalDist< Double > newLeadTime)"
+.br
+.ti -1c
+.RI "void \fBsetOrderQuantity\fP (long newOrderQuantity)"
+.br
+.ti -1c
+.RI "void \fBsetReviewSpan\fP (\fBTimeSpan\fP newReviewSpan)"
+.br
+.ti -1c
+.RI "void \fBsetReviewPeriod\fP (\fBSimTime\fP newReviewPeriod)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBRestockProcessQT\fP is a process restocking a \fCStock\fP with a fixed quantity (Q) of units on a periodic review bases (fixed Time span = T)\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.RestockProcessQT (\fBModel\fPowner, Stringname, longq, \fBTimeSpan\fPt, \fBStock\fPclient, NumericalDist<?>lt, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessQT\fP\fP which restocks a client \fCStock\fP after a fixed time period with a fixed quantity of units\&. The lead time (time gap between placement and receipt of an order) will be given as a real random number distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessQT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessQT\fP\fP 
+.br
+\fIq\fP long : The quantity supplied to the Stock with every order\&. 
+.br
+\fIt\fP TimeSpan : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIlt\fP NumericalDist<?> : The lead time random number distribution to determine the time between placement and receipt of an order\&. If \fCnull\fP the lead time is zero\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessQT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessQT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessQT\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.RestockProcessQT (\fBModel\fPowner, Stringname, longq, \fBSimTime\fPt, \fBStock\fPclient, NumericalDist< Double >lt, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessQT\fP\fP which restocks a client \fCStock\fP after a fixed time period with a fixed quantity of units\&. The lead time (time gap between placement and receipt of an order) will be given as a real random number distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessQT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessQT\fP\fP 
+.br
+\fIq\fP long : The quantity supplied to the Stock with every order\&. 
+.br
+\fIt\fP SimTime : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIlt\fP NumericalDist<?> : The lead time random number distribution to determine the time between placement and receipt of an order\&. If \fCnull\fP the lead time is zero\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessQT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessQT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessQT\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Type of t (SimTime) to be replaced with TimeInstant\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.RestockProcessQT (\fBModel\fPowner, Stringname, longq, \fBTimeSpan\fPt, \fBStock\fPclient, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessQT\fP\fP which restocks a client \fCStock\fP after a fixed time period with a fixed quantity of units\&. The lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessQT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessQT\fP\fP 
+.br
+\fIq\fP long : The quantity supplied to the Stock with every order\&. 
+.br
+\fIt\fP TimeSpan : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessQT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessQT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessQT\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.RestockProcessQT (\fBModel\fPowner, Stringname, longq, \fBSimTime\fPt, \fBStock\fPclient, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessQT\fP\fP which restocks a client \fCStock\fP after a fixed time period with a fixed quantity of units\&. The lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessQT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessQT\fP\fP 
+.br
+\fIq\fP long : The quantity supplied to the Stock with every order\&. 
+.br
+\fIt\fP SimTime : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessQT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessQT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessQT\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Type of t (SimTime) to be replaced with TimeInstant\&.
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "NumericalDist<?> desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.getLeadTime ()"
+Returns the random number distribution for the lead time (time between placement and receipt of an order)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+NumericalDist<?> : The random number distribution for the lead time (time between placement and receipt of an order)\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.getOrderQuantity ()"
+Returns the quantity (number of units) to be stored in the Stock\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The Stock will be replenished with this number of units\&. 
+.RE
+.PP
+
+.SS "\fBSimTime\fP desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.getReviewPeriod ()"
+Returns the time (as a SimTime object) between every replenishment of the Stock\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimTime : The time (as a SimTime object) between every replenishment of the Stock\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBgetReviewSpan()\fP\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.getReviewSpan ()"
+Returns the time span between every replenishment of the Stock\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The time (as a SimTime object) between every replenishment of the Stock\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.lifeCycle ()\fC [virtual]\fP"
+The \fC\fBRestockProcessQT\fP\fP replenishes the associated \fCStock\fP with the given quantity (Q) every period (T)\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.setLeadTime (desmoj\&.core\&.dist\&.NumericalDist< Double >newLeadTime)"
+Set the lead time to a new real random number distribution\&. If set to \fCnull\fP the lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewLeadTime\fP desmoj\&.dist\&.RealDist : The new real random number distribution determining the lead time\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.setOrderQuantity (longnewOrderQuantity)"
+Sets the order quantity to a new value\&. Zero or negative values will be rejected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewOrderQuantity\fP long : Choose a postitive value greater than zero as new order quantity\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.setReviewPeriod (\fBSimTime\fPnewReviewPeriod)"
+Sets the review period to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewReviewPeriod\fP desmoj\&.SimTime : The new value for the review period\&. \fCnull\fP will be rejected\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBsetReviewSpan(TimeSpan newReviewSpan)\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.setReviewSpan (\fBTimeSpan\fPnewReviewSpan)"
+Sets the review period to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewReviewPeriod\fP desmoj\&.SimTime : The new value for the review period\&. \fCnull\fP will be rejected\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

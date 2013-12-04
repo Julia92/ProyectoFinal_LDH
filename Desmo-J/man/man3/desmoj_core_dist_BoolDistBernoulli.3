@@ -1,0 +1,122 @@
+.TH "desmoj.core.dist.BoolDistBernoulli" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.BoolDistBernoulli \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.BoolDist\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBoolDistBernoulli\fP (\fBModel\fP owner, String name, double probabilityForTrue, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetProbability\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBsample\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBtrueProbability\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Boolean Bernoulli distribution returning \fCtrue\fP values with the given probability\&. Samples of this distribution can either be true or false with a given probability for value 'true'\&. The probabilitiy for 'true' can only be set via the constructor\&. It has to be a value between 0 and 1\&. Higher values will be interpreted as 1 (always return 'true')\&. Negative values will be interpreted as 0 (always return 'false')\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.BoolDistBernoulli\&.BoolDistBernoulli (\fBModel\fPowner, Stringname, doubleprobabilityForTrue, booleanshowInReport, booleanshowInTrace)"
+Constructs a boolean Bernoulli distribution with the given probability to return a 'true' value\&. The given probability has to be in the range between 0 and 1\&. Higher values will be interpreted as 1 (always return 'true')\&. Negative values are interpreted as 0 (always return 'false')\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIprobabilityForTrue\fP double : The probability for producing a \fCtrue\fP sample 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.BoolDistBernoulli\&.createReporter ()"
+Creates the default reporter for the \fC\fBBoolDistBernoulli\fP\fP distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the \fC\fBBoolDistBernoulli\fP\fP distribution 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.BoolDistBernoulli\&.getProbability ()"
+Returns the probability for \fCtrue\fP values\&. The value returned is passed through the constructor\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : the probability of a \fCtrue\fP value being returned 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.dist\&.BoolDistBernoulli\&.sample ()\fC [virtual]\fP"
+Returns the next Bernoulli distributed sample of the distribution\&. The returned value will depend upon the seed of the underlying random generator and the probability given for this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : The next Bernoulli distributed random sample 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.dist\&.BoolDist\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double desmoj\&.core\&.dist\&.BoolDistBernoulli\&.trueProbability\fC [protected]\fP"
+Stores the probability of returning 'true' as a double for maximum precision\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

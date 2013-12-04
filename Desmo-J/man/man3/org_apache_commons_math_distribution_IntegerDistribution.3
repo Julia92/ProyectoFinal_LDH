@@ -1,0 +1,145 @@
+.TH "org.apache.commons.math.distribution.IntegerDistribution" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.IntegerDistribution \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.DiscreteDistribution\fP\&.
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.HypergeometricDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.PascalDistribution\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.PoissonDistribution\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBprobability\fP (int x)"
+.br
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (int x)  throws MathException"
+.br
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (int x0, int x1)  throws MathException"
+.br
+.ti -1c
+.RI "int \fBinverseCumulativeProbability\fP (double p)  throws MathException"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for discrete distributions of integer-valued random variables\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617953 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.IntegerDistribution\&.cumulativeProbability (intx) throws \fBMathException\fP"
+For a random variable X whose values are distributed according to this distribution, this method returns P(X  x)\&. In other words, this method represents the probability distribution function, or PDF for the distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the PDF is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+PDF for this distribution\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.PascalDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.HypergeometricDistributionImpl\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.IntegerDistribution\&.cumulativeProbability (intx0, intx1) throws \fBMathException\fP"
+For this distribution, X, this method returns P(x0  X  x1)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx0\fP the inclusive, lower bound 
+.br
+\fIx1\fP the inclusive, upper bound 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the cumulative probability\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if x0 > x1 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.distribution\&.IntegerDistribution\&.inverseCumulativeProbability (doublep) throws \fBMathException\fP"
+For this distribution, X, this method returns the largest x such that P(X  x) <= p\&. 
+.PP
+Note that this definition implies: 
+.PD 0
+
+.IP "\(bu" 2
+If there is a minimum value, \fCm\fP, with postive probablility under (the density of) X, then \fCm - 1\fP is returned by \fCinverseCumulativeProbability(0)\&.\fP If there is no such value \fCm, Integer\&.MIN_VALUE\fP is returned\&. 
+.IP "\(bu" 2
+If there is a maximum value, \fCM\fP, such that P(X  M) =1, then \fCM\fP is returned by \fCinverseCumulativeProbability(1)\&.\fP If there is no such value, \fCM, Integer\&.MAX_VALUE\fP is returned\&.
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the cumulative probability\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the largest x such that P(X  x) <= p 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the inverse cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if p is not between 0 and 1 (inclusive) 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.IntegerDistribution\&.probability (intx)"
+For a random variable X whose values are distributed according to this distribution, this method returns P(X = x)\&. In other words, this method represents the probability mass function for the distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the probability density function is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of the probability density function at x 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.HypergeometricDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.PascalDistributionImpl\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

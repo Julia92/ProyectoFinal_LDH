@@ -1,0 +1,540 @@
+.TH "desmoj.core.simulator.Queue< E extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Queue< E extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP, and Iterable< E >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQueue\fP (\fBModel\fP owner, String name, int sortOrder, int qCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBQueue\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "E \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "E \fBfirst\fP (Condition< E > c)"
+.br
+.ti -1c
+.RI "boolean \fBcontains\fP (E e)"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.ti -1c
+.RI "int \fBget\fP (E e)"
+.br
+.ti -1c
+.RI "E \fBget\fP (int index)"
+.br
+.ti -1c
+.RI "String \fBgetQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBinsert\fP (E e)"
+.br
+.ti -1c
+.RI "boolean \fBinsertAfter\fP (E e, E after)"
+.br
+.ti -1c
+.RI "boolean \fBinsertBefore\fP (E e, E before)"
+.br
+.ti -1c
+.RI "boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "E \fBlast\fP ()"
+.br
+.ti -1c
+.RI "E \fBlast\fP (Condition< E > c)"
+.br
+.ti -1c
+.RI "E \fBpred\fP (E e)"
+.br
+.ti -1c
+.RI "E \fBpred\fP (E e, Condition< E > c)"
+.br
+.ti -1c
+.RI "void \fBremove\fP (\fBEntity\fP e)"
+.br
+.ti -1c
+.RI "void \fBremoveAll\fP ()"
+.br
+.ti -1c
+.RI "E \fBremoveFirst\fP ()"
+.br
+.ti -1c
+.RI "E \fBremoveFirst\fP (Condition< E > c)"
+.br
+.ti -1c
+.RI "E \fBremoveLast\fP ()"
+.br
+.ti -1c
+.RI "E \fBremoveLast\fP (Condition< E > c)"
+.br
+.ti -1c
+.RI "boolean \fBremove\fP (int index)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetQueueStrategy\fP (int sortOrder)"
+.br
+.ti -1c
+.RI "E \fBsucc\fP (E e)"
+.br
+.ti -1c
+.RI "E \fBsucc\fP (E e, Condition< E > c)"
+.br
+.ti -1c
+.RI "QueueList< E > \fBgetQueueList\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSeed\fP (long newSeed)"
+.br
+.ti -1c
+.RI "Iterator< E > \fBiterator\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Queue provides models with a ready-to-use modelling element to enqueue entities in\&. The sort order of the queue is determined first by the priorities of the enqueued entities and second by the given sort order\&. The default sort order is FIFO (first in, first out) but others like LIFO (last in, first out) can be chosen, too\&. See the constants in class \fC\fBQueueBased\fP\fP and the derived classes from \fCQueueList\fP\&. The capacity of the Queue, that is the maximum number of entities enqueued, can be chosen, too\&. 
+.PP
+For queueing \fC\fBSimProcess\fP\fPes the usage of class \fCProcessQueue\fP is recommended\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP 
+.PP
+QueueList 
+.PP
+QueueListFifo 
+.PP
+QueueListLifo 
+.PP
+ProcessQueue
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.Queue (\fBModel\fPowner, Stringname, intsortOrder, intqCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructs a simple priority based waiting-queue for entities, the kind of queue sort order and the capacity of the queue can be chosen\&. Note that since SimProcesses are derived from Entities, they can be queued inside this queue, too\&. 
+.PP
+Queues can be sorted as follows:
+.PD 0
+
+.IP "\(bu" 2
+\fC\fBQueueBased\&.FIFO\fP\fP sorts entities by their priority, highest priority first\&. Entities with the same priority are enqueued based on "first in, first out"\&. 
+.IP "\(bu" 2
+\fC\fBQueueBased\&.LIFO\fP\fP also sorts entities by their priority, highest priority first\&. However, entities with the same priority are enqueued based on "last in, first out"\&. 
+.IP "\(bu" 2
+\fCQueueBased\&.Random\fP assigns a random position to each entity entering the queue, disregarding priority\&. 
+.PP
+.PP
+The usage of the generic version \fCQueue<Type>\fP where \fCType\fP is derived from \fC\fBEntity\fP\fP is recommended for type safety\&. Using the raw type \fCQueue\fP yields a queue in which any \fC\fBEntity\fP\fP can be enqueued, typically requiring type casting on accessing entities enqueued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP \fBModel\fP : The model this queue is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The queue's name 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying queue implementation\&. Choose a constant from \fC\fBQueueBased\fP\fP: \fC\fBQueueBased\&.FIFO\fP\fP, \fC\fBQueueBased\&.LIFO\fP\fP or QueueBased\&.Random\&. 
+.br
+\fIqCapacity\fP int : The capacity of the Queue, that is how many entities can be enqueued\&. Zero (0) can be used as shortcut for for a capacity of \fCInteger\&.MAX_VALUE\fP = 2,147,483,647, which should approximate an infinite queue sufficiently well for most purposes\&. 
+.br
+\fIshowInReport\fP boolean : Flag if queue should produce a report 
+.br
+\fIshowInTrace\fP boolean : Flag for queue to produce trace messages 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.Queue (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructs a simple priority and FIFO based waiting-queue for entities with a maximum capacity of 2,147,483,647 waiting entities, which should serve as an approximation of infinite queues sufficiently well for most purposes\&.Note that since SimProcesses are derived from Entities, they can be queued inside this queue, too\&. 
+.PP
+The usage of the generic version \fCQueue<Type>\fP where \fCType\fP is derived from \fC\fBEntity\fP\fP is recommended for type safety\&. Using the raw type \fCQueue\fP yields a queue in which any \fC\fBEntity\fP\fP can be enqueued, typically requiring type casting on accessing entities enqueued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP \fBModel\fP : The model this queue is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The queue's name 
+.br
+\fIshowInReport\fP boolean : Flag if queue should produce a report 
+.br
+\fIshowInTrace\fP boolean : Flag for queue to produce trace messages 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.contains (Ee)"
+Returns \fCtrue\fP if the given \fC\fBEntity\fP\fP is contained in the queue; \fCfalse\fP otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : \fCTrue\fP if the given \fC\fBEntity\fP\fP is contained in the queue; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fC\fBEntity\fP\fP we are looking for in the queue\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.createReporter ()\fC [virtual]\fP"
+Returns a special queue reporter to produce a report about this queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.Reporter\fP : The reporter for this queue 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.first ()"
+Returns the first entity queued in this queue or \fCnull\fP in case the queue is empty\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The first entity in the queue or \fCnull\fP if the queue is empty 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.first (Condition< E >c)"
+Returns the first entity queued in this queue that fulfills the given condition\&. The queue is searched from front to end and the first entity that returns \fCtrue\fP when the condition is applied to it is returned by this method\&. If no \fBEntity\fP fulfills the given condition or the queue is empty, \fCnull\fP will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The first entity queued in this queue applying to the given condition or \fCnull\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the entity returned must fulfill 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.get (Ee)"
+Returns the queue index of a given \fC\fBEntity\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int :The position of the entity as an \fCint\fP\&. Returns -1 if no such position exists\&. 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.get (intindex)"
+Returns the \fC\fBEntity\fP\fP queued at the named position\&. The first position is 0, the last one \fBsize()\fP-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The \fC\fBEntity\fP\fP at the position of \fCint\fP or \fCnull\fP if no such position exists\&. 
+.RE
+.PP
+
+.SS "QueueList<E> desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.getQueueList ()"
+Returns the underlying queue implementation, providing access to the QueueList implementation, e\&.g\&. to add PropertyChangeListeners\&.
+.PP
+\fBReturns:\fP
+.RS 4
+QueueList : The underlying queue implementation of this Queue\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.getQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.getRefused ()"
+Returns the number of entities refused to be enqueued in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the queue\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.insert (Ee)"
+Enters a new \fBEntity\fP into the queue\&. If the capacity of the queue is full, the entity will not be enqueued and \fCfalse\fP will be returned\&. The \fBEntity\fP will be stored in the queue until method \fC\fBremove(Entity e)\fP\fP is called with this specific \fBEntity\fP\&. Entities inside the queue are ordered according to their priority\&. Higher priorities are sorted in front of lower priorities\&. Entities with same priority are orderer according to the specified strategy\&. The first \fBEntity\fP inside the queue will always be the one with the highest priority\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if insertion was successful, \fCfalse\fP otherwise (i\&.e\&. capacity limit is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fBEntity\fP to be added to the queue\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.insertAfter (Ee, Eafter)"
+Enters a new \fBEntity\fP into the queue and places it after the given \fBEntity\fP\&. If the capacity of the queue is full, the entity will not be enqueued and \fCfalse\fP will be returned\&. Make sure that the entity given as reference is already queued inside the queue, else the entity will not be enqueued and \fCfalse\fP will be returned\&. The \fBEntity\fP will be stored in the queue until method \fC\fBremove(Entity e)\fP\fP is called with this specific \fBEntity\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if insertion was successful, \fCfalse\fP otherwise (i\&.e\&. capacity limit is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fBEntity\fP to be added to the queue 
+.br
+\fIafter\fP E : The \fBEntity\fP after which the entity e is to be inserted 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.insertBefore (Ee, Ebefore)"
+Enters a new \fBEntity\fP into the queue and places it in front of the given \fBEntity\fP\&. If the capacity of the queue is full, the entity will not be enqueued and \fCfalse\fP will be returned\&. Make sure that the \fBEntity\fP given as reference is already queued inside the queue, else the \fBEntity\fP will not be queued and \fCfalse\fP will be returned\&. The \fBEntity\fP will be stored in the queue until method \fC\fBremove(Entity e)\fP\fP is called with this specific \fBEntity\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if insertion was successful, \fCfalse\fP otherwise (i\&.e\&. capacity limit is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fBEntity\fP to be added to the queue 
+.br
+\fIbefore\fP E : The \fBEntity\fP before which the entity e is to be inserted 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.isEmpty ()"
+Returns a boolean value indicating if the queue is empty or if any number of entities is currently enqueued in it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the Queue is empty, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "Iterator<E> desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.iterator ()"
+Returns an iterator over the entities enqueued\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.Iterator<E> : An iterator over the entities enqueued\&. 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.last ()"
+Returns the last \fBEntity\fP queued in this queue or \fCnull\fP in case the queue is empty\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The last \fBEntity\fP in the queue or \fCnull\fP if the queue is empty 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.last (Condition< E >c)"
+Returns the last \fBEntity\fP queued in this queue that fulfills the given condition\&. The queue is searched from end to front and the first entity that returns \fCtrue\fP when the condition is applied to it is returned\&. If no \fBEntity\fP fulfills the given condition or the queue is empty, \fCnull\fP will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The last \fBEntity\fP queued in this queue applying to the given condition or \fCnull\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the entity returned must fulfill 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.pred (Ee)"
+Returns the entity enqueued directly before the given \fBEntity\fP in the queue\&. If the given \fBEntity\fP is not contained in this queue or is at the first position thus having no possible predecessor, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The \fBEntity\fP directly before the given \fBEntity\fP in the queue or \fCnull\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : An \fBEntity\fP in the queue 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.pred (Ee, Condition< E >c)"
+Returns the entity enqueued before the given \fBEntity\fP in the queue that also fulfills the condition given\&. If the given \fBEntity\fP is not contained in this queue or is at the first position thus having no possible predecessor, \fCnull\fP is returned\&. If no other \fBEntity\fP before the given one fulfills the condition, \fCnull\fP is returned, too\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The \fBEntity\fP before the given \fBEntity\fP in the queue fulfilling the condition or \fCnull\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : An \fBEntity\fP in the queue 
+.br
+\fIc\fP Condition : The condition that the preceeding \fBEntity\fP has to fulfill 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.remove (\fBEntity\fPe)"
+Removes the given \fBEntity\fP from the Queue\&. If the given \fBEntity\fP is not in the Queue, a warning will be issued but nothing else will be changed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP \fBEntity\fP : The \fBEntity\fP to be removed 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.remove (intindex)"
+Removes the entity queued at the given position\&. The first position is 0, the last one \fBlength()\fP-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: The method returns \fCtrue\fP if an \fC\fBEntity\fP\fP exists at the given position or \fCfalse>\fP if otherwise\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.removeAll ()"
+Removes all entities from the Queue\&. Has no effect on empty queues\&. 
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.removeFirst ()"
+Removes the first entity from the queue and provides a reference to this entity\&. If the queue is empty, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The first entity in this queue, which has been removed, or \fCnull\fP in case the queue was empty 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.removeFirst (Condition< E >c)"
+Removes the first entity from the queue that fulfills the given condition\&. Also provides a reference to this entity\&. If the queue does not contain an entity that fulfills the condition (e\&.g\&. if the queue is empty), \fCnull\fP is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the entity returned must fulfill
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+E : The first entity in this queue fulfilling the condition, which has been removed from the queue\&. \fCNull\fP in case no entity fulfills the condition\&. 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.removeLast ()"
+Removes the last entity from the queue and provides a reference to this entity\&. If the queue is empty, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The last entity in this queue, which has been removed, or \fCnull\fP in case the queue was empty 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.removeLast (Condition< E >c)"
+Removes the last entity from the queue that fulfills to the given condition, determined by traversing the queue from last to first until an entity fulfilling the condition is found\&. Also provides a reference to this entity\&. If the queue does not contain an entity that fulfills the condition (e\&.g\&. if the queue is empty), \fCnull\fP is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the entity returned must fulfill
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+E : The last entity in this queue fulfilling the condition, which has been removed from the queue\&. \fCNull\fP in case no entity fulfills the condition\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.reset ()"
+Resets all statistical counters to their default values\&. The mininum and maximum length of the queue are set to the current number of queued objects\&. The counter for the entities refused to be enqueued will be reset\&. 
+.SS "void desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.setQueueStrategy (intsortOrder)"
+Sets the sort order of this Queue to a new value and makes this Queue use another \fCQueueList\fP with the specified queueing discipline\&. Please choose a constant from \fC\fBQueueBased\fP\fP (\fC\fBQueueBased\&.FIFO\fP\fP, \fC\fBQueueBased\&.FIFO\fP\fP or \fCQueueBased\&.Random\fP) The sort order of a Queue can only be changed if the queue is empty\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsortOrder\fP int : determines the sort order of the underlying \fCQueueList\fP implementation (\fC\fBQueueBased\&.FIFO\fP\fP, \fC\fBQueueBased\&.FIFO\fP\fP or \fCQueueBased\&.Random\fP) 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.setSeed (longnewSeed)"
+Sets the seed of the underlying queue list's pseudo random number generator\&. Useful for queues with random sort order only; to other queues, calling this method has no effect, resulting in a warning\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewSeed\fP long : new seed of the underlying queue list's pseudo random number generator 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.size ()"
+Returns the current length of the Queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of entities enqueued\&. 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.succ (Ee)"
+Returns the entity enqueued directly after the given \fBEntity\fP in the queue\&. If the given \fBEntity\fP is not contained in this queue or is at the last position thus having no possible successor, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The \fBEntity\fP directly after the given \fBEntity\fP in the queue or \fCnull\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : An \fBEntity\fP in the queue 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.Queue< E extends \fBEntity\fP >\&.succ (Ee, Condition< E >c)"
+Returns the entity enqueued after the given \fBEntity\fP in the queue that also fulfills the condition given\&. If the given \fBEntity\fP is not contained in this queue or is at the last position thus having no possible successor, \fCnull\fP is returned\&. If no other \fBEntity\fP after the given one fulfills the condition, \fCnull\fP is returned, too\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The \fBEntity\fP after the given \fBEntity\fP in the queue fulfilling the condition or \fCnull\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : An \fBEntity\fP in the queue 
+.br
+\fIc\fP Condition : The condition that the succeeding \fBEntity\fP has to fulfill 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,419 @@
+.TH "desmoj.extensions.applicationDomains.harbour.TransporterSystem" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.TransporterSystem \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransporterSystem\fP (\fBModel\fP owner, String name, int tSortOrder, int tQCapacity, int jSortOrder, int jQCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBaddJob\fP (\fBJob\fP j)"
+.br
+.ti -1c
+.RI "boolean \fBaddTransporter\fP (\fBInternalTransporter\fP t)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSumNumEmptyDrives\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddSumNumEmptyDrives\fP (long n)"
+.br
+.ti -1c
+.RI "void \fBaddSumTimeEmptyDrives\fP (double t)"
+.br
+.ti -1c
+.RI "double \fBgetSumTimeEmptyDrives\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddSumDistanceEmptyDrives\fP (double d)"
+.br
+.ti -1c
+.RI "double \fBgetSumDistanceEmptyDrives\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddSumDistanceLoadedDrives\fP (double d)"
+.br
+.ti -1c
+.RI "double \fBgetSumDistanceLoadedDrives\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSumNumLoadedDrives\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddSumNumLoadedDrives\fP (long n)"
+.br
+.ti -1c
+.RI "void \fBaddSumTimeLoadedDrives\fP (double t)"
+.br
+.ti -1c
+.RI "double \fBgetSumTimeLoadedDrives\fP ()"
+.br
+.ti -1c
+.RI "double \fBavgUsage\fP ()"
+.br
+.ti -1c
+.RI "ProcessQueue \fBgetTransporter\fP ()"
+.br
+.ti -1c
+.RI "Queue \fBgetJobs\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetTransporterQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetJobsQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "\fBInternalTransporter\fP[] \fBgetFreeTransporter\fP (int n)"
+.br
+.ti -1c
+.RI "\fBInternalTransporter\fP[] \fBgetAssignedTransporter\fP (\fBCrane\fP c)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String \fBwhere\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "ProcessQueue \fBtransporterQueue\fP"
+.br
+.ti -1c
+.RI "Queue \fBjobsQueue\fP"
+.br
+.ti -1c
+.RI "long \fBSumNumEmptyDrives\fP"
+.br
+.ti -1c
+.RI "long \fBSumNumLoadedDrives\fP"
+.br
+.ti -1c
+.RI "double \fBSumTimeEmptyDrives\fP"
+.br
+.ti -1c
+.RI "double \fBSumTimeLoadedDrives\fP"
+.br
+.ti -1c
+.RI "double \fBSumDistanceEmptyDrives\fP = 0\&.0"
+.br
+.ti -1c
+.RI "double \fBSumDistanceLoadDrives\fP = 0\&.0"
+.br
+.ti -1c
+.RI "String \fBwhere\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBTransporterSystem\fP represents the system of the transporters that manages the queues of the transporter and jobs, give the statistics about the transporters and both queues\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.TransporterSystem (\fBModel\fPowner, Stringname, inttSortOrder, inttQCapacity, intjSortOrder, intjQCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBTransporterSystem\fP\&. The queueing discipline and the capacity limit of the underlying queues for the jobs and for the transporters can be chosen\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBTransporterSystem\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBTransporterSystem\fP's name 
+.br
+\fItsortOrder\fP int : determines the sort order of the underlying transporter queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fItQCapacity\fP int : The capacity of the transporter queue, that is how many transporters can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIjsortOrder\fP int : determines the sort order of the underlying jobs queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIjQCapacity\fP int : The capacity of the jobs queue, that is how many transporters can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBTransporterSystem\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addJob (\fBJob\fPj)"
+This method is used to add the job to the jobs queue of this \fBTransporterSystem\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP \fC\fBJob\fP\fP: The \fBJob\fP that me be enqueued\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addSumDistanceEmptyDrives (doubled)"
+Change the whole distance of the empty drives of all the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP double : The whole distance of the empty drives of this \fBTransporterSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addSumDistanceLoadedDrives (doubled)"
+Change the whole distance of the loaded drives of all the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP double : The whole distance of the loaded drives of this \fBTransporterSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addSumNumEmptyDrives (longn)"
+Change the number of the empty drives of all the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of empty drives of this \fBTransporterSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addSumNumLoadedDrives (longn)"
+Change the number of the loaded drives of all the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of loaded drives of this \fBTransporterSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addSumTimeEmptyDrives (doublet)"
+Change the whole time of the empty drives of all the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP double : The time of empty drives of this \fBTransporterSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addSumTimeLoadedDrives (doublet)"
+Change the whole time of the loaded drives of all the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP double : The whole time of loaded drives of this \fBTransporterSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.addTransporter (\fBInternalTransporter\fPt)"
+This method is used to add an internal transporter to the transporter queue of this \fBTransporterSystem\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP \fC\fBJob\fP\fP: The \fBInternalTransporter\fP that must be enqueued\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.avgUsage ()"
+Returns the average utilization of a transporter of this transporter system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average utilisation\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the process using the \fBTransporterSystem\fP is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the sim-process is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBTransporterSystem\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queues inside this \fBTransporterSystem\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "\fBInternalTransporter\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getAssignedTransporter (\fBCrane\fPc)"
+Returns all the at the moment idle transporters of a certain crane they are assigned to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP \fC\fBCrane\fP\fP: The crane that these transportes are assigned to\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBInternalTransporter\fP\fP[] : The idle internal transporters of a certain crane\&. 
+.RE
+.PP
+
+.SS "\fBInternalTransporter\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getFreeTransporter (intn)"
+Returns n idle transporters of this transporter system that have still no crane that are assigned to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBInternalTransporter\fP\fP[] : The idle internal transporters\&. 
+.RE
+.PP
+
+.SS "Queue desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getJobs ()"
+Returns the jobs queue of this transporter system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCQueue\fP: The jobs queue\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getJobsQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue for jobs as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getSumDistanceEmptyDrives ()"
+Returns the whole distance of the empty drives of all the transporters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole distance of the empty drives\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getSumDistanceLoadedDrives ()"
+Returns the whole distance of the loaded drives of all the transporters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole distance of the loaded drives\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getSumNumEmptyDrives ()"
+Returns the number of the empty drives of all the transporters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the empty drives\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getSumNumLoadedDrives ()"
+Returns the number of the loaded drives of all the transporters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the loaded drives\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getSumTimeEmptyDrives ()"
+Returns the whole time of the empty drives of all the transporters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole time of the empty drives\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getSumTimeLoadedDrives ()"
+Returns the whole time of the loaded drives of all the transporters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole time of the loaded drives\&. 
+.RE
+.PP
+
+.SS "ProcessQueue desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getTransporter ()"
+Returns the transporter queue of this transporter system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCProcessQueue\fP: The transporter queue\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.getTransporterQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue for transporters as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.reset ()"
+Resets all statistical counters to their default values\&. Both, transporter queue and job queue are reset\&. The mininum and maximum length of the queues are set to the current number of queued objects\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "Queue desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.jobsQueue\fC [protected]\fP"
+The queue, actually storing the jobs entities waiting to be assigned to the transporters\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.SumDistanceEmptyDrives = 0\&.0\fC [protected]\fP"
+Counter for the whole distance of the empty drives of all the transporters of this TransporterSystems\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.SumDistanceLoadDrives = 0\&.0\fC [protected]\fP"
+Counter for the whole distance of the loaded drives of all the transporters of this TransporterSystems\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.SumNumEmptyDrives\fC [protected]\fP"
+Counter for the whole number of the empty drives of all the transporters of this TransporterSystems\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.SumNumLoadedDrives\fC [protected]\fP"
+Counter for the whole number of the loaded drives of all the transporters of this TransporterSystems\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.SumTimeEmptyDrives\fC [protected]\fP"
+Counter for the whole time of the empty drives of all the transporters of this TransporterSystems\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.SumTimeLoadedDrives\fC [protected]\fP"
+Counter for the whole time of the loaded drives of all the transporters of this TransporterSystems\&. 
+.SS "ProcessQueue desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.transporterQueue\fC [protected]\fP"
+The queue, actually storing the transporter processes waiting for jobs to do them\&. 
+.SS "String desmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\&.where\fC [protected]\fP"
+Indicates the method where something has gone wrong\&. Is passed as a parameter to the methods \fC\fBcheckProcess()\fP\fP and \fCcheckCondition\fP\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

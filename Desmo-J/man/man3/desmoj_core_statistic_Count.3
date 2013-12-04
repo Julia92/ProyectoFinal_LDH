@@ -1,0 +1,263 @@
+.TH "desmoj.core.statistic.Count" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.Count \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.StatisticObject\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.statistic\&.CountAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCount\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBCount\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace, boolean isResetResistant)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCorrespondingSchedulable\fP (\fBSchedulable\fP correspondingSchedulable)"
+.br
+.ti -1c
+.RI "long \fBgetMaximum\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMinimum\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (long n)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.ti -1c
+.RI "long \fBgetValue\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisInterArrivalTimeTallyActivated\fP ()"
+.br
+.ti -1c
+.RI "void \fBactivateInterArrivalTimeTally\fP (Class<?extends \fBReporter\fP > reporterClass, boolean showTimeSpansInReport)"
+.br
+.ti -1c
+.RI "void \fBactivateInterArrivalTimeTally\fP (boolean showTimeSpansInReport)"
+.br
+.ti -1c
+.RI "void \fBactivateInterArrivalTimeTally\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeactivateInterArrivalTimeTally\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "long \fBconvertDoubleToLong\fP (double dbleValue)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBCount\fP\fP class is simply counting something during an experiment\&. Be careful the counter can be updated with positive and negative integer numbers!
+.PP
+To get this \fC\fBCount\fP\fP object updated automatically every time a \fC\fBValueSupplier\fP\fP has changed, call the \fCaddObserver (Observer)\fP -method from the \fC\fBValueSupplier\fP\fP of interest, where Observer is this \fC\fBCount\fP\fP object\&. 
+.br
+ This must be done by the user in his model! 
+.br
+ Consider usage of class \fC\fBAggregate\fP\fP to count non-integer (i\&.e\&. double) values\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998 
+.PP
+modified by Ruth Meyer 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.Count\&.Count (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBCount\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBCount\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBCount\fP object 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report Set it to \fCtrue\fP if this \fBCount\fP should show up in report\&. Set it to \fCfalse\fP if this \fBCount\fP should not be shown in report\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBCount\fP in trace files\&. Set it to \fCtrue\fP if this \fBCount\fP should show up in trace\&. Set it to \fCfalse\fP if this \fBCount\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Count\&.Count (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace, booleanisResetResistant)"
+Constructor for a \fBCount\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBCount\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBCount\fP object 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report Set it to \fCtrue\fP if this \fBCount\fP should show up in report\&. Set it to \fCfalse\fP if this \fBCount\fP should not be shown in report\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBCount\fP in trace files\&. Set it to \fCtrue\fP if this \fBCount\fP should show up in trace\&. Set it to \fCfalse\fP if this \fBCount\fP should not be shown in trace\&. 
+.br
+\fIisResetResistant\fP boolean : Flag for retaining the counter value during resets\&. Set it to \fCtrue\fP if this \fBCount\fP should retain its current value and only reset min, max and observations to 0\&. Set it to \fCfalse\fP if this \fBCount\fP should also reset its value to 0\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.statistic\&.Count\&.activateInterArrivalTimeTally (Class<?extends \fBReporter\fP >reporterClass, booleanshowTimeSpansInReport)"
+Activates the inter-arrival-time \fBTally\fP to observe the timespans between calls of the update-Method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIreporterClass\fP Class<? extends Reporter> : A reporter to be used by the \fBTally\fP\&. 
+.br
+\fIshowTimeSpansInReport\fP boolean : Should the Reporter for the \fBTally\fP use TimeSpans in Report? 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Count\&.activateInterArrivalTimeTally (booleanshowTimeSpansInReport)"
+Activates the inter-arrival-time \fBTally\fP to observe the timespans between calls of the update-Method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIshowTimeSpansInReport\fP boolean : Should the Reporter for the \fBTally\fP use TimeSpans in Report? 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Count\&.activateInterArrivalTimeTally ()"
+Activates the inter-arrival-time \fBTally\fP to observe the timespans between calls of the update-Method\&. 
+.SS "long desmoj\&.core\&.statistic\&.Count\&.convertDoubleToLong (doubledbleValue)\fC [protected]\fP"
+Converts a \fCdouble\fP value to a \fClong\fP value\&. If this can not be done without rounding a warning will be produced\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdbleValue\fP double : The double value which will be converted to a long value\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+long : The long value the given double is converted to\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.Count\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBCount\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBCount\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Count\&.deactivateInterArrivalTimeTally ()"
+Deactivates the inter-arrival-time \fBTally\fP to stop observing the timespans between calls of the update-Method\&. 
+.SS "long desmoj\&.core\&.statistic\&.Count\&.getMaximum ()"
+Returns the maximum value observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum value observed so far\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.statistic\&.Count\&.getMinimum ()"
+Returns the minimum value observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The minimum value observed so far\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.statistic\&.Count\&.getValue ()"
+Returns the current counter value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : the current counter value\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.statistic\&.Count\&.isInterArrivalTimeTallyActivated ()"
+Is the time between calls of the update-method be observed by a \fBTally\fP?
+.PP
+\fBReturns:\fP
+.RS 4
+true if the inter-arrival-time will be observed, false if not\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Count\&.reset ()"
+Resets this \fBCount\fP object by resetting (nearly) all variables to zero\&. If the flag \fCisResetResistant\fP is set to \fCtrue\fP the counter value will NOT be changed\&. 
+.SS "void desmoj\&.core\&.statistic\&.Count\&.setCorrespondingSchedulable (\fBSchedulable\fPcorrespondingSchedulable)"
+
+.SS "void desmoj\&.core\&.statistic\&.Count\&.update ()"
+Increments the counter of this \fC\fBCount\fP\fP object by one\&. 
+.SS "void desmoj\&.core\&.statistic\&.Count\&.update (longn)"
+Increments the counter of this \fC\fBCount\fP\fP object by the value given in the parameter n\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number that will be added to the counter of this \fC\fBCount\fP\fP object\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Count\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBValueSupplier\fP will be fetched with the \fCvalue()\fP method of the \fBValueSupplier\fP\&. Otherwise it is expected that the actual value is passed in the Object arg\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBCount\fP\fP is updated\&. Normally a long number which is added to the counter or \fCnull\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,163 @@
+.TH "desmoj.extensions.experimentation.ui.ExperimentStarterApplet" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.ui.ExperimentStarterApplet \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits JApplet, and \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterGUI\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.ti -1c
+.RI "void \fBdestroy\fP ()"
+.br
+.ti -1c
+.RI "void \fBclockAdvanced\fP (String currentTime, double timePercent, long startTime)"
+.br
+.ti -1c
+.RI "void \fBloadModel\fP ()"
+.br
+.ti -1c
+.RI "String \fBloadDialog\fP ()"
+.br
+.ti -1c
+.RI "String \fBloadDialog\fP (String currentFilename)"
+.br
+.ti -1c
+.RI "String \fBsaveDialog\fP ()"
+.br
+.ti -1c
+.RI "String \fBsaveDialog\fP (String currentFilename)"
+.br
+.ti -1c
+.RI "void \fBresetGUI\fP (String filename, boolean runsBatch, \fBAccessPointTableModel\fP modelAccessPoints, \fBAccessPointTableModel\fP expAccessPoints, String modelName)"
+.br
+.ti -1c
+.RI "void \fBsetRunning\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPaused\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetStopped\fP (String currentTime, long startTime, String experimentValues, String outputPath, String[] appendixes)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBmain\fP (String argv[])"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Title: ExperimentStarterApplicationGUI 
+.PP
+Description: GUI for the Experiment Starter when used as applet 
+.PP
+based on the \fBExperimentStarterApplication\fP by Nicolas Knaack\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Gunnar Kiesel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.clockAdvanced (StringcurrentTime, doubletimePercent, longstartTime)"
+Called by \fBExperimentStarter\fP when the currently active experiment's SimClock is advanced
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcurrentTime\fP String: the current simulation time 
+.br
+\fItimePercent\fP double: percentage of the simulation done 
+.br
+\fIstartTime\fP long: the start time of the simulation 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterGUI\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.init ()"
+get output parameters from the Applet Tag *
+.PP
+If parameter files have been given set these to be used\&. *
+.PP
+load the manual files *
+.PP
+Load a settings xml-file if one has been given in the applet tag* 
+.SS "String desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.loadDialog ()"
+opens a Swing dialog to select a configuration file to load from * 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.loadModel ()"
+Called by the \fBExperimentStarter\fP when a new model is loaded 
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterGUI\fP\&.
+.SS "static void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.main (Stringargv[])\fC [static]\fP"
+Runs the GUI\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.resetGUI (Stringfilename, booleanrunsBatch, \fBAccessPointTableModel\fPmodelAccessPoints, \fBAccessPointTableModel\fPexpAccessPoints, StringmodelName)"
+Resets the user interface on creating, loading or resetting an experiment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP String: the name of the configuration file in use 
+.br
+\fIrunsBatch\fP boolean: \fCtrue\fP if a batch run is to be made, \fCfalse\fP for single experiment runs 
+.br
+\fImodelAccessPoints\fP \fBAccessPointTableModel\fP: the access points for the model settings 
+.br
+\fIexpAccessPoints\fP \fBAccessPointTableModel\fP: the access points for the experiment settings 
+.br
+\fImodelName\fP Sting: the name of the model in use 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterGUI\fP\&.
+.SS "String desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.saveDialog ()"
+opens a Swing dialog to select a configuration file to save in * 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.setPaused ()"
+Called when experiment is paused\&. Implemented for ExperimentListener 
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterGUI\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.setRunning ()"
+Called when experiment is started or resumed\&. Implemented for ExperimentListener 
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterGUI\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterApplet\&.setStopped (StringcurrentTime, longstartTime, StringexperimentValues, StringoutputPath, String[]appendixes)"
+Called when experiment is stopped\&. Implemented for ExperimentListener
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcurrentTime\fP String: the current simulation time 
+.br
+\fIstartTime\fP long: the starting time of the experiment run 
+.br
+\fIexperimentValues\fP String: the current values of the experiment access points 
+.br
+\fIoutputPath\fP String: the path the experiment output is written to 
+.br
+\fIappendixes\fP String[]: the file endings of the four output files (\&.html, \&.txt, \&.xml) 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarterGUI\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

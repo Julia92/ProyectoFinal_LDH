@@ -1,0 +1,130 @@
+.TH "desmoj.core.report.TableOutput" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.TableOutput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.FileOutput\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.report\&.DebugFileOut\fP, \fBdesmoj\&.core\&.report\&.ErrorFileOut\fP, \fBdesmoj\&.core\&.report\&.ReportFileOut\fP, and \fBdesmoj\&.core\&.report\&.TraceFileOut\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTableOutput\fP (int timePrec, String format)"
+.br
+.ti -1c
+.RI "void \fBopen\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final String \fBDEFAULT_FORMATTER\fP = 'desmoj\&.core\&.report\&.HTMLTableFormatter'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTableFormatter\fP \fBcreateFormatter\fP (String \fBformatter\fP)"
+.br
+.ti -1c
+.RI "String \fBcreateFileName\fP (String pathname, String name, String type)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBTableFormatter\fP \fBformatter\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+An output for tables containing simulation results\&. The table formatting is done by an assigned \fBTableFormatter\fP (e\&.g\&. a \fBHTMLTableFormatter\fP or an \fBASCIITableFormatter\fP)\&. Realizes the output functionality of the deprecated class desmoj\&.report\&.HTMLFileOut\&. This class is the new base class for the different Desmo-J output channels (\fBReportFileOut\fP, etc\&.)
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak edited by Gunnar Kiesel, 5\&.1\&.2004
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.TableOutput\&.TableOutput (inttimePrec, Stringformat)"
+Creates a new \fBTableOutput\fP with the given time precision and \fBTableFormatter\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimePrec\fP precision for writing time values\&. 
+.br
+\fIformat\fP fully qualified class name of assigned \fBTableFormatter\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.report\&.TableOutput\&.close ()"
+Closes the table output (and the assigned file)\&. 
+.SS "String desmoj\&.core\&.report\&.TableOutput\&.createFileName (Stringpathname, Stringname, Stringtype)\fC [protected]\fP"
+Creates a valid filename from the given information
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpathname\fP name of path 
+.br
+\fIname\fP name of file 
+.br
+\fItype\fP kind of simulation output (e\&.g\&. \fC'report'\fP) 
+.RE
+.PP
+
+.SS "\fBTableFormatter\fP desmoj\&.core\&.report\&.TableOutput\&.createFormatter (Stringformatter)\fC [protected]\fP"
+Tries creating a \fBTableFormatter\fP from the given class name\&. If creation fails (e\&.g\&. because the class name does not exist) the assigned experiments default table formatter is created
+.PP
+\fBParameters:\fP
+.RS 4
+\fIformatter\fP fully qualified class name of \fBTableFormatter\fP subclass\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+created \fBTableFormatter\fP object Since the Experiment class no longer contains a default formater, the default formatter is now located in this class 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.TableOutput\&.open (Stringname)"
+Opens the table output as a file with the given name
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP filename 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final String desmoj\&.core\&.report\&.TableOutput\&.DEFAULT_FORMATTER = 'desmoj\&.core\&.report\&.HTMLTableFormatter'\fC [static]\fP"
+The table formatter used if formatter is invalid 
+.SS "\fBTableFormatter\fP desmoj\&.core\&.report\&.TableOutput\&.formatter\fC [protected]\fP"
+The table formatter assigned to this output 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

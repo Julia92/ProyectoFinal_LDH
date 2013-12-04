@@ -1,0 +1,199 @@
+.TH "org.apache.commons.math.util.ContinuedFraction" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.util.ContinuedFraction \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBevaluate\fP (double x)  throws MathException "
+.br
+.ti -1c
+.RI "double \fBevaluate\fP (double x, double epsilon)  throws MathException "
+.br
+.ti -1c
+.RI "double \fBevaluate\fP (double x, int maxIterations)  throws MathException "
+.br
+.ti -1c
+.RI "double \fBevaluate\fP (double x, double epsilon, int maxIterations)  throws MathException     "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContinuedFraction\fP ()"
+.br
+.ti -1c
+.RI "abstract double \fBgetA\fP (int n, double x)"
+.br
+.ti -1c
+.RI "abstract double \fBgetB\fP (int n, double x)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides a generic means to evaluate continued fractions\&. Subclasses simply provided the a and b coefficients to evaluate the continued fraction\&.
+.PP
+References: 
+.PD 0
+
+.IP "\(bu" 2
+\fCContinued Fraction\fP 
+.PP
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617953 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.util\&.ContinuedFraction\&.ContinuedFraction ()\fC [protected]\fP"
+Default constructor\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.util\&.ContinuedFraction\&.evaluate (doublex) throws \fBMathException\fP"
+Evaluates the continued fraction at the value x\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the evaluation point\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of the continued fraction evaluated at x\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.util\&.ContinuedFraction\&.evaluate (doublex, doubleepsilon) throws \fBMathException\fP"
+Evaluates the continued fraction at the value x\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the evaluation point\&. 
+.br
+\fIepsilon\fP maximum error allowed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of the continued fraction evaluated at x\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.util\&.ContinuedFraction\&.evaluate (doublex, intmaxIterations) throws \fBMathException\fP"
+Evaluates the continued fraction at the value x\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the evaluation point\&. 
+.br
+\fImaxIterations\fP maximum number of convergents 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of the continued fraction evaluated at x\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.util\&.ContinuedFraction\&.evaluate (doublex, doubleepsilon, intmaxIterations) throws \fBMathException\fP"
+Evaluates the continued fraction at the value x\&. 
+.PP
+The implementation of this method is based on equations 14-17 of: 
+.PD 0
+
+.IP "\(bu" 2
+Eric W\&. Weisstein\&. 'Continued Fraction\&.' From MathWorld--A Wolfram Web Resource\&. \fChttp://mathworld\&.wolfram\&.com/ContinuedFraction\&.html\fP  
+.PP
+The recurrence relationship defined in those equations can result in very large intermediate results which can result in numerical overflow\&. As a means to combat these overflow conditions, the intermediate results are scaled whenever they threaten to become numerically unstable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the evaluation point\&. 
+.br
+\fIepsilon\fP maximum error allowed\&. 
+.br
+\fImaxIterations\fP maximum number of convergents 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of the continued fraction evaluated at x\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+.SS "abstract double org\&.apache\&.commons\&.math\&.util\&.ContinuedFraction\&.getA (intn, doublex)\fC [protected]\fP, \fC [pure virtual]\fP"
+Access the n-th a coefficient of the continued fraction\&. Since a can be a function of the evaluation point, x, that is passed in as well\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP the coefficient index to retrieve\&. 
+.br
+\fIx\fP the evaluation point\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the n-th a coefficient\&. 
+.RE
+.PP
+
+.SS "abstract double org\&.apache\&.commons\&.math\&.util\&.ContinuedFraction\&.getB (intn, doublex)\fC [protected]\fP, \fC [pure virtual]\fP"
+Access the n-th b coefficient of the continued fraction\&. Since b can be a function of the evaluation point, x, that is passed in as well\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP the coefficient index to retrieve\&. 
+.br
+\fIx\fP the evaluation point\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the n-th b coefficient\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

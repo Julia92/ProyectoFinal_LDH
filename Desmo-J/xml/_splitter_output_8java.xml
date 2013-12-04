@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_splitter_output_8java" kind="file">
+    <compoundname>SplitterOutput.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4" prot="public">desmoj::extensions::chaining::SplitterOutput&lt; EIn extends Entity, EEx extends Entity &gt;</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1chaining">desmoj::extensions::chaining</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.chaining;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.dist.NumericalDist;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">desmoj.core.simulator.Entity</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.simulator.Event;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">desmoj.core.simulator.Model</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">desmoj.core.simulator.TimeSpan</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.extensions.chaining.abstractions.HasPredecessor;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.extensions.chaining.abstractions.HasSuccessor;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">SplitterOutput&lt;EIn<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>,<sp/>EEx<sp/>extends<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>&gt;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>implements<sp/>HasSuccessor&lt;EEx&gt;<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>SuccessorAdministration&lt;EEx&gt;<sp/>successorAdministration;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSuccessor(Event&lt;?<sp/>super<sp/>EEx&gt;<sp/>eventToScheduleWhenFinished)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successorAdministration.setSuccessor(eventToScheduleWhenFinished);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSuccessor(HasPredecessor&lt;?<sp/>super<sp/>EEx&gt;<sp/>successor)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successorAdministration.setSuccessor(successor);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numberOfOutputPartsPerOriginalEntity;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>NumericalDist&lt;?&gt;<sp/>transportTime;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1ae926ba5a929b218bfdd985c0a9ded506" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1ae926ba5a929b218bfdd985c0a9ded506" kindref="member">SplitterOutput</ref>(<ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref><sp/>owner,<sp/>String<sp/>name,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numberOfOutputPartsPerOriginalEntity,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NumericalDist&lt;?&gt;<sp/>transportTime)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.numberOfOutputPartsPerOriginalEntity<sp/>=<sp/>numberOfOutputPartsPerOriginalEntity;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.transportTime<sp/>=<sp/>transportTime;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successorAdministration<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SuccessorAdministration&lt;EEx&gt;(owner,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SplitterOutput.class.getSimpleName()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>name);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/>EEx<sp/>createOutputEntity(EIn<sp/>originalEntity);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a73a0057e7dd370a14ef9d94a653cb6c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a73a0057e7dd370a14ef9d94a653cb6c5" kindref="member">getNumberOfOutputPartsPerOriginalEntity</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>numberOfOutputPartsPerOriginalEntity;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a08f2f24f82bf07f6467c8663770453f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Event&lt;?<sp/>super<sp/>EEx&gt;<sp/><ref refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a08f2f24f82bf07f6467c8663770453f2" kindref="member">getSuccessorEvent</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>successorAdministration.getSuccessorEvent();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a9e96f86ed9589204b37c4528abe66b36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref><sp/><ref refid="classdesmoj_1_1extensions_1_1chaining_1_1_splitter_output_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a9e96f86ed9589204b37c4528abe66b36" kindref="member">getTransportTime</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(transportTime<sp/>==<sp/>null)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref>(0);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>transportTime.sampleTimeSpan();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/SplitterOutput.java"/>
+  </compounddef>
+</doxygen>

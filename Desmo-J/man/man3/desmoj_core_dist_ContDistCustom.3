@@ -1,0 +1,171 @@
+.TH "desmoj.core.dist.ContDistCustom" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDistCustom \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.ContDist\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDistCustom\fP (\fBModel\fP owner, String name, \fBFunction\fP function, double lower, double upper, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "double \fBgetLowerBound\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetUpperBound\fP ()"
+.br
+.ti -1c
+.RI "\fBFunction\fP \fBgetFunction\fP ()"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "Double \fBsample\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBFunction\fP \fBdistFunction\fP"
+.br
+.ti -1c
+.RI "double \fBlowerBound\fP"
+.br
+.ti -1c
+.RI "double \fBupperBound\fP"
+.br
+.ti -1c
+.RI "double \fBrandomNumber\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBDistribution\fP returning values according to a user-specified distribution function\&.
+.PP
+It is important that the used function is an actual distribution function, meaning it must be strictly monotonically increasing from 0 to 1\&. You also need to specify the lower and upper bounds of the distribution, meaning the values at which the cumulative probability is 0 and 1 respectively\&. If these requirements are not fulfilled, the class might return false and/or no samples\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Peter Wueppen 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+
+.fi
+.PP
+ 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<N>\fP 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDistCustom\&.ContDistCustom (\fBModel\fPowner, Stringname, \fBFunction\fPfunction, doublelower, doubleupper, booleanshowInReport, booleanshowInTrace)"
+Instantiates the CustomContDist, making it possible to get samples\&. The user-defined CustomFunction has to be given here\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIfunction\fP \fBFunction\fP: User-defined distribution \fBFunction\fP 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.ContDistCustom\&.createReporter ()"
+Creates the default reporter for the CustomContDist distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the CustomContDist distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.ContDistCustomReporter\fP 
+.RE
+.PP
+
+.SS "\fBFunction\fP desmoj\&.core\&.dist\&.ContDistCustom\&.getFunction ()"
+Returns the upper bound of possible values of this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The upper bound of possible values of this distribution\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistCustom\&.getLowerBound ()"
+Returns the lower bound of possible values of this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The lower bound of possible values of this distribution\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistCustom\&.getUpperBound ()"
+Returns the upper bound of possible values of this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The upper bound of possible values of this distribution\&. 
+.RE
+.PP
+
+.SS "Double desmoj\&.core\&.dist\&.ContDistCustom\&.sample ()"
+Returns the next sample from this distribution\&. The value depends upon the seed, the number of values taken from the stream by using this method before and the alpha and beta parameters specified for this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Double : The next gamma distributed sample from this distribution\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBFunction\fP desmoj\&.core\&.dist\&.ContDistCustom\&.distFunction\fC [protected]\fP"
+User-defined distribution function 
+.SS "double desmoj\&.core\&.dist\&.ContDistCustom\&.lowerBound\fC [protected]\fP"
+Lower bound of possibly sampled values\&. This is needed for the underlying zero root solving algorithms\&. 
+.SS "double desmoj\&.core\&.dist\&.ContDistCustom\&.randomNumber\fC [protected]\fP"
+The current Number generated by RandomNumberGenerator\&. 
+.SS "double desmoj\&.core\&.dist\&.ContDistCustom\&.upperBound\fC [protected]\fP"
+Upper bound of possibly sampled values\&. This is needed for the underlying zero root solving algorithms\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

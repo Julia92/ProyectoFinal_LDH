@@ -1,0 +1,172 @@
+.TH "desmoj.extensions.chaining.abstractions.Station< E extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.chaining.abstractions.Station< E extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBServiceStartEvent\fP"
+.br
+.ti -1c
+.RI "class \fBStationStartEvent\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStation\fP (int incomingBufferQueueCapacity, int maxEntitiesToHandle, int parallelHandledEntities, NumericalDist<?> setupTime, NumericalDist<?> serviceTime, NumericalDist<?> recoveryTime, NumericalDist<?> transportTime, \fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "Event< E > \fBgetStartEvent\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSmartReporter\fP \fBcreateDefaultReporter\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetRemainingServiceCapacity\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetSetupTime\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetTransportTime\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBinsertIncomingEntityIntoQueue\fP (E entityToInsert)"
+.br
+.ti -1c
+.RI "void \fBonServiceFinisched\fP (E who)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Station is an abstract super class of all chaining constructs\&. This class handles most of the processing code like the incoming buffer queue, setup queue and being handled queue\&. It contains the settings for maxEntitiesToHandle, parallelHandledEntities, setupTime, serviceTime, recoveryTime, and transportTime
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<E>\fP The Entity which can be handled by the station
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christian Mentz
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.Station (intincomingBufferQueueCapacity, intmaxEntitiesToHandle, intparallelHandledEntities, NumericalDist<?>setupTime, NumericalDist<?>serviceTime, NumericalDist<?>recoveryTime, NumericalDist<?>transportTime, \fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+This Constructor sets the given times, initializes the queues and fills the free service capacity queue\&. This Construktor is never called directly but rather via a super call of the inheriting classes\&. If a given int is lower than zero the station assumes that there is no resriction\&. This applies to incomingBufferQueueCapacity, maxEntitiesToHandle, parallelHandledEntities
+.PP
+\fBParameters:\fP
+.RS 4
+\fIincomingBufferQueueCapacity\fP the capatiy of the income queue 
+.br
+\fImaxEntitiesToHandle\fP the number of max entities the station can handle 
+.br
+\fIparallelHandledEntities\fP the number of max parallel entities a station can handle 
+.br
+\fIsetupTime\fP the time the station needs to set up 
+.br
+\fIserviceTime\fP the time the station needs for the service 
+.br
+\fIrecoveryTime\fP the time the station needs tor recover 
+.br
+\fItransportTime\fP the time the station needs to transport the entitiy to the next station 
+.br
+\fIowner\fP the model owner 
+.br
+\fIname\fP the name of the station 
+.br
+\fIshowInReport\fP should this construct be in the report 
+.br
+\fIshowInTrace\fP should this construct be in the trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBSmartReporter\fP desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.createDefaultReporter ()\fC [protected]\fP"
+Creates an SmartReporter and fills it with the relevant statistics of the station 
+.SS "int desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.getRemainingServiceCapacity ()\fC [protected]\fP"
+gets the remaining service capacity
+.PP
+\fBReturns:\fP
+.RS 4
+the remaining service capacity 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.getSetupTime ()\fC [protected]\fP"
+gets the setup time of the station
+.PP
+\fBReturns:\fP
+.RS 4
+the setup time 
+.RE
+.PP
+
+.SS "Event<E> desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.getStartEvent ()"
+gets the start event of this station
+.PP
+\fBReturns:\fP
+.RS 4
+the start event 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.getTransportTime ()\fC [protected]\fP"
+gets the transport time of the station
+.PP
+\fBReturns:\fP
+.RS 4
+the transport time 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.insertIncomingEntityIntoQueue (EentityToInsert)\fC [protected]\fP"
+inserts an incoming entitiy into the buffer queue
+.PP
+\fBParameters:\fP
+.RS 4
+\fIentityToInsert\fP the entitiy to be inserted 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if the entitiy is inserted succsessfully 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends \fBEntity\fP >\&.onServiceFinisched (Ewho)\fC [protected]\fP"
+this method can be overridden by an inherited class
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho\fP the entitiy of the scheduled event 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

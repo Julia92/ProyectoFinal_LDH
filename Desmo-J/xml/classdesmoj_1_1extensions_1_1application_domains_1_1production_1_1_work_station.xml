@@ -1,0 +1,1713 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kind="class" prot="public">
+    <compoundname>desmoj::extensions::applicationDomains::production::WorkStation</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" prot="public" virt="non-virtual">desmoj.core.simulator.QueueBased</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1acb7c1808c821475d124c5b667b1c9b8e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int desmoj.extensions.applicationDomains.production.WorkStation.numOfParts</definition>
+        <argsstring></argsstring>
+        <name>numOfParts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of different kinds of parts needed for processing the parts at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>. The number will be provided by the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="38" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a619e89245e2a707f14a3f94689cd4494" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></type>
+        <definition>PartsList desmoj.extensions.applicationDomains.production.WorkStation.partsList</definition>
+        <argsstring></argsstring>
+        <name>partsList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parts list containing all the parts with their respective quantity needed at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> to start the manufacturing (processing) process. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="70" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad08c161aee8c10cbdb040abee336771c" prot="protected" static="no" mutable="no">
+        <type>QueueList&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;</type>
+        <definition>QueueList&lt;SimProcess&gt; desmoj.extensions.applicationDomains.production.WorkStation.masterQueue</definition>
+        <argsstring></argsstring>
+        <name>masterQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The queue, actually storing the master processes waiting for slaves to process them </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="44" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" prot="protected" static="no" mutable="no">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;[]</type>
+        <definition>ProcessQueue&lt;SimProcess&gt; [] desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</definition>
+        <argsstring></argsstring>
+        <name>slaveQueues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The array containing all the different slave process queues. It depends on the number of entries (number of different kinds of parts) in the associated <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="51" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab9a1e4d8e600c5066d580fdf116fe3bd" prot="protected" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.mRefused</definition>
+        <argsstring></argsstring>
+        <name>mRefused</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counter for the sim-processes which are refused to be enqueued in the master queue, because the queue capacity is full. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="57" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa9bf84914edf1b1f05e5e4c265f25271" prot="protected" static="no" mutable="no">
+        <type>long[]</type>
+        <definition>long [] desmoj.extensions.applicationDomains.production.WorkStation.slavesRefused</definition>
+        <argsstring></argsstring>
+        <name>slavesRefused</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Array of counters for the slave SimProcesses which are refused to be enqueued in the different slave queues, because their capacity is full. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="63" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" prot="protected" static="no" mutable="no">
+        <type>String</type>
+        <definition>String desmoj.extensions.applicationDomains.production.WorkStation.where</definition>
+        <argsstring></argsstring>
+        <name>where</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates the method where something has gone wrong. Is passed as a parameter to the methods <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" kindref="member">checkProcess()</ref></computeroutput> and <computeroutput>checkCondition</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="77" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a5a7deccd886a6405960d423043e3fcba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.applicationDomains.production.WorkStation.WorkStation</definition>
+        <argsstring>(Model owner, String name, PartsList partsList, int mSortOrder, int mQCapacity, int sSortOrder, int sQCapacity, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>WorkStation</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></type>
+          <declname>partsList</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mSortOrder</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mQCapacity</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sSortOrder</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sQCapacity</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>. Actually there are two waiting-queues constructed, one internal <computeroutput>QueueList</computeroutput> for the masters (like <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker" kindref="compound">Worker</ref></computeroutput> s or <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process" kindref="compound">MachineProcess</ref></computeroutput> es) and one separate <computeroutput>ProcessQueue</computeroutput> for the slave processes (the parts or goods or products). The queueing discipline and the capacity limit of the underlying queues can be chosen. Highest priority are always first in the queues. All the slave wait queues will have the same queueing discipline and capacity limit as provided in the parameters <computeroutput>sSortOrder</computeroutput> and <computeroutput>sQCapacity</computeroutput>. To choose individual settings for each slave wait queue use the method <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adb65c80f587dbd1e792c8eaf63a67c8e" kindref="member">setSQueueCapacity()</ref></computeroutput> to change its capacity and/or the method <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a66432897a028d39429d41e03b51b1863" kindref="member">setSQueueStrategy()</ref></computeroutput> to change its sort order.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>partsList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.PartsList : The list of parts determining the kind and number of parts needed at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> to start processing them here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mSortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying master queue implementation. Choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> or ... </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mQCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The capacity of the master queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sSortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying slave queues implementation. Choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> or ... </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sQCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The capacity of the slave queues, that is how many processes can be enqueued. Zero (0) means unlimited capacity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> should produce a report or not. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if trace messages of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> should be displayed in the trace file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="123" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="123" bodyend="256"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad08c161aee8c10cbdb040abee336771c" compoundref="_work_station_8java" startline="44">desmoj.extensions.applicationDomains.production.WorkStation.masterQueue</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aaec6c34c002dc7b42f90f89b40208dc3" compoundref="_queue_based_8java" startline="155">desmoj.core.simulator.QueueBased.queueLimit</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" compoundref="_queue_based_8java" startline="138">desmoj.core.simulator.QueueBased.FIFO</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa9bf84914edf1b1f05e5e4c265f25271" compoundref="_work_station_8java" startline="63">desmoj.extensions.applicationDomains.production.WorkStation.slavesRefused</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a8a40de6bc29edc59275976cb98cf463d" compoundref="_work_station_8java" startline="1398" endline="1409">desmoj.extensions.applicationDomains.production.WorkStation.reset</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab6139a9d4ece5583123f7ba489880d32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.applicationDomains.production.WorkStation.WorkStation</definition>
+        <argsstring>(Model owner, String name, PartsList partsList, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>WorkStation</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></type>
+          <declname>partsList</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>. Actually there are two waiting-queues constructed, one internal <computeroutput>QueueList</computeroutput> for the masters (like <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker" kindref="compound">Worker</ref></computeroutput> s or <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process" kindref="compound">MachineProcess</ref></computeroutput> es) and one separate <computeroutput>ProcessQueue</computeroutput> for the slave processes (the parts or goods or products). Both queues have a FIFO sort order and no capacity limit.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>partsList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.PartsList : The list of parts determining the kind and number of parts needed at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> to start processing them here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> should produce a report or not. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if trace messages of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> should be displayed in the trace file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="280" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="280" bodyend="326"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad08c161aee8c10cbdb040abee336771c" compoundref="_work_station_8java" startline="44">desmoj.extensions.applicationDomains.production.WorkStation.masterQueue</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa9bf84914edf1b1f05e5e4c265f25271" compoundref="_work_station_8java" startline="63">desmoj.extensions.applicationDomains.production.WorkStation.slavesRefused</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a8a40de6bc29edc59275976cb98cf463d" compoundref="_work_station_8java" startline="1398" endline="1409">desmoj.extensions.applicationDomains.production.WorkStation.reset</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a85a4620a65751bdf683c48eb580a7085" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized boolean</type>
+        <definition>synchronized boolean desmoj.extensions.applicationDomains.production.WorkStation.allPartsAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>allPartsAvailable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if all parts listed in the parts list are available at the moment. If all needed partes are available the processing process at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> can start.</para><para><simplesect kind="return"><para>boolean :<computeroutput>true</computeroutput>, if all parts listed in the parts list are available at the moment. <computeroutput>false</computeroutput> otherwise </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="419" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="419" bodyend="431"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" compoundref="_queue_based_8java" startline="350" endline="354">desmoj.core.simulator.QueueBased.length</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list_1a2c9e2614c9e6077e8ea4884d2e568ddd" compoundref="_parts_list_8java" startline="315" endline="331">desmoj.extensions.applicationDomains.production.PartsList.getQuantityOfPart</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a27ea011578879d1999db9d0bbadefb01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+        <definition>SimProcess desmoj.extensions.applicationDomains.production.WorkStation.availMaster</definition>
+        <argsstring>(Condition cond)</argsstring>
+        <name>availMaster</name>
+        <param>
+          <type>Condition</type>
+          <declname>cond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the master process waiting in the master queue and complying to the given condition. If there is no such master process waiting <computeroutput>null</computeroutput> is returned.</para><para><simplesect kind="return"><para>SimProcess : Returns the first master process in the master queue which complies to the given condition. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The Condition <computeroutput>cond</computeroutput> is describing the condition to which the master process must comply to. This has to be implemented by the user in the class: <computeroutput>Condition</computeroutput> in the method: <computeroutput>check()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="446" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="446" bodyend="476"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" compoundref="_work_station_8java" startline="77">desmoj.extensions.applicationDomains.production.WorkStation.where</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" compoundref="_model_component_8java" startline="173" endline="177">desmoj.core.simulator.ModelComponent.currentSimProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" compoundref="_work_station_8java" startline="604" endline="632">desmoj.extensions.applicationDomains.production.WorkStation.checkProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad5a34e06e7f646f0d8505cee06dfbc92" compoundref="_work_station_8java" startline="563" endline="591">desmoj.extensions.applicationDomains.production.WorkStation.checkCondition</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad08c161aee8c10cbdb040abee336771c" compoundref="_work_station_8java" startline="44">desmoj.extensions.applicationDomains.production.WorkStation.masterQueue</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a3f0c46d4aab207b0250e6554d079abf5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>[]</type>
+        <definition>SimProcess [] desmoj.extensions.applicationDomains.production.WorkStation.availSlaves</definition>
+        <argsstring>(Class kind, Condition cond)</argsstring>
+        <name>availSlaves</name>
+        <param>
+          <type>Class</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>Condition</type>
+          <declname>cond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array containing the slave processes of the given kind waiting in their queue and complying to the given condition. If there are no such slaves waiting at the moment <computeroutput>null</computeroutput> will be returned.</para><para><simplesect kind="return"><para>SimProcess[] : Returns all the slave processes of the given kind that are complying to the given condition. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Class : The Class specifying of which kind the processes have to be, we are looking for. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The Condition <computeroutput>cond</computeroutput> is describing the condition to which the slave processes must comply to. This has to be implemented by the user in the class: <computeroutput>Condition</computeroutput> in the method: <computeroutput>check()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="494" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="494" bodyend="550"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" compoundref="_work_station_8java" startline="77">desmoj.extensions.applicationDomains.production.WorkStation.where</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad5a34e06e7f646f0d8505cee06dfbc92" compoundref="_work_station_8java" startline="563" endline="591">desmoj.extensions.applicationDomains.production.WorkStation.checkCondition</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aefc244bb6741d494923ab710140ea6dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref></type>
+        <definition>Reporter desmoj.extensions.applicationDomains.production.WorkStation.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <reimplements refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a2e84c8f20fbf625475d4764c03e5a249">createReporter</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a Reporter to produce a report about this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>.</para><para><simplesect kind="return"><para>desmoj.report.Reporter : The Reporter for the queues inside this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="640" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="640" bodyend="645"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a560d0eaa340bcf63b18e3e97e0029f77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String desmoj.extensions.applicationDomains.production.WorkStation.getMQueueStrategy</definition>
+        <argsstring>()</argsstring>
+        <name>getMQueueStrategy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the implemented queueing discipline of the underlying master queue as a String, so it can be displayed in the report.</para><para><simplesect kind="return"><para>String : The String indicating the queueing discipline. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="747" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="747" bodyend="750"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1af07c8c17ea3dd9f5e0c0b37ef5fc73f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.getMRefused</definition>
+        <argsstring>()</argsstring>
+        <name>getMRefused</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of entities refused to be enqueued in the master queue, because the capacity limit is reached.</para><para><simplesect kind="return"><para>long : The number of entities refused to be enqueued in the master queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="759" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="759" bodyend="762"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab9a1e4d8e600c5066d580fdf116fe3bd" compoundref="_work_station_8java" startline="57">desmoj.extensions.applicationDomains.production.WorkStation.mRefused</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a9a53c9c55af81c7a66e436018cf84a3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int desmoj.extensions.applicationDomains.production.WorkStation.getNumOfParts</definition>
+        <argsstring>()</argsstring>
+        <name>getNumOfParts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of different kinds of parts needed for processing these parts at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>.</para><para><simplesect kind="return"><para>int : The number of different kinds of parts needed for processing these parts at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="771" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="771" bodyend="773"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1abed0aec4fff429019a192ed1f8a2e532" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></type>
+        <definition>PartsList desmoj.extensions.applicationDomains.production.WorkStation.getPartsList</definition>
+        <argsstring>()</argsstring>
+        <name>getPartsList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the parts list of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>. That is the list listing all the different parts with their quantities needed to start the processing process at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref>.</para><para><simplesect kind="return"><para>desmoj.PartsList : The parts list of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="782" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="782" bodyend="784"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa6324ade74ac82502b4b3339223ff54a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ProcessQueue&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;[]</type>
+        <definition>ProcessQueue&lt;SimProcess&gt; [] desmoj.extensions.applicationDomains.production.WorkStation.getSlaveQueues</definition>
+        <argsstring>()</argsstring>
+        <name>getSlaveQueues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array of <computeroutput>ProcessQueue</computeroutput> s where the waiting slaves are stored.</para><para><simplesect kind="return"><para>ProcessQueue[] : An array of <computeroutput>ProcessQueue</computeroutput> s where the slaves are waiting on masters to cooperate with. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="793" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="793" bodyend="795"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a881705553e01b42f4e1042ecbf6001e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String desmoj.extensions.applicationDomains.production.WorkStation.getSQueueStrategy</definition>
+        <argsstring>(int index)</argsstring>
+        <name>getSQueueStrategy</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the implemented queueing discipline of the underlying slave queue at the given index as a String, so it can be displayed in the report. To get the index for the kind of part in question use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>.</para><para><simplesect kind="return"><para>java.lang.String : The String indicating the queueing discipline. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The index of the kind of parts we want to get the queueing discipline from. To get that index use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="809" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="809" bodyend="812"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2c9965e458e68a78309ce349a59627ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.getSRefused</definition>
+        <argsstring>(int index)</argsstring>
+        <name>getSRefused</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of entities refused to be enqueued in the slave&apos;s queue, indicated by the index, because the capacity limit is reached.</para><para><simplesect kind="return"><para>long : The number of entities refused to be enqueued in the slave&apos;s queue indicated by the index. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part for which we want to know its numbr of refused attempts to enqueue new processes. To get the index of a certain kind of part use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="826" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="826" bodyend="829"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa9bf84914edf1b1f05e5e4c265f25271" compoundref="_work_station_8java" startline="63">desmoj.extensions.applicationDomains.production.WorkStation.slavesRefused</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aee6d559026b3850a041dedb29d837f7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.production.WorkStation.mAverageLength</definition>
+        <argsstring>()</argsstring>
+        <name>mAverageLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the average length of the underlying master queue since the last reset. If the time span since the last reset is smaller than the smallest distinguishable timespan epsilon, the current length of the master queue will be returned.</para><para><simplesect kind="return"><para>double : The average master queue length since last reset or current length of the master queue if no distinguishable periode of time has passed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="841" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="841" bodyend="843"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fe5490ee8b4b97283dd14ddf2c3bf73" compoundref="_queue_based_8java" startline="223" endline="246">desmoj.core.simulator.QueueBased.averageLength</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aae65195c78963640e6337e209b3aded9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.extensions.applicationDomains.production.WorkStation.mAverageWaitTime</definition>
+        <argsstring>()</argsstring>
+        <name>mAverageWaitTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the average waiting time of all processes who have exited the master queue. Value is valid for the time span since the last reset. Returns 0 (zero) if no process have exited the master queue after the last reset.</para><para><simplesect kind="return"><para>TimeSpan : Average waiting time of all processes since last reset or 0 if no process has exited the master queue </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="854" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="854" bodyend="857"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3f14e0a00eee2105755f45bd18db345b" compoundref="_queue_based_8java" startline="254" endline="266">desmoj.core.simulator.QueueBased.averageWaitTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a732824b1fe2d401886845f749530a0ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.WorkStation.mIsEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>mIsEmpty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a boolean value indicating if the master queue is empty or if any number of SimProcess is currently enqueued in it.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the master queue is empty, <computeroutput>false</computeroutput> otherwise </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="866" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="866" bodyend="868"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a82a1d574396ea7b4e49e9c977a57d677" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.mLength</definition>
+        <argsstring>()</argsstring>
+        <name>mLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current length of the master queue.</para><para><simplesect kind="return"><para>long : The current master queue length </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="875" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="875" bodyend="877"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" compoundref="_queue_based_8java" startline="350" endline="354">desmoj.core.simulator.QueueBased.length</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a52cf1dded7a7c193d5a13c8be2605887" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.mMaxLength</definition>
+        <argsstring>()</argsstring>
+        <name>mMaxLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the maximum length of the underlying master queue since the last reset.</para><para><simplesect kind="return"><para>long : The maximum master queue length since the last reset. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="885" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="885" bodyend="887"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ae3d7503eeef122e1cadd7bed59b40a52" compoundref="_queue_based_8java" startline="361" endline="365">desmoj.core.simulator.QueueBased.maxLength</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a887cab31b570cc9da48698ce1b0cfd3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeInstant</type>
+        <definition>TimeInstant desmoj.extensions.applicationDomains.production.WorkStation.mMaxLengthAt</definition>
+        <argsstring>()</argsstring>
+        <name>mMaxLengthAt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the point of simulation time with the maximum number of Sim-processes waiting inside the underlying master queue. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>desmoj.SimTime : Point of time with maximum master queue length since the last reset. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="897" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="897" bodyend="899"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9a6fb6c1900ca0afa9b92bffcede1f1" compoundref="_queue_based_8java" startline="373" endline="377">desmoj.core.simulator.QueueBased.maxLengthAt</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a056ee7741ea8f9ad1ad193d53f5d1aec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.extensions.applicationDomains.production.WorkStation.mMaxWaitTime</definition>
+        <argsstring>()</argsstring>
+        <name>mMaxWaitTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the maximum duration in simulation time that an process has spent waiting inside the underlying master queue. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>desmoj.core.TimeSpan : Longest waiting time of a process in the master queue since the last reset. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="909" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="909" bodyend="911"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9b6e0712082ec19d05eb40d8f8e9d95" compoundref="_queue_based_8java" startline="385" endline="389">desmoj.core.simulator.QueueBased.maxWaitTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2a4c10904531c91cfeb951f5b8d5fca3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeInstant</type>
+        <definition>TimeInstant desmoj.extensions.applicationDomains.production.WorkStation.mMaxWaitTimeAt</definition>
+        <argsstring>()</argsstring>
+        <name>mMaxWaitTimeAt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the point of simulation time when the process with the maximum waiting time exited the underlying master queue. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>desmoj.core.TimeInstant : The point of simulation time when the process with the maximum waiting time exited the master queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="921" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="921" bodyend="923"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fb151320bc886571d70149ab429b49d" compoundref="_queue_based_8java" startline="397" endline="401">desmoj.core.simulator.QueueBased.maxWaitTimeAt</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc7d156b93059ddfa620b57dff079241" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.mMinLength</definition>
+        <argsstring>()</argsstring>
+        <name>mMinLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the minimumn length of the underlying master queue since the last reset.</para><para><simplesect kind="return"><para>long : The minimum master queue length since the last reset. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="931" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="931" bodyend="933"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a5315117b6e8cd502879d6ab94e2653fe" compoundref="_queue_based_8java" startline="408" endline="412">desmoj.core.simulator.QueueBased.minLength</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0e9277b961eb82810f975cfe78d3ef1f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeInstant</type>
+        <definition>TimeInstant desmoj.extensions.applicationDomains.production.WorkStation.mMinLengthAt</definition>
+        <argsstring>()</argsstring>
+        <name>mMinLengthAt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the point of simulation time with the minimum number of processes waiting inside the underlying master queue. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>desmoj.core.TimeInstant : Point of time with minimum master queue length since the last reset. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="943" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="943" bodyend="945"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aa7e209d871686741f7dcc5af156ddd83" compoundref="_queue_based_8java" startline="420" endline="424">desmoj.core.simulator.QueueBased.minLengthAt</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a4ab34ac01aa349b18d11317db260f4b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.production.WorkStation.mStdDevLength</definition>
+        <argsstring>()</argsstring>
+        <name>mStdDevLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the standard deviation of the master queue&apos;s length. Value is weighted over time.</para><para><simplesect kind="return"><para>double : The standard deviation for the master queue&apos;s length weighted over time. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="954" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="954" bodyend="956"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a461a97e743cd8d7c7f3fc1596ef92a2f" compoundref="_queue_based_8java" startline="481" endline="502">desmoj.core.simulator.QueueBased.stdDevLength</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a59e031b0417f0085722ff7d602d20f12" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.extensions.applicationDomains.production.WorkStation.mStdDevWaitTime</definition>
+        <argsstring>()</argsstring>
+        <name>mStdDevWaitTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the standard deviation of the master queue&apos;s processes waiting times.</para><para><simplesect kind="return"><para>desmoj.core.TimeSpan : The standard deviation for the master queue&apos;s processes waiting times. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="965" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="965" bodyend="967"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aeebbbebc1fb5f5054aaa71d61b708358" compoundref="_queue_based_8java" startline="509" endline="524">desmoj.core.simulator.QueueBased.stdDevWaitTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a7be1d5c3f38076b13aec7a9d53df35f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.mZeroWaits</definition>
+        <argsstring>()</argsstring>
+        <name>mZeroWaits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of processes that have passed through the master queue without spending time waiting.</para><para><simplesect kind="return"><para>long : The number of processes who have passed the master queue without waiting </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="976" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="976" bodyend="978"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a371b24e5676321a34c1a8ee59a7f6a45" compoundref="_queue_based_8java" startline="550" endline="554">desmoj.core.simulator.QueueBased.zeroWaits</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad88c0ae5a308cb0cf551cdca678a2993" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.WorkStation.process</definition>
+        <argsstring>(Processing process)</argsstring>
+        <name>process</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing" kindref="compound">Processing</ref></type>
+          <declname>process</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is to be called from a <computeroutput>SimProcess</computeroutput> which wants to process the other parts (slaves) as a master . It should be a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker" kindref="compound">Worker</ref></computeroutput> or a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process" kindref="compound">MachineProcess</ref></computeroutput>. But any other kind of <computeroutput>SimProcess</computeroutput> will do, too, but produce a warning. If no suitable or not enough slave processes are available at the moment, the master process will be stored in the master waiting-queue, until enough suitable slaves are available. If the capacity limit of the master queue is reached, the process will not be enqueued and <computeroutput>false</computeroutput> returned. When enough suitable slaves are available, their <computeroutput>cooperate</computeroutput> method (in the class <computeroutput>SimProcess</computeroutput>) will be called. During the processing the master process is the only active one. The slave processes are passive and will be reactivated after the processing is done.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process can be enqueued successfully in the master queue, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the master queue is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>process</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing" kindref="compound">Processing</ref> : The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing" kindref="compound">Processing</ref> process is describing the joint action of the two processes. The processing to be carried out has to be implemented by the user in the class or subclass of <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing" kindref="compound">Processing</ref></computeroutput> in the method: <computeroutput>cooperation()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1005" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1005" bodyend="1140"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" compoundref="_work_station_8java" startline="77">desmoj.extensions.applicationDomains.production.WorkStation.where</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" compoundref="_model_component_8java" startline="288" endline="294">desmoj.core.simulator.ModelComponent.isModelCompatible</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" compoundref="_model_component_8java" startline="173" endline="177">desmoj.core.simulator.ModelComponent.currentSimProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" compoundref="_work_station_8java" startline="604" endline="632">desmoj.extensions.applicationDomains.production.WorkStation.checkProcess</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aaec6c34c002dc7b42f90f89b40208dc3" compoundref="_queue_based_8java" startline="155">desmoj.core.simulator.QueueBased.queueLimit</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" compoundref="_queue_based_8java" startline="350" endline="354">desmoj.core.simulator.QueueBased.length</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" compoundref="_model_component_8java" startline="325" endline="327">desmoj.core.simulator.ModelComponent.currentlySendDebugNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" compoundref="_model_component_8java" startline="309" endline="317">desmoj.core.simulator.ModelComponent.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" compoundref="_model_component_8java" startline="410" endline="412">desmoj.core.simulator.ModelComponent.currentlySendTraceNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" compoundref="_model_component_8java" startline="388" endline="402">desmoj.core.simulator.ModelComponent.sendTraceNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a31c3c86b4383672c4fbe2e62f2fa422f" compoundref="_queue_based_8java" startline="341" endline="343">desmoj.core.simulator.QueueBased.getQueueLimit</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab9a1e4d8e600c5066d580fdf116fe3bd" compoundref="_work_station_8java" startline="57">desmoj.extensions.applicationDomains.production.WorkStation.mRefused</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a85a4620a65751bdf683c48eb580a7085" compoundref="_work_station_8java" startline="419" endline="431">desmoj.extensions.applicationDomains.production.WorkStation.allPartsAvailable</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad08c161aee8c10cbdb040abee336771c" compoundref="_work_station_8java" startline="44">desmoj.extensions.applicationDomains.production.WorkStation.masterQueue</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad2c2c57056af3faf86f8f7f6f37b99ae" compoundref="_work_station_8java" startline="374" endline="409">desmoj.extensions.applicationDomains.production.WorkStation.activateFirstMaster</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a4a87d992307378007ae80db0ab23c9e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.WorkStation.process</definition>
+        <argsstring>(Processing process, Class[] kinds, Condition[] conditions)</argsstring>
+        <name>process</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing" kindref="compound">Processing</ref></type>
+          <declname>process</declname>
+        </param>
+        <param>
+          <type>Class[]</type>
+          <declname>kinds</declname>
+        </param>
+        <param>
+          <type>Condition[]</type>
+          <declname>conditions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is to be called from a <computeroutput>SimProcess</computeroutput> which wants to process the other parts (slaves) as a master. For a <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> it should be a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker" kindref="compound">Worker</ref></computeroutput> or a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process" kindref="compound">MachineProcess</ref></computeroutput>. By using this method the master can determine some special slaves complying to certain conditions he would like to process. The <computeroutput>Class</computeroutput> array kinds must be a subset of the parts list and determines together with the <computeroutput>Condition</computeroutput> array (which must be of the same length) which kind of parts must comply to which condition so the master will cooperate with them. If no suitable or not enough slave processes are available at the moment, the master process will be stored in the master waiting-queue, until enough suitable slaves are available. If the capacity limit of the master queue is reached, the process will not be enqueued and <computeroutput>false</computeroutput> returned. When enough suitable slaves are available, their <computeroutput>cooperate</computeroutput> method (in the class <computeroutput>SimProcess</computeroutput>) will be called. During the cooperation the master process is the only active one. The slave processes are passive and will be reactivated after the cooperation is done.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process can be enqueued successfully, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the master queue is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>process</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Processing : The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing" kindref="compound">Processing</ref> process is describing the joint action of the master and slave processes. The processing to be carried out has to be implemented by the user in the class: <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_processing" kindref="compound">Processing</ref></computeroutput> in the method: <computeroutput>cooperation()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kinds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.Class[] : is specifying in conjunction with the array conditions which slaves have to comply to which conditions so the master will cooperate with them. Must be a subset of the parts list. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>conditions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Condition[] : is specifying in conjunction with the array kinds which slaves have to comply to which conditions so the master will cooperate with them. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1180" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1180" bodyend="1391"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" compoundref="_work_station_8java" startline="77">desmoj.extensions.applicationDomains.production.WorkStation.where</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" compoundref="_model_component_8java" startline="288" endline="294">desmoj.core.simulator.ModelComponent.isModelCompatible</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" compoundref="_model_component_8java" startline="173" endline="177">desmoj.core.simulator.ModelComponent.currentSimProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" compoundref="_work_station_8java" startline="604" endline="632">desmoj.extensions.applicationDomains.production.WorkStation.checkProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad5a34e06e7f646f0d8505cee06dfbc92" compoundref="_work_station_8java" startline="563" endline="591">desmoj.extensions.applicationDomains.production.WorkStation.checkCondition</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list_1a9356df703d58cdf46ac0faf81af2fab8" compoundref="_parts_list_8java" startline="215" endline="239">desmoj.extensions.applicationDomains.production.PartsList.getIndexOfKind</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aaec6c34c002dc7b42f90f89b40208dc3" compoundref="_queue_based_8java" startline="155">desmoj.core.simulator.QueueBased.queueLimit</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" compoundref="_queue_based_8java" startline="350" endline="354">desmoj.core.simulator.QueueBased.length</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" compoundref="_model_component_8java" startline="325" endline="327">desmoj.core.simulator.ModelComponent.currentlySendDebugNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" compoundref="_model_component_8java" startline="309" endline="317">desmoj.core.simulator.ModelComponent.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" compoundref="_model_component_8java" startline="410" endline="412">desmoj.core.simulator.ModelComponent.currentlySendTraceNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" compoundref="_model_component_8java" startline="388" endline="402">desmoj.core.simulator.ModelComponent.sendTraceNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a31c3c86b4383672c4fbe2e62f2fa422f" compoundref="_queue_based_8java" startline="341" endline="343">desmoj.core.simulator.QueueBased.getQueueLimit</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab9a1e4d8e600c5066d580fdf116fe3bd" compoundref="_work_station_8java" startline="57">desmoj.extensions.applicationDomains.production.WorkStation.mRefused</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a4f598b5f4bddc0d67b0590152ec07de2" compoundref="_work_station_8java" startline="668" endline="739">desmoj.extensions.applicationDomains.production.WorkStation.getAllSuitableSlaves</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a85a4620a65751bdf683c48eb580a7085" compoundref="_work_station_8java" startline="419" endline="431">desmoj.extensions.applicationDomains.production.WorkStation.allPartsAvailable</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad08c161aee8c10cbdb040abee336771c" compoundref="_work_station_8java" startline="44">desmoj.extensions.applicationDomains.production.WorkStation.masterQueue</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad2c2c57056af3faf86f8f7f6f37b99ae" compoundref="_work_station_8java" startline="374" endline="409">desmoj.extensions.applicationDomains.production.WorkStation.activateFirstMaster</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a468cb358018d29f361cc3341abc5a902" compoundref="_work_station_8java" startline="337" endline="369">desmoj.extensions.applicationDomains.production.WorkStation.activateAsNext</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a8a40de6bc29edc59275976cb98cf463d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.production.WorkStation.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets all statistical counters to their default values. Both, master queue and slave queues are reset. The mininum and maximum length of the queues are set to the current number of queued objects. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1398" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1398" bodyend="1409"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa9bf84914edf1b1f05e5e4c265f25271" compoundref="_work_station_8java" startline="63">desmoj.extensions.applicationDomains.production.WorkStation.slavesRefused</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab9a1e4d8e600c5066d580fdf116fe3bd" compoundref="_work_station_8java" startline="57">desmoj.extensions.applicationDomains.production.WorkStation.mRefused</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1af1e900c6ac951de1efbef0e38c8353b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.production.WorkStation.sAverageLength</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sAverageLength</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the average length of the slave queue at the given index since the last reset. If the time span since the last reset is smaller than the smallest distinguishable timespan epsilon, the current length of the slave queue will be returned.</para><para><simplesect kind="return"><para>double : The average length of the slave queue at the given index since last reset or current length of the slave queue at the given index if no distinguishable periode of time has passed. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its average length. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1426" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1426" bodyend="1429"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1afcbf71063c543e84bd41fc1e7009982c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.extensions.applicationDomains.production.WorkStation.sAverageWaitTime</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sAverageWaitTime</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the average waiting time of all processes who have exited the slave queue indicated by the index.. The returned value is valid for the time span since the last reset. Returns 0 (zero) if no process have exited this slave queue after the last reset.</para><para><simplesect kind="return"><para>TimeSpan : Average waiting time of all processes since last reset or 0 if no process has exited this slave queue. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its average waiting time. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1445" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1445" bodyend="1448"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adb65c80f587dbd1e792c8eaf63a67c8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.production.WorkStation.setSQueueCapacity</definition>
+        <argsstring>(int index, int newCapacity)</argsstring>
+        <name>setSQueueCapacity</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the capacity of the given slave queue to a new value. But only if the new capacity is equal or larger than the current length of that slave queue! To get the index of the slave queue for which the capacity sould be changed use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The index indicating the slave queue for which the capacity will be changed. To get that index one can use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The new capacity of the slave queue indicated by the index. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1466" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1466" bodyend="1506"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a407bd1b472fa7fdb7698ede118ce1114" compoundref="_work_station_8java" startline="1617" endline="1620">desmoj.extensions.applicationDomains.production.WorkStation.sLength</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a66432897a028d39429d41e03b51b1863" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.production.WorkStation.setSQueueStrategy</definition>
+        <argsstring>(int index, int sortOrder)</argsstring>
+        <name>setSQueueStrategy</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sortOrder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the queueing discipline for the underlying slave queue at the given index. The sort order of the given slave queue can only be changed if it is empty! To get the index for the kind of part for which the queueing discipline should be changed use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. Please choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> to determine the sort order.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The index of the kind of parts for which the queueing discipline should be changed. To get that index one can use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying slave queues implementation at the given index. Choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1528" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1528" bodyend="1587"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a7772d117bed94909106bb32e96d9ed2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.WorkStation.sIsEmpty</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sIsEmpty</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a boolean value indicating if the slave queue indicated by the index is empty or if any SimProcess is currently enqueued in it.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the indicated slave queue is empty, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know if its wait queue is empty or not. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1601" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1601" bodyend="1604"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a407bd1b472fa7fdb7698ede118ce1114" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.sLength</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sLength</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current length of the slave queue indicated by the index.</para><para><simplesect kind="return"><para>long : The current length of the slave queue indicated by the index. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its current queue length. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1617" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1617" bodyend="1620"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2a9fed5f40e643da6c04633053770412" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.sMaxLength</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sMaxLength</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the maximum length of the slave queue indicated by the index since the last reset.</para><para><simplesect kind="return"><para>long : The maximum length of the indicated slave queue since the last reset. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its maximum length of the queue. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1634" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1634" bodyend="1637"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a18e3ada4b2193e32f908ab43d67ff4a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeInstant</type>
+        <definition>TimeInstant desmoj.extensions.applicationDomains.production.WorkStation.sMaxLengthAt</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sMaxLengthAt</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the point of simulation time with the maximum number of Sim-processes waiting inside the slave queue indicated by the index. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>TimeInstant : Point of simulation time when the indicated slave queue had its maximum length since the last reset. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know when it had its maximum wait queue length. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1652" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1652" bodyend="1657"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a892f0c20180bf6549b3b58c3bd659d54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.extensions.applicationDomains.production.WorkStation.sMaxWaitTime</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sMaxWaitTime</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the maximum duration in simulation time that an process has spent waiting inside the slave queue indicated by the index. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>desmoj.core.TimeSpan : Longest waiting time of a process in the slave queue since the last reset. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its maximum waiting time. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1672" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1672" bodyend="1674"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a857604e741fe95777e62d7b891d6778f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeInstant</type>
+        <definition>TimeInstant desmoj.extensions.applicationDomains.production.WorkStation.sMaxWaitTimeAt</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sMaxWaitTimeAt</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the point of simulation time when the process with the maximum waiting time exited the slave queue indicated by the index. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>desmoj.core.TimeInstant : The point of simulation time when the process with the maximum waiting time exited the slave queue. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know the point of simulation time when the process with the maximum waiting time exited the slave queue. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1690" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1690" bodyend="1692"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1af72cbd92a3bf6a939525a0849927b0b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.sMinLength</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sMinLength</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the minimumn length of the slave queue indicated by the index since the last reset.</para><para><simplesect kind="return"><para>long : The minimum slave queue length since the last reset. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its minimum wait queue length. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1705" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1705" bodyend="1707"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a22bd1457046c41cda9e26f7bf96a0879" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeInstant</type>
+        <definition>TimeInstant desmoj.extensions.applicationDomains.production.WorkStation.sMinLengthAt</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sMinLengthAt</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the point of simulation time with the minimum number of processes waiting inside the slave queue indicated by the index. The value is valid for the period since the last reset.</para><para><simplesect kind="return"><para>desmoj.core.TimeInstant : Point of time with minimum slave queue length since the last reset. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know the point of simulation time with the minimum number of processes waiting inside this slave queue. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1723" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1723" bodyend="1725"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a3ab982ebbe66d5b090a9e22406483610" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.extensions.applicationDomains.production.WorkStation.sStdDevLength</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sStdDevLength</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the standard deviation of the length of the slave queue indicated by the index. The value is weighted over time.</para><para><simplesect kind="return"><para>double : The standard deviation for the slave queue&apos;s length weighted over time. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its standard deviation of the length of his queue. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1739" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1739" bodyend="1741"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a192126a4cdbc1214846118bae2588194" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.extensions.applicationDomains.production.WorkStation.sStdDevWaitTime</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sStdDevWaitTime</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the standard deviation of the slave queue&apos;s processes waiting times. The slave queue is indicated by the index.</para><para><simplesect kind="return"><para>TimeSpan : The standard deviation for the slave queue&apos;s processes waiting times. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know its standard deviation of process waiting times. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1755" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1755" bodyend="1757"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab996691baa9ba76adf8629d30277d295" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.applicationDomains.production.WorkStation.sZeroWaits</definition>
+        <argsstring>(int index)</argsstring>
+        <name>sZeroWaits</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of processes that have passed through the slave queue indicated by the index without spending time waiting.</para><para><simplesect kind="return"><para>long : The number of processes who have passed the slave queue without time waiting. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : Indicating the kind of part (slave) for which we want to know how many parts hav elef tthe queue without time spent waiting. To get the index of a certain kind of part (slave) use the method <computeroutput>getIndexOfKind()</computeroutput> of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1772" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1772" bodyend="1774"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2b250e5c3bed3765b653ed2b245c80d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.WorkStation.waitOnProcessing</definition>
+        <argsstring>()</argsstring>
+        <name>waitOnProcessing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called from a sim-process (part or product) which wants to be processed at this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> as a slave. If no suitable master process and enough other slave processes are available at the moment, this slave process will be stored in its slave queue, until a suitable master and enough other parts (or products) are available to start the manufacturing (processing) process. If the capacity limit of tis slave queue is reached, the process will not be enqueued and <computeroutput>false</computeroutput> returned. During the cooperation the master process is the only active one. The slave processes are passive and will be reactivated after the cooperation is done.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process can be enqueued successfully, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the slave queue is reached). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="1792" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="1792" bodyend="1862"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" compoundref="_work_station_8java" startline="77">desmoj.extensions.applicationDomains.production.WorkStation.where</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" compoundref="_model_component_8java" startline="173" endline="177">desmoj.core.simulator.ModelComponent.currentSimProcess</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" compoundref="_work_station_8java" startline="604" endline="632">desmoj.extensions.applicationDomains.production.WorkStation.checkProcess</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process_1a9d52350fd6a43ba84485c3bd3dd6435c" compoundref="_sim_process_8java" startline="772" endline="774">desmoj.core.simulator.SimProcess.getSlaveWaitQueue</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" compoundref="_model_component_8java" startline="325" endline="327">desmoj.core.simulator.ModelComponent.currentlySendDebugNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" compoundref="_model_component_8java" startline="309" endline="317">desmoj.core.simulator.ModelComponent.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" compoundref="_model_component_8java" startline="410" endline="412">desmoj.core.simulator.ModelComponent.currentlySendTraceNotes</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" compoundref="_model_component_8java" startline="388" endline="402">desmoj.core.simulator.ModelComponent.sendTraceNote</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa9bf84914edf1b1f05e5e4c265f25271" compoundref="_work_station_8java" startline="63">desmoj.extensions.applicationDomains.production.WorkStation.slavesRefused</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" compoundref="_queue_based_8java" startline="350" endline="354">desmoj.core.simulator.QueueBased.length</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad2c2c57056af3faf86f8f7f6f37b99ae" compoundref="_work_station_8java" startline="374" endline="409">desmoj.extensions.applicationDomains.production.WorkStation.activateFirstMaster</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a468cb358018d29f361cc3341abc5a902" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.production.WorkStation.activateAsNext</definition>
+        <argsstring>(SimProcess process)</argsstring>
+        <name>activateAsNext</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>process</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Activates the <computeroutput>SimProcess</computeroutput>, given as a parameter of this method, as the next process. This process should be a master process waiting in the master wait queue.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>process</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SimProcess : The process that is to be activated as next. Should be a master process. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="337" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="337" bodyend="369"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" compoundref="_work_station_8java" startline="77">desmoj.extensions.applicationDomains.production.WorkStation.where</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" compoundref="_work_station_8java" startline="604" endline="632">desmoj.extensions.applicationDomains.production.WorkStation.checkProcess</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" compoundref="_model_component_8java" startline="98" endline="102">desmoj.core.simulator.ModelComponent.current</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad2c2c57056af3faf86f8f7f6f37b99ae" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.production.WorkStation.activateFirstMaster</definition>
+        <argsstring>()</argsstring>
+        <name>activateFirstMaster</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Activates the first master process in the master waiting-queue. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="374" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="374" bodyend="409"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" compoundref="_work_station_8java" startline="77">desmoj.extensions.applicationDomains.production.WorkStation.where</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" compoundref="_work_station_8java" startline="604" endline="632">desmoj.extensions.applicationDomains.production.WorkStation.checkProcess</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" compoundref="_model_component_8java" startline="98" endline="102">desmoj.core.simulator.ModelComponent.current</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad5a34e06e7f646f0d8505cee06dfbc92" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.WorkStation.checkCondition</definition>
+        <argsstring>(Condition cond, String where)</argsstring>
+        <name>checkCondition</name>
+        <param>
+          <type>Condition</type>
+          <declname>cond</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the given condition is valid and compatible with the model.</para><para><simplesect kind="return"><para>boolean : Returns whether the Condition is valid or not. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : Is this Condition a valid one? </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String : The String representation of the method where this check takes place. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="563" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="563" bodyend="591"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" compoundref="_model_component_8java" startline="288" endline="294">desmoj.core.simulator.ModelComponent.isModelCompatible</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.WorkStation.checkProcess</definition>
+        <argsstring>(SimProcess p, String where)</argsstring>
+        <name>checkProcess</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the process trying to cooperate as a master or a slave is a valid SimProcess.</para><para><simplesect kind="return"><para>boolean : Returns whether the sim-process is valid or not. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SimProcess : Is this SimProcess a valid one? </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String : The String representation of the method where this check takes place. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="604" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="604" bodyend="632"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" compoundref="_model_component_8java" startline="288" endline="294">desmoj.core.simulator.ModelComponent.isModelCompatible</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a4f598b5f4bddc0d67b0590152ec07de2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>[]</type>
+        <definition>SimProcess [] desmoj.extensions.applicationDomains.production.WorkStation.getAllSuitableSlaves</definition>
+        <argsstring>(Class[] kinds, Condition[] conditions)</argsstring>
+        <name>getAllSuitableSlaves</name>
+        <param>
+          <type>Class[]</type>
+          <declname>kinds</declname>
+        </param>
+        <param>
+          <type>Condition[]</type>
+          <declname>conditions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array of all the slave processes needed to start the processing which are available and comply to the conditions given in the parameters. If no or not enough suitable slaves are available <computeroutput>null</computeroutput> will be returned.</para><para><simplesect kind="return"><para>desmoj.SimProcess[] : An array of all the slave processes which are available and comply to the conditions given in the parameters and are needed to start the processing. If not enough of all of them are available <computeroutput>null</computeroutput> will be returned. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kinds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.Class[] : This array is specifying in conjunction with the array conditions which slaves have to comply to which conditions so the master will cooperate with them. Must be a subset of the parts list. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>conditions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Condition[] : This array is specifying in conjunction with the array kinds which slaves have to comply to which conditions so the master will cooperate with them. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="668" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="668" bodyend="739"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list_1a0c456f7660962c97e019d3844f2bb774" compoundref="_parts_list_8java" startline="252" endline="268">desmoj.extensions.applicationDomains.production.PartsList.getKindOfPart</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a3f0c46d4aab207b0250e6554d079abf5" compoundref="_work_station_8java" startline="494" endline="550">desmoj.extensions.applicationDomains.production.WorkStation.availSlaves</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list_1a2c9e2614c9e6077e8ea4884d2e568ddd" compoundref="_parts_list_8java" startline="315" endline="331">desmoj.extensions.applicationDomains.production.PartsList.getQuantityOfPart</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" compoundref="_work_station_8java" startline="51">desmoj.extensions.applicationDomains.production.WorkStation.slaveQueues</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" compoundref="_queue_based_8java" startline="350" endline="354">desmoj.core.simulator.QueueBased.length</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station" kindref="compound">WorkStation</ref> is the place, where products (parts) are processed by a machine or parts are assembled by a worker or machine. The list of parts needed for this process are provided by means of a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">PartsList</ref></computeroutput>.</para><para><simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">desmoj.core.simulator.QueueBased</ref> </para><simplesectsep/><para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_parts_list" kindref="compound">desmoj.extensions.applicationDomains.production.PartsList</ref></para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Soenke Claassen</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="12004">
+        <label>desmoj::core::observer::Subject&lt; QueueBased, QueueAction &gt;</label>
+      </node>
+      <node id="12001">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="12002" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11999">
+        <label>desmoj.extensions.applicationDomains.production.WorkStation</label>
+        <link refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station"/>
+        <childnode refid="12000" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12003">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="12002">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="12003" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12000">
+        <label>desmoj.core.simulator.QueueBased</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based"/>
+        <childnode refid="12001" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12004" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="12011">
+        <label>QueueList&lt; desmoj.core.simulator.SimProcess &gt;</label>
+      </node>
+      <node id="12010">
+        <label>desmoj::core::observer::Subject&lt; QueueBased, QueueAction &gt;</label>
+      </node>
+      <node id="12012">
+        <label>ProcessQueue&lt; desmoj.core.simulator.SimProcess &gt;</label>
+      </node>
+      <node id="12007">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="12008" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12005">
+        <label>desmoj.extensions.applicationDomains.production.WorkStation</label>
+        <link refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station"/>
+        <childnode refid="12006" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12011" relation="usage">
+          <edgelabel>masterQueue</edgelabel>
+        </childnode>
+        <childnode refid="12012" relation="usage">
+          <edgelabel>slaveQueues</edgelabel>
+        </childnode>
+      </node>
+      <node id="12009">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="12008">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="12009" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12006">
+        <label>desmoj.core.simulator.QueueBased</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based"/>
+        <childnode refid="12007" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12010" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" line="31" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/WorkStation.java" bodystart="31" bodyend="1863"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a468cb358018d29f361cc3341abc5a902" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>activateAsNext</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad2c2c57056af3faf86f8f7f6f37b99ae" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>activateFirstMaster</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a228dcc2954674a0c0207c5d87b1902c9" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>addItem</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a5d97d0eb15a51637fe2e0e039776ff43" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>addObserver</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a85a4620a65751bdf683c48eb580a7085" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>allPartsAvailable</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a27ea011578879d1999db9d0bbadefb01" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>availMaster</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a3f0c46d4aab207b0250e6554d079abf5" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>availSlaves</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fe5490ee8b4b97283dd14ddf2c3bf73" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>averageLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3f14e0a00eee2105755f45bd18db345b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>averageWaitTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad5a34e06e7f646f0d8505cee06dfbc92" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>checkCondition</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc958c5fc97926f4a6634d434a69084f" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>checkProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aefc244bb6741d494923ab710140ea6dc" prot="public" virt="virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a9eb8dd37c34964335719390c9899d773" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>deleteItem</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ab6889531700a179e3c4d5603ce8b0267" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>deleteObserver</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>FIFO</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a4f598b5f4bddc0d67b0590152ec07de2" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getAllSuitableSlaves</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a560d0eaa340bcf63b18e3e97e0029f77" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getMQueueStrategy</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1af07c8c17ea3dd9f5e0c0b37ef5fc73f7" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getMRefused</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a9a53c9c55af81c7a66e436018cf84a3a" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getNumOfParts</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1abed0aec4fff429019a192ed1f8a2e532" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getPartsList</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a31c3c86b4383672c4fbe2e62f2fa422f" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getQueueLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa6324ade74ac82502b4b3339223ff54a" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getSlaveQueues</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a881705553e01b42f4e1042ecbf6001e6" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getSQueueStrategy</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2c9965e458e68a78309ce349a59627ce" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>getSRefused</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>length</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>LIFO</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad08c161aee8c10cbdb040abee336771c" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>masterQueue</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aee6d559026b3850a041dedb29d837f7d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mAverageLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aae65195c78963640e6337e209b3aded9" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mAverageWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ae3d7503eeef122e1cadd7bed59b40a52" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>maxLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9a6fb6c1900ca0afa9b92bffcede1f1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>maxLengthAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9b6e0712082ec19d05eb40d8f8e9d95" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>maxWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fb151320bc886571d70149ab429b49d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>maxWaitTimeAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a5315117b6e8cd502879d6ab94e2653fe" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>minLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aa7e209d871686741f7dcc5af156ddd83" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>minLengthAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a732824b1fe2d401886845f749530a0ea" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mIsEmpty</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a82a1d574396ea7b4e49e9c977a57d677" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a52cf1dded7a7c193d5a13c8be2605887" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mMaxLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a887cab31b570cc9da48698ce1b0cfd3e" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mMaxLengthAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a056ee7741ea8f9ad1ad193d53f5d1aec" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mMaxWaitTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2a4c10904531c91cfeb951f5b8d5fca3" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mMaxWaitTimeAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adc7d156b93059ddfa620b57dff079241" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mMinLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0e9277b961eb82810f975cfe78d3ef1f" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mMinLengthAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab9a1e4d8e600c5066d580fdf116fe3bd" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mRefused</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a4ab34ac01aa349b18d11317db260f4b7" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mStdDevLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a59e031b0417f0085722ff7d602d20f12" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mStdDevWaitTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a7be1d5c3f38076b13aec7a9d53df35f4" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>mZeroWaits</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a15b6374dcdf8d4207f714666b08181ed" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>notifyObservers</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1acb7c1808c821475d124c5b667b1c9b8e" prot="private" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>numOfParts</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a619e89245e2a707f14a3f94689cd4494" prot="private" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>partsList</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ad88c0ae5a308cb0cf551cdca678a2993" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>process</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a4a87d992307378007ae80db0ab23c9e6" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>process</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1af8d3586ec66b651675b529f3c4e0959f" prot="package" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>qImpWarn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a8d9c9825a806f8a873dd470a8e4afb3b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>QueueBased</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aaec6c34c002dc7b42f90f89b40208dc3" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>queueLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ab75f0cb4d842794c20f122ef35f351d3" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>RANDOM</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a8a40de6bc29edc59275976cb98cf463d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a692e70493310a8ece9cdef9d92e993bc" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1af1e900c6ac951de1efbef0e38c8353b0" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sAverageLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1afcbf71063c543e84bd41fc1e7009982c" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sAverageWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ae90bd940a68e9c31498ff056b10849f3" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>setQueueImpWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1adb65c80f587dbd1e792c8eaf63a67c8e" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>setSQueueCapacity</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a66432897a028d39429d41e03b51b1863" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>setSQueueStrategy</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a7772d117bed94909106bb32e96d9ed2d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sIsEmpty</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a21ee23b84ffb5d91b57f2fb91eed0a79" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>slaveQueues</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1aa9bf84914edf1b1f05e5e4c265f25271" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>slavesRefused</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a407bd1b472fa7fdb7698ede118ce1114" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2a9fed5f40e643da6c04633053770412" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sMaxLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a18e3ada4b2193e32f908ab43d67ff4a0" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sMaxLengthAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a892f0c20180bf6549b3b58c3bd659d54" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sMaxWaitTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a857604e741fe95777e62d7b891d6778f" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sMaxWaitTimeAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1af72cbd92a3bf6a939525a0849927b0b9" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sMinLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a22bd1457046c41cda9e26f7bf96a0879" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sMinLengthAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a3ab982ebbe66d5b090a9e22406483610" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sStdDevLength</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a192126a4cdbc1214846118bae2588194" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sStdDevWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a461a97e743cd8d7c7f3fc1596ef92a2f" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>stdDevLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aeebbbebc1fb5f5054aaa71d61b708358" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>stdDevWaitTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab996691baa9ba76adf8629d30277d295" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>sZeroWaits</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>traceOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a6313c9a30a034711ddb8caceac6f0430" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>UNDEFINED</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0c1d587b2483ce6391aa8c375fc42a45" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>updateStatistics</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a2b250e5c3bed3765b653ed2b245c80d6" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>waitOnProcessing</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a0c91a76bdaff218ec81cba17ec3a7dc1" prot="protected" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>where</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1a5a7deccd886a6405960d423043e3fcba" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>WorkStation</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_work_station_1ab6139a9d4ece5583123f7ba489880d32" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>WorkStation</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a371b24e5676321a34c1a8ee59a7f6a45" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::WorkStation</scope><name>zeroWaits</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

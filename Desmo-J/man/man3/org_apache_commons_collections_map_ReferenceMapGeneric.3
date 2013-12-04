@@ -1,0 +1,147 @@
+.TH "org.apache.commons.collections.map.ReferenceMapGeneric" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.collections.map.ReferenceMapGeneric \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.collections\&.map\&.AbstractReferenceMap\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReferenceMapGeneric\fP ()"
+.br
+.ti -1c
+.RI "\fBReferenceMapGeneric\fP (int \fBkeyType\fP, int \fBvalueType\fP)"
+.br
+.ti -1c
+.RI "\fBReferenceMapGeneric\fP (int \fBkeyType\fP, int \fBvalueType\fP, boolean \fBpurgeValues\fP)"
+.br
+.ti -1c
+.RI "\fBReferenceMapGeneric\fP (int \fBkeyType\fP, int \fBvalueType\fP, int capacity, float \fBloadFactor\fP)"
+.br
+.ti -1c
+.RI "\fBReferenceMapGeneric\fP (int \fBkeyType\fP, int \fBvalueType\fP, int capacity, float \fBloadFactor\fP, boolean \fBpurgeValues\fP)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fCMap\fP implementation that allows mappings to be removed by the garbage collector\&. 
+.PP
+When you construct a \fC\fBReferenceMap\fP\fP, you can specify what kind of references are used to store the map's keys and values\&. If non-hard references are used, then the garbage collector can remove mappings if a key or value becomes unreachable, or if the JVM's memory is running low\&. For information on how the different reference types behave, see \fBReference\fP\&. 
+.PP
+Different types of references can be specified for keys and values\&. The keys can be configured to be weak but the values hard, in which case this class will behave like a \fC\fCWeakHashMap\fP\fP\&. However, you can also specify hard keys and weak values, or any other combination\&. The default constructor uses hard keys and soft values, providing a memory-sensitive cache\&. 
+.PP
+This map is similar to \fBReferenceIdentityMap\fP\&. It differs in that keys and values in this class are compared using \fC\fBequals()\fP\fP\&. 
+.PP
+This \fBMap\fP implementation does \fInot\fP allow null elements\&. Attempting to add a null key or value to the map will raise a \fCNullPointerException\fP\&. 
+.PP
+This implementation is not synchronized\&. You can use \fBjava\&.util\&.Collections#synchronizedMap\fP to provide synchronized access to a \fC\fBReferenceMap\fP\fP\&. Remember that synchronization will not stop the garbage collecter removing entries\&. 
+.PP
+All the available iterators can be reset back to the start by casting to \fC\fBResettableIterator\fP\fP and calling \fCreset()\fP\&. 
+.PP
+\fBNote that \fBReferenceMap\fP is not synchronized and is not thread-safe\&.\fP If you wish to use this map from multiple threads concurrently, you must use appropriate synchronization\&. The simplest approach is to wrap this map using \fBjava\&.util\&.Collections#synchronizedMap\fP\&. This class may throw exceptions when accessed by concurrent threads without synchronization\&. 
+.PP
+NOTE: As from Commons Collections 3\&.1 this map extends \fC\fBAbstractReferenceMap\fP\fP (previously it extended AbstractMap)\&. As a result, the implementation is now extensible and provides a \fC\fBMapIterator\fP\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.lang\&.ref\&.Reference
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+Commons Collections 3\&.0 (previously in main package v2\&.1) 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+646777 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-04-10 13:33:15 +0100 (Thu, 10 Apr 2008) 
+.RE
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Paul Jack 
+.PP
+Stephen Colebourne 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.collections\&.map\&.ReferenceMapGeneric\&.ReferenceMapGeneric ()"
+Constructs a new \fC\fBReferenceMap\fP\fP that will use hard references to keys and soft references to values\&. 
+.SS "org\&.apache\&.commons\&.collections\&.map\&.ReferenceMapGeneric\&.ReferenceMapGeneric (intkeyType, intvalueType)"
+Constructs a new \fC\fBReferenceMap\fP\fP that will use the specified types of references\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkeyType\fP the type of reference to use for keys; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.br
+\fIvalueType\fP the type of reference to use for values; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.collections\&.map\&.ReferenceMapGeneric\&.ReferenceMapGeneric (intkeyType, intvalueType, booleanpurgeValues)"
+Constructs a new \fC\fBReferenceMap\fP\fP that will use the specified types of references\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkeyType\fP the type of reference to use for keys; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.br
+\fIvalueType\fP the type of reference to use for values; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.br
+\fIpurgeValues\fP should the value be automatically purged when the key is garbage collected 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.collections\&.map\&.ReferenceMapGeneric\&.ReferenceMapGeneric (intkeyType, intvalueType, intcapacity, floatloadFactor)"
+Constructs a new \fC\fBReferenceMap\fP\fP with the specified reference types, load factor and initial capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkeyType\fP the type of reference to use for keys; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.br
+\fIvalueType\fP the type of reference to use for values; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.br
+\fIcapacity\fP the initial capacity for the map 
+.br
+\fIloadFactor\fP the load factor for the map 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.collections\&.map\&.ReferenceMapGeneric\&.ReferenceMapGeneric (intkeyType, intvalueType, intcapacity, floatloadFactor, booleanpurgeValues)"
+Constructs a new \fC\fBReferenceMap\fP\fP with the specified reference types, load factor and initial capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkeyType\fP the type of reference to use for keys; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.br
+\fIvalueType\fP the type of reference to use for values; must be \fBHARD\fP, \fBSOFT\fP, \fBWEAK\fP 
+.br
+\fIcapacity\fP the initial capacity for the map 
+.br
+\fIloadFactor\fP the load factor for the map 
+.br
+\fIpurgeValues\fP should the value be automatically purged when the key is garbage collected 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

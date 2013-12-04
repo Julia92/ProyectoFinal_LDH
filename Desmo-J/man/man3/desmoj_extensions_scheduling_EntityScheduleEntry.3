@@ -1,0 +1,258 @@
+.TH "desmoj.extensions.scheduling.EntityScheduleEntry" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.scheduling.EntityScheduleEntry \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntityScheduleEntry\fP (\fBModel\fP model, \fBTimeSpan\fP fromBeginOfDay, \fBTimeSpan\fP untilBeginOfDay, Object value)"
+.br
+.ti -1c
+.RI "\fBEntityScheduleEntry\fP (\fBModel\fP model, \fBTimeSpan\fP fromBeginOfDay, \fBTimeSpan\fP untilBeginOfDay, double value)"
+.br
+.ti -1c
+.RI "\fBEntityScheduleEntry\fP (\fBModel\fP model, \fBTimeSpan\fP fromBeginOfDay, \fBTimeSpan\fP untilBeginOfDay)"
+.br
+.ti -1c
+.RI "void \fBsetValidTimeRange\fP (\fBTimeInstant\fP from, \fBTimeInstant\fP until)"
+.br
+.ti -1c
+.RI "void \fBsetDayOfWeek\fP (boolean[] dayOfWeek)"
+.br
+.ti -1c
+.RI "void \fBsetValues\fP (Object[] values)"
+.br
+.ti -1c
+.RI "Object[] \fBgetValues\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetEnd\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetBeginOfDay\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "boolean \fBisValidDayOfWeek\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "boolean \fBisInEntry\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetNextBegin\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetBegin\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "boolean \fBisFinished\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBstartLater\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "boolean \fBisNotValid\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "void \fBsetTimeZone\fP (TimeZone timezone)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBEntityScheduleEntry\fP is an entry of EntitySchedule\&. A \fBEntityScheduleEntry\fP is a time region (e\&.g\&. every workingday from 8:00 until 16:00) All \fBEntityScheduleEntry\fP of a EntitySchedule have the same timezone, set by EntitySchedule\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.EntityScheduleEntry (\fBModel\fPmodel, \fBTimeSpan\fPfromBeginOfDay, \fBTimeSpan\fPuntilBeginOfDay, Objectvalue)"
+Create an schedule entry with daily time border and an entry value\&. Default values of this entry: validFrom and validUntil are not set (null) day of week (working days of this schedule) are MON\&.\&.FRI values is {value} Defaults can be changed by approbate methods\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP 
+.br
+\fIfromBeginOfDay\fP TimeSpan from 0:00 until begin of entry\&. Must be smaller than 24h\&. Null is not allowed\&. 
+.br
+\fIuntilBeginOfDay\fP TimeSpan from 0:00 until end of entry\&. Null is not allowed\&. 
+.br
+\fIvalue\fP 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.EntityScheduleEntry (\fBModel\fPmodel, \fBTimeSpan\fPfromBeginOfDay, \fBTimeSpan\fPuntilBeginOfDay)"
+Create an schedule entry with daily time border\&. Default values of this entry: fromDate and untilDate are not set (null) day of week (working days of this schedule) are MON\&.\&.FRI values is {1\&.0} Defaults can be changed by approbate methods\&. from/until Hour/Minutes are times of the same day 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP 
+.br
+\fIfromHourOfDay\fP 
+.br
+\fIfromMinute\fP 
+.br
+\fIuntilHourOfDay\fP 
+.br
+\fIuntilMinute\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.getBegin (\fBTimeInstant\fPtime)\fC [protected]\fP"
+Begin of entry at date, null when date is a no valid day in this entry\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdate\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.getEnd (\fBTimeInstant\fPtime)"
+Get end time of this Entry for given date\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdate\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "Object [] desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.getValues ()"
+Get values array of entry 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.isFinished (\fBTimeInstant\fPtime)\fC [protected]\fP"
+Entry is finished before date 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdate\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.isInEntry (\fBTimeInstant\fPtime)\fC [protected]\fP"
+checks whether time is in the entry The end time is not part of the entry ????? Used by EntitySchedule 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.setDayOfWeek (boolean[]dayOfWeek)"
+active daysOfWeek in this schedule entry (SUN, MON, \&.\&., FRI, SAT) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdayOfWeek\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.setTimeZone (TimeZonetimezone)\fC [protected]\fP"
+Only for internal use\&. All entrys of a schedule have the same timezone\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimezone\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.setValidTimeRange (\fBTimeInstant\fPfrom, \fBTimeInstant\fPuntil)"
+Global range of this schedule entry Default is null 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfrom\fP 
+.br
+\fIuntil\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.setValues (Object[]values)"
+Each entry has a values array\&. Default is {1\&.0} 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcapacity\fP 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.scheduling\&.EntityScheduleEntry\&.startLater (\fBTimeInstant\fPtime)\fC [protected]\fP"
+Entry starts after given date 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdate\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+start time of entry 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,344 @@
+.TH "desmoj.extensions.applicationDomains.harbour.CranesSystem" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.CranesSystem \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCranesSystem\fP (\fBModel\fP owner, String name, int cSortOrder, int cQCapacity, int tSortOrder, int tQCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "long \fBgetSumNumLoadedUnits\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddSumNumLoadedUnits\fP (long n)"
+.br
+.ti -1c
+.RI "long \fBgetSumNumUnloadedUnits\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddSumNumUnloadedUnits\fP (long n)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBaddCrane\fP (\fBCrane\fP c)"
+.br
+.ti -1c
+.RI "\fBCrane\fP[] \fBgetCranes\fP (int n)"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBCrane\fP > \fBgetCranesQueue\fP ()"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBSimProcess\fP > \fBgetTransporterQueue\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBaddTransporter\fP (\fBSimProcess\fP t)"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP \fBgetTransporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBavgUsage\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetSumLoadTime\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetSumUnloadTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddSumLoadTime\fP (double t)"
+.br
+.ti -1c
+.RI "void \fBaddSumUnloadTime\fP (double t)"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBCrane\fP > \fBgetWorkingCranes\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String where)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "ProcessQueue< \fBSimProcess\fP > \fBtransporterQueue\fP"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBCrane\fP > \fBworkingCranesQueue\fP"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBCrane\fP > \fBcranesQueue\fP"
+.br
+.ti -1c
+.RI "long \fBsumNumLoadedUnits\fP"
+.br
+.ti -1c
+.RI "long \fBsumNumUnloadedUnits\fP"
+.br
+.ti -1c
+.RI "double \fBsumLoadTime\fP"
+.br
+.ti -1c
+.RI "double \fBsumUnloadTime\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBCranesSystem\fP represents the system of the cranes that manages the queues of the cranes and transporter (external/internal), give the statistics about the cranes and both queues\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.CranesSystem (\fBModel\fPowner, Stringname, intcSortOrder, intcQCapacity, inttSortOrder, inttQCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBCranesSystem\fP\&. The queueing discipline and the capacity limit of the underlying queues for the cranes and for the transporters can be chosen\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBCranesSystem\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBCranesSystem\fP's name 
+.br
+\fIcsortOrder\fP int : determines the sort order of the underlying cranes queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIcQCapacity\fP int : The capacity of the cranes queue, that is how many cranes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fItsortOrder\fP int : determines the sort order of the underlying transporter queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fItQCapacity\fP int : The capacity of the transporter queue, that is how many transporters can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBCranesSystem\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.addCrane (\fBCrane\fPc)"
+This method is used to add a crane to the cranes queue of this \fBCranesSystem\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP \fBCrane\fP : The \fBCrane\fP to enqueue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.addSumLoadTime (doublet)"
+Change the whole time that all the cranes needed to load the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP double : The loading time of this \fBCranesSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.addSumNumLoadedUnits (longn)"
+Change the number of the loaded units of all the cranes to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of loaded units of this \fBCranesSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.addSumNumUnloadedUnits (longn)"
+Change the number of the unloaded units of all the cranes to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of unloaded units of this \fBCranesSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.addSumUnloadTime (doublet)"
+Change the whole time that all the cranes needed to unload the transporters to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP double : The unloading time of this \fBCranesSystem\fP that must be added to the old value\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.addTransporter (\fBSimProcess\fPt)"
+This method is used to add a transporter (external/internal) to the transporter queue of this \fBCranesSystem\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP \fCSimProcess\fP: The transporter that me be enqueued\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.avgUsage ()"
+Returns the average utilization of a crane of this cranes system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average utilisation pro a crane\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the process using the \fBCranesSystem\fP is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the sim-process is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBCranesSystem\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queues inside this \fBCranesSystem\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "\fBCrane\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getCranes (intn)"
+Returns the n cranes of this cranes system that are idle now\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBCrane\fP[] : The idle cranes\&. 
+.RE
+.PP
+
+.SS "ProcessQueue<\fBCrane\fP> desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getCranesQueue ()"
+Returns the cranes queue of this cranes system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCProcessQueue<Crane>\fP: The cranes queue\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getSumLoadTime ()"
+Returns the whole loading time of all the cranes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole loading time of this cranes system\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getSumNumLoadedUnits ()"
+Returns the number of the loaded units of all the cranes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the loaded by the cranes units\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getSumNumUnloadedUnits ()"
+Returns the number of the unloaded units of all the cranes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the unloaded by the cranes units\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getSumUnloadTime ()"
+Returns the whole unloading time of all the cranes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole unloading time of this cranes system\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getTransporter ()"
+Returns the last transporter of the transporter queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimProcess : The last transporter of the transporter queue\&. 
+.RE
+.PP
+
+.SS "ProcessQueue<\fBSimProcess\fP> desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getTransporterQueue ()"
+Returns the transporter queue of this cranes system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCProcessQueue<SimProcess>\fP: The transporter queue\&. 
+.RE
+.PP
+
+.SS "ProcessQueue<\fBCrane\fP> desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.getWorkingCranes ()"
+Returns the queue of the now working cranes of this cranes system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCProcessQueue\fP: The queue of the working cranes\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.reset ()"
+Resets all statistical counters to their default values\&. Both, cranes queue and transporter queue are reset\&. The mininum and maximum length of the queues are set to the current number of queued objects\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "ProcessQueue<\fBCrane\fP> desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.cranesQueue\fC [protected]\fP"
+The queue, actually storing the cranes processes that are idle\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.sumLoadTime\fC [protected]\fP"
+Counter for the whole time that all the cranes of this CranesSystems needed for the loading of the transporters\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.sumNumLoadedUnits\fC [protected]\fP"
+Counter for the whole number of the loaded units of all the cranes of this CranesSystems\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.sumNumUnloadedUnits\fC [protected]\fP"
+Counter for the whole number of the unloaded units of all the cranes of this CranesSystems\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.sumUnloadTime\fC [protected]\fP"
+Counter for the whole time that all the cranes of this CranesSystems needed for the unloading of the transporters\&. 
+.SS "ProcessQueue<\fBSimProcess\fP> desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.transporterQueue\fC [protected]\fP"
+The queue, actually storing the transporter processes waiting for cranes to unload/load them\&. 
+.SS "ProcessQueue<\fBCrane\fP> desmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\&.workingCranesQueue\fC [protected]\fP"
+The queue, actually storing the working cranes processes\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

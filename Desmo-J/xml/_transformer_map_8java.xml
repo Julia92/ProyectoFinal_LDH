@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_transformer_map_8java" kind="file">
+    <compoundname>TransformerMap.java</compoundname>
+    <innerclass refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map" prot="public">org::apache::commons::math::util::TransformerMap</innerclass>
+    <innernamespace refid="namespaceorg_1_1apache_1_1commons_1_1math_1_1util">org::apache::commons::math::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Licensed<sp/>to<sp/>the<sp/>Apache<sp/>Software<sp/>Foundation<sp/>(ASF)<sp/>under<sp/>one<sp/>or<sp/>more</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>contributor<sp/>license<sp/>agreements.<sp/><sp/>See<sp/>the<sp/>NOTICE<sp/>file<sp/>distributed<sp/>with</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>this<sp/>work<sp/>for<sp/>additional<sp/>information<sp/>regarding<sp/>copyright<sp/>ownership.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>The<sp/>ASF<sp/>licenses<sp/>this<sp/>file<sp/>to<sp/>You<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>(the<sp/>&quot;License&quot;);<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>License.<sp/><sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.apache.commons.math.util;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Serializable;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Collection;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashMap;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1_math_exception" kindref="compound">org.apache.commons.math.MathException</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map" kindref="compound">TransformerMap</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_number_transformer" kindref="compound">NumberTransformer</ref>,<sp/>Serializable<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>-942772950698439883L;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_number_transformer" kindref="compound">NumberTransformer</ref><sp/>defaultTransformer<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Map<sp/>map<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map" kindref="compound">TransformerMap</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>map<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashMap();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>defaultTransformer<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_default_transformer" kindref="compound">DefaultTransformer</ref>();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1aef15853e541c822c1f0b206c8dffc6d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1aef15853e541c822c1f0b206c8dffc6d6" kindref="member">containsClass</ref>(Class<sp/>key)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>map.containsKey(key);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1aa98e2c9281b693269d41f10f8b77913d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1aa98e2c9281b693269d41f10f8b77913d" kindref="member">containsTransformer</ref>(<ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_number_transformer" kindref="compound">NumberTransformer</ref><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>map.containsValue(value);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1aa1644c0d0adce88d7d0b8f435c353e24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_number_transformer" kindref="compound">NumberTransformer</ref><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1aa1644c0d0adce88d7d0b8f435c353e24" kindref="member">getTransformer</ref>(Class<sp/>key)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_number_transformer" kindref="compound">NumberTransformer</ref>)<sp/>map.get(key);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a42eb42492473c71db745c826d516b081" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a42eb42492473c71db745c826d516b081" kindref="member">putTransformer</ref>(Class<sp/>key,<sp/><ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_number_transformer" kindref="compound">NumberTransformer</ref><sp/>transformer)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>map.put(key,<sp/>transformer);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a0e1e2bd8338d6e64ff26508f4d5dcd21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a0e1e2bd8338d6e64ff26508f4d5dcd21" kindref="member">removeTransformer</ref>(Class<sp/>key)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>map.remove(key);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1ac85d9900ae0574b830ea8f85a2db7f0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1ac85d9900ae0574b830ea8f85a2db7f0d" kindref="member">clear</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>map.clear();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a5a8ed6a6394716df8ee05264fdb93c02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Set<sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a5a8ed6a6394716df8ee05264fdb93c02" kindref="member">classes</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>map.keySet();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1abc9fc62863683fc80130325c16238233" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Collection<sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1abc9fc62863683fc80130325c16238233" kindref="member">transformers</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>map.values();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a2be97afc0a0bbb4fc71de216fe7d70fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1a2be97afc0a0bbb4fc71de216fe7d70fe" kindref="member">transform</ref>(Object<sp/>o)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1_math_exception" kindref="compound">MathException</ref><sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>Double.NaN;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(o<sp/>instanceof<sp/>Number<sp/>||<sp/>o<sp/>instanceof<sp/>String)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value<sp/>=<sp/>defaultTransformer.transform(o);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_number_transformer" kindref="compound">NumberTransformer</ref><sp/>trans<sp/>=<sp/><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_transformer_map_1aa1644c0d0adce88d7d0b8f435c353e24" kindref="member">getTransformer</ref>(o.getClass());</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(trans<sp/>!=<sp/>null)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value<sp/>=<sp/>trans.transform(o);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/util/TransformerMap.java"/>
+  </compounddef>
+</doxygen>

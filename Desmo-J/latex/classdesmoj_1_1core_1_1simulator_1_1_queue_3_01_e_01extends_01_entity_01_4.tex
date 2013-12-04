@@ -1,0 +1,638 @@
+\section{desmoj.\-core.\-simulator.\-Queue$<$ E extends Entity $>$ Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4}\index{desmoj.\-core.\-simulator.\-Queue$<$ E extends Entity $>$@{desmoj.\-core.\-simulator.\-Queue$<$ E extends Entity $>$}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Queue$<$ E extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Queue$<$ E extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Queue} ({\bf Model} owner, String name, int sort\-Order, int q\-Capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Queue} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+E {\bf first} ()
+\item 
+E {\bf first} (Condition$<$ E $>$ c)
+\item 
+boolean {\bf contains} (E e)
+\item 
+int {\bf size} ()
+\item 
+int {\bf get} (E e)
+\item 
+E {\bf get} (int index)
+\item 
+String {\bf get\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Refused} ()
+\item 
+boolean {\bf insert} (E e)
+\item 
+boolean {\bf insert\-After} (E e, E after)
+\item 
+boolean {\bf insert\-Before} (E e, E before)
+\item 
+boolean {\bf is\-Empty} ()
+\item 
+E {\bf last} ()
+\item 
+E {\bf last} (Condition$<$ E $>$ c)
+\item 
+E {\bf pred} (E e)
+\item 
+E {\bf pred} (E e, Condition$<$ E $>$ c)
+\item 
+void {\bf remove} ({\bf Entity} e)
+\item 
+void {\bf remove\-All} ()
+\item 
+E {\bf remove\-First} ()
+\item 
+E {\bf remove\-First} (Condition$<$ E $>$ c)
+\item 
+E {\bf remove\-Last} ()
+\item 
+E {\bf remove\-Last} (Condition$<$ E $>$ c)
+\item 
+boolean {\bf remove} (int index)
+\item 
+void {\bf reset} ()
+\item 
+void {\bf set\-Queue\-Strategy} (int sort\-Order)
+\item 
+E {\bf succ} (E e)
+\item 
+E {\bf succ} (E e, Condition$<$ E $>$ c)
+\item 
+Queue\-List$<$ E $>$ {\bf get\-Queue\-List} ()
+\item 
+void {\bf set\-Seed} (long new\-Seed)
+\item 
+Iterator$<$ E $>$ {\bf iterator} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Queue provides models with a ready-\/to-\/use modelling element to enqueue entities in. The sort order of the queue is determined first by the priorities of the enqueued entities and second by the given sort order. The default sort order is F\-I\-F\-O (first in, first out) but others like L\-I\-F\-O (last in, first out) can be chosen, too. See the constants in class {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}} and the derived classes from {\ttfamily Queue\-List}. The capacity of the Queue, that is the maximum number of entities enqueued, can be chosen, too. 
+
+For queueing {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}}es the usage of class {\ttfamily Process\-Queue} is recommended.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} 
+
+Queue\-List 
+
+Queue\-List\-Fifo 
+
+Queue\-List\-Lifo 
+
+Process\-Queue
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler 
+
+modified by Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!Queue@{Queue}}
+\index{Queue@{Queue}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{Queue}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{sort\-Order, }
+\item[{int}]{q\-Capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a52d4644fd80e0c31195c83dae6941624}
+Constructs a simple priority based waiting-\/queue for entities, the kind of queue sort order and the capacity of the queue can be chosen. Note that since Sim\-Processes are derived from Entities, they can be queued inside this queue, too. 
+
+Queues can be sorted as follows\-:
+\begin{DoxyItemize}
+\item {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} sorts entities by their priority, highest priority first. Entities with the same priority are enqueued based on "first in, first out". 
+\item {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} also sorts entities by their priority, highest priority first. However, entities with the same priority are enqueued based on "last in, first out". 
+\item {\ttfamily Queue\-Based.\-Random} assigns a random position to each entity entering the queue, disregarding priority. 
+\end{DoxyItemize}
+
+The usage of the generic version {\ttfamily Queue$<$Type$>$} where {\ttfamily Type} is derived from {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} is recommended for type safety. Using the raw type {\ttfamily Queue} yields a queue in which any {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} can be enqueued, typically requiring type casting on accessing entities enqueued.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this queue is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The queue's name \\
+\hline
+{\em sort\-Order} & int \-: determines the sort order of the underlying queue implementation. Choose a constant from {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}}\-: {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}}, {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or Queue\-Based.\-Random. \\
+\hline
+{\em q\-Capacity} & int \-: The capacity of the Queue, that is how many entities can be enqueued. Zero (0) can be used as shortcut for for a capacity of {\ttfamily Integer.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E} = 2,147,483,647, which should approximate an infinite queue sufficiently well for most purposes. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag if queue should produce a report \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for queue to produce trace messages \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!Queue@{Queue}}
+\index{Queue@{Queue}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{Queue}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a6a8f3587e1fa369b7f4435bb6fa678cb}
+Constructs a simple priority and F\-I\-F\-O based waiting-\/queue for entities with a maximum capacity of 2,147,483,647 waiting entities, which should serve as an approximation of infinite queues sufficiently well for most purposes.\-Note that since Sim\-Processes are derived from Entities, they can be queued inside this queue, too. 
+
+The usage of the generic version {\ttfamily Queue$<$Type$>$} where {\ttfamily Type} is derived from {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} is recommended for type safety. Using the raw type {\ttfamily Queue} yields a queue in which any {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} can be enqueued, typically requiring type casting on accessing entities enqueued.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this queue is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The queue's name \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag if queue should produce a report \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for queue to produce trace messages \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!contains@{contains}}
+\index{contains@{contains}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.contains (
+\begin{DoxyParamCaption}
+\item[{E}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a4f5a85949036117556823e2e14d6dd5b}
+Returns {\ttfamily true} if the given {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} is contained in the queue; {\ttfamily false} otherwise.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: {\ttfamily True} if the given {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} is contained in the queue; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: The {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} we are looking for in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_ad6bf4ecfe9029d489532982066b8e0e7}
+Returns a special queue reporter to produce a report about this queue.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{desmoj.\-core.\-report.\-Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_reporter} \-: The reporter for this queue 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!first@{first}}
+\index{first@{first}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_ad3dc4f0b0b5138a8ed23a79d9664f715}
+Returns the first entity queued in this queue or {\ttfamily null} in case the queue is empty.
+
+\begin{DoxyReturn}{Returns}
+E \-: The first entity in the queue or {\ttfamily null} if the queue is empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!first@{first}}
+\index{first@{first}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.first (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ E $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a91a29f2bccbb78fe649e7699c4bc66b0}
+Returns the first entity queued in this queue that fulfills the given condition. The queue is searched from front to end and the first entity that returns {\ttfamily true} when the condition is applied to it is returned by this method. If no \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} fulfills the given condition or the queue is empty, {\ttfamily null} will be returned.
+
+\begin{DoxyReturn}{Returns}
+E \-: The first entity queued in this queue applying to the given condition or {\ttfamily null} 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the entity returned must fulfill \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!get@{get}}
+\index{get@{get}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.get (
+\begin{DoxyParamCaption}
+\item[{E}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_ab010649975adb8424ee3e247cbf3601b}
+Returns the queue index of a given {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}}.
+
+\begin{DoxyReturn}{Returns}
+int \-:The position of the entity as an {\ttfamily int}. Returns -\/1 if no such position exists. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!get@{get}}
+\index{get@{get}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.get (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a572f17eddb24358e1fdebb6ce9400525}
+Returns the {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} queued at the named position. The first position is 0, the last one \doxyref{size()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a9af87a6c7bb11f713339f7019e076414}-\/1.
+
+\begin{DoxyReturn}{Returns}
+E \-: The {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} at the position of {\ttfamily int} or {\ttfamily null} if no such position exists. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!get\-Queue\-List@{get\-Queue\-List}}
+\index{get\-Queue\-List@{get\-Queue\-List}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{get\-Queue\-List}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-List$<$E$>$ desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.get\-Queue\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a09c7e3557585f62c6e21c54d58124fb4}
+Returns the underlying queue implementation, providing access to the Queue\-List implementation, e.\-g. to add Property\-Change\-Listeners.
+
+\begin{DoxyReturn}{Returns}
+Queue\-List \-: The underlying queue implementation of this Queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!get\-Queue\-Strategy@{get\-Queue\-Strategy}}
+\index{get\-Queue\-Strategy@{get\-Queue\-Strategy}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{get\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.get\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a0c16d09541d6deb7f5d9faef78de3f66}
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a52a7e98fbb797a77818f9f7bca7837b2}
+Returns the number of entities refused to be enqueued in the queue.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of entities refused to be enqueued in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!insert@{insert}}
+\index{insert@{insert}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.insert (
+\begin{DoxyParamCaption}
+\item[{E}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_afb74f3eb6a253baede9c46069f393130}
+Enters a new \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} into the queue. If the capacity of the queue is full, the entity will not be enqueued and {\ttfamily false} will be returned. The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} will be stored in the queue until method {\ttfamily \doxyref{remove(\-Entity e)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a563919cc9105f9581aaefdb541859b88}} is called with this specific \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}. Entities inside the queue are ordered according to their priority. Higher priorities are sorted in front of lower priorities. Entities with same priority are orderer according to the specified strategy. The first \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} inside the queue will always be the one with the highest priority.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if insertion was successful, {\ttfamily false} otherwise (i.\-e. capacity limit is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be added to the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!insert\-After@{insert\-After}}
+\index{insert\-After@{insert\-After}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{insert\-After}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.insert\-After (
+\begin{DoxyParamCaption}
+\item[{E}]{e, }
+\item[{E}]{after}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_acfc2e945f30a73897557f6f67c698ee1}
+Enters a new \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} into the queue and places it after the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}. If the capacity of the queue is full, the entity will not be enqueued and {\ttfamily false} will be returned. Make sure that the entity given as reference is already queued inside the queue, else the entity will not be enqueued and {\ttfamily false} will be returned. The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} will be stored in the queue until method {\ttfamily \doxyref{remove(\-Entity e)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a563919cc9105f9581aaefdb541859b88}} is called with this specific \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if insertion was successful, {\ttfamily false} otherwise (i.\-e. capacity limit is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be added to the queue \\
+\hline
+{\em after} & E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} after which the entity e is to be inserted \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!insert\-Before@{insert\-Before}}
+\index{insert\-Before@{insert\-Before}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{insert\-Before}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.insert\-Before (
+\begin{DoxyParamCaption}
+\item[{E}]{e, }
+\item[{E}]{before}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a91fd83538b403722dffd6fea68d64396}
+Enters a new \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} into the queue and places it in front of the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}. If the capacity of the queue is full, the entity will not be enqueued and {\ttfamily false} will be returned. Make sure that the \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} given as reference is already queued inside the queue, else the \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} will not be queued and {\ttfamily false} will be returned. The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} will be stored in the queue until method {\ttfamily \doxyref{remove(\-Entity e)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a563919cc9105f9581aaefdb541859b88}} is called with this specific \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if insertion was successful, {\ttfamily false} otherwise (i.\-e. capacity limit is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be added to the queue \\
+\hline
+{\em before} & E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} before which the entity e is to be inserted \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_af977a45528939d15edac46cbf4a6d5da}
+Returns a boolean value indicating if the queue is empty or if any number of entities is currently enqueued in it.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the Queue is empty, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{iterator}]{\setlength{\rightskip}{0pt plus 5cm}Iterator$<$E$>$ desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a8858b229a0275b0feda97c3bc2511e9c}
+Returns an iterator over the entities enqueued.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-Iterator$<$E$>$ \-: An iterator over the entities enqueued. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!last@{last}}
+\index{last@{last}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_af0982073c098121c9437d8877df2cd18}
+Returns the last \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} queued in this queue or {\ttfamily null} in case the queue is empty.
+
+\begin{DoxyReturn}{Returns}
+E \-: The last \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue or {\ttfamily null} if the queue is empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!last@{last}}
+\index{last@{last}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.last (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ E $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a865c5d44ace494c1b6d71fce0c599ce2}
+Returns the last \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} queued in this queue that fulfills the given condition. The queue is searched from end to front and the first entity that returns {\ttfamily true} when the condition is applied to it is returned. If no \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} fulfills the given condition or the queue is empty, {\ttfamily null} will be returned.
+
+\begin{DoxyReturn}{Returns}
+E \-: The last \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} queued in this queue applying to the given condition or {\ttfamily null} 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the entity returned must fulfill \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!pred@{pred}}
+\index{pred@{pred}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{pred}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.pred (
+\begin{DoxyParamCaption}
+\item[{E}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a59c545f853ad7b9b687bcd15995fbc3a}
+Returns the entity enqueued directly before the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue. If the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is not contained in this queue or is at the first position thus having no possible predecessor, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} directly before the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue or {\ttfamily null}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: An \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!pred@{pred}}
+\index{pred@{pred}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{pred}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.pred (
+\begin{DoxyParamCaption}
+\item[{E}]{e, }
+\item[{Condition$<$ E $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a63b397938d43ba1a3fb5b3b559457577}
+Returns the entity enqueued before the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue that also fulfills the condition given. If the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is not contained in this queue or is at the first position thus having no possible predecessor, {\ttfamily null} is returned. If no other \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} before the given one fulfills the condition, {\ttfamily null} is returned, too.
+
+\begin{DoxyReturn}{Returns}
+E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} before the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue fulfilling the condition or {\ttfamily null}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: An \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue \\
+\hline
+{\em c} & Condition \-: The condition that the preceeding \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} has to fulfill \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!remove@{remove}}
+\index{remove@{remove}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a563919cc9105f9581aaefdb541859b88}
+Removes the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} from the Queue. If the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is not in the Queue, a warning will be issued but nothing else will be changed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} to be removed \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!remove@{remove}}
+\index{remove@{remove}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.remove (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a33fdb66b101da4552cad7de2a062488d}
+Removes the entity queued at the given position. The first position is 0, the last one \doxyref{length()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_acd655bba0795c0fcb54791f86806e428}-\/1.
+
+\begin{DoxyReturn}{Returns}
+\-: The method returns {\ttfamily true} if an {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} exists at the given position or {\ttfamily false$>$} if otherwise. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!remove\-All@{remove\-All}}
+\index{remove\-All@{remove\-All}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{remove\-All}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.remove\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a4727f44cf50ace59740a2f8444fbd5a6}
+Removes all entities from the Queue. Has no effect on empty queues. \index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!remove\-First@{remove\-First}}
+\index{remove\-First@{remove\-First}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{remove\-First}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.remove\-First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a920c1fc1c40d1675490298dbf9244d3c}
+Removes the first entity from the queue and provides a reference to this entity. If the queue is empty, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+E \-: The first entity in this queue, which has been removed, or {\ttfamily null} in case the queue was empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!remove\-First@{remove\-First}}
+\index{remove\-First@{remove\-First}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{remove\-First}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.remove\-First (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ E $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_aee7b680fca8827360977c8e861dc161e}
+Removes the first entity from the queue that fulfills the given condition. Also provides a reference to this entity. If the queue does not contain an entity that fulfills the condition (e.\-g. if the queue is empty), {\ttfamily null} is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the entity returned must fulfill\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E \-: The first entity in this queue fulfilling the condition, which has been removed from the queue. {\ttfamily Null} in case no entity fulfills the condition. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!remove\-Last@{remove\-Last}}
+\index{remove\-Last@{remove\-Last}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{remove\-Last}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.remove\-Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a754ab8256a8dcb53477ccb8237257893}
+Removes the last entity from the queue and provides a reference to this entity. If the queue is empty, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+E \-: The last entity in this queue, which has been removed, or {\ttfamily null} in case the queue was empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!remove\-Last@{remove\-Last}}
+\index{remove\-Last@{remove\-Last}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{remove\-Last}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.remove\-Last (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ E $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a7ce1c062e7f7acc39790065f259b43ef}
+Removes the last entity from the queue that fulfills to the given condition, determined by traversing the queue from last to first until an entity fulfilling the condition is found. Also provides a reference to this entity. If the queue does not contain an entity that fulfills the condition (e.\-g. if the queue is empty), {\ttfamily null} is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the entity returned must fulfill\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E \-: The last entity in this queue fulfilling the condition, which has been removed from the queue. {\ttfamily Null} in case no entity fulfills the condition. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_afda84f99d19b370a35a4879d63762056}
+Resets all statistical counters to their default values. The mininum and maximum length of the queue are set to the current number of queued objects. The counter for the entities refused to be enqueued will be reset. \index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!set\-Queue\-Strategy@{set\-Queue\-Strategy}}
+\index{set\-Queue\-Strategy@{set\-Queue\-Strategy}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{set\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.set\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+\item[{int}]{sort\-Order}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a1bb3ddc1311dfe76dc4065472434ae17}
+Sets the sort order of this Queue to a new value and makes this Queue use another {\ttfamily Queue\-List} with the specified queueing discipline. Please choose a constant from {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}} ({\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}}, {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily Queue\-Based.\-Random}) The sort order of a Queue can only be changed if the queue is empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sort\-Order} & int \-: determines the sort order of the underlying {\ttfamily Queue\-List} implementation ({\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}}, {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily Queue\-Based.\-Random}) \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!set\-Seed@{set\-Seed}}
+\index{set\-Seed@{set\-Seed}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{set\-Seed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.set\-Seed (
+\begin{DoxyParamCaption}
+\item[{long}]{new\-Seed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_ab0addea329ec3c874cb14039c40d61f0}
+Sets the seed of the underlying queue list's pseudo random number generator. Useful for queues with random sort order only; to other queues, calling this method has no effect, resulting in a warning.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Seed} & long \-: new seed of the underlying queue list's pseudo random number generator \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!size@{size}}
+\index{size@{size}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_a9af87a6c7bb11f713339f7019e076414}
+Returns the current length of the Queue.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of entities enqueued. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!succ@{succ}}
+\index{succ@{succ}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{succ}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.succ (
+\begin{DoxyParamCaption}
+\item[{E}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_ac695b4e91f1f9993d00e05422a97e827}
+Returns the entity enqueued directly after the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue. If the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is not contained in this queue or is at the last position thus having no possible successor, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} directly after the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue or {\ttfamily null}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: An \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}!succ@{succ}}
+\index{succ@{succ}!desmoj::core::simulator::Queue< E extends Entity >@{desmoj\-::core\-::simulator\-::\-Queue$<$ E extends Entity $>$}}
+\subsubsection[{succ}]{\setlength{\rightskip}{0pt plus 5cm}E desmoj.\-core.\-simulator.\-Queue$<$ E extends {\bf Entity} $>$.succ (
+\begin{DoxyParamCaption}
+\item[{E}]{e, }
+\item[{Condition$<$ E $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_queue_3_01_e_01extends_01_entity_01_4_aeee243db4a50977d197d89ee186545e1}
+Returns the entity enqueued after the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue that also fulfills the condition given. If the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is not contained in this queue or is at the last position thus having no possible successor, {\ttfamily null} is returned. If no other \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} after the given one fulfills the condition, {\ttfamily null} is returned, too.
+
+\begin{DoxyReturn}{Returns}
+E \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} after the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue fulfilling the condition or {\ttfamily null}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: An \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} in the queue \\
+\hline
+{\em c} & Condition \-: The condition that the succeeding \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} has to fulfill \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Queue.\-java\end{DoxyCompactItemize}

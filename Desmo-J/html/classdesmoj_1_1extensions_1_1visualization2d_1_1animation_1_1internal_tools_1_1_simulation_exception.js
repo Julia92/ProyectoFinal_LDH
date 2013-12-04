@@ -1,0 +1,4 @@
+var classdesmoj_1_1extensions_1_1visualization2d_1_1animation_1_1internal_tools_1_1_simulation_exception =
+[
+    [ "SimulationException", "classdesmoj_1_1extensions_1_1visualization2d_1_1animation_1_1internal_tools_1_1_simulation_exception.html#a45db37a17291719d9f10ad4e5da10898", null ]
+];

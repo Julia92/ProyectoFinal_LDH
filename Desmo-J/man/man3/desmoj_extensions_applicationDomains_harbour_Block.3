@@ -1,0 +1,499 @@
+.TH "desmoj.extensions.applicationDomains.harbour.Block" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.Block \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBlock\fP (\fBModel\fP owner, String name, int typ, long \fBcapacity\fP, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBBlock\fP (\fBModel\fP owner, String name, int typ, long \fBcapacity\fP, long \fBinit\fP, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBBlock\fP (\fBModel\fP owner, String name, int typ, long \fBcapacity\fP, long \fBinit\fP, int \fBctyp\fP, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "long \fBgetMaximum\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMinimum\fP ()"
+.br
+.ti -1c
+.RI "double \fBOccupRate\fP ()"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBstore\fP (long n)"
+.br
+.ti -1c
+.RI "double \fBavgCapacity\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBretrieve\fP (long n)"
+.br
+.ti -1c
+.RI "long \fBgetProducers\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetConsumers\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBplan\fP (long n)"
+.br
+.ti -1c
+.RI "long \fBgetInitial\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisFree\fP (long n)"
+.br
+.ti -1c
+.RI "int \fBgetTyp\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTyp\fP (int t)"
+.br
+.ti -1c
+.RI "boolean \fBreserve\fP (long n)"
+.br
+.ti -1c
+.RI "long \fBgetCapacity\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetCurrentCapacity\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetHO\fP (\fBHoldingArea\fP \fBho\fP)"
+.br
+.ti -1c
+.RI "\fBHoldingArea\fP \fBgetHO\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCTyp\fP (int \fBctyp\fP)"
+.br
+.ti -1c
+.RI "int \fBgetCTyp\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBupdateStatistics\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String \fBwhere\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBavail_to_reserve\fP"
+.br
+.ti -1c
+.RI "long \fBavail_to_plan\fP"
+.br
+.ti -1c
+.RI "long \fBcurrentCapacity\fP"
+.br
+.ti -1c
+.RI "long \fBcapacity\fP"
+.br
+.ti -1c
+.RI "long \fBinit\fP = 0"
+.br
+.ti -1c
+.RI "long \fBproducers\fP = 0"
+.br
+.ti -1c
+.RI "long \fBconsumers\fP = 0"
+.br
+.ti -1c
+.RI "long \fBmin\fP"
+.br
+.ti -1c
+.RI "long \fBmax\fP"
+.br
+.ti -1c
+.RI "double \fBwSumAvail\fP = 0\&.0"
+.br
+.ti -1c
+.RI "String \fBwhere\fP"
+.br
+.ti -1c
+.RI "\fBHoldingArea\fP \fBho\fP = null"
+.br
+.ti -1c
+.RI "int \fBctyp\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBBlock\fP is the place where containers (or other kind of goods) can be stored by transpoters or cranes and retrieved by transporters or cranes\&. The storing is possible using \fC\fBstore()\fP\fP of the \fBBlock\fP\&. With the \fC\fBretrieve()\fP\fP a container can be retrieved from the \fBBlock\fP\&. A \fBBlock\fP is a part of the container \fC\fBYard\fP\fP\&. There are no queues for processes want to store or retrieve one container\&. If no or not enough containers are available to retrieve, the tries to do that will be refused\&. The \fBBlock\fP has a certain capacity that measures in TEUs\&. So a 20-foot-container weigths one TEU and 40-foot-container 2 TEUs\&. If the \fBBlock\fP is filled to it's capacity the tries to store a container there will be refused\&. \fBYard\fP is part of the composite design pattern as described in [Gamm97] page 163 in which it represents the the component class\&. \fBBlock\fP is derived from Reportable, which provides the report functionality for the \fBBlock\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBReportable\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.Block (\fBModel\fPowner, Stringname, inttyp, longcapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBBlock\fP of a certain typ with a certain capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBBlock\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBBlock\fP's name\&. 
+.br
+\fItyp\fP int : The \fBBlock\fP's type\&. It can be only 0 - for export containers, 1- for import containers or 2 - mixed: for import and export containers\&. 
+.br
+\fIcapacity\fP long : The maximum capacity (TEU) of this \fBBlock\fP\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBBlock\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.Block (\fBModel\fPowner, Stringname, inttyp, longcapacity, longinit, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBBlock\fP with an initial number of TEUs and a certain capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBBlock\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBBlock\fP's name\&. 
+.br
+\fItyp\fP int : The \fBBlock\fP's type\&. It can be only 0 - for export containers, 1- for import containers or 2 - mixed: for import and export containers\&. 
+.br
+\fIcapacity\fP long : The maximum capacity of this \fBBlock\fP\&. 
+.br
+\fIinit\fP long : The initial occupied capacity of the \fBBlock\fP starts with\&. Must be positive! 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBBlock\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.Block (\fBModel\fPowner, Stringname, inttyp, longcapacity, longinit, intctyp, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBBlock\fP with an initial number of TEUs, a certain capacity and a certain container typ\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBBlock\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBBlock\fP's name\&. 
+.br
+\fItyp\fP int : The \fBBlock\fP's type\&. It can be only 0 - for export containers, 1- for import containers or 2 - mixed: for import and export containers\&. 
+.br
+\fIcapacity\fP long : The maximum capacity of this \fBBlock\fP\&. 
+.br
+\fIctyp\fP int : The container type of this \fBBlock\fP\&. It can be only 0- for empty, 1- for normal, 2- for reefer, 4- for overlarge, 5- for danger containers\&. 
+.br
+\fIinit\fP long : The initial occupied capacity of the \fBBlock\fP starts with\&. Must be positive! 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBBlock\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.avgCapacity ()"
+Returning the average number of TEUs available in the \fBBlock\fP over the time since the last reset of the \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average number of TEUs available in the \fBBlock\fP over the time since the last reset of the \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the entity using the bin is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the sim-process is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.br
+\fIwhere\fP String : The method having called \fC\fBcheckProcess()\fP\fP as a String\&. 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter reporting about the statistics of this \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getCapacity ()"
+Gets the max\&. capacity of the \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The capacity of the \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getConsumers ()"
+Gets the number of the processes that retrieved from this \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : consumers number\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getCTyp ()"
+Gets the container typ of the \fBBlock\fP: what kind of container is that \fBBlock\fP for\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The container typ of the \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getCurrentCapacity ()"
+Gets the current capacity of the \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The current capacity of the \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "\fBHoldingArea\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getHO ()"
+Gets the holding area this \fBBlock\fP is assigned to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBHoldingArea\fP\fP: The Holding area the \fBBlock\fP is assigned to\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getInitial ()"
+Gets the initial number of TEUs the \fBBlock\fP starts with\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The initial number of TEUs the \fBBlock\fP starts with\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getMaximum ()"
+Gets the maximum number of TEUs in the \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum number of TEUs in the \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getMinimum ()"
+Gets the minimum number of TEUs (goods) in the \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The minimum number of TEUs (goods) in the \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getProducers ()"
+Gets the number of the processes that stored in this \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : producers number\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.getTyp ()"
+Gets the typ of the \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The typ of the Stock\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.isFree (longn)"
+Method to check if the \fBBlock\fP is free (it can be stored there) for at least some TEUs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of TEUs that are at least must be avalaible (free)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the \fBBlock\fP is free, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.OccupRate ()"
+Gets the occupation rate of the \fBBlock\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The occupation rate of the \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.plan (longn)"
+Method for consumers to make the \fBBlock\fP plan a number of n TEUs (a place for a container) to be retrieved there later\&. When all the containers are already planed for the later retrieving the try to plan will be refused\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if a container can been planed successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of TEUs that a container that is in the \fBBlock\fP weights\&. n must be positive\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.reserve (longn)"
+Method for producers to make the \fBBlock\fP reserve a number of n TEUs (a place for a container) to be stored there later\&. When the whole available capacity is already reserved the try to reserve will be refused\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if a place for a container can been reserved successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of TEUs that are needed for a container to be stored in the \fBBlock\fP\&. n must be positive\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.reset ()"
+To reset the statistics of this \fBBlock\fP\&. The current capacity and the number of avalaible TEUs for the storing and retrieving, reserving and planing are not changed\&. But all statistic counters are reset\&. The \fCReportable\fP is also reset\&. 
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.retrieve (longn)"
+Method for consumers to make the \fBBlock\fP retrieve a number of n TEUs (a container)\&. When the block is empty the try to retrieve will be refused\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the container can been stored successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The weight of the container to be stored in this \fBBlock\fP\&. n must be positive\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.setCTyp (intctyp)"
+Sets the container typ of this \fBBlock\fP to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIctyp\fP int : The new container typ of this \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.setHO (\fBHoldingArea\fPho)"
+Assigns this \fBBlock\fP to a new holding area\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIho\fP \fC\fBHoldingArea\fP\fP: The new holding area of this \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.setTyp (intt)"
+Sets the typ of this \fBBlock\fP to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP int : The new typ of this \fBBlock\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.store (longn)"
+Method for producers to make the \fBBlock\fP store a number of n TEUs (a container)\&. When the capacity of the block can not hold the additional incoming TEUs the try to store will be refused\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the container can been stored successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The weight of the container to be stored in this \fBBlock\fP\&. n must be positive\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.updateStatistics ()\fC [protected]\fP"
+Updates the statistics for the current capacity\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.avail_to_plan\fC [protected]\fP"
+The number of TEUs that are aready occupied and are avalaible for the retrieving\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.avail_to_reserve\fC [protected]\fP"
+The number of TEUs that are free, can be used for the storing\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.capacity\fC [protected]\fP"
+The max\&. capacity of the \fBBlock\fP\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.consumers = 0\fC [protected]\fP"
+The number of consumers having retrieved containers from this \fBBlock\fP 
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.ctyp\fC [protected]\fP"
+Te conatiner typ of this block: the typ of the containers that can be stored/retrieved from this block\&. 0-empty, 1- normal, 2-reefer, 4-overlarge, 5- danger containers 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.currentCapacity\fC [protected]\fP"
+The current capacity of the \fBBlock\fP\&. 
+.SS "\fBHoldingArea\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.ho = null\fC [protected]\fP"
+The Holding area this block is assigned to\&. 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.init = 0\fC [protected]\fP"
+The initial TEUs in the \fBBlock\fP 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.max\fC [protected]\fP"
+The maximum number of TEUs in the \fBBlock\fP 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.min\fC [protected]\fP"
+The minimum number of TEUs in the \fBBlock\fP 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.producers = 0\fC [protected]\fP"
+The number of processes having used this \fBBlock\fP to store products 
+.SS "String desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.where\fC [protected]\fP"
+Indicates the method where something has gone wrong\&. Is passed as a parameter to the method \fC\fBcheckProcess()\fP\fP\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\&.wSumAvail = 0\&.0\fC [protected]\fP"
+Weighted sum of available TEUs in the \fBBlock\fP over the time (must be divided by the total time to get the average available TEUs!) 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

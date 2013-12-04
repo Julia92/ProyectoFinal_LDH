@@ -1,0 +1,154 @@
+.TH "desmoj.extensions.applicationDomains.harbour.T_Control" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.T_Control \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBT_Control\fP (\fBModel\fP owner, String name, int tSortOrder, int tQCapacity, int jSortOrder, int jQCapacity, \fBTransportStrategy\fP s, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBaddJob\fP (\fBJob\fP j)"
+.br
+.ti -1c
+.RI "void \fBaddTransporter\fP (\fBInternalTransporter\fP t)"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "\fBTransporterSystem\fP \fBgetTS\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTS\fP (\fBTransporterSystem\fP ts)"
+.br
+.ti -1c
+.RI "void \fBsetTransportStrategy\fP (\fBTransportStrategy\fP s)"
+.br
+.ti -1c
+.RI "\fBTransportStrategy\fP \fBgetTransportStrategy\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBT_Control\fP represents the control component for the transporters\&. The transporters get the \fCJobs\fP from this control that assignes the job to them by using a certain \fC\fBTransportStrategy\fP\fP\&. Its \fC\fBlifeCycle()\fP\fP is already implemented and spezifies the behavior of the transport control\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBTransportStrategy\fP 
+.PP
+\fBTransporterSystem\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.T_Control (\fBModel\fPowner, Stringname, inttSortOrder, inttQCapacity, intjSortOrder, intjQCapacity, \fBTransportStrategy\fPs, booleanshowInReport, booleanshowInTrace)"
+Constructor for a transport control \fBT_Control\fP for the transporters\&. The queueing discipline and the capacity limit of the underlying queues for the jobs and for the transporters can be chosen\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBT_Control\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBT_Control\fP's name 
+.br
+\fItsortOrder\fP int : determines the sort order of the underlying transporter queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fItQCapacity\fP int : The capacity of the transporter queue, that is how many transporters can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIjsortOrder\fP int : determines the sort order of the underlying jobs queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIjQCapacity\fP int : The capacity of the jobs queue, that is how many jobs can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIs\fP \fBTransportStrategy\fP : The strategy that this \fBT_Control\fP uses to assign the jobs to the transporters\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBT_Control\fP (its \fBTransporterSystem\fP) should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.addJob (\fBJob\fPj)"
+This method is used to add the job to the transport control to get assigned to a transporter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP \fC\fBJob\fP\fP: The \fBJob\fP that must be assigned to a transporter\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.addTransporter (\fBInternalTransporter\fPt)"
+This method is used by an internal transporter to inform his transporter control that he is idle now (without a job)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP \fCInternalTranspoter\fP: The \fBInternalTransporter\fP that is idle\&. 
+.RE
+.PP
+
+.SS "\fBTransportStrategy\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.getTransportStrategy ()"
+Returns the transport strategy of this transport control\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBTransportStrategy\fP\fP: The transport strategy of this transporter control\&. 
+.RE
+.PP
+
+.SS "\fBTransporterSystem\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.getTS ()"
+Returns the transporter system of this transport control\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBTransporterSystem\fP\fP: The transporter system of this transporter control\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.lifeCycle ()\fC [virtual]\fP"
+This method implements the transporter control specific behaviour\&. This behavior is always the same therefore there is no need to implement that in a subclass of \fBT_Control\fP\&. This method starts after a transporter control has been created and activated by the scheduler\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.setTransportStrategy (\fBTransportStrategy\fPs)"
+Sets the transport strategy of this transporter control to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP \fBTransportStrategy\fP : The new transport strategy of this transporter control\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\&.setTS (\fBTransporterSystem\fPts)"
+Sets the transport system of this transporter control to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIts\fP \fBTransporterSystem\fP : The new transport system of this transporter control\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

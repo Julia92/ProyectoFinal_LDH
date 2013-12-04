@@ -1,0 +1,562 @@
+.TH "org.apache.commons.math.util.ResizableDoubleArray" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.util.ResizableDoubleArray \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBResizableDoubleArray\fP ()"
+.br
+.ti -1c
+.RI "\fBResizableDoubleArray\fP (int \fBinitialCapacity\fP)"
+.br
+.ti -1c
+.RI "\fBResizableDoubleArray\fP (int \fBinitialCapacity\fP, float \fBexpansionFactor\fP)"
+.br
+.ti -1c
+.RI "\fBResizableDoubleArray\fP (int \fBinitialCapacity\fP, float \fBexpansionFactor\fP, float \fBcontractionCriteria\fP)"
+.br
+.ti -1c
+.RI "\fBResizableDoubleArray\fP (int \fBinitialCapacity\fP, float \fBexpansionFactor\fP, float \fBcontractionCriteria\fP, int \fBexpansionMode\fP)"
+.br
+.ti -1c
+.RI "synchronized void \fBaddElement\fP (double value)"
+.br
+.ti -1c
+.RI "synchronized double \fBaddElementRolling\fP (double value)"
+.br
+.ti -1c
+.RI "synchronized void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "synchronized void \fBcontract\fP ()"
+.br
+.ti -1c
+.RI "synchronized void \fBdiscardFrontElements\fP (int i)"
+.br
+.ti -1c
+.RI "float \fBgetContractionCriteria\fP ()"
+.br
+.ti -1c
+.RI "synchronized double \fBgetElement\fP (int index)"
+.br
+.ti -1c
+.RI "synchronized double[] \fBgetElements\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetExpansionFactor\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetExpansionMode\fP ()"
+.br
+.ti -1c
+.RI "synchronized int \fBgetNumElements\fP ()"
+.br
+.ti -1c
+.RI "synchronized double[] \fBgetValues\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetContractionCriteria\fP (float \fBcontractionCriteria\fP)"
+.br
+.ti -1c
+.RI "synchronized void \fBsetElement\fP (int index, double value)"
+.br
+.ti -1c
+.RI "void \fBsetExpansionFactor\fP (float \fBexpansionFactor\fP)"
+.br
+.ti -1c
+.RI "void \fBsetExpansionMode\fP (int \fBexpansionMode\fP)"
+.br
+.ti -1c
+.RI "synchronized void \fBsetNumElements\fP (int i)"
+.br
+.ti -1c
+.RI "synchronized int \fBstart\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBADDITIVE_MODE\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBMULTIPLICATIVE_MODE\fP = 0"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheckContractExpand\fP (float contractionCritera, float \fBexpansionFactor\fP)"
+.br
+.ti -1c
+.RI "synchronized void \fBexpand\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetInitialCapacity\fP (int \fBinitialCapacity\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBcontractionCriteria\fP = 2\&.5f"
+.br
+.ti -1c
+.RI "float \fBexpansionFactor\fP = 2\&.0f"
+.br
+.ti -1c
+.RI "int \fBexpansionMode\fP = \fBMULTIPLICATIVE_MODE\fP"
+.br
+.ti -1c
+.RI "int \fBinitialCapacity\fP = 16"
+.br
+.ti -1c
+.RI "double[] \fBinternalArray\fP"
+.br
+.ti -1c
+.RI "int \fBnumElements\fP = 0"
+.br
+.ti -1c
+.RI "int \fBstartIndex\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A variable length \fBDoubleArray\fP implementation that automatically handles expanding and contracting its internal storage array as elements are added and removed\&. 
+.PP
+The internal storage array starts with capacity determined by the \fCinitialCapacity\fP property, which can be set by the constructor\&. The default initial capacity is 16\&. Adding elements using \fBaddElement(double)\fP appends elements to the end of the array\&. When there are no open entries at the end of the internal storage array, the array is expanded\&. The size of the expanded array depends on the \fCexpansionMode\fP and \fCexpansionFactor\fP properties\&. The \fCexpansionMode\fP determines whether the size of the array is multiplied by the \fCexpansionFactor\fP (MULTIPLICATIVE_MODE) or if the expansion is additive (ADDITIVE_MODE -- \fCexpansionFactor\fP storage locations added)\&. The default \fCexpansionMode\fP is MULTIPLICATIVE_MODE and the default \fCexpansionFactor\fP is 2\&.0\&. 
+.PP
+The \fBaddElementRolling(double)\fP method adds a new element to the end of the internal storage array and adjusts the 'usable window' of the internal array forward by one position (effectively making what was the second element the first, and so on)\&. Repeated activations of this method (or activation of \fBdiscardFrontElements(int)\fP) will effectively orphan the storage locations at the beginning of the internal storage array\&. To reclaim this storage, each time one of these methods is activated, the size of the internal storage array is compared to the number of addressable elements (the \fCnumElements\fP property) and if the difference is too large, the internal array is contracted to size \fCnumElements + 1\&.\fP The determination of when the internal storage array is 'too large' depends on the \fCexpansionMode\fP and \fCcontractionFactor\fP properties\&. If the \fCexpansionMode\fP is \fCMULTIPLICATIVE_MODE\fP, contraction is triggered when the ratio between storage array length and \fCnumElements\fP exceeds \fCcontractionFactor\&.\fP If the \fCexpansionMode\fP is \fCADDITIVE_MODE,\fP the number of excess storage locations is compared to \fCcontractionFactor\&.\fP 
+.PP
+To avoid cycles of expansions and contractions, the \fCexpansionFactor\fP must not exceed the \fCcontractionFactor\&.\fP Constructors and mutators for both of these properties enforce this requirement, throwing IllegalArgumentException if it is violated\&. 
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+618057 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-03 11:58:54 -0700 (Sun, 03 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.ResizableDoubleArray ()"
+Create a ResizableArray with default properties\&. 
+.PD 0
+
+.IP "\(bu" 2
+\fCinitialCapacity = 16\fP 
+.IP "\(bu" 2
+\fCexpansionMode = MULTIPLICATIVE_MODE\fP 
+.IP "\(bu" 2
+\fCexpansionFactor = 2\&.5\fP 
+.IP "\(bu" 2
+\fCcontractionFactor = 2\&.0\fP 
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.ResizableDoubleArray (intinitialCapacity)"
+Create a ResizableArray with the specified initial capacity\&. Other properties take default values: 
+.PD 0
+
+.IP "\(bu" 2
+\fCexpansionMode = MULTIPLICATIVE_MODE\fP 
+.IP "\(bu" 2
+\fCexpansionFactor = 2\&.5\fP 
+.IP "\(bu" 2
+\fCcontractionFactor = 2\&.0\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialCapacity\fP The initial size of the internal storage array 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if initialCapacity is not > 0 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.ResizableDoubleArray (intinitialCapacity, floatexpansionFactor)"
+Create a ResizableArray with the specified initial capacity and expansion factor\&. The remaining properties take default values: 
+.PD 0
+
+.IP "\(bu" 2
+\fCexpansionMode = MULTIPLICATIVE_MODE\fP 
+.IP "\(bu" 2
+\fCcontractionFactor = 0\&.5 + expansionFactor\fP 
+.PP
+.PP
+Throws IllegalArgumentException if the following conditions are not met: 
+.PD 0
+
+.IP "\(bu" 2
+\fCinitialCapacity > 0\fP 
+.IP "\(bu" 2
+\fCexpansionFactor > 1\fP 
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialCapacity\fP The initial size of the internal storage array 
+.br
+\fIexpansionFactor\fP the array will be expanded based on this parameter 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if parameters are not valid 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.ResizableDoubleArray (intinitialCapacity, floatexpansionFactor, floatcontractionCriteria)"
+Create a ResizableArray with the specified initialCapacity, expansionFactor, and contractionCriteria\&. The \fCexpansionMode\fP will default to \fCMULTIPLICATIVE_MODE\&.\fP
+.PP
+Throws IllegalArgumentException if the following conditions are not met: 
+.PD 0
+
+.IP "\(bu" 2
+\fCinitialCapacity > 0\fP 
+.IP "\(bu" 2
+\fCexpansionFactor > 1\fP 
+.IP "\(bu" 2
+\fCcontractionFactor >= expansionFactor\fP 
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialCapacity\fP The initial size of the internal storage array 
+.br
+\fIexpansionFactor\fP the array will be expanded based on this parameter 
+.br
+\fIcontractionCriteria\fP The contraction Criteria\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if parameters are not valid 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.ResizableDoubleArray (intinitialCapacity, floatexpansionFactor, floatcontractionCriteria, intexpansionMode)"
+Create a ResizableArray with the specified properties\&.
+.PP
+Throws IllegalArgumentException if the following conditions are not met: 
+.PD 0
+
+.IP "\(bu" 2
+\fCinitialCapacity > 0\fP 
+.IP "\(bu" 2
+\fCexpansionFactor > 1\fP 
+.IP "\(bu" 2
+\fCcontractionFactor >= expansionFactor\fP 
+.IP "\(bu" 2
+\fCexpansionMode in {MULTIPLICATIVE_MODE, ADDITIVE_MODE}\fP  
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialCapacity\fP the initial size of the internal storage array 
+.br
+\fIexpansionFactor\fP the array will be expanded based on this parameter 
+.br
+\fIcontractionCriteria\fP the contraction Criteria 
+.br
+\fIexpansionMode\fP the expansion mode 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if parameters are not valid 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "synchronized void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.addElement (doublevalue)"
+Adds an element to the end of this expandable array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP to be added to end of array 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP\&.
+.SS "synchronized double org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.addElementRolling (doublevalue)"
+Adds an element to the end of the array and removes the first element in the array\&. Returns the discarded first element\&. The effect is similar to a push operation in a FIFO queue\&. 
+.PP
+Example: If the array contains the elements 1, 2, 3, 4 (in that order) and addElementRolling(5) is invoked, the result is an array containing the entries 2, 3, 4, 5 and the value returned is 1\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP the value to be added to the array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value which has been discarded or 'pushed' out of the array by this rolling insert 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.checkContractExpand (floatcontractionCritera, floatexpansionFactor)\fC [protected]\fP"
+Checks the expansion factor and the contraction criteria and throws an IllegalArgumentException if the contractionCriteria is less than the expansionCriteria
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpansionFactor\fP factor to be checked 
+.br
+\fIcontractionCritera\fP critera to be checked 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if the contractionCriteria is less than the expansionCriteria\&. 
+.RE
+.PP
+
+.SS "synchronized void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.clear ()"
+Clear the array, reset the size to the initialCapacity and the number of elements to zero\&. 
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP\&.
+.SS "synchronized void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.contract ()"
+Contracts the storage array to the (size of the element set) + 1 - to avoid a zero length array\&. This function also resets the startIndex to zero\&. 
+.SS "synchronized void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.discardFrontElements (inti)"
+Discards the \fCi\fC initial elements of the array\&. For example, if the array contains the elements 1,2,3,4, invoking \fCdiscardFrontElements(2)\fP will cause the first two elements to be discarded, leaving 3,4 in the array\&. Throws illegalArgumentException if i exceeds numElements\&.\fP\fP
+.PP
+\fC\fC
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP the number of elements to discard from the front of the array 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if i is greater than numElements\&. 
+.RE
+.PP
+\fP\fP
+.SS "synchronized void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.expand ()\fC [protected]\fP"
+Expands the internal storage array using the expansion factor\&. 
+.PP
+if \fCexpansionMode\fP is set to MULTIPLICATIVE_MODE, the new array size will be \fCinternalArray\&.length * expansionFactor\&.\fP If \fCexpansionMode\fP is set to ADDITIVE_MODE, the length after expansion will be \fCinternalArray\&.length + expansionFactor\fP 
+.SS "float org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.getContractionCriteria ()"
+The contraction criteria defines when the internal array will contract to store only the number of elements in the element array\&. If the \fCexpansionMode\fP is \fCMULTIPLICATIVE_MODE\fP, contraction is triggered when the ratio between storage array length and \fCnumElements\fP exceeds \fCcontractionFactor\fP\&. If the \fCexpansionMode\fP is \fCADDITIVE_MODE\fP, the number of excess storage locations is compared to \fCcontractionFactor\&.\fP
+.PP
+\fBReturns:\fP
+.RS 4
+the contraction criteria used to reclaim memory\&. 
+.RE
+.PP
+
+.SS "synchronized double org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.getElement (intindex)"
+Returns the element at the specified index
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index to fetch a value from 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+value stored at the specified index 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIArrayIndexOutOfBoundsException\fP if \fCindex\fP is less than zero or is greater than \fC\fBgetNumElements()\fP - 1\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP\&.
+.SS "synchronized double [] org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.getElements ()"
+Returns a double array containing the elements of this \fCResizableArray\fP\&. This method returns a copy, not a reference to the underlying array, so that changes made to the returned array have no effect on this \fCResizableArray\&.\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+the double array\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP\&.
+.SS "float org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.getExpansionFactor ()"
+The expansion factor controls the size of a new aray when an array needs to be expanded\&. The \fCexpansionMode\fP determines whether the size of the array is multiplied by the \fCexpansionFactor\fP (MULTIPLICATIVE_MODE) or if the expansion is additive (ADDITIVE_MODE -- \fCexpansionFactor\fP storage locations added)\&. The default \fCexpansionMode\fP is MULTIPLICATIVE_MODE and the default \fCexpansionFactor\fP is 2\&.0\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the expansion factor of this expandable double array 
+.RE
+.PP
+
+.SS "int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.getExpansionMode ()"
+The \fCexpansionMode\fP determines whether the internal storage array grows additively (ADDITIVE_MODE) or multiplicatively (MULTIPLICATIVE_MODE) when it is expanded\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Returns the expansionMode\&. 
+.RE
+.PP
+
+.SS "synchronized int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.getNumElements ()"
+Returns the number of elements currently in the array\&. Please note that this is different from the length of the internal storage array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+number of elements 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP\&.
+.SS "synchronized double [] org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.getValues ()"
+Returns the internal storage array\&. Note that this method returns a reference to the internal storage array, not a copy, and to correctly address elements of the array, the \fCstartIndex\fP is required (available via the \fBstart\fP method)\&. This method should only be used in cases where copying the internal array is not practical\&. The \fBgetElements\fP method should be used in all other cases\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the internal storage array used by this object 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.setContractionCriteria (floatcontractionCriteria)"
+Sets the contraction criteria for this ExpandContractDoubleArray\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontractionCriteria\fP contraction criteria 
+.RE
+.PP
+
+.SS "synchronized void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.setElement (intindex, doublevalue)"
+Sets the element at the specified index\&. If the specified index is greater than \fC\fBgetNumElements()\fP - 1\fP, the \fCnumElements\fP property is increased to \fCindex +1\fP and additional storage is allocated (if necessary) for the new element and all (uninitialized) elements between the new element and the previous end of the array)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index to store a value in 
+.br
+\fIvalue\fP value to store at the specified index 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIArrayIndexOutOfBoundsException\fP if \fCindex\fP is less than zero\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.DoubleArray\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.setExpansionFactor (floatexpansionFactor)"
+Sets the expansionFactor\&. Throws IllegalArgumentException if the the following conditions are not met: 
+.PD 0
+
+.IP "\(bu" 2
+\fCexpansionFactor > 1\fP 
+.IP "\(bu" 2
+\fCcontractionFactor >= expansionFactor\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpansionFactor\fP the new expansion factor value\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if expansionFactor is <= 1 or greater than contractionFactor 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.setExpansionMode (intexpansionMode)"
+Sets the \fCexpansionMode\fP\&. The specified value must be one of ADDITIVE_MODE, MULTIPLICATIVE_MODE\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpansionMode\fP The expansionMode to set\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if the specified mode value is not valid 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.setInitialCapacity (intinitialCapacity)\fC [protected]\fP"
+Sets the initial capacity\&. Should only be invoked by constructors\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialCapacity\fP of the array 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if \fCinitialCapacity\fP is not positive\&. 
+.RE
+.PP
+
+.SS "synchronized void org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.setNumElements (inti)"
+This function allows you to control the number of elements contained in this array, and can be used to 'throw out' the last n values in an array\&. This function will also expand the internal array as needed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP a new number of elements 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if \fCi\fP is negative\&. 
+.RE
+.PP
+
+.SS "synchronized int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.start ()"
+Returns the starting index of the internal array\&. The starting index is the position of the first addressable element in the internal storage array\&. The addressable elements in the array are \fC internalArray[startIndex],\&.\&.\&.,internalArray[startIndex + numElements -1] \fP
+.PP
+\fBReturns:\fP
+.RS 4
+starting index 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.ADDITIVE_MODE = 1\fC [static]\fP"
+additive expansion mode 
+.SS "float org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.contractionCriteria = 2\&.5f\fC [protected]\fP"
+The contraction criteria determines when the internal array will be contracted to fit the number of elements contained in the element array + 1\&. 
+.SS "float org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.expansionFactor = 2\&.0f\fC [protected]\fP"
+The expansion factor of the array\&. When the array needs to be expanded, the new array size will be \fCinternalArray\&.length * expansionFactor\fP if \fCexpansionMode\fP is set to MULTIPLICATIVE_MODE, or \fCinternalArray\&.length + expansionFactor\fP if \fCexpansionMode\fP is set to ADDITIVE_MODE\&. 
+.SS "int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.expansionMode = \fBMULTIPLICATIVE_MODE\fP\fC [protected]\fP"
+Determines whether array expansion by \fCexpansionFactor\fP is additive or multiplicative\&. 
+.SS "int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.initialCapacity = 16\fC [protected]\fP"
+The initial capacity of the array\&. Initial capacity is not exposed as a property as it is only meaningful when passed to a constructor\&. 
+.SS "double [] org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.internalArray\fC [protected]\fP"
+The internal storage array\&. 
+.SS "final int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.MULTIPLICATIVE_MODE = 0\fC [static]\fP"
+multiplicative expansion mode 
+.SS "int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.numElements = 0\fC [protected]\fP"
+The number of addressable elements in the array\&. Note that this has nothing to do with the length of the internal storage array\&. 
+.SS "int org\&.apache\&.commons\&.math\&.util\&.ResizableDoubleArray\&.startIndex = 0\fC [protected]\fP"
+The position of the first addressable element in the internal storage array\&. The addressable elements in the array are \fC internalArray[startIndex],\&.\&.\&.,internalArray[startIndex + numElements -1] \fP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

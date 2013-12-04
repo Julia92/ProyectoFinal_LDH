@@ -1,0 +1,882 @@
+.TH "desmoj.extensions.space3D.MovableSpatialSimProcess" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.MovableSpatialSimProcess \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.space3D\&.SpatialSimProcess\fP, and \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMovableSpatialSimProcess\fP (\fBModel\fP owner, String name, String type, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBMovableSpatialSimProcess\fP (\fBModel\fP owner, String name, String type, boolean showInTrace, double acc, double dec, double mSpeed)"
+.br
+.ti -1c
+.RI "\fBMovableSpatialSimProcess\fP (\fBModel\fP owner, String name, String type, boolean showInTrace, double acc, double dec, double mSpeed, \fBExtendedLength\fP startPositionX, \fBExtendedLength\fP startPositionY, \fBExtendedLength\fP startPositionZ, \fBSpatialMovementManager\fP manager)"
+.br
+.ti -1c
+.RI "void \fBattach\fP (\fBMovableSpatialObject\fP host)"
+.br
+.ti -1c
+.RI "void \fBcancelMovement\fP ()"
+.br
+.ti -1c
+.RI "void \fBcancelRotation\fP ()"
+.br
+.ti -1c
+.RI "void \fBdetach\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetAcc\fP ()"
+.br
+.ti -1c
+.RI "\fBSpatialObject\fP \fBgetCurrentLocation\fP ()"
+.br
+.ti -1c
+.RI "\fBMovement\fP \fBgetCurrentMovement\fP ()"
+.br
+.ti -1c
+.RI "\fBRotation\fP \fBgetCurrentRotation\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetCurrentSpeed\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetDec\fP ()"
+.br
+.ti -1c
+.RI "Matrix4d \fBgetMatrix\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxSpeed\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP \fBgetPosX\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP \fBgetPosY\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP \fBgetPosZ\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisAttached\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisFocusedOnTrack\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisMoving\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisMovingConcurrent\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisRotating\fP ()"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBSpatialObject\fP destination, String entryPointName, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBSpatialObject\fP destination, String entryPointName, \fBTimeSpan\fP duration, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBSpatialObject\fP destination, String entryPointName, \fBTimeSpan\fP duration, double maxSpeed, double acc, double dec, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (\fBMovement\fP movement, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBmoveConcurrent\fP (\fBSpatialObject\fP destination, String entryPointName, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBmoveConcurrent\fP (\fBSpatialObject\fP destination, String entryPointName, \fBTimeSpan\fP duration, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBmoveConcurrent\fP (\fBSpatialObject\fP destination, String entryPointName, \fBTimeSpan\fP duration, double maxSpeed, double acc, double dec, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBmoveConcurrent\fP (\fBMovement\fP movement, boolean focusOnTrack)"
+.br
+.ti -1c
+.RI "void \fBnotifyMovingDone\fP ()"
+.br
+.ti -1c
+.RI "void \fBnotifyRotatingDone\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetRotation\fP ()"
+.br
+.ti -1c
+.RI "void \fBrotX\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBrotY\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBrotZ\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBrotX\fP (double angle)"
+.br
+.ti -1c
+.RI "void \fBrotY\fP (double angle)"
+.br
+.ti -1c
+.RI "void \fBrotZ\fP (double angle)"
+.br
+.ti -1c
+.RI "void \fBrotXConcurrent\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBrotYConcurrent\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBrotZConcurrent\fP (double angle, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "void \fBsendToLocation\fP (\fBSpatialObject\fP destination)"
+.br
+.ti -1c
+.RI "void \fBsendToLocationEntryPoint\fP (\fBSpatialObject\fP destination, String entryPoint)"
+.br
+.ti -1c
+.RI "void \fBsendToLocationExitPoint\fP (\fBSpatialObject\fP destination, String exitPoint)"
+.br
+.ti -1c
+.RI "void \fBsetAcc\fP (double acc)"
+.br
+.ti -1c
+.RI "void \fBsetDec\fP (double dec)"
+.br
+.ti -1c
+.RI "void \fBsetPosition\fP (\fBExtendedLength\fP x, \fBExtendedLength\fP y, \fBExtendedLength\fP z)"
+.br
+.ti -1c
+.RI "void \fBsetMaxSpeed\fP (double mSpeed)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The class represents the movable DESMO-J SimProcess which should be visualized\&. Therefore it implements the \fBMovableSpatialObject\fP interface for the handling with the 3D spatial data, the spatial movements and the parent-child-MSO concept\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.MovableSpatialSimProcess (\fBModel\fPowner, Stringname, Stringtype, booleanshowInTrace)"
+Constructs a \fBMovableSpatialSimProcess\fP without specify the spatial data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP The model this process is associated to\&. 
+.br
+\fIname\fP The name of the process\&. 
+.br
+\fItype\fP The type attribute belongs to the \fBSpatialObject\fP interface\&. 
+.br
+\fIshowInTrace\fP Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.MovableSpatialSimProcess (\fBModel\fPowner, Stringname, Stringtype, booleanshowInTrace, doubleacc, doubledec, doublemSpeed)"
+Constructs a \fBMovableSpatialSimProcess\fP with specific acceleration and negative acceleration, maximum speed and position data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP The model this entity is associated to\&. 
+.br
+\fIname\fP The name of the entity\&. 
+.br
+\fItype\fP The type attribute belongs to the \fBSpatialObject\fP interface\&. 
+.br
+\fIshowInTrace\fP showInTrace Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&.\&. 
+.br
+\fIacc\fP The acceleration of this \fBMovableSpatialObject\fP\&. 
+.br
+\fIdec\fP The breaking acceleration of this \fBMovableSpatialObject\fP (normally a negative value)\&. 
+.br
+\fImSpeed\fP The maximum speed of this MobavleSpatialObject\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.MovableSpatialSimProcess (\fBModel\fPowner, Stringname, Stringtype, booleanshowInTrace, doubleacc, doubledec, doublemSpeed, \fBExtendedLength\fPstartPositionX, \fBExtendedLength\fPstartPositionY, \fBExtendedLength\fPstartPositionZ, \fBSpatialMovementManager\fPmanager)"
+Constructs a \fBMovableSpatialSimProcess\fP with specific acceleration and negative acceleration, maximum speed, position data and \fBSpatialMovementManager\fP for movement customizing\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP The model this entity is associated to\&. 
+.br
+\fIname\fP The name of the entity\&. 
+.br
+\fItype\fP The type attribute belongs to the \fBSpatialObject\fP interface\&. 
+.br
+\fIshowInTrace\fP showInTrace Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&. 
+.br
+\fIacc\fP The acceleration of this \fBMovableSpatialObject\fP\&. 
+.br
+\fIdec\fP The breaking acceleration of this \fBMovableSpatialObject\fP (normally a negative value) 
+.br
+\fImSpeed\fP The maximum speed of this \fBMovableSpatialObject\fP\&. 
+.br
+\fIstartPositionX\fP The x start position in \fBExtendedLength\fP\&. 
+.br
+\fIstartPositionY\fP The y start position in \fBExtendedLength\fP\&. 
+.br
+\fIstartPositionZ\fP The z start position in \fBExtendedLength\fP\&. 
+.br
+\fImanager\fP a specific \fBSpatialMovementManager\fP which the user could have customized\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.attach (\fBMovableSpatialObject\fPhost)\fC [virtual]\fP"
+Constructs a \fBMovableSpatialSimProcess\fP with specific acceleration and negative acceleration, maximum speed and position data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP The model this entity is associated to\&. 
+.br
+\fIname\fP The name of the entity\&. 
+.br
+\fItype\fP The type attribute belongs to the \fBSpatialObject\fP interface\&. 
+.br
+\fIshowInTrace\fP showInTrace Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&.\&. 
+.br
+\fIacc\fP The acceleration of this \fBMovableSpatialObject\fP\&. 
+.br
+\fIdec\fP The breaking acceleration of this \fBMovableSpatialObject\fP (normally a negative value)\&. 
+.br
+\fImSpeed\fP The maximum speed of this MobavleSpatialObject\&. 
+.br
+\fIfrontSide\fP The vector which points to the front side of the object\&. (This is only needed if the focusOnTrack option of the move methods should be used\&.) 
+.br
+\fIparentMSO\fP The parent-MovableSpatialObject (if this object should be the child-MSO of it)\&. Constructs a \fBMovableSpatialSimProcess\fP with specific acceleration and negative acceleration, maximum speed, position data and \fBSpatialMovementManager\fP for movement customizing\&. 
+.br
+\fIowner\fP The model this entity is associated to\&. 
+.br
+\fIname\fP The name of the entity\&. 
+.br
+\fItype\fP The type attribute belongs to the \fBSpatialObject\fP interface\&. 
+.br
+\fIshowInTrace\fP showInTrace Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&. 
+.br
+\fIacc\fP The acceleration of this \fBMovableSpatialObject\fP\&. 
+.br
+\fIdec\fP The breaking acceleration of this \fBMovableSpatialObject\fP (normally a negative value) 
+.br
+\fImSpeed\fP The maximum speed of this \fBMovableSpatialObject\fP\&. 
+.br
+\fIstartPositionX\fP The x start position in \fBExtendedLength\fP\&. 
+.br
+\fIstartPositionY\fP The y start position in \fBExtendedLength\fP\&. 
+.br
+\fIstartPositionZ\fP The z start position in \fBExtendedLength\fP\&. 
+.br
+\fIfrontSide\fP The vector which points to the front side of the object\&. (This is only needed if the focusOnTrack option of the move methods should be used\&.) 
+.br
+\fIparentMSO\fP The parent-MovableSpatialObject (if this object should be the child-MSO of it)\&. 
+.br
+\fImanager\fP a specific \fBSpatialMovementManager\fP which the user could have customized\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.cancelMovement ()\fC [virtual]\fP"
+Cancel the movement if there is a movement performing\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.cancelRotation ()\fC [virtual]\fP"
+Cancel the rotation if there is a rotation performing\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.detach ()\fC [virtual]\fP"
+Returns true if this object contains the given \fBMovableSpatialObject\fP as child-component\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchildMSO\fP The \fBMovableSpatialObject\fP to be checked\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if this object contains it as childMSO, false if not\&. Releases from the host object if this object is attached to it\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "double desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getAcc ()\fC [virtual]\fP"
+Gets the acceleration of the object\&. The default value is 0\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The acceleration 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "\fBSpatialObject\fP desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getCurrentLocation ()\fC [virtual]\fP"
+Gets an iterator over all the child-MovableSpatialObejct's this object contains 
+.PP
+\fBReturns:\fP
+.RS 4
+An iterator over all the child-MSO's this object contains\&. Returns the \fBSpatialObject\fP where this \fBMovableSpatialObject\fP is currently located\&. 
+.PP
+The \fBSpatialObject\fP where this \fBMovableSpatialObject\fP is located\&. Null, if it isn't located at any \fBSpatialObject\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "\fBMovement\fP desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getCurrentMovement ()\fC [virtual]\fP"
+Gets the current \fBMovement\fP object\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current \fBMovement\fP object\&. Null, if this \fBMovableSpatialObject\fP isn't moving\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "\fBRotation\fP desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getCurrentRotation ()\fC [virtual]\fP"
+Gets the current \fBRotation\fP object\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current \fBRotation\fP object\&. Null, if this \fBMovableSpatialObject\fP isn't rotating\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "double desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getCurrentSpeed ()\fC [virtual]\fP"
+Gets the current moving speed of the object\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current moving speed\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "double desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getDec ()\fC [virtual]\fP"
+Gets the negative acceleration of the object\&. The default value is 0\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The negative acceleration 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "Matrix4d desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getMatrix ()\fC [virtual]\fP"
+Gets a 4x4 double matrix object which contains the spatial data of the SpatialObejct\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The Matrix4d object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "double desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getMaxSpeed ()\fC [virtual]\fP"
+Gets the vector which points to the front side of this \fBMovableSpatialObject\fP\&. The default vector is null\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The normalized vector which shows the front side\&. Gets the maximum speed of the object\&. If it's 0, the \fBMovableSpatialObject\fP won't have speed limitation\&. The default value is 0\&. 
+.PP
+The maximum speed of the object 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "\fBExtendedLength\fP desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getPosX ()\fC [virtual]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+It returns the x-position of the object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getPosY ()\fC [virtual]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+It returns the y-position of the object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "\fBExtendedLength\fP desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.getPosZ ()\fC [virtual]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+It returns the z-position of the object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "boolean desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.isAttached ()\fC [virtual]\fP"
+Gets how many child-MovableSpatialObject's this object has\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of the child-MSO's of this obejct\&. Gets the parent-MovableSpaitalObject if this Object is a component of it 
+.PP
+The parent-MSO if exist\&. Else, null\&. Check whether this object has any child-MovableSpatialObject 
+.PP
+True if there is a childMSO\&. False if there is no childMSO\&. IShows whether the \fBMovableSpatialObject\fP is attached\&. 
+.PP
+Whether the MovableSpatialObejct is attached\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "boolean desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.isFocusedOnTrack ()\fC [virtual]\fP"
+Returns whether the FocusOnTrack function is on\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if it's set\&. False if it's not set\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "boolean desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.isMoving ()\fC [virtual]\fP"
+Shows whether the \fBMovableSpatialObject\fP is moving\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+whether the \fBMovableSpatialObject\fP is moving\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "boolean desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.isMovingConcurrent ()"
+Shows whether this object is moving concurrentlly\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True, if it's moving concurrentlly\&. Else, false\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.isRotating ()\fC [virtual]\fP"
+Shows whether the \fBMovableSpatialObject\fP is rotating\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+whether the \fBMovableSpatialObject\fP is rotating\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.move (\fBSpatialObject\fPdestination, StringentryPointName, booleanfocusOnTrack)\fC [virtual]\fP"
+Show whether the \fBMovableSpatialObject\fP is a child-component of another \fBMovableSpatialObject\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+true, if this \fBMovableSpatialObject\fP is part of another \fBMovableSpatialObject\fP\&. False, if it's not\&. Move the object to the position of another \fBSpatialObject\fP without a specified duration\&. It use the acceleration, deceleration and the maximum speed of the \fBMovableSpatialObject\fP\&. For this method the maximum speed of the object must be given or an \fBIllegalMoveException\fP will be thrown\&. If the acceleration is <= 0 OR deceleration of the object is >= 0, then the kinematical attributes won't be calculated and the movement will start with the maximum speed and break to zero immediately at the destination\&. If the object is already moving it will move to the new destination\&. (not for \fBMovableSpatialSimProcess\fP) 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object we want to move to\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.move (\fBSpatialObject\fPdestination, StringentryPointName, \fBTimeSpan\fPduration, booleanfocusOnTrack)\fC [virtual]\fP"
+Move the object to the position of another \fBSpatialObject\fP with a specified duration\&. It use the acceleration, deceleration and the maximum speed of the \fBMovableSpatialObject\fP\&. If the acceleration is <= 0 OR deceleration of the object is >= 0, then the kinematical attributes won't be calculated and the movement will start with the speed needed to arrive the destination in time\&. If the maximum speed of the object is initialized (>0), then an \fBIllegalMoveException\fP will be thrown if it is not possible to make to the destination in time\&. If the object is already moving it will move to the new destination\&. (not for \fBMovableSpatialSimProcess\fP) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object we want to move to\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. 
+.br
+\fIduration\fP The duration of the movement in TimeSpan\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.move (\fBSpatialObject\fPdestination, StringentryPointName, \fBTimeSpan\fPduration, doublemaxSpeed, doubleacc, doubledec, booleanfocusOnTrack)\fC [virtual]\fP"
+Move the object to the position of another \fBSpatialObject\fP with specific attributes\&. There are different varieties of movement modes depends on the initialized parameters (O = initialized, X = not initialized(means invalid or null)):
+.PP
+case 1: duration O, maxSpeed O, acc & dec O: The movement will be performed according to the parameters\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 2: duration X, maxSpeed O, acc & dec O: The object will be moved to the destination with the fastest speed possible\&.
+.PP
+case 3: duration O, maxSpeed X, acc & dec O: The object will move to the destination with the given acceleration and deceleration and try to reach the destination in time\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 4: duration X, maxSpeed X, acc & dec O: The object will be accelerated and followed by a deceleration\&. There's no constant phase in the movement\&.
+.PP
+case 5: duration O, maxSpeed O, acc or dec X: The object will start with the speed needed to arrive the destination in the given time and break suddenly to zero at the end of the movement\&. The maxSpeed gives the speed limit of the movement\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 6: duration X, maxSpeed O, acc or dec X: The movement will start with the maxSpeed and stops the destination\&.
+.PP
+case 7: duration O, maxSpeed X, acc or dec X: The movement will start with the speed needed to arrive the destination with the duration given\&.
+.PP
+All other combinations of these parameters will cause an \fBIllegalMoveException\fP\&.
+.PP
+If the object is already moving it will move to the new destination\&. (not for \fBMovableSpatialSimProcess\fP) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object we want to move to\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. 
+.br
+\fIduration\fP The duration of the movement in TimeSpan(optional)\&. 
+.br
+\fImaxSpeed\fP The maximum speed of the movement(optional)\&. 
+.br
+\fIacc\fP The acceleration of the movement(optional)\&. 
+.br
+\fIdec\fP The deceleration of the movement(optional)\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.move (\fBMovement\fPmovement, booleanfocusOnTrack)\fC [virtual]\fP"
+Move the object to the destination according to the given movement object\&. If the object is already moving it will move to the new destination\&. (not for \fBMovableSpatialSimProcess\fP) If this \fBMovableSpatialObject\fP is a child-MSO, the \fBTrack\fP which is contained in the \fBMovement\fP parameter should be in the local coordinates of this object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovement\fP The movement which should be performed\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.moveConcurrent (\fBSpatialObject\fPdestination, StringentryPointName, booleanfocusOnTrack)"
+Move the object to the position of another \fBSpatialObject\fP without a specified duration\&. The difference to the move methods is that this method won't passivate the \fBMovableSpatialSimProcess\fP after the execution so other actions like a rotation can be performed while the object is moving\&. If the object is already moving it will move to the new destination\&. It use the acceleration, deceleration and the maximum speed of the \fBMovableSpatialObject\fP\&. For this method the maximum speed of the object must be given or an \fBIllegalMoveException\fP will be thrown\&. If the acceleration OR deceleration of the object is <= 0, then the kinematical attributes won't be calculated and the movement will start with the maximum speed and break to zero immediately at the destination\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object we want to move to\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.moveConcurrent (\fBSpatialObject\fPdestination, StringentryPointName, \fBTimeSpan\fPduration, booleanfocusOnTrack)"
+Move the object to the position of another \fBSpatialObject\fP with a specified duration\&. The difference to the move methods is that this method won't passivate the \fBMovableSpatialSimProcess\fP after the execution so other actions like a rotation can be performed while the object is moving\&. If the object is already moving it will move to the new destination\&. It use the acceleration, deceleration and the maximum speed of the \fBMovableSpatialObject\fP\&. If the acceleration OR deceleration of the object is <= 0, then the kinematical attributes won't be calculated and the movement will start with the speed needed to arrive the destination in time\&. If the maximum speed of the object is initialized (>0), then an \fBIllegalMoveException\fP will be thrown if it is not possible to make to the destination in time\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object we want to move to\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to\&. 
+.br
+\fIduration\fP The duration of the movement in TimeSpan\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.moveConcurrent (\fBSpatialObject\fPdestination, StringentryPointName, \fBTimeSpan\fPduration, doublemaxSpeed, doubleacc, doubledec, booleanfocusOnTrack)"
+Move the object to the position of another \fBSpatialObject\fP with specific attributes\&. The difference to the move methods is that this method won't passivate the \fBMovableSpatialSimProcess\fP after the execution so other actions like a rotation can be performed while the object is moving\&. If the object is already moving it will move to the new destination\&. There are different varieties of movement modes depends on the initialized parameters (O = initialized, X = not initialized(means <=0 or null)):
+.PP
+case 1: duration O, maxSpeed O, acc & dec O: The movement will be performed according to the parameters\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 2: duration X, maxSpeed O, acc & dec O: The object will be moved to the destination with the fastest speed possible\&.
+.PP
+case 3: duration O, maxSpeed X, acc & dec O: The object will move to the destination with the given acceleration and deceleration and try to reach the destination in time\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 4: duration X, maxSpeed X, acc & dec O: The object will be accelerated and followed by a deceleration\&. There's no constant phase in the movement\&.
+.PP
+case 5: duration O, maxSpeed O, acc or dec X: The object will start with the speed needed to arrive the destination in the given time and break suddenly to zero at the end of the movement\&. The maxSpeed gives the speed limit of the movement\&. If the given parameters can't be satisfied, an \fBIllegalMoveException\fP will be thrown\&.
+.PP
+case 6: duration X, maxSpeed O, acc or dec X: The movement will start with the maxSpeed and stops the destination\&.
+.PP
+case 7: duration O, maxSpeed X, acc or dec X: The movement will start with the speed needed to arrive the destination with the duration given\&.
+.PP
+All other combinations of these parameters will cause an \fBIllegalMoveException\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object we want to move to\&. 
+.br
+\fIenttryPointName\fP The name of the specific entry point at the destination object, which should be steered to(optional)\&. 
+.br
+\fIduration\fP The duration of the movement in TimeSpan(optional)\&. 
+.br
+\fImaxSpeed\fP The maximum speed of the movement(optional)\&. 
+.br
+\fIacc\fP The acceleration of the movement(optional)\&. 
+.br
+\fIdec\fP The deceleration of the movement(optional)\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.moveConcurrent (\fBMovement\fPmovement, booleanfocusOnTrack)"
+Move the object to the destination according to the given movement object\&. The difference to the move methods is that this method won't passivate the \fBMovableSpatialSimProcess\fP after the execution so other actions like a rotation can be performed while the object is moving\&. If the object is already moving it will move to the new destination\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovement\fP The movement which should be performed\&. 
+.br
+\fIfocusOnTrack\fP Whether the orientation of the moving object should focus to the moving direction\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.notifyMovingDone ()\fC [virtual]\fP"
+Notifies the \fBMovableSpatialObject\fP that the moving is finished and updates the new coordinates\&. This method shouldn't be called by user! 
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.notifyRotatingDone ()\fC [virtual]\fP"
+Notifies the \fBMovableSpatialObject\fP that the rotating is finished and updates the new coordinates\&. This method shouldn't be called by user! 
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.resetRotation ()\fC [virtual]\fP"
+Resets the rotation of the object\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotX (doubleangle, \fBTimeSpan\fPduration)\fC [virtual]\fP"
+Rotates the object about the x-axis using an animation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The start angle 
+.br
+\fIduration\fP The duration of the animation 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotX (doubleangle)\fC [virtual]\fP"
+Adds a rotation about the x-axis to the current orientation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The rotation angle in radians 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotXConcurrent (doubleangle, \fBTimeSpan\fPduration)"
+Rotates the object about the x-axis using an animation\&. The difference to the rotX methods is that this method won't passivate the \fBMovableSpatialSimProcess\fP after the execution so other actions like a movement can be performed while the object is rotating\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The start angle 
+.br
+\fIduration\fP The duration of the animation 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotY (doubleangle, \fBTimeSpan\fPduration)\fC [virtual]\fP"
+Rotates the object about the y-axis using an animation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The start angle 
+.br
+\fIduration\fP The duration of the animation 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotY (doubleangle)\fC [virtual]\fP"
+Adds a rotation about the y-axis to the current orientation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The rotation angle in radians 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotYConcurrent (doubleangle, \fBTimeSpan\fPduration)"
+Rotates the object about the y-axis using an animation\&. The difference to the rotY methods is that this method won't passivate the \fBMovableSpatialSimProcess\fP after the execution so other actions like a movement can be performed while the object is rotating\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The start angle 
+.br
+\fIduration\fP The duration of the animation 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotZ (doubleangle, \fBTimeSpan\fPduration)\fC [virtual]\fP"
+Rotates the object about the z-axis using an animation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The start angle 
+.br
+\fIduration\fP The duration of the animation 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotZ (doubleangle)\fC [virtual]\fP"
+Adds a rotation about the z-axis to the current orientation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The rotation angle in radians 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.rotZConcurrent (doubleangle, \fBTimeSpan\fPduration)"
+Rotates the object about the z-axis using an animation\&. The difference to the rotZ methods is that this method won't passivate the \fBMovableSpatialSimProcess\fP after the execution so other actions like a movement can be performed while the object is rotating\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIangle\fP The start angle 
+.br
+\fIduration\fP The duration of the animation 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.sendToLocation (\fBSpatialObject\fPdestination)\fC [virtual]\fP"
+Set this object to the position of the destination object and change the currentLocation to the destination object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination this object will be send to\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.sendToLocationEntryPoint (\fBSpatialObject\fPdestination, StringentryPoint)\fC [virtual]\fP"
+Set this object to the position of the given entry point of the destination object\&. The currentLocation will also be changed to the destination object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object the currentLocation should be set to\&. 
+.br
+\fIentryPoint\fP The specific entry point of the destination object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.sendToLocationExitPoint (\fBSpatialObject\fPdestination, StringexitPoint)\fC [virtual]\fP"
+Set this object to the position of the given exit point of the destination object\&. The currentLocation will also be changed to the destination object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdestination\fP The destination object the currentLocation should be set to\&. 
+.br
+\fIexitPoint\fP The specific exit point of the destination object this object will be send to\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.setAcc (doubleacc)\fC [virtual]\fP"
+Sets the acceleration of the object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIacc\fP The acceleration 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.setDec (doubledec)\fC [virtual]\fP"
+Sets the negative acceleration of the object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdec\fP The negative acceleration 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.setMaxSpeed (doublemaxSpeed)\fC [virtual]\fP"
+Sets the maximum speed of this object 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaxSpeed\fP The maximum speed of the object 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.MovableSpatialObject\fP\&.
+.SS "void desmoj\&.extensions\&.space3D\&.MovableSpatialSimProcess\&.setPosition (\fBExtendedLength\fPx, \fBExtendedLength\fPy, \fBExtendedLength\fPz)\fC [virtual]\fP"
+Update the current spatial data of the object\&. This method should only be used for the internal coordination, not for the position/orientation manipulation\&. The method will change the 3D properties of the \fBSpatialObject\fP\&. But the visualization instance, if used, won't be informed about the change\&. Therefore the visualization won't be updated\&. Inconsistency could be the result\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImatrix\fP The new matrix in a double[16] for the object\&. The first 4 elements are the first row, the next 4 are the second row etc\&. Update the current spatial data of the object\&. This method should only be used for the internal coordination, not for the position/orientation manipulation\&. The method will change the 3D properties of the \fBSpatialObject\fP\&. But the visualization instance, if used, won't be informed about the change\&. Therefore the visualization won't be updated\&. Inconsistency could be the result\&. 
+.br
+\fImatrix\fP The new matrix in Matrix4d\&. It sets the new position for the object\&. * 
+.br
+\fIx\fP The \fBExtendedLength\fP which contains the new x-position\&. 
+.br
+\fIy\fP The \fBExtendedLength\fP which contains the new y-position\&. 
+.br
+\fIz\fP The \fBExtendedLength\fP which contains the new z-position\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.space3D\&.SpatialObject\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

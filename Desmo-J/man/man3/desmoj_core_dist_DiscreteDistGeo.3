@@ -1,0 +1,121 @@
+.TH "desmoj.core.dist.DiscreteDistGeo" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.DiscreteDistGeo \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits DiscreteDist< Long >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDiscreteDistGeo\fP (\fBModel\fP owner, String name, double \fBprobability\fP, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetProbability\fP ()"
+.br
+.ti -1c
+.RI "Long \fBsample\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBprobability\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBDistribution\fP returning Geometrically distributed int values\&. The Geometrical distribution describes the probability of having a certain waiting time for the first success in a series of indepedent Bernoulli experiments, all having the same success probability\&.
+.PP
+Note: The generated values are not the amount of experiments done to get the first success, but the amount of failures before the first success\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Peter Wueppen 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.DiscreteDistGeo\&.DiscreteDistGeo (\fBModel\fPowner, Stringname, doubleprobability, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of pseudo random numbers following a Geometrical distribution\&. The specific parameter p (probability) has to be given here at creation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIprobability\fP double : The probability of success in each separate Bernoulli experiment\&. 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+Infinite \fBDistribution\fP, so cumulative probability values cannot be stored completely\&. Thus, the values of roughly 99% of all cases get stored while the rest is calculated on the fly if needed\&. Value is capped at 5 (lower bound) and 100 (upper bound)
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.DiscreteDistGeo\&.createReporter ()"
+Creates the default reporter for the \fBDiscreteDistGeo\fP distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the \fBDiscreteDistGeo\fP distribution 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.DiscreteDistGeo\&.getProbability ()"
+Returns the success probability in each separate Bernoulli experiment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The success probability in each separate Bernoulli experiment\&. 
+.RE
+.PP
+
+.SS "Long desmoj\&.core\&.dist\&.DiscreteDistGeo\&.sample ()"
+Returns the next sample from this distribution\&. The value depends upon the seed, the number of values taken from the stream by using this method before and the probability specified for this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Long : The next Geometrically distributed sample from this distribution\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "double desmoj\&.core\&.dist\&.DiscreteDistGeo\&.probability\fC [protected]\fP"
+The probability of success in each separate Bernoulli experiment\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

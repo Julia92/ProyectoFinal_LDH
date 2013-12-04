@@ -1,0 +1,731 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kind="class" prot="public">
+    <compoundname>desmoj::core::statistic::Accumulate</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics" prot="public" virt="non-virtual">desmoj.core.statistic.ValueStatistics</basecompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate" prot="public" virt="non-virtual">desmoj.core.statistic.HistogramAccumulate</derivedcompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1extensions_1_1visualization2d_1_1animation_1_1core_1_1statistic_1_1_accumulate_animation" prot="public" virt="non-virtual">desmoj.extensions.visualization2d.animation.core.statistic.AccumulateAnimation</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a2278941640e9f3b691810372524fc74d" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.core.statistic.Accumulate._pausedSince</definition>
+        <argsstring></argsstring>
+        <name>_pausedSince</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instant at which the current pause has started (<computeroutput>null</computeroutput> if not paused at the moment) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="38" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a273fd25e75321482ab6673ab024e0b09" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.core.statistic.Accumulate._pausedPeriodSinceLastReset</definition>
+        <argsstring></argsstring>
+        <name>_pausedPeriodSinceLastReset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The length of the period during which this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> was paused since the last reset </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="43" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a24829c9e4cef7d65740499d52b15e1d2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Accumulate._mean</definition>
+        <argsstring></argsstring>
+        <name>_mean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The time-weighted mean of all values so far </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="48" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a600800b816ef320f16c947c40fe20ac3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Accumulate._sumOfSquaredDevsFromMean</definition>
+        <argsstring></argsstring>
+        <name>_sumOfSquaredDevsFromMean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The time-weighted sum of the squares of the differences from the mean of all values so far </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="53" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a927ebb57506ffd9eba1998095c031aea" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.statistic.Accumulate._retainLastValueOnReset</definition>
+        <argsstring></argsstring>
+        <name>_retainLastValueOnReset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This flag indicates if the accumulate&apos;s last value is retained on reset (true) or nullified (false) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="59" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a75ef68c5b895561d766fb89f0f0f4b57" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.core.statistic.Accumulate._firstValueReadAt</definition>
+        <argsstring></argsstring>
+        <name>_firstValueReadAt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The point of time this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> was updated first </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="64" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1ac94885d20a6926a3af5f2d300406c280" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.core.statistic.Accumulate._lastUpdate</definition>
+        <argsstring></argsstring>
+        <name>_lastUpdate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The point of time this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> was updated last </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="69" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1abedfc6e15b68ecb831fd04a470b405da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.Accumulate.Accumulate</definition>
+        <argsstring>(Model ownerModel, String name, ValueSupplier valSup, boolean automatic, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Accumulate</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></type>
+          <declname>valSup</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>automatic</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> object that will be connected to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> is associated to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> object </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>valSup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> : The <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> providing the value for this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref>. The given <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> will be observed by this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> object, if it is not observed automatically at every tick of the SimClock. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>automatic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for observing the <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> at every tick of the SimClock. Set it to <computeroutput>true</computeroutput> to have it observed at every SimClock tick. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="94" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="94" bodyend="131"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aec498abda3f582314d72e2e64c0891c4" compoundref="_value_statistics_8java" startline="213" endline="215">desmoj.core.statistic.ValueStatistics.getValueSupplier</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a4c68f4b9ada8d7e6f90aa3bc8409f73f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.Accumulate.Accumulate</definition>
+        <argsstring>(Model ownerModel, String name, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Accumulate</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> object that will not be connected to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput> automatically.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> is associated to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="149" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="149" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a3d4b9f5f646a712cf50049c26d3cfadb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref></type>
+        <definition>desmoj.core.report.Reporter desmoj.core.statistic.Accumulate.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a Reporter to produce a report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref>.</para><para><simplesect kind="return"><para>desmoj.report.Reporter : The Reporter for this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="168" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="168" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a88439cd0bef973fb94034f3200844ed8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+        <definition>TimeSpan desmoj.core.statistic.Accumulate.getPeriodMeasured</definition>
+        <argsstring>()</argsstring>
+        <name>getPeriodMeasured</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the period measured (excluding pauses).</para><para><simplesect kind="return"><para>TimeSpan : The period measured (excluding pauses). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="177" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="177" bodyend="193"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" compoundref="_model_component_8java" startline="198" endline="200">desmoj.core.simulator.ModelComponent.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a07d2605d92677400ab2e523eadd161a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Accumulate.getMean</definition>
+        <argsstring>()</argsstring>
+        <name>getMean</name>
+        <reimplements refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1af62fa9f16261f9184c388a2d67d64cd2">getMean</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the mean value of all the values observed so far, weighted over time.</para><para><simplesect kind="return"><para>double : The mean value of all the values observed so far, weighted over time. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="202" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="202" bodyend="237"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" compoundref="_model_component_8java" startline="198" endline="200">desmoj.core.simulator.ModelComponent.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1aea72f8b618d0b39fb6d11ca4ebe45349" compoundref="_time_span_8java" startline="520" endline="522">desmoj.core.simulator.TimeSpan.isEqual</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_operations_1af6d9934167ba60f604049ff6fb04169d" compoundref="_time_operations_8java" startline="198" endline="207">desmoj.core.simulator.TimeOperations.diff</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1a669fdfd1dcc1238af159ca1685107186" compoundref="_time_span_8java" startline="33">desmoj.core.simulator.TimeSpan.ZERO</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" compoundref="_statistic_object_8java" startline="60">desmoj.core.statistic.StatisticObject.UNDEFINED</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" compoundref="_value_statistics_8java" startline="140" endline="142">desmoj.core.statistic.ValueStatistics.getLastValue</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" compoundref="_statistic_object_8java" startline="176" endline="178">desmoj.core.statistic.StatisticObject.round</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a034a8c3c09d4768904ed931a657f93fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Accumulate.getStdDev</definition>
+        <argsstring>()</argsstring>
+        <name>getStdDev</name>
+        <reimplements refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1ad2266fa71210c9a13b393e68e98622b4">getStdDev</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the standard deviation of all the values observed so far, weighted over time.</para><para><simplesect kind="return"><para>double : The standard deviation of all the values observed so far, weighted over time. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="246" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="246" bodyend="289"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" compoundref="_model_component_8java" startline="198" endline="200">desmoj.core.simulator.ModelComponent.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1aea72f8b618d0b39fb6d11ca4ebe45349" compoundref="_time_span_8java" startline="520" endline="522">desmoj.core.simulator.TimeSpan.isEqual</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_operations_1af6d9934167ba60f604049ff6fb04169d" compoundref="_time_operations_8java" startline="198" endline="207">desmoj.core.simulator.TimeOperations.diff</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1a669fdfd1dcc1238af159ca1685107186" compoundref="_time_span_8java" startline="33">desmoj.core.simulator.TimeSpan.ZERO</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" compoundref="_statistic_object_8java" startline="60">desmoj.core.statistic.StatisticObject.UNDEFINED</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" compoundref="_value_statistics_8java" startline="140" endline="142">desmoj.core.statistic.ValueStatistics.getLastValue</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" compoundref="_statistic_object_8java" startline="176" endline="178">desmoj.core.statistic.StatisticObject.round</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a4a0cf63fc8ba477e46b829cb1b3d2c9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Accumulate.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref> object by resetting all variables to 0.0. If the flag retainLastValueOnReset is set to true, the last value is not nullified but remains unchanged. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="296" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="296" bodyend="313"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" compoundref="_model_component_8java" startline="198" endline="200">desmoj.core.simulator.ModelComponent.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1accd13ba64c4362e90f3942498721bf86" compoundref="_accumulate_8java" startline="321" endline="323">desmoj.core.statistic.Accumulate.doesRetainLastValueOnReset</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1accd13ba64c4362e90f3942498721bf86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.statistic.Accumulate.doesRetainLastValueOnReset</definition>
+        <argsstring>()</argsstring>
+        <name>doesRetainLastValueOnReset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method determines whether if the accumulate&apos;s last value is retained on reset (true) or nullified (false). The default value is true. <simplesect kind="return"><para>value of the retainLastValueOnReset flag </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="321" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="321" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1ae455f4db9c31242d3835022c5c254ba9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Accumulate.setRetainLastValueOnReset</definition>
+        <argsstring>(boolean retainValue)</argsstring>
+        <name>setRetainLastValueOnReset</name>
+        <param>
+          <type>boolean</type>
+          <declname>retainValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the value of the retainLastValueOnResetFlag. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>retainValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new value of the flag. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="329" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="329" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a66a79fdf706953918980faec2d0b581d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Accumulate.update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> object by fetching the actual value of the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput> and processing it. The <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput> can be passed in the constructor of this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> object. This <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a66a79fdf706953918980faec2d0b581d" kindref="member">update()</ref></computeroutput> method complies with the one described in DESMO, see [Page91]. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="340" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="340" bodyend="359"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" compoundref="_model_component_8java" startline="251" endline="257">desmoj.core.simulator.ModelComponent.getModel</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" compoundref="_model_component_8java" startline="198" endline="200">desmoj.core.simulator.ModelComponent.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" compoundref="_value_statistics_8java" startline="140" endline="142">desmoj.core.statistic.ValueStatistics.getLastValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a71392df72e0b250a33981a00638404e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Accumulate.update</definition>
+        <argsstring>(double val)</argsstring>
+        <name>update</name>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> object with the double value given as parameter. In some cases it might be more convenient to pass the value this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> will be updated with directly within the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a71392df72e0b250a33981a00638404e6" kindref="member">update(double val)</ref></computeroutput> method instead of going via the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The value with which this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> will be updated. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="372" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="372" bodyend="392"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" compoundref="_model_component_8java" startline="251" endline="257">desmoj.core.simulator.ModelComponent.getModel</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" compoundref="_model_component_8java" startline="198" endline="200">desmoj.core.simulator.ModelComponent.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" compoundref="_value_statistics_8java" startline="140" endline="142">desmoj.core.statistic.ValueStatistics.getLastValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a05c676675669004abb7c5bdbebeea48d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Accumulate.update</definition>
+        <argsstring>(Observable o, Object arg)</argsstring>
+        <name>update</name>
+        <param>
+          <type>Observable</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Implementation of the virtual <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a05c676675669004abb7c5bdbebeea48d" kindref="member">update(Observable, Object)</ref></computeroutput> method of the <computeroutput>Observer</computeroutput> interface. This method will be called automatically from an <computeroutput>Observable</computeroutput> object within its <computeroutput>notifyObservers()</computeroutput> method. <linebreak/>
+ If no Object (a<computeroutput>null</computeroutput> value) is passed as arg, the actual value of the <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> will be fetched with the <computeroutput>value()</computeroutput> method of the <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref>. Otherwise it is expected that the actual value is passed in the Object arg.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.util.Observable : The Observable calling this method within its own <computeroutput>notifyObservers()</computeroutput> method. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object : The Object with which this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> is updated. Normally a Double value which is added to the statistics or <computeroutput>null</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="412" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="412" bodyend="447"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aec498abda3f582314d72e2e64c0891c4" compoundref="_value_statistics_8java" startline="213" endline="215">desmoj.core.statistic.ValueStatistics.getValueSupplier</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" compoundref="_model_component_8java" startline="251" endline="257">desmoj.core.simulator.ModelComponent.getModel</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" compoundref="_model_component_8java" startline="198" endline="200">desmoj.core.simulator.ModelComponent.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" compoundref="_value_statistics_8java" startline="140" endline="142">desmoj.core.statistic.ValueStatistics.getLastValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a2fcd9c16d5f365656474aee3fd6b50d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Accumulate.pause</definition>
+        <argsstring>()</argsstring>
+        <name>pause</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Temporarily suspend data collection to exclude a period, e.g. to disregard the night period in which a plant is closed from machine utilization statistics. Data collection will be resumed automatically on calling an update(...)-method. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="506" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="506" bodyend="541"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a8951449333f9377677aa2393015274ee" compoundref="_time_instant_8java" startline="499" endline="501">desmoj.core.simulator.TimeInstant.isEqual</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1af9f0d91d69535dcdea4c09fb7ee0f2a1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Accumulate.internalUpdate</definition>
+        <argsstring>(double value, long periodValueValid)</argsstring>
+        <name>internalUpdate</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>periodValueValid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal method to update the time-weighted mean and sum of the squares of the differences from the mean of values so far with a new sample.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The new sample. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>periodValueValid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long : The length of the period in epsilon during which the sample was valid. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="458" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="458" bodyend="499"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate" kindref="compound">Accumulate</ref></computeroutput> class is providing a statistic analysis about one value. The mean value and the standard deviation is weighted over time.<linebreak/>
+</para><para><simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Soenke Claassen </para><simplesectsep/><para>based on DESMO-C from Thomas Schniewind, 1998</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="5882">
+        <label>desmoj.extensions.visualization2d.animation.core.statistic.AccumulateAnimation</label>
+        <link refid="classdesmoj_1_1extensions_1_1visualization2d_1_1animation_1_1core_1_1statistic_1_1_accumulate_animation"/>
+        <childnode refid="5873" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5874">
+        <label>desmoj.core.statistic.ValueStatistics</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics"/>
+        <childnode refid="5875" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5877">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="5878" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5880">
+        <label>Observer</label>
+      </node>
+      <node id="5873">
+        <label>desmoj.core.statistic.Accumulate</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate"/>
+        <childnode refid="5874" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5879">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="5881">
+        <label>desmoj.core.statistic.HistogramAccumulate</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_accumulate"/>
+        <childnode refid="5873" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5878">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="5879" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5875">
+        <label>desmoj.core.statistic.StatisticObjectSupportingTimeSpans</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans"/>
+        <childnode refid="5876" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5880" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5876">
+        <label>desmoj.core.statistic.StatisticObject</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object"/>
+        <childnode refid="5877" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5880" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5884">
+        <label>desmoj.core.statistic.ValueStatistics</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics"/>
+        <childnode refid="5885" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5887">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="5888" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5890">
+        <label>Observer</label>
+      </node>
+      <node id="5883">
+        <label>desmoj.core.statistic.Accumulate</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate"/>
+        <childnode refid="5884" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5889">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="5888">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="5889" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5885">
+        <label>desmoj.core.statistic.StatisticObjectSupportingTimeSpans</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans"/>
+        <childnode refid="5886" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5890" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5886">
+        <label>desmoj.core.statistic.StatisticObject</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object"/>
+        <childnode refid="5887" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5890" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" line="31" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Accumulate.java" bodystart="31" bodyend="542"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a75ef68c5b895561d766fb89f0f0f4b57" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>_firstValueReadAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1ac94885d20a6926a3af5f2d300406c280" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>_lastUpdate</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a24829c9e4cef7d65740499d52b15e1d2" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>_mean</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a273fd25e75321482ab6673ab024e0b09" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>_pausedPeriodSinceLastReset</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a2278941640e9f3b691810372524fc74d" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>_pausedSince</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a927ebb57506ffd9eba1998095c031aea" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>_retainLastValueOnReset</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a600800b816ef320f16c947c40fe20ac3" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>_sumOfSquaredDevsFromMean</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1abedfc6e15b68ecb831fd04a470b405da" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>Accumulate</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a4c68f4b9ada8d7e6f90aa3bc8409f73f" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>Accumulate</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1ab7ab331cc0c15d207ee7e729d975ca44" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>convertToDouble</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a3d4b9f5f646a712cf50049c26d3cfadb" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1accd13ba64c4362e90f3942498721bf86" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>doesRetainLastValueOnReset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1ac8261fd4bbe26b674cb7842c883572e0" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>FRACTION_DIGITS</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getLastValue</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a9b55d2c9c95264c1617ea062052131c9" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getMaximum</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a07d2605d92677400ab2e523eadd161a9" prot="public" virt="virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getMean</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aad8587e2ef044281bf62c499ef14ccb3" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getMinimum</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a88439cd0bef973fb94034f3200844ed8" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getPeriodMeasured</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1a374cf2275d8637a8177c78461db0f0ec" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getShowTimeSpansInReport</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a034a8c3c09d4768904ed931a657f93fe" prot="public" virt="virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getStdDev</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1ad29c53cc766919ab631b06bba959b5f0" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getUnit</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a6bdd9ff905bf18a27d2c890ab1729de4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getUnitText</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aec498abda3f582314d72e2e64c0891c4" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>getValueSupplier</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1af9f0d91d69535dcdea4c09fb7ee0f2a1" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>internalUpdate</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a2fcd9c16d5f365656474aee3fd6b50d3" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>pause</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a93c3f5e46d4dbedb9c20b4fdbd946722" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>PRECISION</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a4a0cf63fc8ba477e46b829cb1b3d2c9e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a692e70493310a8ece9cdef9d92e993bc" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>round</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1ae455f4db9c31242d3835022c5c254ba9" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>setRetainLastValueOnReset</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1a149f0fb237b3f2b6904179565ff1dc70" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>setShowTimeSpansInReport</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a292db67353902f20898927e3f57e6f9e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>setUnit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a7e94f385b55730e93c48236172b61057" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>StatisticObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1aa2e15461f63f3ce99ccc48236fb68f9e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>StatisticObjectSupportingTimeSpans</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>traceOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1aa01ed975ec3ae1a711112bb7477f908e" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>traceUpdate</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>UNDEFINED</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a66a79fdf706953918980faec2d0b581d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a71392df72e0b250a33981a00638404e6" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_accumulate_1a05c676675669004abb7c5bdbebeea48d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a755c1f1eb9e2f6c6888488b760a0e0cb" prot="public" virt="virtual" ambiguityscope="desmoj::core::statistic::ValueStatistics."><scope>desmoj::core::statistic::Accumulate</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a78d9c13180096b2b5449dc0142b34e80" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>ValueStatistics</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a1ab58f4b4457195329039f2a0337adb4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Accumulate</scope><name>ValueStatistics</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

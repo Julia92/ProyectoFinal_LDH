@@ -1,0 +1,25 @@
+var classdesmoj_1_1extensions_1_1space3_d_1_1_movement =
+[
+    [ "Movement", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#a7d8fb7a1fff0f16a9e67cce4dcca405e", null ],
+    [ "Movement", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#aba4a92180e0af5163028e6215227c42b", null ],
+    [ "Movement", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#ae12701db3cb3c148b61f59bacbaf6942", null ],
+    [ "getAccDuration", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#abfb9f2ddd5e806c5efae582db65ce247", null ],
+    [ "getCurrentMovedDistance", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#ab5340c8ceef237a235034cc46959f282", null ],
+    [ "getCurrentMovingDirection", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#aa7ed667cb0116038105e7fa5475d4a23", null ],
+    [ "getCurrentPosition", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#aa2dfc5c5240c18129d6e4bb743d6d9f7", null ],
+    [ "getDecDuration", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#ad661100465d4d2330539e6a3a5cbe2c1", null ],
+    [ "getEndSpeed", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#ac02519b7c8f7766dce33ea9fc8190d53", null ],
+    [ "getInitialSpeed", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#ae4c3747d6707ec287098c94a06a9e0c8", null ],
+    [ "getMaxSpeed", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#a5544ed4c653e2ace65f8da514bc9996a", null ],
+    [ "getMaxSpeedDuration", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#a1627ad62de5f66d5f5f19520defc5f62", null ],
+    [ "getTotalDuration", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#a1aa04335e285a04d97b270aa8baf8f38", null ],
+    [ "getTrack", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#a26bab2672bccae609fd7f35d141bc148", null ],
+    [ "isValid", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#af035c5ed993c98f2404d253239b22443", null ],
+    [ "setAccDuration", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#afa54f619a90e7ef69c1977080bcb220b", null ],
+    [ "setDecDuration", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#afdd541256cc3e4fc8f4425ce91853718", null ],
+    [ "setEndSpeed", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#ad0eb75df5720dbbbeec54c24de4d2cbd", null ],
+    [ "setInitialSpeed", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#a7aab3da50662c4412a773c5795bdd9aa", null ],
+    [ "setMaxSpeed", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#abaf933b6426799acb907ddeb98192465", null ],
+    [ "setMaxSpeedDuration", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#a8feea197a3b6f917d734c52272a1057b", null ],
+    [ "setTrack", "classdesmoj_1_1extensions_1_1space3_d_1_1_movement.html#ad0c450e2e0d82612cd79d6bfbbf43c88", null ]
+];

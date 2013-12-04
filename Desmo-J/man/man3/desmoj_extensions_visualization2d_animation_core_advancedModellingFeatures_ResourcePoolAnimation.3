@@ -1,0 +1,166 @@
+.TH "desmoj.extensions.visualization2d.animation.core.advancedModellingFeatures.ResourcePoolAnimation" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.animation.core.advancedModellingFeatures.ResourcePoolAnimation \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.advancedModellingFeatures\&.Res\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBResourcePoolAnimation\fP (\fBModelAnimation\fP owner, String name, int sortOrder, int qCapacity, int capacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBResourcePoolAnimation\fP (\fBModelAnimation\fP owner, String name, int capacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBcreateAnimation\fP (\fBPosition\fP pos, \fBFormExt\fP form, String resourceType, boolean showInAnimation)"
+.br
+.ti -1c
+.RI "boolean \fBprovide\fP (\fBEntityBasicAnimation\fP proc, int needRes)"
+.br
+.ti -1c
+.RI "void \fBtakeBack\fP (\fBEntityBasicAnimation\fP proc, int takeBackRes)"
+.br
+.ti -1c
+.RI "boolean \fBprovide\fP (int needRes)"
+.br
+.ti -1c
+.RI "void \fBtakeBack\fP (int takeBackRes)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Animation of a ResourcePool (Res)
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\&.ResourcePoolAnimation (\fBModelAnimation\fPowner, Stringname, intsortOrder, intqCapacity, intcapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor with the same parameters as in Res 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP used model 
+.br
+\fIname\fP as in Res 
+.br
+\fIsortOrder\fP of inout queue possible values: ProcessQueueAnimation\&.FIFO ProcessQueueAnimation\&.LIFO 
+.br
+\fIqCapacity\fP capacity of input queue 
+.br
+\fIcapacity\fP No of resources available in resource pool 
+.br
+\fIshowInReport\fP as in Res 
+.br
+\fIshowInTrace\fP as in Res 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\&.ResourcePoolAnimation (\fBModelAnimation\fPowner, Stringname, intcapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor with the same parameters as in Accumulate 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP used model 
+.br
+\fIname\fP as in Res 
+.br
+\fIcapacity\fP No of resources available in resource pool 
+.br
+\fIshowInReport\fP as in Res 
+.br
+\fIshowInTrace\fP as in Res 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\&.createAnimation (\fBPosition\fPpos, \fBFormExt\fPform, StringresourceType, booleanshowInAnimation)"
+create animation with full parameterization 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpos\fP middle point of animation object 
+.br
+\fIform\fP form of animation object 
+.br
+\fIresourceType\fP resourceTypeName (only for information, its no Id) 
+.br
+\fIshowInAnimation\fP switch animation on or off 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\&.provide (\fBEntityBasicAnimation\fPproc, intneedRes)"
+Entity proc need needRes resources to process\&. It want to move into input queue and wait to processing\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproc\fP 
+.br
+\fIneedRes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true: its moved in input queue false: its rejected 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\&.provide (intneedRes)"
+The currentSimProcess need needRes resources to process\&. It want to move into input queue and wait to processing\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIneedRes\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true: its moved in input queue false: its rejected 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\&.takeBack (\fBEntityBasicAnimation\fPproc, inttakeBackRes)"
+proc is in processing and gives resources back\&. when all resources are given back, it leaves the resource pool\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproc\fP 
+.br
+\fItakeBackRes\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\&.takeBack (inttakeBackRes)"
+The currentSimProcess give resources back\&. When all resources are given back, it leaves the resource pool\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproc\fP 
+.br
+\fItakeBackRes\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

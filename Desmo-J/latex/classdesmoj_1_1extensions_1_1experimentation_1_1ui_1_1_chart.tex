@@ -1,0 +1,421 @@
+\section{desmoj.\-extensions.\-experimentation.\-ui.\-Chart Class Reference}
+\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart}\index{desmoj.\-extensions.\-experimentation.\-ui.\-Chart@{desmoj.\-extensions.\-experimentation.\-ui.\-Chart}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-experimentation.\-ui.\-Chart\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-experimentation.\-ui.\-Chart\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Chart} ({\bf Chart\-Owner} chart\-Owner, String x\-\_\-label, String y\-\_\-label)
+\item 
+void {\bf paint} (Graphics g)
+\item 
+void {\bf paint\-Background} (Graphics g)
+\item 
+int {\bf calculate\-X\-Position} (double x)
+\item 
+int {\bf calculate\-Y\-Position} (double y)
+\item 
+void {\bf draw\-Line} (Graphics g, double x1, double y1, double x2, double y2)
+\item 
+void {\bf draw\-Rect} (Graphics g, double x1, double y1, double x2, double y2)
+\item 
+void {\bf fill\-Rect} (Graphics g, double x1, double y1, double x2, double y2)
+\item 
+void {\bf draw\-Line} (Color color, double x1, double y1, double x2, double y2)
+\item 
+boolean {\bf test\-Value} (double x, double y)
+\item 
+void {\bf set\-Max\-\_\-y} (double max\-\_\-y)
+\item 
+void {\bf set\-Max\-\_\-x} (double max\-\_\-x)
+\item 
+void {\bf set\-Min\-\_\-x} (double min\-\_\-x)
+\item 
+void {\bf set\-Min\-\_\-y} (double min\-\_\-y)
+\item 
+void {\bf set\-X\-\_\-label} (String x\-\_\-label)
+\item 
+void {\bf set\-Y\-\_\-label} (String y\-\_\-label)
+\item 
+void {\bf process\-Mouse\-Event} (Mouse\-Event e)
+\item 
+void {\bf action\-Performed} (Action\-Event e)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A G\-U\-I component (inherited from java.\-awt.\-Canvas) which displays a chart. It includes two labeled and auto-\/scaled axes. There a methods (draw\-Line, draw\-Rect, fill\-Rect) to paint on the chart without taking care about transforming or scaling the dimensions. You have to add this class to a panel or a frame. You also have to implement the method which should draw the data (e.\-g. a histogram or a mathematical function) in a class which is inherited from the interface \doxyref{Chart\-Owner}{p.}{interfacedesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_owner}.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Philip Joschko
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!Chart@{Chart}}
+\index{Chart@{Chart}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{Chart}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-Chart (
+\begin{DoxyParamCaption}
+\item[{{\bf Chart\-Owner}}]{chart\-Owner, }
+\item[{String}]{x\-\_\-label, }
+\item[{String}]{y\-\_\-label}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ae0e1104d2d0a039e1f9838da8773712d}
+Constructor of the chart. Saves the given labels for x-\/ and y-\/axis and calls the constructor of java.\-awt.\-Canvas 
+\begin{DoxyParams}{Parameters}
+{\em chart\-Owner} & The object which implements the draw\-Chart() method. \\
+\hline
+{\em x\-\_\-label} & The legend for the x axis. \\
+\hline
+{\em y\-\_\-label} & The legend for the y axis. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!action\-Performed@{action\-Performed}}
+\index{action\-Performed@{action\-Performed}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{action\-Performed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-action\-Performed (
+\begin{DoxyParamCaption}
+\item[{Action\-Event}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a44f3870e8e9b5723e898adc07a4c7893}
+Event handler for this class. Does nothing. \index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!calculate\-X\-Position@{calculate\-X\-Position}}
+\index{calculate\-X\-Position@{calculate\-X\-Position}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{calculate\-X\-Position}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-calculate\-X\-Position (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a74f4efc77ddd9406d025f724fa6e9a75}
+Calculates the x coordinate in pixels for the given x data value. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The x data value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The x position in pixels, where the data value should be painted. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!calculate\-Y\-Position@{calculate\-Y\-Position}}
+\index{calculate\-Y\-Position@{calculate\-Y\-Position}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{calculate\-Y\-Position}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-calculate\-Y\-Position (
+\begin{DoxyParamCaption}
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1e7d90f80e3c7d5c29cfed4a0c67518}
+Calculates the y coordinate in pixels for the given y data value. 
+\begin{DoxyParams}{Parameters}
+{\em y} & The y data value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The y position in pixels, where the data value should be painted. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!draw\-Line@{draw\-Line}}
+\index{draw\-Line@{draw\-Line}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{draw\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-draw\-Line (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g, }
+\item[{double}]{x1, }
+\item[{double}]{y1, }
+\item[{double}]{x2, }
+\item[{double}]{y2}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a33717dda9a167c0386005307ff6f4330}
+Draws a line into the chart. This method automatically calls the methods \doxyref{calculate\-X\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a74f4efc77ddd9406d025f724fa6e9a75} and \doxyref{calculate\-Y\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1e7d90f80e3c7d5c29cfed4a0c67518} so you don`t have to take care about any scaling or transforming. 
+\begin{DoxyParams}{Parameters}
+{\em g} & The specified Graphics context. \\
+\hline
+{\em x1} & The x value of the starting coordinates. \\
+\hline
+{\em y1} & The y value of the starting coordinates. \\
+\hline
+{\em x2} & The x value of the ending coordinates. \\
+\hline
+{\em y2} & The x value of the ending coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a33717dda9a167c0386005307ff6f4330_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!draw\-Line@{draw\-Line}}
+\index{draw\-Line@{draw\-Line}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{draw\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-draw\-Line (
+\begin{DoxyParamCaption}
+\item[{Color}]{color, }
+\item[{double}]{x1, }
+\item[{double}]{y1, }
+\item[{double}]{x2, }
+\item[{double}]{y2}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1a54a2fbc178b2b62327b839fb3f91b}
+Draws a line into the chart. This method automatically calls the methods \doxyref{calculate\-X\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a74f4efc77ddd9406d025f724fa6e9a75} and \doxyref{calculate\-Y\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1e7d90f80e3c7d5c29cfed4a0c67518} so you don`t have to take care about any scaling or transforming.
+
+If you have a graphic context (e.\-g. method shall be invoked via a \doxyref{paint(\-Graphics g)}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a3f6951001ded486cc8996dcc847e7e65} method you should N\-O\-T use this method, but rather \doxyref{draw\-Line(\-Graphics, double, double, double, double)}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a33717dda9a167c0386005307ff6f4330}. 
+\begin{DoxyParams}{Parameters}
+{\em color} & The color of the line. \\
+\hline
+{\em x1} & The x value of the starting coordinates. \\
+\hline
+{\em y1} & The y value of the starting coordinates. \\
+\hline
+{\em x2} & The x value of the ending coordinates. \\
+\hline
+{\em y2} & The x value of the ending coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1a54a2fbc178b2b62327b839fb3f91b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!draw\-Rect@{draw\-Rect}}
+\index{draw\-Rect@{draw\-Rect}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{draw\-Rect}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-draw\-Rect (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g, }
+\item[{double}]{x1, }
+\item[{double}]{y1, }
+\item[{double}]{x2, }
+\item[{double}]{y2}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a868e4a66731a59636ddfebe097f6fa8b}
+Draws an unfilled rectangle into the chart. This method automatically calls the methods \doxyref{calculate\-X\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a74f4efc77ddd9406d025f724fa6e9a75} and \doxyref{calculate\-Y\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1e7d90f80e3c7d5c29cfed4a0c67518} so you don`t have to take care about any scaling or transforming. 
+\begin{DoxyParams}{Parameters}
+{\em g} & The specified Graphics context. \\
+\hline
+{\em x1} & The x value of the starting coordinates. \\
+\hline
+{\em y1} & The y value of the starting coordinates. \\
+\hline
+{\em x2} & The x value of the ending coordinates. \\
+\hline
+{\em y2} & The x value of the ending coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a868e4a66731a59636ddfebe097f6fa8b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!fill\-Rect@{fill\-Rect}}
+\index{fill\-Rect@{fill\-Rect}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{fill\-Rect}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-fill\-Rect (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g, }
+\item[{double}]{x1, }
+\item[{double}]{y1, }
+\item[{double}]{x2, }
+\item[{double}]{y2}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a37785302068e54a7beff98f49463f4b5}
+Draws a filled rectangle into the chart. This method automatically calls the methods \doxyref{calculate\-X\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a74f4efc77ddd9406d025f724fa6e9a75} and \doxyref{calculate\-Y\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1e7d90f80e3c7d5c29cfed4a0c67518} so you don`t have to take care about any scaling or transforming. 
+\begin{DoxyParams}{Parameters}
+{\em g} & The specified Graphics context. \\
+\hline
+{\em x1} & The x value of the starting coordinates. \\
+\hline
+{\em y1} & The y value of the starting coordinates. \\
+\hline
+{\em x2} & The x value of the ending coordinates. \\
+\hline
+{\em y2} & The x value of the ending coordinates. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a37785302068e54a7beff98f49463f4b5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!paint@{paint}}
+\index{paint@{paint}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{paint}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-paint (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a3f6951001ded486cc8996dcc847e7e65}
+This method is called automatically if the canvas has to be repaint. You don`t have to do this! It overrides the \doxyref{paint(\-Graphics)}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a3f6951001ded486cc8996dcc847e7e65} method from java.\-awt.\-Canvas. If size of the chart is big enough, it calls \doxyref{paint\-Background()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a115403ea6eea322f44767e22a5647d13} (for painting the chart background). 
+\begin{DoxyParams}{Parameters}
+{\em g} & The specified Graphics context. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a3f6951001ded486cc8996dcc847e7e65_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!paint\-Background@{paint\-Background}}
+\index{paint\-Background@{paint\-Background}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{paint\-Background}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-paint\-Background (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a115403ea6eea322f44767e22a5647d13}
+Draws the chart basics. Calculates the best fitting intervalls for the axes. Paints a white backgorund, the axes, the labels and a grey grid for easier metering.
+
+At last it tansforms (not scales!) the coordinate system. Thus the methods draw\-Line, draw\-Rect and fill\-Rect must not take care about transforming\-: The root of the coordinate system will be (0,0), and the value y will be autoscaled to -\/y, so a higher data value will be painted above a lower y value, unlike the coordinate system of a canvas. A\-T\-T\-E\-N\-T\-I\-O\-N\-: The value \char`\"{}1\char`\"{} still represents a pixel, because if we would scale \char`\"{}1\char`\"{} to interval\-\_\-x (or rather interval\-\_\-y) a new line would be very fat (that is not want we want). The \char`\"{}scaling\char`\"{} will be done by the methods \doxyref{calculate\-X\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a74f4efc77ddd9406d025f724fa6e9a75} and \doxyref{calculate\-Y\-Position()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ab1e7d90f80e3c7d5c29cfed4a0c67518} of this class, which will be automatically invoked if you use \doxyref{draw\-Line()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a33717dda9a167c0386005307ff6f4330}, \doxyref{draw\-Rect()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a868e4a66731a59636ddfebe097f6fa8b} or \doxyref{fill\-Rect()}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a37785302068e54a7beff98f49463f4b5}. 
+\begin{DoxyParams}{Parameters}
+{\em g} & The specified Graphics context. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!process\-Mouse\-Event@{process\-Mouse\-Event}}
+\index{process\-Mouse\-Event@{process\-Mouse\-Event}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{process\-Mouse\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-process\-Mouse\-Event (
+\begin{DoxyParamCaption}
+\item[{Mouse\-Event}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_aaae5030b73f4687aa02be5d86b779ec9}
+Event handler for right-\/mouse-\/clicks onto the chart. The context menu will be shown. \index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!set\-Max\-\_\-x@{set\-Max\-\_\-x}}
+\index{set\-Max\-\_\-x@{set\-Max\-\_\-x}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{set\-Max\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-set\-Max\-\_\-x (
+\begin{DoxyParamCaption}
+\item[{double}]{max\-\_\-x}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a9a0a18840dce17647efad70fb5218ee3}
+Sets the maximum x value which appears in the data. 
+\begin{DoxyParams}{Parameters}
+{\em max\-\_\-x} & The maximum x value which appears in the data. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!set\-Max\-\_\-y@{set\-Max\-\_\-y}}
+\index{set\-Max\-\_\-y@{set\-Max\-\_\-y}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{set\-Max\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-set\-Max\-\_\-y (
+\begin{DoxyParamCaption}
+\item[{double}]{max\-\_\-y}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_ac5e9f8c7557f95de26acaa2d47937409}
+Sets the maximum y value which appears in the data. 
+\begin{DoxyParams}{Parameters}
+{\em max\-\_\-y} & The maximum y value which appears in the data. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!set\-Min\-\_\-x@{set\-Min\-\_\-x}}
+\index{set\-Min\-\_\-x@{set\-Min\-\_\-x}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{set\-Min\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-set\-Min\-\_\-x (
+\begin{DoxyParamCaption}
+\item[{double}]{min\-\_\-x}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_aae027943f48eb27b4afc2cd17803a9a9}
+Sets the minimum x value which appears in the data. 
+\begin{DoxyParams}{Parameters}
+{\em min\-\_\-x} & The minimum x value which appears in the data. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!set\-Min\-\_\-y@{set\-Min\-\_\-y}}
+\index{set\-Min\-\_\-y@{set\-Min\-\_\-y}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{set\-Min\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-set\-Min\-\_\-y (
+\begin{DoxyParamCaption}
+\item[{double}]{min\-\_\-y}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_af1f2b2712ab6f48ec7024ef5907c4336}
+Sets the minimum y value which appears in the data. 
+\begin{DoxyParams}{Parameters}
+{\em min\-\_\-y} & The minimum y value which appears in the data. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!set\-X\-\_\-label@{set\-X\-\_\-label}}
+\index{set\-X\-\_\-label@{set\-X\-\_\-label}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{set\-X\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-set\-X\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{String}]{x\-\_\-label}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a0c3ee5e7b40c59618e56bf595a962336}
+Resets the legend (labeling) for the x axis. 
+\begin{DoxyParams}{Parameters}
+{\em x\-\_\-label} & A new title for the x axis. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!set\-Y\-\_\-label@{set\-Y\-\_\-label}}
+\index{set\-Y\-\_\-label@{set\-Y\-\_\-label}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{set\-Y\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-set\-Y\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{String}]{y\-\_\-label}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_a3fffe988d53cdc514b06b8d34f43d448}
+Resets the legend (labeling) for the y axis. 
+\begin{DoxyParams}{Parameters}
+{\em y\-\_\-label} & A new title for the y axis. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}!test\-Value@{test\-Value}}
+\index{test\-Value@{test\-Value}!desmoj::extensions::experimentation::ui::Chart@{desmoj\-::extensions\-::experimentation\-::ui\-::\-Chart}}
+\subsubsection[{test\-Value}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-experimentation.\-ui.\-Chart.\-test\-Value (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1ui_1_1_chart_aeb25e59645bfcad6c0a831f270d5452d}
+Tests a new pair of values which appears in the data. The pair will N\-O\-T be stored, it only will be tested if the values are lower or higher than the existing minimums and maximums. This is needed for scaling the chart automatically. 
+\begin{DoxyParams}{Parameters}
+{\em x} & A new x value which shall be tested, if it is the new minmum or maximum. \\
+\hline
+{\em y} & A new y value which shall be tested, if it is the new minmum or maximum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the values are higher or smaller than the current axis borders. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/experimentation/ui/Chart.\-java\end{DoxyCompactItemize}

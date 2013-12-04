@@ -1,0 +1,119 @@
+.TH "desmoj.extensions.chaining.SplitterOutput< EIn extends Entity, EEx extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.chaining.SplitterOutput< EIn extends Entity, EEx extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits HasSuccessor< EEx >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetSuccessor\fP (Event<?super EEx > eventToScheduleWhenFinished)"
+.br
+.ti -1c
+.RI "void \fBsetSuccessor\fP (HasPredecessor<?super EEx > successor)"
+.br
+.ti -1c
+.RI "\fBSplitterOutput\fP (\fBModel\fP owner, String name, int numberOfOutputPartsPerOriginalEntity, NumericalDist<?> transportTime)"
+.br
+.ti -1c
+.RI "abstract EEx \fBcreateOutputEntity\fP (EIn originalEntity)"
+.br
+.ti -1c
+.RI "int \fBgetNumberOfOutputPartsPerOriginalEntity\fP ()"
+.br
+.ti -1c
+.RI "Event<?super EEx > \fBgetSuccessorEvent\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetTransportTime\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The SplitterOutput is used in the Splitter context to compose a output config fpr the splitter construct\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<EIn>\fP the entitiy which comes in the splitter 
+.br
+\fI<EEx>\fP the entity which leaves the splitter
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christian Mentz
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.chaining\&.SplitterOutput< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.SplitterOutput (\fBModel\fPowner, Stringname, intnumberOfOutputPartsPerOriginalEntity, NumericalDist<?>transportTime)"
+Constructor to create a Splitteroutput which can be added to an List which than can passed to the Splitter
+.PP
+\fBParameters:\fP
+.RS 4
+\fInumberOfOutputPartsPerOriginalEntity\fP the number of output parts of this output 
+.br
+\fItransportTime\fP the transport time of this output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract EEx desmoj\&.extensions\&.chaining\&.SplitterOutput< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.createOutputEntity (EInoriginalEntity)\fC [pure virtual]\fP"
+This Method has to be overridden by the user to set the output entity
+.PP
+\fBParameters:\fP
+.RS 4
+\fIoriginalEntity\fP reference to the original entity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the output entitiy 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.chaining\&.SplitterOutput< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.getNumberOfOutputPartsPerOriginalEntity ()"
+gets the number of parts
+.PP
+\fBReturns:\fP
+.RS 4
+the number of parts 
+.RE
+.PP
+
+.SS "Event<? super EEx> desmoj\&.extensions\&.chaining\&.SplitterOutput< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.getSuccessorEvent ()"
+gets the succsessor event which has been set by the user
+.PP
+\fBReturns:\fP
+.RS 4
+the succsessor event 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.chaining\&.SplitterOutput< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.getTransportTime ()"
+gets the transport time of the station
+.PP
+\fBReturns:\fP
+.RS 4
+the transport time 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,200 @@
+.TH "org.apache.commons.math.analysis.PolynomialFunctionNewtonForm" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.PolynomialFunctionNewtonForm \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealFunction\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBvalue\fP (double z)  throws FunctionEvaluationException "
+.br
+.ti -1c
+.RI "int \fBdegree\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetNewtonCoefficients\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetCenters\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetCoefficients\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double \fBevaluate\fP (double a[], double c[], double z)  throws FunctionEvaluationException, IllegalArgumentException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcomputeCoefficients\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBverifyInputArray\fP (double a[], double c[])  throws IllegalArgumentException "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implements the representation of a real polynomial function in Newton Form\&. For reference, see \fBElementary Numerical Analysis\fP, ISBN 0070124477, chapter 2\&. 
+.PP
+The formula of polynomial in Newton form is p(x) = a[0] + a[1](x-c[0]) + a[2](x-c[0])(x-c[1]) + \&.\&.\&. + a[n](x-c[0])(x-c[1])\&.\&.\&.(x-c[n-1]) Note that the length of a[] is one more than the length of c[]
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+620312 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-10 12:28:59 -0700 (Sun, 10 Feb 2008) 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.computeCoefficients ()\fC [protected]\fP"
+Calculate the normal polynomial coefficients given the Newton form\&. It also uses nested multiplication but takes O(N^2) time\&. 
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.degree ()"
+Returns the degree of the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the degree of the polynomial 
+.RE
+.PP
+
+.SS "static double org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.evaluate (doublea[], doublec[], doublez) throws \fBFunctionEvaluationException\fP, IllegalArgumentException\fC [static]\fP"
+Evaluate the Newton polynomial using nested multiplication\&. It is also called \fCHorner's Rule\fP and takes O(N) time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP the coefficients in Newton form formula 
+.br
+\fIc\fP the centers 
+.br
+\fIz\fP the point at which the function value is to be computed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the function value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFunctionEvaluationException\fP\fP if a runtime error occurs 
+.br
+\fIIllegalArgumentException\fP if inputs are not valid 
+.RE
+.PP
+
+.SS "double [] org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.getCenters ()"
+Returns a copy of the centers array\&. 
+.PP
+Changes made to the returned copy will not affect the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a fresh copy of the centers array 
+.RE
+.PP
+
+.SS "double [] org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.getCoefficients ()"
+Returns a copy of the coefficients array\&. 
+.PP
+Changes made to the returned copy will not affect the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a fresh copy of the coefficients array 
+.RE
+.PP
+
+.SS "double [] org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.getNewtonCoefficients ()"
+Returns a copy of coefficients in Newton form formula\&. 
+.PP
+Changes made to the returned copy will not affect the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a fresh copy of coefficients in Newton form formula 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.value (doublez) throws \fBFunctionEvaluationException\fP"
+Calculate the function value at the given point\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIz\fP the point at which the function value is to be computed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the function value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFunctionEvaluationException\fP\fP if a runtime error occurs 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBUnivariateRealFunction::value(double)\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealFunction\fP\&.
+.SS "static void org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionNewtonForm\&.verifyInputArray (doublea[], doublec[]) throws IllegalArgumentException\fC [static]\fP, \fC [protected]\fP"
+Verifies that the input arrays are valid\&. 
+.PP
+The centers must be distinct for interpolation purposes, but not for general use\&. Thus it is not verified here\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP the coefficients in Newton form formula 
+.br
+\fIc\fP the centers 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if not valid 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBDividedDifferenceInterpolator::computeDividedDifference\fP(double[], double[]) 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

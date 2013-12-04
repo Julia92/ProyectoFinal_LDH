@@ -1,0 +1,141 @@
+.TH "desmoj.core.report.TableReporter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.TableReporter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.Reporter\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.report\&.SimulationRunReporter\fP, and \fBdesmoj\&.extensions\&.experimentation\&.util\&.ExperimentParameterReporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTableReporter\fP (\fBReportable\fP is, String title)"
+.br
+.ti -1c
+.RI "String[][] \fBgetHeader\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetEntries\fP ()"
+.br
+.ti -1c
+.RI "int \fBnumRows\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetTitle\fP ()"
+.br
+.ti -1c
+.RI "abstract String[][] \fBgetEntryTable\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBnumRows\fP"
+.br
+.ti -1c
+.RI "String[][] \fBentryTable\fP"
+.br
+.ti -1c
+.RI "String[][] \fBheader\fP = null"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A reporter with an arbitrary number of rows and columns\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.TableReporter\&.TableReporter (\fBReportable\fPis, Stringtitle)"
+Creates a new \fBTableReporter\fP for the given Reportable with the given title
+.PP
+\fBParameters:\fP
+.RS 4
+\fIis\fP the source of information to be displayed in the table 
+.br
+\fItitle\fP title of the table reporter 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String [] desmoj\&.core\&.report\&.TableReporter\&.getEntries ()\fC [virtual]\fP"
+Returns a one-dimensional array of entries (Computed from \fBgetEntryTable()\fP by entries[numColumns * i + j] = entryTable[i][j])\&.
+.PP
+\fBReturns:\fP
+.RS 4
+field of table entries 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.Reporter\fP\&.
+.SS "abstract String [][] desmoj\&.core\&.report\&.TableReporter\&.getEntryTable ()\fC [pure virtual]\fP"
+Should initialize and return the 2-dimensional entry table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+field of entries 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.report\&.SimulationRunReporter\fP, and \fBdesmoj\&.extensions\&.experimentation\&.util\&.ExperimentParameterReporter\fP\&.
+.SS "String [][] desmoj\&.core\&.report\&.TableReporter\&.getHeader ()"
+Returns the header table (or null if no header should be printed in report)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+header field of the table 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.report\&.TableReporter\&.getTitle ()"
+Returns the table reporter's title\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the titel as a string 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.report\&.TableReporter\&.numRows ()"
+Returns the number of rows of this table reporter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer number of rows 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "String [][] desmoj\&.core\&.report\&.TableReporter\&.entryTable\fC [protected]\fP"
+2-dimensional table of entries 
+.SS "String [][] desmoj\&.core\&.report\&.TableReporter\&.header = null\fC [protected]\fP"
+Header table printed before the data table stored in \fCentryTable\fP\&. This should contain additional information like e\&.g\&. the number of observations\&. 
+.SS "int desmoj\&.core\&.report\&.TableReporter\&.numRows\fC [protected]\fP"
+The reporter's number of rows 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,159 @@
+.TH "desmoj.extensions.experimentation.ui.ExperimentStarter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.ui.ExperimentStarter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.util\&.SimClockListener\fP, and \fBdesmoj\&.core\&.util\&.ExperimentListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExperimentStarter\fP (\fBExperimentStarterGUI\fP gui)"
+.br
+.ti -1c
+.RI "\fBExperimentStarter\fP (\fBExperimentStarterGUI\fP gui, Class modelClass, Class expRunnerClass)"
+.br
+.ti -1c
+.RI "\fBExperimentStarter\fP (\fBExperimentStarterGUI\fP gui, Class modelClass, Class expRunnerClass, String[] args)"
+.br
+.ti -1c
+.RI "\fBExperimentStarter\fP (\fBExperimentStarterGUI\fP gui, String confFileName)"
+.br
+.ti -1c
+.RI "void \fBclockAdvanced\fP (\fBSimRunEvent\fP e)"
+.br
+.ti -1c
+.RI "void \fBexperimentRunning\fP (\fBSimRunEvent\fP e)"
+.br
+.ti -1c
+.RI "void \fBexperimentStopped\fP (\fBSimRunEvent\fP e)"
+.br
+.ti -1c
+.RI "void \fBexperimentPaused\fP (\fBSimRunEvent\fP e)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetListeners\fP (\fBSimRunListener\fP[] listeners)"
+.br
+.ti -1c
+.RI "URL \fBgetReportURL\fP (\fBExperiment\fP exp)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBObserverDesktop\fP \fBobserverDesktop\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A simple DESMO-J experimentation environment to use in connection with a GUI\&. These GUI's must implement the Interface \fBExperimentStarterGUI\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak, Ruth Meyer, Gunnar Kiesel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.ExperimentStarter (\fBExperimentStarterGUI\fPgui)"
+Creates a new Launcher with the default title
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgui\fP \fBExperimentStarterGUI\fP: the GUI to be used with the \fBExperimentStarter\fP 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.ExperimentStarter (\fBExperimentStarterGUI\fPgui, ClassmodelClass, ClassexpRunnerClass)"
+Creates a new Launcher and sets the current ModelFactory
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgui\fP \fBExperimentStarterGUI\fP: the GUI to be used with the \fBExperimentStarter\fP 
+.br
+\fImodelClass\fP Class: The Class the contains the Model to be run with the \fBExperimentStarter\fP\&. Must be a subclass of \fBModel\fP 
+.br
+\fIexpRunnerClass\fP Class: Must refer to the RunnerClass that belongs to modelClass 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.ExperimentStarter (\fBExperimentStarterGUI\fPgui, ClassmodelClass, ClassexpRunnerClass, String[]args)"
+Creates a new Launcher and sets the current ModelFactory such a command line parameters are passed to the model\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgui\fP \fBExperimentStarterGUI\fP: the GUI to be used with the \fBExperimentStarter\fP 
+.br
+\fImodelClass\fP Class: The Class the contains the Model to be run with the \fBExperimentStarter\fP\&. Must be a subclass of \fBModel\fP 
+.br
+\fIexpRunnerClass\fP Class: Must refer to the RunnerClass that belongs to modelClass 
+.br
+\fIargs\fP String[]: Command line parameters to pass to the model; will be made available to the model via its parameter manager as \fCcmdparam\fP 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.ExperimentStarter (\fBExperimentStarterGUI\fPgui, StringconfFileName)"
+Creates Launcher with an experiment- or batchfile
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgui\fP \fBExperimentStarterGUI\fP: the GUI to be used with the \fBExperimentStarter\fP 
+.br
+\fIconfFileName\fP Sring: must refer to an XML-File that contains the information for the batch run\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.clockAdvanced (\fBSimRunEvent\fPe)"
+Called when the currently active experiment's SimClock is advanced
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP SimRunEvent: A SimRunEvent\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.util\&.SimClockListener\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.experimentPaused (\fBSimRunEvent\fPe)"
+Called when experiment is paused\&. Implemented for ExperimentListener 
+.PP
+Implements \fBdesmoj\&.core\&.util\&.ExperimentListener\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.experimentRunning (\fBSimRunEvent\fPe)"
+Called when experiment is started or resumed\&. Implemented for ExperimentListener 
+.PP
+Implements \fBdesmoj\&.core\&.util\&.ExperimentListener\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.experimentStopped (\fBSimRunEvent\fPe)"
+Called when experiment is stopped\&. Implemented for ExperimentListener 
+.PP
+Implements \fBdesmoj\&.core\&.util\&.ExperimentListener\fP\&.
+.SS "URL desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.getReportURL (\fBExperiment\fPexp)\fC [protected]\fP"
+Creates an URL from the given Experiment's output path 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.setListeners (\fBSimRunListener\fP[]listeners)\fC [protected]\fP"
+Registers SimRunListeners with the current experiment runner 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBObserverDesktop\fP desmoj\&.extensions\&.experimentation\&.ui\&.ExperimentStarter\&.observerDesktop\fC [protected]\fP"
+place to display graphical Observers 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

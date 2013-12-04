@@ -1,0 +1,348 @@
+.TH "desmoj.extensions.visualization2d.engine.model.BackgroundElement" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.model.BackgroundElement \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBackgroundElement\fP (\fBModel\fP model, String id, String text, int textSize, int textStyle, double level, String imageId)"
+.br
+.ti -1c
+.RI "\fBBackgroundElement\fP (\fBModel\fP model, String id, String text, int textPosition, int textSize, int textStyle, double level, String imageId)"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetId\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetName\fP (String name)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetLevel\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetText\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetImageId\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetTextPosition\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetTextSize\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetTextStyle\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetData\fP (String text, int textPosition, int textSize, int textStyle, Color foreground, Color background, String imageId)"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGrafic\fP (String viewId, Point topLeft, Point bottomRight, Color fg, Color bg)"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGrafic\fP (String viewId, Point middle, Color fg, Color bg, Dimension size)"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGrafic\fP (String viewId, Point middle, Color fg, Color bg)"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBgetGrafic\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_TopLeft\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_TopMiddle\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_TopRight\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_MiddleLeft\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_Middle\fP = 4"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_MiddleRight\fP = 5"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_BottomLeft\fP = 6"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_BottomMiddle\fP = 7"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_POSITION_BottomRight\fP = 8"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_Style_Plain\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_Style_Bold\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_Style_Italic\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_Size_Normal\fP = 10"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_Size_Small\fP = 8"
+.br
+.ti -1c
+.RI "static final int \fBTEXT_Size_Big\fP = 20"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The class describe background elements to give a structure of animation\&. A background element is a rectangle which includes optional text\&. The text position in the rectangle and text size and style are determined in the constructor of this class\&. With a createGrafic Method a BackgroundElementGrafic class is created\&. There are mainly 2 types: One with dynamic size has fixed corner points of its rectangle\&. By zooming its showed size is changed\&. And one with static size\&. This has a fixed middle point and fixed showed size\&. By zooming its showed size is not changed\&.
+.PP
+When text is null, a rectangle without text is build\&. When background is null, the background of this element is transparent\&. When name is set, the element has a border with its name\&. With level is determined which element is located in front of an other\&.
+.PP
+Elements with a low level are painted in front of elements with a high level\&. All Background elements are located in a background layer\&.
+.PP
+See also in BackgroundElementGrafic\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.BackgroundElement (\fBModel\fPmodel, Stringid, Stringtext, inttextSize, inttextStyle, doublelevel, StringimageId)"
+Background element to paint a string 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP id of background element 
+.br
+\fItext\fP text to show\&. When null, no text is shown\&. 
+.br
+\fItextSize\fP for values look at TEXT_SIZE_\&.\&.\&. 
+.br
+\fItextStyle\fP for values look at TEXT_STYLE_\&.\&.\&. 
+.br
+\fIlevel\fP elements with low level are painted in front of elements with high level 
+.br
+\fIimageId\fP image for background, maybe null 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.BackgroundElement (\fBModel\fPmodel, Stringid, Stringtext, inttextPosition, inttextSize, inttextStyle, doublelevel, StringimageId)"
+Background element with all features 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP used animation\&.model\&.Model 
+.br
+\fIid\fP id of background element 
+.br
+\fItext\fP text to show\&. When null, no text is shown\&. 
+.br
+\fItextPosition\fP for values look at TEXT_POSITION_\&.\&.\&. 
+.br
+\fItextSize\fP for values look at TEXT_SIZE_\&.\&.\&. 
+.br
+\fItextStyle\fP for values look at TEXT_STYLE_\&.\&.\&. 
+.br
+\fIlevel\fP elements with low level are painted in front of elements with high level 
+.br
+\fIimageId\fP image for background, maybe null 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.createGrafic (StringviewId, PointtopLeft, PointbottomRight, Colorfg, Colorbg)"
+create grafic of background element with fixed corners 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx0\fP x coordinate of top left corner 
+.br
+\fIy0\fP y coordinate of top left corner 
+.br
+\fIx1\fP x coordinate of bottom right corner 
+.br
+\fIy1\fP y coordinate of bottom right corner 
+.br
+\fIfg\fP text color 
+.br
+\fIbg\fP background color\&. When null, the background is transparent 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.createGrafic (StringviewId, Pointmiddle, Colorfg, Colorbg, Dimensionsize)"
+create grafic of background element with fixed middle point and fixed size 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP x coordinate of the middle point 
+.br
+\fIy\fP y coordinate of the middle point 
+.br
+\fIfg\fP text color 
+.br
+\fIbg\fP background color\&. When null, the background is transparent 
+.br
+\fIwidth\fP width of background element\&. 
+.br
+\fIheight\fP heigth of background element\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.createGrafic (StringviewId, Pointmiddle, Colorfg, Colorbg)"
+create grafic of background element with fixed middle point The size is the size, that the text need to display 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIviewId\fP 
+.br
+\fImiddle\fP 
+.br
+\fIfg\fP 
+.br
+\fIbg\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getGrafic ()"
+get ProcessGrafic, created before 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getId ()"
+get id of background element 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.orga\&.ClassBasic\fP\&.
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getImageId ()"
+Get ImageId, may be null This id is a key in this\&.getModel()\&.getImage(id) 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getLevel ()"
+Get level of background element\&. Elements with low level are painted in front of elements with high level 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getName ()"
+get name of background element 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getText ()"
+Get text of background element\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getTextPosition ()"
+Get text position of background element\&. for values look at TEXT_POSITION_\&.\&.\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getTextSize ()"
+Get text size of background element\&. for values look at TEXT_SIZE_\&.\&.\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.getTextStyle ()"
+Get text style of background element\&. for values look at TEXT_STYLE_\&.\&.\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.setData (Stringtext, inttextPosition, inttextSize, inttextStyle, Colorforeground, Colorbackground, StringimageId)"
+Updates and repaints text properties 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItext\fP 
+.br
+\fItextPosition\fP 
+.br
+\fItextSize\fP 
+.br
+\fItextStyle\fP 
+.br
+\fIforeground\fP 
+.br
+\fIbackground\fP 
+.br
+\fIimageId\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.BackgroundElement\&.setName (Stringname)"
+set name of background element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,192 @@
+.TH "org.apache.commons.math.distribution.TDistributionImpl" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.TDistributionImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistribution\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTDistributionImpl\fP (double degreesOfFreedom)"
+.br
+.ti -1c
+.RI "void \fBsetDegreesOfFreedom\fP (double degreesOfFreedom)"
+.br
+.ti -1c
+.RI "double \fBgetDegreesOfFreedom\fP ()"
+.br
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (double x)  throws MathException"
+.br
+.ti -1c
+.RI "double \fBinverseCumulativeProbability\fP (final double p)  throws MathException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBgetDomainLowerBound\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBgetDomainUpperBound\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBgetInitialDomain\fP (double p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Default implementation of \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistribution\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617953 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.TDistributionImpl (doubledegreesOfFreedom)"
+Create a t distribution using the given degrees of freedom\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdegreesOfFreedom\fP the degrees of freedom\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.cumulativeProbability (doublex) throws \fBMathException\fP"
+For this disbution, X, this method returns P(X < \fCx\fP)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the CDF is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CDF evaluted at \fCx\fP\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.Distribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.getDegreesOfFreedom ()"
+Access the degrees of freedom\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the degrees of freedom\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.getDomainLowerBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value lower bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value lower bound, i\&.e\&. P(X < \fIlower bound\fP) < \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.getDomainUpperBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value upper bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value upper bound, i\&.e\&. P(X < \fIupper bound\fP) > \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.getInitialDomain (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the initial domain value, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+initial domain value 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.inverseCumulativeProbability (final doublep) throws \fBMathException\fP"
+For this distribution, X, this method returns the critical point x, such that P(X < x) = \fCp\fP\&. 
+.PP
+Returns \fCDouble\&.NEGATIVE_INFINITY\fP for p=0 and \fCDouble\&.POSITIVE_INFINITY\fP for p=1\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+x, such that P(X < x) = \fCp\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the inverse cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if \fCp\fP is not a valid probability\&. 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\&.setDegreesOfFreedom (doubledegreesOfFreedom)"
+Modify the degrees of freedom\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdegreesOfFreedom\fP the new degrees of freedom\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistribution\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_pattern_based_time_formatter_8java" kind="file">
+    <compoundname>PatternBasedTimeFormatter.java</compoundname>
+    <innerclass refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter" prot="public">desmoj::core::simulator::PatternBasedTimeFormatter</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1core_1_1simulator">desmoj::core::simulator</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.core.simulator;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.text.DateFormat;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.text.SimpleDateFormat;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Date;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Locale;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.TimeUnit;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter" kindref="compound">PatternBasedTimeFormatter</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacedesmoj_1_1core_1_1simulator_1_1_time_formatter" kindref="compound">TimeFormatter</ref><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>DateFormat<sp/>_myDateFormat;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_multi_unit_time_formatter" kindref="compound">MultiUnitTimeFormatter</ref><sp/>_myMultiUnitTimeFormatter;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a7c7d87b27f8cf181d4d792d4d63b3b39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a7c7d87b27f8cf181d4d792d4d63b3b39" kindref="member">PatternBasedTimeFormatter</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a16bb934914eafbad59d73eb6bc78aac7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a16bb934914eafbad59d73eb6bc78aac7" kindref="member">PatternBasedTimeFormatter</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>timeZoneIncluded)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SimpleDateFormat(</highlight><highlight class="stringliteral">&quot;dd.MM.yyyy<sp/>HH:mm:ss:SSS&quot;</highlight><highlight class="normal"><sp/>+<sp/>(timeZoneIncluded<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;<sp/>Z&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),<sp/>Locale.GERMANY),TimeUnit.DAYS,<sp/>TimeUnit.MILLISECONDS);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a3b129993ca4250ad0140673be3d7879e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a3b129993ca4250ad0140673be3d7879e" kindref="member">PatternBasedTimeFormatter</ref>(DateFormat<sp/>dateFormat,<sp/>TimeUnit<sp/>coarsestUnit,<sp/>TimeUnit<sp/>finestUnit<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this._myDateFormat<sp/>=<sp/>dateFormat;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this._myMultiUnitTimeFormatter<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_multi_unit_time_formatter" kindref="compound">MultiUnitTimeFormatter</ref>(coarsestUnit,<sp/>finestUnit);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1ac8539302e29eae1e05e76942a083b223" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1ac8539302e29eae1e05e76942a083b223" kindref="member">PatternBasedTimeFormatter</ref>(String<sp/>pattern,<sp/>TimeUnit<sp/>coarsestUnit,<sp/>TimeUnit<sp/>finestUnit<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SimpleDateFormat(pattern,<sp/>Locale.GERMANY),<sp/>coarsestUnit,<sp/>finestUnit);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a1f1bbae6171c60b42c0743ad5fdaa2ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1a1f1bbae6171c60b42c0743ad5fdaa2ab" kindref="member">buildTimeString</ref>(<ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref><sp/>instant)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_myDateFormat.setTimeZone(instant.getPreferredTimeZone());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_myDateFormat.format(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Date(instant.<ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1ab4668a7eb30d3e816667ec25225834b9" kindref="member">getTimeTruncated</ref>(TimeUnit.MILLISECONDS)))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>instant.getPreferredTimeZone().getID();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1aba1dbcfa1c986ec564d77903aea68e02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1aba1dbcfa1c986ec564d77903aea68e02" kindref="member">buildTimeString</ref>(<ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref><sp/>span)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_myMultiUnitTimeFormatter.buildTimeString(span);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>(non-Javadoc)</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@see<sp/>desmoj.core.simulator.TimeFormatter#usesOnlySingleUnit()</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1aa1a1992a44f46be0e9e0a1ed79ab765c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_pattern_based_time_formatter_1aa1a1992a44f46be0e9e0a1ed79ab765c" kindref="member">getUnit</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_myMultiUnitTimeFormatter.getUnit();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/PatternBasedTimeFormatter.java"/>
+  </compounddef>
+</doxygen>

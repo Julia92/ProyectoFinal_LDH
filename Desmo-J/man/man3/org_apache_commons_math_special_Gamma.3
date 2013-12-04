@@ -1,0 +1,191 @@
+.TH "org.apache.commons.math.special.Gamma" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.special.Gamma \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Serializable\&.
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double \fBlogGamma\fP (double x)"
+.br
+.ti -1c
+.RI "static double \fBregularizedGammaP\fP (double a, double x)  throws MathException     "
+.br
+.ti -1c
+.RI "static double \fBregularizedGammaP\fP (double a, double x, double epsilon, int maxIterations)  throws MathException     "
+.br
+.ti -1c
+.RI "static double \fBregularizedGammaQ\fP (double a, double x)  throws MathException     "
+.br
+.ti -1c
+.RI "static double \fBregularizedGammaQ\fP (final double a, double x, double epsilon, int maxIterations)  throws MathException     "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is a utility class that provides computation methods related to the \fBGamma\fP family of functions\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+549278 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2007-06-20 15:24:04 -0700 (Wed, 20 Jun 2007) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static double org\&.apache\&.commons\&.math\&.special\&.Gamma\&.logGamma (doublex)\fC [static]\fP"
+Returns the natural logarithm of the gamma function &#915;(x)\&.
+.PP
+The implementation of this method is based on: 
+.PD 0
+
+.IP "\(bu" 2
+\fCGamma Function\fP, equation (28)\&. 
+.IP "\(bu" 2
+\fCLanczos Approximation\fP, equations (1) through (5)\&. 
+.IP "\(bu" 2
+\fCPaul Godfrey, A note on the computation of the convergent Lanczos complex Gamma approximation \fP 
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+log(&#915;(x)) 
+.RE
+.PP
+
+.SS "static double org\&.apache\&.commons\&.math\&.special\&.Gamma\&.regularizedGammaP (doublea, doublex) throws \fBMathException\fP\fC [static]\fP"
+Returns the regularized gamma function P(a, x)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP the a parameter\&. 
+.br
+\fIx\fP the value\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the regularized gamma function P(a, x) 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+.SS "static double org\&.apache\&.commons\&.math\&.special\&.Gamma\&.regularizedGammaP (doublea, doublex, doubleepsilon, intmaxIterations) throws \fBMathException\fP\fC [static]\fP"
+Returns the regularized gamma function P(a, x)\&.
+.PP
+The implementation of this method is based on: 
+.PD 0
+
+.IP "\(bu" 2
+\fCRegularized Gamma Function\fP, equation (1)\&. 
+.IP "\(bu" 2
+\fCIncomplete Gamma Function\fP, equation (4)\&. 
+.IP "\(bu" 2
+\fCConfluent Hypergeometric Function of the First Kind\fP, equation (1)\&.  
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP the a parameter\&. 
+.br
+\fIx\fP the value\&. 
+.br
+\fIepsilon\fP When the absolute value of the nth item in the series is less than epsilon the approximation ceases to calculate further elements in the series\&. 
+.br
+\fImaxIterations\fP Maximum number of 'iterations' to complete\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the regularized gamma function P(a, x) 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+.SS "static double org\&.apache\&.commons\&.math\&.special\&.Gamma\&.regularizedGammaQ (doublea, doublex) throws \fBMathException\fP\fC [static]\fP"
+Returns the regularized gamma function Q(a, x) = 1 - P(a, x)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP the a parameter\&. 
+.br
+\fIx\fP the value\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the regularized gamma function Q(a, x) 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+.SS "static double org\&.apache\&.commons\&.math\&.special\&.Gamma\&.regularizedGammaQ (final doublea, doublex, doubleepsilon, intmaxIterations) throws \fBMathException\fP\fC [static]\fP"
+Returns the regularized gamma function Q(a, x) = 1 - P(a, x)\&.
+.PP
+The implementation of this method is based on: 
+.PD 0
+
+.IP "\(bu" 2
+\fCRegularized Gamma Function\fP, equation (1)\&. 
+.IP "\(bu" 2
+\fCRegularized incomplete gamma function: Continued fraction representations (formula 06\&.08\&.10\&.0003)\fP 
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP the a parameter\&. 
+.br
+\fIx\fP the value\&. 
+.br
+\fIepsilon\fP When the absolute value of the nth item in the series is less than epsilon the approximation ceases to calculate further elements in the series\&. 
+.br
+\fImaxIterations\fP Maximum number of 'iterations' to complete\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the regularized gamma function P(a, x) 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the algorithm fails to converge\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

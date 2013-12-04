@@ -1,0 +1,1161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1statistic_1_1_histogram" kind="class" prot="public">
+    <compoundname>desmoj::core::statistic::Histogram</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1statistic_1_1_tally" prot="public" virt="non-virtual">desmoj.core.statistic.Tally</basecompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1extensions_1_1visualization2d_1_1animation_1_1core_1_1statistic_1_1_histogram_animation" prot="public" virt="non-virtual">desmoj.extensions.visualization2d.animation.core.statistic.HistogramAnimation</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a826a081bc9ad58f8f8ca7812400f2b43" prot="private" static="no" mutable="no">
+        <type>double[]</type>
+        <definition>double [] desmoj.core.statistic.Histogram._range</definition>
+        <argsstring></argsstring>
+        <name>_range</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The array holding the lower limits of the interval sections and the upper limit as the final value. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="38" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aa61b18da36d858fc9d19c40d8dbb918e" prot="private" static="no" mutable="no">
+        <type>long[]</type>
+        <definition>long [] desmoj.core.statistic.Histogram._table</definition>
+        <argsstring></argsstring>
+        <name>_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The array representing the sections of the interval. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="43" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ac9123fc1ccdb89c645ebbb753bf29908" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.statistic.Histogram._condensed</definition>
+        <argsstring></argsstring>
+        <name>_condensed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Remove unused cells on the right from report view, if set to <computeroutput>true</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="48" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ae30b3593e5c58b9720c1b8d2346cd252" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.Histogram.Histogram</definition>
+        <argsstring>(Model ownerModel, String name, double lowerEnd, double upperEnd, int cells, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Histogram</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lowerEnd</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>upperEnd</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cells</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object with equidistant interval cells that will NOT be connected to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lowerEnd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The lower end of the interval. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>upperEnd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The upper end of the interval. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cells</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of cells (sections) the given interval will be divided into. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="72" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="72" bodyend="86"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a46c07376f8f3ce34abc1187f991b86d7" compoundref="_histogram_8java" startline="320" endline="384">desmoj.core.statistic.Histogram.checkParamAndInitRange</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" compoundref="_histogram_8java" startline="822" endline="826">desmoj.core.statistic.Histogram.initTable</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1abbaf67af1d83827e448a727f9116d34f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.Histogram.Histogram</definition>
+        <argsstring>(Model ownerModel, String name, ValueSupplier valSup, double lowerEnd, double upperEnd, int cells, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Histogram</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></type>
+          <declname>valSup</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lowerEnd</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>upperEnd</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cells</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object with equidistant interval cells that will be connected to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>valSup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> : The <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> providing the value for this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. The given <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> will be observed by this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lowerEnd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The lower end of the interval. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>upperEnd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The upper end of the interval. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cells</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of cells (sections) the given interval will be divided into. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="112" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="112" bodyend="144"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a46c07376f8f3ce34abc1187f991b86d7" compoundref="_histogram_8java" startline="320" endline="384">desmoj.core.statistic.Histogram.checkParamAndInitRange</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" compoundref="_histogram_8java" startline="822" endline="826">desmoj.core.statistic.Histogram.initTable</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ad199d5e1c00dd52772f70980147bebbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.Histogram.Histogram</definition>
+        <argsstring>(Model ownerModel, String name, double[] range, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Histogram</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>double[]</type>
+          <declname>range</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object with user-defined interval cells that will NOT be connected to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double[] : The interval with the lower limit of each cell and the upper limit of the interval as the final value. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="161" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="161" bodyend="175"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a46c07376f8f3ce34abc1187f991b86d7" compoundref="_histogram_8java" startline="320" endline="384">desmoj.core.statistic.Histogram.checkParamAndInitRange</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" compoundref="_histogram_8java" startline="822" endline="826">desmoj.core.statistic.Histogram.initTable</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1af2be75a2249ae377a1834e04da285d31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.Histogram.Histogram</definition>
+        <argsstring>(Model ownerModel, String name, ValueSupplier valSup, double[] range, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Histogram</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></type>
+          <declname>valSup</declname>
+        </param>
+        <param>
+          <type>double[]</type>
+          <declname>range</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object with user-defined interval cells that will be connected to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>valSup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> : The <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> providing the value for this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. The given <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> will be observed by this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double[] : The interval with the lower limit of each cell and the upper limit of the interval as the final value. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="196" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="196" bodyend="228"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a46c07376f8f3ce34abc1187f991b86d7" compoundref="_histogram_8java" startline="320" endline="384">desmoj.core.statistic.Histogram.checkParamAndInitRange</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" compoundref="_histogram_8java" startline="822" endline="826">desmoj.core.statistic.Histogram.initTable</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a00cc18534ec3df8c8b306ecf14b37bb8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.statistic.Histogram.isCondensed</definition>
+        <argsstring>()</argsstring>
+        <name>isCondensed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether output is condensed, i.e. empty cells on the right tail not shown.</para><para><simplesect kind="return"><para>boolean : Not displaying unused cells in report view (<computeroutput>true</computeroutput>) or printing all cells (<computeroutput>false</computeroutput>). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="236" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="236" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ac57e720c1caad55ba984b1c4ba9411c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.setCondensed</definition>
+        <argsstring>(boolean condensed)</argsstring>
+        <name>setCondensed</name>
+        <param>
+          <type>boolean</type>
+          <declname>condensed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether output should be condensed, i.e. empty cells on the right tail not shown.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>condensed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean: Not displaying unused cells in report view (<computeroutput>true</computeroutput>) or printing all cells (<computeroutput>false</computeroutput>). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="247" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="247" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a26e964a9c9c1d62495a3a63e5ab5c21b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.changeParameters</definition>
+        <argsstring>(double low, double up, int cel)</argsstring>
+        <name>changeParameters</name>
+        <param>
+          <type>double</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>up</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Changes the parameters of the interval and its number of segments. Can only be done after construction of a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> or after a reset.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The lower end of the interval. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>up</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The upper end of the interval. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of cells (sections) the given interval will be divided into. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="264" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="264" bodyend="285"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" compoundref="_histogram_8java" startline="822" endline="826">desmoj.core.statistic.Histogram.initTable</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa63d4c1ce87fd80626c2d3b6423033a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.changeParameters</definition>
+        <argsstring>(double[] range)</argsstring>
+        <name>changeParameters</name>
+        <param>
+          <type>double[]</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Changes the parameters of the interval and its number of segments. Can only be done after construction of a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> or after a reset.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double[] : The array holding the lower limits of the interval sections and the upper limit as the final value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="294" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="294" bodyend="315"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" compoundref="_histogram_8java" startline="822" endline="826">desmoj.core.statistic.Histogram.initTable</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aa389f11f50a5ff90656317c4252adaf6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.statistic.Histogram.chiSquareTest</definition>
+        <argsstring>(long[] values, double confidence)</argsstring>
+        <name>chiSquareTest</name>
+        <param>
+          <type>long[]</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>confidence</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs Pearson&apos;s Chi-square test on given frequencies, a fixed degree of freedom and desired probability. The frequencies are given in an array either including under- and overflow cells or not. The degree of freedom is set to 1 deducted from the number of given cells. On an error the Chi-squared test is not performed and false is returned. Details on errors are given out in the error message log. The result is <computeroutput>true</computeroutput> if the null hypothesis can not be rejected.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long[]: Array of assumed frequencies for each cell.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>confidence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double: (1-alpha) probability level.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean : <computeroutput>true</computeroutput> if the the null hypothesis can not be rejected. <computeroutput>false</computeroutput> on error or if the null hypothesis has to be rejected. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="503" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="503" bodyend="553"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1af5ce411079ea1489dc33d2708eb7c4dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.statistic.Histogram.chiSquareTest</definition>
+        <argsstring>(long[] values, int degFreedom, double confidence)</argsstring>
+        <name>chiSquareTest</name>
+        <param>
+          <type>long[]</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>degFreedom</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>confidence</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs Pearson&apos;s Chi-square test on given frequencies, degrees of freedom and desired probability. The frequencies are given in an array either including under- and overflow cells or not. On error the Chi-squared test is not performed and false is returned. Details on errors are given out in the error message log. The result is true if the null hypothesis can not be rejected.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long[]: Array of assumed frequencies for each cell. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>degFreedom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int: Degrees of freedom of the test. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>confidence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double: (1-alpha) probability level.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean : <computeroutput>true</computeroutput> if the the null hypothesis can not be rejected. <computeroutput>false</computeroutput> on error or if the null hypothesis has to be rejected. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="572" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="572" bodyend="674"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aebc3249da3901e1db5e29f69c362a8f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref></type>
+        <definition>desmoj.core.report.Reporter desmoj.core.statistic.Histogram.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a Reporter to produce a report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>.</para><para><simplesect kind="return"><para>desmoj.report.Reporter : The Reporter for this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="682" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="682" bodyend="684"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa065d9b0d9786be808af50a6f665c2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int desmoj.core.statistic.Histogram.getCells</definition>
+        <argsstring>()</argsstring>
+        <name>getCells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of cells the interval is divided into.</para><para><simplesect kind="return"><para>int : The number of cells the interval is divided into. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="691" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="691" bodyend="693"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aa9a4ca444ee876e41abf1889908a3afc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Histogram.getCellWidth</definition>
+        <argsstring>()</argsstring>
+        <name>getCellWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the mean width of all cells.</para><para><simplesect kind="return"><para>double : The mean width of all cells.</para></simplesect>
+<xrefsect id="deprecated_1_deprecated000047"><xreftitle>Deprecated</xreftitle><xrefdescription><para>The same functionality is given by <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a9935e3e7239928ec22a7223218067d54" kindref="member">getMeanWidth()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="702" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="702" bodyend="704"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" compoundref="_statistic_object_8java" startline="176" endline="178">desmoj.core.statistic.StatisticObject.round</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a0d63f399de666cf406955176ad76bef7" compoundref="_histogram_8java" startline="815" endline="817">desmoj.core.statistic.Histogram.getUpperLimit</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a431d00c952096aa6db61c813d3533cb5" compoundref="_histogram_8java" startline="724" endline="741">desmoj.core.statistic.Histogram.getLowerLimit</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa065d9b0d9786be808af50a6f665c2a" compoundref="_histogram_8java" startline="691" endline="693">desmoj.core.statistic.Histogram.getCells</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a9935e3e7239928ec22a7223218067d54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Histogram.getMeanWidth</definition>
+        <argsstring>()</argsstring>
+        <name>getMeanWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the mean width of all cells.</para><para><simplesect kind="return"><para>double : The mean width of all cells. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="711" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="711" bodyend="713"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" compoundref="_statistic_object_8java" startline="176" endline="178">desmoj.core.statistic.StatisticObject.round</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a0d63f399de666cf406955176ad76bef7" compoundref="_histogram_8java" startline="815" endline="817">desmoj.core.statistic.Histogram.getUpperLimit</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a431d00c952096aa6db61c813d3533cb5" compoundref="_histogram_8java" startline="724" endline="741">desmoj.core.statistic.Histogram.getLowerLimit</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa065d9b0d9786be808af50a6f665c2a" compoundref="_histogram_8java" startline="691" endline="693">desmoj.core.statistic.Histogram.getCells</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a431d00c952096aa6db61c813d3533cb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Histogram.getLowerLimit</definition>
+        <argsstring>(int cell)</argsstring>
+        <name>getLowerLimit</name>
+        <param>
+          <type>int</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the lower limit of the given cell. If the given cell is negative, <computeroutput>UNDEFINED</computeroutput> (-1) will be returned.</para><para><simplesect kind="return"><para>double : The lower limit of the given cell. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The cell for which we want to know its lower limit. Should be zero or positive. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="724" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="724" bodyend="741"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa065d9b0d9786be808af50a6f665c2a" compoundref="_histogram_8java" startline="691" endline="693">desmoj.core.statistic.Histogram.getCells</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" compoundref="_statistic_object_8java" startline="60">desmoj.core.statistic.StatisticObject.UNDEFINED</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a02b2e2ffc0d58e3e46f233c9e416815c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int desmoj.core.statistic.Histogram.getMostFrequentedCell</definition>
+        <argsstring>()</argsstring>
+        <name>getMostFrequentedCell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of the first cell holding the maximum value.</para><para><simplesect kind="return"><para>int : The number of one cell holding the maximum value.</para></simplesect>
+<xrefsect id="deprecated_1_deprecated000048"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Gives the same result as the first entry of the returned array of <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a77dbd4cf3d5de3242a109e1e3cefee07" kindref="member">getMostFrequentedCells()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="750" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="750" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a77dbd4cf3d5de3242a109e1e3cefee07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>int [] desmoj.core.statistic.Histogram.getMostFrequentedCells</definition>
+        <argsstring>()</argsstring>
+        <name>getMostFrequentedCells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the numbers of the most frequented cells, so far.</para><para><simplesect kind="return"><para>int[] : An array with the numbers of the most frequented cells. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="759" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="759" bodyend="784"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8a2c0de2b79ace57c6b259fda99af334" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.core.statistic.Histogram.getObservationsInCell</definition>
+        <argsstring>(int cell)</argsstring>
+        <name>getObservationsInCell</name>
+        <param>
+          <type>int</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the observations made for the given cell, so far.</para><para><simplesect kind="return"><para>long : The observations made for the given cell. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The cell of which want to get the number of observations made for. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="794" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="794" bodyend="808"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa065d9b0d9786be808af50a6f665c2a" compoundref="_histogram_8java" startline="691" endline="693">desmoj.core.statistic.Histogram.getCells</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a0d63f399de666cf406955176ad76bef7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.Histogram.getUpperLimit</definition>
+        <argsstring>()</argsstring>
+        <name>getUpperLimit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the upper limit of the whole interval.</para><para><simplesect kind="return"><para>double : The upper limit of the whole interval. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="815" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="815" bodyend="817"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a88eac829cc2f5c310a4fdaf0cfb32025" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref> object by resetting the counters for each cell to zero. That means the array of the cell counters will be reset, but the interval and the number of sections this interval is divided into will remain the same. The parameters of the interval can be changed with the <computeroutput>changeParameters</computeroutput> method after the reset. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="835" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="835" bodyend="842"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" compoundref="_histogram_8java" startline="822" endline="826">desmoj.core.statistic.Histogram.initTable</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1abba961c0845d0c4b2893934464571c0e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref></computeroutput> object by fetching the actual value of the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput> and processing it. The <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput> is passed in the constructor of this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref></computeroutput> object. This <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1abba961c0845d0c4b2893934464571c0e" kindref="member">update()</ref></computeroutput> method complies with the one described in DESMO, see [Page91]. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="851" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="851" bodyend="882"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" compoundref="_value_statistics_8java" startline="140" endline="142">desmoj.core.statistic.ValueStatistics.getLastValue</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a37fc827821b3cfcc12a4bb2305bae198" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.update</definition>
+        <argsstring>(double val)</argsstring>
+        <name>update</name>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref></computeroutput> object with the double value given as parameter. In some cases it might be more convenient to pass the value this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref></computeroutput> will be updated with directly within the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a37fc827821b3cfcc12a4bb2305bae198" kindref="member">update(double val)</ref></computeroutput> method instead of going via the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : The value with which this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref></computeroutput> will be updated. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="895" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="895" bodyend="923"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a00ee6a8fd974e045ec62ba24865f73c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.update</definition>
+        <argsstring>(Observable o, Object arg)</argsstring>
+        <name>update</name>
+        <param>
+          <type>Observable</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Implementation of the virtual <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a00ee6a8fd974e045ec62ba24865f73c4" kindref="member">update(Observable, Object)</ref></computeroutput> method of the <computeroutput>Observer</computeroutput> interface. This method will be called automatically from an <computeroutput>Observable</computeroutput> object within its <computeroutput>notifyObservers()</computeroutput> method. <linebreak/>
+ If no Object (a<computeroutput>null</computeroutput> value) is passed as arg, the actual value of the <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> will be fetched with the <computeroutput>value()</computeroutput> method of the <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref>. Otherwise it is expected that the actual value is passed in the Object arg.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.util.Observable : The Observable calling this method within its own <computeroutput>notifyObservers()</computeroutput> method. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object : The Object with which this <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_tally" kindref="compound">Tally</ref></computeroutput> is updated. Normally a double number which is added to the statistics or <computeroutput>null</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="943" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="943" bodyend="989"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aec498abda3f582314d72e2e64c0891c4" compoundref="_value_statistics_8java" startline="213" endline="215">desmoj.core.statistic.ValueStatistics.getValueSupplier</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" compoundref="_value_statistics_8java" startline="140" endline="142">desmoj.core.statistic.ValueStatistics.getLastValue</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a46c07376f8f3ce34abc1187f991b86d7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.checkParamAndInitRange</definition>
+        <argsstring>(double lowerLimit, double upperLimit, int cells)</argsstring>
+        <name>checkParamAndInitRange</name>
+        <param>
+          <type>double</type>
+          <declname>lowerLimit</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>upperLimit</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cells</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the segmentation of the given equidistant interval and then initializes the range array. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="320" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="320" bodyend="384"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a0bf5461be82820e76e01ecc9805beba2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.checkParamAndInitRange</definition>
+        <argsstring>(double[] range)</argsstring>
+        <name>checkParamAndInitRange</name>
+        <param>
+          <type>double[]</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the segmentation of the given user-defined interval and then initializes the range array. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="389" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="389" bodyend="484"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.Histogram.initTable</definition>
+        <argsstring>()</argsstring>
+        <name>initTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the table by setting each cell counter to zero. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="822" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="822" bodyend="826"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_histogram" kindref="compound">Histogram</ref></computeroutput> class is providing a statistic analysis about values. An interval is divided into sections with an under- and an overflow section. When a value is updated it will be decided to which section it belongs to and the counter for that section will be updated. In the end the report will show how many values belong to which section. <linebreak/>
+</para><para><simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Soenke Claassen </para><simplesectsep/><para>based on DESMO-C from Thomas Schniewind, 1998 </para><simplesectsep/><para>edited by Lorna Slawski (changes in implementation and added possibility of non-equidistant sections as well as the Chi-squared test)</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="8202">
+        <label>desmoj.core.statistic.ValueStatistics</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics"/>
+        <childnode refid="8203" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8201">
+        <label>desmoj.core.statistic.Tally</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_tally"/>
+        <childnode refid="8202" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8205">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="8206" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8200">
+        <label>desmoj.core.statistic.Histogram</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_histogram"/>
+        <childnode refid="8201" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8208">
+        <label>Observer</label>
+      </node>
+      <node id="8209">
+        <label>desmoj.extensions.visualization2d.animation.core.statistic.HistogramAnimation</label>
+        <link refid="classdesmoj_1_1extensions_1_1visualization2d_1_1animation_1_1core_1_1statistic_1_1_histogram_animation"/>
+        <childnode refid="8200" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8207">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="8206">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="8207" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8203">
+        <label>desmoj.core.statistic.StatisticObjectSupportingTimeSpans</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans"/>
+        <childnode refid="8204" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8208" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8204">
+        <label>desmoj.core.statistic.StatisticObject</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object"/>
+        <childnode refid="8205" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8208" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8212">
+        <label>desmoj.core.statistic.ValueStatistics</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics"/>
+        <childnode refid="8213" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8211">
+        <label>desmoj.core.statistic.Tally</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_tally"/>
+        <childnode refid="8212" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8215">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="8216" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8210">
+        <label>desmoj.core.statistic.Histogram</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_histogram"/>
+        <childnode refid="8211" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8218">
+        <label>Observer</label>
+      </node>
+      <node id="8217">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="8216">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="8217" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8213">
+        <label>desmoj.core.statistic.StatisticObjectSupportingTimeSpans</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans"/>
+        <childnode refid="8214" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8218" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8214">
+        <label>desmoj.core.statistic.StatisticObject</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object"/>
+        <childnode refid="8215" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8218" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" line="31" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/Histogram.java" bodystart="31" bodyend="990"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ac9123fc1ccdb89c645ebbb753bf29908" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>_condensed</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a826a081bc9ad58f8f8ca7812400f2b43" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>_range</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aa61b18da36d858fc9d19c40d8dbb918e" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>_table</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a26e964a9c9c1d62495a3a63e5ab5c21b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>changeParameters</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa63d4c1ce87fd80626c2d3b6423033a" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>changeParameters</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a46c07376f8f3ce34abc1187f991b86d7" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>checkParamAndInitRange</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a0bf5461be82820e76e01ecc9805beba2" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>checkParamAndInitRange</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aa389f11f50a5ff90656317c4252adaf6" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>chiSquareTest</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1af5ce411079ea1489dc33d2708eb7c4dd" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>chiSquareTest</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1ab7ab331cc0c15d207ee7e729d975ca44" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>convertToDouble</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aebc3249da3901e1db5e29f69c362a8f7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1ac8261fd4bbe26b674cb7842c883572e0" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>FRACTION_DIGITS</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1afa065d9b0d9786be808af50a6f665c2a" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getCells</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1aa9a4ca444ee876e41abf1889908a3afc" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getCellWidth</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getLastValue</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a431d00c952096aa6db61c813d3533cb5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getLowerLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a9b55d2c9c95264c1617ea062052131c9" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getMaximum</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a5579903777e94f57d5d7634572bc8b08" prot="public" virt="virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getMean</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a9935e3e7239928ec22a7223218067d54" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getMeanWidth</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aad8587e2ef044281bf62c499ef14ccb3" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getMinimum</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a02b2e2ffc0d58e3e46f233c9e416815c" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getMostFrequentedCell</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a77dbd4cf3d5de3242a109e1e3cefee07" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getMostFrequentedCells</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8a2c0de2b79ace57c6b259fda99af334" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getObservationsInCell</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1a374cf2275d8637a8177c78461db0f0ec" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getShowTimeSpansInReport</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a0daef9e4da772b80e985121404533dae" prot="public" virt="virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getStdDev</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1ad29c53cc766919ab631b06bba959b5f0" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getUnit</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a6bdd9ff905bf18a27d2c890ab1729de4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getUnitText</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a0d63f399de666cf406955176ad76bef7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getUpperLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aec498abda3f582314d72e2e64c0891c4" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>getValueSupplier</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ae30b3593e5c58b9720c1b8d2346cd252" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>Histogram</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1abbaf67af1d83827e448a727f9116d34f" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>Histogram</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ad199d5e1c00dd52772f70980147bebbb" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>Histogram</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1af2be75a2249ae377a1834e04da285d31" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>Histogram</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a8eba7c809597d7cb21965e38cbed9cd7" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>initTable</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a00cc18534ec3df8c8b306ecf14b37bb8" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>isCondensed</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a93c3f5e46d4dbedb9c20b4fdbd946722" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>PRECISION</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a88eac829cc2f5c310a4fdaf0cfb32025" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a692e70493310a8ece9cdef9d92e993bc" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>round</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1ac57e720c1caad55ba984b1c4ba9411c6" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>setCondensed</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1a149f0fb237b3f2b6904179565ff1dc70" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>setShowTimeSpansInReport</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a292db67353902f20898927e3f57e6f9e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>setUnit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a7e94f385b55730e93c48236172b61057" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>StatisticObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1aa2e15461f63f3ce99ccc48236fb68f9e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>StatisticObjectSupportingTimeSpans</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a838aeb20f535aec8c85e84713562dc8b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>Tally</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1af048c6256f3efaa2d2d59aaa937a2e72" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>Tally</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>traceOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1aa01ed975ec3ae1a711112bb7477f908e" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>traceUpdate</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>UNDEFINED</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1abba961c0845d0c4b2893934464571c0e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a37fc827821b3cfcc12a4bb2305bae198" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_histogram_1a00ee6a8fd974e045ec62ba24865f73c4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a755c1f1eb9e2f6c6888488b760a0e0cb" prot="public" virt="virtual" ambiguityscope="desmoj::core::statistic::ValueStatistics."><scope>desmoj::core::statistic::Histogram</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a78d9c13180096b2b5449dc0142b34e80" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>ValueStatistics</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a1ab58f4b4457195329039f2a0337adb4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::Histogram</scope><name>ValueStatistics</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

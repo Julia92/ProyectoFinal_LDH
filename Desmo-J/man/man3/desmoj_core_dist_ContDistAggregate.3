@@ -1,0 +1,173 @@
+.TH "desmoj.core.dist.ContDistAggregate" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDistAggregate \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.ContDist\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDistAggregate\fP (\fBModel\fP owner, String name, List< NumericalDist<?>> \fBdists\fP, \fBOperator\fP \fBoperator\fP, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBContDistAggregate\fP (\fBModel\fP owner, String name, NumericalDist<?> dist1, NumericalDist<?> dist2, \fBOperator\fP \fBoperator\fP, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "List< NumericalDist<?> > \fBgetDists\fP ()"
+.br
+.ti -1c
+.RI "\fBOperator\fP \fBgetOperator\fP ()"
+.br
+.ti -1c
+.RI "Double \fBsample\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "ArrayList< NumericalDist<?> > \fBdists\fP"
+.br
+.ti -1c
+.RI "\fBOperator\fP \fBoperator\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Aggregate \fBDistribution\fP composed of a list of input Distributions\&. The operator between these to input distributions can be specified individually
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Peter Wueppen 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDistAggregate\&.ContDistAggregate (\fBModel\fPowner, Stringname, List< NumericalDist<?>>dists, \fBOperator\fPoperator, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of pseudo random numbers following a distribution that is specified by a list of other distributions and an operator to aggregate them\&.
+.PP
+Note that since it is possible to combine distributions of different return types, this distribution will always cast their results to double and return a double itself\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIdists\fP List<NumericalDist> : The input distributions\&. 
+.br
+\fIoperator\fP \fBOperator\fP : The operator to be used to aggregate the distributions\&. 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.dist\&.ContDistAggregate\&.ContDistAggregate (\fBModel\fPowner, Stringname, NumericalDist<?>dist1, NumericalDist<?>dist2, \fBOperator\fPoperator, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of pseudo random numbers following a distribution that is specified by two other distributions and an operator to aggregate them\&.
+.PP
+Note that since it is possible to combine distributions of different return types, this distribution will always cast their results to double and return a double itself\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIdist1\fP NumericalDist<?> : The first input distribution\&. 
+.br
+\fIdist2\fP NumericalDist<?> : The second input distribution\&. 
+.br
+\fIoperator\fP \fBOperator\fP : The operator to be used to combine the two distributions\&. 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.ContDistAggregate\&.createReporter ()"
+Creates the default reporter for the \fBContDistAggregate\fP distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the \fBContDistAggregate\fP distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.ContDistAggregateReporter\fP 
+.RE
+.PP
+
+.SS "List<NumericalDist<?> > desmoj\&.core\&.dist\&.ContDistAggregate\&.getDists ()"
+Returns the first input distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The first input distribution 
+.RE
+.PP
+
+.SS "\fBOperator\fP desmoj\&.core\&.dist\&.ContDistAggregate\&.getOperator ()"
+The \fBOperator\fP used to combine the input distributions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBOperator\fP used to combine the two distributions\&. 
+.RE
+.PP
+
+.SS "Double desmoj\&.core\&.dist\&.ContDistAggregate\&.sample ()"
+Returns the next sample from this distribution\&. The value depends upon the seed, the number of values taken from the stream by using this method before and the two input distributions as well as the operator specified for this distribution\&.
+.PP
+Evaluation is done from left to right, e\&.g\&. for three distributions, the results is \fC(dist1\&.sample x d2\&.sample()) x d3\&.sample()\fP, where \fCx\fP is the operation used\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The next sample from this distribution\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "ArrayList<NumericalDist<?> > desmoj\&.core\&.dist\&.ContDistAggregate\&.dists\fC [protected]\fP"
+The input distributions\&. 
+.SS "\fBOperator\fP desmoj\&.core\&.dist\&.ContDistAggregate\&.operator\fC [protected]\fP"
+The operator to combine the Distributions with\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

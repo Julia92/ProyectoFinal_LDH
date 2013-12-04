@@ -1,0 +1,151 @@
+\section{desmoj.\-core.\-dist.\-Operator Interface Reference}
+\label{interfacedesmoj_1_1core_1_1dist_1_1_operator}\index{desmoj.\-core.\-dist.\-Operator@{desmoj.\-core.\-dist.\-Operator}}
+
+
+Collaboration diagram for desmoj.\-core.\-dist.\-Operator\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{interfacedesmoj_1_1core_1_1dist_1_1_operator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double {\bf result} (double operand1, double operand2)
+\item 
+String {\bf get\-Description} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final {\bf Operator} {\bf P\-L\-U\-S}
+\item 
+static final {\bf Operator} {\bf M\-I\-N\-U\-S}
+\item 
+static final {\bf Operator} {\bf M\-U\-L\-T\-I\-P\-L\-Y}
+\item 
+static final {\bf Operator} {\bf D\-I\-V\-I\-D\-E}
+\item 
+static final {\bf Operator} {\bf P\-O\-W}
+\item 
+static final {\bf Operator} {\bf A\-B\-S\-\_\-\-D\-I\-F\-F}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface to create user-\/defined operators. Used by \doxyref{Cont\-Dist\-Aggregate}{p.}{classdesmoj_1_1core_1_1dist_1_1_cont_dist_aggregate} to combine distribution functions. Note that implementations of common operators are available as static final fields.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Peter Wueppen \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!get\-Description@{get\-Description}}
+\index{get\-Description@{get\-Description}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{get\-Description}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-dist.\-Operator.\-get\-Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_a329d2b47c3f97ae3d929a1504c516cc2}
+Should return a description of what the operator does to be shown by the reporter. Example\-: \char`\"{}sum\char`\"{}, \char`\"{}product\char`\"{} etc.  a description \index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!result@{result}}
+\index{result@{result}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{result}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-dist.\-Operator.\-result (
+\begin{DoxyParamCaption}
+\item[{double}]{operand1, }
+\item[{double}]{operand2}
+\end{DoxyParamCaption}
+)}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_ac933a03c793a396a42669721e7f96de8}
+This should return the desired of the result or the operation, depending on the operands. 
+\begin{DoxyParams}{Parameters}
+{\em operand1} & \\
+\hline
+{\em operand2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!A\-B\-S\-\_\-\-D\-I\-F\-F@{A\-B\-S\-\_\-\-D\-I\-F\-F}}
+\index{A\-B\-S\-\_\-\-D\-I\-F\-F@{A\-B\-S\-\_\-\-D\-I\-F\-F}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{A\-B\-S\-\_\-\-D\-I\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Operator} desmoj.\-core.\-dist.\-Operator.\-A\-B\-S\-\_\-\-D\-I\-F\-F\hspace{0.3cm}{\ttfamily [static]}}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_ac408e3bce8ef221b332359a02359db41}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Operator() \{
+        \textcolor{keyword}{public} \textcolor{keywordtype}{double} result(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{\textcolor{keywordflow}{return} Math.abs(a-b);\}
+        \textcolor{keyword}{public} String getDescription() \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"diff"};\}
+    \}
+\end{DoxyCode}
+Absolute difference operator, for arguments {\ttfamily a{\ttfamily  and {\ttfamily b} returning {\ttfamily $|$a-\/b$|$}. }}\index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!D\-I\-V\-I\-D\-E@{D\-I\-V\-I\-D\-E}}
+\index{D\-I\-V\-I\-D\-E@{D\-I\-V\-I\-D\-E}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{D\-I\-V\-I\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Operator} desmoj.\-core.\-dist.\-Operator.\-D\-I\-V\-I\-D\-E\hspace{0.3cm}{\ttfamily [static]}}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_a7d7383065b9c3caa7bd83091c06063eb}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Operator() \{
+        \textcolor{keyword}{public} \textcolor{keywordtype}{double} result(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{\textcolor{keywordflow}{return} a / b;\}
+        \textcolor{keyword}{public} String getDescription() \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"divide"};\}
+    \}
+\end{DoxyCode}
+Divide operator, for arguments {\ttfamily a{\ttfamily  and {\ttfamily b} returning {\ttfamily a/b}. }}\index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!M\-I\-N\-U\-S@{M\-I\-N\-U\-S}}
+\index{M\-I\-N\-U\-S@{M\-I\-N\-U\-S}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{M\-I\-N\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Operator} desmoj.\-core.\-dist.\-Operator.\-M\-I\-N\-U\-S\hspace{0.3cm}{\ttfamily [static]}}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_a23409a64d82728fd745dbee4f557d229}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Operator() \{
+        \textcolor{keyword}{public} \textcolor{keywordtype}{double} result(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{\textcolor{keywordflow}{return} a - b;\}
+        \textcolor{keyword}{public} String getDescription() \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"minus"};\}
+    \}
+\end{DoxyCode}
+Minus operator, for arguments {\ttfamily a{\ttfamily  and {\ttfamily b} returning {\ttfamily a-\/b}. }}\index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!M\-U\-L\-T\-I\-P\-L\-Y@{M\-U\-L\-T\-I\-P\-L\-Y}}
+\index{M\-U\-L\-T\-I\-P\-L\-Y@{M\-U\-L\-T\-I\-P\-L\-Y}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{M\-U\-L\-T\-I\-P\-L\-Y}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Operator} desmoj.\-core.\-dist.\-Operator.\-M\-U\-L\-T\-I\-P\-L\-Y\hspace{0.3cm}{\ttfamily [static]}}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_a0ca75497a8f4ee122f9525b9134b9fc8}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Operator() \{
+        \textcolor{keyword}{public} \textcolor{keywordtype}{double} result(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{\textcolor{keywordflow}{return} a * b;\}
+        \textcolor{keyword}{public} String getDescription() \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"muliply"};\}
+    \}
+\end{DoxyCode}
+Multiply operator, for arguments {\ttfamily a{\ttfamily  and {\ttfamily b} returning {\ttfamily a-\/b}. }}\index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!P\-L\-U\-S@{P\-L\-U\-S}}
+\index{P\-L\-U\-S@{P\-L\-U\-S}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{P\-L\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Operator} desmoj.\-core.\-dist.\-Operator.\-P\-L\-U\-S\hspace{0.3cm}{\ttfamily [static]}}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_a64f516a25d802cdf947b8ceb0935c017}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Operator() \{
+        \textcolor{keyword}{public} \textcolor{keywordtype}{double} result(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{\textcolor{keywordflow}{return} a + b;\}
+        \textcolor{keyword}{public} String getDescription() \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"plus"};\}
+    \}
+\end{DoxyCode}
+Plus operator, for arguments {\ttfamily a{\ttfamily  and {\ttfamily b} returning {\ttfamily a+b}. }}\index{desmoj\-::core\-::dist\-::\-Operator@{desmoj\-::core\-::dist\-::\-Operator}!P\-O\-W@{P\-O\-W}}
+\index{P\-O\-W@{P\-O\-W}!desmoj::core::dist::Operator@{desmoj\-::core\-::dist\-::\-Operator}}
+\subsubsection[{P\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Operator} desmoj.\-core.\-dist.\-Operator.\-P\-O\-W\hspace{0.3cm}{\ttfamily [static]}}\label{interfacedesmoj_1_1core_1_1dist_1_1_operator_ad17d58e4e14707e5853b0a59829dba7f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Operator() \{
+        \textcolor{keyword}{public} \textcolor{keywordtype}{double} result(\textcolor{keywordtype}{double} a, \textcolor{keywordtype}{double} b) \{\textcolor{keywordflow}{return} Math.pow(a, b);\}
+        \textcolor{keyword}{public} String getDescription() \{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"pow"};\}
+    \}
+\end{DoxyCode}
+Power operator, for arguments {\ttfamily a{\ttfamily  and {\ttfamily b} returning {\ttfamily a$^\wedge$b}. }}
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/dist/Operator.\-java\end{DoxyCompactItemize}

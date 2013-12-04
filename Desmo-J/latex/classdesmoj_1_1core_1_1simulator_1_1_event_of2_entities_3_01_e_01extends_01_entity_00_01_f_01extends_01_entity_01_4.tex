@@ -1,0 +1,273 @@
+\section{desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$ Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4}\index{desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01ext103ad13a6dbd2cd8cfc18927e464c2ce}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01ext44f648f7f5d79558f78c74cdaa91d516}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Event\-Of2\-Entities} ({\bf Model} owner, String name, boolean show\-In\-Trace)
+\item 
+abstract void {\bf event\-Routine} (E who1, F who2)
+\item 
+void {\bf schedule} (E who1, F who2, {\bf Time\-Instant} instant)
+\item 
+void {\bf schedule} (E who1, F who2, {\bf Time\-Span} dt)
+\item 
+void {\bf schedule} (E who1, F who2, Numerical\-Dist$<$?$>$ dist)
+\item 
+void {\bf schedule\-After} ({\bf Schedulable} after, E who1, F who2)
+\item 
+void {\bf schedule\-Before} ({\bf Schedulable} before, E who1, F who2)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Event\-Of2\-Entities}$<$ E, F $>$ {\bf clone} ()  throws Clone\-Not\-Supported\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Provides the class for user defined events to change {\bfseries two} entities' internal states. The state of a discrete model is changed by events that occur at distinct points of simulation time.
+
+For events changing the state of {\bfseries one} or {\bfseries three} entities, refer to {\ttfamily Event} and {\ttfamily Event\-Of3\-Entities}. Events not associated to a specific entity are based on {\ttfamily \doxyref{External\-Event}{p.}{classdesmoj_1_1core_1_1simulator_1_1_external_event}}. 
+
+For type safety it is recommended to generically assign the entity types an {\ttfamily Event\-Of2\-Entities} operates on by using the generic type {\ttfamily Event\-Of2\-Entities$<$E,F$>$} where {\ttfamily E} and {\ttfamily F} are derived from {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}}. 
+
+All event object should be used only once. Implement the changes of state for the specific entities associated with this event by overriding the abstract method {\ttfamily \doxyref{event\-Routine(\-E who1, F who2)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_aca420002eca0953fb58df07f0b77fc09}}.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} 
+
+\doxyref{External\-Event}{p.}{classdesmoj_1_1core_1_1simulator_1_1_external_event} 
+
+Event 
+
+Event\-Of3\-Entities 
+
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} 
+
+\doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler 
+
+modified by Justin Neumann
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!Event\-Of2\-Entities@{Event\-Of2\-Entities}}
+\index{Event\-Of2\-Entities@{Event\-Of2\-Entities}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{Event\-Of2\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.Event\-Of2\-Entities (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a48a36b9f0796582b1797ebb143832a3a}
+Creates a new Event of the given model, with the given name and trace option.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of this event \\
+\hline
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this event is associated to \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing Event in trace-\/files. Set it to {\ttfamily true} if Event should show up in trace. Set it to {\ttfamily false} if Event should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!clone@{clone}}
+\index{clone@{clone}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Of2\-Entities}$<$E,F$>$ desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Clone\-Not\-Supported\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a4d7b47bced2cc28dd99e4779e2080ffa}
+Creates and returns a copy of this event. Note that subclasses have to implement the interface java.\-lang.\-Cloneable to actually use this method as otherwise, a Clone\-Not\-Supported\-Exception will be thrown.
+
+\begin{DoxyReturn}{Returns}
+Event\-Of2\-Entities$<$\-E,\-F$>$ \-: A copy of this event. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!event\-Routine@{event\-Routine}}
+\index{event\-Routine@{event\-Routine}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{event\-Routine}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.event\-Routine (
+\begin{DoxyParamCaption}
+\item[{E}]{who1, }
+\item[{F}]{who2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_aca420002eca0953fb58df07f0b77fc09}
+Implement this abstract method to express the changes of state this event does to two entities (as {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} is a subclass of {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}}, processes can be passed as well). 
+
+For type safety, it is recommended to derive your events from the generic type {\ttfamily Event\-Of2\-Entities$<$Entity\-Type1,Entity\-Type2$>$} where {\ttfamily Entity\-Type1} and {\ttfamily Entity\-Type2} (which are derived from class {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}}) represent the entity types your event is supposed to operate on. 
+
+Should you decide to derive your event from the raw type {\ttfamily Event\-Of2\-Entities} (which is not recommended), please take extra care in checking the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} parameters to your special event\-Routine since any subtype of \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} will be accepted! If your model uses several different entity types, chances are that while developing the model, wrong entity types might be passed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & E \-: The first entity associated to this event. \\
+\hline
+{\em who2} & F \-: The second entity associated to this event. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.schedule (
+\begin{DoxyParamCaption}
+\item[{E}]{who1, }
+\item[{F}]{who2, }
+\item[{{\bf Time\-Instant}}]{instant}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a8cf7cdd00f89e0521841de84565303bc}
+Schedules this event to act on the given entities at a certain point in simulation time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & E \-: The first entity to be manipulated by this event \\
+\hline
+{\em who2} & F \-: The second entity to be manipulated by this event \\
+\hline
+{\em instant} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time this event is scheduled to happen. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.schedule (
+\begin{DoxyParamCaption}
+\item[{E}]{who1, }
+\item[{F}]{who2, }
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a0ae4d0ea4853ef94eafd68c9df67cac7}
+Schedules this event to act the given entities at the specified point in simulation time. The point of time is given as an offset to the current simulation time as displayed by the simulation clock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & E \-: The first entity this event happens to \\
+\hline
+{\em who2} & F \-: The second entity this event happens to \\
+\hline
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The offset to the current simulation time this Event is to happen \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Sim\-Clock}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_clock} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!schedule@{schedule}}
+\index{schedule@{schedule}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.schedule (
+\begin{DoxyParamCaption}
+\item[{E}]{who1, }
+\item[{F}]{who2, }
+\item[{Numerical\-Dist$<$?$>$}]{dist}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a529b0e6fccfb3023062a9fe0b52cc57c}
+Schedules this event to act the given entities at the specified point in simulation time determined by a sample from the distribution provided to the method. The sample is interpreted as offset from the the present time in the reference time unit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & E \-: The first entity this event happens to \\
+\hline
+{\em who2} & F \-: The second entity this event happens to \\
+\hline
+{\em dist} & Numerical\-Dist$<$?$>$ \-: Numerical distribution to sample the offset to the current simulation time from\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Sim\-Clock}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_clock} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!schedule\-After@{schedule\-After}}
+\index{schedule\-After@{schedule\-After}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{schedule\-After}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.schedule\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{after, }
+\item[{E}]{who1, }
+\item[{F}]{who2}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a68c4d20f2d50f6451590ce90df03f9c7}
+Schedules this event to act on the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} directly after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is already set to be activated. Note that this event's point of simulation time will be set to be the same as the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time. Thus this event will occur directly after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} but the simulation clock will not change. Make sure that the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} given as parameter is actually scheduled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em after} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} this entity should be scheduled after \\
+\hline
+{\em who1} & E \-: The first entity to be manipulated by this event \\
+\hline
+{\em who2} & F \-: The second entity to be manipulated by this event \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a68c4d20f2d50f6451590ce90df03f9c7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}!schedule\-Before@{schedule\-Before}}
+\index{schedule\-Before@{schedule\-Before}!desmoj::core::simulator::EventOf2Entities< E extends Entity, F extends Entity >@{desmoj\-::core\-::simulator\-::\-Event\-Of2\-Entities$<$ E extends Entity, F extends Entity $>$}}
+\subsubsection[{schedule\-Before}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Of2\-Entities$<$ E extends {\bf Entity}, F extends {\bf Entity} $>$.schedule\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{before, }
+\item[{E}]{who1, }
+\item[{F}]{who2}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a85162098b915200c4d65e064d15f3122}
+Schedules this event to act on the given \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} directly before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is already set to be activated. Note that this event's point of simulation time will be set to be the same as the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time. Thus this event will occur directly before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} but the simulation clock will not change. Make sure that the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} given as parameter is actually scheduled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} this entity should be scheduled before \\
+\hline
+{\em who1} & E \-: The first entity to be manipulated by this event \\
+\hline
+{\em who2} & F \-: The second entity to be manipulated by this event \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_of2_entities_3_01_e_01extends_01_entity_00_01_f_01extends_01_entity_01_4_a85162098b915200c4d65e064d15f3122_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Event\-Of2\-Entities.\-java\end{DoxyCompactItemize}

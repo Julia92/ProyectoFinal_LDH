@@ -1,0 +1,820 @@
+.TH "desmoj.extensions.applicationDomains.production.WorkStation" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.WorkStation \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWorkStation\fP (\fBModel\fP owner, String name, \fBPartsList\fP partsList, int mSortOrder, int mQCapacity, int sSortOrder, int sQCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBWorkStation\fP (\fBModel\fP owner, String name, \fBPartsList\fP partsList, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "synchronized boolean \fBallPartsAvailable\fP ()"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP \fBavailMaster\fP (Condition cond)"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP[] \fBavailSlaves\fP (Class kind, Condition cond)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetMQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMRefused\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNumOfParts\fP ()"
+.br
+.ti -1c
+.RI "\fBPartsList\fP \fBgetPartsList\fP ()"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBSimProcess\fP >[] \fBgetSlaveQueues\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetSQueueStrategy\fP (int index)"
+.br
+.ti -1c
+.RI "long \fBgetSRefused\fP (int index)"
+.br
+.ti -1c
+.RI "double \fBmAverageLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmAverageWaitTime\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBmIsEmpty\fP ()"
+.br
+.ti -1c
+.RI "long \fBmLength\fP ()"
+.br
+.ti -1c
+.RI "long \fBmMaxLength\fP ()"
+.br
+.ti -1c
+.RI "TimeInstant \fBmMaxLengthAt\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmMaxWaitTime\fP ()"
+.br
+.ti -1c
+.RI "TimeInstant \fBmMaxWaitTimeAt\fP ()"
+.br
+.ti -1c
+.RI "long \fBmMinLength\fP ()"
+.br
+.ti -1c
+.RI "TimeInstant \fBmMinLengthAt\fP ()"
+.br
+.ti -1c
+.RI "double \fBmStdDevLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmStdDevWaitTime\fP ()"
+.br
+.ti -1c
+.RI "long \fBmZeroWaits\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBprocess\fP (\fBProcessing\fP process)"
+.br
+.ti -1c
+.RI "boolean \fBprocess\fP (\fBProcessing\fP process, Class[] kinds, Condition[] conditions)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "double \fBsAverageLength\fP (int index)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsAverageWaitTime\fP (int index)"
+.br
+.ti -1c
+.RI "void \fBsetSQueueCapacity\fP (int index, int newCapacity)"
+.br
+.ti -1c
+.RI "void \fBsetSQueueStrategy\fP (int index, int sortOrder)"
+.br
+.ti -1c
+.RI "boolean \fBsIsEmpty\fP (int index)"
+.br
+.ti -1c
+.RI "long \fBsLength\fP (int index)"
+.br
+.ti -1c
+.RI "long \fBsMaxLength\fP (int index)"
+.br
+.ti -1c
+.RI "TimeInstant \fBsMaxLengthAt\fP (int index)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsMaxWaitTime\fP (int index)"
+.br
+.ti -1c
+.RI "TimeInstant \fBsMaxWaitTimeAt\fP (int index)"
+.br
+.ti -1c
+.RI "long \fBsMinLength\fP (int index)"
+.br
+.ti -1c
+.RI "TimeInstant \fBsMinLengthAt\fP (int index)"
+.br
+.ti -1c
+.RI "double \fBsStdDevLength\fP (int index)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsStdDevWaitTime\fP (int index)"
+.br
+.ti -1c
+.RI "long \fBsZeroWaits\fP (int index)"
+.br
+.ti -1c
+.RI "boolean \fBwaitOnProcessing\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivateAsNext\fP (\fBSimProcess\fP \fBprocess\fP)"
+.br
+.ti -1c
+.RI "void \fBactivateFirstMaster\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckCondition\fP (Condition cond, String \fBwhere\fP)"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String \fBwhere\fP)"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP[] \fBgetAllSuitableSlaves\fP (Class[] kinds, Condition[] conditions)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "QueueList< \fBSimProcess\fP > \fBmasterQueue\fP"
+.br
+.ti -1c
+.RI "ProcessQueue< \fBSimProcess\fP >[] \fBslaveQueues\fP"
+.br
+.ti -1c
+.RI "long \fBmRefused\fP"
+.br
+.ti -1c
+.RI "long[] \fBslavesRefused\fP"
+.br
+.ti -1c
+.RI "String \fBwhere\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBWorkStation\fP is the place, where products (parts) are processed by a machine or parts are assembled by a worker or machine\&. The list of parts needed for this process are provided by means of a \fC\fBPartsList\fP\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.simulator\&.QueueBased\fP 
+.PP
+\fBdesmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.WorkStation (\fBModel\fPowner, Stringname, \fBPartsList\fPpartsList, intmSortOrder, intmQCapacity, intsSortOrder, intsQCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBWorkStation\fP\&. Actually there are two waiting-queues constructed, one internal \fCQueueList\fP for the masters (like \fC\fBWorker\fP\fP s or \fC\fBMachineProcess\fP\fP es) and one separate \fCProcessQueue\fP for the slave processes (the parts or goods or products)\&. The queueing discipline and the capacity limit of the underlying queues can be chosen\&. Highest priority are always first in the queues\&. All the slave wait queues will have the same queueing discipline and capacity limit as provided in the parameters \fCsSortOrder\fP and \fCsQCapacity\fP\&. To choose individual settings for each slave wait queue use the method \fC\fBsetSQueueCapacity()\fP\fP to change its capacity and/or the method \fC\fBsetSQueueStrategy()\fP\fP to change its sort order\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBWorkStation\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBWorkStation\fP's name 
+.br
+\fIpartsList\fP desmoj\&.PartsList : The list of parts determining the kind and number of parts needed at this \fBWorkStation\fP to start processing them here\&. 
+.br
+\fImSortOrder\fP int : determines the sort order of the underlying master queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fImQCapacity\fP int : The capacity of the master queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIsSortOrder\fP int : determines the sort order of the underlying slave queues implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIsQCapacity\fP int : The capacity of the slave queues, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBWorkStation\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBWorkStation\fP should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.WorkStation (\fBModel\fPowner, Stringname, \fBPartsList\fPpartsList, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBWorkStation\fP\&. Actually there are two waiting-queues constructed, one internal \fCQueueList\fP for the masters (like \fC\fBWorker\fP\fP s or \fC\fBMachineProcess\fP\fP es) and one separate \fCProcessQueue\fP for the slave processes (the parts or goods or products)\&. Both queues have a FIFO sort order and no capacity limit\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBWorkStation\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBWorkStation\fP's name 
+.br
+\fIpartsList\fP desmoj\&.PartsList : The list of parts determining the kind and number of parts needed at this \fBWorkStation\fP to start processing them here\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBWorkStation\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBWorkStation\fP should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.activateAsNext (\fBSimProcess\fPprocess)\fC [protected]\fP"
+Activates the \fCSimProcess\fP, given as a parameter of this method, as the next process\&. This process should be a master process waiting in the master wait queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process that is to be activated as next\&. Should be a master process\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.activateFirstMaster ()\fC [protected]\fP"
+Activates the first master process in the master waiting-queue\&. 
+.SS "synchronized boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.allPartsAvailable ()"
+Checks if all parts listed in the parts list are available at the moment\&. If all needed partes are available the processing process at this \fBWorkStation\fP can start\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP, if all parts listed in the parts list are available at the moment\&. \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.availMaster (Conditioncond)"
+Returns the master process waiting in the master queue and complying to the given condition\&. If there is no such master process waiting \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimProcess : Returns the first master process in the master queue which complies to the given condition\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the master process must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.availSlaves (Classkind, Conditioncond)"
+Returns an array containing the slave processes of the given kind waiting in their queue and complying to the given condition\&. If there are no such slaves waiting at the moment \fCnull\fP will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimProcess[] : Returns all the slave processes of the given kind that are complying to the given condition\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkind\fP Class : The Class specifying of which kind the processes have to be, we are looking for\&. 
+.br
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the slave processes must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.checkCondition (Conditioncond, Stringwhere)\fC [protected]\fP"
+Checks whether the given condition is valid and compatible with the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the Condition is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : Is this Condition a valid one? 
+.br
+\fIwhere\fP String : The String representation of the method where this check takes place\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the process trying to cooperate as a master or a slave is a valid SimProcess\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the sim-process is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.br
+\fIwhere\fP String : The String representation of the method where this check takes place\&. 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBWorkStation\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queues inside this \fBWorkStation\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "\fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getAllSuitableSlaves (Class[]kinds, Condition[]conditions)\fC [protected]\fP"
+Returns an array of all the slave processes needed to start the processing which are available and comply to the conditions given in the parameters\&. If no or not enough suitable slaves are available \fCnull\fP will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess[] : An array of all the slave processes which are available and comply to the conditions given in the parameters and are needed to start the processing\&. If not enough of all of them are available \fCnull\fP will be returned\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkinds\fP java\&.lang\&.Class[] : This array is specifying in conjunction with the array conditions which slaves have to comply to which conditions so the master will cooperate with them\&. Must be a subset of the parts list\&. 
+.br
+\fIconditions\fP desmoj\&.Condition[] : This array is specifying in conjunction with the array kinds which slaves have to comply to which conditions so the master will cooperate with them\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getMQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying master queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getMRefused ()"
+Returns the number of entities refused to be enqueued in the master queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the master queue\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getNumOfParts ()"
+Returns the number of different kinds of parts needed for processing these parts at this \fBWorkStation\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of different kinds of parts needed for processing these parts at this \fBWorkStation\fP\&. 
+.RE
+.PP
+
+.SS "\fBPartsList\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getPartsList ()"
+Returns the parts list of this \fBWorkStation\fP\&. That is the list listing all the different parts with their quantities needed to start the processing process at this \fBWorkStation\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.PartsList : The parts list of this \fBWorkStation\fP 
+.RE
+.PP
+
+.SS "ProcessQueue<\fBSimProcess\fP> [] desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getSlaveQueues ()"
+Returns an array of \fCProcessQueue\fP s where the waiting slaves are stored\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ProcessQueue[] : An array of \fCProcessQueue\fP s where the slaves are waiting on masters to cooperate with\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getSQueueStrategy (intindex)"
+Returns the implemented queueing discipline of the underlying slave queue at the given index as a String, so it can be displayed in the report\&. To get the index for the kind of part in question use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : The index of the kind of parts we want to get the queueing discipline from\&. To get that index use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.getSRefused (intindex)"
+Returns the number of entities refused to be enqueued in the slave's queue, indicated by the index, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the slave's queue indicated by the index\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part for which we want to know its numbr of refused attempts to enqueue new processes\&. To get the index of a certain kind of part use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mAverageLength ()"
+Returns the average length of the underlying master queue since the last reset\&. If the time span since the last reset is smaller than the smallest distinguishable timespan epsilon, the current length of the master queue will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average master queue length since last reset or current length of the master queue if no distinguishable periode of time has passed\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mAverageWaitTime ()"
+Returns the average waiting time of all processes who have exited the master queue\&. Value is valid for the time span since the last reset\&. Returns 0 (zero) if no process have exited the master queue after the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : Average waiting time of all processes since last reset or 0 if no process has exited the master queue 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mIsEmpty ()"
+Returns a boolean value indicating if the master queue is empty or if any number of SimProcess is currently enqueued in it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the master queue is empty, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mLength ()"
+Returns the current length of the master queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The current master queue length 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mMaxLength ()"
+Returns the maximum length of the underlying master queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "TimeInstant desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mMaxLengthAt ()"
+Returns the point of simulation time with the maximum number of Sim-processes waiting inside the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimTime : Point of time with maximum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mMaxWaitTime ()"
+Returns the maximum duration in simulation time that an process has spent waiting inside the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.TimeSpan : Longest waiting time of a process in the master queue since the last reset\&. 
+.RE
+.PP
+
+.SS "TimeInstant desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mMaxWaitTimeAt ()"
+Returns the point of simulation time when the process with the maximum waiting time exited the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.TimeInstant : The point of simulation time when the process with the maximum waiting time exited the master queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mMinLength ()"
+Returns the minimumn length of the underlying master queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The minimum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "TimeInstant desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mMinLengthAt ()"
+Returns the point of simulation time with the minimum number of processes waiting inside the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.TimeInstant : Point of time with minimum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mStdDevLength ()"
+Returns the standard deviation of the master queue's length\&. Value is weighted over time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation for the master queue's length weighted over time\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mStdDevWaitTime ()"
+Returns the standard deviation of the master queue's processes waiting times\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.TimeSpan : The standard deviation for the master queue's processes waiting times\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mZeroWaits ()"
+Returns the number of processes that have passed through the master queue without spending time waiting\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of processes who have passed the master queue without waiting 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.process (\fBProcessing\fPprocess)"
+This method is to be called from a \fCSimProcess\fP which wants to process the other parts (slaves) as a master \&. It should be a \fC\fBWorker\fP\fP or a \fC\fBMachineProcess\fP\fP\&. But any other kind of \fCSimProcess\fP will do, too, but produce a warning\&. If no suitable or not enough slave processes are available at the moment, the master process will be stored in the master waiting-queue, until enough suitable slaves are available\&. If the capacity limit of the master queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. When enough suitable slaves are available, their \fCcooperate\fP method (in the class \fCSimProcess\fP) will be called\&. During the processing the master process is the only active one\&. The slave processes are passive and will be reactivated after the processing is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully in the master queue, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP \fBProcessing\fP : The \fBProcessing\fP process is describing the joint action of the two processes\&. The processing to be carried out has to be implemented by the user in the class or subclass of \fC\fBProcessing\fP\fP in the method: \fCcooperation()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.process (\fBProcessing\fPprocess, Class[]kinds, Condition[]conditions)"
+This method is to be called from a \fCSimProcess\fP which wants to process the other parts (slaves) as a master\&. For a \fBWorkStation\fP it should be a \fC\fBWorker\fP\fP or a \fC\fBMachineProcess\fP\fP\&. By using this method the master can determine some special slaves complying to certain conditions he would like to process\&. The \fCClass\fP array kinds must be a subset of the parts list and determines together with the \fCCondition\fP array (which must be of the same length) which kind of parts must comply to which condition so the master will cooperate with them\&. If no suitable or not enough slave processes are available at the moment, the master process will be stored in the master waiting-queue, until enough suitable slaves are available\&. If the capacity limit of the master queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. When enough suitable slaves are available, their \fCcooperate\fP method (in the class \fCSimProcess\fP) will be called\&. During the cooperation the master process is the only active one\&. The slave processes are passive and will be reactivated after the cooperation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP desmoj\&.Processing : The \fBProcessing\fP process is describing the joint action of the master and slave processes\&. The processing to be carried out has to be implemented by the user in the class: \fC\fBProcessing\fP\fP in the method: \fCcooperation()\fP\&. 
+.br
+\fIkinds\fP java\&.lang\&.Class[] : is specifying in conjunction with the array conditions which slaves have to comply to which conditions so the master will cooperate with them\&. Must be a subset of the parts list\&. 
+.br
+\fIconditions\fP desmoj\&.Condition[] : is specifying in conjunction with the array kinds which slaves have to comply to which conditions so the master will cooperate with them\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.reset ()"
+Resets all statistical counters to their default values\&. Both, master queue and slave queues are reset\&. The mininum and maximum length of the queues are set to the current number of queued objects\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sAverageLength (intindex)"
+Returns the average length of the slave queue at the given index since the last reset\&. If the time span since the last reset is smaller than the smallest distinguishable timespan epsilon, the current length of the slave queue will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average length of the slave queue at the given index since last reset or current length of the slave queue at the given index if no distinguishable periode of time has passed\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its average length\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sAverageWaitTime (intindex)"
+Returns the average waiting time of all processes who have exited the slave queue indicated by the index\&.\&. The returned value is valid for the time span since the last reset\&. Returns 0 (zero) if no process have exited this slave queue after the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : Average waiting time of all processes since last reset or 0 if no process has exited this slave queue\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its average waiting time\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.setSQueueCapacity (intindex, intnewCapacity)"
+Sets the capacity of the given slave queue to a new value\&. But only if the new capacity is equal or larger than the current length of that slave queue! To get the index of the slave queue for which the capacity sould be changed use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : The index indicating the slave queue for which the capacity will be changed\&. To get that index one can use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.br
+\fInewCapacity\fP int : The new capacity of the slave queue indicated by the index\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.setSQueueStrategy (intindex, intsortOrder)"
+Sets the queueing discipline for the underlying slave queue at the given index\&. The sort order of the given slave queue can only be changed if it is empty! To get the index for the kind of part for which the queueing discipline should be changed use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. Please choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP to determine the sort order\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : The index of the kind of parts for which the queueing discipline should be changed\&. To get that index one can use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying slave queues implementation at the given index\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sIsEmpty (intindex)"
+Returns a boolean value indicating if the slave queue indicated by the index is empty or if any SimProcess is currently enqueued in it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the indicated slave queue is empty, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know if its wait queue is empty or not\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sLength (intindex)"
+Returns the current length of the slave queue indicated by the index\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The current length of the slave queue indicated by the index\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its current queue length\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sMaxLength (intindex)"
+Returns the maximum length of the slave queue indicated by the index since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum length of the indicated slave queue since the last reset\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its maximum length of the queue\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "TimeInstant desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sMaxLengthAt (intindex)"
+Returns the point of simulation time with the maximum number of Sim-processes waiting inside the slave queue indicated by the index\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeInstant : Point of simulation time when the indicated slave queue had its maximum length since the last reset\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know when it had its maximum wait queue length\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sMaxWaitTime (intindex)"
+Returns the maximum duration in simulation time that an process has spent waiting inside the slave queue indicated by the index\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.TimeSpan : Longest waiting time of a process in the slave queue since the last reset\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its maximum waiting time\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "TimeInstant desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sMaxWaitTimeAt (intindex)"
+Returns the point of simulation time when the process with the maximum waiting time exited the slave queue indicated by the index\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.TimeInstant : The point of simulation time when the process with the maximum waiting time exited the slave queue\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know the point of simulation time when the process with the maximum waiting time exited the slave queue\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sMinLength (intindex)"
+Returns the minimumn length of the slave queue indicated by the index since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The minimum slave queue length since the last reset\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its minimum wait queue length\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "TimeInstant desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sMinLengthAt (intindex)"
+Returns the point of simulation time with the minimum number of processes waiting inside the slave queue indicated by the index\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.TimeInstant : Point of time with minimum slave queue length since the last reset\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know the point of simulation time with the minimum number of processes waiting inside this slave queue\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sStdDevLength (intindex)"
+Returns the standard deviation of the length of the slave queue indicated by the index\&. The value is weighted over time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation for the slave queue's length weighted over time\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its standard deviation of the length of his queue\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sStdDevWaitTime (intindex)"
+Returns the standard deviation of the slave queue's processes waiting times\&. The slave queue is indicated by the index\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The standard deviation for the slave queue's processes waiting times\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know its standard deviation of process waiting times\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.sZeroWaits (intindex)"
+Returns the number of processes that have passed through the slave queue indicated by the index without spending time waiting\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of processes who have passed the slave queue without time waiting\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP int : Indicating the kind of part (slave) for which we want to know how many parts hav elef tthe queue without time spent waiting\&. To get the index of a certain kind of part (slave) use the method \fCgetIndexOfKind()\fP of the \fC\fBPartsList\fP\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.waitOnProcessing ()"
+This method is called from a sim-process (part or product) which wants to be processed at this \fBWorkStation\fP as a slave\&. If no suitable master process and enough other slave processes are available at the moment, this slave process will be stored in its slave queue, until a suitable master and enough other parts (or products) are available to start the manufacturing (processing) process\&. If the capacity limit of tis slave queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. During the cooperation the master process is the only active one\&. The slave processes are passive and will be reactivated after the cooperation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the slave queue is reached)\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "QueueList<\fBSimProcess\fP> desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.masterQueue\fC [protected]\fP"
+The queue, actually storing the master processes waiting for slaves to process them 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.mRefused\fC [protected]\fP"
+Counter for the sim-processes which are refused to be enqueued in the master queue, because the queue capacity is full\&. 
+.SS "ProcessQueue<\fBSimProcess\fP> [] desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.slaveQueues\fC [protected]\fP"
+The array containing all the different slave process queues\&. It depends on the number of entries (number of different kinds of parts) in the associated \fC\fBPartsList\fP\fP\&. 
+.SS "long [] desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.slavesRefused\fC [protected]\fP"
+Array of counters for the slave SimProcesses which are refused to be enqueued in the different slave queues, because their capacity is full\&. 
+.SS "String desmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\&.where\fC [protected]\fP"
+Indicates the method where something has gone wrong\&. Is passed as a parameter to the methods \fC\fBcheckProcess()\fP\fP and \fCcheckCondition\fP\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

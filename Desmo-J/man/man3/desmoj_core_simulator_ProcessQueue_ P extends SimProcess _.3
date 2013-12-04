@@ -1,0 +1,537 @@
+.TH "desmoj.core.simulator.ProcessQueue< P extends SimProcess >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.ProcessQueue< P extends SimProcess > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP, and Iterable< P >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProcessQueue\fP (\fBModel\fP owner, String name, int sortOrder, int qCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBProcessQueue\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "P \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "P \fBfirst\fP (Condition< P > c)"
+.br
+.ti -1c
+.RI "boolean \fBcontains\fP (P p)"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.ti -1c
+.RI "int \fBget\fP (P p)"
+.br
+.ti -1c
+.RI "P \fBget\fP (int index)"
+.br
+.ti -1c
+.RI "QueueList< P > \fBgetQueueList\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBinsert\fP (P p)"
+.br
+.ti -1c
+.RI "boolean \fBinsertAfter\fP (P p, P after)"
+.br
+.ti -1c
+.RI "boolean \fBinsertBefore\fP (P p, P before)"
+.br
+.ti -1c
+.RI "boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "P \fBlast\fP ()"
+.br
+.ti -1c
+.RI "P \fBlast\fP (Condition< P > c)"
+.br
+.ti -1c
+.RI "P \fBpred\fP (P p)"
+.br
+.ti -1c
+.RI "P \fBpred\fP (P p, Condition< P > c)"
+.br
+.ti -1c
+.RI "void \fBremove\fP (\fBSimProcess\fP p)"
+.br
+.ti -1c
+.RI "void \fBremoveAll\fP ()"
+.br
+.ti -1c
+.RI "P \fBremoveFirst\fP ()"
+.br
+.ti -1c
+.RI "P \fBremoveFirst\fP (Condition< P > c)"
+.br
+.ti -1c
+.RI "P \fBremoveLast\fP ()"
+.br
+.ti -1c
+.RI "P \fBremoveLast\fP (Condition< P > c)"
+.br
+.ti -1c
+.RI "boolean \fBremove\fP (int index)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetQueueCapacity\fP (int newCapacity)"
+.br
+.ti -1c
+.RI "void \fBsetQueueStrategy\fP (int sortOrder)"
+.br
+.ti -1c
+.RI "void \fBsetRefused\fP (long n)"
+.br
+.ti -1c
+.RI "P \fBsucc\fP (P p)"
+.br
+.ti -1c
+.RI "P \fBsucc\fP (P p, Condition< P > c)"
+.br
+.ti -1c
+.RI "Iterator< P > \fBiterator\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+ProcessQueue provides models with a ready-to-use element to enqueue \fC\fBSimProcess\fP\fPes in\&. The sort order of the ProcessQueue is determined first by the priorities of the enqueued SimProcesses and second by the given sort order\&. The default sort order is FIFO (first in, first out) but others like LIFO (last in, first out) can be chosen, too\&. See the constants in class \fC\fBQueueBased\fP\fP and the derived classes from \fCQueueList\fP\&. The capacity of the ProcessQueue, that is the maximum number of SimProcesses enqueued, can be chosen, too\&. Note that in contrast to the 'plain' queue, this ProcessQueue always expects and returns objects that are derived from class \fC\fBSimProcess\fP\fP\&. When modelling using the process-, activity-, or transaction-oriented paradigm where SimProcesses are used to represent the model's entities, this ProcessQueue can be used instead of the standard Queue to reduce the amount of casts needed otherwise\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP 
+.PP
+QueueList 
+.PP
+QueueListFifo 
+.PP
+QueueListLifo
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.ProcessQueue (\fBModel\fPowner, Stringname, intsortOrder, intqCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructs a simple priority based waiting-queue for SimProcesses, the kind of queue implementation (FIFO or LIFO) and the capacity of the queue can be chosen\&. 
+.PP
+The usage of the generic version \fCProcessQueue<Type>\fP where \fCType\fP is derived from \fC\fBSimProcess\fP\fP is recommended for type safety\&. Using the raw type \fCProcessQueue\fP yields a queue in which any \fC\fBSimProcess\fP\fP can be enqueued, potentially requiring type casting on accessing processes enqueued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP \fBModel\fP : The model this ProcessQueue is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The process-queue's name 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying queue implementation\&. Choose a constant from \fC\fBQueueBased\fP\fP: \fC\fBQueueBased\&.FIFO\fP\fP, \fC\fBQueueBased\&.LIFO\fP\fP or QueueBased\&.Random\&. 
+.br
+\fIqCapacity\fP int : The capacity of the Queue, that is how many processes can be enqueued\&. Zero (0) can be used as shortcut for for a capacity of \fCInteger\&.MAX_VALUE\fP = 2,147,483,647, which should approximate an infinite queue sufficiently well for most purposes\&. 
+.br
+\fIshowInReport\fP boolean : Flag if process-queue should produce a report 
+.br
+\fIshowInTrace\fP boolean : Flag for process-queue to produce trace messages 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.ProcessQueue (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructs a simple priority and FIFO based waiting-queue for SimProcesses with a maximum capacity of 2,147,483,647 waiting processes, which should serve as an approximation of infinite queues sufficiently well for most purposes\&. 
+.PP
+The usage of the generic version \fCProcessQueue<Type>\fP where \fCType\fP is derived from \fC\fBSimProcess\fP\fP is recommended for type safety\&. Using the raw type \fCProcessQueue\fP yields a queue in which any \fC\fBSimProcess\fP\fP can be enqueued, potentially requiring type casting on accessing processes enqueued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP \fBModel\fP : The model this process-queue is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The process-queue's name 
+.br
+\fIshowInReport\fP boolean : Flag if process-queue should produce a report 
+.br
+\fIshowInTrace\fP boolean : Flag for process-queue to produce trace messages 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.contains (Pp)"
+Returns \fCtrue\fP if the given \fC\fBSimProcess\fP\fP is contained in the queue; \fCfalse\fP otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : \fCTrue\fP if the given \fC\fBSimProcess\fP\fP is contained in the queue; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fC\fBEntity\fP\fP we are looking for in the queue\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.createReporter ()\fC [virtual]\fP"
+Returns a process-queue-reporter to produce a report about this process-queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The reporter for this process-queue 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.first ()"
+Returns the first \fBSimProcess\fP queued in this process-queue or \fCnull\fP in case the queue is empty\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The first \fBSimProcess\fP in the process-queue or \fCnull\fP if the process-queue is empty 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.first (Condition< P >c)"
+Returns the first \fBSimProcess\fP queued in this process-queue that applies to the given condition\&. The process-queue is searched from front to end and the first \fBSimProcess\fP that returns \fCtrue\fP when the condition is applied to it is returned by this method\&. If no \fBSimProcess\fP applies to the given condition or the process-queue is empty, \fCnull\fP will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P :The first process queued in this process-queue applying to the given condition or \fCnull\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the \fBSimProcess\fP returned must confirm 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.get (Pp)"
+Returns the queue index of a given \fC\fBSimProcess\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int :The position of the process as an \fCint\fP\&. Returns -1 if no such position exists\&. 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.get (intindex)"
+Returns the \fC\fBSimProcess\fP\fP queued at the named position\&. The first position is 0, the last one \fBsize()\fP-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P :The \fC\fBSimProcess\fP\fP at the position of \fCint\fP or \fCnull\fP if no such position exists\&. 
+.RE
+.PP
+
+.SS "QueueList<P> desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.getQueueList ()"
+Returns the underlying queue implementation, providing access to the QueueList implementation, e\&.g\&. to add PropertyChangeListeners\&.
+.PP
+\fBReturns:\fP
+.RS 4
+QueueList : The underlying queue implementation of this ProcessQueue\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.getQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.getRefused ()"
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the queue\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.insert (Pp)"
+Enters a new \fBSimProcess\fP into the ProcessQueue\&. If the capacity of the ProcessQueue is full, the entity will not be enqueued and \fCfalse\fP will be returned\&. The \fBSimProcess\fP will be stored in the ProcessQueue until method \fC\fBremove(SimProcess p)\fP\fP is called with this specific \fBSimProcess\fP\&. Simprocesses are ordered according to their priority\&. Higher priorities are sorted in front of lower priorities\&. Simprocesses with same priority are orderer according to the strategy specified in the constructor\&. The first \fBSimProcess\fP inside the process-queue will always be the one with the highest priority\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if insertion was successful, \fCfalse\fP otherwise (i\&.e\&. capacity limit is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIP\fP p : The \fBSimProcess\fP to be added to the ProcessQueue 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.insertAfter (Pp, Pafter)"
+Enters a new \fBSimProcess\fP into the process-queue and places it after the given \fBSimProcess\fP\&. If the capacity of the ProcessQueue is full, the entity will not be enqueued and \fCfalse\fP will be returned\&. Make sure that the \fBSimProcess\fP given as reference is already queued inside the process-queue, else the \fBSimProcess\fP will not be enqueued and \fCfalse\fP will be returned\&. The \fBSimProcess\fP will be stored in the ProcessQueue until method \fC\fBremove(SimProcess p)\fP\fP is called with this specific \fBSimProcess\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if insertion was successful, \fCfalse\fP otherwise (i\&.e\&. capacity limit is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P :The \fBSimProcess\fP to be added to the process-queue 
+.br
+\fIafter\fP P :The \fBSimProcess\fP after which \fBSimProcess\fP 'p' is to be inserted 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.insertBefore (Pp, Pbefore)"
+Enters a new \fBSimProcess\fP into the ProcessQueue and places it in front of the given \fBSimProcess\fP\&. If the capacity of the ProcessQueue is full, the \fBEntity\fP will not be enqueued and \fCfalse\fP will be returned\&. Make sure that the \fBSimProcess\fP given as reference is already queued inside the ProcessQueue, else the \fBSimProcess\fP will not be enqueued and \fCfalse\fP will be returned\&. The \fBSimProcess\fP will be stored in the ProcessQueue until method \fC\fBremove(SimProcess p)\fP\fP is called with this specific \fBSimProcess\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if insertion was successful, \fCfalse\fP otherwise (i\&.e\&. capacity limit is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P : The \fBSimProcess\fP to be added to the processqQueue 
+.br
+\fIbefore\fP P : The \fBSimProcess\fP before which the \fBSimProcess\fP 'p' is to be inserted 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.isEmpty ()"
+Returns a boolean value indicating if the process-queue is empty or if any number of \fBSimProcess\fP is currently enqueued in it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process-queue is empty, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "Iterator<P> desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.iterator ()"
+Returns an iterator over the processes enqueued\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.Iterator<P> : An iterator over the processes enqueued\&. 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.last ()"
+Returns the last \fBSimProcess\fP queued in this process-queue or \fCnull\fP in case the process-queue is empty\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The last \fBSimProcess\fP in the process-queue or \fCnull\fP if the process-queue is empty 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.last (Condition< P >c)"
+Returns the last \fBSimProcess\fP queued in this process-queue that applies to the given condition\&. The process-queue is searched from end to front and the first \fBSimProcess\fP that returns \fCtrue\fP when the condition is applied to it is returned by this method\&. If no \fBSimProcess\fP applies to the given condition or the process-queue is empty, \fCnull\fP will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The last \fBSimProcess\fP queued in this process-queue applying to the given condition or \fCnull\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the \fBSimProcess\fP returned must fulfill 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.pred (Pp)"
+Returns the \fBSimProcess\fP enqueued directly before the given \fBSimProcess\fP in the process-queue\&. If the given \fBSimProcess\fP is not contained in this process-queue or is at the first position thus having no possible predecessor, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The \fBSimProcess\fP directly before the given \fBSimProcess\fP in the process-queue or \fCnull\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P : An \fBSimProcess\fP in the process-queue 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.pred (Pp, Condition< P >c)"
+Returns the \fBSimProcess\fP enqueued before the given \fBSimProcess\fP in the process-queue that also fulfills the condition given\&. If the given \fBSimProcess\fP is not contained in this process-queue or is at the first position thus having no possible predecessor, \fCnull\fP is returned\&. If no other \fBSimProcess\fP before the given one fulfills the condition, \fCnull\fP is returned, too\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The \fBSimProcess\fP before the given \fBSimProcess\fP in the process-queue fulfilling to the condition or \fCnull\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P : A \fBSimProcess\fP in the process-queue 
+.br
+\fIc\fP Condition : The condition that the preceeding \fBSimProcess\fP has to fulfill 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.remove (\fBSimProcess\fPp)"
+Removes the given \fBSimProcess\fP from the process-queue\&. If the given \fBSimProcess\fP is not in the process-queue, a warning will be issued but nothing else will be changed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P :The \fBSimProcess\fP to be removed from the process-queue 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.remove (intindex)"
+Removes the process queued at the given position\&. The first position is 0, the last one \fBlength()\fP-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: The method returns \fCtrue\fP if a \fC\fBSimProcess\fP\fP exists at the given position or \fCfalse>\fP if otherwise\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.removeAll ()"
+Removes all processes from the Queue\&. Has no effect on empty queues\&. 
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.removeFirst ()"
+Removes the first process from the queue and provides a reference to this process\&. If the queue is empty, null is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The first process in this queue, which has been removed, or \fCnull\fP in case the queue was empty 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.removeFirst (Condition< P >c)"
+Removes the first process from the queue that fulfills to the given condition\&. Also provides a reference to this process\&. If the queue does not contain a process that fulfills the condition (e\&.g\&. if the queue is empty), null is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the process returned must fulfill
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+P : The first process in this queue fulfilling the condition, which has been removed from the queue\&. \fCNull\fP in case no process fulfills the condition\&. 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.removeLast ()"
+Removes the last process from the queue and provides a reference to this process\&. If the queue is empty, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The last process in this queue, which has been removed, or \fCnull\fP in case the queue was empty 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.removeLast (Condition< P >c)"
+Removes the last process from the queue that fulfills to the given condition, determined by traversing the queue from last to first until a process fulfilling the condition is found\&. Also provides a reference to this process\&. If the queue does not contain a process that fulfills the condition (e\&.g\&. if the queue is empty), \fCnull\fP is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Condition : The condition that the entity returned must fulfill
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+P : The last process in this queue fulfilling the condition, which has been removed from the queue\&. \fCNull\fP in case no process fulfills the condition\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.reset ()"
+Resets all statistical counters to their default values\&. The mininum and maximum length of the queue are set to the current number of queued objects\&. The counter for the entities refused to be enqueued will be reset\&. 
+.SS "void desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.setQueueCapacity (intnewCapacity)"
+Sets the queue capacity to a new value\&. Only if the new capacity is equal or larger than the current length of the queue!
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCapacity\fP int : The new capacity of this ProcessQueue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.setQueueStrategy (intsortOrder)"
+Sets the sort order of this ProcessQueue to a new value and makes this ProcessQueue use another \fCQueueList\fP with the specified queueing discipline\&. Please choose a constant from \fC\fBQueueBased\fP\fP (\fC\fBQueueBased\&.FIFO\fP\fP, \fC\fBQueueBased\&.FIFO\fP\fP or \fCQueueBased\&.Random\fP) The sort order of a ProcessQueue can only be changed if the queue is empty\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsortOrder\fP int : determines the sort order of the underlying \fCQueueList\fP implementation (\fC\fBQueueBased\&.FIFO\fP\fP, \fC\fBQueueBased\&.FIFO\fP\fP or \fCQueueBased\&.Random\fP) 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.setRefused (longn)"
+Sets the number of entities refused to be enqueued in the queue because the capacity limit is reached to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : the new number of entities refused to be enqueued in the queue because the capacity limit is reached\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.size ()"
+Returns the current length of the Queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of processes enqueued\&. 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.succ (Pp)"
+Returns the \fBSimProcess\fP enqueued directly after the given \fBSimProcess\fP in the process-queue\&. If the given \fBSimProcess\fP is not contained in this process-queue or is at the last position thus having no possible successor, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The \fBSimProcess\fP directly after the given \fBSimProcess\fP in the ProcessQueue or \fCnull\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P : A \fBSimProcess\fP in the process-queue 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.simulator\&.ProcessQueue< P extends \fBSimProcess\fP >\&.succ (Pp, Condition< P >c)"
+Returns the \fBSimProcess\fP enqueued after the given \fBSimProcess\fP in the process-queue that also fulfills the condition given\&. If the given \fBSimProcess\fP is not contained in this process-queue or is at the last position thus having no possible successor, \fCnull\fP is returned\&. If no other \fBSimProcess\fP after the given one fulfills the condition, \fCnull\fP is returned, too\&.
+.PP
+\fBReturns:\fP
+.RS 4
+P : The \fBSimProcess\fP after the given \fBSimProcess\fP in the process-queue fulfilling the condition or \fCnull\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P : A \fBSimProcess\fP in the process-queue 
+.br
+\fIc\fP Condition : The condition that the succeeding \fBSimProcess\fP has to fulfill 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,201 @@
+.TH "desmoj.core.simulator.EventAbstract" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.EventAbstract \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Schedulable\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.simulator\&.Event< E extends Entity >\fP, \fBdesmoj\&.core\&.simulator\&.EventOf2Entities< E extends Entity, F extends Entity >\fP, \fBdesmoj\&.core\&.simulator\&.EventOf3Entities< E extends Entity, F extends Entity, G extends Entity >\fP, and \fBdesmoj\&.core\&.simulator\&.ExternalEvent\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEventAbstract\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "boolean \fBisExternal\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRealTimeConstraint\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetNumberOfEntities\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetRealTimeConstraint\fP (long realTimeConstraint)"
+.br
+.ti -1c
+.RI "int \fBgetSchedulingPriority\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSchedulingPriority\fP (int newPriority)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBgenerateTraceForScheduling\fP (\fBEntity\fP who1, \fBEntity\fP who2, \fBEntity\fP who3, \fBSchedulable\fP after, \fBSchedulable\fP before, \fBTimeInstant\fP at, String remark)"
+.br
+.ti -1c
+.RI "\fBEventAbstract\fP \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBnumberOfEntities\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides the abstract super class for user defined events to change an entity's internal state\&. The state of a discrete model is changed by events that occur at distinct points of simulation time\&. 
+.PP
+an event with up to three entities, changing its state according to the entity's reaction to the specific Event in the system under inspection\&. So each type of Event acting on one certain type of \fBEntity\fP requires a new subclass to be derived from this class\&. Since events are associated to a single entity, the method executing the changes of state of a specific \fBEntity\fP gets that entity passed as a parameter\&. The scheduler takes care that this is done at the specified point of simulation time\&. 
+.PP
+For type safety it is recommended to generically assign the entity type an Event operates on by using the generic type \fCEvent<EntityOperatingOn>\fP where \fCEntityOperatingOn\fP is derived from \fC\fBEntity\fP\fP\&. 
+.PP
+events should be used one time only\&. They are created to be scheduled together with a specific \fBEntity\fP, change that entity's state at the scheduled point of simulation time and are destroyed by Java's garbage collector after use\&. They could be reused but at a certain risk of inconsistent states\&. Since each object of a class that is derived from the class \fC\fBSchedulable\fP\fP has its unique identification number added as a suffix to its name, reusing Event objects would make one event responsible for several distinct changes in a model at different simulation times\&. This comes with the danger of of confusing the model's trace and making it more difficult to debug a faulty model implementation\&. Each type of Event needed for a model requires a new subclass of Event to be derived by the user\&. 
+.PP
+Embed the changes of state for the specific \fBEntity\fP associated with this event by overriding the abstract method \fCeventRoutine(Entity e)\fP\&. Events that do not manipulate a single entity but act on the model's state on a more general matter are defined by external events, a subclass of this class\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBEntity\fP 
+.PP
+\fBExternalEvent\fP 
+.PP
+\fBTimeInstant\fP 
+.PP
+\fBTimeSpan\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.EventAbstract\&.EventAbstract (\fBModel\fPowner, Stringname, booleanshowInTrace)"
+Creates a new event of the given model, with the given name and trace option\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of this event 
+.br
+\fIowner\fP \fBModel\fP : The model this event is associated to 
+.br
+\fIshowInTrace\fP boolean : Flag for showing event in trace-files\&. Set it to \fCtrue\fP if event should show up in trace\&. Set it to \fCfalse\fP if event should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEventAbstract\fP desmoj\&.core\&.simulator\&.EventAbstract\&.clone () throws CloneNotSupportedException\fC [protected]\fP"
+Creates and returns a copy of this event\&. Note that subclasses have to implement the interface java\&.lang\&.Cloneable to actually use this method as otherwise, a CloneNotSupportedException will be thrown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEventAbstract\fP : A copy of this event\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventAbstract\&.generateTraceForScheduling (\fBEntity\fPwho1, \fBEntity\fPwho2, \fBEntity\fPwho3, \fBSchedulable\fPafter, \fBSchedulable\fPbefore, \fBTimeInstant\fPat, Stringremark)\fC [protected]\fP"
+Utility method to generate trace output for scheduling this event (internal use only)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP the first entity scheduled with this event (or \fCnull\fP if not applicable) 
+.br
+\fIwho2\fP the second entity scheduled with this event (or \fCnull\fP if not applicable) 
+.br
+\fIwho3\fP the third entity scheduled with this event (or \fCnull\fP if not applicable) 
+.br
+\fIafter\fP the \fBSchedulable\fP after which this event is scheduled (or \fCnull\fP if not applicable) 
+.br
+\fIbefore\fP the \fBSchedulable\fP before which this event is scheduled (or \fCnull\fP if not applicable) 
+.br
+\fIat\fP the \fBTimeInstant\fP at which this event is scheduled 
+.br
+\fIremark\fP optional further comments (or \fCnull\fP if not applicable) 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.EventAbstract\&.getNumberOfEntities ()"
+Returns the realTime deadline for this event (in nanoseconds)\&. In case of a real-time execution (i\&. e\&. the execution speed rate is set to a positive value) the \fBScheduler\fP will produce a warning message if a deadline is missed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the realTimeConstraint in nanoseconds 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.EventAbstract\&.getRealTimeConstraint ()"
+Returns the realTime deadline for this event (in nanoseconds)\&. In case of a real-time execution (i\&. e\&. the execution speed rate is set to a positive value) the \fBScheduler\fP will produce a warning message if a deadline is missed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the realTimeConstraint in nanoseconds 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.EventAbstract\&.getSchedulingPriority ()"
+Returns the event's scheduling priority\&. The scheduling priority is used to determine which event to execute first if two or more events are scheduled at the same instant\&. The default priority is zero\&. Higher priorities are positive, lower priorities negative\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The events's priority 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.EventAbstract\&.isExternal ()"
+Tests if this event actually is an external event which is not used for modelling but to control the experiment to act at certain points of simulation time\&. External events must not be connected to an entity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if this is an instance of class \fC\fBExternalEvent\fP\fP,\fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventAbstract\&.setRealTimeConstraint (longrealTimeConstraint)"
+Sets the realTime deadline for this event (in nanoseconds)\&. In case of a real-time execution (i\&. e\&. the execution speed rate is set to a positive value) the \fBScheduler\fP will produce a warning message if a deadline is missed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrealTimeConstraint\fP the realTimeConstraint in nanoseconds to set 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.EventAbstract\&.setSchedulingPriority (intnewPriority)"
+Sets the entity's scheduling priority to a given integer value\&. The default priority (unless assigned otherwise) is zero\&. Negative priorities are lower, positive priorities are higher\&. All values should be inside the range defined by Java's integral \fCinteger\fP data type [-2147483648, +2147483647]\&.
+.PP
+An event's scheduling priority it used to determine which event is executed first if scheduled for the same time instant\&. Should the priority be the same, event execution depends on the \fC\fBEventList\fP\fP in use, e\&.g\&. scheduled first is executed first (\fC\fBEventTreeList\fP\fP) or random (\fC\fBRandomizingEventTreeList\fP\fP)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPriority\fP int : The new scheduling priority value 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "long desmoj\&.core\&.simulator\&.EventAbstract\&.numberOfEntities\fC [protected]\fP"
+The number of entities is saved here\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

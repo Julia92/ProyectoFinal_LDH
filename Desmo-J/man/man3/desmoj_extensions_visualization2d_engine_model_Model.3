@@ -1,0 +1,659 @@
+.TH "desmoj.extensions.visualization2d.engine.model.Model" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.model.Model \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBModelImage\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBModel\fP (URL simulationIconDir, \fBCoordinatenListener\fP coordinatenListener, \fBViewerPanel\fP viewer)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBViewerPanel\fP \fBgetViewer\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBModelGrafic\fP \fBcreateModelGrafic\fP ()  throws ModelGraficException"
+.br
+.ti -1c
+.RI "\fBModelGrafic\fP \fBgetModelGrafic\fP ()  throws ModelGraficException"
+.br
+.ti -1c
+.RI "void \fBsetSimulationIconDir\fP (URL iconDir)"
+.br
+.ti -1c
+.RI "void \fBsetSimulationTime\fP (\fBSimulationTime\fP simulationTime)"
+.br
+.ti -1c
+.RI "\fBSimulationTime\fP \fBgetSimulationTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetRunPhase\fP (boolean run)"
+.br
+.ti -1c
+.RI "void \fBsetValid\fP (boolean valid)"
+.br
+.ti -1c
+.RI "boolean \fBisValid\fP ()"
+.br
+.ti -1c
+.RI "\fBCoordinatenListener\fP \fBgetCoordinatenListener\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBBackgroundElement\fP > \fBgetBackgroundElements\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBBackgroundLine\fP > \fBgetBackgroundLines\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBBin\fP > \fBgetBins\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBEntity\fP > \fBgetEntities\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBEntityType\fP > \fBgetEntityTyps\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBList\fP > \fBgetLists\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBProcess\fP > \fBgetProcesses\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBProcessNew\fP > \fBgetProcessNewes\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBResource\fP > \fBgetResources\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBRoute\fP > \fBgetRoutes\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBStation\fP > \fBgetStations\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBStatistic\fP > \fBgetStatistics\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBStock\fP > \fBgetStocks\fP ()"
+.br
+.ti -1c
+.RI "ClassContent< \fBWaitingQueue\fP > \fBgetWaitingQueues\fP ()"
+.br
+.ti -1c
+.RI "void \fBcreateModelBasisData\fP (String[] projectName, String[] projectURL, String[] projectIconId, String modelName, String modelAuthor, String[] modelDate, String[] modelDescription, String[] modelRemark, String[] modelLicense, String[] desmojVersion, String[] desmojLicense, String[] desmojLicenseURL, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateSimulationTimeBounds\fP (String begin, String[] endArray, String[] timeZone, String defaultSpeed, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateImage\fP (String id, String datei, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateEntityTyp\fP (String id, String width, String height, String[] posStates, String[] posAttributes, String show, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateBackgroundElement\fP (String id, String[] name, String[] text, String[] topLeft, String[] bottomRight, String[] middle, String[] size, String[] foreground, String[] background, String level, String[] imageId, boolean isInit, long time)"
+.br
+.ti -1c
+.RI "void \fBsetBackgroundElement\fP (String id, String[] name, String[] text, String[] foreground, String[] background, String[] imageId, boolean isInit, long time)"
+.br
+.ti -1c
+.RI "void \fBcreateBackgroundLine\fP (String id, String[] lineSize, String[] color, String startPoint, String[] addPoint, String level, boolean isInit, long time)"
+.br
+.ti -1c
+.RI "void \fBcreateEntity\fP (String id, String[] name, String entityTypeId, String[] velocity, String state, String[] attribute, String[] position, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetEntity\fP (String id, String[] velocity, String[] state, String[] attribute, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBdisposeEntity\fP (String id, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateList\fP (String id, String[] name, String defaultEntityType, String numberOfVisible, String form, String point, String[] deltaSize, String[] comment, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetList\fP (String id, String[] addEntity, String[] addEntityAfter, String[] addEntityBefore, String[] removeEntity, String[] removeAll, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateStation\fP (String id, String[] name, String point, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateRoute\fP (String id, String[] name, String length, String sourceStationId, String sinkStationId, String[] point, String show, String[] color, String lineSize, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetRoute\fP (String id, String[] addEntity, String[] removeEntity, String[] removeAll, String[] show, String[] color, String[] lineSize, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateProcess\fP (String id, String[] name, String numberOfResEntity, String numberOfProcEntity, String defaultResType, String defaultProcType, String[] listId, String form, String point, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetProcess\fP (String id, String[] addResEntity, String[] removeResEntity, String[] addProcEntity, String[] removeProcEntity, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateProcessNew\fP (String id, String[] name, String[] abstractProc, String[] resourceType, String[] resourceTotal, String[] listId, String point, String defaultEntityType, String anzVisible, String form, String[] showResources, String[] deltaSize, String[] comment, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetProcessNew\fP (String id, String[] addProcEntity, String[] addResEntity, String[] addResAnz, String[] removeEntity, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateResource\fP (String id, String[] name, String[] resourceType, String resourceTotal, String point, String defaultEntityType, String anzVisible, String form, String[] deltaSize, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetResource\fP (String id, String[] provide, String[] takeProcess, String[] takeBackProcess, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateStock\fP (String id, String[] name, String capacity, String initialUnits, String point, String defaultEntityType, String anzVisible, String form, String[] deltaSize, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetStock\fP (String id, String[] retrieveBegin, String[] retrieveEnd, String[] storeBegin, String[] storeEnd, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateBin\fP (String id, String[] name, String initialUnits, String point, String defaultEntityType, String anzVisible, String form, String[] deltaSize, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetBin\fP (String id, String[] retrieveBegin, String[] retrieveEnd, String[] store, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateWaitQueue\fP (String id, String[] name, String point, String defaultEntityType, String anzVisible, String form, String[] deltaSize, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetWaitQueue\fP (String id, String[] insertMaster, String[] insertSlave, String[] cooperationBegin, String[] cooperationEnd, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBcreateStatistic\fP (String id, String[] name, String typeData, String typeIndex, String[] aggregate, String timeBounds, String valueBounds, String histogramCells, String point, String typeAnimation, String[] isIntValue, String[] deltaSize, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBsetStatistic\fP (String id, String value, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBresetStatistic\fP (String id, boolean isInit, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "String \fBgetModelName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelAuthor\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelDescription\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelCreatedAt\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelLicence\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelRemark\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelProjectName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelProjectURL\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetModelProjectIconId\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetDesmojLicense\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetDesmojLicenseURL\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetDesmojVersion\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSimulationBegin\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSimulationEnd\fP ()"
+.br
+.ti -1c
+.RI "TimeZone \fBgetTimeZone\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetSimulationSpeed\fP ()"
+.br
+.ti -1c
+.RI "Image \fBgetImage\fP (String id)"
+.br
+.ti -1c
+.RI "String[] \fBgetImageIDs\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcontainsImageId\fP (String id)"
+.br
+.ti -1c
+.RI "void \fBinit_EntityTypes\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBinit_Images\fP ()  throws ModelException"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBModel\fP manages the creation and update of every animation-object\&. the animation-objects are accessable over a static animation\&.orga\&.ClassContent hashtable\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.Model (URLsimulationIconDir, \fBCoordinatenListener\fPcoordinatenListener, \fBViewerPanel\fPviewer) throws \fBModelException\fP"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsimulationIconDir\fP may be null 
+.br
+\fIcoordinatenListener\fP may be null 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createEntity (Stringid, String[]name, StringentityTypeId, String[]velocity, Stringstate, String[]attribute, String[]position, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIname\fP 
+.br
+\fIentityTypeId\fP 
+.br
+\fIvelocity\fP 
+.br
+\fIstate\fP 
+.br
+\fIattribute\fP 
+.br
+\fIposition\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createEntityTyp (Stringid, Stringwidth, Stringheight, String[]posStates, String[]posAttributes, Stringshow, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIwidth\fP 
+.br
+\fIheight\fP 
+.br
+\fIposStates\fP 
+.br
+\fIposAttributes\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createImage (Stringid, Stringdatei, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIdatei\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createList (Stringid, String[]name, StringdefaultEntityType, StringnumberOfVisible, Stringform, Stringpoint, String[]deltaSize, String[]comment, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIname\fP 
+.br
+\fIdefaultEntityType\fP 
+.br
+\fInumberOfVisible\fP 
+.br
+\fIform\fP 
+.br
+\fIpoint\fP 
+.br
+\fIdeltaSize\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createModelBasisData (String[]projectName, String[]projectURL, String[]projectIconId, StringmodelName, StringmodelAuthor, String[]modelDate, String[]modelDescription, String[]modelRemark, String[]modelLicense, String[]desmojVersion, String[]desmojLicense, String[]desmojLicenseURL, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.SS "\fBModelGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createModelGrafic () throws \fBModelGraficException\fP"
+create the assoziated ModelGrafic instance\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ModelGrafic 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIModelGraficException\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createProcess (Stringid, String[]name, StringnumberOfResEntity, StringnumberOfProcEntity, StringdefaultResType, StringdefaultProcType, String[]listId, Stringform, Stringpoint, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIname\fP 
+.br
+\fInumberOfResEntity\fP 
+.br
+\fInumberOfProcEntity\fP 
+.br
+\fIdefaultResType\fP 
+.br
+\fIdefaultProcType\fP 
+.br
+\fIlistId\fP 
+.br
+\fIform\fP 
+.br
+\fIpoint\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createRoute (Stringid, String[]name, Stringlength, StringsourceStationId, StringsinkStationId, String[]point, Stringshow, String[]color, StringlineSize, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIname\fP 
+.br
+\fIlength\fP 
+.br
+\fIsourceStationId\fP 
+.br
+\fIsinkStationId\fP 
+.br
+\fIpoint\fP 
+.br
+\fIshow\fP 
+.br
+\fIcolor\fP 
+.br
+\fIlineSize\fP 
+.br
+\fIisInit\fP 
+.br
+\fItime\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createSimulationTimeBounds (Stringbegin, String[]endArray, String[]timeZone, StringdefaultSpeed, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbegin\fP 
+.br
+\fIend\fP 
+.br
+\fIdefaultSpeed\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.createStation (Stringid, String[]name, Stringpoint, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIname\fP 
+.br
+\fIpoint\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.disposeEntity (Stringid, booleanisInit, longtime) throws \fBModelException\fP"
+Dispose an entity 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIisInit\fP 
+.br
+\fItime\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "\fBModelGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.getModelGrafic () throws \fBModelGraficException\fP"
+get associated ModelGrafic instance, when it's created before\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ModelGrafic 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIModelGraficException\fP 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.getSimulationEnd ()"
+End of SimulationTime\&. Long\&.MIN_VALUE means, end of simulation is given by stop role and not by time\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.init_EntityTypes () throws \fBModelException\fP"
+only used for testing 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.init_Images () throws \fBModelException\fP"
+only used for testing 
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.reset ()"
+makes a model-reset, must be used before a new cmds-file is read\&. 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.setEntity (Stringid, String[]velocity, String[]state, String[]attribute, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIvelocity\fP 
+.br
+\fIstate\fP 
+.br
+\fIattribute\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.setList (Stringid, String[]addEntity, String[]addEntityAfter, String[]addEntityBefore, String[]removeEntity, String[]removeAll, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIaddEntity\fP 
+.br
+\fIaddBetween\fP 
+.br
+\fIremoveEntity\fP 
+.br
+\fIremoveAll\fP 
+.br
+\fIsetRank\fP 
+.br
+\fIisInit\fP 
+.br
+\fItime\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.setProcess (Stringid, String[]addResEntity, String[]removeResEntity, String[]addProcEntity, String[]removeProcEntity, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIaddResEntity\fP 
+.br
+\fIremoveResEntity\fP 
+.br
+\fIaddProcEntity\fP 
+.br
+\fIremoveProcEntity\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.setRoute (Stringid, String[]addEntity, String[]removeEntity, String[]removeAll, String[]show, String[]color, String[]lineSize, booleanisInit, longtime) throws \fBModelException\fP"
+used for model-creation by animation\&.command\&.Command\&.execute() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIaddEntity\fP 
+.br
+\fIremoveEntity\fP 
+.br
+\fIremoveAll\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.setRunPhase (booleanrun)"
+set \fBModel\fP to run-phase, otherwise its init-phase 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrun\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Model\&.setValid (booleanvalid)"
+sets a \fBModel\fP to valid or not\&. What means valid ????????????????????? 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalid\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

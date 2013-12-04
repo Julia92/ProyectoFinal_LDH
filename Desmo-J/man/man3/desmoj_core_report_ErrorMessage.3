@@ -1,0 +1,109 @@
+.TH "desmoj.core.report.ErrorMessage" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.ErrorMessage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.Message\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBErrorMessage\fP (\fBModel\fP origin, String errorDescription, String errorLocation, String errorReason, String errorPrevention, \fBTimeInstant\fP errorTime)"
+.br
+.ti -1c
+.RI "String \fBgetLocation\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetPrevention\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetReason\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An \fBErrorMessage\fP is used to signal invalid situations to the modeller\&. An \fBErrorMessage\fP consists of four Strings that intend to define the kind of error that occurred and describe its reason and what a modeller can do to prevent it\&. ErrorMessages describe types of errors that can be fixed by the DESMO-J or just give hints on missing or unclear parameters where certain framework assumptions are made\&. ErrorMessages report these to the modeller\&. Any type of error consists of the following attributes which have to be set by the \fBErrorMessage\fP's constructor: 
+.PD 0
+
+.IP "\(bu" 2
+error description : The operation that just failed or does not have the preconditions matched 
+.IP "\(bu" 2
+error location : The class and method that the error occurred in 
+.IP "\(bu" 2
+error reason : The probable reason why the error occured 
+.IP "\(bu" 2
+error prevention : A hint on how to prevent this error to occur again\&.  
+.IP "\(bu" 2
+error time : The point of simulation time that the error occurred\&. 
+.PP
+Note that ErrorMessages relate to the modeller's use of the framework's methods and correct the found problems if possible by making assumptions\&. These corrections and their assumptions are articulated by an \fBErrorMessage\fP\&. In contrast to \fCExceptions\fP and fatal errors, an \fBErrorMessage\fP does not stop the simulation run or exit the Java runtime\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.ErrorMessage\&.ErrorMessage (\fBModel\fPorigin, StringerrorDescription, StringerrorLocation, StringerrorReason, StringerrorPrevention, \fBTimeInstant\fPerrorTime)"
+Creates an errormessage setting its parameters with the given values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIorigin\fP Model : The model this errormessage evolved from 
+.br
+\fIerrorDescription\fP java\&.lang\&.String : Description of the error 
+.br
+\fIerrorLocation\fP java\&.lang\&.String : Class and method the error occured in 
+.br
+\fIerrorReason\fP java\&.lang\&.String : The probable reason for the error 
+.br
+\fIerrorPrevention\fP java\&.lang\&.String : A hint how to prevent the error 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String desmoj\&.core\&.report\&.ErrorMessage\&.getLocation ()"
+Returns a String describing class and method that this message was sent from\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The location this message was sent from\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.report\&.ErrorMessage\&.getPrevention ()"
+Returns a String giving a hint on how to prevent this error to happen\&. Note that the hint given is based on the probable reason described but must not always have that reason\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The probable reason for this error 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.report\&.ErrorMessage\&.getReason ()"
+Returns the String describing the probable reason for the error to occur\&. Note that the reason given here is the most probable reason for the effect to occur here\&. It might have its origin in other classes, so bear in mind that the casue for the error might have been created in a class not obviously related to the location this error occured\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The probable reason for this error 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

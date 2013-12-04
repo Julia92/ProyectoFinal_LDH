@@ -1,0 +1,107 @@
+\section{desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator Class Reference}
+\label{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator}\index{desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator@{desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Movement\-Path\-Interpolator} (Transform\-Group target, Transform\-Group orientation\-Target)
+\item 
+void {\bfseries compute\-Transform} (float alpha\-Value, Transform3\-D transform)\label{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator_ade2f5f5e17af14d2d5bea6476ba63420}
+
+\item 
+void {\bfseries process\-Stimulus} (Enumeration criteria)\label{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator_a9d5750ab7433dd05d91a205e4f1092da}
+
+\item 
+void {\bf stop} ()
+\item 
+void {\bf start} ({\bf Visualization\-Clock\-Alpha} alpha, float[$\,$] duration\-Knots, float[$\,$] speed\-Knots, Point3f[$\,$] position\-Knots)
+\item 
+void {\bfseries start\-With\-Focus\-On\-Track} ({\bf Visualization\-Clock\-Alpha} alpha, float[$\,$] duration\-Knots, float[$\,$] speed\-Knots, Point3f[$\,$] position\-Knots, Vector3d front\-Side\-Vec)\label{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator_a84dab395f0d3dfacac606143f02c52d6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An interpolator which realize the 3-\/phase-\/translation. The translation is divided into 3 phases\-:
+\begin{DoxyItemize}
+\item The acceleration phase
+\item The maximum speed phase
+\item The deceleration phase The translation behavior is defined over the speed and duration of each phase. \begin{DoxyAuthor}{Author}
+Fred Sun 
+\end{DoxyAuthor}
+
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator@{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator}!Movement\-Path\-Interpolator@{Movement\-Path\-Interpolator}}
+\index{Movement\-Path\-Interpolator@{Movement\-Path\-Interpolator}!desmoj::extensions::visualization3d::MovementPathInterpolator@{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator}}
+\subsubsection[{Movement\-Path\-Interpolator}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator.\-Movement\-Path\-Interpolator (
+\begin{DoxyParamCaption}
+\item[{Transform\-Group}]{target, }
+\item[{Transform\-Group}]{orientation\-Target}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator_aba9f867f66f285d802a2fe1febe9214b}
+Creates a \doxyref{Movement\-Path\-Interpolator}{p.}{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator}. 
+\begin{DoxyParams}{Parameters}
+{\em target} & The transform\-Group node affected by this transform\-Interpolator \\
+\hline
+{\em orientation\-Target} & The Transform\-Group responsible for the orientation. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator@{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator}!start@{start}}
+\index{start@{start}!desmoj::extensions::visualization3d::MovementPathInterpolator@{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator.\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf Visualization\-Clock\-Alpha}}]{alpha, }
+\item[{float[$\,$]}]{duration\-Knots, }
+\item[{float[$\,$]}]{speed\-Knots, }
+\item[{Point3f[$\,$]}]{position\-Knots}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator_ab0020637f4b2eb86772708492f1402a8}
+Sets the movement data and start the interpolator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em alpha} & The alpha which gives the duration \\
+\hline
+{\em duration\-Knots} & A float[3] array which describes the duration of the 3 phases movement. \\
+\hline
+{\em speed\-Knots} & A float[3] array which describes the speed of the 3 phases movement. \\
+\hline
+{\em position\-Knots} & An array of points which describe the route of the movement. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator@{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator}!stop@{stop}}
+\index{stop@{stop}!desmoj::extensions::visualization3d::MovementPathInterpolator@{desmoj\-::extensions\-::visualization3d\-::\-Movement\-Path\-Interpolator}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-visualization3d.\-Movement\-Path\-Interpolator.\-stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1visualization3d_1_1_movement_path_interpolator_a382db934ccddaaf9efd90af75c352afc}
+Stops the animation. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/visualization3d/Movement\-Path\-Interpolator.\-java\end{DoxyCompactItemize}

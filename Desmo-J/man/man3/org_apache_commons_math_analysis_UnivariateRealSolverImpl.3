@@ -1,0 +1,456 @@
+.TH "org.apache.commons.math.analysis.UnivariateRealSolverImpl" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.UnivariateRealSolverImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP, and Serializable\&.
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.analysis\&.BisectionSolver\fP, \fBorg\&.apache\&.commons\&.math\&.analysis\&.BrentSolver\fP, \fBorg\&.apache\&.commons\&.math\&.analysis\&.MullerSolver\fP, \fBorg\&.apache\&.commons\&.math\&.analysis\&.NewtonSolver\fP, \fBorg\&.apache\&.commons\&.math\&.analysis\&.RiddersSolver\fP, and \fBorg\&.apache\&.commons\&.math\&.analysis\&.SecantSolver\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBgetResult\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetIterationCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAbsoluteAccuracy\fP (double accuracy)"
+.br
+.ti -1c
+.RI "double \fBgetAbsoluteAccuracy\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetAbsoluteAccuracy\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMaximalIterationCount\fP (int count)"
+.br
+.ti -1c
+.RI "int \fBgetMaximalIterationCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetMaximalIterationCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetRelativeAccuracy\fP (double accuracy)"
+.br
+.ti -1c
+.RI "double \fBgetRelativeAccuracy\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetRelativeAccuracy\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetFunctionValueAccuracy\fP (double accuracy)"
+.br
+.ti -1c
+.RI "double \fBgetFunctionValueAccuracy\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetFunctionValueAccuracy\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBUnivariateRealSolverImpl\fP (\fBUnivariateRealFunction\fP \fBf\fP, int \fBdefaultMaximalIterationCount\fP, double \fBdefaultAbsoluteAccuracy\fP)"
+.br
+.ti -1c
+.RI "final void \fBsetResult\fP (double \fBresult\fP, int \fBiterationCount\fP)"
+.br
+.ti -1c
+.RI "final void \fBclearResult\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisBracketing\fP (double lower, double upper, \fBUnivariateRealFunction\fP \fBf\fP)  throws FunctionEvaluationException "
+.br
+.ti -1c
+.RI "boolean \fBisSequence\fP (double start, double mid, double end)"
+.br
+.ti -1c
+.RI "void \fBverifyInterval\fP (double lower, double upper)"
+.br
+.ti -1c
+.RI "void \fBverifySequence\fP (double lower, double initial, double upper)"
+.br
+.ti -1c
+.RI "void \fBverifyBracketing\fP (double lower, double upper, \fBUnivariateRealFunction\fP \fBf\fP)  throws FunctionEvaluationException "
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBabsoluteAccuracy\fP"
+.br
+.ti -1c
+.RI "double \fBrelativeAccuracy\fP"
+.br
+.ti -1c
+.RI "double \fBfunctionValueAccuracy\fP"
+.br
+.ti -1c
+.RI "int \fBmaximalIterationCount\fP"
+.br
+.ti -1c
+.RI "double \fBdefaultAbsoluteAccuracy\fP"
+.br
+.ti -1c
+.RI "double \fBdefaultRelativeAccuracy\fP"
+.br
+.ti -1c
+.RI "double \fBdefaultFunctionValueAccuracy\fP"
+.br
+.ti -1c
+.RI "int \fBdefaultMaximalIterationCount\fP"
+.br
+.ti -1c
+.RI "boolean \fBresultComputed\fP = false"
+.br
+.ti -1c
+.RI "double \fBresult\fP"
+.br
+.ti -1c
+.RI "int \fBiterationCount\fP"
+.br
+.ti -1c
+.RI "\fBUnivariateRealFunction\fP \fBf\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provide a default implementation for several functions useful to generic solvers\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+480440 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2006-11-29 00:14:12 -0700 (Wed, 29 Nov 2006) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.UnivariateRealSolverImpl (\fBUnivariateRealFunction\fPf, intdefaultMaximalIterationCount, doubledefaultAbsoluteAccuracy)\fC [protected]\fP"
+Construct a solver with given iteration count and accuracy\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP the function to solve\&. 
+.br
+\fIdefaultAbsoluteAccuracy\fP maximum absolute error 
+.br
+\fIdefaultMaximalIterationCount\fP maximum number of iterations 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if f is null or the defaultAbsoluteAccuracy is not valid 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "final void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.clearResult ()\fC [protected]\fP"
+Convenience function for implementations\&. 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.getAbsoluteAccuracy ()"
+Get the actual absolute accuracy\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the accuracy 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.getFunctionValueAccuracy ()"
+Get the actual function value accuracy\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the accuracy 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.getIterationCount ()"
+Access the last iteration count\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the last iteration count 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalStateException\fP if no root has been computed 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.getMaximalIterationCount ()"
+Get the upper limit for the number of iterations\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the actual upper limit 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.getRelativeAccuracy ()"
+Get the actual relative accuracy\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the accuracy 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.getResult ()"
+Access the last computed root\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the last computed root 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalStateException\fP if no root has been computed 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "boolean org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.isBracketing (doublelower, doubleupper, \fBUnivariateRealFunction\fPf) throws \fBFunctionEvaluationException\fP\fC [protected]\fP"
+Returns true iff the function takes opposite signs at the endpoints\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlower\fP the lower endpoint 
+.br
+\fIupper\fP the upper endpoint 
+.br
+\fIf\fP the function 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if f(lower) * f(upper) < 0 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function at the endpoints 
+.RE
+.PP
+
+.SS "boolean org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.isSequence (doublestart, doublemid, doubleend)\fC [protected]\fP"
+Returns true if the arguments form a (strictly) increasing sequence
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstart\fP first number 
+.br
+\fImid\fP second number 
+.br
+\fIend\fP third number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if the arguments form an increasing sequence 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.resetAbsoluteAccuracy ()"
+Reset the absolute accuracy to the default\&. 
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.resetFunctionValueAccuracy ()"
+Reset the actual function accuracy to the default\&. 
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.resetMaximalIterationCount ()"
+Reset the upper limit for the number of iterations to the default\&. 
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.resetRelativeAccuracy ()"
+Reset the relative accuracy to the default\&. 
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.setAbsoluteAccuracy (doubleaccuracy)"
+Set the absolute accuracy\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaccuracy\fP the accuracy\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if the accuracy can't be achieved by the solver or is otherwise deemed unreasonable\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.setFunctionValueAccuracy (doubleaccuracy)"
+Set the function value accuracy\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaccuracy\fP the accuracy\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if the accuracy can't be achieved by the solver or is otherwise deemed unreasonable\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.setMaximalIterationCount (intcount)"
+Set the upper limit for the number of iterations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcount\fP maximum number of iterations 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.setRelativeAccuracy (doubleaccuracy)"
+Set the relative accuracy\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaccuracy\fP the relative accuracy\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if the accuracy can't be achieved by the solver or is otherwise deemed unreasonable\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "final void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.setResult (doubleresult, intiterationCount)\fC [protected]\fP"
+Convenience function for implementations\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIresult\fP the result to set 
+.br
+\fIiterationCount\fP the iteration count to set 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.verifyBracketing (doublelower, doubleupper, \fBUnivariateRealFunction\fPf) throws \fBFunctionEvaluationException\fP\fC [protected]\fP"
+Verifies that the endpoints specify an interval and the function takes opposite signs at the enpoints, throws IllegalArgumentException if not
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlower\fP lower endpoint 
+.br
+\fIupper\fP upper endpoint 
+.br
+\fIf\fP function 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function at the endpoints 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.verifyInterval (doublelower, doubleupper)\fC [protected]\fP"
+Verifies that the endpoints specify an interval, throws IllegalArgumentException if not
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlower\fP lower endpoint 
+.br
+\fIupper\fP upper endpoint 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.verifySequence (doublelower, doubleinitial, doubleupper)\fC [protected]\fP"
+Verifies that \fClower < initial < upper\fP throws IllegalArgumentException if not
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlower\fP lower endpoint 
+.br
+\fIinitial\fP initial value 
+.br
+\fIupper\fP upper endpoint 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.absoluteAccuracy\fC [protected]\fP"
+Maximum absolute error\&. 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.defaultAbsoluteAccuracy\fC [protected]\fP"
+Default maximum absolute error\&. 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.defaultFunctionValueAccuracy\fC [protected]\fP"
+Default maximum error of function\&. 
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.defaultMaximalIterationCount\fC [protected]\fP"
+Default maximum number of iterations\&. 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.defaultRelativeAccuracy\fC [protected]\fP"
+Default maximum relative error\&. 
+.SS "\fBUnivariateRealFunction\fP org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.f\fC [protected]\fP"
+The function to solve\&. 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.functionValueAccuracy\fC [protected]\fP"
+Maximum error of function\&. 
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.iterationCount\fC [protected]\fP"
+The last iteration count\&. 
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.maximalIterationCount\fC [protected]\fP"
+Maximum number of iterations\&. 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.relativeAccuracy\fC [protected]\fP"
+Maximum relative error\&. 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.result\fC [protected]\fP"
+The last computed root\&. 
+.SS "boolean org\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\&.resultComputed = false\fC [protected]\fP"
+Indicates where a root has been computed\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

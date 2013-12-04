@@ -1,0 +1,370 @@
+\section{desmoj.\-core.\-statistic.\-Accumulate Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate}\index{desmoj.\-core.\-statistic.\-Accumulate@{desmoj.\-core.\-statistic.\-Accumulate}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Accumulate\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Accumulate\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Accumulate} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, boolean automatic, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Accumulate} ({\bf Model} owner\-Model, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+{\bf Time\-Span} {\bf get\-Period\-Measured} ()
+\item 
+double {\bf get\-Mean} ()
+\item 
+double {\bf get\-Std\-Dev} ()
+\item 
+void {\bf reset} ()
+\item 
+boolean {\bf does\-Retain\-Last\-Value\-On\-Reset} ()
+\item 
+void {\bf set\-Retain\-Last\-Value\-On\-Reset} (boolean retain\-Value)
+\item 
+void {\bf update} ()
+\item 
+void {\bf update} (double val)
+\item 
+void {\bf update} (Observable o, Object arg)
+\item 
+void {\bf pause} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} class is providing a statistic analysis about one value. The mean value and the standard deviation is weighted over time.\par
+
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!Accumulate@{Accumulate}}
+\index{Accumulate@{Accumulate}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{Accumulate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Accumulate.\-Accumulate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{boolean}]{automatic, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_abedfc6e15b68ecb831fd04a470b405da}
+Constructor for a \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} object that will be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} object \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the value for this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} object, if it is not observed automatically at every tick of the Sim\-Clock. \\
+\hline
+{\em automatic} & boolean \-: Flag for observing the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} at every tick of the Sim\-Clock. Set it to {\ttfamily true} to have it observed at every Sim\-Clock tick. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_abedfc6e15b68ecb831fd04a470b405da_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!Accumulate@{Accumulate}}
+\index{Accumulate@{Accumulate}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{Accumulate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Accumulate.\-Accumulate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a4c68f4b9ada8d7e6f90aa3bc8409f73f}
+Constructor for a \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} object that will not be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} automatically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} object. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-statistic.\-Accumulate.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a3d4b9f5f646a712cf50049c26d3cfadb}
+Returns a Reporter to produce a report about this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!does\-Retain\-Last\-Value\-On\-Reset@{does\-Retain\-Last\-Value\-On\-Reset}}
+\index{does\-Retain\-Last\-Value\-On\-Reset@{does\-Retain\-Last\-Value\-On\-Reset}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{does\-Retain\-Last\-Value\-On\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-statistic.\-Accumulate.\-does\-Retain\-Last\-Value\-On\-Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_accd13ba64c4362e90f3942498721bf86}
+This method determines whether if the accumulate's last value is retained on reset (true) or nullified (false). The default value is true. \begin{DoxyReturn}{Returns}
+value of the retain\-Last\-Value\-On\-Reset flag 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!get\-Mean@{get\-Mean}}
+\index{get\-Mean@{get\-Mean}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{get\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Accumulate.\-get\-Mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a07d2605d92677400ab2e523eadd161a9}
+Returns the mean value of all the values observed so far, weighted over time.
+
+\begin{DoxyReturn}{Returns}
+double \-: The mean value of all the values observed so far, weighted over time. 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-statistic.\-Value\-Statistics} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_af62fa9f16261f9184c388a2d67d64cd2}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a07d2605d92677400ab2e523eadd161a9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!get\-Period\-Measured@{get\-Period\-Measured}}
+\index{get\-Period\-Measured@{get\-Period\-Measured}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{get\-Period\-Measured}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-core.\-statistic.\-Accumulate.\-get\-Period\-Measured (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a88439cd0bef973fb94034f3200844ed8}
+Returns the period measured (excluding pauses).
+
+\begin{DoxyReturn}{Returns}
+Time\-Span \-: The period measured (excluding pauses). 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a88439cd0bef973fb94034f3200844ed8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!get\-Std\-Dev@{get\-Std\-Dev}}
+\index{get\-Std\-Dev@{get\-Std\-Dev}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{get\-Std\-Dev}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Accumulate.\-get\-Std\-Dev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a034a8c3c09d4768904ed931a657f93fe}
+Returns the standard deviation of all the values observed so far, weighted over time.
+
+\begin{DoxyReturn}{Returns}
+double \-: The standard deviation of all the values observed so far, weighted over time. 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-statistic.\-Value\-Statistics} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_ad2266fa71210c9a13b393e68e98622b4}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a034a8c3c09d4768904ed931a657f93fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!pause@{pause}}
+\index{pause@{pause}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Accumulate.\-pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a2fcd9c16d5f365656474aee3fd6b50d3}
+Temporarily suspend data collection to exclude a period, e.\-g. to disregard the night period in which a plant is closed from machine utilization statistics. Data collection will be resumed automatically on calling an update(...)-\/method. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a2fcd9c16d5f365656474aee3fd6b50d3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Accumulate.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a4a0cf63fc8ba477e46b829cb1b3d2c9e}
+Resets this \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} object by resetting all variables to 0.\-0. If the flag retain\-Last\-Value\-On\-Reset is set to true, the last value is not nullified but remains unchanged. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a4a0cf63fc8ba477e46b829cb1b3d2c9e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!set\-Retain\-Last\-Value\-On\-Reset@{set\-Retain\-Last\-Value\-On\-Reset}}
+\index{set\-Retain\-Last\-Value\-On\-Reset@{set\-Retain\-Last\-Value\-On\-Reset}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{set\-Retain\-Last\-Value\-On\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Accumulate.\-set\-Retain\-Last\-Value\-On\-Reset (
+\begin{DoxyParamCaption}
+\item[{boolean}]{retain\-Value}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_ae455f4db9c31242d3835022c5c254ba9}
+Sets the value of the retain\-Last\-Value\-On\-Reset\-Flag. 
+\begin{DoxyParams}{Parameters}
+{\em retain\-Value} & new value of the flag. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Accumulate.\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a66a79fdf706953918980faec2d0b581d}
+Updates this {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} object by fetching the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and processing it. The {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} can be passed in the constructor of this {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} object. This {\ttfamily \doxyref{update()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a66a79fdf706953918980faec2d0b581d}} method complies with the one described in D\-E\-S\-M\-O, see [Page91]. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a66a79fdf706953918980faec2d0b581d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Accumulate.\-update (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a71392df72e0b250a33981a00638404e6}
+Updates this {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} object with the double value given as parameter. In some cases it might be more convenient to pass the value this {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} will be updated with directly within the {\ttfamily \doxyref{update(double val)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a71392df72e0b250a33981a00638404e6}} method instead of going via the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & double \-: The value with which this {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} will be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a71392df72e0b250a33981a00638404e6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Accumulate@{desmoj\-::core\-::statistic\-::\-Accumulate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Accumulate.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a05c676675669004abb7c5bdbebeea48d}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a05c676675669004abb7c5bdbebeea48d}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+ If no Object (a{\ttfamily null} value) is passed as arg, the actual value of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be fetched with the {\ttfamily value()} method of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}. Otherwise it is expected that the actual value is passed in the Object arg.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate}} is updated. Normally a Double value which is added to the statistics or {\ttfamily null}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a05c676675669004abb7c5bdbebeea48d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Accumulate.\-java\end{DoxyCompactItemize}

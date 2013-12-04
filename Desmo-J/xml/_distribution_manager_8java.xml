@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_distribution_manager_8java" kind="file">
+    <compoundname>DistributionManager.java</compoundname>
+    <innerclass refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager" prot="public">desmoj::core::dist::DistributionManager</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1core_1_1dist">desmoj::core::dist</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.core.dist;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_named_object" kindref="compound">desmoj.core.simulator.NamedObject</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager" kindref="compound">DistributionManager</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_named_object" kindref="compound">NamedObject</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Class&lt;?<sp/>extends<sp/>UniformRandomGenerator&gt;<sp/>_currentDefaultGenerator;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>_antitheticMode;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>java.util.ArrayList&lt;<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref>&gt;<sp/>_distributions;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator" kindref="compound">UniformRandomGenerator</ref><sp/>_seedGenerator;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>_seed;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1aea1f1bf6667c9824bef77c7fa490c609" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1aea1f1bf6667c9824bef77c7fa490c609" kindref="member">DistributionManager</ref>(String<sp/>name,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>seed)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(name<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_DistributionManager&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>create<sp/>the<sp/>NamedObject</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_antitheticMode<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>set<sp/>antithetic<sp/>mode<sp/>to<sp/>false<sp/>by<sp/>default</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_seedGenerator<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_linear_congruential_random_generator" kindref="compound">LinearCongruentialRandomGenerator</ref>(seed);<sp/></highlight><highlight class="comment">//<sp/>create</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>seed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>generator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentDefaultGenerator<sp/>=<sp/>LinearCongruentialRandomGenerator.class;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_distributions<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>java.util.ArrayList&lt;<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref>&gt;();<sp/></highlight><highlight class="comment">//<sp/>init<sp/>List</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>dist</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_seed<sp/>=<sp/>seed;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a6a28734d98f6eb6313df1f2c5bc7ef68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a6a28734d98f6eb6313df1f2c5bc7ef68" kindref="member">deRegister</ref>(<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref><sp/>dist)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_distributions.remove(dist);<sp/></highlight><highlight class="comment">//<sp/>remove<sp/>from<sp/>List</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a6c9aa016260a6c56d878bd6400a74e88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a6c9aa016260a6c56d878bd6400a74e88" kindref="member">newSeedAll</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref><sp/>d<sp/>:<sp/>_distributions)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d.setSeed(<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a008beb501e758d5405f1aef5515e2e04" kindref="member">nextSeed</ref>());</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a008beb501e758d5405f1aef5515e2e04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a008beb501e758d5405f1aef5515e2e04" kindref="member">nextSeed</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>a<sp/>positive<sp/>seed<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)<sp/>(_seedGenerator.nextDouble()<sp/>*<sp/>100000000);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a399989923766b0a3fcd32202ef4e26af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">register</highlight><highlight class="normal">(<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref><sp/>dist)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dist.setAntithetic(_antitheticMode);<sp/></highlight><highlight class="comment">//<sp/>set<sp/>antithetic<sp/>mode<sp/>to<sp/>default</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dist.setSeed(<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a008beb501e758d5405f1aef5515e2e04" kindref="member">nextSeed</ref>());<sp/></highlight><highlight class="comment">//<sp/>set<sp/>new<sp/>seed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_distributions.add(dist);<sp/></highlight><highlight class="comment">//<sp/>add<sp/>to<sp/>Vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1ad813c525cac18bd1a19345a8153e816c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1ad813c525cac18bd1a19345a8153e816c" kindref="member">resetAll</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref><sp/>d<sp/>:<sp/>_distributions)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d.reset();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a84e5adb62956a9b440a450492aa14e95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a84e5adb62956a9b440a450492aa14e95" kindref="member">setAntitheticAll</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>antitheticMode)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref><sp/>d<sp/>:<sp/>_distributions)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d.setAntithetic(antitheticMode);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a980b02658f1a38dc057ac23a5a44bf87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a980b02658f1a38dc057ac23a5a44bf87" kindref="member">setSeed</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>newSeed)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_seed<sp/>=<sp/>newSeed;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_seedGenerator.setSeed(newSeed);<sp/></highlight><highlight class="comment">//<sp/>go<sp/>ahead<sp/>and<sp/>set<sp/>it!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a364e81b287d66450403a31c7cea1ae53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a364e81b287d66450403a31c7cea1ae53" kindref="member">getSeed</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_seed;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="191" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1ae7796368db1a8a2a20cc512debdfeb3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1ae7796368db1a8a2a20cc512debdfeb3a" kindref="member">setRandomNumberGenerator</ref>(</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Class&lt;?<sp/>extends<sp/>UniformRandomGenerator&gt;<sp/>randomNumberGenerator)<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this._currentDefaultGenerator<sp/>=<sp/>randomNumberGenerator;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1aa8c0073f327b6712142ba3ca93d81bba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Class&lt;?<sp/>extends<sp/>UniformRandomGenerator&gt;<sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1aa8c0073f327b6712142ba3ca93d81bba" kindref="member">getRandomNumberGenerator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this._currentDefaultGenerator;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217" refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a093ca24350f6750e3004c1654434ae4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>java.util.List&lt;<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref>&gt;<sp/><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_manager_1a093ca24350f6750e3004c1654434ae4b" kindref="member">getDistributions</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>java.util.ArrayList&lt;<ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution" kindref="compound">Distribution</ref>&gt;(this._distributions);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/DistributionManager.java"/>
+  </compounddef>
+</doxygen>

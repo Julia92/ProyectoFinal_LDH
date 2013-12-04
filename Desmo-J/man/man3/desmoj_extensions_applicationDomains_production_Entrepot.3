@@ -1,0 +1,437 @@
+.TH "desmoj.extensions.applicationDomains.production.Entrepot" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.Entrepot \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntrepot\fP (\fBModel\fP owner, String name, int sortOrder, int qCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBEntrepot\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "double \fBavgAvail\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcontains\fP (\fBSimProcess\fP product)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetAvail\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetAvailComplyWith\fP (Condition condition)"
+.br
+.ti -1c
+.RI "long \fBgetCustomers\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMaximum\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetPassBy\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSoldProducts\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "Enumeration \fBproducts\fP ()"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP[] \fBremoveAllProducts\fP ()"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP[] \fBremoveAllProducts\fP (Condition condition)"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP \fBremoveProduct\fP ()"
+.br
+.ti -1c
+.RI "void \fBremoveProduct\fP (\fBSimProcess\fP product)"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP[] \fBremoveProducts\fP (long n)"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP[] \fBremoveProducts\fP (int n, Condition condition)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPassBy\fP (boolean newPassBy)"
+.br
+.ti -1c
+.RI "void \fBstoreProduct\fP (\fBSimProcess\fP product)"
+.br
+.ti -1c
+.RI "void \fBstoreProducts\fP (\fBSimProcess\fP[] finishedProds)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivateAsNext\fP (\fBSimProcess\fP process)"
+.br
+.ti -1c
+.RI "void \fBactivateFirst\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String where)"
+.br
+.ti -1c
+.RI "void \fBupdateStatistics\fP (long n)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBEntrepot\fP is some kind of storage where products (in the form of \fCSimProcess\fP es) can be stored\&. They will be stored in a kind of FIFO order, that means the products arriving first at the \fBEntrepot\fP will be the first ones to be removed\&. One can remove products from the \fBEntrepot\fP in order to sell (or dispatch) them or to process them in any other way\&. Note: while products can enter the \fBEntrepot\fP themselves, another process ( \fCSimProcess\fP) is needed to remove the products from the \fBEntrepot\fP\&. Because the product processes are passivated while they are stored in the Entepot! The \fBEntrepot\fP has no capacity limit, so it can store (almost) an endless number of products\&. The maximum number of available products in the \fBEntrepot\fP will be shown in the report and can be used to judge what a reasonable capacity limit for the \fBEntrepot\fP in the real world might be\&. In contrast the queue for the waiting customers can have a certain limit\&. If the customers' queue capacity is reached any further customer will be rejected (refused to service)\&. The default number of products an \fBEntrepot\fP starts with is zero\&. It will be filled during simulation by some manufacturing process (or the product process itself) using the \fC\fBstoreProduct()\fP\fP method\&. Products can be retrieved (removed) from the \fBEntrepot\fP using one of the \fC\fBremoveProduct()\fP\fP methods\&. If no or not enough products are available the costumers have to wait in a queue until new products are stored in the \fBEntrepot\fP\&. The first sort criteria of the customer queue is always highest priorities first\&. The second queueing discipline and the capacity limit of the customer queue can be determined by the user (default is FIFO and unlimited capacity)\&. As long as the products (SimProcesses) are stored in the \fBEntrepot\fP they are passivated and blocked\&. \fBEntrepot\fP is derived from QueueBased, which provides all the statistical functionality for the customer queue\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP 
+.PP
+Bin
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.Entrepot (\fBModel\fPowner, Stringname, intsortOrder, intqCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructs an empty \fBEntrepot\fP where products (SimProcesses) can be stored and retrieved\&. The queueing discipline and the capacity of the underlying customer queue can be chosen\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBEntrepot\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBEntrepot\fP\&. 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIqCapacity\fP int : The capacity of the queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBEntrepot\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBEntrepot\fP should produce trace messages or not\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.Entrepot (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructs an empty \fBEntrepot\fP where products (SimProcesses) can be stored and retrieved\&. The underlying queue has a FIFO queueing discipline and unlimited capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBEntrepot\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBEntrepot\fP\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBEntrepot\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBEntrepot\fP should produce trace messages or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.activateAsNext (\fBSimProcess\fPprocess)\fC [protected]\fP"
+Activates the sim-process \fCprocess\fP, given as a parameter of this method, as the next process\&. This process should be a sim-process waiting in the queue for some products\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process that is to be activated as next\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.activateFirst ()\fC [protected]\fP"
+Activates the first process waiting in the customers' queue\&. That is a process which was trying to get products, but it could not get any because there were not enough products for it or another process was first in the queue to be served\&. This method is called every time new products have arrived in the \fBEntrepot\fP or a customer in the waiting-queue is satisfied\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.avgAvail ()"
+Returns the average number of products available in the \fBEntrepot\fP over the time since the last reset of the \fBEntrepot\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average number of products available in the \fBEntrepot\fP over the time since the last reset of the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the sim-process using the \fBEntrepot\fP is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if and only if the given SimProcess is valid and model compatible; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.br
+\fIwhere\fP String : The method having called \fC\fBcheckProcess()\fP\fP as a String\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.contains (\fBSimProcess\fPproduct)"
+Checks if the given product (SimProcess) is contained in the \fBEntrepot\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if and only if the specified SimProcess is the same as a component in this \fBEntrepot\fP, as determined by the equals method; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproduct\fP desmoj\&.SimProcess : The product which might be in the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBEntrepot\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queue inside this \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getAvail ()"
+Returns the number of products available at the moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of products available at the moment\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getAvailComplyWith (Conditioncondition)"
+Returns the number of products available in the \fBEntrepot\fP at the moment which are in compliance with the given \fCCondition\fP\&. This method is useful to test if enough products are available which are in compliance with a given condition (i\&.e\&. before you use the method \fCremoveProducts(n, condition)\fP)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of products available in the \fBEntrepot\fP at the moment which are in compliance with the given \fCCondition\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcondition\fP desmoj\&.Condition : The \fCCondition\fP the products have to be in compliance with\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getCustomers ()"
+Returns the number of customers having obtained products from the \fBEntrepot\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of customers having obtained products from the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getMaximum ()"
+Returns the maximum number of products in the \fBEntrepot\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum number of products in the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getPassBy ()"
+Returns whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Indicates whether entities can pass by other entities which are enqueued before them in the queue\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getRefused ()"
+Returns the number of SimProcesses refused to be enqueued in the queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of SimProcesses refused to be enqueued in the queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.getSoldProducts ()"
+Returns the number of products which already have been sold (passed through this \fBEntrepot\fP)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of products which already have been sold (passed through this \fBEntrepot\fP)\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.isEmpty ()"
+Tests if the \fBEntrepot\fP is empty (has no products stored)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if and only if this \fBEntrepot\fP has no products stored (it is empty); \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "Enumeration desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.products ()"
+Returns an enumeration of the products stored in this \fC\fBEntrepot\fP\fP\&. The returned \fCEnumeration\fP object will generate all items contained in the vector \fCproducts\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.util\&.Enumeration : An enumeration of the products in this \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.removeAllProducts ()"
+Removes (and returns) all products (SimProcesses) from the \fBEntrepot\fP which are contained in there at the moment, even if other processes are waiting in the queue\&. Note, that as long as the lifeCycles of the products (SimProcesses) leaving the \fBEntrepot\fP are not terminated they will automatically be activated after the current SimProcess! If no products are available at the moment \fCnull\fP will be returned\&. The products will be retrieved in a kind of FIFO order, that means the product which arrived first in the \fBEntrepot\fP is the first to be removed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess[] : All the products contained in the \fBEntrepot\fP at the moment will be removed\&. The lifeCycles of their SimProcesses will be activated as long as they are not terminated\&. Is \fCnull\fP if no products are available at the moment\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.removeAllProducts (Conditioncondition)"
+Removes (and returns) all products (SimProcesses) which are in compliance with the given condition from the \fBEntrepot\fP, no matter if there are other processes waiting in the queue\&. Note, that as long as the lifeCycles of the products (SimProcesses) leaving the \fBEntrepot\fP are not terminated they will automatically be activated after the current SimProcess! If no products complying with the given condition are available at the moment \fCnull\fP will be returned\&. The products will be retrieved in a kind of FIFO order, that means the product which arrived first in the \fBEntrepot\fP is the first to be removed\&. To check if there are any products available which are in compliance with the given condition use the method \fC\fBgetAvailComplyWith()\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess[] : All the products which are in compliance with the given condition and are removed from the \fBEntrepot\fP\&. The lifeCycles of their SimProcesses will be activated as long as they are not terminated\&. Is \fCnull\fP if no such products are available at the moment\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcondition\fP desmoj\&.Condition : The condition the products to be removed must comply with\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.removeProduct ()"
+Removes (and returns) one product (SimProcess) from the \fBEntrepot\fP\&. Note, that as long as the lifeCycle of the product (SimProcess) leaving the \fBEntrepot\fP is not terminated it will automatically be activated after the current SimProcess! If no products are available at the moment the requesting SimProcess will be enqueued in the wait queue until a product becomes available\&. In case the capacity limit of the wait queue is reached the current SimProcess will be rejected and not get any product ( \fCnull\fP will be returned)\&. The product will be retrieved in a kind of FIFO order, that means the product which arrived first in the \fBEntrepot\fP is the first to be removed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess : The product which is removed from the \fBEntrepot\fP\&. The lifeCycles of this SimProcess will be activated as long as he is not terminated\&. Is \fCnull\fP if the capacity limit of the wait queue is reached and therefore the SimProcess is refused to be serviced or another failure has occured\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.removeProduct (\fBSimProcess\fPproduct)"
+Removes a certain product (SimProcess) from the \fBEntrepot\fP, if the given product is stored in the \fBEntrepot\fP, no matter if other processes are waiting in the queue already\&. Note that as long as the lifeCycle of the products (SimProcesses) leaving the \fBEntrepot\fP is not terminated they will automatically be activated after the current SimProcess! To use this method one must know which product(s) are in the \fBEntrepot\fP\&. To check which products are contained use methods like \fC\fBproducts()\fP\fP or \fC\fBcontains()\fP\fP\&. The products will be retrieved in a kind of FIFO order that means the product which arrived first in the \fBEntrepot\fP is the first to be removed\&. Users of this method will not be enqueued in the waiting-queue, because no one can ensure that the requested SimProcess will ever arrive in this \fBEntrepot\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproduct\fP desmoj\&.SimProcess : The product to be removed from the \fBEntrepot\fP\&. Note that this SimProcess will be activated after the current SimProcess as long as its lifeCycle is not terminated\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.removeProducts (longn)"
+Removes (and returns) a certain number of products (SimProcesses) from the \fBEntrepot\fP\&. Note, that as long as the lifeCycles of the products (SimProcesses) leaving the \fBEntrepot\fP are not terminated they will automatically be activated after the current SimProcess! If not enough products are available at the moment the requesting SimProcess will be enqueued in the wait queue until enough products become available\&. In case the capacity limit of the wait queue is reached the current Sim-process will be rejected and not get any products (\fCnull\fP will be returned)\&. The products will be retrieved in a kind of FIFO order, that means the product which arrived first in the \fBEntrepot\fP is the first to be removed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess[] : All the products which are removed from the \fBEntrepot\fP\&. The lifeCycles of their SimProcesses will be activated as long as they are not terminated\&. Is \fCnull\fP if the capacity limit of the wait queue is reached and therefore the SimProcess is refused to be serviced or another failure has occured\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP int : The number of products to be removed from the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP [] desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.removeProducts (intn, Conditioncondition)"
+Removes (and returns) a certain number of products (SimProcesses) from the \fBEntrepot\fP which are in compliance with the given condition\&. Note, that as long as the lifeCycles of the products (SimProcesses) leaving the \fBEntrepot\fP are not terminated they will automatically be activated after the current SimProcess! If not enough products are available at the moment the requesting SimProcess will be enqueued in the waiting-queue until enough products become available\&. In case the capacity limit of the wait queue is reached the current SimProcess will be rejected and not get any products (\fCnull\fP will be returned)\&. The products will be retrieved in a kind of FIFO order, that means the product which arrived first in the \fBEntrepot\fP is the first to be removed\&. To make sure there are enough products available which are in compliance with the given condition use the method \fC\fBgetAvailComplyWith()\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimProcess[] : All the products which are in compliance with the given condition and are removed from the \fBEntrepot\fP\&. The lifeCycles of their SimProcesses will be activated as long as they are not terminated\&. Is \fCnull\fP if the capacity limit of the wait queue is reached and therefore the sim-process is refused to be serviced or another failure has occured\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP int : The number of products (which are in compliance with the given condition) to be removed from the \fBEntrepot\fP\&. 
+.br
+\fIcondition\fP desmoj\&.Condition : The condition the products to be removed must comply with\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.reset ()"
+To reset the statistics of this \fBEntrepot\fP\&. The number of available products at this moment and the processes waiting in the queue are not changed\&. But all statistic counters are reset\&. The \fCQueueBased\fP is also reset\&. 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.setPassBy (booleannewPassBy)"
+Sets the flag passBy to a new value\&. PassBy is indicating whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPassBy\fP boolean : The new value of passBy\&. Set it to \fCtrue\fP if you want entities to pass by other entities which are enqueued before them in the queue\&. Set it to \fCfalse\fP if you don't want entities to overtake other entities in the queue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.storeProduct (\fBSimProcess\fPproduct)"
+Stores a sim-process as a product in the \fBEntrepot\fP\&. As there is no capacity limit for the \fBEntrepot\fP, SimProcesses can always be stored\&. The products will be kept in a Vector and retrieved in a kind of FIFO order (as long as no other conditions for retrieval have to be met)\&. As long as the Sim-process is kept in the \fBEntrepot\fP it is passivated and blocked\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproduct\fP desmoj\&.SimProcess : The sim-process (product) to be stored in the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.storeProducts (\fBSimProcess\fP[]finishedProds)"
+Stores an array of SimProcesses as products in the \fBEntrepot\fP\&. Make sure that the current SimProcess is not in the array of products to be stored\&. Because when the current SimProcess gets passivated the execution of this method will stop! As there is no capacity limit for the \fBEntrepot\fP, Sim-processes can always be stored\&. The products will be kept in a Vector and retrieved in a kind of FIFO order (as long as no other conditions for retrieval have to be met)\&. As long as the sim-processes are kept in the \fBEntrepot\fP they are passivated and blocked\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfinishedProds\fP desmoj\&.SimProcess[] : The array of SimProcesses (products) to be stored in the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\&.updateStatistics (longn)\fC [protected]\fP"
+Updates the statistics every time a product (SimProcess) is stored in the \fBEntrepot\fP or removed from the \fBEntrepot\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of products stored in or removed from the \fBEntrepot\fP\&. Is positive when products are stored in the \fBEntrepot\fP and negative when products are removed from the \fBEntrepot\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

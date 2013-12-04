@@ -1,0 +1,144 @@
+.TH "desmoj.extensions.experimentation.ui.AttributeTableEditor" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.ui.AttributeTableEditor \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits AbstractCellEditor, and TableCellEditor\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "interface \fBAttribEditor\fP"
+.br
+.ti -1c
+.RI "class \fBBooleanAttribEditor\fP"
+.br
+.ti -1c
+.RI "class \fBFilenameAttribEditor\fP"
+.br
+.ti -1c
+.RI "class \fBFloatingPointNumberEditor\fP"
+.br
+.ti -1c
+.RI "class \fBIntegerNumberEditor\fP"
+.br
+.ti -1c
+.RI "class \fBStringEditor\fP"
+.br
+.ti -1c
+.RI "class \fBTextBasedEditor\fP"
+.br
+.ti -1c
+.RI "class \fBTimeUnitAttribEditor\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAttributeTableEditor\fP ()"
+.br
+.ti -1c
+.RI "Component \fBgetTableCellEditorComponent\fP (JTable table, Object value, boolean selected, int row, int col)"
+.br
+.ti -1c
+.RI "Object \fBgetCellEditorValue\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBregisterEditor\fP (AttribEditor c, Class type)"
+.br
+.ti -1c
+.RI "void \fBregisterEditors\fP ()"
+.br
+.ti -1c
+.RI "AttribEditor \fBcreateDefaultEditor\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A generic editor for elements in Swing tables\&. This class contains concrete editors (e\&.g\&. for elements of type boolean) as inner classes\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.AttributeTableEditor\&.AttributeTableEditor ()"
+Creates a new \fBAttributeTableEditor\fP and registers the known cell editors\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "AttribEditor desmoj\&.extensions\&.experimentation\&.ui\&.AttributeTableEditor\&.createDefaultEditor ()\fC [protected]\fP"
+Creates the default editor\&. This is the editor, fields of a non specified type are edited with\&. Might be overridden in subclasses to exchange default editor\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the default editor (a TextBasedEditor) 
+.RE
+.PP
+
+.SS "Object desmoj\&.extensions\&.experimentation\&.ui\&.AttributeTableEditor\&.getCellEditorValue ()"
+Returns the value of the current cell editor
+.PP
+\fBReturns:\fP
+.RS 4
+edited object 
+.RE
+.PP
+
+.SS "Component desmoj\&.extensions\&.experimentation\&.ui\&.AttributeTableEditor\&.getTableCellEditorComponent (JTabletable, Objectvalue, booleanselected, introw, intcol)"
+Implemented for interface TableCellEditor\&. Returns the editor for the given table cell value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItable\fP the current JTable 
+.br
+\fIvalue\fP the object to edit 
+.br
+\fIselected\fP flag indicating if the cell containing the object is selected 
+.br
+\fIrow\fP row of table cell 
+.br
+\fIcol\fP column of table cell 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the editor's GUI component\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.AttributeTableEditor\&.registerEditor (AttribEditorc, Classtype)\fC [protected]\fP"
+Registers a new cell editor for a special type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP an attribute editor 
+.br
+\fItype\fP the class to edit with this editor 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.AttributeTableEditor\&.registerEditors ()\fC [protected]\fP"
+Registers the default editors\&. Might be extended in subclasses to register or exchange other specialized editors 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kind="class" prot="public">
+    <compoundname>desmoj::extensions::applicationDomains::production::TransportJunction</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">WaitQueue</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a74ca387ad5fa2bc63f6eced79d1c47e2" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.passBy</definition>
+        <argsstring></argsstring>
+        <name>passBy</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flag to indicate whether a transporter can pass by other transporters in the master queue which are enqueued before that transporter in the queue. Is <computeroutput>false</computeroutput> per default. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="70" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a22b7e0b9dfacdfb5e2c96d8eb4c96122" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.applicationDomains.production.TransportJunction.TransportJunction</definition>
+        <argsstring>(Model owner, String name, int mSortOrder, int mQCapacity, int sSortOrder, int sQCapacity, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>TransportJunction</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mSortOrder</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mQCapacity</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sSortOrder</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sQCapacity</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref>. There are two waiting-queues constructed, one internal <computeroutput>QueueList</computeroutput> for the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> s (masters) and one separate <computeroutput>ProcessQueue</computeroutput> for the slave processes. The queueing discipline and the capacity limit of the underlying queues can be chosen. Highest priority are always first in the queues.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Model : The model this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mSortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying master queue implementation. Choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> or ... </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mQCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The capacity of the master queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sSortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying slave queue implementation. Choose a constant from <computeroutput>QueueBased</computeroutput> like <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> or ... </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sQCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The capacity of the slave queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> should produce a report or not. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if trace messages of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> should be displayed in the trace file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="108" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="108" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a673553db2725c7568767aaeed4c17f92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.applicationDomains.production.TransportJunction.TransportJunction</definition>
+        <argsstring>(Model owner, String name, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>TransportJunction</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref>. There are two waiting-queues constructed, one internal <computeroutput>QueueList</computeroutput> for the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> s (masters) and one separate <computeroutput>ProcessQueue</computeroutput> for the slave processes. Both queues have a FIFO sort order and no capacity limit.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Model : The model this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> is associated to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref>&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> should produce a report or not. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag, if trace messages of this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> should be displayed in the trace file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="134" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1abc39dc8391f039408d0fa4f454c0a02f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>[]</type>
+        <definition>synchronized SimProcess [] desmoj.extensions.applicationDomains.production.TransportJunction.availableSet</definition>
+        <argsstring>(Condition cond)</argsstring>
+        <name>availableSet</name>
+        <param>
+          <type>Condition</type>
+          <declname>cond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array of available slave SimProcesses which comply to a given condition at this moment.</para><para><simplesect kind="return"><para>desmoj.SimProcess[] : The array of available slave SimProcesses which comply to the given condition. If no suitable SimProcess is available <computeroutput>null</computeroutput> will be returned. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Condition : The condition to which the sim-processes we are looking for must comply. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="150" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="150" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a6b765c23d1e0ceae0e83b7d86fe9f6ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></type>
+        <definition>Transporter desmoj.extensions.applicationDomains.production.TransportJunction.availTransporter</definition>
+        <argsstring>(Condition cond)</argsstring>
+        <name>availTransporter</name>
+        <param>
+          <type>Condition</type>
+          <declname>cond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a transporter process waiting in the transporter (master) queue complying to the given condition. If there is no such transporter waiting <computeroutput>null</computeroutput> is returned.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref> : Returns the first transporter in the master queue which complies to the given condition. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The Condition <computeroutput>cond</computeroutput> is describing the condition to which the trasnporter must comply to. This has to be implemented by the user in the class: <computeroutput>Condition</computeroutput> in the method: <computeroutput>check()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="201" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="201" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1af7d0ada4356d0bfc963cb3d4b8bec581" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.cooperate</definition>
+        <argsstring>(Transportation transportation)</argsstring>
+        <name>cooperate</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></type>
+          <declname>transportation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is inherited from the class <computeroutput>WaitQueue</computeroutput> and will be overwritten here to use the more suitable method <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1adbfb0502448d2d78fba156a1576f38fc" kindref="member">transport(Transportation)</ref></computeroutput>. If the capacity limit of the master queue is reached, the process will not be enqueued and <computeroutput>false</computeroutput> returned.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process can be enqueued successfully, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the master queue is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>transportation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref> : The transportation process transportation is describing the joint action of the processes. The transport to be carried out has to be implemented by the user in the class: <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></computeroutput> in the method: <computeroutput>cooperation()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="250" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="250" bodyend="254"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1adbfb0502448d2d78fba156a1576f38fc" compoundref="_transport_junction_8java" startline="344" endline="547">desmoj.extensions.applicationDomains.production.TransportJunction.transport</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aeb8eee5c265bd9d2eaee9993a31a0c37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.cooperate</definition>
+        <argsstring>(Transportation transportation, Condition cond)</argsstring>
+        <name>cooperate</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></type>
+          <declname>transportation</declname>
+        </param>
+        <param>
+          <type>Condition</type>
+          <declname>cond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is inherited from the class <computeroutput>WaitQueue</computeroutput> and will be overwritten here to use the more suitable method <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aa8b2177dc55f0fd90a87578f72c61395" kindref="member">transport(Transportation, Condition)</ref></computeroutput>.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process can be enqueued successfully, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the master queue is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>transportation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref> : The transportation process transportation is describing the joint action of the processes. The transport to be carried out has to be implemented by the user in the class: <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></computeroutput> in the method: <computeroutput>cooperation()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The Condition <computeroutput>cond</computeroutput> is describing the condition to which the slave process must comply to. This has to be implemented by the user in the class: <computeroutput>Condition</computeroutput> in the method: <computeroutput>check()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="276" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="276" bodyend="280"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1adbfb0502448d2d78fba156a1576f38fc" compoundref="_transport_junction_8java" startline="344" endline="547">desmoj.extensions.applicationDomains.production.TransportJunction.transport</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a41a50ae46d994d8a9817d232f16d4b1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref></type>
+        <definition>desmoj.core.report.Reporter desmoj.extensions.applicationDomains.production.TransportJunction.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a Reporter to produce a report about this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref>.</para><para><simplesect kind="return"><para>desmoj.report.Reporter : The Reporter for the queues inside this <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="288" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="288" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a2daffded1a01863da48b3db2ea9b76e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.getPassBy</definition>
+        <argsstring>()</argsstring>
+        <name>getPassBy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether a transporter can pass by other transporters which are enqueued before him in the queue.</para><para><simplesect kind="return"><para>boolean : Indicates whether transporters can pass by other transporters which are enqueued before them in the queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="301" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="301" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aeebcbec5f1690a85811b86b37c3755fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.applicationDomains.production.TransportJunction.setPassBy</definition>
+        <argsstring>(boolean newPassBy)</argsstring>
+        <name>setPassBy</name>
+        <param>
+          <type>boolean</type>
+          <declname>newPassBy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the flag passBy to a new value. PassBy is indicating whether transporters can pass by other transporters which are enqueued before them in the queue.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newPassBy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : The new value of passBy. Set it to <computeroutput>true</computeroutput> if you want transporters to pass by other transporters which are enqueued before them in the queue. Set it to <computeroutput>false</computeroutput> if you don&apos;t want transporters to overtake other transporters in the queue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="317" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="317" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1adbfb0502448d2d78fba156a1576f38fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.transport</definition>
+        <argsstring>(Transportation transportation)</argsstring>
+        <name>transport</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></type>
+          <declname>transportation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is to be called from a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> which wants to transport goods as a master. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in the master waiting-queue, until enough suitable slaves are available. If the capacity limit of the master queue is reached, the process will not be enqueued and <computeroutput>false</computeroutput> returned. When enough suitable slaves are available their <computeroutput>prepareTransport()</computeroutput> method (in the class <computeroutput>SimProcess</computeroutput>) will be called. During the transportation process the master process is the only active one. The slave process is passive and will be reactivated after the transportation is done.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process can be enqueued successfully, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the master queue is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>transportation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref> : The transportation process transportation is describing the joint action of the processes. The transportation to be carried out has to be implemented by the user in the class: <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></computeroutput> in the method: <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1adbfb0502448d2d78fba156a1576f38fc" kindref="member">transport()</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="344" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="344" bodyend="547"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aa8b2177dc55f0fd90a87578f72c61395" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.transport</definition>
+        <argsstring>(Transportation transportation, Condition cond)</argsstring>
+        <name>transport</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></type>
+          <declname>transportation</declname>
+        </param>
+        <param>
+          <type>Condition</type>
+          <declname>cond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is to be called from a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> who wants to transport goods which comply to a certain condition. The condition must be specified in the method <computeroutput>check()</computeroutput> in a class derived from <computeroutput>Condition</computeroutput>. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in the master waiting-queue, until enough suitable slaves are available. If the capacity limit of the master queue is reached, the process will not be enqueued and <computeroutput>false</computeroutput> returned. When enough suitable slaves are available their <computeroutput>prepareTransport()</computeroutput> method (in the class <computeroutput>SimProcess</computeroutput>) will be called. During the transportation process the master process is the only active one. The slave process is passive and will be reactivated after the transportation is done.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process can be enqueued successfully, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the master queue is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>transportation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref> : The transportation process is describing the joint action of the processes. The transportation to be carried out has to be implemented by the user in the class: <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></computeroutput> in the method: <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1adbfb0502448d2d78fba156a1576f38fc" kindref="member">transport()</ref></computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The Condition <computeroutput>cond</computeroutput> is describing the condition to which the slave process must comply. This has to be implemented by the user in the class: <computeroutput>Condition</computeroutput> in the method: <computeroutput>check()</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="579" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="579" bodyend="821"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1abc39dc8391f039408d0fa4f454c0a02f" compoundref="_transport_junction_8java" startline="150" endline="186">desmoj.extensions.applicationDomains.production.TransportJunction.availableSet</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter_1a8378f43108a3fa38fab4cc57cf386639" compoundref="_transporter_8java" startline="152" endline="155">desmoj.extensions.applicationDomains.production.Transporter.getMinLoad</references>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter_1ae7fad4f0663f284b47a5458d9c3d555e" compoundref="_transporter_8java" startline="140" endline="143">desmoj.extensions.applicationDomains.production.Transporter.getCapacity</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1ab327af024c86693fc0e0dabe6fd6f077" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.waitOnCoop</definition>
+        <argsstring>()</argsstring>
+        <name>waitOnCoop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is inherited from the class <computeroutput>WaitQueue</computeroutput> and will be overwritten here to use the more suitable method <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a8d47967bb4a89b0ff98838140f7a9636" kindref="member">waitOnTransport()</ref></computeroutput>.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process requesting the transportation has been transported successfully to his destination, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the slave queue is reached). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="833" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="833" bodyend="838"/>
+        <references refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a8d47967bb4a89b0ff98838140f7a9636" compoundref="_transport_junction_8java" startline="855" endline="925">desmoj.extensions.applicationDomains.production.TransportJunction.waitOnTransport</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a8d47967bb4a89b0ff98838140f7a9636" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.extensions.applicationDomains.production.TransportJunction.waitOnTransport</definition>
+        <argsstring>()</argsstring>
+        <name>waitOnTransport</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called from a sim-process which wants to be transported as a slave. If no suitable master process (transporter) is available at the moment, the slave process will be stored in the slave queue, until a suitable master (transporter) is available. If the capacity limit of the slave queue is reached, the process will not be enqueued and <computeroutput>false</computeroutput> will be returned. During the transportation the master process (transporter) is the only active one. The slave process is passive and will be reactivated after the transportation is done.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process requesting the transportation has been transported successfully to his destination, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit of the slave queue is reached). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="855" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="855" bodyend="925"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process_1a9d52350fd6a43ba84485c3bd3dd6435c" compoundref="_sim_process_8java" startline="772" endline="774">desmoj.core.simulator.SimProcess.getSlaveWaitQueue</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" compoundref="_named_object_8java" startline="72" endline="76">desmoj.core.simulator.NamedObject.getQuotedName</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> is the place where <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> s pick up the goods to move them around in a manufacturing system. The goods are normally modeled as some kind of <computeroutput>SimProcess</computeroutput> es. So what happens at the <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> is some kind of Rendez-vous synchronisation, where <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> s meet the goods to carry them around. There is one wait queue for the masters (<computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput>s) and one queue for the slaves (<computeroutput>SimProcess</computeroutput> es), where they have to wait for each other to cooperate. The <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> s are the masters which perform the transportation. The corporate transportation process is described in the method <computeroutput>cooperation</computeroutput> in a subclass of <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation" kindref="compound">Transportation</ref></computeroutput>. The goods (<computeroutput>SimProcess</computeroutput> es) transported as slaves keep still during the transport and will be reactivated thereafter. The main difference to a normal <computeroutput>WaitQueue</computeroutput> is, that in this case one master (<computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput>) can cooperate with more than one slave process at a time. The number of slaves processes which will be transported togehter will be determined by the master <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> process. It depends on the number of available slaves and will be between the minLoad and the capacity of the <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput>. Note that a <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> with a large minimumLoad in front of the wait queue might block all following <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> s in the queue until enough goods are available to satisfy his minimum load. Use different priorities for the different <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter" kindref="compound">Transporter</ref></computeroutput> s to cope with this problem. Or set the passBy flag to <computeroutput>true</computeroutput> to make it possible for transporters with a low minimumLoad to pass by the other transporters. Use the methods <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aeebcbec5f1690a85811b86b37c3755fa" kindref="member">setPassBy()</ref></computeroutput> and <computeroutput><ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a2daffded1a01863da48b3db2ea9b76e0" kindref="member">getPassBy()</ref></computeroutput>. The first sort criteria for the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit can be determined by the user (default is FIFO and unlimited capacity). <ref refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction" kindref="compound">TransportJunction</ref> is derived from <computeroutput>WaitQueue</computeroutput> which in turn is derived from <computeroutput>QueueBased</computeroutput>, which provides all the statistical functionality for the queues.</para><para><simplesect kind="see"><para>desmoj.core.advancedModellingFeatures.WaitQueue </para><simplesectsep/><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">desmoj.core.simulator.QueueBased</ref> </para><simplesectsep/><para>desmoj.core.advancedModellingFeatures.ProcessCoop</para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Soenke Claassen</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="11585">
+        <label>desmoj.extensions.applicationDomains.production.TransportJunction</label>
+        <link refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction"/>
+        <childnode refid="11586" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11586">
+        <label>WaitQueue</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="11587">
+        <label>desmoj.extensions.applicationDomains.production.TransportJunction</label>
+        <link refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction"/>
+        <childnode refid="11588" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11588">
+        <label>WaitQueue</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" line="63" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/applicationDomains/production/TransportJunction.java" bodystart="63" bodyend="926"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1abc39dc8391f039408d0fa4f454c0a02f" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>availableSet</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a6b765c23d1e0ceae0e83b7d86fe9f6ef" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>availTransporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1af7d0ada4356d0bfc963cb3d4b8bec581" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>cooperate</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aeb8eee5c265bd9d2eaee9993a31a0c37" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>cooperate</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a41a50ae46d994d8a9817d232f16d4b1d" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a2daffded1a01863da48b3db2ea9b76e0" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>getPassBy</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a74ca387ad5fa2bc63f6eced79d1c47e2" prot="private" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>passBy</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aeebcbec5f1690a85811b86b37c3755fa" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>setPassBy</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1adbfb0502448d2d78fba156a1576f38fc" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>transport</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1aa8b2177dc55f0fd90a87578f72c61395" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>transport</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a22b7e0b9dfacdfb5e2c96d8eb4c96122" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>TransportJunction</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a673553db2725c7568767aaeed4c17f92" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>TransportJunction</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1ab327af024c86693fc0e0dabe6fd6f077" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>waitOnCoop</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_1a8d47967bb4a89b0ff98838140f7a9636" prot="public" virt="non-virtual"><scope>desmoj::extensions::applicationDomains::production::TransportJunction</scope><name>waitOnTransport</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

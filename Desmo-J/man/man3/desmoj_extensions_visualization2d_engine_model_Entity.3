@@ -1,0 +1,426 @@
+.TH "desmoj.extensions.visualization2d.engine.model.Entity" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.model.Entity \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP (\fBModel\fP model, String id, String entityTypeId, String state, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetId\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNameAttribute\fP (String name, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBList\fP< \fBAttribute\fP > \fBgetNameAttribute\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetPriority\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPriorityAttribute\fP (String p, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBList\fP< \fBAttribute\fP > \fBgetPriorityAttribute\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetVelocity\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetVelocityAttribute\fP (String v, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBList\fP< \fBAttribute\fP > \fBgetVelocityAttribute\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetEntityTypeId\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetState\fP (String state, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "String \fBgetState\fP ()"
+.br
+.ti -1c
+.RI "\fBList\fP< \fBAttribute\fP > \fBgetStateHistory\fP ()"
+.br
+.ti -1c
+.RI "void \fBchangeContainer\fP (String type, String id, String op, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBList\fP< \fBAttribute\fP > \fBgetContainerHistory\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisFree\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisStatic\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAttribute\fP (String key, String value, long since)"
+.br
+.ti -1c
+.RI "String \fBgetAttribute\fP (String key)"
+.br
+.ti -1c
+.RI "\fBList\fP< \fBAttribute\fP > \fBgetAttributeHistory\fP (String key)"
+.br
+.ti -1c
+.RI "boolean \fBexistAttribute\fP (String key)"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGraficFree\fP (long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGraficStatic\fP (String viewId, double positionX, double positionY, double angle, boolean direction, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBgetGrafic\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An entity is a basic-object of animation\&. Every entity has an entity-type\&. Basic-properties of an entity e\&.g\&. possible attributes or states are definied in entity-type\&. The history of all values are stored also\&. All grafical properies are stored in EntityGrafic
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.Entity (\fBModel\fPmodel, Stringid, StringentityTypeId, Stringstate, longtime) throws \fBModelException\fP"
+An new entity will indexed automaticly in classContent hashtable 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP used animation\&.model\&.Model 
+.br
+\fIid\fP entityId must be unique 
+.br
+\fIentityTypeId\fP 
+.br
+\fIstate\fP initial state 
+.br
+\fItime\fP creation-time 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.changeContainer (Stringtype, Stringid, Stringop, longtime) throws \fBModelException\fP"
+An entity will be created, add or remove a container\&. This history is stored in containerHistory 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP container-typ (route, list, \&.\&.) 
+.br
+\fIid\fP container-id or 'free' or 'static' 
+.br
+\fIop\fP add or remove or created or destroyed 
+.br
+\fItime\fP time of operation 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP type or id contains a \fBCmd\&.VALUE_SEPARATOR\fP 
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.createGraficFree (longtime) throws \fBModelException\fP"
+creates an EntityGrafic instance for an free entity 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP time of creation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EntityGrafic 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.createGraficStatic (StringviewId, doublepositionX, doublepositionY, doubleangle, booleandirection, longtime) throws \fBModelException\fP"
+creates an EntityGrafic instance for an static entity with fixed position 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIviewId\fP Id of view 
+.br
+\fIpositionY\fP y-coordinate 
+.br
+\fIangle\fP Drehwinkel 
+.br
+\fIdirection\fP icon ist an y-achse gespiegelt 
+.br
+\fItime\fP time of creation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+EntityGrafic 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.dispose ()"
+Dispose this entity 
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.existAttribute (Stringkey)"
+check if attribute-key is valid 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true, when attribute-key is valid 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getAttribute (Stringkey)"
+get actual value of attribute 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP attribute-key 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+actual value of attribute 
+.RE
+.PP
+
+.SS "\fBList\fP<\fBAttribute\fP> desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getAttributeHistory (Stringkey)"
+get history vector of attribute 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP attribute-key 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+history vector of attribute 
+.RE
+.PP
+
+.SS "\fBList\fP<\fBAttribute\fP> desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getContainerHistory ()"
+get vector of containerHistory 
+.PP
+\fBReturns:\fP
+.RS 4
+vector of containerHistory 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getName ()"
+actual value of name-attribute 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "\fBList\fP<\fBAttribute\fP> desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getNameAttribute ()"
+get vector with all historical name-keys 
+.PP
+\fBReturns:\fP
+.RS 4
+vector with all historical name-keys 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getPriority ()"
+get actual value of priority-attribute 
+.PP
+\fBReturns:\fP
+.RS 4
+actual value of priority-attribute 
+.RE
+.PP
+
+.SS "\fBList\fP<\fBAttribute\fP> desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getPriorityAttribute ()"
+get historical vector of priorities 
+.PP
+\fBReturns:\fP
+.RS 4
+historical vector of priorities 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getState ()"
+get actual value of state 
+.PP
+\fBReturns:\fP
+.RS 4
+actual value of state 
+.RE
+.PP
+
+.SS "\fBList\fP<\fBAttribute\fP> desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getStateHistory ()"
+get vector of state history 
+.PP
+\fBReturns:\fP
+.RS 4
+vector of state history 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getVelocity ()"
+get actual velocity 
+.PP
+\fBReturns:\fP
+.RS 4
+actual velocity 
+.RE
+.PP
+
+.SS "\fBList\fP<\fBAttribute\fP> desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.getVelocityAttribute ()"
+get historical vector of velocity 
+.PP
+\fBReturns:\fP
+.RS 4
+historical vector of velocity 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.isFree ()"
+An entity is static or it is in a container (list, route, process) or it is free Only a free entity can put in to a container 
+.PP
+\fBReturns:\fP
+.RS 4
+true, when non-static entity is in no container 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.isStatic ()"
+An entity has a fixed location 
+.PP
+\fBReturns:\fP
+.RS 4
+true, when entity has a fixed location 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.setAttribute (Stringkey, Stringvalue, longsince)"
+set an attribute-value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP attribute-key 
+.br
+\fIvalue\fP attribute-value 
+.br
+\fIsince\fP time of setting 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.setNameAttribute (Stringname, longtime) throws \fBModelException\fP"
+set a new key of name-attribute This seted attribute is used as name attribute\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP new key of name-attribute 
+.br
+\fItime\fP time of setting 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.setPriorityAttribute (Stringp, longtime) throws \fBModelException\fP"
+sets new value of priority-attribute 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP new priority-value 
+.br
+\fItime\fP time of setting 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.setState (Stringstate, longtime) throws \fBModelException\fP"
+set new state-value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstate\fP new state-value 
+.br
+\fItime\fP time of setting 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Entity\&.setVelocityAttribute (Stringv, longtime) throws \fBModelException\fP"
+set new value of velocity-attribute 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP new value of velocity 
+.br
+\fItime\fP time of setting 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

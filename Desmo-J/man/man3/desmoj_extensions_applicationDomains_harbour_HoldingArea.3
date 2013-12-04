@@ -1,0 +1,100 @@
+.TH "desmoj.extensions.applicationDomains.harbour.HoldingArea" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.HoldingArea \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits WaitQueue\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHoldingArea\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, int mSortOrder, int mQCapacity, int sSortOrder, int sQCapacity, int nLanes, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBLane\fP \fBgetLane\fP ()"
+.br
+.ti -1c
+.RI "void \fBtakeBack\fP (\fBLane\fP l)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBHoldingArea\fP is the place where \fC\fBInternalTransporter\fP\fPs serve (load/unload) \fC\fBTruck\fP\fP s at a container terminal\&. So what happens at the \fBHoldingArea\fP is some kind of Rendezvous synchronisation, where \fC\fBInternalTransporter\fP\fP s meet the \fC\fBTruck\fP\fPs to load/unload them\&. There is one wait queue for the masters (\fC\fBInternalTransporter\fP\fPs) and one queue for the slaves ( \fC\fBTruck\fP\fP s), where they have to wait for each other to cooperate\&. The \fC\fBInternalTransporter\fP\fP s are the masters which perform the loading/unloading operation\&. The corporate loading/unloading operation is described in the method \fCcooperation\fP in a subclass of \fC\fBLoading\fP\fP or \fC\fBUnloading\fP\fP\&. The \fC\fBTruck\fP\fP s loaded/unloaded as slaves keep still during the loading/unloading operation and will be reactivated thereafter\&. The first sort criteria for the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit can be determined by the user (default is FIFO and unlimited capacity)\&. \fBHoldingArea\fP is derived from \fCWaitQueue\fP which in turn is derived from \fCQueueBased\fP, which provides all the statistical functionality for the queues\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue 
+.PP
+\fBdesmoj\&.core\&.simulator\&.QueueBased\fP 
+.PP
+desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.HoldingArea\&.HoldingArea (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, intmSortOrder, intmQCapacity, intsSortOrder, intsQCapacity, intnLanes, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHoldingArea\fP\&. There are two waiting-queues constructed, one internal \fCQueueList\fP for the \fC\fBInternalTransporter\fP\fP s (masters) and one separate \fCProcessQueue\fP for the \fC\fBTruck\fP\fP s (slave) processes \&. The queueing discipline and the capacity limit of the underlying queues can be chosen\&. Highest priority are always first in the queues\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBHoldingArea\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHoldingArea\fP\&. 
+.br
+\fImSortOrder\fP int : determines the sort order of the underlying master queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fImQCapacity\fP int : The capacity of the master queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIsSortOrder\fP int : determines the sort order of the underlying slave queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIsQCapacity\fP int : The capacity of the slave queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIint\fP nLanes: the number of the lanes of this \fBHoldingArea\fP\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBHoldingArea\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this \fBHoldingArea\fP should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBLane\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.HoldingArea\&.getLane ()"
+Gets a Line from the \fBHoldingArea\fP and provides it to the sim-process to use it\&. As not enough lanes are available at the moment the sim-process has to wait in a queue until a lane is available again\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBLane\fP\fP: The available lane of this \fBHoldingArea\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.HoldingArea\&.takeBack (\fBLane\fPl)"
+A process is using this method to put lane it has used back in the \fBHoldingArea\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIl\fP \fC\fBLane\fP\fP: The lane which should be returned to the \fBHoldingArea\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

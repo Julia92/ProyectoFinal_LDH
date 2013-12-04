@@ -1,0 +1,526 @@
+\section{desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin Class Reference}
+\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}\index{desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin@{desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin}}
+
+
+Inheritance diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Bin} ({\bf desmoj.\-core.\-simulator.\-Model} owner, String name, int sort\-Order, int q\-Capacity, long initial\-Units, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Bin} ({\bf desmoj.\-core.\-simulator.\-Model} owner, String name, long initial\-Units, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+double {\bf avg\-Avail} ()
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+boolean {\bf retrieve} (long n)
+\item 
+long {\bf get\-Avail} ()
+\item 
+long {\bf get\-Consumers} ()
+\item 
+long {\bf get\-Initial} ()
+\item 
+long {\bf get\-Maximum} ()
+\item 
+boolean {\bf get\-Pass\-By} ()
+\item 
+long {\bf get\-Producers} ()
+\item 
+String {\bf get\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Refused} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf set\-Pass\-By} (boolean new\-Pass\-By)
+\item 
+void {\bf store} (long n)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf activate\-As\-Next} ({\bf Sim\-Process} process)
+\item 
+void {\bf activate\-First} ()
+\item 
+boolean {\bf check\-Process} ({\bf Sim\-Process} p, String where)
+\item 
+void {\bf update\-Statistics} (long n)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Queue\-List$<$ {\bf Sim\-Process} $>$ {\bf \-\_\-queue}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} is the place where producers can store their products for consumers to come and use them up. \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} is used to implement process synchronization between producers and consumers. Producers are producing products and store them using {\ttfamily \doxyref{store()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a34bc2376bb727011ec4b10bec4c9f347}} in the bin. Consumers make the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} {\ttfamily deliver()} the products to use them up. If no or not enough units of a product are available for the consumers, they have to wait in a queue until new units are delivered by a producer. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is F\-I\-F\-O and unlimited capacity). \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} is derived from Queue\-Based, which provides all the statistical functionality for a queue.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998 \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!Bin@{Bin}}
+\index{Bin@{Bin}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{Bin}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-Bin (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-simulator.\-Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{sort\-Order, }
+\item[{int}]{q\-Capacity, }
+\item[{long}]{initial\-Units, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_acb3f055b11b6313eae4b6349358dc53f}
+Constructor for a \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} with a number of initial units of a product in it. The queueing discipline and the capacity limit of the underlying queue can be chosen, too. Highest priority are always first in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}'s name \\
+\hline
+{\em sort\-Order} & int \-: determines the sort order of the underlying queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em q\-Capacity} & int \-: The capacity of the queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em initial\-Units} & long \-: The units of a product the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} starts with. Must be positive. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_acb3f055b11b6313eae4b6349358dc53f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!Bin@{Bin}}
+\index{Bin@{Bin}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{Bin}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-Bin (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-simulator.\-Model}}]{owner, }
+\item[{String}]{name, }
+\item[{long}]{initial\-Units, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a8ba626eed6cc364dea3e3c866387eeef}
+Constructor for a \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} with a number of initial units of a product in it. The underlying queue has a Fifo queueing discipline and unlimited capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}'s name \\
+\hline
+{\em initial\-Units} & long \-: The units of a product the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} starts with. Must be positive. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a8ba626eed6cc364dea3e3c866387eeef_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!activate\-As\-Next@{activate\-As\-Next}}
+\index{activate\-As\-Next@{activate\-As\-Next}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{activate\-As\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-activate\-As\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{process}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_abfc506257343dfb7261a777113f18fab}
+Activates the Sim\-Process {\ttfamily process}, given as a parameter of this method, as the next process. This process should be a Sim\-Process waiting in the queue for some products.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process} & Sim\-Process \-: The process that is to be activated as next. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_abfc506257343dfb7261a777113f18fab_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!activate\-First@{activate\-First}}
+\index{activate\-First@{activate\-First}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{activate\-First}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-activate\-First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_ad922a7917231382495450eaf3b743443}
+Activates the first process waiting in the queue. That is a process which was trying to take products, but it could not get any because there were not enough products for it or another process was first in the queue to be served. This method is called every time a producer has given new products or a consumer in the waiting-\/queue is satisfied. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_ad922a7917231382495450eaf3b743443_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!avg\-Avail@{avg\-Avail}}
+\index{avg\-Avail@{avg\-Avail}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{avg\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-avg\-Avail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a5642b0f0538f815bee2c2d76df1c61c4}
+Returning the average number of products available in the bin over the time since the last reset of the bin.
+
+\begin{DoxyReturn}{Returns}
+double \-: The average number of products available in the bin over the time since the last reset of the bin. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a5642b0f0538f815bee2c2d76df1c61c4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!check\-Process@{check\-Process}}
+\index{check\-Process@{check\-Process}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{check\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-check\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p, }
+\item[{String}]{where}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a0f4c0c00dcdcabf87abb86f016aec955}
+Checks whether the entity using the bin is a valid process.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns whether the Sim\-Process is valid or not. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Sim\-Process \-: Is this Sim\-Process a valid one? \\
+\hline
+{\em where} & String \-: The method having called {\ttfamily \doxyref{check\-Process()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a0f4c0c00dcdcabf87abb86f016aec955}} as a String. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a0f4c0c00dcdcabf87abb86f016aec955_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a72d73238769d82ae4d56f065c06a4b26}
+Returns a Reporter to produce a report about this \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for the queue inside this bin 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Avail@{get\-Avail}}
+\index{get\-Avail@{get\-Avail}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Avail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a0c3e2e3dc13c27a4360b7793edff399c}
+Returns the number of units available at the moment.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of units available at the moment. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Consumers@{get\-Consumers}}
+\index{get\-Consumers@{get\-Consumers}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Consumers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Consumers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a96a818f892119f23f82581b78978c5ce}
+Returns the number of consumers having visited the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of consumers having visited the bin. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Initial@{get\-Initial}}
+\index{get\-Initial@{get\-Initial}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Initial}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Initial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a2ad130f75af32ad3e88989d124456314}
+Returns the initial number of products in the bin.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of products the bin started with. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Maximum@{get\-Maximum}}
+\index{get\-Maximum@{get\-Maximum}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Maximum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a41794ca38a1c8aa1814fe5697006763d}
+Returns the maximum number of products in the bin.
+
+\begin{DoxyReturn}{Returns}
+long \-: The maximum number of products in the bin. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Pass\-By@{get\-Pass\-By}}
+\index{get\-Pass\-By@{get\-Pass\-By}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Pass\-By (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a470ce5fbb9f86032ceedaca0c8dd841e}
+Returns whether entities can pass by other entities which are enqueued before them in the queue.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Indicates whether entities can pass by other entities which are enqueued before them in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Producers@{get\-Producers}}
+\index{get\-Producers@{get\-Producers}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Producers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Producers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a056cb45d5e6ea0f182ae2e9d6ea77a4e}
+Returns the number of producers having used the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of producers having put products in the bin. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Queue\-Strategy@{get\-Queue\-Strategy}}
+\index{get\-Queue\-Strategy@{get\-Queue\-Strategy}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a170fe1ed65801ace4a1a0156d8b9188e}
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a5ae295699fa038a49e75e59f93d45d94}
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of entities refused to be enqueued in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_ac12934b97085b7d16db08d64cf752fc7}
+To reset the statistics of this bin. The number of available products at this moment and the processes waiting in the queue are not changed. But all statistic counters are reset. The {\ttfamily Queue\-Based} is also reset. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_ac12934b97085b7d16db08d64cf752fc7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!retrieve@{retrieve}}
+\index{retrieve@{retrieve}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{retrieve}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-retrieve (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_af9724e1815786756791f74a2a2cd4022}
+Method for consumers to make the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} deliver a number of n products. When there are not enough products available or another consumer is first in the queue to be served (and it is not possible to pass by), the current consumer process will be blocked and inserted in the waiting-\/queue.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the specified number of units have been delivered successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of products the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} is delivering to the consumer. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_af9724e1815786756791f74a2a2cd4022_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!set\-Pass\-By@{set\-Pass\-By}}
+\index{set\-Pass\-By@{set\-Pass\-By}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{set\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-set\-Pass\-By (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Pass\-By}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a17f05baf3d53fa561bb0bfde07156d38}
+Sets the flag pass\-By to a new value. Pass\-By is indicating whether entities can pass by other entities which are enqueued before them in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Pass\-By} & boolean \-: The new value of pass\-By. Set it to {\ttfamily true} if you want entities to pass by other entities which are enqueued before them in the queue. Set it to {\ttfamily false} if you don't want entities to overtake other entities in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!store@{store}}
+\index{store@{store}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{store}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-store (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a34bc2376bb727011ec4b10bec4c9f347}
+Method for producers to put a number of n new products in the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}. When producers {\ttfamily \doxyref{store()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a34bc2376bb727011ec4b10bec4c9f347}} new products n is positive. Producers can always store products into the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} and will never be inserted in a queue and blocked, because the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} has no capacity limit..
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of products put into the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a34bc2376bb727011ec4b10bec4c9f347_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!update\-Statistics@{update\-Statistics}}
+\index{update\-Statistics@{update\-Statistics}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{update\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-update\-Statistics (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a83a92f93afa6adbf2896ece03a627566}
+Updates the statistics for producers and consumers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: Is positive when producers {\ttfamily \doxyref{store()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a34bc2376bb727011ec4b10bec4c9f347}} new products in the bin and negative when the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin} {\ttfamily deliver()}'s products to the consumer process. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a83a92f93afa6adbf2896ece03a627566_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}!\-\_\-queue@{\-\_\-queue}}
+\index{\-\_\-queue@{\-\_\-queue}!desmoj::core::advancedModellingFeatures::Bin@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Bin}}
+\subsubsection[{\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-List$<${\bf Sim\-Process}$>$ desmoj.\-core.\-advanced\-Modelling\-Features.\-Bin.\-\_\-queue\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin_a280fd52404b633a7f6807075ccb078a2}
+The queue, actually storing the processes waiting for products 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/advanced\-Modelling\-Features/Bin.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,204 @@
+.TH "desmoj.core.statistic.Accumulate" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.Accumulate \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.statistic\&.HistogramAccumulate\fP, and \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.statistic\&.AccumulateAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAccumulate\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, boolean automatic, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBAccumulate\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetPeriodMeasured\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMean\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetStdDev\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBdoesRetainLastValueOnReset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetRetainLastValueOnReset\fP (boolean retainValue)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double val)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.ti -1c
+.RI "void \fBpause\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBAccumulate\fP\fP class is providing a statistic analysis about one value\&. The mean value and the standard deviation is weighted over time\&.
+.br
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.Accumulate\&.Accumulate (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, booleanautomatic, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBAccumulate\fP object that will be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBAccumulate\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBAccumulate\fP object 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBAccumulate\fP\&. The given \fBValueSupplier\fP will be observed by this \fC\fBAccumulate\fP\fP object, if it is not observed automatically at every tick of the SimClock\&. 
+.br
+\fIautomatic\fP boolean : Flag for observing the \fBValueSupplier\fP at every tick of the SimClock\&. Set it to \fCtrue\fP to have it observed at every SimClock tick\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBAccumulate\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBAccumulate\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Accumulate\&.Accumulate (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBAccumulate\fP object that will not be connected to a \fC\fBValueSupplier\fP\fP automatically\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBAccumulate\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBAccumulate\fP object\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBAccumulate\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBAccumulate\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.Accumulate\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBAccumulate\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBAccumulate\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.statistic\&.Accumulate\&.doesRetainLastValueOnReset ()"
+This method determines whether if the accumulate's last value is retained on reset (true) or nullified (false)\&. The default value is true\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+value of the retainLastValueOnReset flag 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Accumulate\&.getMean ()\fC [virtual]\fP"
+Returns the mean value of all the values observed so far, weighted over time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean value of all the values observed so far, weighted over time\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP\&.
+.SS "\fBTimeSpan\fP desmoj\&.core\&.statistic\&.Accumulate\&.getPeriodMeasured ()"
+Returns the period measured (excluding pauses)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The period measured (excluding pauses)\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Accumulate\&.getStdDev ()\fC [virtual]\fP"
+Returns the standard deviation of all the values observed so far, weighted over time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation of all the values observed so far, weighted over time\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP\&.
+.SS "void desmoj\&.core\&.statistic\&.Accumulate\&.pause ()"
+Temporarily suspend data collection to exclude a period, e\&.g\&. to disregard the night period in which a plant is closed from machine utilization statistics\&. Data collection will be resumed automatically on calling an update(\&.\&.\&.)-method\&. 
+.SS "void desmoj\&.core\&.statistic\&.Accumulate\&.reset ()"
+Resets this \fBAccumulate\fP object by resetting all variables to 0\&.0\&. If the flag retainLastValueOnReset is set to true, the last value is not nullified but remains unchanged\&. 
+.SS "void desmoj\&.core\&.statistic\&.Accumulate\&.setRetainLastValueOnReset (booleanretainValue)"
+Sets the value of the retainLastValueOnResetFlag\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIretainValue\fP new value of the flag\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Accumulate\&.update ()"
+Updates this \fC\fBAccumulate\fP\fP object by fetching the actual value of the \fC\fBValueSupplier\fP\fP and processing it\&. The \fC\fBValueSupplier\fP\fP can be passed in the constructor of this \fC\fBAccumulate\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.Accumulate\&.update (doubleval)"
+Updates this \fC\fBAccumulate\fP\fP object with the double value given as parameter\&. In some cases it might be more convenient to pass the value this \fC\fBAccumulate\fP\fP will be updated with directly within the \fC\fBupdate(double val)\fP\fP method instead of going via the \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIval\fP double : The value with which this \fC\fBAccumulate\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Accumulate\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBValueSupplier\fP will be fetched with the \fCvalue()\fP method of the \fBValueSupplier\fP\&. Otherwise it is expected that the actual value is passed in the Object arg\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBAccumulate\fP\fP is updated\&. Normally a Double value which is added to the statistics or \fCnull\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

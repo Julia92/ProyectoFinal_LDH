@@ -1,0 +1,70 @@
+.TH "desmoj.core.exception.DESMOJException" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.exception.DESMOJException \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits RuntimeException\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.exception\&.SimAbortedException\fP, \fBdesmoj\&.core\&.exception\&.SimFinishedException\fP, and \fBdesmoj\&.extensions\&.space3D\&.IllegalMoveException\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDESMOJException\fP (\fBErrorMessage\fP message)"
+.br
+.ti -1c
+.RI "\fBErrorMessage\fP \fBgetErrorMessage\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+General exception for the desmoj simulation framework\&. All specific exceptions extend this class, thus building a hierarchic tree of possible exceptions being thrown by the framework and keeping all simulation related exceptions close together\&. Most exceptions are thrown when the continuation of the simulation can not be determined\&. This is especially the case with \fCnull\fP references passed to a method expecting valid parameters\&. Note that these exceptions must not be caught by the user and that the user does not need to re-throw these exceptions, since they all inherit from class \fCjava\&.exception\&.RuntimeException\fP which has the special feature to be re-thrown automatically by any method\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.lang\&.RuntimeException
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.exception\&.DESMOJException\&.DESMOJException (\fBErrorMessage\fPmessage)"
+Constructs a standard DESMO-J exception with an error message needed to properly describe what error occured, where it occured, what reasons could be responsible for it and what could be done to prevent this error from occuring\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP desmoj\&.report\&.ErrorMessage : Describes the error leading to this exception 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBErrorMessage\fP desmoj\&.core\&.exception\&.DESMOJException\&.getErrorMessage ()"
+Returns the error message describing the circumstances leading to this exception being thrown\&. Use this method to extract the message and pass it to the Experiment's MessageDistributor to write it to the ErrorFile\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.ErrorMessage : The errormessage describing the reasons for this Exception 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

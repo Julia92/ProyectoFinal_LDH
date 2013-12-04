@@ -1,0 +1,189 @@
+.TH "desmoj.extensions.applicationDomains.production.RestockProcessMS" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.RestockProcessMS \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP, and PropertyChangeListener\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRestockProcessMS\fP (\fBModel\fP owner, String name, long mil, long safetyStk, \fBStock\fP client, NumericalDist<?> lt, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRestockProcessMS\fP (\fBModel\fP owner, String name, long mil, long safetyStk, \fBStock\fP client, boolean showInTrace)"
+.br
+.ti -1c
+.RI "long \fBgetActualOrderQuantity\fP ()"
+.br
+.ti -1c
+.RI "NumericalDist<?> \fBgetLeadTime\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMaxInventoryLevel\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSafetyStockLevel\fP ()"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBpropertyChange\fP (PropertyChangeEvent evt)"
+.br
+.ti -1c
+.RI "void \fBsetLeadTime\fP (NumericalDist<?> newLeadTime)"
+.br
+.ti -1c
+.RI "void \fBsetMaxInventoryLevel\fP (long newMaxInventoryLevel)"
+.br
+.ti -1c
+.RI "void \fBsetSafetyStockLevel\fP (long newSafetyStk)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBRestockProcessMS\fP is a process restocking a \fCStock\fP up to a maximum (M) inventory level every time a given safety (S) stock level is reached\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.RestockProcessMS (\fBModel\fPowner, Stringname, longmil, longsafetyStk, \fBStock\fPclient, NumericalDist<?>lt, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessMS\fP\fP which restocks a client \fCStock\fP up to a maximum inventory level every time the safety stock is reached\&. The lead time (time gap between placement and receipt of an order) will be given as a real random number distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessMS\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessMS\fP\fP 
+.br
+\fImil\fP long : The maximum inventory level the Stock will be filled up to with every order\&. 
+.br
+\fIsafetyStk\fP long : The safety stock\&. When this inventory level is reached an order will be placed 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIlt\fP NumericalDist<?> : The lead time random number distribution to determine the time between placement and receipt of an order\&. If \fCnull\fP the lead time is zero\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessMS\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessMS\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessMS\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.RestockProcessMS (\fBModel\fPowner, Stringname, longmil, longsafetyStk, \fBStock\fPclient, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessMS\fP\fP which restocks a client \fCStock\fP up to a maximum inventory level every time the safety stock is reached\&. The lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessMS\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessMS\fP\fP\&. 
+.br
+\fImil\fP long : The maximum inventory level the Stock will be filled up to with every order\&. 
+.br
+\fIsafetyStk\fP long : The safety stock\&. When this inventory level is reached an order will be placed 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessMS\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessMS\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessMS\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.getActualOrderQuantity ()"
+Returns the quantity (number of units) to be stored in the Stock\&. Changes every time a new order is placed!
+.PP
+\fBReturns:\fP
+.RS 4
+long : The Stock will be replenished with this number of units\&. 
+.RE
+.PP
+
+.SS "NumericalDist<?> desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.getLeadTime ()"
+Returns the random number distribution for the lead time (time between placement and receipt of an order)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+NumericalDist<?> : The random number distribution for the lead time (time between placement and receipt of an order)\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.getMaxInventoryLevel ()"
+Returns the maximum inventory level up to which the Stock will be refilled in every cycle\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum inventory level up to which the Stock will be refilled in every cycle\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.getSafetyStockLevel ()"
+Returns the safety stock level\&. When this inventory level is reached a new order will be placed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The safety stock level\&. When this inventory level is reached a new order will be placed\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.lifeCycle ()\fC [virtual]\fP"
+The \fC\fBRestockProcessMS\fP\fP replenishes the associated \fCStock\fP up to the maximum (M) inventory level every time the inventory level dropped below the safety (S) stock level\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.propertyChange (PropertyChangeEventevt)"
+Informs the \fBRestockProcessMS\fP every time the inventory level of the Stock changes\&. If the inventory level of the Stock drops below the safety stock level this \fBRestockProcessMS\fP must be woken up to place an order\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevt\fP java\&.beans\&.PropertyChangeEvent : Informing the event about an inventory level change of the Stock\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.setLeadTime (NumericalDist<?>newLeadTime)"
+Set the lead time to a new real random number distribution\&. If set to \fCnull\fP the lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewLeadTime\fP NumericalDist<?> : The new real random number distribution determining the lead time\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.setMaxInventoryLevel (longnewMaxInventoryLevel)"
+Sets the maximum inventory level to a new value\&. Make sure it is greater than zero and less than the capacity of the Stock\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewMaxInventoryLevel\fP long : The new maximum inventory level\&. Make sure it is greater than zero and less than the capacity of the Stock\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\&.setSafetyStockLevel (longnewSafetyStk)"
+Sets the safety stock level to a new value\&. Make sure it is greater than zero and less than the capacity of the Stock\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewSafetyStk\fP long : The new safety stock level\&. Make sure it is greater than zero and less than the capacity of the Stock\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,416 @@
+.TH "desmoj.core.statistic.Histogram" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.Histogram \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.Tally\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.statistic\&.HistogramAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHistogram\fP (\fBModel\fP ownerModel, String name, double lowerEnd, double upperEnd, int cells, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBHistogram\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, double lowerEnd, double upperEnd, int cells, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBHistogram\fP (\fBModel\fP ownerModel, String name, double[] range, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBHistogram\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, double[] range, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "boolean \fBisCondensed\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCondensed\fP (boolean condensed)"
+.br
+.ti -1c
+.RI "void \fBchangeParameters\fP (double low, double up, int cel)"
+.br
+.ti -1c
+.RI "void \fBchangeParameters\fP (double[] range)"
+.br
+.ti -1c
+.RI "boolean \fBchiSquareTest\fP (long[] values, double confidence)"
+.br
+.ti -1c
+.RI "boolean \fBchiSquareTest\fP (long[] values, int degFreedom, double confidence)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetCells\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetCellWidth\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMeanWidth\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetLowerLimit\fP (int cell)"
+.br
+.ti -1c
+.RI "int \fBgetMostFrequentedCell\fP ()"
+.br
+.ti -1c
+.RI "int[] \fBgetMostFrequentedCells\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetObservationsInCell\fP (int cell)"
+.br
+.ti -1c
+.RI "double \fBgetUpperLimit\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double val)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheckParamAndInitRange\fP (double lowerLimit, double upperLimit, int cells)"
+.br
+.ti -1c
+.RI "void \fBcheckParamAndInitRange\fP (double[] range)"
+.br
+.ti -1c
+.RI "void \fBinitTable\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBHistogram\fP\fP class is providing a statistic analysis about values\&. An interval is divided into sections with an under- and an overflow section\&. When a value is updated it will be decided to which section it belongs to and the counter for that section will be updated\&. In the end the report will show how many values belong to which section\&. 
+.br
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998 
+.PP
+edited by Lorna Slawski (changes in implementation and added possibility of non-equidistant sections as well as the Chi-squared test)
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.Histogram\&.Histogram (\fBModel\fPownerModel, Stringname, doublelowerEnd, doubleupperEnd, intcells, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with equidistant interval cells that will NOT be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIlowerEnd\fP double : The lower end of the interval\&. 
+.br
+\fIupperEnd\fP double : The upper end of the interval\&. 
+.br
+\fIcells\fP int : The number of cells (sections) the given interval will be divided into\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Histogram\&.Histogram (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, doublelowerEnd, doubleupperEnd, intcells, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with equidistant interval cells that will be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBHistogram\fP\&. The given \fBValueSupplier\fP will be observed by this \fBHistogram\fP object\&. 
+.br
+\fIlowerEnd\fP double : The lower end of the interval\&. 
+.br
+\fIupperEnd\fP double : The upper end of the interval\&. 
+.br
+\fIcells\fP int : The number of cells (sections) the given interval will be divided into\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Histogram\&.Histogram (\fBModel\fPownerModel, Stringname, double[]range, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with user-defined interval cells that will NOT be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIrange\fP double[] : The interval with the lower limit of each cell and the upper limit of the interval as the final value\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Histogram\&.Histogram (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, double[]range, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with user-defined interval cells that will be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBHistogram\fP\&. The given \fBValueSupplier\fP will be observed by this \fBHistogram\fP object\&. 
+.br
+\fIrange\fP double[] : The interval with the lower limit of each cell and the upper limit of the interval as the final value\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.changeParameters (doublelow, doubleup, intcel)"
+Changes the parameters of the interval and its number of segments\&. Can only be done after construction of a \fBHistogram\fP or after a reset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlow\fP double : The lower end of the interval\&. 
+.br
+\fIup\fP double : The upper end of the interval\&. 
+.br
+\fIcel\fP int : The number of cells (sections) the given interval will be divided into\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.changeParameters (double[]range)"
+Changes the parameters of the interval and its number of segments\&. Can only be done after construction of a \fBHistogram\fP or after a reset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP double[] : The array holding the lower limits of the interval sections and the upper limit as the final value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.checkParamAndInitRange (doublelowerLimit, doubleupperLimit, intcells)\fC [protected]\fP"
+Checks the segmentation of the given equidistant interval and then initializes the range array\&. 
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.checkParamAndInitRange (double[]range)\fC [protected]\fP"
+Checks the segmentation of the given user-defined interval and then initializes the range array\&. 
+.SS "boolean desmoj\&.core\&.statistic\&.Histogram\&.chiSquareTest (long[]values, doubleconfidence)"
+Performs Pearson's Chi-square test on given frequencies, a fixed degree of freedom and desired probability\&. The frequencies are given in an array either including under- and overflow cells or not\&. The degree of freedom is set to 1 deducted from the number of given cells\&. On an error the Chi-squared test is not performed and false is returned\&. Details on errors are given out in the error message log\&. The result is \fCtrue\fP if the null hypothesis can not be rejected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalues\fP long[]: Array of assumed frequencies for each cell\&.
+.br
+\fIconfidence\fP double: (1-alpha) probability level\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : \fCtrue\fP if the the null hypothesis can not be rejected\&. \fCfalse\fP on error or if the null hypothesis has to be rejected\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.statistic\&.Histogram\&.chiSquareTest (long[]values, intdegFreedom, doubleconfidence)"
+Performs Pearson's Chi-square test on given frequencies, degrees of freedom and desired probability\&. The frequencies are given in an array either including under- and overflow cells or not\&. On error the Chi-squared test is not performed and false is returned\&. Details on errors are given out in the error message log\&. The result is true if the null hypothesis can not be rejected\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalues\fP long[]: Array of assumed frequencies for each cell\&. 
+.br
+\fIdegFreedom\fP int: Degrees of freedom of the test\&. 
+.br
+\fIconfidence\fP double: (1-alpha) probability level\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : \fCtrue\fP if the the null hypothesis can not be rejected\&. \fCfalse\fP on error or if the null hypothesis has to be rejected\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.Histogram\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBHistogram\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.statistic\&.Histogram\&.getCells ()"
+Returns the number of cells the interval is divided into\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of cells the interval is divided into\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Histogram\&.getCellWidth ()"
+Returns the mean width of all cells\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean width of all cells\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+The same functionality is given by \fBgetMeanWidth()\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Histogram\&.getLowerLimit (intcell)"
+Returns the lower limit of the given cell\&. If the given cell is negative, \fCUNDEFINED\fP (-1) will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The lower limit of the given cell\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcell\fP int : The cell for which we want to know its lower limit\&. Should be zero or positive\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Histogram\&.getMeanWidth ()"
+Returns the mean width of all cells\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean width of all cells\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.statistic\&.Histogram\&.getMostFrequentedCell ()"
+Returns the number of the first cell holding the maximum value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of one cell holding the maximum value\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Gives the same result as the first entry of the returned array of \fBgetMostFrequentedCells()\fP\&. 
+.RE
+.PP
+
+.SS "int [] desmoj\&.core\&.statistic\&.Histogram\&.getMostFrequentedCells ()"
+Returns the numbers of the most frequented cells, so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int[] : An array with the numbers of the most frequented cells\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.statistic\&.Histogram\&.getObservationsInCell (intcell)"
+Returns the observations made for the given cell, so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The observations made for the given cell\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcell\fP int : The cell of which want to get the number of observations made for\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Histogram\&.getUpperLimit ()"
+Returns the upper limit of the whole interval\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The upper limit of the whole interval\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.initTable ()\fC [protected]\fP"
+Initializes the table by setting each cell counter to zero\&. 
+.SS "boolean desmoj\&.core\&.statistic\&.Histogram\&.isCondensed ()"
+Returns whether output is condensed, i\&.e\&. empty cells on the right tail not shown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Not displaying unused cells in report view (\fCtrue\fP) or printing all cells (\fCfalse\fP)\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.reset ()"
+Resets this \fBHistogram\fP object by resetting the counters for each cell to zero\&. That means the array of the cell counters will be reset, but the interval and the number of sections this interval is divided into will remain the same\&. The parameters of the interval can be changed with the \fCchangeParameters\fP method after the reset\&. 
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.setCondensed (booleancondensed)"
+Sets whether output should be condensed, i\&.e\&. empty cells on the right tail not shown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcondensed\fP boolean: Not displaying unused cells in report view (\fCtrue\fP) or printing all cells (\fCfalse\fP)\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.update ()"
+Updates this \fC\fBHistogram\fP\fP object by fetching the actual value of the \fC\fBValueSupplier\fP\fP and processing it\&. The \fC\fBValueSupplier\fP\fP is passed in the constructor of this \fC\fBHistogram\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.update (doubleval)"
+Updates this \fC\fBHistogram\fP\fP object with the double value given as parameter\&. In some cases it might be more convenient to pass the value this \fC\fBHistogram\fP\fP will be updated with directly within the \fC\fBupdate(double val)\fP\fP method instead of going via the \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIval\fP double : The value with which this \fC\fBHistogram\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Histogram\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBValueSupplier\fP will be fetched with the \fCvalue()\fP method of the \fBValueSupplier\fP\&. Otherwise it is expected that the actual value is passed in the Object arg\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBTally\fP\fP is updated\&. Normally a double number which is added to the statistics or \fCnull\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

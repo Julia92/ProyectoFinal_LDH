@@ -1,0 +1,69 @@
+.TH "desmoj.core.simulator.QueueListLifo< E extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.QueueListLifo< E extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits QueueListStandard< E >, and PropertyChangeListener\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQueueListLifo\fP ()"
+.br
+.ti -1c
+.RI "void \fBinsert\fP (E e)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains the implementation with the java\&.util\&.LinkedList to represent queueing functionality\&. The entities are queued first according to their priority and second in LIFO (last in first out) order\&. The statistic data of the queue will be stored in a \fC\fBQueueBased\fP\fP object\&. The \fCQueueListLifo\fP has a reference to its \fC\fBQueueBased\fP\fP object\&. This class needs a reference to a subclass of \fBQueueBased\fP to update the queue statistics\&. It is used in many kinds of queue implementations i\&.e\&. in classes \fCQueue\fP and \fCProcessQueue\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+QueueList 
+.PP
+\fBQueueBased\fP 
+.PP
+Queue 
+.PP
+ProcessQueue
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Justin Neumann 
+.PP
+based on ideas from Soenke Claassen, Tim Lechler, Johannes Go\*(4bel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.QueueListLifo< E extends \fBEntity\fP >\&.QueueListLifo ()"
+Constructs an empty \fCQueueListStandardFifo\fP with no reference to its client \fBQueueBased\fP\&. This no-arg constructor is necessary to instantiate an object of this class by calling the \fCjava\&.lang\&.Class\&.newInstance()\fP method\&. The reference to the \fBQueueBased\fP object making use of this queue-functionality must be provided later by calling the setQueueBased() method\&. The initial length is always zero\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.simulator\&.QueueListLifo< E extends \fBEntity\fP >\&.insert (Ee)"
+Adds a new \fBEntity\fP to the QueueListLifo\&. Entities are inserted according to their priority in descending order\&. The highest priority \fBEntity\fP will always be first in the queue\&. Entities with same priority are inserted in LiFo order\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP \fBEntity\fP : The \fBEntity\fP to add to the QueueListStandardLifo 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

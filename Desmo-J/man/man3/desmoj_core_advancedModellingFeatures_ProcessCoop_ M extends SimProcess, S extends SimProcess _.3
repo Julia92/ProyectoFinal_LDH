@@ -1,0 +1,187 @@
+.TH "desmoj.core.advancedModellingFeatures.ProcessCoop< M extends SimProcess, S extends SimProcess >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.advancedModellingFeatures.ProcessCoop< M extends SimProcess, S extends SimProcess > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProcessCoop\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, boolean showInTrace)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivate\fP (\fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBactivateAfter\fP (\fBSchedulable\fP after)"
+.br
+.ti -1c
+.RI "void \fBactivateBefore\fP (\fBSchedulable\fP before)"
+.br
+.ti -1c
+.RI "abstract void \fBcooperation\fP (M master, S slave)"
+.br
+.ti -1c
+.RI "int \fBgetPriority\fP ()"
+.br
+.ti -1c
+.RI "void \fBhold\fP (\fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBhold\fP (\fBSimTime\fP dt)"
+.br
+.ti -1c
+.RI "void \fBpassivate\fP ()"
+.br
+.ti -1c
+.RI "void \fBreActivate\fP (\fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBsetPriority\fP (int newPriority)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+ProcessCoop is the object representing the process cooperation between two processes\&. It is intended that this process cooperation is used with the \fCWaitQueue\fP construct, where one process is the master which really executes the cooperation and the other process is the slave waiting for a master to lead him through the cooperation\&. That means that during the cooperation the master is active and the slave is passive\&. The action carried out for the two processes together is described in the virtual method \fCcooperation\fP, which is to be implemented by the user building the model\&. This class is encapsulating the cooperation of (at least) these two processes\&. When using the WaitQueue construct the master will be activated after the cooperation is done and the slave will be activated after the master (if it has not been activated during the cooperation already)\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.ProcessCoop (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, booleanshowInTrace)"
+Constructor for a ProcessCoop where a master and a slave process are cooperating\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this ProcessCoop is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The ProcessCoop's name 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.activate (\fBTimeSpan\fPdt)\fC [protected]\fP"
+Activates (schedules) the current SimProcess at the current Simulation time plus the offset \fCdt\fP\&. This method is passed through to the currently running master process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP TimeSpan : The offset to the time now, when the current process is to be activated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.activateAfter (\fBSchedulable\fPafter)\fC [protected]\fP"
+Schedules the current SimProcess to be activated directly after the given Schedulable, which itself is already scheduled\&. Please make sure that the Schedulable given as parameter is actually scheduled\&. This method is passed through to the currently running master process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP Schedulable : The Schedulable the currently running process should be scheduled after\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.activateBefore (\fBSchedulable\fPbefore)\fC [protected]\fP"
+Schedules the current SimProcess to be activated directly before the given Schedulable, which itself is already scheduled\&. Please make sure that the Schedulable given as parameter is actually scheduled\&. This method is passed through to the currently running master process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP Schedulable : The Schedulable the currently running process should be scheduled before\&. 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.cooperation (Mmaster, Sslave)\fC [protected]\fP, \fC [pure virtual]\fP"
+The user building the model has to implement this method in a subclass\&. Here the action of the cooperation carried out by the master process will be described\&. If simulation time is used to perform some action the user has to model this by calling the method \fC\fBhold(TimeSpan dt)\fP\fP\&. The user (the one who is building the model) is responsible to implement this correctly in this \fC\fBcooperation()\fP\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaster\fP SimProcess : The master process which really carries out the cooperation\&. 
+.br
+\fIslave\fP SimProcess : The slave process which is lead through the cooperation by the master\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getPriority ()\fC [protected]\fP"
+Returns the priority of the current SimProcess (usually the master process)\&. Default priority is zero\&. Higher priorities are positive, lower priorities negative\&. The priority determines the position in a waiting queue\&. This method is passed through to the currently running master process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The priority of the SimProcess\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.hold (\fBTimeSpan\fPdt)\fC [protected]\fP"
+Holds the current SimProcess for the given time dt\&. Hold is used to simulate a time period during which the process is working on something in reality\&. But in the simulation the process is not active\&. Only the result is important for the simulation\&. (So the simulation time will be set to the new value and all the attributes which have changed during this time period are changed\&.) This method is passed through to the currently running master process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP desmoj\&.TimeSpan : The current SimProcess will be passivated during this time period\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.hold (\fBSimTime\fPdt)\fC [protected]\fP"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+This methode is replaced by \fBhold(TimeSpan dt)\fP\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP desmoj\&.TimeSpan : The current SimProcess will be passivated during this time period\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.passivate ()\fC [protected]\fP"
+Passivates the current SimProcess for an unknown time period\&. It can only be activated by other objects of the simulation (SimProcesses or Entities)\&. This method is passed through to the currently running master process\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.reActivate (\fBTimeSpan\fPdt)\fC [protected]\fP"
+Reactivates (reschedules) the current SimProcess at the current point of simulation time plus the offset dt\&. This method is passed through to the currently running master process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP TimeSpan : The offset to the time now, when the current process is to be reactivated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.setPriority (intnewPriority)\fC [protected]\fP"
+Sets the priority of the current SimProcess to a new integer value\&. Zero is the default priority\&. Negative priorities are lower, positive priorities are higher\&. All values should be inside the range defined by Java's integral \fCinteger\fP data type\&. The priority determines the position in a waiting-queue\&. This method is passed through to the currently running master process\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPriority\fP int : The new priority value\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

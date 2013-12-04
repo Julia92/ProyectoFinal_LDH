@@ -1,0 +1,128 @@
+.TH "desmoj.core.dist.ContDistConstant" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDistConstant \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.ContDist\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDistConstant\fP (\fBModel\fP owner, String name, double constantValue, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetConstantValue\fP ()"
+.br
+.ti -1c
+.RI "Double \fBsample\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetConstant\fP (double newValue)"
+.br
+.ti -1c
+.RI "void \fBsetNonNegative\fP (boolean newValue)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This constant 'pseudo'-distribution returns a single constant predefined value of type Double\&. This 'distribution' is most useful for testing purposes\&. The value to be returned can be specified at construction time\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.Distribution\fP 
+.PP
+.nf
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDistConstant\&.ContDistConstant (\fBModel\fPowner, Stringname, doubleconstantValue, booleanshowInReport, booleanshowInTrace)"
+Constructs a simple distribution which produces samples equal to the constant value it has been given\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIconstantValue\fP double : The constant value produced by this distribution 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.ContDistConstant\&.createReporter ()"
+Creates the default reporter for the constant distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the constant distribution 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistConstant\&.getConstantValue ()"
+Returns the constant value associated with this \fCConstantDiscreteDist\fP distribution
+.PP
+\fBReturns:\fP
+.RS 4
+N : The constant value returned by this \fCConstantDiscreteDist\fP distribution 
+.RE
+.PP
+
+.SS "Double desmoj\&.core\&.dist\&.ContDistConstant\&.sample ()"
+Returns the next constant sample of this distribution\&. For this 'pseudo'-distribution it is always is the default value specified through the constructor or via the \fIsetConstant\fP method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Double : The constant sample 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.ContDistConstant\&.setConstant (doublenewValue)"
+Changes the constant value to the new one specified\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewValue\fP double : the new value to be returned by this pseudo distribution 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.ContDistConstant\&.setNonNegative (booleannewValue)"
+Overrides the same method of \fCdesmoj\&.dist\&.Distribution\fP\&. It makes no sense to set a \fCConstantDiscreteDist\fP object with a negative constant to nonNegative\&. In this case a warning will be sent\&. 
+.br
+ Sets the nonNegative switch to the given value\&. If nonNegative is set to \fCtrue\fP the distribution returns positive samples only, otherwise it also produces negative samples, if possible\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewValue\fP boolean : If \fCtrue\fP the distribution is set to return positive samples only, otherwise it also produces negative samples, if possible\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

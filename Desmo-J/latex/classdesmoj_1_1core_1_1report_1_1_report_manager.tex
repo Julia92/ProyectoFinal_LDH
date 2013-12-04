@@ -1,0 +1,154 @@
+\section{desmoj.\-core.\-report.\-Report\-Manager Class Reference}
+\label{classdesmoj_1_1core_1_1report_1_1_report_manager}\index{desmoj.\-core.\-report.\-Report\-Manager@{desmoj.\-core.\-report.\-Report\-Manager}}
+
+
+Inheritance diagram for desmoj.\-core.\-report.\-Report\-Manager\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classdesmoj_1_1core_1_1report_1_1_report_manager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-report.\-Report\-Manager\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classdesmoj_1_1core_1_1report_1_1_report_manager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Report\-Manager} (String name)
+\item 
+void {\bf add\-Last} ({\bf Reporter} r)
+\item 
+void {\bf de\-Register} ({\bf Reporter} rep)
+\item 
+List$<$ {\bf Reporter} $>$ {\bf elements} ()
+\item 
+boolean {\bf is\-Empty} ()
+\item 
+void {\bf register} ({\bf Reporter} rep)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Controls all reports given by reportable model components used during an experiment.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::report\-::\-Report\-Manager@{desmoj\-::core\-::report\-::\-Report\-Manager}!Report\-Manager@{Report\-Manager}}
+\index{Report\-Manager@{Report\-Manager}!desmoj::core::report::ReportManager@{desmoj\-::core\-::report\-::\-Report\-Manager}}
+\subsubsection[{Report\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-report.\-Report\-Manager.\-Report\-Manager (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_manager_ade0e498a9a274e86922ef90c32a7d44d}
+Creates a new reportmanager with the given name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: the reportmanager's name \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::report\-::\-Report\-Manager@{desmoj\-::core\-::report\-::\-Report\-Manager}!add\-Last@{add\-Last}}
+\index{add\-Last@{add\-Last}!desmoj::core::report::ReportManager@{desmoj\-::core\-::report\-::\-Report\-Manager}}
+\subsubsection[{add\-Last}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-Manager.\-add\-Last (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{r}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_manager_a260c056f123c239b4d34efdfe2593fb1}
+Adds a report to the very end of the vector hanlded by this reportmanager. This is needed to place submodel reporters behind existing model reporters to prevent multiple models to be mixed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & desmoj.\-report.\-Reporter \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::report\-::\-Report\-Manager@{desmoj\-::core\-::report\-::\-Report\-Manager}!de\-Register@{de\-Register}}
+\index{de\-Register@{de\-Register}!desmoj::core::report::ReportManager@{desmoj\-::core\-::report\-::\-Report\-Manager}}
+\subsubsection[{de\-Register}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-Manager.\-de\-Register (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{rep}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_manager_aab775a92bc19c0e9ece52c8adfa5cb06}
+De-\/registers the given reporter from the experiment's reportmanager. The reporter will be removed from the list of current available reporters and thus will not produce output whenever a report has to be produced. When de-\/registering, the order according to group-\/\-I\-D is preserved. If an invalid parameter is given (i.\-e. a {\ttfamily null} reference) this method simply returns
+
+
+\begin{DoxyParams}{Parameters}
+{\em rep} & desmoj.\-report.\-Reporter \-: The reporter to be de-\/registered \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::report\-::\-Report\-Manager@{desmoj\-::core\-::report\-::\-Report\-Manager}!elements@{elements}}
+\index{elements@{elements}!desmoj::core::report::ReportManager@{desmoj\-::core\-::report\-::\-Report\-Manager}}
+\subsubsection[{elements}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Reporter}$>$ desmoj.\-core.\-report.\-Report\-Manager.\-elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_manager_a6589188e35644f8c3b6db6b02534db11}
+Returns a list view of all registered reporters in the appropriate order.
+
+\begin{DoxyReturn}{Returns}
+java.\-util.\-List \-: The list of reporters registered at the reportmanager 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Report\-Manager@{desmoj\-::core\-::report\-::\-Report\-Manager}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!desmoj::core::report::ReportManager@{desmoj\-::core\-::report\-::\-Report\-Manager}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-Report\-Manager.\-is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_manager_a6524b140f7d05165fff111469dcace80}
+Returns a boolean value indicating whether this reportmanager contains reporters to be sent to the reportoutput or not.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the reportmanager conatains reporters, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Report\-Manager@{desmoj\-::core\-::report\-::\-Report\-Manager}!register@{register}}
+\index{register@{register}!desmoj::core::report::ReportManager@{desmoj\-::core\-::report\-::\-Report\-Manager}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-Manager.\-register (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{rep}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_manager_a0a77f3ac749c6a098393e3599e3db52a}
+Registers the given reporter at the experiment's reportmanager. All reporters registered will be sent to the reportout whenever a report has to be produced. When registering, the order according to group-\/\-I\-D is preserved.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rep} & desmoj.\-report.\-Reporter \-: The reporter to be registered \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_report_manager_a0a77f3ac749c6a098393e3599e3db52a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/report/Report\-Manager.\-java\end{DoxyCompactItemize}

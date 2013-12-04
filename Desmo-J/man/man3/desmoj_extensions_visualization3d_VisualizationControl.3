@@ -1,0 +1,156 @@
+.TH "desmoj.extensions.visualization3d.VisualizationControl" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization3d.VisualizationControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.visualEvents\&.VisualEventListener\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVisualizationControl\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddControlEventListener\fP (\fBControlEventListener\fP listener)"
+.br
+.ti -1c
+.RI "void \fBaddModule\fP (\fBVisualModule\fP module)"
+.br
+.ti -1c
+.RI "void \fBfireControlEvent\fP (\fBControlEvent\fP evt)"
+.br
+.ti -1c
+.RI "\fBVisualModule\fP \fBgetModule\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBremoveControlEventListener\fP (\fBControlEventListener\fP listener)"
+.br
+.ti -1c
+.RI "void \fBremoveModule\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBsetExecutionSpeed\fP (double rate)"
+.br
+.ti -1c
+.RI "void \fBvisualEventReceived\fP (\fBVisualEvent\fP evt)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBVisualizationClock\fP \fBgetClock\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class provides the central control unit for the spatial visualization\&. It's the connector between the Visualevent-Producer and the VisualMudules\&. Each \fBVisualModule\fP is a different visualization implementation\&. The \fBVisualModule\fP to be used should be registered in the VisualizationControler\&. The controller will forward the events to each registered module\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.VisualizationControl ()"
+Constructs a VisualControl\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.addControlEventListener (\fBControlEventListener\fPlistener)"
+Adds a ControlEventListener for receiving the ControlEvents from the VisualModules 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to be added\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.addModule (\fBVisualModule\fPmodule)"
+Registers a \fBVisualModule\fP to the VisualizationController\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodule\fP The \fBVisualModule\fP to be registered\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.fireControlEvent (\fBControlEvent\fPevt)"
+Fires a ControlEvent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevt\fP The ControlEvent to be fired\&. 
+.RE
+.PP
+
+.SS "static \fBVisualizationClock\fP desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.getClock ()\fC [static]\fP"
+Gets the clock instance which determines the time value for this \fBVisualizationControl\fP 
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBVisualizationClock\fP\&. 
+.RE
+.PP
+
+.SS "\fBVisualModule\fP desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.getModule (Stringname)"
+Gets a registered \fBVisualModule\fP with the given name\&. If no registered with the name can be found, null will be returned\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the registered \fBVisualModule\fP to be get\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBVisualModule\fP with the name in this \fBVisualizationControl\fP\&. Null if there's none\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.removeControlEventListener (\fBControlEventListener\fPlistener)"
+Removes a registered ControlListener\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to be removed\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.removeModule (Stringname)"
+Removes the \fBVisualModule\fP with the name from the \fBVisualizationControl\fP if present\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the \fBVisualModule\fP to be removed\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.setExecutionSpeed (doublerate)"
+Sets the speed of the visualization clock to: real speed * rate\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspeed\fP The execution speed rate\&. If the rate is <= 0, the clock will keep running with the old speed\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization3d\&.VisualizationControl\&.visualEventReceived (\fBVisualEvent\fPevt)\fC [virtual]\fP"
+Invoked when a VisualEvent occurred\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevt\fP The occurred VisualEvent\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.visualEvents\&.VisualEventListener\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

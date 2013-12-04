@@ -1,0 +1,124 @@
+.TH "desmoj.core.report.ReportFileOut" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.ReportFileOut \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.TableOutput\fP, and \fBdesmoj\&.core\&.report\&.MessageReceiver\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.report\&.ReportMultRowsFileOut\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReportFileOut\fP (int timeFloats, String \fBformatter\fP)"
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "void \fBopen\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBopen\fP (String pathname, String name)"
+.br
+.ti -1c
+.RI "void \fBreceive\fP (\fBMessage\fP m)"
+.br
+.ti -1c
+.RI "void \fBreceive\fP (\fBdesmoj\&.core\&.report\&.Reporter\fP r)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBReporter\fP \fBlastReporter\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBReportFileOut\fP is used to create a file to let the reporters write their reports to\&. It receives a reporter and divides its individual text information up to be displayed in HTML format on disc in the user's local directory\&. The messages are displayed in a tabular design with columns for each item displayed by the reporter\&. For each \fBReporter\fP giving a new group-ID, a new table is opened\&. This leads to a number of distinct tables displayed in one HTML-page with all reporters grouped by their group-id in one table\&. Note that if the framework is used as an Applet in webpages there is no access to the disc and an alternative output on screen or into a graphics window must be registered at the Experiment's MessageManager for this type of messages\&. Errors affecting the java runtime are always displayed on the system's standard output PrintStream\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, modified by Nicolas Knaak
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.ReportFileOut\&.ReportFileOut (inttimeFloats, Stringformatter)"
+Creates a file to print reports into a HTML page\&. By opening the file, the necessary HTML tags to define a webpage are already inserted into the file\&. The parameter given should reflect the experiment that produces this file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeFloats\fP int : The number of floating point digits of the simulation time values to be displayed 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.report\&.ReportFileOut\&.close ()"
+Closes this traceout\&. Writes the final necessary HTML-tags to close a table row, the table and finish the HTML-page\&. Flushes and closes the FileOutputStream thereafter\&. 
+.SS "void desmoj\&.core\&.report\&.ReportFileOut\&.open (Stringname)"
+Opens a new file with the given filename for writing reports into a HTML table\&. The output path is set to the working directory\&. If no String is given, the default filename 'DESMOJ_reportfile\&.html' is used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the file to be created 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.ReportFileOut\&.open (Stringpathname, Stringname)"
+Opens a new file with the given file- and pathname for writing reports into a HTML table\&. If no String is given, the default filename 'DESMOJ_reportfile\&.html' is used\&. If no pathname is given the current working directory (stored as property 'user\&.dir') is used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the file to be created 
+.br
+\fIpathname\fP java\&.lang\&.String : The file's output path 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.ReportFileOut\&.receive (\fBMessage\fPm)"
+Messages are not handled by this reportout, so this method simply returns\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP \fBMessage\fP : The message passed to this reportout 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.MessageReceiver\fP\&.
+.SS "void desmoj\&.core\&.report\&.ReportFileOut\&.receive (\fBdesmoj\&.core\&.report\&.Reporter\fPr)"
+Receives a reporter and writes its contents formatted to a HTML table into a file in the user's default directory\&. In case of a \fBModelReporter\fP it writes the model's information into the file\&. After writing the model data, all reportables registered with the \fBModelReporter\fP are asked for a reporter and those are also written to the report file\&. After processing the Reportables, the registered subModels are asked to produce their reporters which in turn are recursively sent to this method until no other submodels are available\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIr\fP \fBReporter\fP : The \fBReporter\fP to be processed 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.MessageReceiver\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBReporter\fP desmoj\&.core\&.report\&.ReportFileOut\&.lastReporter\fC [protected]\fP"
+Buffers the last message received for formatting the HTML table to be printed without repeating redundant information\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

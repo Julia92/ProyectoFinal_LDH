@@ -1,0 +1,107 @@
+.TH "org.apache.commons.math.analysis.RombergIntegrator" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.RombergIntegrator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegratorImpl\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRombergIntegrator\fP (\fBUnivariateRealFunction\fP \fBf\fP)"
+.br
+.ti -1c
+.RI "double \fBintegrate\fP (double min, double max)  throws MaxIterationsExceededException,         FunctionEvaluationException, IllegalArgumentException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBverifyIterationCount\fP ()  throws IllegalArgumentException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Implements the \fCRomberg Algorithm\fP for integration of real univariate functions\&. For reference, see \fBIntroduction to Numerical Analysis\fP, ISBN 038795452X, chapter 3\&. 
+.PP
+Romberg integration employs k successvie refinements of the trapezoid rule to remove error terms less than order O(N^(-2k))\&. Simpson's rule is a special case of k = 2\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+620312 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-10 12:28:59 -0700 (Sun, 10 Feb 2008) 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.analysis\&.RombergIntegrator\&.RombergIntegrator (\fBUnivariateRealFunction\fPf)"
+Construct an integrator for the given function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function to integrate 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.RombergIntegrator\&.integrate (doublemin, doublemax) throws \fBMaxIterationsExceededException\fP,         \fBFunctionEvaluationException\fP, IllegalArgumentException"
+Integrate the function in the given interval\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP the lower bound for the interval 
+.br
+\fImax\fP the upper bound for the interval 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of integral 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMaxIterationsExceededException\fP\fP if the maximum iteration count is exceeded or the integrator detects convergence problems otherwise 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function 
+.br
+\fIIllegalArgumentException\fP if any parameters are invalid 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealIntegrator\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.RombergIntegrator\&.verifyIterationCount () throws IllegalArgumentException\fC [protected]\fP"
+Verifies that the iteration limits are valid and within the range\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if not 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

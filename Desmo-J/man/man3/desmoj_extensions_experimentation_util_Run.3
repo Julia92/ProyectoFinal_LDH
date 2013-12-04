@@ -1,0 +1,161 @@
+.TH "desmoj.extensions.experimentation.util.Run" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.util.Run \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRun\fP (\fBModel\fP defaultModel, \fBExperimentRunner\fP defaultExpRunner, Map defaultExpSettings, Map defaultModelParams, int number)"
+.br
+.ti -1c
+.RI "\fBRun\fP (\fBModel\fP m, \fBExperimentRunner\fP exp)"
+.br
+.ti -1c
+.RI "\fBRun\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "void \fBreadFromNode\fP (Element e)"
+.br
+.ti -1c
+.RI "\fBExperimentRunner\fP \fBgetExperimentRunner\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBreadParamList\fP (Node src, Map dst)"
+.br
+.ti -1c
+.RI "static void \fBmain\fP (String[] args)  throws Exception "
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final String \fBUNDEFINED\fP = 'UNDEF'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExperimentRunner\fP \fBcreateDefaultExperimentRunner\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class representing a parametrized simulation run\&. The parameters can be read from an XML file\&. The XML file must start with a <run>tag\&. This tag contains model and experiment parameter specifications (tags <model>and <exp>)\&. Each parameter specification is stated in the form 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\&.\&.\&.\fP \&.
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.util\&.Run\&.Run (\fBModel\fPdefaultModel, \fBExperimentRunner\fPdefaultExpRunner, MapdefaultExpSettings, MapdefaultModelParams, intnumber)"
+Creates a new run\&. This constructor is mainly called from the class \fBBatchRunner\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdefaultModel\fP the model to run an experiment with 
+.br
+\fIdefaultExpRunner\fP the experiment runner used for running the experiment 
+.br
+\fIdefaultExpSettings\fP the experiment parameter settings 
+.br
+\fIdefaultModelParams\fP the model parameter settings 
+.br
+\fInumber\fP internal number of the run (only important if used with batches) 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.util\&.Run\&.Run (\fBModel\fPm, \fBExperimentRunner\fPexp)"
+Creates a new run without changing model and experiment parameter settings\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP the model to run an experiment with 
+.br
+\fIexp\fP the experiment runner used for running the experiment\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.util\&.Run\&.Run ()"
+Creates a new empty run\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBExperimentRunner\fP desmoj\&.extensions\&.experimentation\&.util\&.Run\&.createDefaultExperimentRunner ()\fC [protected]\fP"
+Creates a default desmoj\&.util\&.ExperimentRunner\&. This method might be overridden by subclasses\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the experiment runner 
+.RE
+.PP
+
+.SS "\fBExperimentRunner\fP desmoj\&.extensions\&.experimentation\&.util\&.Run\&.getExperimentRunner ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the experiment runner used to run this experiment 
+.RE
+.PP
+
+.SS "\fBModel\fP desmoj\&.extensions\&.experimentation\&.util\&.Run\&.getModel ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the model an experiment is run with 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.Run\&.readFromNode (Elemente)"
+Reads a run from a DOM node representing an XML parameter file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP the DOM node to read the run from 
+.RE
+.PP
+
+.SS "static void desmoj\&.extensions\&.experimentation\&.util\&.Run\&.readParamList (Nodesrc, Mapdst)\fC [static]\fP"
+Reads a parameter list from a DOM node to a java\&.util\&.Map\&. In the map each setting is stored as a key (name of the parameter) and value pair\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsrc\fP a DOM node containing XML based parameter settings 
+.br
+\fIdst\fP a java\&.uztil\&.Map to copy the parameter settings to\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

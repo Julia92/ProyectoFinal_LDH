@@ -1,0 +1,93 @@
+.TH "desmoj.extensions.experimentation.ui.URLTreePanel" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.ui.URLTreePanel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits JPanel\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBURLTreePanel\fP ()"
+.br
+.ti -1c
+.RI "void \fBcreateNode\fP (String nodeText, String dir, String[] appendixes)"
+.br
+.ti -1c
+.RI "void \fBcreateActionListener\fP (final \fBReportStylerPanel\fP reportStylerPanel)"
+.br
+.ti -1c
+.RI "void \fBcreateActionListener\fP (final AppletContext appletContext)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "URL \fBurl\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Construct a tree with a root that has each experiment as a child\&. Each experiment has the URLs for the outputfiles as children\&. By selecting a leaf in the tree the coresponding URL will be opened\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Gunnar Kiesel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.URLTreePanel\&.URLTreePanel ()"
+Creates a new \fBURLTreePanel\fP 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.URLTreePanel\&.createActionListener (final \fBReportStylerPanel\fPreportStylerPanel)"
+The TreeSelectionListener listens for selections of experiment-nodes in the tree\&. If such a selection is detected it will cause the \fBReportStylerPanel\fP to update itself\&.
+.PP
+The MouseListener listens for clicks on tree-leafs\&. If such a click is detected it will open the corresponding file\&. Holding down shift will open a new window\&.
+.PP
+using the right mouse button or holding shift down opens a new frame
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.URLTreePanel\&.createActionListener (final AppletContextappletContext)"
+Only single selection is allowed since only one file can be displayed at a given time
+.PP
+only leafs of the tree are connected to files
+.PP
+the empty root is also a leaf but has no connected file 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.URLTreePanel\&.createNode (StringnodeText, Stringdir, String[]appendixes)"
+Add a new node to the tree and save the path name for the url of the corresponding simulation output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInodeText\fP String: text of node to create 
+.br
+\fIdir\fP String: directory with simulation output belonging to this experiment 
+.br
+\fIappendixes\fP String[]: file type for debug, trace, error and report file (e\&.g\&. \&.xml) 
+.RE
+.PP
+Test wether a new experiment name has been given *
+.PP
+If no new name was given the tree won't have to be expanded\&. However the directory and/or output types may have been changed, so the data for them has to be updated\&.
+.PP
+If a new name was given new files have been created\&. New nodes will be created in the tree for them\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "URL desmoj\&.extensions\&.experimentation\&.ui\&.URLTreePanel\&.url\fC [protected]\fP"
+The currently selected URL 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

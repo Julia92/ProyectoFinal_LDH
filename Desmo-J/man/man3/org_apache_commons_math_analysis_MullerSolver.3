@@ -1,0 +1,165 @@
+.TH "org.apache.commons.math.analysis.MullerSolver" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.MullerSolver \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMullerSolver\fP (\fBUnivariateRealFunction\fP \fBf\fP)"
+.br
+.ti -1c
+.RI "double \fBsolve\fP (double min, double max, double initial)  throws MaxIterationsExceededException, FunctionEvaluationException "
+.br
+.ti -1c
+.RI "double \fBsolve\fP (double min, double max)  throws MaxIterationsExceededException,          FunctionEvaluationException "
+.br
+.ti -1c
+.RI "double \fBsolve2\fP (double min, double max)  throws MaxIterationsExceededException,          FunctionEvaluationException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Implements the \fCMuller's Method\fP for root finding of real univariate functions\&. For reference, see \fBElementary Numerical Analysis\fP, ISBN 0070124477, chapter 3\&. 
+.PP
+Muller's method applies to both real and complex functions, but here we restrict ourselves to real functions\&. Methods \fBsolve()\fP and \fBsolve2()\fP find real zeros, using different ways to bypass complex arithmetics\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+620312 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-10 12:28:59 -0700 (Sun, 10 Feb 2008) 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.analysis\&.MullerSolver\&.MullerSolver (\fBUnivariateRealFunction\fPf)"
+Construct a solver for the given function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function to solve 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.MullerSolver\&.solve (doublemin, doublemax, doubleinitial) throws \fBMaxIterationsExceededException\fP, \fBFunctionEvaluationException\fP"
+Find a real root in the given interval with initial value\&. 
+.PP
+Requires bracketing condition\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP the lower bound for the interval 
+.br
+\fImax\fP the upper bound for the interval 
+.br
+\fIinitial\fP the start value to use 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the point at which the function value is zero 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMaxIterationsExceededException\fP\fP if the maximum iteration count is exceeded or the solver detects convergence problems otherwise 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function 
+.br
+\fIIllegalArgumentException\fP if any parameters are invalid 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.MullerSolver\&.solve (doublemin, doublemax) throws \fBMaxIterationsExceededException\fP,          \fBFunctionEvaluationException\fP"
+Find a real root in the given interval\&. 
+.PP
+Original Muller's method would have function evaluation at complex point\&. Since our f(x) is real, we have to find ways to avoid that\&. Bracketing condition is one way to go: by requiring bracketing in every iteration, the newly computed approximation is guaranteed to be real\&.
+.PP
+Normally Muller's method converges quadratically in the vicinity of a zero, however it may be very slow in regions far away from zeros\&. For example, f(x) = exp(x) - 1, min = -50, max = 100\&. In such case we use bisection as a safety backup if it performs very poorly\&.
+.PP
+The formulas here use divided differences directly\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP the lower bound for the interval 
+.br
+\fImax\fP the upper bound for the interval 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the point at which the function value is zero 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMaxIterationsExceededException\fP\fP if the maximum iteration count is exceeded or the solver detects convergence problems otherwise 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function 
+.br
+\fIIllegalArgumentException\fP if any parameters are invalid 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.MullerSolver\&.solve2 (doublemin, doublemax) throws \fBMaxIterationsExceededException\fP,          \fBFunctionEvaluationException\fP"
+Find a real root in the given interval\&. 
+.PP
+\fBsolve2()\fP differs from \fBsolve()\fP in the way it avoids complex operations\&. Except for the initial [min, max], \fBsolve2()\fP does not require bracketing condition, e\&.g\&. f(x0), f(x1), f(x2) can have the same sign\&. If complex number arises in the computation, we simply use its modulus as real approximation\&.
+.PP
+Because the interval may not be bracketing, bisection alternative is not applicable here\&. However in practice our treatment usually works well, especially near real zeros where the imaginary part of complex approximation is often negligible\&.
+.PP
+The formulas here do not use divided differences directly\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP the lower bound for the interval 
+.br
+\fImax\fP the upper bound for the interval 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the point at which the function value is zero 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMaxIterationsExceededException\fP\fP if the maximum iteration count is exceeded or the solver detects convergence problems otherwise 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function 
+.br
+\fIIllegalArgumentException\fP if any parameters are invalid 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

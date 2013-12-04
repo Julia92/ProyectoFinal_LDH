@@ -1,0 +1,160 @@
+.TH "desmoj.core.statistic.ConfidenceCalculator" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.ConfidenceCalculator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.Tally\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConfidenceCalculator\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBConfidenceCalculator\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetConfidenceLevel\fP (double level)"
+.br
+.ti -1c
+.RI "double \fBgetConfidenceLevel\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetConfidenceIntervalOfMeanUpperBound\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetConfidenceIntervalOfMeanLowerBound\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBConfidenceCalculator\fP\fP class has the same functionality as the \fC\fBTally\fP\fP class\&. Additionally, it calculates a confidence interval for the mean of the samples passed to the \fC\fBConfidenceCalculator\fP\fP\&. Note that the confidence interval computation assumes that the samples are (approximately) identically and independently distributed\&. Observe that the confidence interval estimations of this class are meaningless should this assumption not hold!
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBTally\fP 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.ConfidenceCalculator\&.ConfidenceCalculator (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBConfidenceCalculator\fP object that is connected to a \fC\fBValueSupplier\fP\fP\&. The confidence level is set to 0\&.95\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBConfidenceCalculator\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBConfidenceCalculator\fP object 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBConfidenceCalculator\fP\&. The given \fBValueSupplier\fP will be observed by this \fBConfidenceCalculator\fP object\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBConfidenceCalculator\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBConfidenceCalculator\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.ConfidenceCalculator\&.ConfidenceCalculator (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBConfidenceCalculator\fP object that has no connection to a \fC\fBValueSupplier\fP\fP\&. The confidence level is set to 0\&.95\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBConfidenceCalculator\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBConfidenceCalculator\fP object 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBConfidenceCalculator\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBConfidenceCalculator\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.ConfidenceCalculator\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBConfidenceCalculator\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBConfidenceCalculator\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.ConfidenceCalculator\&.getConfidenceIntervalOfMeanLowerBound ()"
+Calculates the lower bound of the confidence interval of the mean\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The lower bound of the confidence interval of the mean 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.ConfidenceCalculator\&.getConfidenceIntervalOfMeanUpperBound ()"
+Calculates the upper bound of the confidence interval of the mean\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The upper bound of the confidence interval of the mean 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.ConfidenceCalculator\&.getConfidenceLevel ()"
+Returns the confidence level\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : the confidence level 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.ConfidenceCalculator\&.setConfidenceLevel (doublelevel)"
+Sets the confidence level; default value is 0\&.95\&.
+.PP
+Note: The confidence interval computation assumes that the input values are (approximately) identically and independently distributed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlevel\fP double : the confidence level 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,281 @@
+.TH "desmoj.core.report.Reporter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.Reporter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.BinReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.CondQueueReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.ResourceReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.StockReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.WaitQueueReporter\fP, \fBdesmoj\&.core\&.report\&.AccumulateReporter\fP, \fBdesmoj\&.core\&.report\&.AggregateReporter\fP, \fBdesmoj\&.core\&.report\&.BoolStatisticReporter\fP, \fBdesmoj\&.core\&.report\&.CountReporter\fP, \fBdesmoj\&.core\&.report\&.DataListHistogramReporter\fP, \fBdesmoj\&.core\&.report\&.DistributionReporter\fP, \fBdesmoj\&.core\&.report\&.HistogramAccumulateReporter\fP, \fBdesmoj\&.core\&.report\&.HistogramReporter\fP, \fBdesmoj\&.core\&.report\&.ModelReporter\fP, \fBdesmoj\&.core\&.report\&.ProcessQueueReporter\fP, \fBdesmoj\&.core\&.report\&.QueueReporter\fP, \fBdesmoj\&.core\&.report\&.RegressionReporter\fP, \fBdesmoj\&.core\&.report\&.StandardReporter\fP, \fBdesmoj\&.core\&.report\&.TableReporter\fP, \fBdesmoj\&.core\&.report\&.TallyReporter\fP, \fBdesmoj\&.core\&.report\&.TextHistogramReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.BerthReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.BlockReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.YardReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.report\&.EntrepotReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.report\&.TransportReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.report\&.WorkStationReporter\fP, \fBdesmoj\&.extensions\&.chaining\&.report\&.FlexReporterBuilder\&.FlexReporter\fP, and \fBdesmoj\&.extensions\&.chaining\&.report\&.SmartReporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReporter\fP (\fBReportable\fP informationSource)"
+.br
+.ti -1c
+.RI "String[] \fBgetColumnTitles\fP ()"
+.br
+.ti -1c
+.RI "abstract String[] \fBgetEntries\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetGroupID\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetHeading\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "\fBReportable\fP \fBgetReportable\fP ()"
+.br
+.ti -1c
+.RI "int \fBnumColumns\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetDescription\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisContinuingReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisTwoRowReporter\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNumOfSlaveQueues\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static boolean \fBisEqual\fP (\fBReporter\fP a, \fBReporter\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisLarger\fP (\fBReporter\fP a, \fBReporter\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisOtherGroup\fP (\fBReporter\fP a, \fBReporter\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisSameGroup\fP (\fBReporter\fP a, \fBReporter\fP b)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBgroupID\fP"
+.br
+.ti -1c
+.RI "String[] \fBcolumns\fP"
+.br
+.ti -1c
+.RI "String[] \fBentries\fP"
+.br
+.ti -1c
+.RI "String \fBgroupHeading\fP"
+.br
+.ti -1c
+.RI "\fBReportable\fP \fBsource\fP"
+.br
+.ti -1c
+.RI "int \fBnumColumns\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Declares the basic methods needed for reporter to be able to print reports about a model component\&. Since individual components need individual reports each component has to specify a special reporter to print its data\&. Derive from this class to implement the reporter for the specific \fCReportable\fP class\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.simulator\&.Reportable\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.Reporter\&.Reporter (\fBReportable\fPinformationSource)"
+Creates a reporter for the given reportable information source\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinformationSource\fP desmoj\&.report\&.Reportable : The source of information to report about 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String [] desmoj\&.core\&.report\&.Reporter\&.getColumnTitles ()"
+Returns an array of Strings each containing the title for the corresponding entry in array \fCentries[]\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String[] : Array containing column titles 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.report\&.Reporter\&.getDescription ()"
+Get an optional description of this \fBReporter\fP's Reportable to be included in the report\&. Default is null\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+String : Description 
+.RE
+.PP
+
+.SS "abstract String [] desmoj\&.core\&.report\&.Reporter\&.getEntries ()\fC [pure virtual]\fP"
+Returns an array of strings each containing the data for the corresponding column in array \fCcolumns[]\fP\&. Implement this method the an array of the same length as the columntitles is produced containing the data at the point of time this method is called by someone else to produce up-to-date information\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String[] : Array containing the data for reporting 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.report\&.DataListTallyReporter\fP, \fBdesmoj\&.core\&.report\&.HistogramReporter\fP, \fBdesmoj\&.core\&.report\&.HistogramAccumulateReporter\fP, \fBdesmoj\&.core\&.report\&.DataListHistogramReporter\fP, \fBdesmoj\&.core\&.report\&.TextHistogramReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.StockReporter\fP, \fBdesmoj\&.core\&.report\&.ModelReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.CranesSystemReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.TSReporter\fP, \fBdesmoj\&.extensions\&.chaining\&.report\&.FlexReporterBuilder\&.FlexReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.report\&.WorkStationReporter\fP, \fBdesmoj\&.extensions\&.chaining\&.report\&.SmartReporter\fP, \fBdesmoj\&.core\&.report\&.TableReporter\fP, \fBdesmoj\&.core\&.report\&.AggregateReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.WaitQueueReporter\fP, \fBdesmoj\&.core\&.report\&.CountReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.report\&.TransportReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.ResourceReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.BinReporter\fP, \fBdesmoj\&.core\&.report\&.AccumulateReporter\fP, \fBdesmoj\&.core\&.report\&.ConfidenceCalculatorReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.BerthReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.BlockReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.report\&.EntrepotReporter\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.report\&.CondQueueReporter\fP, \fBdesmoj\&.core\&.report\&.ProcessQueueReporter\fP, \fBdesmoj\&.core\&.report\&.TallyReporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.report\&.YardReporter\fP, \fBdesmoj\&.core\&.report\&.QueueReporter\fP, \fBdesmoj\&.core\&.report\&.RegressionReporter\fP, \fBdesmoj\&.core\&.report\&.BoolStatisticReporter\fP, \fBdesmoj\&.core\&.report\&.StandardReporter\fP, \fBdesmoj\&.core\&.report\&.DistributionReporter\fP, \fBdesmoj\&.core\&.report\&.DiscreteDistEmpiricalReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistBetaReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistGammaReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistConstantReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistEmpiricalReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistExponReporter\fP, \fBdesmoj\&.core\&.report\&.DiscreteDistConstantReporter\fP, \fBdesmoj\&.core\&.report\&.EntityDistEmpiricalReporter\fP, \fBdesmoj\&.core\&.report\&.EntityDistUniformReporter\fP, \fBdesmoj\&.core\&.report\&.BoolDistBernoulliReporter\fP, \fBdesmoj\&.core\&.report\&.BoolDistConstantReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistAggregateReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistCustomReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistErlangReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistNormalReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistTriangularReporter\fP, \fBdesmoj\&.core\&.report\&.ContDistUniformReporter\fP, \fBdesmoj\&.core\&.report\&.DiscreteDistBinomialReporter\fP, \fBdesmoj\&.core\&.report\&.DiscreteDistGeoReporter\fP, \fBdesmoj\&.core\&.report\&.DiscreteDistHypergeoReporter\fP, \fBdesmoj\&.core\&.report\&.DiscreteDistPoissonReporter\fP, \fBdesmoj\&.core\&.report\&.DiscreteDistUniformReporter\fP, \fBdesmoj\&.core\&.report\&.TallyTimeSpanReporter\fP, and \fBdesmoj\&.core\&.report\&.SeriesReporter\fP\&.
+.SS "int desmoj\&.core\&.report\&.Reporter\&.getGroupID ()"
+Returns the ID of the group this reporter belongs to\&. The group-ID is used to give reporters a key to be ordered by\&. This allows reporters of the same group to be printed together in one table in a report file\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The reporter's group ID 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.report\&.Reporter\&.getHeading ()"
+Returns the heading for the group this reporter belongs to\&. This can easily be used as a heading in the reporter to introduce a new group of reporters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The group heading for this group of reporters 
+.RE
+.PP
+
+.SS "\fBModel\fP desmoj\&.core\&.report\&.Reporter\&.getModel ()"
+Returns the Model that the Reportable belongs to that this reporter produces a report about\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Model : The Model the reporter's reportable belongs to 
+.RE
+.PP
+
+.SS "\fBReportable\fP desmoj\&.core\&.report\&.Reporter\&.getReportable ()"
+Returns the reportable object that this reporter contains informations about\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBdesmoj\&.core\&.simulator\&.Reportable\fP : The reportable this reporter carries information about 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.report\&.Reporter\&.isEqual (\fBReporter\fPa, \fBReporter\fPb)\fC [static]\fP"
+Compares the ID's of the two given reporters and returns \fCtrue\fP if both have the same ID, \fCfalse\fP if their ID's are different\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if both reporter's ID's are the same, \fCfalse\fP if not 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP desmoj\&.report\&.Reporter : comparand a 
+.br
+\fIb\fP desmoj\&.report\&.Reporter : comparand b 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.report\&.Reporter\&.isLarger (\fBReporter\fPa, \fBReporter\fPb)\fC [static]\fP"
+Compares the ID's of the two given reporters and returns \fCtrue\fP if reporter 'a' has a higher ID than reporter 'b', \fCfalse\fP if not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if reporter 'a' has a higher ID than reporter 'b', \fCfalse\fP if not 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP desmoj\&.report\&.Reporter : comparand a 
+.br
+\fIb\fP desmoj\&.report\&.Reporter : comparand b 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.report\&.Reporter\&.isOtherGroup (\fBReporter\fPa, \fBReporter\fPb)\fC [static]\fP"
+Compares the ID's of the two given reporters and returns \fCtrue\fP if reporter 'a' belongs to a different group of ID's than reporter 'b', \fCfalse\fP if not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if reporter 'a' has an ID belonging to a different group than reporter 'b', \fCfalse\fP if not 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP desmoj\&.report\&.Reporter : comparand a 
+.br
+\fIb\fP desmoj\&.report\&.Reporter : comparand b 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.report\&.Reporter\&.isSameGroup (\fBReporter\fPa, \fBReporter\fPb)\fC [static]\fP"
+Compares the ID's of the two given reporters and returns \fCtrue\fP if reporter 'a' belongs to the same group of ID's as reporter 'b', \fCfalse\fP if not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if reporter 'a' has an ID belonging to the same group as reporter 'b', \fCfalse\fP if not 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP desmoj\&.report\&.Reporter : comparand a 
+.br
+\fIb\fP desmoj\&.report\&.Reporter : comparand b 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.report\&.Reporter\&.numColumns ()"
+Returns the number of columns or data this reporter is containing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of columns/data this reporter is containing 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "String [] desmoj\&.core\&.report\&.Reporter\&.columns\fC [protected]\fP"
+The column headings of this reporter\&. Reporters of the same group always have the same column headings\&. Entries should contain in the elements in the same order as the \fCentries[]\fP\&. 
+.SS "String [] desmoj\&.core\&.report\&.Reporter\&.entries\fC [protected]\fP"
+The data entries of this reporter\&. Reporters of the same group always have the same number of entries\&. Entries should contain in the data elements in the same order as defined in the \fCcolumns[]\fP array\&. 
+.SS "String desmoj\&.core\&.report\&.Reporter\&.groupHeading\fC [protected]\fP"
+The group's heading of this class of reporters\&. The String containe here is used as a table heading\&. All reporters of the same group must have the same group heading\&. 
+.SS "int desmoj\&.core\&.report\&.Reporter\&.groupID\fC [protected]\fP"
+The group-id of the reporters of this class\&. This ID resembles group-identification and ordering information inside a group\&. The HTML output classes order \fCReporters\fP by groups of hundred ID numbers\&. So i\&.e\&. all \fCDistributions\fP have \fCReporters\fP with GroupID's in the range between 100 and 199\&. Highest numbers are always listed first\&. If in a sequence of \fCReporters\fP its GroupID is in another century range, the HTML output will automatically insert a horizontal ruler and a new heading to indicate the new group of \fCReportable ModelComponents\fP\&. 
+.PP
+ GroupID range Reportables  2147483647 \fBModelReporter\fP\&. Highest number possible, so always first in order\&. Ensures that SubModelReporter will be printed before other Reportables in the main model report\&.  2000000000 SimulationrunReporter, including Experiment duration and other important information referring to the experiment as whole\&.  1800 + Free for additional Reporters of new constructs that will be listed before the \fCStatisticObjects\fP used in a \fCModel\fP\&.   1300 - 1799 Reporters for \fCStatisticObjects\fP as the \fCAccumulate, Tally, TextHistogram, Histogram, Regression\fP and \fCCount\fP, which will be listed before the process synchronisation constructs used in the \fCModel\fP\&.  400 - 1299 Additional Reporters for process synchronisation constructs as the \fCBin, Stock, Entrepot, Res, CondQueue, WaitQueue, Transporter\fP and \fCWorkStation\fP, which will be listed before the \fCQueues\fP used in a \fCModel\fP\&.  300 - 399 Free for additional Reporters of new constructs that will be listed before the \fCQueues\fP used in a \fCModel\fP\&.  200 - 299 Queues\&. Queue will be sorted first, ProcessQueue last  100 - 199 Distributions\&. The generic \fC\fBDistributionReporter\fP\fP will be last with its GroupID of 100\&.  1-99 Free for additional Reporters of new constructs that will be listed after the \fCQueues\fP used in a \fCModel\fP\&.  Reserved GroupID ranges  
+.SS "int desmoj\&.core\&.report\&.Reporter\&.numColumns\fC [protected]\fP"
+The number of columns this reporter produces\&. 
+.SS "\fBReportable\fP desmoj\&.core\&.report\&.Reporter\&.source\fC [protected]\fP"
+The Reportable that this reporter generates the report about 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

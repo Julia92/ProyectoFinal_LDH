@@ -1,0 +1,411 @@
+.TH "desmoj.extensions.applicationDomains.harbour.Yard" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.Yard \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBYard\fP (\fBModel\fP owner, String name, \fBChooseBlockYardStrategy\fP s, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddBlock\fP (\fBBlock\fP b)"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetBlocks\fP (int typ)"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetBlocks\fP (int typ, \fBBlock\fP[] b)"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetFreeBlocks\fP (long n)"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetFreeBlocks\fP (\fBBlock\fP[] b, long n)"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetAllBlocks\fP ()"
+.br
+.ti -1c
+.RI "\fBBlock\fP \fBgetBlock\fP (\fBBlock\fP[] blocks)"
+.br
+.ti -1c
+.RI "void \fBstoreInOverflow\fP (long n)"
+.br
+.ti -1c
+.RI "boolean \fBretrieveFromOverflow\fP (long n)"
+.br
+.ti -1c
+.RI "boolean \fBstore\fP (\fBBlock\fP b, long n)"
+.br
+.ti -1c
+.RI "boolean \fBretrieve\fP (\fBBlock\fP b, long n)"
+.br
+.ti -1c
+.RI "long \fBgetOverflow\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisFree\fP (long n)"
+.br
+.ti -1c
+.RI "boolean \fBreserve\fP (\fBBlock\fP b, long n)"
+.br
+.ti -1c
+.RI "boolean \fBplan\fP (\fBBlock\fP b, long n)"
+.br
+.ti -1c
+.RI "int \fBgetNumBlocks\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetYardStrategy\fP (\fBChooseBlockYardStrategy\fP s)"
+.br
+.ti -1c
+.RI "\fBChooseBlockYardStrategy\fP \fBgetYardStrategy\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetHOBlocks\fP (\fBHoldingArea\fP \fBho\fP)"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetCBlocks\fP (int \fBctyp\fP)"
+.br
+.ti -1c
+.RI "\fBBlock\fP[] \fBgetFullBlocks\fP (\fBBlock\fP[] b, long n)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBYard\fP is the place where containers (or other kind of goods) can be stored by transpoters or cranes and retrieved by transporters or cranes\&. The yard consists of blocks\&. The storing in the \fBYard\fP is possible using \fCstore(Block b)\fP \&.With the \fCretrieve(Block b)\fP a container can be retrieved from the \fBYard\fP\&. \fBYard\fP is part of the composite design pattern as described in [Gamm97] page 163\&. \fBYard\fP is derived from \fBBlock\fP, which provides the functionality of the \fBBlock\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBBlock\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.Yard (\fBModel\fPowner, Stringname, \fBChooseBlockYardStrategy\fPs, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBYard\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBYard\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBYard\fP's name\&. 
+.br
+\fItyp\fP int : The \fBBlock\fP's type\&. It can be only 0 - for export containers, 1- for import containers or 2 - mixed: for import and export containers\&. 
+.br
+\fIcapacity\fP long : The maximum capacity (TEU) of this \fBBlock\fP\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if this \fBBlock\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.addBlock (\fBBlock\fPb)"
+Method for producers to make the \fBYard\fP add a block\&. This is only allowed as long as the \fBYard\fP has not been used or the \fBYard\fP has just been reset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fBBlock\fP : The \fBBlock\fP that must be added to this yard\&. 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBYard\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter reporting about the statistics of this \fBYard\fP\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getAllBlocks ()"
+Gets all the blocks of the yard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getBlock (\fBBlock\fP[]blocks)"
+Gets the \fBBlock\fP of the yard that was found by using the current yard strategy of the yard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP\fP: The \fBBlock\fP of the yard found by using yard strategy\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getBlocks (inttyp)"
+Gets all the blocks of the yard that have the certain typ\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItyp\fP int : The typ of the blocks\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard of a certain typ\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getBlocks (inttyp, \fBBlock\fP[]b)"
+Gets all the blocks of a part of the yard that have the certain typ\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItyp\fP int : The typ of the blocks\&. 
+.br
+\fIb\fP \fBBlock\fP[] : The array of the certain blocks of the yard\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard of a certain typ\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getCBlocks (intctyp)"
+Gets all the blocks of the yard with a certain container typ\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIctyp\fP int : The typ of the contaners of this block\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard of a certain container typ\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getFreeBlocks (longn)"
+Gets all the blocks of the yard that have some free place to store containers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of TEUs that are at least must be avalaible (free) in that blocks\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard that have some free place\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getFreeBlocks (\fBBlock\fP[]b, longn)"
+Gets all the blocks from a part of the yard blocks that have some free place to store containers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fBBlock\fP[] : The array of the certain blocks of the yard\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard that have some free place\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getFullBlocks (\fBBlock\fP[]b, longn)"
+Gets all the blocks of the yard that have at least some TEUs (not empty)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of TEUs that are at least must be with containers in the blocks of the yard\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard that are not empty\&. 
+.RE
+.PP
+
+.SS "\fBBlock\fP [] desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getHOBlocks (\fBHoldingArea\fPho)"
+Gets all the blocks of the yard that are assigned a certain holding area to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIho\fP \fC\fBHoldingArea\fP\fP: The holding area that the blocks are assigned to\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBlock\fP[]\fP: The Blocks of the yard of a certain holding area\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getNumBlocks ()"
+Returns the number of all the blocks of this yard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of the yard blocks\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getOverflow ()"
+Gets the current number of TEUs/containers in the overflow part of this yard\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The current capacity of te overflow part of the yard\&. 
+.RE
+.PP
+
+.SS "\fBChooseBlockYardStrategy\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.getYardStrategy ()"
+Returns the strategy of this yard for the choosing of a block\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBChooseBlockYardStrategy\fP\fP: The yard strategy\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.isFree (longn)"
+Method to check if the \fBYard\fP is free (there's at least one block that is free)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of TEUs that are at least must be avalaible (free) in the \fBYard\fP\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the \fBYard\fP is free, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.plan (\fBBlock\fPb, longn)"
+Method for consumers to make the \fBYard\fP plan a number of n TEUs (a place for a container) to be retrieved there later\&. When all the containers are already planed for the later retrieving the try to plan will be refused\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fBBlock\fP : The block of the yard to plan\&. 
+.br
+\fIn\fP long : The number of TEUs that a container that is in the \fBYard\fP weights\&. n must be positive\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if a container can been planed successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.reserve (\fBBlock\fPb, longn)"
+Method for producers to make the \fBYard\fP reserve a number of n TEUs (a place for a container) to be stored there later\&. When the whole available capacity is already reserved the try to reserve will be refused\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fBBlock\fP : The block of the yard to reserve\&. 
+.br
+\fIn\fP long : The number of TEUs that are needed for a container to be stored in the \fBYard\fP\&. n must be positive\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if a place for a container can been reserved successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.reset ()"
+To reset the statistics of this \fBYard\fP\&. The statistics of all yard blocks will be reset too\&. 
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.retrieve (\fBBlock\fPb, longn)"
+Method for consumers to make the \fBYard\fP retrieve a number of n TEUs (a container)\&. When the yard is empty the try to retrieve will be refused\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the container can been stored successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fBBlock\fP : The block of the yard to retrieve\&. 
+.br
+\fIn\fP long : The weight of the container to be stored in this \fBYard\fP\&. n must be positive\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.retrieveFromOverflow (longn)"
+Method for consumers to retrieve from the overflow part of this \fBYard\fP a number of n TEUs (a container)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The weight of the container to be stored in the overflow part of this yard\&. n must be positive\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the try was successfull, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.setYardStrategy (\fBChooseBlockYardStrategy\fPs)"
+Sets strategy of this yard for the choosing of a block to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP \fBChooseBlockYardStrategy\fP : The new yard strategy\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.store (\fBBlock\fPb, longn)"
+Method for producers to make the \fBYard\fP store a number of n TEUs (a container)\&. When the capacity of the yard can not hold the additional incoming TEUs the try to store will be refused\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fBBlock\fP : The block of the yard to store\&. 
+.br
+\fIn\fP long : The weight of the container to be stored in this \fBYard\fP\&. n must be positive\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the container can been stored successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Yard\&.storeInOverflow (longn)"
+Method for producers to make the \fBYard\fP store a number of n TEUs (a container) in its overflow part\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The weight of the container to be stored in the overflow part of this yard\&. n must be positive\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

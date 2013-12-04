@@ -1,0 +1,636 @@
+\section{desmoj.\-core.\-statistic.\-Time\-Series Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_time_series}\index{desmoj.\-core.\-statistic.\-Time\-Series@{desmoj.\-core.\-statistic.\-Time\-Series}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Time\-Series\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Time\-Series\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, String file\-Name, {\bf Time\-Instant} start, {\bf Time\-Instant} end, boolean show\-In\-Trace)
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, String file\-Name, {\bf Sim\-Time} start, {\bf Sim\-Time} end, boolean show\-In\-Trace)
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, String file\-Name, {\bf Value\-Supplier} val\-Sup, {\bf Time\-Instant} start, {\bf Time\-Instant} end, boolean automatic, boolean show\-In\-Trace)
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, String file\-Name, {\bf Value\-Supplier} val\-Sup, {\bf Sim\-Time} start, {\bf Sim\-Time} end, boolean automatic, boolean show\-In\-Trace)
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, {\bf Time\-Instant} start, {\bf Time\-Instant} end, boolean show\-In\-Trace)
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, {\bf Sim\-Time} start, {\bf Sim\-Time} end, boolean show\-In\-Trace)
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, {\bf Time\-Instant} start, {\bf Time\-Instant} end, boolean automatic, boolean show\-In\-Trace)
+\item 
+{\bf Time\-Series} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, {\bf Sim\-Time} start, {\bf Sim\-Time} end, boolean automatic, boolean show\-In\-Trace)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+double {\bf get\-Value} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf update} ({\bf Time\-Span} t)
+\item 
+void {\bf update} ()
+\item 
+void {\bf update} (double val)
+\item 
+void {\bf update} (Observable o, Object arg)
+\item 
+void {\bf connect\-To\-Plotter} (java.\-util.\-Observer plotter)
+\item 
+void {\bf start\-Recording\-Values} ()
+\item 
+List$<$ Double $>$ {\bf get\-Data\-Values} ()
+\item 
+List$<$ Double $>$ {\bf get\-Time\-Values} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} class is recording data from a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} object and saving it to a file, making data available to a Time\-Series\-Plotter or doing both. Either every time the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} object has changed or at every tick of the Sim\-Clock. See the automatic parameter in the constructor. If writing to a file is claimed, the first line of the file contains the name of the file. Then each line of the file contains a Sim\-Time value and the value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} object at that point of time in the simulation, separated by a \char`\"{};\char`\"{}. \par
+ One can choose when the recording of the values will start and stop. See the constructor for further information. \par
+ Reseting the {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} object will delete the contents of the file. \par
+ This {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} object will be the observer of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} object given in the constructor. When constructing a new {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} object it will be added to the list of observers of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}. That means this {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} object will be updated automatically every time the observed {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} has changed and has called its {\ttfamily notify\-Statistics()} method.
+
+As separator between different values (e.\-g. Sim\-Time and value of the Valuesupplier) \char`\"{};\char`\"{} is used. See also File\-Output.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-report.\-File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+modified by Philip Joschko 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{String}]{file\-Name, }
+\item[{{\bf Time\-Instant}}]{start, }
+\item[{{\bf Time\-Instant}}]{end, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_ac252804d4a26d062f2a317e7443adb4c}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that has N\-O connection to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} but will write data to the given file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em file\-Name} & java.\-lang.\-String \-: The name of the file the values will be saved to. Must comply to the naming rules of the underlying Operating System. This name will be saved in the first line of the file. \\
+\hline
+{\em start} & Time\-Instant \-: The instant at which this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Time\-Instant \-: The instant at which this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_ac252804d4a26d062f2a317e7443adb4c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{String}]{file\-Name, }
+\item[{{\bf Sim\-Time}}]{start, }
+\item[{{\bf Sim\-Time}}]{end, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_ac7c37d427c12175326bf4b4e3cd81ef9}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that has N\-O connection to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} but will write data to the given file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em file\-Name} & java.\-lang.\-String \-: The name of the file the values will be saved to. Must comply to the naming rules of the underlying Operating System. This name will be saved in the first line of the file. \\
+\hline
+{\em start} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Types of start and end (Sim\-Time) to be replaced with Time\-Instant. \end{DoxyRefDesc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_ac7c37d427c12175326bf4b4e3cd81ef9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{String}]{file\-Name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{{\bf Time\-Instant}}]{start, }
+\item[{{\bf Time\-Instant}}]{end, }
+\item[{boolean}]{automatic, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_ace04c32cdcc70e8d25574c0b241ce9da}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that will observe a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and write data to the given file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em file\-Name} & java.\-lang.\-String \-: The name of the file the values will be saved to. Must comply to the naming rules of the underlying Operating System. This name will be saved in the first line of the file. \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The values from this \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be recorded and saved in the file. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object. \\
+\hline
+{\em start} & Time\-Instant \-: The instant at which this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Time\-Instant \-: The instant at which this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em automatic} & boolean \-: Shall the values be recorded automatically at every tick of the Sim\-Clock? \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_ace04c32cdcc70e8d25574c0b241ce9da_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{String}]{file\-Name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{{\bf Sim\-Time}}]{start, }
+\item[{{\bf Sim\-Time}}]{end, }
+\item[{boolean}]{automatic, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a11824e613d82fe0b6906f93c16e1497a}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that will observe a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and write data to the given file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em file\-Name} & java.\-lang.\-String \-: The name of the file the values will be saved to. Must comply to the naming rules of the underlying Operating System. This name will be saved in the first line of the file. \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The values from this \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be recorded and saved in the file. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object. \\
+\hline
+{\em start} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em automatic} & boolean \-: Shall the values be recorded automatically at every tick of the Sim\-Clock? \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Types of start and end (Sim\-Time) to be replaced with Time\-Instant.\end{DoxyRefDesc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_a11824e613d82fe0b6906f93c16e1497a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Time\-Instant}}]{start, }
+\item[{{\bf Time\-Instant}}]{end, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a4b2f2aba8bb7ef578e459dc3ff58c3cf}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that has N\-O connection to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and will N\-O\-T write data into a file. If you will not connect this object to a Time\-Series\-Plotter after using this constructor, it will be useless. Choose another constructor for writing data to file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em start} & Time\-Instant \-: The instant at which this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Time\-Instant \-: The instant at which this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Sim\-Time}}]{start, }
+\item[{{\bf Sim\-Time}}]{end, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_af29396f9f32b9d77e5426f13c77f9e93}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that has N\-O connection to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and will N\-O\-T write data into a file. If you will not connect this object to a Time\-Series\-Plotter after using this constructor, it will be useless. Choose another constructor for writing data to file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em start} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Types of start and end (Sim\-Time) to be replaced with Time\-Instant. \end{DoxyRefDesc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_af29396f9f32b9d77e5426f13c77f9e93_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{{\bf Time\-Instant}}]{start, }
+\item[{{\bf Time\-Instant}}]{end, }
+\item[{boolean}]{automatic, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a47b7cf736fd071e7410c916db55864c6}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that will observe a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} but will N\-O\-T write data into a file. If you will not connect this object to a Time\-Series\-Plotter after using this constructor, it will be useless! Choose another constructor for writing data to file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The values from this \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be recorded and saved in the file. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object. \\
+\hline
+{\em start} & Time\-Instant \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Time\-Instant \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em automatic} & boolean \-: Shall the values be recorded automatically at every tick of the Sim\-Clock? \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_a47b7cf736fd071e7410c916db55864c6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!Time\-Series@{Time\-Series}}
+\index{Time\-Series@{Time\-Series}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{Time\-Series}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Time\-Series.\-Time\-Series (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{{\bf Sim\-Time}}]{start, }
+\item[{{\bf Sim\-Time}}]{end, }
+\item[{boolean}]{automatic, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a69c80113df41fc14de038545f34d07ca}
+Constructor for a \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object that will observe a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} but will N\-O\-T write data into a file. If you will not connect this object to a Time\-Series\-Plotter after using this constructor, it will be useless! Choose another constructor for writing data to file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The values from this \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be recorded and saved in the file. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object. \\
+\hline
+{\em start} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will start to save the values to the file. \\
+\hline
+{\em end} & Sim\-Time \-: The point of Sim\-Time this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} will stop to save the values to the file. Choose an end time that lies before the start time to record the values for all the time. \\
+\hline
+{\em automatic} & boolean \-: Shall the values be recorded automatically at every tick of the Sim\-Clock? \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} in trace files. Set it to {\ttfamily true} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should show up in trace. Set it to {\ttfamily false} if \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} should not be shown in trace.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Types of start and end (Sim\-Time) to be replaced with Time\-Instant.\end{DoxyRefDesc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_a69c80113df41fc14de038545f34d07ca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!connect\-To\-Plotter@{connect\-To\-Plotter}}
+\index{connect\-To\-Plotter@{connect\-To\-Plotter}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{connect\-To\-Plotter}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Time\-Series.\-connect\-To\-Plotter (
+\begin{DoxyParamCaption}
+\item[{java.\-util.\-Observer}]{plotter}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a67747ea1f7adb386e9506041a4a050f2}
+Connects this statistic object with its Graphical\-Observer. Advises this object to keep the values in the memory, because the Time\-Series\-Plotter requires this. 
+\begin{DoxyParams}{Parameters}
+{\em plotter} & The Time\-Series\-Plotter which will display this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_a67747ea1f7adb386e9506041a4a050f2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-statistic.\-Time\-Series.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a3fd915bab87a0e40806eb720c802a958}
+Returns a null pointer and no Reporter! All the data (values) will be saved in a file or displayed in the Graphical\-Observer, so no extra report is needed. \par
+ Overrides the method\-: \doxyref{create\-Reporter()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series_a3fd915bab87a0e40806eb720c802a958} from \doxyref{desmoj.\-core.\-simulator.\-Reportable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_reportable}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-:{\ttfamily null} will be returned 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!get\-Data\-Values@{get\-Data\-Values}}
+\index{get\-Data\-Values@{get\-Data\-Values}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{get\-Data\-Values}]{\setlength{\rightskip}{0pt plus 5cm}List$<$Double$>$ desmoj.\-core.\-statistic.\-Time\-Series.\-get\-Data\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a89cc939900ec7855dce14b0e0137adb2}
+Gets the list of data values. \begin{DoxyReturn}{Returns}
+The list with all the data values. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!get\-Time\-Values@{get\-Time\-Values}}
+\index{get\-Time\-Values@{get\-Time\-Values}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{get\-Time\-Values}]{\setlength{\rightskip}{0pt plus 5cm}List$<$Double$>$ desmoj.\-core.\-statistic.\-Time\-Series.\-get\-Time\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a028f9ca2e9164e865d4c287e2628f95b}
+Gets the list of time values. \begin{DoxyReturn}{Returns}
+The list of all the time values. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!get\-Value@{get\-Value}}
+\index{get\-Value@{get\-Value}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Time\-Series.\-get\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a2538c81ce8fb9acca33734c63ceb078a}
+Returns the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} which values are recorded from this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object.
+
+\begin{DoxyReturn}{Returns}
+double \-: The actual value of the observed {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} object. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_a2538c81ce8fb9acca33734c63ceb078a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Time\-Series.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a075d9786ebbcb169b177841e76531f29}
+Resets this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} object by deleting the contents of the file to which all the data is saved to. The name of the file will remain the same. This is done by closing and opening the existing file. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_a075d9786ebbcb169b177841e76531f29_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!start\-Recording\-Values@{start\-Recording\-Values}}
+\index{start\-Recording\-Values@{start\-Recording\-Values}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{start\-Recording\-Values}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Time\-Series.\-start\-Recording\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_ac92cb1bdaa7ee028aa0ba74142930b2b}
+Lets this \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series} record all values to memory, even if no Time\-Series\-Plotter is present. Useful for connecting the plotter later in an experiment evaluation environment, e.\-g. after experiment conduction. \index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Time\-Series.\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_aefb52c2f6b1222958d08f85c4debd1c4}
+Updates this data collector object with a specific {\ttfamily Time\-Span}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Time\-Span \-: The time span to update this data collector.\\
+\hline
+\end{DoxyParams}
+ 
+
+Implements {\bf desmoj.\-core.\-statistic.\-Statistic\-Object\-Supporting\-Time\-Spans} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_a9c45fb77d91dcb6a699b760390a844a6}.
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Time\-Series.\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_a6433db9ef27e037229f37be3886dc105}
+Updates this {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} object by fetching the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and processing it. The {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} is passed in the constructor of this {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} object. This {\ttfamily \doxyref{update()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series_a6433db9ef27e037229f37be3886dc105}} method complies with the one described in D\-E\-S\-M\-O, see [Page91]. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_a6433db9ef27e037229f37be3886dc105_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Time\-Series.\-update (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_abe5014b580d468b8774209e1d7bebf40}
+Updates this {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} object with the double value given as parameter. In some cases it might be more convenient to pass the value this {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} will be updated with directly within the {\ttfamily \doxyref{update(double val)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series_abe5014b580d468b8774209e1d7bebf40}} method instead of going via the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & double \-: The value with which this {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} will be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_abe5014b580d468b8774209e1d7bebf40_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Time\-Series@{desmoj\-::core\-::statistic\-::\-Time\-Series}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::TimeSeries@{desmoj\-::core\-::statistic\-::\-Time\-Series}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Time\-Series.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_time_series_aa71cc89c9a3b16ac14cd723ef1932f3f}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series_aa71cc89c9a3b16ac14cd723ef1932f3f}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Time\-Series}{p.}{classdesmoj_1_1core_1_1statistic_1_1_time_series}} is updated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_time_series_aa71cc89c9a3b16ac14cd723ef1932f3f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Time\-Series.\-java\end{DoxyCompactItemize}

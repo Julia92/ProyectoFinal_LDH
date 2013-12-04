@@ -1,0 +1,211 @@
+.TH "desmoj.extensions.experimentation.reflect.FieldAccessPoint" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.reflect.FieldAccessPoint \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.util\&.AccessPoint\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.experimentation\&.reflect\&.MutableFieldAccessPoint\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFieldAccessPoint\fP (String fieldName, Object \fBaccessed\fP)"
+.br
+.ti -1c
+.RI "\fBFieldAccessPoint\fP (Field inspectableField, Object \fBaccessed\fP)"
+.br
+.ti -1c
+.RI "\fBFieldAccessPoint\fP (String name, String fieldName, Object \fBaccessed\fP)  throws ReflectException "
+.br
+.ti -1c
+.RI "\fBFieldAccessPoint\fP (String name, Field inspectableField, Object inspected)"
+.br
+.ti -1c
+.RI "Object \fBgetValue\fP ()  throws ReflectException "
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetFieldName\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFieldAccessPoint\fP (Class declaringClass, String name, String fieldName)  throws ReflectException "
+.br
+.ti -1c
+.RI "\fBFieldAccessPoint\fP (String name, Field inspectableField)"
+.br
+.ti -1c
+.RI "Field \fBgetField\fP ()"
+.br
+.ti -1c
+.RI "Class \fBgetDeclaringClass\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Object \fBaccessed\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An AccessPoint for an attribute (field) of a class\&. This pattern can be found in several frameworks for agent- or component-based simulation (e\&.g\&. 'Probes' in Swarm - see www\&.swarm\&.org)\&. The term 'access point' was adopted from the dissertation 'Ein flexibler, CORBA-basierter Ansatz fuer die verteilte, 
+komponentenorientierte Simulation' by Ralf Bachmann (2003)\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Ruth Meyer, Nicolas Knaak 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.FieldAccessPoint (StringfieldName, Objectaccessed)"
+constructs an access point object for the specified field name and the given declaring object\&. The parameter \fCfieldName\fP must denote a field declared in the class of \fCdeclaringObject\fP or inherited from one of its superclasses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfieldName\fP the name of the field to be inspected 
+.br
+\fIaccessed\fP the object whose field values are to be inspected  Constructor 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.FieldAccessPoint (FieldinspectableField, Objectaccessed)"
+constructs an access point object from the given field and object\&. The parameter \fCinspectableField\fP must reference a field declared in the class of \fCdeclaringObject\fP or inherited from one of its superclasses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinspectableField\fP the field to be inspected 
+.br
+\fIaccessed\fP the accessed object 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.FieldAccessPoint (Stringname, StringfieldName, Objectaccessed) throws \fBReflectException\fP"
+constructs an access point object for the specified field name and the given declaring object\&. The parameter \fCfieldName\fP must denote a field declared in the class of \fCdeclaringObject\fP or inherited from one of its superclasses\&. The name of the access point may differ from the field name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP the name for this access point 
+.br
+\fIfieldName\fP the name of the field to be inspected 
+.br
+\fIaccessed\fP the object whose field values are to be inspected 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.FieldAccessPoint (ClassdeclaringClass, Stringname, StringfieldName) throws \fBReflectException\fP\fC [protected]\fP"
+constructs an access point object for the specified field name and the given declaring object\&. The parameter \fCfieldName\fP must denote a field declared in the class of \fCdeclaringObject\fP or inherited from one of its superclasses\&. The name of the access point may differ from the field name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP the name for this access point 
+.br
+\fIfieldName\fP the name of the field to be inspected 
+.br
+\fIdeclaringClass\fP the class whose field is to be inspected 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.FieldAccessPoint (Stringname, FieldinspectableField, Objectinspected)"
+constructs an access point object from the given field and object\&. The parameter \fCinspectableField\fP must reference a field declared in the class of \fCdeclaringObject\fP or inherited from one of its superclasses\&. The name of the access point may differ from the field's name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP the name for this access point 
+.br
+\fIinspectableField\fP the field to be inspected 
+.br
+\fIinspected\fP the inspected object 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.FieldAccessPoint (Stringname, FieldinspectableField)\fC [protected]\fP"
+constructs an access point object from the given field and object\&. The parameter \fCinspectableField\fP must reference a field declared in the class of \fCdeclaringObject\fP or inherited from one of its superclasses\&. The name of the access point may differ from the field's name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP the name for this access point 
+.br
+\fIinspectableField\fP the field to be inspected 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Class desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.getDeclaringClass ()\fC [protected]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the declaring class assigned to this access point 
+.RE
+.PP
+
+.SS "Field desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.getField ()\fC [protected]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the field assigned to this access point 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.getFieldName ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the name of the inspectable field\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.getName ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the name of this field access point\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.util\&.AccessPoint\fP\&.
+.SS "Object desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.getValue () throws \fBReflectException\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the current value of the accessed field for the declaring object\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.util\&.AccessPoint\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "Object desmoj\&.extensions\&.experimentation\&.reflect\&.FieldAccessPoint\&.accessed\fC [protected]\fP"
+the object possessing the inspectable field\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

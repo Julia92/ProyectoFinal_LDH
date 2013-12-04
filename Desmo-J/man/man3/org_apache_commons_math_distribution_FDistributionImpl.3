@@ -1,0 +1,239 @@
+.TH "org.apache.commons.math.distribution.FDistributionImpl" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.FDistributionImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistribution\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFDistributionImpl\fP (double numeratorDegreesOfFreedom, double denominatorDegreesOfFreedom)"
+.br
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (double x)  throws MathException "
+.br
+.ti -1c
+.RI "double \fBinverseCumulativeProbability\fP (final double p)  throws MathException "
+.br
+.ti -1c
+.RI "void \fBsetNumeratorDegreesOfFreedom\fP (double degreesOfFreedom)"
+.br
+.ti -1c
+.RI "double \fBgetNumeratorDegreesOfFreedom\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDenominatorDegreesOfFreedom\fP (double degreesOfFreedom)"
+.br
+.ti -1c
+.RI "double \fBgetDenominatorDegreesOfFreedom\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBgetDomainLowerBound\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBgetDomainUpperBound\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBgetInitialDomain\fP (double p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Default implementation of \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistribution\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+619917 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-08 08:44:11 -0700 (Fri, 08 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.FDistributionImpl (doublenumeratorDegreesOfFreedom, doubledenominatorDegreesOfFreedom)"
+Create a F distribution using the given degrees of freedom\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInumeratorDegreesOfFreedom\fP the numerator degrees of freedom\&. 
+.br
+\fIdenominatorDegreesOfFreedom\fP the denominator degrees of freedom\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.cumulativeProbability (doublex) throws \fBMathException\fP"
+For this distribution, X, this method returns P(X < x)\&.
+.PP
+The implementation of this method is based on: 
+.PD 0
+
+.IP "\(bu" 2
+\fCF-Distribution\fP, equation (4)\&. 
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the CDF is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CDF for this distribution\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.Distribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.getDenominatorDegreesOfFreedom ()"
+Access the denominator degrees of freedom\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the denominator degrees of freedom\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.getDomainLowerBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value lower bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value lower bound, i\&.e\&. P(X < \fIlower bound\fP) < \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.getDomainUpperBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value upper bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value upper bound, i\&.e\&. P(X < \fIupper bound\fP) > \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.getInitialDomain (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the initial domain value, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+initial domain value 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.getNumeratorDegreesOfFreedom ()"
+Access the numerator degrees of freedom\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the numerator degrees of freedom\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.inverseCumulativeProbability (final doublep) throws \fBMathException\fP"
+For this distribution, X, this method returns the critical point x, such that P(X < x) = \fCp\fP\&. 
+.PP
+Returns 0 for p=0 and \fCDouble\&.POSITIVE_INFINITY\fP for p=1\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+x, such that P(X < x) = \fCp\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the inverse cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if \fCp\fP is not a valid probability\&. 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.setDenominatorDegreesOfFreedom (doubledegreesOfFreedom)"
+Modify the denominator degrees of freedom\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdegreesOfFreedom\fP the new denominator degrees of freedom\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if \fCdegreesOfFreedom\fP is not positive\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistribution\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\&.setNumeratorDegreesOfFreedom (doubledegreesOfFreedom)"
+Modify the numerator degrees of freedom\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdegreesOfFreedom\fP the new numerator degrees of freedom\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if \fCdegreesOfFreedom\fP is not positive\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistribution\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

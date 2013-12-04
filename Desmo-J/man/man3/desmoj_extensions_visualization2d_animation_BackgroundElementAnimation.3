@@ -1,0 +1,206 @@
+.TH "desmoj.extensions.visualization2d.animation.BackgroundElementAnimation" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.animation.BackgroundElementAnimation \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBackgroundElementAnimation\fP (\fBModelAnimation\fP owner, String baseId, String name, String text, int textPosition, int textSize, int textStyle, \fBPosition\fP topLeft, \fBPosition\fP bottomRight, double level, Color fg, Color bg, boolean showInAnimation)"
+.br
+.ti -1c
+.RI "\fBBackgroundElementAnimation\fP (\fBModelAnimation\fP owner, String baseId, String name, String text, int textPosition, int textSize, int textStyle, double level, \fBPosition\fP middle, \fBForm\fP form, Color fg, Color bg, boolean showInAnimation)"
+.br
+.ti -1c
+.RI "void \fBsetText\fP (String text)"
+.br
+.ti -1c
+.RI "void \fBsetTextPosition\fP (int pos)"
+.br
+.ti -1c
+.RI "void \fBsetTextSize\fP (int size)"
+.br
+.ti -1c
+.RI "void \fBsetTextStyle\fP (int style)"
+.br
+.ti -1c
+.RI "void \fBsetTextColor\fP (Color fg)"
+.br
+.ti -1c
+.RI "void \fBsetBackground\fP (Color bg)"
+.br
+.ti -1c
+.RI "void \fBsetImageId\fP (String imageId)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Background elements are rectangles\&. There are two types:
+.IP "\(bu" 2
+One has fixed corner points and
+.IP "\(bu" 2
+the other has a fixed middle point\&. The size is set also or comes from the text element\&. It is possible to show a text in the rectangle\&. There is a automatic word wrapping\&. For an explicit newline use a 
+.br
+ tag\&. The text- position, size and style can be set explicitly\&. The colors of text and background can be set also\&. When background is null, the background is transparent\&. It is also possible to show an image on background\&. This image must loaded before in ModelAnimation\&. The level value determine the order of painting\&. Elements with low level value are painted in front of elements with high level\&.
+.PP
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.BackgroundElementAnimation (\fBModelAnimation\fPowner, StringbaseId, Stringname, Stringtext, inttextPosition, inttextSize, inttextStyle, \fBPosition\fPtopLeft, \fBPosition\fPbottomRight, doublelevel, Colorfg, Colorbg, booleanshowInAnimation)"
+Build background element with fixed corners 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Simulation model 
+.br
+\fIbaseId\fP A internal Name\&. The framework generate with this name an id 
+.br
+\fIname\fP Can be null, when not null a border with the name is shown\&. 
+.br
+\fItext\fP The text element, that is shown in background element, with automatic word wrapping\&. Use 
+.br
+ for a new line\&. 
+.br
+\fItextPosition\fP For values look at BackgroundElement\&.TEXT_POSITION_\&.\&.\&. 
+.br
+\fItextSize\fP For values look at BackgroundElement\&.TEXT_SIZE_\&.\&.\&. 
+.br
+\fItextStyle\fP For values look at BackgroundElement\&.TEXT_STYLE_\&.\&.\&. 
+.br
+\fItopLeft\fP Coordinate of topLeft corner point 
+.br
+\fIbottomRight\fP Coordinate of bottomRight corner point 
+.br
+\fIlevel\fP Elements with low level are painted in front of elements with high level 
+.br
+\fIfg\fP Text color 
+.br
+\fIbg\fP Background color, when null then transparent 
+.br
+\fIshowInAnimation\fP 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.BackgroundElementAnimation (\fBModelAnimation\fPowner, StringbaseId, Stringname, Stringtext, inttextPosition, inttextSize, inttextStyle, doublelevel, \fBPosition\fPmiddle, \fBForm\fPform, Colorfg, Colorbg, booleanshowInAnimation)"
+BackgroundElement with fixed middle point 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Simulation model 
+.br
+\fIbaseId\fP A internal Name\&. The framework generate with this name an id 
+.br
+\fIname\fP Can be null, when not null a border with the name is shown\&. 
+.br
+\fItext\fP The text element, that is shown in background element, with automatic word wrapping\&. Use 
+.br
+ for a new line\&. 
+.br
+\fItextPosition\fP For values look at BackgroundElement\&.TEXT_POSITION_\&.\&.\&. 
+.br
+\fItextSize\fP For values look at BackgroundElement\&.TEXT_SIZE_\&.\&.\&. 
+.br
+\fItextStyle\fP For values look at BackgroundElement\&.TEXT_STYLE_\&.\&.\&. 
+.br
+\fIlevel\fP Elements with low level are painted in front of elements with high level 
+.br
+\fImiddle\fP Middle point of background element 
+.br
+\fIform\fP \fBForm\fP of background element, when null minimal size of text is used\&. 
+.br
+\fIfg\fP Text color 
+.br
+\fIbg\fP Background color, when null then transparent 
+.br
+\fIshowInAnimation\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.setBackground (Colorbg)"
+Changes Background Color of Background Element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbg\fP Background color, when null then transparent 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.setImageId (StringimageId)"
+Changes/set imageId of background element\&. The imageId must defined before in ModelAnimation\&.addIcon(\&.\&.) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimageId\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.setText (Stringtext)"
+Changes Text of Background Element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItext\fP The text element, that is shown in background element, with automatic word wrapping\&. Use 
+.br
+ for a new line\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.setTextColor (Colorfg)"
+Changes Color of Text in Background Element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfg\fP Text color 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.setTextPosition (intpos)"
+Changes \fBPosition\fP of Text in Background Element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpos\fP For values look at BackgroundElement\&.TEXT_POSITION_\&.\&.\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.setTextSize (intsize)"
+Changes Size of Text in Background Element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsize\fP For values look at BackgroundElement\&.TEXT_SIZE_\&.\&.\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.BackgroundElementAnimation\&.setTextStyle (intstyle)"
+Changes Style of Text in Background Element 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstyle\fP For values look at BackgroundElement\&.TEXT_STYLE_\&.\&.\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

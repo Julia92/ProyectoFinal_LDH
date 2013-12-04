@@ -1,0 +1,118 @@
+.TH "desmoj.core.statistic.TextSupplier" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.TextSupplier \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Observable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTextSupplier\fP (String name)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQuotedName\fP ()"
+.br
+.ti -1c
+.RI "void \fBnotifyStatistics\fP (Object arg)"
+.br
+.ti -1c
+.RI "void \fBrename\fP (String newName)"
+.br
+.ti -1c
+.RI "abstract String \fBtext\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Supplies observers with texts of their interest\&. It resembles the 'observable' part of the observer pattern as described in [Gamm95]\&. Thus it extends the standard 'Observable' class provided by the Java\&.util package\&. <br There are two possible ways to have other objects register changes of another object's status: <ol <liCall the <code'update(String updateStr)'</codemethod of an observer to pass the String to be counted directly to one other object interested\&. Using the direct call allows easy passing of a String to a single observer\&. No instance of this <codeTextSupplier</codeclass is needed using direct passing of Strings\&.</li <liUsing the <codeTextSupplier</codeto publish the information to interested observers requires you to derive a class and implement the call of the observer's <codeupdate(Observable, Object)</codemethod with the required texts\&. This way of passing Strings involves more code to be written, but offer the potential to have multiple observers and change the number of observers during runtime\&. These options are not available when using the simpler version above\&.</li </ol
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Lorna Slawski based on the class \fBValueSupplier\fP 
+.PP
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.TextSupplier\&.TextSupplier (Stringname)"
+Constructs a simple \fBTextSupplier\fP by giving it a name\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "String desmoj\&.core\&.statistic\&.TextSupplier\&.getName ()"
+Returns the name of the named object\&. This is the same name displayed in reports and trace files when this named object is shown in those reports or trace files\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The name of the named object\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.TextSupplier\&.getQuotedName ()"
+Returns the quoted name of the named object\&. This is the name displayed in reports and trace files when this named object is shown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The quoted name of the named object 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.TextSupplier\&.notifyStatistics (Objectarg)"
+Indicates that this \fBTextSupplier\fP (as an Observable) has changed and notifies all its observers of this change providing the modified text as parameter\&. This is the 'Push-model', thus pushing the String (in the parameter <codearg</code) to the Observer (thus the <codeStatisticObject</code)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarg\fP Object : The Object wrapping the text with which the observers will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.TextSupplier\&.rename (StringnewName)"
+Changes the name of the named object\&. This might be necessary for an automatically created named object of a user defined model, but should not be used for elements of the framework or basic objects of the user model\&. Changing names of objects while runtime will confuse any trace output and generally make traces more difficult if not impossible to follow\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP java\&.lang\&.String : The new name for the named object\&. 
+.RE
+.PP
+
+.SS "abstract String desmoj\&.core\&.statistic\&.TextSupplier\&.text ()\fC [pure virtual]\fP"
+When using the Pull-Model or the automatic update function this method must be overridden by the user in a way that it provides the text (as a <codejava\&.lang\&.String</code) desired\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String within this method\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.TextSupplier\&.toString ()"
+Overrides the java\&.lang\&.Object's toString method to return the named object's name when given as parameter to a method that expects a string to be passed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The named object's name\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

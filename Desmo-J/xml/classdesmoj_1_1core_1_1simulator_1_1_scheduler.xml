@@ -1,0 +1,1827 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1simulator_1_1_scheduler" kind="class" prot="public">
+    <compoundname>desmoj::core::simulator::Scheduler</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_named_object" prot="public" virt="non-virtual">desmoj.core.simulator.NamedObject</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a409d9c6744b27fbca1c7a45fbc056818" prot="protected" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></type>
+        <definition>Experiment desmoj.core.simulator.Scheduler.myExperiment</definition>
+        <argsstring></argsstring>
+        <name>myExperiment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The experiment this scheduler serves. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="35" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac7fe1850744da76757a57aa1bf069bd3" prot="protected" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_clock" kindref="compound">SimClock</ref></type>
+        <definition>SimClock desmoj.core.simulator.Scheduler.clock</definition>
+        <argsstring></argsstring>
+        <name>clock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The actual simulation clock for this scheduler. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="40" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1946169fd1d9207a6cd4219e3262d4ea" prot="protected" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_list" kindref="compound">EventList</ref></type>
+        <definition>EventList desmoj.core.simulator.Scheduler.evList</definition>
+        <argsstring></argsstring>
+        <name>evList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The event-list used by the scheduler. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="45" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1ccda7e27f6f44c1f241eca99c92902f" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.Scheduler.simulationFinished</definition>
+        <argsstring></argsstring>
+        <name>simulationFinished</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flag to indicate whether the current simulation is running or stopped. If true, the simulation is stopped, if false, the simulation is still running. This flag is especially polled by processes exiting any synchronized method used for passivating the process thus giving control back to the scheduler. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="54" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a45877269a79926fd126d6c6d9f1d73b7" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+        <definition>EventNote desmoj.core.simulator.Scheduler._currentNote</definition>
+        <argsstring></argsstring>
+        <name>_currentNote</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the event-note used by the current Schedulables. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="59" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a2be67c23c80d925cf78bfe09e169a5e9" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+        <definition>Entity desmoj.core.simulator.Scheduler._currentEntity1</definition>
+        <argsstring></argsstring>
+        <name>_currentEntity1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the current active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="64" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a65a95a829f57d4ab023bdab516af1879" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+        <definition>Entity desmoj.core.simulator.Scheduler._currentEntity2</definition>
+        <argsstring></argsstring>
+        <name>_currentEntity2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the current active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="69" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a4c9ec8592396547093cfc7f5aac8b707" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+        <definition>Entity desmoj.core.simulator.Scheduler._currentEntity3</definition>
+        <argsstring></argsstring>
+        <name>_currentEntity3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the current active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="74" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1acdcc1a21f9c605623d50c8b386ddc0a1" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+        <definition>SimProcess desmoj.core.simulator.Scheduler._currentProcess</definition>
+        <argsstring></argsstring>
+        <name>_currentProcess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the current active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="79" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aab4f934d9b65573055f70643398bc21e" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract" kindref="compound">EventAbstract</ref></type>
+        <definition>EventAbstract desmoj.core.simulator.Scheduler._currentEvent</definition>
+        <argsstring></argsstring>
+        <name>_currentEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the current active Event. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="84" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aa344ca02ee21b7f0ae71abf6fd8ba5af" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+        <definition>Schedulable desmoj.core.simulator.Scheduler._currentSource</definition>
+        <argsstring></argsstring>
+        <name>_currentSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> that has created the current EventNode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="89" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a34ea5a7a27cda9a15903d13654134218" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+        <definition>Model desmoj.core.simulator.Scheduler._currentModel</definition>
+        <argsstring></argsstring>
+        <name>_currentModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the current active model. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="94" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a3d867fd0b58ec1962c795d331193bbe2" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+        <definition>Schedulable desmoj.core.simulator.Scheduler._currentSchedulable</definition>
+        <argsstring></argsstring>
+        <name>_currentSchedulable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Contains the current active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>. This is either the entity or simProcess if available, or the external event, if none of the first two are available. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="101" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ad9ac39b5f7777ceac082b3ef84a3c671" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.Scheduler._randomizingConcurrentEvents</definition>
+        <argsstring></argsstring>
+        <name>_randomizingConcurrentEvents</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flag indicating if the event-list will process concurrent Events in random order or not. Default is not (<computeroutput>false</computeroutput>). (Modification by Ruth Meyer, 11/2001) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="108" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a07a1cff08088b3e4b6e1b505ed5913fa" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double desmoj.core.simulator.Scheduler._executionSpeedRate</definition>
+        <argsstring></argsstring>
+        <name>_executionSpeedRate</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The execution speed rate. Default is zero (as-fast-as-possible). (Modification by Felix Klueckmann, 05/2009) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="114" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a5b27bea2e070ed571b195a65fea424f4" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.core.simulator.Scheduler._realTimeAtResetInNanos</definition>
+        <argsstring></argsstring>
+        <name>_realTimeAtResetInNanos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The point in physical time (real time) of the last change of the execution speed rate (in nanoseconds). (Modification by Felix Klueckmann, 05/2009) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="121" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a756abff6df3a21ceb118cf7a62850c18" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.core.simulator.Scheduler._simulationTimeAtReset</definition>
+        <argsstring></argsstring>
+        <name>_simulationTimeAtReset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The point in simulation time of the last change of the execution speed rate or the last time the simulation was stopped . (Modification by Felix Klueckmann, 05/2009) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="128" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a587e89007c50a2901e86bd5cdac04eba" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.Scheduler._timeReset</definition>
+        <argsstring></argsstring>
+        <name>_timeReset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flag indicating if the the execution speed rate was changed or the experiment was stopped since the last call of <ref refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a3ebb2196c397436b2bd81a759a964bcd" kindref="member">processNextEventNote()</ref>. (Modification by Felix Klueckmann, 05/2009) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="135" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1e8f678e42fc49fe2c71f958b32aeb50" prot="private" static="no" mutable="no">
+        <type>ReentrantLock</type>
+        <definition>ReentrantLock desmoj.core.simulator.Scheduler._lock</definition>
+        <argsstring></argsstring>
+        <name>_lock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lock for process synchronisation during a realtime execution. (Modification by Felix Klueckmann, 06/2009) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="141" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a9c40845dddf0f4a50ba4b13c0fc27e7f" prot="private" static="no" mutable="no">
+        <type>java.util.concurrent.locks.Condition</type>
+        <definition>java.util.concurrent.locks.Condition desmoj.core.simulator.Scheduler._waitSynchCondition</definition>
+        <argsstring></argsstring>
+        <name>_waitSynchCondition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The condition used for process synchronisation during a realtime execution. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="147" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aaec341a993f49a6f48e8b5ed4b19a3d2" prot="private" static="no" mutable="no">
+        <type>java.util.concurrent.BlockingQueue&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_real_time_event_wrapper" kindref="compound">RealTimeEventWrapper</ref> &gt;</type>
+        <definition>java.util.concurrent.BlockingQueue&lt;RealTimeEventWrapper&gt; desmoj.core.simulator.Scheduler._realTimeEventQueue</definition>
+        <argsstring></argsstring>
+        <name>_realTimeEventQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A threadsafte consumer/producer queue to store RealTimeEventWrapper-Objects send by external systems </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="153" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a5ce97078bd0765d1d3104a5f39a2062d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.simulator.Scheduler.Scheduler</definition>
+        <argsstring>(Experiment exp, String name, EventList eventList)</argsstring>
+        <name>Scheduler</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></type>
+          <declname>exp</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_list" kindref="compound">EventList</ref></type>
+          <declname>eventList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a scheduler with given name and the event-list (i.e. inheritor of <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_list" kindref="compound">desmoj.core.simulator.EventList</ref></computeroutput>) to use.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>exp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref> : The experiment that uses this <ref refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler" kindref="compound">Scheduler</ref> </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The scheduler&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>eventList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_list" kindref="compound">EventList</ref> : The event-list to store scheduled events </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="167" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="167" bodyend="177"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a409d9c6744b27fbca1c7a45fbc056818" compoundref="_scheduler_8java" startline="35">desmoj.core.simulator.Scheduler.myExperiment</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1946169fd1d9207a6cd4219e3262d4ea" compoundref="_scheduler_8java" startline="45">desmoj.core.simulator.Scheduler.evList</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac7fe1850744da76757a57aa1bf069bd3" compoundref="_scheduler_8java" startline="40">desmoj.core.simulator.Scheduler.clock</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1ccda7e27f6f44c1f241eca99c92902f" compoundref="_scheduler_8java" startline="54">desmoj.core.simulator.Scheduler.simulationFinished</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aae3db44206d60c1780491496aa63e866" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.Scheduler.isRandomizingConcurrentEvents</definition>
+        <argsstring>()</argsstring>
+        <name>isRandomizingConcurrentEvents</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns if the event-list processes concurrent Events in random order or not.</para><para><simplesect kind="return"><para>boolean: <computeroutput>true</computeroutput> if concurrent Events are randomized, <computeroutput>false</computeroutput> otherwise </para></simplesect>
+<simplesect kind="author"><para>Ruth Meyer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="328" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="328" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a9d0b75d466c39e59e328a9226bdea2dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String desmoj.core.simulator.Scheduler.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a string representation of the current state of the event-list. The string is built by concatenating all string representations of the contained entities, events and <ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> objects calling their <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a9d0b75d466c39e59e328a9226bdea2dc" kindref="member">toString()</ref></computeroutput> methods.</para><para><simplesect kind="return"><para>java.lang.String : The string representation of the queuelist </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2699" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2699" bodyend="2786"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract_1a81b55fc57063e06e95543581c9664789" compoundref="_event_abstract_8java" startline="133" endline="136">desmoj.core.simulator.EventAbstract.getNumberOfEntities</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1946169fd1d9207a6cd4219e3262d4ea" compoundref="_scheduler_8java" startline="45">desmoj.core.simulator.Scheduler.evList</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.core.simulator.Scheduler.presentTime</definition>
+        <argsstring>()</argsstring>
+        <name>presentTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the actual simulation time as displayed by the simulation clock.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> : The current point in simulation time </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="184" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="184" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a9d3a04813f8b4e1935e71d339dd9f533" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+        <definition>Entity desmoj.core.simulator.Scheduler.getCurrentEntity</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentEntity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the currently active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>. Returns <computeroutput>null</computeroutput> if the current <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> happens to be an external event or a simprocess. Note that in case the current Event refers to more than one entity (<computeroutput>EventOfTwoEntities</computeroutput>, <computeroutput>EventOfThreeEntitties</computeroutput>), only the first entity is returned; to obtain all such entities, use <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac357dd7b4e2bbb356a97f2327fab9f27" kindref="member">getAllCurrentEntities()</ref></computeroutput> instead.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The currently active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> or <computeroutput>null</computeroutput> in case of an external event or a simprocess being the currently active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="202" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="202" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac357dd7b4e2bbb356a97f2327fab9f27" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+        <definition>List&lt;Entity&gt; desmoj.core.simulator.Scheduler.getAllCurrentEntities</definition>
+        <argsstring>()</argsstring>
+        <name>getAllCurrentEntities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the currently active entities. Returns an empty list if the current <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> happens to be an external event or a <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>.</para><para><simplesect kind="return"><para>List&lt;Entity&gt; : A list containing the currently active entities </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="214" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="214" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1af399bc6af8c16ebae50f9f189a0013b1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract" kindref="compound">EventAbstract</ref></type>
+        <definition>EventAbstract desmoj.core.simulator.Scheduler.getCurrentEvent</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current active Event or <computeroutput>null</computeroutput>. Note that this method can also return an external event that can not be handled like an Event since it does not support scheduling together with an entity. Returns <computeroutput>null</computeroutput> if the current <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> happens to be a Sim-process that has been activated, thus no kind of Event is associated with it.</para><para><simplesect kind="return"><para>Event : The currently active Event or external event or <computeroutput>null</computeroutput> if the current <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> happens to be an activated <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="238" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="238" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a6a8e088324bdf35101526b6fd5409d9f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+        <definition>Model desmoj.core.simulator.Scheduler.getCurrentModel</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the currently active model.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref> : The currently active model or <computeroutput>null</computeroutput> in case of no model being connected so far. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="250" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="250" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aba8b775074732ae450cd85a00b8c428d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+        <definition>Schedulable desmoj.core.simulator.Scheduler.getCurrentSource</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> object that as created the current EventNode, thus being responsible for what is going on at the moment</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The source of the currently active object(s). </para></simplesect>
+<simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> </para><simplesectsep/><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para><simplesectsep/><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_external_event" kindref="compound">ExternalEvent</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="265" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="265" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a0d50629e40005fd8b018725d9afd9a4c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+        <definition>Schedulable desmoj.core.simulator.Scheduler.getCurrentSchedulable</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentSchedulable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the currently active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> object. This can be any of its subtypes <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>, <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> or external event in that order. For events referring to multiple enities, the first entity is returned.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The currently active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> </para><simplesectsep/><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para><simplesectsep/><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_external_event" kindref="compound">ExternalEvent</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="281" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="281" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a3cd0ca0efc51a621b27a06fdc17be43f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+        <definition>SimProcess desmoj.core.simulator.Scheduler.getCurrentSimProcess</definition>
+        <argsstring>()</argsstring>
+        <name>getCurrentSimProcess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>. Note that this method can only return a Sim-process. If the currently active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> is not instance of Sim-process or an external event, <computeroutput>null</computeroutput> is returned.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> : The currently active <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> or <computeroutput>null</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="294" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="294" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac2cf88bcfdf461be31ccc92ddfcfea4b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.simulator.Scheduler.getExecutionSpeedRate</definition>
+        <argsstring>()</argsstring>
+        <name>getExecutionSpeedRate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current execution Speed Rate.</para><para><simplesect kind="return"><para>double : The current execution speed rate. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="305" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="305" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a43d2aa21050841a09fa98c523bb943bf" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_clock" kindref="compound">SimClock</ref></type>
+        <definition>SimClock desmoj.core.simulator.Scheduler.getSimClock</definition>
+        <argsstring>()</argsstring>
+        <name>getSimClock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the actual clock for this model.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_clock" kindref="compound">SimClock</ref> : The actual clock for simulation time </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="314" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="314" bodyend="318"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac7fe1850744da76757a57aa1bf069bd3" compoundref="_scheduler_8java" startline="40">desmoj.core.simulator.Scheduler.clock</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a3ebb2196c397436b2bd81a759a964bcd" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.Scheduler.processNextEventNote</definition>
+        <argsstring>()</argsstring>
+        <name>processNextEventNote</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Processes the next event-note on the event-list. Returns <computeroutput>true</computeroutput> if that <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> has been processed correctly, <computeroutput>false</computeroutput> if an error occurred or the event-list is empty.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the next event-note was processed correctly, <computeroutput>false</computeroutput> if not </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="375" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="375" bodyend="728"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1946169fd1d9207a6cd4219e3262d4ea" compoundref="_scheduler_8java" startline="45">desmoj.core.simulator.Scheduler.evList</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a409d9c6744b27fbca1c7a45fbc056818" compoundref="_scheduler_8java" startline="35">desmoj.core.simulator.Scheduler.myExperiment</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1a81a78bd8f329fa5816c6b56944ed7b3a" compoundref="_experiment_8java" startline="1474" endline="1478">desmoj.core.simulator.Experiment.isStopped</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a4c2fada418805548b84a75f290496884" compoundref="_time_instant_8java" startline="481" endline="483">desmoj.core.simulator.TimeInstant.isAfterOrEqual</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_operations_1af6d9934167ba60f604049ff6fb04169d" compoundref="_time_operations_8java" startline="198" endline="207">desmoj.core.simulator.TimeOperations.diff</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_event_note_1a17153859d7e7794111b09588fadc8e3c" compoundref="_event_note_8java" startline="317" endline="322">desmoj.core.simulator.EventNote.getTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a2a6353510e7acdaa4a078dbdb341c1fd" compoundref="_time_instant_8java" startline="461" endline="463">desmoj.core.simulator.TimeInstant.isAfter</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a12bdb93087022342b553330e3c44d8de" compoundref="_time_instant_8java" startline="443" endline="445">desmoj.core.simulator.TimeInstant.isBefore</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract_1a81b55fc57063e06e95543581c9664789" compoundref="_event_abstract_8java" startline="133" endline="136">desmoj.core.simulator.EventAbstract.getNumberOfEntities</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a109f79435484efa957f9d9c2460de2c2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.advanceTime</definition>
+        <argsstring>(TimeInstant now, TimeInstant next)</argsstring>
+        <name>advanceTime</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+          <declname>now</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called to notify simulator about the time passed between the execution of two events with a positive (non-zero) offset. The implementation of this method just sets the scheduler&apos;s clock to the new instant; note, though, that extensions to DESMO-J may overwrite this method to conduct more complex operations, e.g. extrapolate variables in continuous simulation.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>now</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> : The current point in simulation time </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>next</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> : The next point in simulation time to advance the clock to (e.g. instant of the next event) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="745" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="745" bodyend="750"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a0fefa2d51f3f09f9514157f8d01b7057" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.realTimeSchedule</definition>
+        <argsstring>(RealTimeEventWrapper what)</argsstring>
+        <name>realTimeSchedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_real_time_event_wrapper" kindref="compound">RealTimeEventWrapper</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the external event to happen at the simulation time equivalent to the current value of wall-clock time.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_external_event" kindref="compound">ExternalEvent</ref> : The external event to be scheduled </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="761" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="761" bodyend="799"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a409d9c6744b27fbca1c7a45fbc056818" compoundref="_scheduler_8java" startline="35">desmoj.core.simulator.Scheduler.myExperiment</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1a9b9ddd1ee29750270e11df744f6336f5" compoundref="_experiment_8java" startline="1450" endline="1454">desmoj.core.simulator.Experiment.isRunning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a57169a31d074668d7b8c1db176753e1d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.reSchedule</definition>
+        <argsstring>(Schedulable who, TimeSpan dt)</argsstring>
+        <name>reSchedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>who</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen after a specified time. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref> : The point in simulation time for the event to happen as an offset to the current simulation time </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="837" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="837" bodyend="910"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1a669fdfd1dcc1238af159ca1685107186" compoundref="_time_span_8java" startline="33">desmoj.core.simulator.TimeSpan.ZERO</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ae04016822f789b9f58dd0a1e5a808f35" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.reSchedule</definition>
+        <argsstring>(Schedulable who, TimeInstant time)</argsstring>
+        <name>reSchedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>who</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> : The point in simulation time for the event to happen </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="947" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="947" bodyend="1036"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a12bdb93087022342b553330e3c44d8de" compoundref="_time_instant_8java" startline="443" endline="445">desmoj.core.simulator.TimeInstant.isBefore</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aeba961207ad7338ea774adb6b820b8ae" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.schedule</definition>
+        <argsstring>(Entity who, EventAbstract what, TimeSpan dt)</argsstring>
+        <name>schedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract" kindref="compound">EventAbstract</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen after a specified time span. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event : The event to manipulate the entity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref> : The point in simulation time for the event to happen as an offset to the current simulation time </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="1076" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="1076" bodyend="1166"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract_1a81b55fc57063e06e95543581c9664789" compoundref="_event_abstract_8java" startline="133" endline="136">desmoj.core.simulator.EventAbstract.getNumberOfEntities</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1a669fdfd1dcc1238af159ca1685107186" compoundref="_time_span_8java" startline="33">desmoj.core.simulator.TimeSpan.ZERO</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aeb6fdd77fa5b0394a000540e0fb792cd" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.schedule</definition>
+        <argsstring>(Entity who1, Entity who2, EventOf2Entities&lt;?,?&gt; what, TimeSpan dt)</argsstring>
+        <name>schedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type>EventOf2Entities&lt;?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen after a specified time span. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf2Entities : The event to manipulate the two entities </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref> : The point in simulation time for the event to happen as an offset to the current simulation time </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="1210" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="1210" bodyend="1286"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1a669fdfd1dcc1238af159ca1685107186" compoundref="_time_span_8java" startline="33">desmoj.core.simulator.TimeSpan.ZERO</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a0ce021e6ee8dad108e105f6b84185a53" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.schedule</definition>
+        <argsstring>(Entity who1, Entity who2, Entity who3, EventOf3Entities&lt;?,?,?&gt; what, TimeSpan dt)</argsstring>
+        <name>schedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who3</declname>
+        </param>
+        <param>
+          <type>EventOf3Entities&lt;?,?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen after a specified time span. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The third entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf3Entities : The event to manipulate the two entities </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref> : The point in simulation time for the event to happen as an offset to the current simulation time </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="1333" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="1333" bodyend="1430"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1a669fdfd1dcc1238af159ca1685107186" compoundref="_time_span_8java" startline="33">desmoj.core.simulator.TimeSpan.ZERO</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1afdb4a2bee362805c031fcac7d01e7de3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.schedule</definition>
+        <argsstring>(Entity who, EventAbstract what, TimeInstant when)</argsstring>
+        <name>schedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract" kindref="compound">EventAbstract</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+          <declname>when</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event : The event to manipulate the entity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>when</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> : The point in simulation time for the event to happen </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="1470" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="1470" bodyend="1574"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a12bdb93087022342b553330e3c44d8de" compoundref="_time_instant_8java" startline="443" endline="445">desmoj.core.simulator.TimeInstant.isBefore</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract_1a81b55fc57063e06e95543581c9664789" compoundref="_event_abstract_8java" startline="133" endline="136">desmoj.core.simulator.EventAbstract.getNumberOfEntities</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a5fb1d94ee0cc07aab88ea395c31c8e4b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.schedule</definition>
+        <argsstring>(Entity who1, Entity who2, EventOf2Entities&lt;?,?&gt; what, TimeInstant when)</argsstring>
+        <name>schedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type>EventOf2Entities&lt;?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+          <declname>when</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf2Entities : The event to manipulate the entity</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>when</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> : The point in simulation time for the event to happen </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="1619" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="1619" bodyend="1709"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a12bdb93087022342b553330e3c44d8de" compoundref="_time_instant_8java" startline="443" endline="445">desmoj.core.simulator.TimeInstant.isBefore</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a14fc404adb589e60ad6567de548f445b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.schedule</definition>
+        <argsstring>(Entity who1, Entity who2, Entity who3, EventOf3Entities&lt;?,?,?&gt; what, TimeInstant when)</argsstring>
+        <name>schedule</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who3</declname>
+        </param>
+        <param>
+          <type>EventOf3Entities&lt;?,?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+          <declname>when</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the event to happen at the specified time. Checks that only legal combinations of valid parameters are scheduled. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The third entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf3Entities : The event to manipulate the entity </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>when</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> : The point in simulation time for the event to happen </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="1756" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="1756" bodyend="1867"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant_1a12bdb93087022342b553330e3c44d8de" compoundref="_time_instant_8java" startline="443" endline="445">desmoj.core.simulator.TimeInstant.isBefore</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ab6d614946cad32e0767a60652be0a9e0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.scheduleAfter</definition>
+        <argsstring>(Schedulable after, Entity who, EventAbstract what)</argsstring>
+        <name>scheduleAfter</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>after</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract" kindref="compound">EventAbstract</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> and Event to happen straight after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> is set to be activated. Note that the siulation time for the newly entered <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be set to the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s time and the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be inserted directly after the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>after</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> after which the new event-note is to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event : The event to be scheduled </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="1909" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="1909" bodyend="1989"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract_1a81b55fc57063e06e95543581c9664789" compoundref="_event_abstract_8java" startline="133" endline="136">desmoj.core.simulator.EventAbstract.getNumberOfEntities</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ae617d0af5e583f3f69b2dc126ebb6f53" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.scheduleAfter</definition>
+        <argsstring>(Schedulable after, Entity who1, Entity who2, EventOf2Entities&lt;?,?&gt; what)</argsstring>
+        <name>scheduleAfter</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>after</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type>EventOf2Entities&lt;?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> and Event to happen straight after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> is set to be activated. Note that the siulation time for the newly entered <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be set to the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s time and the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be inserted directly after the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>after</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> after which the new event-note is to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf2Entities : The event to be scheduled </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2035" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2035" bodyend="2104"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_entity_1a0c80f628c282fb71b88e8d5dd86dcdc7" compoundref="core_2simulator_2_entity_8java" startline="148" endline="152">desmoj.core.simulator.Entity.getPriority</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a6798fbf8bea8b77f7ac0bd8f3fec7a4b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.scheduleAfter</definition>
+        <argsstring>(Schedulable after, Entity who1, Entity who2, Entity who3, EventOf3Entities&lt;?,?,?&gt; what)</argsstring>
+        <name>scheduleAfter</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>after</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who3</declname>
+        </param>
+        <param>
+          <type>EventOf3Entities&lt;?,?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> and Event to happen straight after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> is set to be activated. Note that the siulation time for the newly entered <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be set to the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s time and the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be inserted directly after the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>after</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> after which the new event-note is to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The third entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf3Entities : The event to be scheduled </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2153" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2153" bodyend="2241"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_entity_1a0c80f628c282fb71b88e8d5dd86dcdc7" compoundref="core_2simulator_2_entity_8java" startline="148" endline="152">desmoj.core.simulator.Entity.getPriority</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" compoundref="_scheduler_8java" startline="184" endline="188">desmoj.core.simulator.Scheduler.presentTime</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1af0a1c5db51ab8614a7adc8c76951c4aa" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.scheduleBefore</definition>
+        <argsstring>(Schedulable before, Entity who, EventAbstract what)</argsstring>
+        <name>scheduleBefore</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>before</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract" kindref="compound">EventAbstract</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> and Event to happen straight before the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> is scheduled. Note that the simulation time for the newly entered <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be set to the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s time and the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be inserted directly before the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>before</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> before which the new event-note is to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event : The event to be scheduled </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2283" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2283" bodyend="2352"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_event_abstract_1a81b55fc57063e06e95543581c9664789" compoundref="_event_abstract_8java" startline="133" endline="136">desmoj.core.simulator.EventAbstract.getNumberOfEntities</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a82fca3d94b2ef9e57592589e9e3d5aea" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.scheduleBefore</definition>
+        <argsstring>(Schedulable before, Entity who1, Entity who2, EventOf2Entities&lt;?,?&gt; what)</argsstring>
+        <name>scheduleBefore</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>before</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type>EventOf2Entities&lt;?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> and Event to happen straight before the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> is scheduled. Note that the simulation time for the newly entered <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be set to the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s time and the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be inserted directly before the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>before</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> before which the new event-note is to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf2Entities : The event to be scheduled </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2399" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2399" bodyend="2464"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_entity_1a0c80f628c282fb71b88e8d5dd86dcdc7" compoundref="core_2simulator_2_entity_8java" startline="148" endline="152">desmoj.core.simulator.Entity.getPriority</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1abae04751dbf4ec56196fee6259432c77" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.scheduleBefore</definition>
+        <argsstring>(Schedulable before, Entity who1, Entity who2, Entity who3, EventOf3Entities&lt;?,?,?&gt; what)</argsstring>
+        <name>scheduleBefore</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref></type>
+          <declname>before</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who1</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who2</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></type>
+          <declname>who3</declname>
+        </param>
+        <param>
+          <type>EventOf3Entities&lt;?,?,?&gt;</type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Schedules the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> and Event to happen straight before the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> is scheduled. Note that the simulation time for the newly entered <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be set to the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s time and the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will be inserted directly before the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref>&apos;s <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. </para><para> <table rows="4" cols="3"><row>
+<entry thead="yes"><para>scheduling type </para></entry><entry thead="yes"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> object </para></entry><entry thead="yes"><para>Event object  </para></entry></row>
+<row>
+<entry thead="yes"><para>Event oriented </para></entry><entry thead="no"><para>Event or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>Event  </para></entry></row>
+<row>
+<entry thead="yes"><para>process oriented </para></entry><entry thead="no"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></entry><entry thead="no"><para>null  </para></entry></row>
+<row>
+<entry thead="yes"><para>external event </para></entry><entry thead="no"><para>null </para></entry><entry thead="no"><para>external event  </para></entry></row>
+<caption>Valid scheduling types </caption>
+</table>
+</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>before</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> before which the new event-note is to be scheduled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The first entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The second entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>who3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> : The third entity to be scheduled</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EventOf3Entities : The event to be scheduled </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2513" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2513" bodyend="2596"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable_1a1ef278c504d931bb6b6e7bf20ac5c378" compoundref="_schedulable_8java" startline="126" endline="131">desmoj.core.simulator.Schedulable.isScheduled</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_entity_1a0c80f628c282fb71b88e8d5dd86dcdc7" compoundref="core_2simulator_2_entity_8java" startline="148" endline="152">desmoj.core.simulator.Entity.getPriority</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1abad2738909dd49d2a9e0626a820212fe" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.setExecutionSpeedRate</definition>
+        <argsstring>(double executionSpeedRate)</argsstring>
+        <name>setExecutionSpeedRate</name>
+        <param>
+          <type>double</type>
+          <declname>executionSpeedRate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the execution speed rate.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>executionSpeedRate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : the execution speed rate </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Felix Klueckmann </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2626" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2626" bodyend="2632"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a20726e08dc76b2996bd7c80a307f3c8a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.setRandomizingConcurrentEvents</definition>
+        <argsstring>(boolean randomizing)</argsstring>
+        <name>setRandomizingConcurrentEvents</name>
+        <param>
+          <type>boolean</type>
+          <declname>randomizing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the flag indicating if the event-list processes concurrent Events in random order or not. If a change occurred the event-list has to be changed accordingly.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>randomizing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean :<computeroutput>true</computeroutput> forces random order, <computeroutput>false</computeroutput> forces &quot;linear&quot; order </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="author"><para>Ruth Meyer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2644" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2644" bodyend="2660"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a8969fabcea32b4f5c1433b3ff3b0617d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.signalStop</definition>
+        <argsstring>()</argsstring>
+        <name>signalStop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Signals that the experiment is stopped.</para><para><simplesect kind="author"><para>Felix Klueckmann </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2684" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2684" bodyend="2689"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1adf70ad3440407a6ad9cc241865ac2a68" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.preemptSimProcess</definition>
+        <argsstring>(EventNote preemptNote)</argsstring>
+        <name>preemptSimProcess</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>preemptNote</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Preempts the currently running <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>. Method is called whenenver another <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> or <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is scheduled with <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span_1a669fdfd1dcc1238af159ca1685107186" kindref="member">TimeSpan.ZERO</ref></computeroutput> or <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" kindref="member">presentTime()</ref></computeroutput> as parameter for the simulation time. The current <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is interrupted and will be scheduled to continue its lifecycle</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>preemptNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> - The event-note of the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_schedulable" kindref="compound">Schedulable</ref> preempting the current <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="343" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="343" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a29ed80a87bc539329ed24ae0eba8dc80" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.Scheduler.sendDebugNote</definition>
+        <argsstring>(String description)</argsstring>
+        <name>sendDebugNote</name>
+        <param>
+          <type>String</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates and sends a debugnote to the experiment&apos;s messagedistributor. These debugnotes express the internal state of the event-list to visualize the changes of state to help find bugs. Classes <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler" kindref="compound">Scheduler</ref></computeroutput> and <computeroutput>Queue</computeroutput> both produce debugnotes if set to do so representing the data stored inside them. The information about the simulation time is extracted from the experiment and must not be given as a parameter.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The description of the event-list&apos;s internal state to be passed with this debugnote </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2611" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2611" bodyend="2617"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a35f0d10b6378dfd2960afad92644a078" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.Scheduler.simFinished</definition>
+        <argsstring>()</argsstring>
+        <name>simFinished</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the status of the current simulation. Clients should not need to use this method explicitly. This method is polled by each thread when it exits a lock to check wether it should continue its lifeCycle() method ot throw a SimulationFinishedException, which seems to be the only legal way to break out of the deep call hierarchies and stop the Process&apos; lifeCycle.</para><para><simplesect kind="return"><para>boolean : state of the simulation. False if still running, true if the simulation has already finished correctly </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="2673" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="2673" bodyend="2677"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The scheduler is the main element controlling the run of a simulation. It controls the event-list in which all scheduled events are stored, picks the next event to be processed and advances the simulation clock accordingly.</para><para><simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Tim Lechler, modified by Ruth Meyer, Justin Neumann <verbatim>    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.</verbatim> </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="10549">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="10548">
+        <label>desmoj.core.simulator.Scheduler</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler"/>
+        <childnode refid="10549" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10553">
+        <label>Observable</label>
+      </node>
+      <node id="10552">
+        <label>desmoj.core.simulator.SimClock</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_sim_clock"/>
+        <childnode refid="10553" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10554">
+        <label>desmoj.core.simulator.Experiment</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_experiment"/>
+        <childnode refid="10551" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10550" relation="usage">
+          <edgelabel>clientScheduler</edgelabel>
+        </childnode>
+      </node>
+      <node id="10551">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="10550">
+        <label>desmoj.core.simulator.Scheduler</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler"/>
+        <childnode refid="10551" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10552" relation="usage">
+          <edgelabel>clock</edgelabel>
+        </childnode>
+        <childnode refid="10554" relation="usage">
+          <edgelabel>myExperiment</edgelabel>
+        </childnode>
+        <childnode refid="10555" relation="usage">
+          <edgelabel>evList</edgelabel>
+        </childnode>
+      </node>
+      <node id="10555">
+        <label>desmoj.core.simulator.EventList</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_event_list"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" line="30" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/Scheduler.java" bodystart="30" bodyend="2787"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a2be67c23c80d925cf78bfe09e169a5e9" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentEntity1</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a65a95a829f57d4ab023bdab516af1879" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentEntity2</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a4c9ec8592396547093cfc7f5aac8b707" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentEntity3</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aab4f934d9b65573055f70643398bc21e" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a34ea5a7a27cda9a15903d13654134218" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a45877269a79926fd126d6c6d9f1d73b7" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1acdcc1a21f9c605623d50c8b386ddc0a1" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a3d867fd0b58ec1962c795d331193bbe2" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aa344ca02ee21b7f0ae71abf6fd8ba5af" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_currentSource</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a07a1cff08088b3e4b6e1b505ed5913fa" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_executionSpeedRate</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1e8f678e42fc49fe2c71f958b32aeb50" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_lock</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ad9ac39b5f7777ceac082b3ef84a3c671" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_randomizingConcurrentEvents</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a5b27bea2e070ed571b195a65fea424f4" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_realTimeAtResetInNanos</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aaec341a993f49a6f48e8b5ed4b19a3d2" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_realTimeEventQueue</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a756abff6df3a21ceb118cf7a62850c18" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_simulationTimeAtReset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a587e89007c50a2901e86bd5cdac04eba" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_timeReset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a9c40845dddf0f4a50ba4b13c0fc27e7f" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>_waitSynchCondition</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a109f79435484efa957f9d9c2460de2c2" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>advanceTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac7fe1850744da76757a57aa1bf069bd3" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>clock</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1946169fd1d9207a6cd4219e3262d4ea" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>evList</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac357dd7b4e2bbb356a97f2327fab9f27" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getAllCurrentEntities</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a9d3a04813f8b4e1935e71d339dd9f533" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getCurrentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1af399bc6af8c16ebae50f9f189a0013b1" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getCurrentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a6a8e088324bdf35101526b6fd5409d9f" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getCurrentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a0d50629e40005fd8b018725d9afd9a4c" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getCurrentSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a3cd0ca0efc51a621b27a06fdc17be43f" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getCurrentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aba8b775074732ae450cd85a00b8c428d" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getCurrentSource</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac2cf88bcfdf461be31ccc92ddfcfea4b" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getExecutionSpeedRate</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a43d2aa21050841a09fa98c523bb943bf" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>getSimClock</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aae3db44206d60c1780491496aa63e866" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>isRandomizingConcurrentEvents</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a409d9c6744b27fbca1c7a45fbc056818" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>myExperiment</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1adf70ad3440407a6ad9cc241865ac2a68" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>preemptSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ac6b57979b59d4096cc275701073587a5" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a3ebb2196c397436b2bd81a759a964bcd" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>processNextEventNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a0fefa2d51f3f09f9514157f8d01b7057" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>realTimeSchedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a57169a31d074668d7b8c1db176753e1d" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>reSchedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ae04016822f789b9f58dd0a1e5a808f35" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>reSchedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aeba961207ad7338ea774adb6b820b8ae" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>schedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1aeb6fdd77fa5b0394a000540e0fb792cd" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>schedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a0ce021e6ee8dad108e105f6b84185a53" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>schedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1afdb4a2bee362805c031fcac7d01e7de3" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>schedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a5fb1d94ee0cc07aab88ea395c31c8e4b" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>schedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a14fc404adb589e60ad6567de548f445b" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>schedule</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ab6d614946cad32e0767a60652be0a9e0" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>scheduleAfter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1ae617d0af5e583f3f69b2dc126ebb6f53" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>scheduleAfter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a6798fbf8bea8b77f7ac0bd8f3fec7a4b" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>scheduleAfter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1af0a1c5db51ab8614a7adc8c76951c4aa" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>scheduleBefore</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a82fca3d94b2ef9e57592589e9e3d5aea" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>scheduleBefore</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1abae04751dbf4ec56196fee6259432c77" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>scheduleBefore</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a5ce97078bd0765d1d3104a5f39a2062d" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>Scheduler</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a29ed80a87bc539329ed24ae0eba8dc80" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1abad2738909dd49d2a9e0626a820212fe" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>setExecutionSpeedRate</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a20726e08dc76b2996bd7c80a307f3c8a" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>setRandomizingConcurrentEvents</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a8969fabcea32b4f5c1433b3ff3b0617d" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>signalStop</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a35f0d10b6378dfd2960afad92644a078" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>simFinished</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a1ccda7e27f6f44c1f241eca99c92902f" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>simulationFinished</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_scheduler_1a9d0b75d466c39e59e328a9226bdea2dc" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::Scheduler</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

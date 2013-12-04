@@ -1,0 +1,114 @@
+.TH "desmoj.extensions.applicationDomains.production.Transportation" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.Transportation \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ProcessCoop\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransportation\fP (\fBModel\fP owner, String name, NumericalDist<?> transportTimeStream, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBsetTransportTimeStream\fP (NumericalDist<?> newTransportTimeStream)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcooperation\fP (\fBSimProcess\fP master, \fBSimProcess\fP slave)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetTransportTimeSample\fP ()"
+.br
+.ti -1c
+.RI "void \fBtransport\fP (\fBSimProcess\fP master, \fBSimProcess\fP[] slaves)"
+.br
+.ti -1c
+.RI "void \fBtransport\fP (\fBSimProcess\fP master, \fBSimProcess\fP slave)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBTransportation\fP is the object representing the process cooperation between a \fC\fBTransporter\fP\fP process and the goods (products represented by Sim-processes) he is transporting\&. It is intended that that this \fBTransportation\fP is used with the \fC\fBTransportJunction\fP\fP construct, where a \fC\fBTransporter\fP\fP( as a master process) is waiting for goods (slave processes) to carry them around in the manufacturing system\&. During the \fBTransportation\fP the master is active and the slaves are passive\&. The transportation carried out together is described in the method \fCcooperation\fP, which can be overwritten by the user to build more complex models\&. Until now this method only models the time it takes to transport the goods\&. Note: when using the \fC\fBTransportJunction\fP\fP construct the master (\fBTransporter\fP) will be activated after the transportation is done and the slaves will be activated after the master (if they have not been activated during the transportation already)\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.extensions\&.applicationDomains\&.production\&.TransportJunction\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.Transportation\&.Transportation (\fBModel\fPowner, Stringname, NumericalDist<?>transportTimeStream, booleanshowInTrace)"
+Constructs a \fBTransportation\fP process where a master ( \fC\fBTransporter\fP\fP) is transporting slaves ( \fCSimPorcess\fP es) in a cooperate process\&. The time it takes to transport the goods is determined by the specified transportTimeStream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTransportation\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : the name of this \fBTransportation\fP\&. 
+.br
+\fItransportTimeStream\fP NumericalDist<?> : The random number stream determining the time it takes to transport the goods\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBTransportation\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Transportation\&.cooperation (\fBSimProcess\fPmaster, \fBSimProcess\fPslave)\fC [protected]\fP"
+The \fC\fBcooperation()\fP\fP method with only one master and one slave is not needed here\&. So we pass it to the more general method with an array of slaves as parameter\&. 
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.Transportation\&.getTransportTimeSample ()\fC [protected]\fP"
+Returns a \fCTimeSpan\fP object representing the time it takes to transport the goods with the transporter\&. The time is taken from the given random number stream transportTimeStream\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The time it takes to transport the goods with the transporter\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Transportation\&.setTransportTimeStream (NumericalDist<?>newTransportTimeStream)"
+Sets the transportTimeStream to a new \fCRealDist\fP random number stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewTransportTimeStream\fP NumericalDist<?> : The new \fCRealDist\fP random number stream determining the time it takes to transport the goods\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Transportation\&.transport (\fBSimProcess\fPmaster, \fBSimProcess\fP[]slaves)\fC [protected]\fP"
+This method describes the transportation process carried out by the master process (some kind of \fC\fBTransporter\fP\fP)\&. In this simple case only the time it takes to transport the goods is taken into consideration\&. If the user building the model has to implement a more complex behavior, he has to overwrite this method in a subclass\&. The time it takes to transport the goods is obtained from the method \fC\fBgetTransportTimeSample()\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaster\fP SimProcess : The master process which really carries out the cooperation\&. Should be a subclass of \fC\fBTransporter\fP\fP\&. 
+.br
+\fIslaves\fP SimProcess[] : The slave processes which are lead through the cooperation by the master\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Transportation\&.transport (\fBSimProcess\fPmaster, \fBSimProcess\fPslave)\fC [protected]\fP"
+The \fC\fBtransport()\fP\fP method with only one master and one slave is not needed here\&. So we pass it to the more general method with an array of slaves as parameter\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

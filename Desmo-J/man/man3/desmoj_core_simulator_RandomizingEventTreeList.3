@@ -1,0 +1,53 @@
+.TH "desmoj.core.simulator.RandomizingEventTreeList" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.RandomizingEventTreeList \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.EventTreeList\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRandomizingEventTreeList\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBfindLastIndex\fP (int firstIndex)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A specialized Event tree list providing random order for concurrent Event notes\&. Random order is achieved by computing a random insert position within the range of simultaneous (concurrent) events\&. Existing connections between events are maintained, i\&.e\&. a new event-note will never be inserted between two connected event-notes\&. Connections are only possible between to successive concurrent Event notes where one of the notes was inserted by call of the insertBefore() or the insertAfter() method\&. Most of the methods inherited from the super class \fBEventTreeList\fPare only overwritten to keep track of the existing connections\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Ruth Meyer, modified by Johannes Go\*(4bel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.RandomizingEventTreeList\&.RandomizingEventTreeList ()"
+Constructs a new randomizing Event tree list\&. Initializes the event tree list and the random position generator\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "int desmoj\&.core\&.simulator\&.RandomizingEventTreeList\&.findLastIndex (intfirstIndex)\fC [protected]\fP"
+This helper method determines the position of the last event-note with the same time/priority as the event-note at position firstIndex doing a simple linear search from firstIndex\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

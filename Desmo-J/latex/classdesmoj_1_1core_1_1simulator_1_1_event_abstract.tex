@@ -1,0 +1,252 @@
+\section{desmoj.\-core.\-simulator.\-Event\-Abstract Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract}\index{desmoj.\-core.\-simulator.\-Event\-Abstract@{desmoj.\-core.\-simulator.\-Event\-Abstract}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Event\-Abstract\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_abstract__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Event\-Abstract\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_abstract__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Event\-Abstract} ({\bf Model} owner, String name, boolean show\-In\-Trace)
+\item 
+boolean {\bf is\-External} ()
+\item 
+long {\bf get\-Real\-Time\-Constraint} ()
+\item 
+long {\bf get\-Number\-Of\-Entities} ()
+\item 
+void {\bf set\-Real\-Time\-Constraint} (long real\-Time\-Constraint)
+\item 
+int {\bf get\-Scheduling\-Priority} ()
+\item 
+void {\bf set\-Scheduling\-Priority} (int new\-Priority)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf generate\-Trace\-For\-Scheduling} ({\bf Entity} who1, {\bf Entity} who2, {\bf Entity} who3, {\bf Schedulable} after, {\bf Schedulable} before, {\bf Time\-Instant} at, String remark)
+\item 
+{\bf Event\-Abstract} {\bf clone} ()  throws Clone\-Not\-Supported\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long {\bf number\-Of\-Entities}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides the abstract super class for user defined events to change an entity's internal state. The state of a discrete model is changed by events that occur at distinct points of simulation time. 
+
+an event with up to three entities, changing its state according to the entity's reaction to the specific Event in the system under inspection. So each type of Event acting on one certain type of \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} requires a new subclass to be derived from this class. Since events are associated to a single entity, the method executing the changes of state of a specific \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} gets that entity passed as a parameter. The scheduler takes care that this is done at the specified point of simulation time. 
+
+For type safety it is recommended to generically assign the entity type an Event operates on by using the generic type {\ttfamily Event$<$Entity\-Operating\-On$>$} where {\ttfamily Entity\-Operating\-On} is derived from {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}}. 
+
+events should be used one time only. They are created to be scheduled together with a specific \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}, change that entity's state at the scheduled point of simulation time and are destroyed by Java's garbage collector after use. They could be reused but at a certain risk of inconsistent states. Since each object of a class that is derived from the class {\ttfamily \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}} has its unique identification number added as a suffix to its name, reusing Event objects would make one event responsible for several distinct changes in a model at different simulation times. This comes with the danger of of confusing the model's trace and making it more difficult to debug a faulty model implementation. Each type of Event needed for a model requires a new subclass of Event to be derived by the user. 
+
+Embed the changes of state for the specific \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} associated with this event by overriding the abstract method {\ttfamily event\-Routine(\-Entity e)}. Events that do not manipulate a single entity but act on the model's state on a more general matter are defined by external events, a subclass of this class.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} 
+
+\doxyref{External\-Event}{p.}{classdesmoj_1_1core_1_1simulator_1_1_external_event} 
+
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} 
+
+\doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!Event\-Abstract@{Event\-Abstract}}
+\index{Event\-Abstract@{Event\-Abstract}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{Event\-Abstract}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Event\-Abstract.\-Event\-Abstract (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_aaf4cdb0d4f5acd91ff5e755d3cfc351a}
+Creates a new event of the given model, with the given name and trace option.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of this event \\
+\hline
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this event is associated to \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing event in trace-\/files. Set it to {\ttfamily true} if event should show up in trace. Set it to {\ttfamily false} if event should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!clone@{clone}}
+\index{clone@{clone}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Abstract} desmoj.\-core.\-simulator.\-Event\-Abstract.\-clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Clone\-Not\-Supported\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_a9a7621d7bc16e2395299f03fe638f7db}
+Creates and returns a copy of this event. Note that subclasses have to implement the interface java.\-lang.\-Cloneable to actually use this method as otherwise, a Clone\-Not\-Supported\-Exception will be thrown.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Event\-Abstract}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_abstract} \-: A copy of this event. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!generate\-Trace\-For\-Scheduling@{generate\-Trace\-For\-Scheduling}}
+\index{generate\-Trace\-For\-Scheduling@{generate\-Trace\-For\-Scheduling}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{generate\-Trace\-For\-Scheduling}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Abstract.\-generate\-Trace\-For\-Scheduling (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{{\bf Entity}}]{who3, }
+\item[{{\bf Schedulable}}]{after, }
+\item[{{\bf Schedulable}}]{before, }
+\item[{{\bf Time\-Instant}}]{at, }
+\item[{String}]{remark}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_af4f06b4e236bfa61de24a36576470d29}
+Utility method to generate trace output for scheduling this event (internal use only).
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & the first entity scheduled with this event (or {\ttfamily null} if not applicable) \\
+\hline
+{\em who2} & the second entity scheduled with this event (or {\ttfamily null} if not applicable) \\
+\hline
+{\em who3} & the third entity scheduled with this event (or {\ttfamily null} if not applicable) \\
+\hline
+{\em after} & the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} after which this event is scheduled (or {\ttfamily null} if not applicable) \\
+\hline
+{\em before} & the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} before which this event is scheduled (or {\ttfamily null} if not applicable) \\
+\hline
+{\em at} & the \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} at which this event is scheduled \\
+\hline
+{\em remark} & optional further comments (or {\ttfamily null} if not applicable) \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_af4f06b4e236bfa61de24a36576470d29_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!get\-Number\-Of\-Entities@{get\-Number\-Of\-Entities}}
+\index{get\-Number\-Of\-Entities@{get\-Number\-Of\-Entities}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{get\-Number\-Of\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Event\-Abstract.\-get\-Number\-Of\-Entities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_a81b55fc57063e06e95543581c9664789}
+Returns the real\-Time deadline for this event (in nanoseconds). In case of a real-\/time execution (i. e. the execution speed rate is set to a positive value) the \doxyref{Scheduler}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler} will produce a warning message if a deadline is missed.
+
+\begin{DoxyReturn}{Returns}
+the real\-Time\-Constraint in nanoseconds 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!get\-Real\-Time\-Constraint@{get\-Real\-Time\-Constraint}}
+\index{get\-Real\-Time\-Constraint@{get\-Real\-Time\-Constraint}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{get\-Real\-Time\-Constraint}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Event\-Abstract.\-get\-Real\-Time\-Constraint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_a88cc3f9d855cd370a3ce4777a816e8bf}
+Returns the real\-Time deadline for this event (in nanoseconds). In case of a real-\/time execution (i. e. the execution speed rate is set to a positive value) the \doxyref{Scheduler}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler} will produce a warning message if a deadline is missed.
+
+\begin{DoxyReturn}{Returns}
+the real\-Time\-Constraint in nanoseconds 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!get\-Scheduling\-Priority@{get\-Scheduling\-Priority}}
+\index{get\-Scheduling\-Priority@{get\-Scheduling\-Priority}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{get\-Scheduling\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Event\-Abstract.\-get\-Scheduling\-Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_ab473db43739209a4bb5a426ce05a94df}
+Returns the event's scheduling priority. The scheduling priority is used to determine which event to execute first if two or more events are scheduled at the same instant. The default priority is zero. Higher priorities are positive, lower priorities negative.
+
+\begin{DoxyReturn}{Returns}
+int \-: The events's priority 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!is\-External@{is\-External}}
+\index{is\-External@{is\-External}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{is\-External}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Event\-Abstract.\-is\-External (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_a50e96fab8746cf38c306b1ebca4fbd13}
+Tests if this event actually is an external event which is not used for modelling but to control the experiment to act at certain points of simulation time. External events must not be connected to an entity.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if this is an instance of class {\ttfamily \doxyref{External\-Event}{p.}{classdesmoj_1_1core_1_1simulator_1_1_external_event}},{\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!set\-Real\-Time\-Constraint@{set\-Real\-Time\-Constraint}}
+\index{set\-Real\-Time\-Constraint@{set\-Real\-Time\-Constraint}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{set\-Real\-Time\-Constraint}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Abstract.\-set\-Real\-Time\-Constraint (
+\begin{DoxyParamCaption}
+\item[{long}]{real\-Time\-Constraint}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_a9776e2b13e5b2ace0a471fb5ba550c8a}
+Sets the real\-Time deadline for this event (in nanoseconds). In case of a real-\/time execution (i. e. the execution speed rate is set to a positive value) the \doxyref{Scheduler}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler} will produce a warning message if a deadline is missed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em real\-Time\-Constraint} & the real\-Time\-Constraint in nanoseconds to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!set\-Scheduling\-Priority@{set\-Scheduling\-Priority}}
+\index{set\-Scheduling\-Priority@{set\-Scheduling\-Priority}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{set\-Scheduling\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Event\-Abstract.\-set\-Scheduling\-Priority (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Priority}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_a9c2a56d1f2ed3e6827c30549c3ee09a4}
+Sets the entity's scheduling priority to a given integer value. The default priority (unless assigned otherwise) is zero. Negative priorities are lower, positive priorities are higher. All values should be inside the range defined by Java's integral {\ttfamily integer} data type [-\/2147483648, +2147483647].
+
+An event's scheduling priority it used to determine which event is executed first if scheduled for the same time instant. Should the priority be the same, event execution depends on the {\ttfamily \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}} in use, e.\-g. scheduled first is executed first ({\ttfamily \doxyref{Event\-Tree\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_tree_list}}) or random ({\ttfamily \doxyref{Randomizing\-Event\-Tree\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list}}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Priority} & int \-: The new scheduling priority value \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Abstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}!number\-Of\-Entities@{number\-Of\-Entities}}
+\index{number\-Of\-Entities@{number\-Of\-Entities}!desmoj::core::simulator::EventAbstract@{desmoj\-::core\-::simulator\-::\-Event\-Abstract}}
+\subsubsection[{number\-Of\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Event\-Abstract.\-number\-Of\-Entities\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_event_abstract_a96fdfa9eb4fa0eef53fd49de784338c1}
+The number of entities is saved here. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Event\-Abstract.\-java\end{DoxyCompactItemize}

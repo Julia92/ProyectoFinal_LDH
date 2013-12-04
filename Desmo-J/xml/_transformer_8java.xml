@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_transformer_8java" kind="file">
+    <compoundname>Transformer.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4" prot="public">desmoj::extensions::chaining::Transformer&lt; EIn extends Entity, EEx extends Entity &gt;</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1chaining">desmoj::extensions::chaining</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.chaining;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.dist.NumericalDist;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">desmoj.core.simulator.Entity</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.core.simulator.Event;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">desmoj.core.simulator.Model</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.extensions.chaining.abstractions.HasPredecessor;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>desmoj.extensions.chaining.abstractions.HasSuccessor;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Transformer&lt;EIn<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>,<sp/>EEx<sp/>extends<sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref>&gt;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>extends<sp/>Splitter&lt;EIn,<sp/>EEx&gt;<sp/>implements<sp/>HasSuccessor&lt;EEx&gt;<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a4363cc17490ce2252ce3221aa3e4a294" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a4363cc17490ce2252ce3221aa3e4a294" kindref="member">Transformer</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>incomingBufferQueueCapacity,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxEntitiesToHandle,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>parallelHandledEntities,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NumericalDist&lt;?&gt;<sp/>setupTime,<sp/>NumericalDist&lt;?&gt;<sp/>serviceTime,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NumericalDist&lt;?&gt;<sp/>recoveryTime,<sp/>NumericalDist&lt;?&gt;<sp/>transportTime,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref><sp/>owner,<sp/>String<sp/>name,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>showInReport,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>showInTrace)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;SplitterOutput&lt;EIn,<sp/>?<sp/>extends<sp/>EEx&gt;&gt;(),</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>incomingBufferQueueCapacity,<sp/>maxEntitiesToHandle,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parallelHandledEntities,<sp/>setupTime,<sp/>serviceTime,<sp/>recoveryTime,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>owner,<sp/>name,<sp/>showInReport,<sp/>showInTrace);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outputConfigurations.add(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SplitterOutput&lt;EIn,<sp/>EEx&gt;(owner,<sp/>name</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Output&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>transportTime)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>EEx<sp/>createOutputEntity(EIn<sp/>originalEntity)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>transformEntity(originalEntity);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSuccessor(Event&lt;?<sp/>super<sp/>EEx&gt;<sp/>eventToScheduleWhenFinished)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outputConfigurations.get(0).setSuccessor(eventToScheduleWhenFinished);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSuccessor(HasPredecessor&lt;?<sp/>super<sp/>EEx&gt;<sp/>successor)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outputConfigurations.get(0).setSuccessor(successor);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/>EEx<sp/>transformEntity(EIn<sp/>originalEntity);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Transformer.java"/>
+  </compounddef>
+</doxygen>

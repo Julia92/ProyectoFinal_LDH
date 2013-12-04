@@ -1,0 +1,196 @@
+.TH "desmoj.core.simulator.ExternalEvent" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.ExternalEvent \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.EventAbstract\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.simulator\&.ExternalEventDebugOff\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventDebugOn\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventReset\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventStop\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventTimedTrace\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventTraceOff\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventTraceOn\fP, desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends Entity >\&.ServiceCapacityReleasedEvent, \fBdesmoj\&.extensions\&.space3D\&.MovingDoneEvent\fP, and \fBdesmoj\&.extensions\&.space3D\&.RotatingDoneEvent\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExternalEvent\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "abstract void \fBeventRoutine\fP ()"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (NumericalDist<?> dist)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBTimeInstant\fP when)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBSimTime\fP dt)"
+.br
+.ti -1c
+.RI "void \fBscheduleAfter\fP (\fBSchedulable\fP after)"
+.br
+.ti -1c
+.RI "void \fBscheduleBefore\fP (\fBSchedulable\fP before)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExternalEvent\fP \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Provides the class for user defined events to change the model's state at a distinct point in simulation time\&.
+.PP
+For events specifically changing the state of up to three entities, refer to \fCEvent\fP, \fCEventOf2Entities\fP and \fCEventOf3Entities\fP\&. Events not associated to a specific entity are called external events as they are are typically used for external influences, e\&.g\&. arrivals from outside or incidents\&.
+.PP
+Derive from this class to design special external events for a model\&. To use external events, always create a new object of this class\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+Event 
+.PP
+EventOf2Entities 
+.PP
+EventOf3Entities 
+.PP
+\fBTimeInstant\fP 
+.PP
+\fBTimeSpan\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.ExternalEvent\&.ExternalEvent (\fBModel\fPowner, Stringname, booleanshowInTrace)"
+Creates an external event for the given model with the given name and the specified tracemode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP \fBModel\fP : The external event's model 
+.br
+\fIname\fP java\&.lang\&.String : The external event's name 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this external event in tracemessages 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBExternalEvent\fP desmoj\&.core\&.simulator\&.ExternalEvent\&.clone () throws CloneNotSupportedException\fC [protected]\fP"
+Creates and returns a copy of this event\&. Note that subclasses have to implement the interface java\&.lang\&.Cloneable to actually use this method as otherwise, a CloneNotSupportedException will be thrown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBExternalEvent\fP : A copy of this event\&. 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.ExternalEvent\&.eventRoutine ()\fC [pure virtual]\fP"
+Implement this method to express the semantics of this external event\&. External events are supposed to act on the model or experiment in general\&. They are not related to a special \fBEntity\fP (unlike method \fCeventRoutine(Entity who)\fP of class \fCEvent\fP)\&. Override this method to implement this Externalevent's behaviour\&. 
+.PP
+Implemented in \fBdesmoj\&.core\&.simulator\&.ExternalEventTimedTrace\fP, \fBdesmoj\&.extensions\&.space3D\&.RotatingDoneEvent\fP, \fBdesmoj\&.extensions\&.space3D\&.MovingDoneEvent\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventDebugOff\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventDebugOn\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventTraceOff\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventTraceOn\fP, \fBdesmoj\&.core\&.simulator\&.ExternalEventStop\fP, and \fBdesmoj\&.core\&.simulator\&.ExternalEventReset\fP\&.
+.SS "void desmoj\&.core\&.simulator\&.ExternalEvent\&.schedule (\fBTimeSpan\fPdt)"
+Schedules this external event to make the desired changes to the experiment or model at the current point of time plus the given span of time
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBTimeSpan\fP : The offset to the current simulation time at which this external event is to be scheduled 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ExternalEvent\&.schedule (NumericalDist<?>dist)"
+Schedules this external event to make the desired changes to the experiment or model\&. The time instant for which the event is scheduled is determined by a sample from the distribution provided to the method\&. The sample is interpreted as offset from the the present time in the reference time unit\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdist\fP NumericalDist<?> : Numerical distribution to sample the offset to the current simulation time from
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ExternalEvent\&.schedule (\fBTimeInstant\fPwhen)"
+Schedules this external event to make the desired changes to the experiment or model at the specified point in simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhen\fP \fBTimeInstant\fP : The point in simulation time this external event is scheduled to happen\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ExternalEvent\&.schedule (\fBSimTime\fPdt)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBschedule(TimeSpan dt)\fP\&.Schedules this external Event to make the desired changes to the experiment or model at the specified point in simulation time\&. The point of time is given as an offset to the current simulation time as displayed by the simclock\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBSimTime\fP : The offset to the current simulation time this event is to happen 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ExternalEvent\&.scheduleAfter (\fBSchedulable\fPafter)"
+Schedules this external event to act on the experiment or model state directly after the given \fBSchedulable\fP is already set to be activated\&. Note that this external event's point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus this external event will occur directly after the given \fBSchedulable\fP but the simulation clock will not change\&. Make sure that the \fBSchedulable\fP given as parameter is actually scheduled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP \fBSchedulable\fP : The \fBSchedulable\fP this external event should be scheduled after 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ExternalEvent\&.scheduleBefore (\fBSchedulable\fPbefore)"
+Schedules this external event to act on the experiment or model state directly before the given \fBSchedulable\fP is already set to be activated\&. Note that this external event's point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus this external event will occur directly before the given \fBSchedulable\fP but the simulation clock will not change\&. Make sure that the \fBSchedulable\fP given as parameter is actually scheduled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP \fBSchedulable\fP : The \fBSchedulable\fP this external event should be scheduled before 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

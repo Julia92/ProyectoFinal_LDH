@@ -1,0 +1,7 @@
+var classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4 =
+[
+    [ "Transformer", "classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4.html#a4363cc17490ce2252ce3221aa3e4a294", null ],
+    [ "setSuccessor", "classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4.html#a852432f0424c3dc78685e0fc53e31eca", null ],
+    [ "setSuccessor", "classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4.html#a9cda9586f16e2f33c999b42097bc3259", null ],
+    [ "transformEntity", "classdesmoj_1_1extensions_1_1chaining_1_1_transformer_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4.html#a49cbe012b1faca3728d893d21ce4aa33", null ]
+];

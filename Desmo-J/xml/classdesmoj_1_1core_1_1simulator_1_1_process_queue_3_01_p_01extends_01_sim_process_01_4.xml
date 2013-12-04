@@ -1,0 +1,1070 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4" kind="class" prot="public">
+    <compoundname>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" prot="public" virt="non-virtual">desmoj.core.simulator.QueueBased</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Iterable&lt; P &gt;</basecompoundref>
+    <innerclass refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1_1_process_queue_iterator" prot="private">desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;::ProcessQueueIterator</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1abaa90b8c85eda63ecb04d975dc8cd18d" prot="private" static="no" mutable="no">
+        <type>QueueList&lt; P &gt;</type>
+        <definition>QueueList&lt;P&gt; desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;._ql</definition>
+        <argsstring></argsstring>
+        <name>_ql</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The queue implementation that actually stores the entities </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="47" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a0d3c262c8275760f75cc81efaac3cb6e" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;._refused</definition>
+        <argsstring></argsstring>
+        <name>_refused</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counter for the SimProcesses which are refused to be enqueued, because the queue capacity is full. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="53" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a6b4e7622808434ed6930621eda204dd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.ProcessQueue</definition>
+        <argsstring>(Model owner, String name, int sortOrder, int qCapacity, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>ProcessQueue</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sortOrder</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>qCapacity</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a simple priority based waiting-queue for SimProcesses, the kind of queue implementation (FIFO or LIFO) and the capacity of the queue can be chosen. </para><para>The usage of the generic version <computeroutput>ProcessQueue&lt;Type&gt;</computeroutput> where <computeroutput>Type</computeroutput> is derived from <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> is recommended for type safety. Using the raw type <computeroutput>ProcessQueue</computeroutput> yields a queue in which any <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> can be enqueued, potentially requiring type casting on accessing processes enqueued.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref> : The model this ProcessQueue is associated to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The process-queue&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying queue implementation. Choose a constant from <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></computeroutput>: <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput>, <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" kindref="member">QueueBased.LIFO</ref></computeroutput> or QueueBased.Random. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>qCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The capacity of the Queue, that is how many processes can be enqueued. Zero (0) can be used as shortcut for for a capacity of <computeroutput>Integer.MAX_VALUE</computeroutput> = 2,147,483,647, which should approximate an infinite queue sufficiently well for most purposes. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag if process-queue should produce a report </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for process-queue to produce trace messages </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="86" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="86" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ad40b1a9d6fc793e7cbfe4da2f5ba454c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.ProcessQueue</definition>
+        <argsstring>(Model owner, String name, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>ProcessQueue</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a simple priority and FIFO based waiting-queue for SimProcesses with a maximum capacity of 2,147,483,647 waiting processes, which should serve as an approximation of infinite queues sufficiently well for most purposes. </para><para>The usage of the generic version <computeroutput>ProcessQueue&lt;Type&gt;</computeroutput> where <computeroutput>Type</computeroutput> is derived from <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> is recommended for type safety. Using the raw type <computeroutput>ProcessQueue</computeroutput> yields a queue in which any <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> can be enqueued, potentially requiring type casting on accessing processes enqueued.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref> : The model this process-queue is associated to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The process-queue&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag if process-queue should produce a report </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for process-queue to produce trace messages </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="170" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="170" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1aa60cb329b7e8ed51e4d814e8163c3525" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref></type>
+        <definition>desmoj.core.report.Reporter desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <reimplements refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a2e84c8f20fbf625475d4764c03e5a249">createReporter</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a process-queue-reporter to produce a report about this process-queue.</para><para><simplesect kind="return"><para>desmoj.report.Reporter : The reporter for this process-queue </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="189" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="189" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1af64c8bc16732695b5ebc2462c574a336" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.first</definition>
+        <argsstring>()</argsstring>
+        <name>first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the first <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> queued in this process-queue or <computeroutput>null</computeroutput> in case the queue is empty.</para><para><simplesect kind="return"><para>P : The first <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue or <computeroutput>null</computeroutput> if the process-queue is empty </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="203" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="203" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ab6bae06a6eaa742c9063a32541ea27ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.first</definition>
+        <argsstring>(Condition&lt; P &gt; c)</argsstring>
+        <name>first</name>
+        <param>
+          <type>Condition&lt; P &gt;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the first <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> queued in this process-queue that applies to the given condition. The process-queue is searched from front to end and the first <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> that returns <computeroutput>true</computeroutput> when the condition is applied to it is returned by this method. If no <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> applies to the given condition or the process-queue is empty, <computeroutput>null</computeroutput> will be returned.</para><para><simplesect kind="return"><para>P :The first process queued in this process-queue applying to the given condition or <computeroutput>null</computeroutput> </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The condition that the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> returned must confirm </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="223" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="223" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ac4d00b6d10d2f3c77453fd219a664487" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.contains</definition>
+        <argsstring>(P p)</argsstring>
+        <name>contains</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns <computeroutput>true</computeroutput> if the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> is contained in the queue; <computeroutput>false</computeroutput> otherwise.</para><para><simplesect kind="return"><para>boolean : <computeroutput>True</computeroutput> if the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> is contained in the queue; <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> we are looking for in the queue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="257" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="257" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a15c5a07fc95a932d0e92b0db61ef154f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current length of the Queue.</para><para><simplesect kind="return"><para>int : The number of processes enqueued. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="267" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="267" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a4dd51a04d824a7ee01ac6ec0d7a06984" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.get</definition>
+        <argsstring>(P p)</argsstring>
+        <name>get</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the queue index of a given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput>.</para><para><simplesect kind="return"><para>int :The position of the process as an <computeroutput>int</computeroutput>. Returns -1 if no such position exists. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="278" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="278" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a808d29358f224b74218dfcf716bfb734" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.get</definition>
+        <argsstring>(int index)</argsstring>
+        <name>get</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> queued at the named position. The first position is 0, the last one <ref refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a15c5a07fc95a932d0e92b0db61ef154f" kindref="member">size()</ref>-1.</para><para><simplesect kind="return"><para>P :The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> at the position of <computeroutput>int</computeroutput> or <computeroutput>null</computeroutput> if no such position exists. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="292" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="292" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a0a144de0dd77588b1e2e16b2d8996732" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QueueList&lt; P &gt;</type>
+        <definition>QueueList&lt;P&gt; desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.getQueueList</definition>
+        <argsstring>()</argsstring>
+        <name>getQueueList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the underlying queue implementation, providing access to the QueueList implementation, e.g. to add PropertyChangeListeners.</para><para><simplesect kind="return"><para>QueueList : The underlying queue implementation of this ProcessQueue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="303" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="303" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ae312216d5567dccf8db850ddaeef7eb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.getQueueStrategy</definition>
+        <argsstring>()</argsstring>
+        <name>getQueueStrategy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.</para><para><simplesect kind="return"><para>String : The String indicating the queueing discipline. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="314" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="314" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ac5c54128ab9ff04529f582a3342b0f9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.getRefused</definition>
+        <argsstring>()</argsstring>
+        <name>getRefused</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached.</para><para><simplesect kind="return"><para>long : The number of entities refused to be enqueued in the queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="327" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="327" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1aece1236af6425f5b8ada9ecb48d0b226" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.insert</definition>
+        <argsstring>(P p)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enters a new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> into the ProcessQueue. If the capacity of the ProcessQueue is full, the entity will not be enqueued and <computeroutput>false</computeroutput> will be returned. The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> will be stored in the ProcessQueue until method <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a8d6f5a926773a41d2ce6322136be2dda" kindref="member">remove(SimProcess p)</ref></computeroutput> is called with this specific <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>. Simprocesses are ordered according to their priority. Higher priorities are sorted in front of lower priorities. Simprocesses with same priority are orderer according to the strategy specified in the constructor. The first <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> inside the process-queue will always be the one with the highest priority.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if insertion was successful, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>P</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>p : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> to be added to the ProcessQueue </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="349" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="349" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ae32c2dec7d7fc81426b38ee7e218213e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.insertAfter</definition>
+        <argsstring>(P p, P after)</argsstring>
+        <name>insertAfter</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>P</type>
+          <declname>after</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enters a new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> into the process-queue and places it after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>. If the capacity of the ProcessQueue is full, the entity will not be enqueued and <computeroutput>false</computeroutput> will be returned. Make sure that the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> given as reference is already queued inside the process-queue, else the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> will not be enqueued and <computeroutput>false</computeroutput> will be returned. The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> will be stored in the ProcessQueue until method <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a8d6f5a926773a41d2ce6322136be2dda" kindref="member">remove(SimProcess p)</ref></computeroutput> is called with this specific <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if insertion was successful, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P :The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> to be added to the process-queue </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>after</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P :The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> after which <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &apos;p&apos; is to be inserted </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="429" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="429" bodyend="508"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a0aa05fadb69d21d13ccece8f85a395ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.insertBefore</definition>
+        <argsstring>(P p, P before)</argsstring>
+        <name>insertBefore</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>P</type>
+          <declname>before</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enters a new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> into the ProcessQueue and places it in front of the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>. If the capacity of the ProcessQueue is full, the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> will not be enqueued and <computeroutput>false</computeroutput> will be returned. Make sure that the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> given as reference is already queued inside the ProcessQueue, else the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> will not be enqueued and <computeroutput>false</computeroutput> will be returned. The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> will be stored in the ProcessQueue until method <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a8d6f5a926773a41d2ce6322136be2dda" kindref="member">remove(SimProcess p)</ref></computeroutput> is called with this specific <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if insertion was successful, <computeroutput>false</computeroutput> otherwise (i.e. capacity limit is reached). </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> to be added to the processqQueue </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>before</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> before which the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &apos;p&apos; is to be inserted </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="528" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="528" bodyend="606"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a3126ed2cc76061cd0d7f762efff3143e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.isEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>isEmpty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a boolean value indicating if the process-queue is empty or if any number of <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is currently enqueued in it.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the process-queue is empty, <computeroutput>false</computeroutput> otherwise </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="615" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="615" bodyend="619"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1afe60fac36aa66fadbe5306ad29124f15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.last</definition>
+        <argsstring>()</argsstring>
+        <name>last</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> queued in this process-queue or <computeroutput>null</computeroutput> in case the process-queue is empty.</para><para><simplesect kind="return"><para>P : The last <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue or <computeroutput>null</computeroutput> if the process-queue is empty </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="628" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="628" bodyend="632"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a774824b316ce0366cc548b99f2a8945c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.last</definition>
+        <argsstring>(Condition&lt; P &gt; c)</argsstring>
+        <name>last</name>
+        <param>
+          <type>Condition&lt; P &gt;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> queued in this process-queue that applies to the given condition. The process-queue is searched from end to front and the first <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> that returns <computeroutput>true</computeroutput> when the condition is applied to it is returned by this method. If no <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> applies to the given condition or the process-queue is empty, <computeroutput>null</computeroutput> will be returned.</para><para><simplesect kind="return"><para>P : The last <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> queued in this process-queue applying to the given condition or <computeroutput>null</computeroutput> </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The condition that the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> returned must fulfill </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="648" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="648" bodyend="671"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1aba0018e045cc0b813753c1fd3aee2c02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.pred</definition>
+        <argsstring>(P p)</argsstring>
+        <name>pred</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> enqueued directly before the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue. If the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is not contained in this process-queue or is at the first position thus having no possible predecessor, <computeroutput>null</computeroutput> is returned.</para><para><simplesect kind="return"><para>P : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> directly before the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue or <computeroutput>null</computeroutput>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P : An <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="684" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="684" bodyend="698"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a5bc6bbc5be4959c998b248dbf78f87c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.pred</definition>
+        <argsstring>(P p, Condition&lt; P &gt; c)</argsstring>
+        <name>pred</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Condition&lt; P &gt;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> enqueued before the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue that also fulfills the condition given. If the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is not contained in this process-queue or is at the first position thus having no possible predecessor, <computeroutput>null</computeroutput> is returned. If no other <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> before the given one fulfills the condition, <computeroutput>null</computeroutput> is returned, too.</para><para><simplesect kind="return"><para>P : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> before the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue fulfilling to the condition or <computeroutput>null</computeroutput>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P : A <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The condition that the preceeding <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> has to fulfill </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="716" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="716" bodyend="747"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a8d6f5a926773a41d2ce6322136be2dda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.remove</definition>
+        <argsstring>(SimProcess p)</argsstring>
+        <name>remove</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> from the process-queue. If the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is not in the process-queue, a warning will be issued but nothing else will be changed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P :The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> to be removed from the process-queue </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="758" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="758" bodyend="803"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ae14d508daf9765b4f20f0f33ef8a4553" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.removeAll</definition>
+        <argsstring>()</argsstring>
+        <name>removeAll</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes all processes from the Queue. Has no effect on empty queues. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="808" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="808" bodyend="813"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a9e6f4afc8ab9e646f3fece88546d7384" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.removeFirst</definition>
+        <argsstring>()</argsstring>
+        <name>removeFirst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the first process from the queue and provides a reference to this process. If the queue is empty, null is returned.</para><para><simplesect kind="return"><para>P : The first process in this queue, which has been removed, or <computeroutput>null</computeroutput> in case the queue was empty </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="822" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="822" bodyend="843"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a622911f22a8a14a91cde88bdde7d1d94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.removeFirst</definition>
+        <argsstring>(Condition&lt; P &gt; c)</argsstring>
+        <name>removeFirst</name>
+        <param>
+          <type>Condition&lt; P &gt;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the first process from the queue that fulfills to the given condition. Also provides a reference to this process. If the queue does not contain a process that fulfills the condition (e.g. if the queue is empty), null is returned.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The condition that the process returned must fulfill</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>P : The first process in this queue fulfilling the condition, which has been removed from the queue. <computeroutput>Null</computeroutput> in case no process fulfills the condition. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="859" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="859" bodyend="889"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ad5dfc483f4b3cdf22a3720ff9cacfe3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.removeLast</definition>
+        <argsstring>()</argsstring>
+        <name>removeLast</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the last process from the queue and provides a reference to this process. If the queue is empty, <computeroutput>null</computeroutput> is returned.</para><para><simplesect kind="return"><para>E : The last process in this queue, which has been removed, or <computeroutput>null</computeroutput> in case the queue was empty </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="898" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="898" bodyend="919"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1af048ed61d3b7adb580b1913293508c51" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.removeLast</definition>
+        <argsstring>(Condition&lt; P &gt; c)</argsstring>
+        <name>removeLast</name>
+        <param>
+          <type>Condition&lt; P &gt;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the last process from the queue that fulfills to the given condition, determined by traversing the queue from last to first until a process fulfilling the condition is found. Also provides a reference to this process. If the queue does not contain a process that fulfills the condition (e.g. if the queue is empty), <computeroutput>null</computeroutput> is returned.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The condition that the entity returned must fulfill</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>P : The last process in this queue fulfilling the condition, which has been removed from the queue. <computeroutput>Null</computeroutput> in case no process fulfills the condition. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="935" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="935" bodyend="965"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1adce9159eb4da5bf3584407bbb27eab47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.remove</definition>
+        <argsstring>(int index)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the process queued at the given position. The first position is 0, the last one <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" kindref="member">length()</ref>-1.</para><para><simplesect kind="return"><para>: The method returns <computeroutput>true</computeroutput> if a <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput> exists at the given position or <computeroutput>false&gt;</computeroutput> if otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="974" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="974" bodyend="985"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a3fef555e84870fb9ce29ae3a6c8f5bd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets all statistical counters to their default values. The mininum and maximum length of the queue are set to the current number of queued objects. The counter for the entities refused to be enqueued will be reset. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="993" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="993" bodyend="999"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a93b29f77e231586cf5cc992ea1e52648" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.setQueueCapacity</definition>
+        <argsstring>(int newCapacity)</argsstring>
+        <name>setQueueCapacity</name>
+        <param>
+          <type>int</type>
+          <declname>newCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the queue capacity to a new value. Only if the new capacity is equal or larger than the current length of the queue!</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The new capacity of this ProcessQueue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="1008" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="1008" bodyend="1032"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a23dde80bb6421c030a924c28028506ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.setQueueStrategy</definition>
+        <argsstring>(int sortOrder)</argsstring>
+        <name>setQueueStrategy</name>
+        <param>
+          <type>int</type>
+          <declname>sortOrder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the sort order of this ProcessQueue to a new value and makes this ProcessQueue use another <computeroutput>QueueList</computeroutput> with the specified queueing discipline. Please choose a constant from <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></computeroutput> (<computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput>, <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput>QueueBased.Random</computeroutput>) The sort order of a ProcessQueue can only be changed if the queue is empty.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sortOrder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : determines the sort order of the underlying <computeroutput>QueueList</computeroutput> implementation (<computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput>, <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" kindref="member">QueueBased.FIFO</ref></computeroutput> or <computeroutput>QueueBased.Random</computeroutput>) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="1047" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="1047" bodyend="1088"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a4fcdfbe4fe9835d95517ac0cc7b5a03b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.setRefused</definition>
+        <argsstring>(long n)</argsstring>
+        <name>setRefused</name>
+        <param>
+          <type>long</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the number of entities refused to be enqueued in the queue because the capacity limit is reached to a new value.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long : the new number of entities refused to be enqueued in the queue because the capacity limit is reached. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="1098" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="1098" bodyend="1114"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ac106b6eb32678eaaba58e846049738f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.succ</definition>
+        <argsstring>(P p)</argsstring>
+        <name>succ</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> enqueued directly after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue. If the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is not contained in this process-queue or is at the last position thus having no possible successor, <computeroutput>null</computeroutput> is returned.</para><para><simplesect kind="return"><para>P : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> directly after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the ProcessQueue or <computeroutput>null</computeroutput> </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P : A <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="1127" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="1127" bodyend="1142"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a2624bab96b063a48537f376d1032648c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>P</type>
+        <definition>P desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.succ</definition>
+        <argsstring>(P p, Condition&lt; P &gt; c)</argsstring>
+        <name>succ</name>
+        <param>
+          <type>P</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Condition&lt; P &gt;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> enqueued after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue that also fulfills the condition given. If the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is not contained in this process-queue or is at the last position thus having no possible successor, <computeroutput>null</computeroutput> is returned. If no other <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> after the given one fulfills the condition, <computeroutput>null</computeroutput> is returned, too.</para><para><simplesect kind="return"><para>P : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> after the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue fulfilling the condition or <computeroutput>null</computeroutput>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>P : A <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> in the process-queue </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition : The condition that the succeeding <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> has to fulfill </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="1160" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="1160" bodyend="1191"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a82773920e85e4453aa51a650b669e830" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Iterator&lt; P &gt;</type>
+        <definition>Iterator&lt;P&gt; desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;.iterator</definition>
+        <argsstring>()</argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an iterator over the processes enqueued.</para><para><simplesect kind="return"><para>java.lang.Iterator&lt;P&gt; : An iterator over the processes enqueued. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="1198" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="1198" bodyend="1200"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>ProcessQueue provides models with a ready-to-use element to enqueue <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput>es in. The sort order of the ProcessQueue is determined first by the priorities of the enqueued SimProcesses and second by the given sort order. The default sort order is FIFO (first in, first out) but others like LIFO (last in, first out) can be chosen, too. See the constants in class <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></computeroutput> and the derived classes from <computeroutput>QueueList</computeroutput>. The capacity of the ProcessQueue, that is the maximum number of SimProcesses enqueued, can be chosen, too. Note that in contrast to the &apos;plain&apos; queue, this ProcessQueue always expects and returns objects that are derived from class <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></computeroutput>. When modelling using the process-, activity-, or transaction-oriented paradigm where SimProcesses are used to represent the model&apos;s entities, this ProcessQueue can be used instead of the standard Queue to reduce the amount of casts needed otherwise.</para><para><simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref> </para><simplesectsep/><para>QueueList </para><simplesectsep/><para>QueueListFifo </para><simplesectsep/><para>QueueListLifo</para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Tim Lechler </para><simplesectsep/><para>modified by Soenke Claassen</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="9560">
+        <label>desmoj::core::observer::Subject&lt; QueueBased, QueueAction &gt;</label>
+      </node>
+      <node id="9557">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="9558" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9561">
+        <label>Iterable&lt;P&gt;</label>
+      </node>
+      <node id="9559">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="9555">
+        <label>desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4"/>
+        <childnode refid="9556" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9561" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9558">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="9559" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9556">
+        <label>desmoj.core.simulator.QueueBased</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based"/>
+        <childnode refid="9557" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9560" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9567">
+        <label>desmoj::core::observer::Subject&lt; QueueBased, QueueAction &gt;</label>
+      </node>
+      <node id="9564">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="9565" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9568">
+        <label>Iterable&lt;P&gt;</label>
+      </node>
+      <node id="9566">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="9562">
+        <label>desmoj.core.simulator.ProcessQueue&lt; P extends SimProcess &gt;</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4"/>
+        <childnode refid="9563" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9568" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9565">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="9566" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9563">
+        <label>desmoj.core.simulator.QueueBased</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based"/>
+        <childnode refid="9564" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9567" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" line="42" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ProcessQueue.java" bodystart="42" bodyend="1228"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1abaa90b8c85eda63ecb04d975dc8cd18d" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>_ql</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a0d3c262c8275760f75cc81efaac3cb6e" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>_refused</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a228dcc2954674a0c0207c5d87b1902c9" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>addItem</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a5d97d0eb15a51637fe2e0e039776ff43" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>addObserver</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fe5490ee8b4b97283dd14ddf2c3bf73" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>averageLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3f14e0a00eee2105755f45bd18db345b" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>averageWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ac4d00b6d10d2f3c77453fd219a664487" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>contains</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1aa60cb329b7e8ed51e4d814e8163c3525" prot="public" virt="virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a9eb8dd37c34964335719390c9899d773" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>deleteItem</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ab6889531700a179e3c4d5603ce8b0267" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>deleteObserver</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a20088d8d7196b2688cbea9d313b13098" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>FIFO</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1af64c8bc16732695b5ebc2462c574a336" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>first</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ab6bae06a6eaa742c9063a32541ea27ee" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>first</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a4dd51a04d824a7ee01ac6ec0d7a06984" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>get</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a808d29358f224b74218dfcf716bfb734" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>get</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a31c3c86b4383672c4fbe2e62f2fa422f" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getQueueLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a0a144de0dd77588b1e2e16b2d8996732" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getQueueList</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ae312216d5567dccf8db850ddaeef7eb1" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getQueueStrategy</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ac5c54128ab9ff04529f582a3342b0f9c" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getRefused</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1aece1236af6425f5b8ada9ecb48d0b226" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>insert</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ae32c2dec7d7fc81426b38ee7e218213e" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>insertAfter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a0aa05fadb69d21d13ccece8f85a395ed" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>insertBefore</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a3126ed2cc76061cd0d7f762efff3143e" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>isEmpty</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a82773920e85e4453aa51a650b669e830" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>iterator</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1afe60fac36aa66fadbe5306ad29124f15" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>last</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a774824b316ce0366cc548b99f2a8945c" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>last</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1acd655bba0795c0fcb54791f86806e428" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>length</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a3b5be66f9f00e1689906f32c952fc4e2" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>LIFO</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ae3d7503eeef122e1cadd7bed59b40a52" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>maxLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9a6fb6c1900ca0afa9b92bffcede1f1" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>maxLengthAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ad9b6e0712082ec19d05eb40d8f8e9d95" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>maxWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0fb151320bc886571d70149ab429b49d" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>maxWaitTimeAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a5315117b6e8cd502879d6ab94e2653fe" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>minLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aa7e209d871686741f7dcc5af156ddd83" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>minLengthAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a15b6374dcdf8d4207f714666b08181ed" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>notifyObservers</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1aba0018e045cc0b813753c1fd3aee2c02" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>pred</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a5bc6bbc5be4959c998b248dbf78f87c6" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>pred</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a6b4e7622808434ed6930621eda204dd7" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>ProcessQueue</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ad40b1a9d6fc793e7cbfe4da2f5ba454c" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>ProcessQueue</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1af8d3586ec66b651675b529f3c4e0959f" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>qImpWarn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a8d9c9825a806f8a873dd470a8e4afb3b" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>QueueBased</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aaec6c34c002dc7b42f90f89b40208dc3" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>queueLimit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ab75f0cb4d842794c20f122ef35f351d3" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>RANDOM</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a8d6f5a926773a41d2ce6322136be2dda" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>remove</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1adce9159eb4da5bf3584407bbb27eab47" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>remove</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ae14d508daf9765b4f20f0f33ef8a4553" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>removeAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a9e6f4afc8ab9e646f3fece88546d7384" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>removeFirst</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a622911f22a8a14a91cde88bdde7d1d94" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>removeFirst</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ad5dfc483f4b3cdf22a3720ff9cacfe3e" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>removeLast</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1af048ed61d3b7adb580b1913293508c51" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>removeLast</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a3fef555e84870fb9ce29ae3a6c8f5bd8" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a692e70493310a8ece9cdef9d92e993bc" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a93b29f77e231586cf5cc992ea1e52648" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setQueueCapacity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1ae90bd940a68e9c31498ff056b10849f3" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setQueueImpWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a23dde80bb6421c030a924c28028506ec" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setQueueStrategy</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a4fcdfbe4fe9835d95517ac0cc7b5a03b" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setRefused</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a15c5a07fc95a932d0e92b0db61ef154f" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>size</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a461a97e743cd8d7c7f3fc1596ef92a2f" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>stdDevLength</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1aeebbbebc1fb5f5054aaa71d61b708358" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>stdDevWaitTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1ac106b6eb32678eaaba58e846049738f4" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>succ</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_1a2624bab96b063a48537f376d1032648c" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>succ</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>traceOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a6313c9a30a034711ddb8caceac6f0430" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>UNDEFINED</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a0c1d587b2483ce6391aa8c375fc42a45" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>updateStatistics</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based_1a371b24e5676321a34c1a8ee59a7f6a45" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ProcessQueue&lt; P extends SimProcess &gt;</scope><name>zeroWaits</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

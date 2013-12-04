@@ -1,0 +1,103 @@
+.TH "desmoj.core.simulator.SimClock" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.SimClock \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Observable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimClock\fP (String name)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetTime\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The simulation clock shows the actual simulation time\&. The actual simulation time can be polled by any object but can only be set by the scheduler responsible for the actual model\&. The simulation clock is extending class \fCjava\&.util\&.Observable\fP thus representing the 'observable' part in a 'observer'-design pattern as described in [Gamm95] page 107\&. This enables observers to register themselves at the simulation clock to be notified whenever the simulation time changes\&. This can be easily used to provide fully automatic statistical counters\&. Each time the simulation time changes, a counter registered at the simulation clock is notofied and can poll the value it is observing (most likely from a special \fCValueSupplier\fP object)\&. This way, no explicit calls for the counter to update its observed value are needed\&. Note that on the other hand this might reduce performance in comparison to explicit update call since the value under observation might not change each time the simulation time is changed\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.Observable
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Soenke Claassen 
+.PP
+modified by Felix Klueckmann
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.SimClock\&.SimClock (Stringname)"
+Constructs a simulation clock with no parameters given\&. By default the actual simulation time is set to zero\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Felix Klueckmann 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the simulation clock 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String desmoj\&.core\&.simulator\&.SimClock\&.getName ()"
+Returns the clock's name as string\&. This method has become necessary since the simulation clock does not extend class \fCNamedObjectImp\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The clock's name 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.SimClock\&.getTime ()"
+Returns the actual simulation time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The actual simulation time 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.SimClock\&.toString ()"
+Returns the clock's name as string\&. This method has become necessary since the simulation clock does not extend class \fCNamedObjectImp\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The clock's name 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

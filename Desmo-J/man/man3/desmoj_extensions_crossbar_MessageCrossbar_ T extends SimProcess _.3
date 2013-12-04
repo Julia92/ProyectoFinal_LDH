@@ -1,0 +1,273 @@
+.TH "desmoj.extensions.crossbar.MessageCrossbar< T extends SimProcess >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.crossbar.MessageCrossbar< T extends SimProcess > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMessageCrossbar\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "MessageChannel< T > \fBcreateMessageChannel\fP (String channelName)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetDeliveredMessages\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetInterruptedWaits\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetLostMessages\fP ()"
+.br
+.ti -1c
+.RI "MessageChannel< T > \fBgetMessageChannel\fP (String channelName)"
+.br
+.ti -1c
+.RI "long \fBgetObservations\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetProcessActivations\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetReceivedMessages\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBresetAt\fP ()"
+.br
+.ti -1c
+.RI "void \fBsendMessage\fP (\fBCrossbarMessage\fP message, List< MessageChannel< T >> channelsToSendTo)"
+.br
+.ti -1c
+.RI "\fBCrossbarMessage\fP \fBwaitForMessage\fP (List< MessageChannel< T >> channelsToWaitOn)"
+.br
+.ti -1c
+.RI "\fBCrossbarMessage\fP \fBwaitForMessage\fP (List< MessageChannel< T >> channelsToWaitOn, \fBTimeInstant\fP waitUntil)  throws DelayedInterruptException "
+.br
+.ti -1c
+.RI "\fBCrossbarMessage\fP \fBwaitForMessage\fP (List< MessageChannel< T >> channelsToWaitOn, \fBTimeSpan\fP maxWaitTime)  throws DelayedInterruptException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The MessageCrossbar is a higher modeling construct used to synchronize processes\&.
+.br
+ 
+.br
+ The MessageCrossbare permits the creation of any number of MessageChannels on it\&. Over these channels messages can be sent from one sender process to any number of receiver processes\&. To receive a message a process has to wait for it on a message channel\&. Once a process starts waiting on a channel it is automatically passivated and blocked\&. If a process sends a message to a channel all process waiting there will be reactivated and unregistered from the message channel and the MessageCrossbar\&.
+.br
+ 
+.br
+ It is possible for a process to wait on several message channels simultaneously\&. It will be activated and removed from all channels if a message is received on any of those channels\&. In parallel it is also possible for a process to send messages to several channels simultaneously\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+MessageChannel 
+.PP
+\fBCrossbarMessage\fP 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Malte Unkrig
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.MessageCrossbar (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Creates a MessageCrossbar object with all parameters required\&. The MessageCrossbar registers itself at the given model
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of this reportable 
+.br
+\fIowner\fP Model : The model this reportable is associated to 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report Set it to \fCtrue\fP if reportable should show up in report\&. Set it to \fCfalse\fP if reportable should not be shown in report\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this reportable in trace files\&. Set it to \fCtrue\fP if reportable should show up in trace\&. Set it to \fCfalse\fP if reportable should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "MessageChannel<T> desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.createMessageChannel (StringchannelName)"
+Creates a new MessageChannel with is automatically associated with the MessageCrossbar\&. If a channel with the specified name already exists it will be returned instead of a new channel\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchannelName\fP String : The name of the new channel
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The new MessageChannel instance 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.createReporter ()"
+
+.SS "long desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.getDeliveredMessages ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The number of delivered messages\&. A message is considered delivered if it was forwarded to at least one waiting process\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.getInterruptedWaits ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The number of process which were interrupted while waiting on the MessageCrossbar because their max wait time was exceeded\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.getLostMessages ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The number of message which were sent to this MessageCrossbar but couldn't be forwarded to a receiver because no process was waiting on the MessageCrossbar at the time the message was received\&. 
+.RE
+.PP
+
+.SS "MessageChannel<T> desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.getMessageChannel (StringchannelName)"
+Returns the \fBMessageChannel\fP identified by the given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchannelName\fP The name of the channel
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBMessageChannel\fP identified by the given name, or \fCnull\fP if no channel with that name is managed by the MessageCrossbar\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.getObservations ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The number of processes which have been handled by this message MessageCrossbar (meaning processes which entered the channel and also left it again)\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.getProcessActivations ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The number of process that were successfully activated by a delivered message\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.getReceivedMessages ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The number of messages which were sent to this channel\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.reset ()"
+
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.resetAt ()"
+
+.SS "void desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.sendMessage (\fBCrossbarMessage\fPmessage, List< MessageChannel< T >>channelsToSendTo)"
+Sends the given \fBCrossbarMessage\fP to the specified message channels, thereby activating all processes that are waiting on these channel\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP The message to send to the specified channels
+.br
+\fIchannelsToSendTo\fP The channels to which the message will be sent 
+.RE
+.PP
+
+.SS "\fBCrossbarMessage\fP desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.waitForMessage (List< MessageChannel< T >>channelsToWaitOn)"
+Wait for a \fBCrossbarMessage\fP on the specified message channels, thereby passivating the current process\&. The process is not reactivated until a message is received\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchannelsToWaitOn\fP The channels on which to wait for a message
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The CorssbarMessage received after waiting 
+.RE
+.PP
+
+.SS "\fBCrossbarMessage\fP desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.waitForMessage (List< MessageChannel< T >>channelsToWaitOn, \fBTimeInstant\fPwaitUntil) throws \fBDelayedInterruptException\fP"
+Wait for a \fBCrossbarMessage\fP on the specified message channels, thereby passivating the current process\&. The process is not reactivated until a message is received\&. The parameter waitUntil specifies the point in time to which the current process will wait for a message\&. If no message is received before that time, the process will be interrupted and a \fBDelayedInterruptException\fP will be thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchannelsToWaitOn\fP The channels on which to wait for a message 
+.br
+\fIwaitUntil\fP The point in time at which the waiting will be interrupted 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The CorssbarMessage received after waiting 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIDelayedInterruptException\fP An exception indicating that the point in time specified by the waitUntil parameter has passed and the waiting has been interrupted\&. 
+.RE
+.PP
+
+.SS "\fBCrossbarMessage\fP desmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends \fBSimProcess\fP >\&.waitForMessage (List< MessageChannel< T >>channelsToWaitOn, \fBTimeSpan\fPmaxWaitTime) throws \fBDelayedInterruptException\fP"
+Wait for a \fBCrossbarMessage\fP on the specified message channels, thereby passivating the current process\&. The process is not reactivated until a message is received\&. The parameter maxWaitTime specifies maximum time the current process will wait for a message\&. If no message is received before this amount of time has elapsed, the process will be interrupted and a \fBDelayedInterruptException\fP will be thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchannelsToWaitOn\fP The channels on which to wait for a message 
+.br
+\fImaxWaitTime\fP The maximum amount of time until the waiting will be interrupted 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The received message 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIDelayedInterruptException\fP An exception indicating that the maximum wait time specified by the maxWaitTime parameter has passed and that the waiting has been interrupted 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,85 @@
+.TH "desmoj.core.simulator.ModelCondition" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.ModelCondition \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.PP
+Inherited by desmoj\&.core\&.simulator\&.ModelCondition\&.ConditionWrapper\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBConditionWrapper\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBModelCondition\fP (\fBModel\fP owner, String name, boolean showInTrace, Object\&.\&.\&.args)"
+.br
+.ti -1c
+.RI "boolean \fBhasPrimitiveArguments\fP ()"
+.br
+.ti -1c
+.RI "Object[] \fBgetConstructArguments\fP ()"
+.br
+.ti -1c
+.RI "abstract boolean \fBcheck\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Derive from this class to create a conditional which the model as whole may fulfill or not, e\&.g\&. for the purpose of conditionally stopping an experiment\&. Override method check(E e) such that it returns \fCtrue\fP whenever the model complies to the condition\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.ModelCondition\&.ModelCondition (\fBModel\fPowner, Stringname, booleanshowInTrace, Object\&.\&.\&.args)"
+Constructs a \fBModelCondition\fP with the given name and parameters for trace files\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP \fBModel\fP : The main model this condition is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this condition 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this condition in trace-files\&. Set it to \fCtrue\fP if model should show up in trace, \fCfalse\fP if model should not be shown in trace\&. 
+.br
+\fIargs\fP Object\&.\&.\&. : Arguments to pass to the condition (can be omitted) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract boolean desmoj\&.core\&.simulator\&.ModelCondition\&.check ()\fC [pure virtual]\fP"
+Returns a boolean showing whether the model complies to the condition tested by this method or not\&. Inherit from this class and implement this abstract method to return true if the model conforms to your special condition\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP, if the model conforms to the condition, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,453 @@
+.TH "desmoj.core.simulator.Entity" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Entity \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Schedulable\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.simulator\&.SimProcess\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Job\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Lane\fP, desmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends Entity >\&.ServiceCapacity, desmoj\&.extensions\&.chaining\&.Merger< EIn extends Entity, EEx extends Entity >\&.PartsContainer, desmoj\&.extensions\&.chaining\&.Source< E extends Entity >\&.SourceDummyEntity, \fBdesmoj\&.extensions\&.space3D\&.SpatialEntity\fP, and \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.EntityAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntity\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "List< \fBEventAbstract\fP > \fBgetScheduledEvents\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetIdentNumber\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetQueueingPriority\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetPriority\fP ()"
+.br
+.ti -1c
+.RI "QueueList<?> \fBgetQueue\fP ()"
+.br
+.ti -1c
+.RI "List< \fBQueueBased\fP > \fBgetQueues\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisQueued\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisSimProcess\fP ()"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (Event<?> what, \fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (Event<?> what, \fBTimeInstant\fP when)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (Event<?> what, \fBSimTime\fP dt)"
+.br
+.ti -1c
+.RI "void \fBscheduleAfter\fP (\fBSchedulable\fP after, Event<?> what)"
+.br
+.ti -1c
+.RI "void \fBscheduleBefore\fP (\fBSchedulable\fP before, Event<?> what)"
+.br
+.ti -1c
+.RI "void \fBsetQueuingPriority\fP (int newPriority)"
+.br
+.ti -1c
+.RI "void \fBsetPriority\fP (int newPriority)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static final boolean \fBisEqual\fP (\fBEntity\fP a, \fBEntity\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisLarger\fP (\fBEntity\fP a, \fBEntity\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisLargerOrEqual\fP (\fBEntity\fP a, \fBEntity\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisNotEqual\fP (\fBEntity\fP a, \fBEntity\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisSmaller\fP (\fBEntity\fP a, \fBEntity\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisSmallerOrEqual\fP (\fBEntity\fP a, \fBEntity\fP b)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBgenerateTraceForScheduling\fP (\fBEventAbstract\fP Event, \fBEntity\fP who1, \fBEntity\fP who2, \fBSchedulable\fP after, \fBSchedulable\fP before, \fBTimeInstant\fP at)"
+.br
+.ti -1c
+.RI "\fBEntity\fP \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Represents the superclass for all entities of a model\&. Entities are supposed to be scheduled together with a compatible event at a certain point of simulation time or relative to another event in present or future simulation time\&. 
+.PP
+Entities typically encapsulate all information about a model entity relevant to the modeller\&. Events can manipulate these informations when the scheduled point of simulation time is reached and thus change the state of the model\&. When modelling different types of entities you need to derive different classes from this superclass\&. Each carrying the specific information to represent its counterpart in the system modelled\&. Thus a simulation of e\&.g\&. a factory would require both machines and material to be subclasses of class \fC\fBEntity\fP\fP\&. They can act on each other by scheduling themselves or other Entities with the appropriate events\&. To use more than one entity of one type, create multiple instances of the same \fC\fBEntity\fP\fP class\&. For better identification, all instances created from a subclass of class \fC\fBNamedObject\fP\fP (just as \fC\fBEntity\fP\fP is) get an individual identification number as a suffix to their name so there is no need to name each individual differently yourself\&. 
+.PP
+Entities can carry a queuing priority that can be modified after the entity has been instantiated, applied for inserting Entities into any kind of Queues: The entity's priority determines it's position inside the queue on entering it\&. Although within a model all attributes of an entity could be made public it is advisable to support data hiding by providing methods for accessing the internal attributes, as always in oo-design\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+Event 
+.PP
+\fBSimProcess\fP 
+.PP
+\fBNamedObject\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, modified by Justin Neumann
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBEntity\fP desmoj\&.core\&.simulator\&.Entity\&.clone () throws CloneNotSupportedException\fC [protected]\fP"
+Creates and returns a copy of this entity\&. Note that subclasses have to implement the interface java\&.lang\&.Cloneable to actually use this method as otherwise, a CloneNotSupportedException will be thrown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : A copy of this entity\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.generateTraceForScheduling (\fBEventAbstract\fPEvent, \fBEntity\fPwho1, \fBEntity\fPwho2, \fBSchedulable\fPafter, \fBSchedulable\fPbefore, \fBTimeInstant\fPat)\fC [protected]\fP"
+Utility method to generate trace output for scheduling this event (internal use only)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIEvent\fP the event to be scheduled 
+.br
+\fIwho1\fP the second entity scheduled with the event (or \fCnull\fP if not applicable) 
+.br
+\fIwho2\fP the third entity scheduled with the event (or \fCnull\fP if not applicable) 
+.br
+\fIafter\fP the \fBSchedulable\fP after which the event is scheduled (or \fCnull\fP if not applicable) 
+.br
+\fIbefore\fP the \fBSchedulable\fP before which the event is scheduled (or \fCnull\fP if not applicable) 
+.br
+\fIat\fP the \fBTimeInstant\fP at which the event is scheduled 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.Entity\&.getIdentNumber ()"
+Returns the entity's identification number\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Long : The entity's identification number 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.Entity\&.getPriority ()"
+Returns the entity's queuing priority\&. Default priority of an entity is zero\&. Higher priorities are positive, lower priorities negative\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The entity's priority
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fC\fBgetQueueingPriority()\fP\fP to avoid confusing with the scheduling priority of an event or process\&. 
+.RE
+.PP
+
+.SS "QueueList<?> desmoj\&.core\&.simulator\&.Entity\&.getQueue ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Prefer usage of \fBgetQueues()\fP as an entity may be queued in multiple queues, call getQueueList() to obtaint the QueueList<?> objects
+.RE
+.PP
+.PP
+Returns the \fCQueueList\fP where this \fC\fBEntity\fP\fP is queued in or \fCnull\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+QueueList : The \fCQueueList\fP or \fCnull\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.Entity\&.getQueueingPriority ()"
+Returns the entity's queuing priority\&. Default priority of an entity is zero\&. Higher priorities are positive, lower priorities negative\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The entity's priority 
+.RE
+.PP
+
+.SS "List<\fBQueueBased\fP> desmoj\&.core\&.simulator\&.Entity\&.getQueues ()"
+Returns a list of queues and other \fC\fBQueueBased\fP\fP objects where this \fC\fBEntity\fP\fP is queued\&.
+.PP
+\fBReturns:\fP
+.RS 4
+List<QueueBased> : The \fC\fBQueueBased\fP\fPs containing this entity; may be empty if entity is not queued\&. 
+.RE
+.PP
+
+.SS "List<\fBEventAbstract\fP> desmoj\&.core\&.simulator\&.Entity\&.getScheduledEvents ()"
+Returns a list of events associated to this \fBEntity\fP object\&. If the \fBEntity\fP object is not currently scheduled, an empty list will be returned\&. Remind that all different Event classes can be included\&.
+.PP
+\fBReturns:\fP
+.RS 4
+List<EventAbstract> : The events associated to the entity 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.Entity\&.isEqual (\fBEntity\fPa, \fBEntity\fPb)\fC [static]\fP"
+Checks if the two entities have the same priority\&. Note that this is a static method available through calling the entity's class i\&.e\&. \fCEntity\&.isEqual(a,b)\fP where \fCa\fP and \fCb\fP are valid \fBEntity\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if \fCa\fP has the same priority as \fCb\fP,\fC/false\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBEntity\fP : First comparand entity 
+.br
+\fIb\fP \fBEntity\fP : Second comparand entity 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.Entity\&.isLarger (\fBEntity\fPa, \fBEntity\fPb)\fC [static]\fP"
+Checks if the first of the two entities has a higher priority than the second\&. Note that this is a static method available through calling the entity's class i\&.e\&. \fCEntity\&.isLarger(a,b)\fP where a and b are valid \fBEntity\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if \fCa\fP has a larger priority than \fCb\fP,\fC/false\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBEntity\fP : First comparand entity 
+.br
+\fIb\fP \fBEntity\fP : Second comparand entity 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.Entity\&.isLargerOrEqual (\fBEntity\fPa, \fBEntity\fPb)\fC [static]\fP"
+Checks if the first of the two entities has higher or same priority than the second\&. Note that this is a static method available through calling the entity's class i\&.e\&. \fCEntity\&.isLargerOrEqual(a,b)\fP where a and b are valid \fBEntity\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if \fCa\fP has a larger or equal priority than \fCb\fP,\fC/false\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBEntity\fP : First comparand entity 
+.br
+\fIb\fP \fBEntity\fP : Second comparand entity 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.Entity\&.isNotEqual (\fBEntity\fPa, \fBEntity\fPb)\fC [static]\fP"
+Checks if the first of the two entities have different priorities\&. Note that this is a static method available through calling the entity's class i\&.e\&. \fCEntity\&.isNotEqual(a,b)\fP where a and b are valid \fBEntity\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if \fCa\fP has a different priority than \fCb\fP,\fC/false\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBEntity\fP : First comparand entity 
+.br
+\fIb\fP \fBEntity\fP : Second comparand entity 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Entity\&.isQueued ()"
+Tests if this \fC\fBEntity\fP\fP queued in a at least one queue or other \fC\fBQueueBased\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if this \fBEntity\fP is queued in at least one queue or other \fC\fBQueueBased\fP\fP, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Entity\&.isSimProcess ()"
+Tests if this \fBEntity\fP actually is a \fBSimProcess\fP\&. Although \fBSimProcess\fP have an individual life-cycle, they can also be handled like entities and be scheduled to be manipulated by an event\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if this \fBEntity\fP is an instance of class \fC\fBSimProcess\fP\fP,\fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.Entity\&.isSmaller (\fBEntity\fPa, \fBEntity\fPb)\fC [static]\fP"
+Checks if the first of the two entities has a lower priority than the second\&. Note that this is a static method available through calling the entity's class i\&.e\&. \fCEntity\&.isSmaller(a,b)\fP where a and b are valid \fBEntity\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if \fCa\fP has a lower priority than \fCb\fP,\fC/false\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBEntity\fP : First comparand entity 
+.br
+\fIb\fP \fBEntity\fP : Second comparand entity 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.Entity\&.isSmallerOrEqual (\fBEntity\fPa, \fBEntity\fPb)\fC [static]\fP"
+Checks if the first of the two entities has lower or same priority than the second\&. Note that this is a static method available through calling the entity's class i\&.e\&. \fCEntity\&.isSmallerOrEqual(a,b)\fP where a and b are valid \fBEntity\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if \fCa\fP has a smaller or equal priority than \fCb\fP, \fC/false\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBEntity\fP : First comparand entity 
+.br
+\fIb\fP \fBEntity\fP : Second comparand entity 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.schedule (Event<?>what, \fBTimeSpan\fPdt)"
+Schedules this \fBEntity\fP to be manipulated by the given Event at the current time plus the given offset\&. Method returns with a warning message if either \fBEntity\fP or Event are already scheduled in the \fBEventList\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhat\fP Event : The Event that manipulates this \fBEntity\fP 
+.br
+\fIdt\fP \fBTimeSpan\fP : The offset to the current simulation time at which the event is to be scheduled 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.schedule (Event<?>what, \fBTimeInstant\fPwhen)"
+Schedules this \fBEntity\fP to be manipulated by the given Event at the given point of time\&. Method returns with a warning message if either \fBEntity\fP or Event are already scheduled in the event-list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhat\fP Event : The Event that manipulates this \fBEntity\fP 
+.br
+\fIwhen\fP \fBTimeInstant\fP : The point in simulation time this event is scheduled to happen\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.schedule (Event<?>what, \fBSimTime\fPdt)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by schedule(Event what,TimeSpan dt)\&. Schedules this \fBEntity\fP to be manipulated by the given Event at the given offset to the current simulation time\&. Note that the given point in simulation time is the positive offset to the current simulation time as displayed by the simulation clock\&. Method returns with a warning message if either \fBEntity\fP or Event are already scheduled in the event-list\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhat\fP Event : The Event that manipulates this \fBEntity\fP 
+.br
+\fIdt\fP \fBSimTime\fP : The offset to the current time this event is scheduled to happen 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimClock\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.scheduleAfter (\fBSchedulable\fPafter, Event<?>what)"
+Schedules this \fBEntity\fP with the given Event to occur directly after the given \fBSchedulable\fP that is already scheduled\&. Note that this event's point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus the event will occur directly after the given \fBSchedulable\fP but the simulation clock will not change\&. Will return with a warning message if the \fBSchedulable\fP given as parameter is not scheduled\&. If there are multiple schedules for the given \fBSchedulable\fP, the event will be scheduled after the last occurrence\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP \fBSchedulable\fP : The \fBSchedulable\fP this \fBEntity\fP should be scheduled after 
+.br
+\fIwhat\fP Event : The Event to manipulate this \fBEntity\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.scheduleBefore (\fBSchedulable\fPbefore, Event<?>what)"
+Schedules this \fBEntity\fP with the given Event to occur directly before the given \fBSchedulable\fP that is scheduled\&. Note that this event's point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus the event will occur directly before the given \fBSchedulable\fP but the simulation clock will not change\&. Issues a warning message if the \fBSchedulable\fP given is not scheduled\&. If there are multiple schedules for the given \fBSchedulable\fP, the event will be scheduled before the first occurrence\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP \fBSchedulable\fP : The \fBSchedulable\fP this \fBEntity\fP should be scheduled before 
+.br
+\fIwhat\fP Event : The Event to manipulate this \fBEntity\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.setPriority (intnewPriority)"
+Sets the entity's queuing priority to a given integer value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPriority\fP int : The new priority value
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fCsetQueueingPriority(int newPriority)\fP to avoid confusing with the scheduling priority of an event or process\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Entity\&.setQueuingPriority (intnewPriority)"
+Sets the entity's queuing priority to a given integer value\&. The default priority of each entity (unless assigned otherwise) is zero\&. Negative priorities are lower, positive priorities are higher\&. All values should be inside the range defined by Java's integral \fCinteger\fP data type [-2147483648, +2147483647]\&.
+.PP
+An entity's queuing priority can be used by the modeller to determine how the entity is treated by queues, though how precisely a queue will use the priority to determine sort order is up to it's queuing strategy: 
+.PD 0
+
+.IP "\(bu" 2
+\fC\fBQueueBased\&.FIFO\fP\fP sorts entities by their queuing priority, highest priority first\&. Entities with the same priority are enqueued based on "first in, first out"\&. 
+.IP "\(bu" 2
+\fC\fBQueueBased\&.LIFO\fP\fP also sorts entities by their priority, highest priority first\&. However, entities with the same priority are enqueued based on "last in, first out"\&. 
+.IP "\(bu" 2
+\fCQueueBased\&.Random\fP assigns a random position to each entity entering the queue, disregarding priority\&. 
+.PP
+Of course, the modeller is free to use the queuing priority to determine how entities are processed by the components he implements himself, whether they are queues or not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPriority\fP int : The new queuing priority value 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

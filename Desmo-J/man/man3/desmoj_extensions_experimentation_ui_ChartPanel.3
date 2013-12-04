@@ -1,0 +1,308 @@
+.TH "desmoj.extensions.experimentation.ui.ChartPanel" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.ui.ChartPanel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits JPanel, and ActionListener\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBChartPanel\fP (\fBChartOwner\fP chartOwner, String name, String x_label, String y_label)"
+.br
+.ti -1c
+.RI "void \fBpaint\fP (Graphics g)"
+.br
+.ti -1c
+.RI "void \fBscale\fP ()"
+.br
+.ti -1c
+.RI "void \fBredrawChart\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddLegend\fP (String text)"
+.br
+.ti -1c
+.RI "boolean \fBtestValue\fP (double x, double y)"
+.br
+.ti -1c
+.RI "void \fBsetMax_x\fP (double max_x)"
+.br
+.ti -1c
+.RI "void \fBsetMax_y\fP (double max_y)"
+.br
+.ti -1c
+.RI "void \fBsetMin_x\fP (double min_x)"
+.br
+.ti -1c
+.RI "void \fBsetMin_y\fP (double min_y)"
+.br
+.ti -1c
+.RI "void \fBset_xlabel\fP (String x_label)"
+.br
+.ti -1c
+.RI "void \fBset_ylabel\fP (String y_label)"
+.br
+.ti -1c
+.RI "void \fBdrawLine\fP (Graphics g, double x1, double y1, double x2, double y2)"
+.br
+.ti -1c
+.RI "void \fBdrawRect\fP (Graphics g, double x1, double y1, double x2, double y2)"
+.br
+.ti -1c
+.RI "void \fBfillRect\fP (Graphics g, double x1, double y1, double x2, double y2)"
+.br
+.ti -1c
+.RI "void \fBdrawLine\fP (Color \fBcolor\fP, double x1, double y1, double x2, double y2)"
+.br
+.ti -1c
+.RI "void \fBprocessMouseEvent\fP (MouseEvent e)"
+.br
+.ti -1c
+.RI "void \fBactionPerformed\fP (ActionEvent e)"
+.br
+.ti -1c
+.RI "void \fBsaveAs\fP (String title)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static Color \fBcolor\fP (int i)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A GUI container (inherited from javax\&.swing\&.JPanel) which includes a header, legend items (if needed) and a special \fBChart\fP object\&. All functionality of the \fBChart\fP object which is needed by the user, is encapsulated in this class, so the user doesn\fCt need to have direct access to the \fBChart\fP object, he doesn\fPt need to care about the \fBChart\fP object at all\&.
+.PP
+This class additionally includes a method saveAs(filename) for saving the chart to an image file\&.
+.PP
+If you are a user of DESMO-J you don`t need to create a object of this kind: Create a \fBHistogramPlotter\fP or a \fBTimeSeriesPlotter\fP instead!
+.PP
+This class is needed by the graphical observers \fBHistogramPlotter\fP and \fBTimeSeriesPlotter\fP\&. If you want to extend DESMO-J you can create new plotter classes inherited from \fBGraphicalObserver\fP which contains this object as a private field 'myGUI' and a method drawChart(Graphics) for implementing the drawing of the data\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Philip Joschko
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.ChartPanel (\fBChartOwner\fPchartOwner, Stringname, Stringx_label, Stringy_label)"
+Constructor of the chart panel\&. If you are a user of Desmo-J you don`t need to create a object of this kind: Create a \fBHistogramPlotter\fP or a \fBTimeSeriesPlotter\fP instead!
+.PP
+If you want to extend Desmo-J you can create new plotter classses inherited from \fBGraphicalObserver\fP which contains this object as a private field 'myGUI' and a method drawChart(Graphics) for implementing the drawing of the data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchartOwner\fP The object which implements the drawChart() method\&. 
+.br
+\fIname\fP Title of the chart\&. 
+.br
+\fIx_label\fP The labeling for the x axis\&. 
+.br
+\fIy_label\fP The labeling for the y axis\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.actionPerformed (ActionEvente)"
+Event handler for the items in the context menu\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.addLegend (Stringtext)"
+Adds a new legend item at the bottom of the panel in a new color\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItext\fP The labeling of the legend item\&. 
+.RE
+.PP
+
+.SS "static Color desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.color (inti)\fC [static]\fP"
+Returns the colors used to draw charts\&. You can draw more than one diagram in one chart\&. If you do so, you have to use colors in the same order, as the legend showcases them\&. This static method returns different colors, starting with 0=RED and ending with 9=LIGHTGREY\&. All values higher or smaller than this will return BLACK\&. This is not implemented as static final array, because of the possibility to draw more charts then colors exists (they will be black)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIi\fP The index number of the color you want\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+An AWT Color object\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.drawLine (Graphicsg, doublex1, doubley1, doublex2, doubley2)"
+Draws a line into the chart\&. This method automatically calls the methods calculateXPosition() and calculateYPosition() so you don`t have to take care about any scaling or transforming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIg\fP The specified Graphics context\&. 
+.br
+\fIx1\fP The x value of the starting coordinates\&. 
+.br
+\fIy1\fP The y value of the starting coordinates\&. 
+.br
+\fIx2\fP The x value of the ending coordinates\&. 
+.br
+\fIy2\fP The x value of the ending coordinates\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.drawLine (Colorcolor, doublex1, doubley1, doublex2, doubley2)"
+Draws a line into the chart\&. This method automatically calls the methods calculateXPosition() and calculateYPosition() so you don`t have to take care about any scaling or transforming\&.
+.PP
+If you have a graphic context (e\&.g\&. method shall be invoked via a \fBpaint(Graphics g)\fP method you should NOT use this method, but rather \fBdrawLine(Graphics, double, double, double, double)\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcolor\fP The color of the line\&. 
+.br
+\fIx1\fP The x value of the starting coordinates\&. 
+.br
+\fIy1\fP The y value of the starting coordinates\&. 
+.br
+\fIx2\fP The x value of the ending coordinates\&. 
+.br
+\fIy2\fP The x value of the ending coordinates\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.drawRect (Graphicsg, doublex1, doubley1, doublex2, doubley2)"
+Draws an unfilled rectangle into the chart\&. This method automatically calls the methods calculateXPosition() and calculateYPosition() so you don`t have to take care about any scaling or transforming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIg\fP The specified Graphics context\&. 
+.br
+\fIx1\fP The x value of the starting coordinates\&. 
+.br
+\fIy1\fP The y value of the starting coordinates\&. 
+.br
+\fIx2\fP The x value of the ending coordinates\&. 
+.br
+\fIy2\fP The x value of the ending coordinates\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.fillRect (Graphicsg, doublex1, doubley1, doublex2, doubley2)"
+Draws a filled rectangle into the chart\&. This method automatically calls the methods calculateXPosition() and calculateYPosition() so you don`t have to take care about any scaling or transforming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIg\fP The specified Graphics context\&. 
+.br
+\fIx1\fP The x value of the starting coordinates\&. 
+.br
+\fIy1\fP The y value of the starting coordinates\&. 
+.br
+\fIx2\fP The x value of the ending coordinates\&. 
+.br
+\fIy2\fP The x value of the ending coordinates\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.paint (Graphicsg)"
+Paints the panel and all of its components\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.processMouseEvent (MouseEvente)"
+Event handler for right-mouse-clicks onto the chart\&. The context menu will be shown\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.redrawChart ()"
+Forces the chart to repaint\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.saveAs (Stringtitle)"
+Saves the chart (including title and legend) as an image file\&. If saving fails, the exception will be catched, but not handled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItitle\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.scale ()"
+Rescales the size of the header font\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.set_xlabel (Stringx_label)"
+Resets the legend (labeling) for the x axis\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx_label\fP A new title for the x axis\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.set_ylabel (Stringy_label)"
+Resets the legend (labeling) for the y axis\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIy_label\fP A new title for the y axis\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.setMax_x (doublemax_x)"
+Sets the maximum x value which appears in the data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImax_x\fP The maximum x value which appears in the data\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.setMax_y (doublemax_y)"
+Sets the maximum y value which appears in the data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImax_y\fP The maximum y value which appears in the data\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.setMin_x (doublemin_x)"
+Sets the minimum x value which appears in the data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin_x\fP The minimum x value which appears in the data\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.setMin_y (doublemin_y)"
+Sets the minimum y value which appears in the data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin_y\fP The minimum y value which appears in the data\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.experimentation\&.ui\&.ChartPanel\&.testValue (doublex, doubley)"
+Tests a new pair of values which appears in the data\&. The pair will NOT be stored, it only will be tested if the values are lower or higher than the existing minimums and maximums\&. This is needed for scaling the chart automatically\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP A new x value which shall be tested, if it is the new minmum or maximum\&. 
+.br
+\fIy\fP A new y value which shall be tested, if it is the new minmum or maximum\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Returns true if the values are higher or smaller than the current axis borders\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

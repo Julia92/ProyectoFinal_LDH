@@ -1,0 +1,1507 @@
+\section{org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map Class Reference}
+\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map}\index{org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map@{org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map}}
+
+
+Inheritance diagram for org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Entry\-Set}
+\item 
+class {\bfseries Entry\-Set\-Iterator}
+\item 
+class {\bfseries Hash\-Entry}
+\item 
+class {\bfseries Hash\-Iterator}
+\item 
+class {\bfseries Hash\-Map\-Iterator}
+\item 
+class {\bfseries Key\-Set}
+\item 
+class {\bfseries Key\-Set\-Iterator}
+\item 
+class {\bfseries Values}
+\item 
+class {\bfseries Values\-Iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Object {\bf get} (Object key)
+\item 
+int {\bf size} ()
+\item 
+boolean {\bf is\-Empty} ()
+\item 
+boolean {\bf contains\-Key} (Object key)
+\item 
+boolean {\bf contains\-Value} (Object value)
+\item 
+Object {\bf put} (Object key, Object value)
+\item 
+void {\bf put\-All} (Map map)
+\item 
+Object {\bf remove} (Object key)
+\item 
+void {\bf clear} ()
+\item 
+{\bf Map\-Iterator} {\bf map\-Iterator} ()
+\item 
+Set {\bf entry\-Set} ()
+\item 
+Set {\bf key\-Set} ()
+\item 
+Collection {\bf values} ()
+\item 
+boolean {\bf equals} (Object obj)
+\item 
+int {\bf hash\-Code} ()
+\item 
+String {\bf to\-String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Abstract\-Hashed\-Map} ()
+\item 
+{\bf Abstract\-Hashed\-Map} (int initial\-Capacity, float {\bf load\-Factor}, int {\bf threshold})
+\item 
+{\bf Abstract\-Hashed\-Map} (int initial\-Capacity)
+\item 
+{\bf Abstract\-Hashed\-Map} (int initial\-Capacity, float {\bf load\-Factor})
+\item 
+{\bf Abstract\-Hashed\-Map} (Map map)
+\item 
+void {\bf init} ()
+\item 
+Object {\bf convert\-Key} (Object key)
+\item 
+int {\bf hash} (Object key)
+\item 
+boolean {\bf is\-Equal\-Key} (Object key1, Object key2)
+\item 
+boolean {\bf is\-Equal\-Value} (Object value1, Object value2)
+\item 
+int {\bf hash\-Index} (int {\bf hash\-Code}, int data\-Size)
+\item 
+Hash\-Entry {\bf get\-Entry} (Object key)
+\item 
+void {\bf update\-Entry} (Hash\-Entry entry, Object new\-Value)
+\item 
+void {\bf reuse\-Entry} (Hash\-Entry entry, int {\bf hash\-Index}, int {\bf hash\-Code}, Object key, Object value)
+\item 
+void {\bf add\-Mapping} (int {\bf hash\-Index}, int {\bf hash\-Code}, Object key, Object value)
+\item 
+Hash\-Entry {\bf create\-Entry} (Hash\-Entry next, int {\bf hash\-Code}, Object key, Object value)
+\item 
+void {\bf add\-Entry} (Hash\-Entry entry, int {\bf hash\-Index})
+\item 
+void {\bf remove\-Mapping} (Hash\-Entry entry, int {\bf hash\-Index}, Hash\-Entry previous)
+\item 
+void {\bf remove\-Entry} (Hash\-Entry entry, int {\bf hash\-Index}, Hash\-Entry previous)
+\item 
+void {\bf destroy\-Entry} (Hash\-Entry entry)
+\item 
+void {\bf check\-Capacity} ()
+\item 
+void {\bf ensure\-Capacity} (int new\-Capacity)
+\item 
+int {\bf calculate\-New\-Capacity} (int proposed\-Capacity)
+\item 
+int {\bf calculate\-Threshold} (int new\-Capacity, float factor)
+\item 
+Hash\-Entry {\bf entry\-Next} (Hash\-Entry entry)
+\item 
+int {\bf entry\-Hash\-Code} (Hash\-Entry entry)
+\item 
+Object {\bf entry\-Key} (Hash\-Entry entry)
+\item 
+Object {\bf entry\-Value} (Hash\-Entry entry)
+\item 
+Iterator {\bf create\-Entry\-Set\-Iterator} ()
+\item 
+Iterator {\bf create\-Key\-Set\-Iterator} ()
+\item 
+Iterator {\bf create\-Values\-Iterator} ()
+\item 
+void {\bf do\-Write\-Object} (Object\-Output\-Stream out)  throws I\-O\-Exception 
+\item 
+void {\bf do\-Read\-Object} (Object\-Input\-Stream in)  throws I\-O\-Exception, Class\-Not\-Found\-Exception 
+\item 
+Object {\bf clone} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+transient float {\bf load\-Factor}
+\item 
+transient int {\bf size}
+\item 
+transient Hash\-Entry[$\,$] {\bf data}
+\item 
+transient int {\bf threshold}
+\item 
+transient int {\bf mod\-Count}
+\item 
+transient Entry\-Set {\bf entry\-Set}
+\item 
+transient Key\-Set {\bf key\-Set}
+\item 
+transient Values {\bf values}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String {\bfseries N\-O\-\_\-\-N\-E\-X\-T\-\_\-\-E\-N\-T\-R\-Y} = \char`\"{}No next() entry in the iteration\char`\"{}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ad36d3f7d8a7ad41625b8c818c7604bee}
+
+\item 
+static final String {\bfseries N\-O\-\_\-\-P\-R\-E\-V\-I\-O\-U\-S\-\_\-\-E\-N\-T\-R\-Y} = \char`\"{}No previous() entry in the iteration\char`\"{}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aebe646b8e13879cd69169199a2055d88}
+
+\item 
+static final String {\bfseries R\-E\-M\-O\-V\-E\-\_\-\-I\-N\-V\-A\-L\-I\-D} = \char`\"{}remove() can only be called once after next()\char`\"{}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1b0135f4e27d123f41c461098f207eb8}
+
+\item 
+static final String {\bfseries G\-E\-T\-K\-E\-Y\-\_\-\-I\-N\-V\-A\-L\-I\-D} = \char`\"{}get\-Key() can only be called after next() and before {\bf remove}()\char`\"{}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_adeb9f01a500a97b48ff1cd172be147b7}
+
+\item 
+static final String {\bfseries G\-E\-T\-V\-A\-L\-U\-E\-\_\-\-I\-N\-V\-A\-L\-I\-D} = \char`\"{}get\-Value() can only be called after next() and before {\bf remove}()\char`\"{}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_abb26a07cd1e1b25fcc83dfc95d70e4fe}
+
+\item 
+static final String {\bfseries S\-E\-T\-V\-A\-L\-U\-E\-\_\-\-I\-N\-V\-A\-L\-I\-D} = \char`\"{}set\-Value() can only be called after next() and before {\bf remove}()\char`\"{}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a94acef38eb0c1138d5393561d075ffe0}
+
+\item 
+static final int {\bf D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y} = 16
+\item 
+static final int {\bf D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D} = 12
+\item 
+static final float {\bf D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-O\-A\-D\-\_\-\-F\-A\-C\-T\-O\-R} = 0.\-75f
+\item 
+static final int {\bf M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y} = 1 $<$$<$ 30
+\item 
+static final Object {\bf N\-U\-L\-L} = new Object()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract implementation of a hash-\/based map which provides numerous points for subclasses to override. 
+
+This class implements all the features necessary for a subclass hash-\/based map. Key-\/value entries are stored in instances of the {\ttfamily Hash\-Entry} class, which can be overridden and replaced. The iterators can similarly be replaced, without the need to replace the Key\-Set, Entry\-Set and Values view classes. 
+
+Overridable methods are provided to change the default hashing behaviour, and to change how entries are added to and removed from the map. Hopefully, all you need for unusual subclasses is here. 
+
+N\-O\-T\-E\-: From Commons Collections 3.\-1 this class extends Abstract\-Map. This is to provide backwards compatibility for \doxyref{Reference\-Map}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_reference_map} between v3.\-0 and v3.\-1. This extends clause will be removed in v4.\-0.
+
+\begin{DoxySince}{Since}
+Commons Collections 3.\-0 
+\end{DoxySince}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision\-:}
+646777 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Date\-:}
+2008-\/04-\/10 13\-:33\-:15 +0100 (Thu, 10 Apr 2008) 
+\end{DoxyParagraph}
+
+
+\begin{DoxyAuthor}{Author}
+java util Hash\-Map 
+
+Stephen Colebourne 
+
+Christian Siefkes 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}}
+\index{Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{Abstract\-Hashed\-Map}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-Abstract\-Hashed\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a9c9672ea02d7a64c6733a5ddb5c260d3}
+Constructor only used in deserialization, do not use otherwise. \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}}
+\index{Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{Abstract\-Hashed\-Map}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-Abstract\-Hashed\-Map (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity, }
+\item[{float}]{load\-Factor, }
+\item[{int}]{threshold}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a6bf720b9f0bfcf97f1640ec5d3d493df}
+Constructor which performs no validation on the passed in parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & the initial capacity, must be a power of two \\
+\hline
+{\em load\-Factor} & the load factor, must be $>$ 0.\-0f and generally $<$ 1.\-0f \\
+\hline
+{\em threshold} & the threshold, must be sensible \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a6bf720b9f0bfcf97f1640ec5d3d493df_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}}
+\index{Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{Abstract\-Hashed\-Map}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-Abstract\-Hashed\-Map (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a28a8a5def3988c22b463c3d4ec209e55}
+Constructs a new, empty map with the specified initial capacity and default load factor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & the initial capacity \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if the initial capacity is less than one \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}}
+\index{Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{Abstract\-Hashed\-Map}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-Abstract\-Hashed\-Map (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity, }
+\item[{float}]{load\-Factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a8f1b7669151ae4e139b970aa109048c5}
+Constructs a new, empty map with the specified initial capacity and load factor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & the initial capacity \\
+\hline
+{\em load\-Factor} & the load factor \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if the initial capacity is less than one \\
+\hline
+{\em Illegal\-Argument\-Exception} & if the load factor is less than or equal to zero \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a8f1b7669151ae4e139b970aa109048c5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}}
+\index{Abstract\-Hashed\-Map@{Abstract\-Hashed\-Map}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{Abstract\-Hashed\-Map}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-Abstract\-Hashed\-Map (
+\begin{DoxyParamCaption}
+\item[{Map}]{map}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a77e8bb4264ea6f5dc5b612f4168d61c0}
+Constructor copying elements from another map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & the map to copy \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Null\-Pointer\-Exception} & if the map is null \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a77e8bb4264ea6f5dc5b612f4168d61c0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!add\-Entry@{add\-Entry}}
+\index{add\-Entry@{add\-Entry}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{add\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-add\-Entry (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry, }
+\item[{int}]{hash\-Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a6927cadb67581f7ad0f96c99686a1e62}
+Adds an entry into this map. 
+
+This implementation adds the entry to the data storage table. Subclasses could override to handle changes to the map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to add \\
+\hline
+{\em hash\-Index} & the index into the data array to store at \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a6927cadb67581f7ad0f96c99686a1e62_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!add\-Mapping@{add\-Mapping}}
+\index{add\-Mapping@{add\-Mapping}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{add\-Mapping}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-add\-Mapping (
+\begin{DoxyParamCaption}
+\item[{int}]{hash\-Index, }
+\item[{int}]{hash\-Code, }
+\item[{Object}]{key, }
+\item[{Object}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a253695db7aee484720c3d5034509219c}
+Adds a new key-\/value mapping into this map. 
+
+This implementation calls {\ttfamily \doxyref{create\-Entry()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ab7a49de89009f03ef24fa1bbde1c051f}}, {\ttfamily \doxyref{add\-Entry()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a6927cadb67581f7ad0f96c99686a1e62}} and {\ttfamily \doxyref{check\-Capacity()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a0a946881b0fba5cfc41bd7e4a9e0ced3}}. It also handles changes to {\ttfamily mod\-Count} and {\ttfamily size}. Subclasses could override to fully control adds to the map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hash\-Index} & the index into the data array to store at \\
+\hline
+{\em hash\-Code} & the hash code of the key to add \\
+\hline
+{\em key} & the key to add \\
+\hline
+{\em value} & the value to add \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a253695db7aee484720c3d5034509219c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!calculate\-New\-Capacity@{calculate\-New\-Capacity}}
+\index{calculate\-New\-Capacity@{calculate\-New\-Capacity}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{calculate\-New\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-calculate\-New\-Capacity (
+\begin{DoxyParamCaption}
+\item[{int}]{proposed\-Capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a7eb0eaf5d1bdd0b4912d98b3c58a09b1}
+Calculates the new capacity of the map. This implementation normalizes the capacity to a power of two.
+
+
+\begin{DoxyParams}{Parameters}
+{\em proposed\-Capacity} & the proposed capacity \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the normalized new capacity 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!calculate\-Threshold@{calculate\-Threshold}}
+\index{calculate\-Threshold@{calculate\-Threshold}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{calculate\-Threshold}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-calculate\-Threshold (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Capacity, }
+\item[{float}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_afd62eac0894938109577146f848c5a4c}
+Calculates the new threshold of the map, where it will be resized. This implementation uses the load factor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Capacity} & the new capacity \\
+\hline
+{\em factor} & the load factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new resize threshold 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!check\-Capacity@{check\-Capacity}}
+\index{check\-Capacity@{check\-Capacity}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{check\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-check\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a0a946881b0fba5cfc41bd7e4a9e0ced3}
+Checks the capacity of the map and enlarges it if necessary. 
+
+This implementation uses the threshold to check if the map needs enlarging 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a0a946881b0fba5cfc41bd7e4a9e0ced3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!clear@{clear}}
+\index{clear@{clear}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aeabb257aa587d3f64ad9d033089e9f4e}
+Clears the map, resetting the size to zero and nullifying references to avoid garbage collection issues. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aeabb257aa587d3f64ad9d033089e9f4e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!clone@{clone}}
+\index{clone@{clone}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a277425ab358a8a5a03d5148cdb4671a6}
+Clones the map without cloning the keys or values. 
+
+To implement {\ttfamily \doxyref{clone()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a277425ab358a8a5a03d5148cdb4671a6}}, a subclass must implement the {\ttfamily Cloneable} interface and make this method public.
+
+\begin{DoxyReturn}{Returns}
+a shallow clone 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a277425ab358a8a5a03d5148cdb4671a6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!contains\-Key@{contains\-Key}}
+\index{contains\-Key@{contains\-Key}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{contains\-Key}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-contains\-Key (
+\begin{DoxyParamCaption}
+\item[{Object}]{key}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3200f64ac9e98197c041282fce81d27d}
+Checks whether the map contains the specified key.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the map contains the key 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3200f64ac9e98197c041282fce81d27d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!contains\-Value@{contains\-Value}}
+\index{contains\-Value@{contains\-Value}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{contains\-Value}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-contains\-Value (
+\begin{DoxyParamCaption}
+\item[{Object}]{value}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a7fea1375d6891e9d0d47701d1e4b3218}
+Checks whether the map contains the specified value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the map contains the value 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a7fea1375d6891e9d0d47701d1e4b3218_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!convert\-Key@{convert\-Key}}
+\index{convert\-Key@{convert\-Key}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{convert\-Key}]{\setlength{\rightskip}{0pt plus 5cm}Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-convert\-Key (
+\begin{DoxyParamCaption}
+\item[{Object}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a37ac0c36936c4e2df09e41b24aaff298}
+Converts input keys to another object for storage in the map. This implementation masks nulls. Subclasses can override this to perform alternate key conversions. 
+
+The reverse conversion can be changed, if required, by overriding the get\-Key() method in the hash entry.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the converted key 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!create\-Entry@{create\-Entry}}
+\index{create\-Entry@{create\-Entry}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{create\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}Hash\-Entry org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-create\-Entry (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{next, }
+\item[{int}]{hash\-Code, }
+\item[{Object}]{key, }
+\item[{Object}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ab7a49de89009f03ef24fa1bbde1c051f}
+Creates an entry to store the key-\/value data. 
+
+This implementation creates a new Hash\-Entry instance. Subclasses can override this to return a different storage class, or implement caching.
+
+
+\begin{DoxyParams}{Parameters}
+{\em next} & the next entry in sequence \\
+\hline
+{\em hash\-Code} & the hash code to use \\
+\hline
+{\em key} & the key to store \\
+\hline
+{\em value} & the value to store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the newly created entry 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!create\-Entry\-Set\-Iterator@{create\-Entry\-Set\-Iterator}}
+\index{create\-Entry\-Set\-Iterator@{create\-Entry\-Set\-Iterator}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{create\-Entry\-Set\-Iterator}]{\setlength{\rightskip}{0pt plus 5cm}Iterator org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-create\-Entry\-Set\-Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a489f9422289a039b1e53f06640e4b33d}
+Creates an entry set iterator. Subclasses can override this to return iterators with different properties.
+
+\begin{DoxyReturn}{Returns}
+the entry\-Set iterator 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a489f9422289a039b1e53f06640e4b33d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!create\-Key\-Set\-Iterator@{create\-Key\-Set\-Iterator}}
+\index{create\-Key\-Set\-Iterator@{create\-Key\-Set\-Iterator}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{create\-Key\-Set\-Iterator}]{\setlength{\rightskip}{0pt plus 5cm}Iterator org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-create\-Key\-Set\-Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a5569bf3aa5ea499256859af71f33faaf}
+Creates a key set iterator. Subclasses can override this to return iterators with different properties.
+
+\begin{DoxyReturn}{Returns}
+the key\-Set iterator 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a5569bf3aa5ea499256859af71f33faaf_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!create\-Values\-Iterator@{create\-Values\-Iterator}}
+\index{create\-Values\-Iterator@{create\-Values\-Iterator}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{create\-Values\-Iterator}]{\setlength{\rightskip}{0pt plus 5cm}Iterator org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-create\-Values\-Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a85d968aae2183a511d111530589ac1dc}
+Creates a values iterator. Subclasses can override this to return iterators with different properties.
+
+\begin{DoxyReturn}{Returns}
+the values iterator 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a85d968aae2183a511d111530589ac1dc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!destroy\-Entry@{destroy\-Entry}}
+\index{destroy\-Entry@{destroy\-Entry}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{destroy\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-destroy\-Entry (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a40294c523403f093e811c27e70f68677}
+Kills an entry ready for the garbage collector. 
+
+This implementation prepares the Hash\-Entry for garbage collection. Subclasses can override this to implement caching (override clear as well).
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to destroy \\
+\hline
+\end{DoxyParams}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!do\-Read\-Object@{do\-Read\-Object}}
+\index{do\-Read\-Object@{do\-Read\-Object}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{do\-Read\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-do\-Read\-Object (
+\begin{DoxyParamCaption}
+\item[{Object\-Input\-Stream}]{in}
+\end{DoxyParamCaption}
+) throws I\-O\-Exception, Class\-Not\-Found\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a41b5e1c1263d9ca7175535beee937f0a}
+Reads the map data from the stream. This method must be overridden if a subclass must be setup before {\ttfamily \doxyref{put()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df}} is used. 
+
+Serialization is not one of the J\-D\-K's nicest topics. Normal serialization will initialise the superclass before the subclass. Sometimes however, this isn't what you want, as in this case the {\ttfamily \doxyref{put()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df}} method on read can be affected by subclass state. 
+
+The solution adopted here is to deserialize the state data of this class in this protected method. This method must be called by the {\ttfamily read\-Object()} of the first serializable subclass. 
+
+Subclasses may override if the subclass has a specific field that must be present before {\ttfamily \doxyref{put()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df}} or {\ttfamily \doxyref{calculate\-Threshold()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_afd62eac0894938109577146f848c5a4c}} will work correctly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & the input stream \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a41b5e1c1263d9ca7175535beee937f0a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!do\-Write\-Object@{do\-Write\-Object}}
+\index{do\-Write\-Object@{do\-Write\-Object}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{do\-Write\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-do\-Write\-Object (
+\begin{DoxyParamCaption}
+\item[{Object\-Output\-Stream}]{out}
+\end{DoxyParamCaption}
+) throws I\-O\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aa5c2616f355d961c8ea47de4c6ac66de}
+Writes the map data to the stream. This method must be overridden if a subclass must be setup before {\ttfamily \doxyref{put()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df}} is used. 
+
+Serialization is not one of the J\-D\-K's nicest topics. Normal serialization will initialise the superclass before the subclass. Sometimes however, this isn't what you want, as in this case the {\ttfamily \doxyref{put()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df}} method on read can be affected by subclass state. 
+
+The solution adopted here is to serialize the state data of this class in this protected method. This method must be called by the {\ttfamily write\-Object()} of the first serializable subclass. 
+
+Subclasses may override if they have a specific field that must be present on read before this implementation will work. Generally, the read determines what must be serialized here, if anything.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & the output stream \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aa5c2616f355d961c8ea47de4c6ac66de_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!ensure\-Capacity@{ensure\-Capacity}}
+\index{ensure\-Capacity@{ensure\-Capacity}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{ensure\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-ensure\-Capacity (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ab717b34a417392901d5444762fb99984}
+Changes the size of the data structure to the capacity proposed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Capacity} & the new capacity of the array (a power of two, less or equal to max) \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ab717b34a417392901d5444762fb99984_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!entry\-Hash\-Code@{entry\-Hash\-Code}}
+\index{entry\-Hash\-Code@{entry\-Hash\-Code}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{entry\-Hash\-Code}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-entry\-Hash\-Code (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aee1d3a4b667b467eeeb9269c1769bdb9}
+Gets the {\ttfamily hash\-Code} field from a {\ttfamily Hash\-Entry}. Used in subclasses that have no visibility of the field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to query, must not be null \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\ttfamily hash\-Code} field of the entry 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Null\-Pointer\-Exception} & if the entry is null \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Commons Collections 3.\-1 
+\end{DoxySince}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!entry\-Key@{entry\-Key}}
+\index{entry\-Key@{entry\-Key}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{entry\-Key}]{\setlength{\rightskip}{0pt plus 5cm}Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-entry\-Key (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a95a0b02bc43cdd0685be8f6838bead4d}
+Gets the {\ttfamily key} field from a {\ttfamily Hash\-Entry}. Used in subclasses that have no visibility of the field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to query, must not be null \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\ttfamily key} field of the entry 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Null\-Pointer\-Exception} & if the entry is null \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Commons Collections 3.\-1 
+\end{DoxySince}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!entry\-Next@{entry\-Next}}
+\index{entry\-Next@{entry\-Next}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{entry\-Next}]{\setlength{\rightskip}{0pt plus 5cm}Hash\-Entry org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-entry\-Next (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a41641e16b5d44b10252a54f8fadbb700}
+Gets the {\ttfamily next} field from a {\ttfamily Hash\-Entry}. Used in subclasses that have no visibility of the field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to query, must not be null \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\ttfamily next} field of the entry 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Null\-Pointer\-Exception} & if the entry is null \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Commons Collections 3.\-1 
+\end{DoxySince}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!entry\-Set@{entry\-Set}}
+\index{entry\-Set@{entry\-Set}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{entry\-Set}]{\setlength{\rightskip}{0pt plus 5cm}Set org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-entry\-Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a5aa7c230e9b30cb3be590047b76d6db6}
+Gets the entry\-Set view of the map. Changes made to the view affect this map. To simply iterate through the entries, use \doxyref{map\-Iterator()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af972683c576d9ba223340c992367db07}.
+
+\begin{DoxyReturn}{Returns}
+the entry\-Set view 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!entry\-Value@{entry\-Value}}
+\index{entry\-Value@{entry\-Value}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{entry\-Value}]{\setlength{\rightskip}{0pt plus 5cm}Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-entry\-Value (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af92abcb1403889edf2af4f9101c61a2e}
+Gets the {\ttfamily value} field from a {\ttfamily Hash\-Entry}. Used in subclasses that have no visibility of the field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to query, must not be null \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\ttfamily value} field of the entry 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Null\-Pointer\-Exception} & if the entry is null \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySince}{Since}
+Commons Collections 3.\-1 
+\end{DoxySince}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!equals@{equals}}
+\index{equals@{equals}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{obj}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a51f160d58d2e1c71c78911f89b4b1b5d}
+Compares this map with another.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & the object to compare to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if equal 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a51f160d58d2e1c71c78911f89b4b1b5d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!get@{get}}
+\index{get@{get}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-get (
+\begin{DoxyParamCaption}
+\item[{Object}]{key}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aafde6761157ddb09941454d76e0fcbd1}
+Gets the value mapped to the key specified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the mapped value, null if no match 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aafde6761157ddb09941454d76e0fcbd1_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!get\-Entry@{get\-Entry}}
+\index{get\-Entry@{get\-Entry}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{get\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}Hash\-Entry org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-get\-Entry (
+\begin{DoxyParamCaption}
+\item[{Object}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a97ee519b6211ad3e8b67f5860819c841}
+Gets the entry mapped to the key specified. 
+
+This method exists for subclasses that may need to perform a multi-\/step process accessing the entry. The public methods in this class don't use this method to gain a small performance boost.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the entry, null if no match 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a97ee519b6211ad3e8b67f5860819c841_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!hash@{hash}}
+\index{hash@{hash}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{hash}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-hash (
+\begin{DoxyParamCaption}
+\item[{Object}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af8656af330dfd198ea87ffadab432820}
+Gets the hash code for the key specified. This implementation uses the additional hashing routine from J\-D\-K1.\-4. Subclasses can override this to return alternate hash codes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key to get a hash code for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the hash code 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!hash\-Code@{hash\-Code}}
+\index{hash\-Code@{hash\-Code}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{hash\-Code}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-hash\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ae29b5039030a3969ef39f7e1e009e709}
+Gets the standard Map hash\-Code.
+
+\begin{DoxyReturn}{Returns}
+the hash code defined in the Map interface 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ae29b5039030a3969ef39f7e1e009e709_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!hash\-Index@{hash\-Index}}
+\index{hash\-Index@{hash\-Index}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{hash\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-hash\-Index (
+\begin{DoxyParamCaption}
+\item[{int}]{hash\-Code, }
+\item[{int}]{data\-Size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a07c7cee89f737ff26bfdc1c8091d577c}
+Gets the index into the data storage for the hash\-Code specified. This implementation uses the least significant bits of the hash\-Code. Subclasses can override this to return alternate bucketing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hash\-Code} & the hash code to use \\
+\hline
+{\em data\-Size} & the size of the data to pick a bucket from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bucket index 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!init@{init}}
+\index{init@{init}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af9035f827b7d52b64f00cffd8bfdf098}
+Initialise subclasses during construction, cloning or deserialization. \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3619d223ccbce91e6a1413ef6ddd1c61}
+Checks whether the map is currently empty.
+
+\begin{DoxyReturn}{Returns}
+true if the map is currently size zero 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3619d223ccbce91e6a1413ef6ddd1c61_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!is\-Equal\-Key@{is\-Equal\-Key}}
+\index{is\-Equal\-Key@{is\-Equal\-Key}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{is\-Equal\-Key}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-is\-Equal\-Key (
+\begin{DoxyParamCaption}
+\item[{Object}]{key1, }
+\item[{Object}]{key2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af640ca6419b301b955f98bfef4560fc1}
+Compares two keys, in internal converted form, to see if they are equal. This implementation uses the equals method and assumes neither key is null. Subclasses can override this to match differently.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key1} & the first key to compare passed in from outside \\
+\hline
+{\em key2} & the second key extracted from the entry via {\ttfamily entry.\-key} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if equal 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!is\-Equal\-Value@{is\-Equal\-Value}}
+\index{is\-Equal\-Value@{is\-Equal\-Value}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{is\-Equal\-Value}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-is\-Equal\-Value (
+\begin{DoxyParamCaption}
+\item[{Object}]{value1, }
+\item[{Object}]{value2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a8878c87b575609924fe0e2d33f4efc2b}
+Compares two values, in external form, to see if they are equal. This implementation uses the equals method and assumes neither value is null. Subclasses can override this to match differently.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value1} & the first value to compare passed in from outside \\
+\hline
+{\em value2} & the second value extracted from the entry via {\ttfamily get\-Value()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if equal 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!key\-Set@{key\-Set}}
+\index{key\-Set@{key\-Set}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{key\-Set}]{\setlength{\rightskip}{0pt plus 5cm}Set org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-key\-Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3020fad924a9a97486c479f0c12c0217}
+Gets the key\-Set view of the map. Changes made to the view affect this map. To simply iterate through the keys, use \doxyref{map\-Iterator()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af972683c576d9ba223340c992367db07}.
+
+\begin{DoxyReturn}{Returns}
+the key\-Set view 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!map\-Iterator@{map\-Iterator}}
+\index{map\-Iterator@{map\-Iterator}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{map\-Iterator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map\-Iterator} org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-map\-Iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af972683c576d9ba223340c992367db07}
+Gets an iterator over the map. Changes made to the iterator affect this map. 
+
+A \doxyref{Map\-Iterator}{p.}{interfaceorg_1_1apache_1_1commons_1_1collections_1_1_map_iterator} returns the keys in the map. It also provides convenient methods to get the key and value, and set the value. It avoids the need to create an entry\-Set/key\-Set/values object. It also avoids creating the Map.\-Entry object.
+
+\begin{DoxyReturn}{Returns}
+the map iterator 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-collections.\-Iterable\-Map} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1collections_1_1_iterable_map_a9286d00402feb25d1c72e27e253e2663}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af972683c576d9ba223340c992367db07_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!put@{put}}
+\index{put@{put}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-put (
+\begin{DoxyParamCaption}
+\item[{Object}]{key, }
+\item[{Object}]{value}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df}
+Puts a key-\/value mapping into this map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key to add \\
+\hline
+{\em value} & the value to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value previously mapped to this key, null if none 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!put\-All@{put\-All}}
+\index{put\-All@{put\-All}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{put\-All}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-put\-All (
+\begin{DoxyParamCaption}
+\item[{Map}]{map}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af1c55fc542c160b51bdb8bd8f6656504}
+Puts all the values from the specified map into this map. 
+
+This implementation iterates around the specified map and uses \doxyref{put(\-Object, Object)}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a1d5ff97b70023ec92e743de89520a7df}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & the map to add \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Null\-Pointer\-Exception} & if the map is null \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af1c55fc542c160b51bdb8bd8f6656504_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!remove@{remove}}
+\index{remove@{remove}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-remove (
+\begin{DoxyParamCaption}
+\item[{Object}]{key}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ab371094179e9c2d833c5bd9e20c78212}
+Removes the specified mapping from this map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the mapping to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value mapped to the removed key, null if key not in map 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ab371094179e9c2d833c5bd9e20c78212_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!remove\-Entry@{remove\-Entry}}
+\index{remove\-Entry@{remove\-Entry}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{remove\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-remove\-Entry (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry, }
+\item[{int}]{hash\-Index, }
+\item[{Hash\-Entry}]{previous}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3794a97519e1fe9831073d1c54778cf4}
+Removes an entry from the chain stored in a particular index. 
+
+This implementation removes the entry from the data storage table. The size is not updated. Subclasses could override to handle changes to the map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to remove \\
+\hline
+{\em hash\-Index} & the index into the data structure \\
+\hline
+{\em previous} & the previous entry in the chain \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3794a97519e1fe9831073d1c54778cf4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!remove\-Mapping@{remove\-Mapping}}
+\index{remove\-Mapping@{remove\-Mapping}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{remove\-Mapping}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-remove\-Mapping (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry, }
+\item[{int}]{hash\-Index, }
+\item[{Hash\-Entry}]{previous}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a0dd50e56c27f5bcb049e91ea52df3203}
+Removes a mapping from the map. 
+
+This implementation calls {\ttfamily \doxyref{remove\-Entry()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3794a97519e1fe9831073d1c54778cf4}} and {\ttfamily \doxyref{destroy\-Entry()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a40294c523403f093e811c27e70f68677}}. It also handles changes to {\ttfamily mod\-Count} and {\ttfamily size}. Subclasses could override to fully control removals from the map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to remove \\
+\hline
+{\em hash\-Index} & the index into the data structure \\
+\hline
+{\em previous} & the previous entry in the chain \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a0dd50e56c27f5bcb049e91ea52df3203_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!reuse\-Entry@{reuse\-Entry}}
+\index{reuse\-Entry@{reuse\-Entry}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{reuse\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-reuse\-Entry (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry, }
+\item[{int}]{hash\-Index, }
+\item[{int}]{hash\-Code, }
+\item[{Object}]{key, }
+\item[{Object}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a73815bc6d192060cccc83044d8f39416}
+Reuses an existing key-\/value mapping, storing completely new data. 
+
+This implementation sets all the data fields on the entry. Subclasses could populate additional entry fields.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to update, not null \\
+\hline
+{\em hash\-Index} & the index in the data array \\
+\hline
+{\em hash\-Code} & the hash code of the key to add \\
+\hline
+{\em key} & the key to add \\
+\hline
+{\em value} & the value to add \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a73815bc6d192060cccc83044d8f39416_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!size@{size}}
+\index{size@{size}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ac470c3d485128b0676432b386befe58d}
+Gets the size of the map.
+
+\begin{DoxyReturn}{Returns}
+the size 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a38e0feace02a112ff562b8cbf91f2cc0}
+Gets the map as a String.
+
+\begin{DoxyReturn}{Returns}
+a string version of the map 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a38e0feace02a112ff562b8cbf91f2cc0_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!update\-Entry@{update\-Entry}}
+\index{update\-Entry@{update\-Entry}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{update\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-update\-Entry (
+\begin{DoxyParamCaption}
+\item[{Hash\-Entry}]{entry, }
+\item[{Object}]{new\-Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a039d627c353264ac3febe170edca5a06}
+Updates an existing key-\/value mapping to change the value. 
+
+This implementation calls {\ttfamily set\-Value()} on the entry. Subclasses could override to handle changes to the map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & the entry to update \\
+\hline
+{\em new\-Value} & the new value to store \\
+\hline
+\end{DoxyParams}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!values@{values}}
+\index{values@{values}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{values}]{\setlength{\rightskip}{0pt plus 5cm}Collection org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_adc63bbe2a16ba151bce4507d387e7512}
+Gets the values view of the map. Changes made to the view affect this map. To simply iterate through the values, use \doxyref{map\-Iterator()}{p.}{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af972683c576d9ba223340c992367db07}.
+
+\begin{DoxyReturn}{Returns}
+the values view 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!data@{data}}
+\index{data@{data}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}transient Hash\-Entry [$\,$] org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-data\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a66ee201f17013ae1324c6dcf16816a91}
+Map entries \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y@{D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}}
+\index{D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y@{D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}final int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-D\-E\-F\-A\-U\-L\-T\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y = 16\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_ab75b9040c76cea48c33ab7d3c71fd7dd}
+The default capacity to use \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-O\-A\-D\-\_\-\-F\-A\-C\-T\-O\-R@{D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-O\-A\-D\-\_\-\-F\-A\-C\-T\-O\-R}}
+\index{D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-O\-A\-D\-\_\-\-F\-A\-C\-T\-O\-R@{D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-O\-A\-D\-\_\-\-F\-A\-C\-T\-O\-R}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-O\-A\-D\-\_\-\-F\-A\-C\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}final float org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-D\-E\-F\-A\-U\-L\-T\-\_\-\-L\-O\-A\-D\-\_\-\-F\-A\-C\-T\-O\-R = 0.\-75f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aeaa44bca56ee02ccd1fffbd07364ab2a}
+The default load factor to use \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}}
+\index{D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}final int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-D\-E\-F\-A\-U\-L\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D = 12\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aa1b5d36f94451298f4727391d677d159}
+The default threshold to use \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!entry\-Set@{entry\-Set}}
+\index{entry\-Set@{entry\-Set}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{entry\-Set}]{\setlength{\rightskip}{0pt plus 5cm}transient Entry\-Set org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-entry\-Set\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a12d684404409096009c6cb75d06c5831}
+Entry set \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!key\-Set@{key\-Set}}
+\index{key\-Set@{key\-Set}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{key\-Set}]{\setlength{\rightskip}{0pt plus 5cm}transient Key\-Set org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-key\-Set\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a17174511c9bc47b8324149672f236a02}
+Key set \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!load\-Factor@{load\-Factor}}
+\index{load\-Factor@{load\-Factor}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{load\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}transient float org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-load\-Factor\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a2b6eca9c5a9367ea944670a443a5b555}
+Load factor, normally 0.\-75 \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y@{M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}}
+\index{M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y@{M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}final int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y = 1 $<$$<$ 30\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a32b97e399f63f1c47be210d4c26fa45e}
+The maximum capacity allowed \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!mod\-Count@{mod\-Count}}
+\index{mod\-Count@{mod\-Count}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{mod\-Count}]{\setlength{\rightskip}{0pt plus 5cm}transient int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-mod\-Count\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a7d8a11a63c0cc092215b92b90105f8ab}
+Modification count for iterators \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!N\-U\-L\-L@{N\-U\-L\-L}}
+\index{N\-U\-L\-L@{N\-U\-L\-L}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{N\-U\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}final Object org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-N\-U\-L\-L = new Object()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_af8d3344e60612d8519a55e94156342ac}
+An object for masking null \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!size@{size}}
+\index{size@{size}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}transient int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-size\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a94289b9872435205bc446ab9520d4d9e}
+The size of the map \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!threshold@{threshold}}
+\index{threshold@{threshold}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{threshold}]{\setlength{\rightskip}{0pt plus 5cm}transient int org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-threshold\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_a3e6b7ae91dbd17786779a520f94dbc11}
+Size at which to rehash \index{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}!values@{values}}
+\index{values@{values}!org::apache::commons::collections::map::AbstractHashedMap@{org\-::apache\-::commons\-::collections\-::map\-::\-Abstract\-Hashed\-Map}}
+\subsubsection[{values}]{\setlength{\rightskip}{0pt plus 5cm}transient Values org.\-apache.\-commons.\-collections.\-map.\-Abstract\-Hashed\-Map.\-values\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1collections_1_1map_1_1_abstract_hashed_map_aa566df1228b61b14daae67766e214283}
+Values 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/org/apache/commons/collections/map/Abstract\-Hashed\-Map.\-java\end{DoxyCompactItemize}

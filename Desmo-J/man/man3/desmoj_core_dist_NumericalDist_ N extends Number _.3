@@ -1,0 +1,79 @@
+.TH "desmoj.core.dist.NumericalDist< N extends Number >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.NumericalDist< N extends Number > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.Distribution\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNumericalDist\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "abstract N \fBsample\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsampleTimeSpan\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsampleTimeSpan\fP (TimeUnit unit)"
+.br
+.ti -1c
+.RI "Object \fBsampleObject\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract N desmoj\&.core\&.dist\&.NumericalDist< N extends Number >\&.sample ()\fC [pure virtual]\fP"
+Abstract method should return the specific sample as a value of type N when implemented in subclasses\&.
+.PP
+\fBReturns:\fP
+.RS 4
+N : The sample of type N to be drawn from this distribution 
+.RE
+.PP
+
+.SS "Object desmoj\&.core\&.dist\&.NumericalDist< N extends Number >\&.sampleObject ()\fC [virtual]\fP"
+Convenience method to return the distribution's sample as \fCObject\fP\&. For type safety, method \fC\fBsample()\fP\fP should be preferred\&. However, this method is useful for environments requiring a non-genetic access point to obtain samples from any distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Object : A sample from this this distribution wrapped as \fCObject\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.dist\&.Distribution\fP\&.
+.SS "\fBTimeSpan\fP desmoj\&.core\&.dist\&.NumericalDist< N extends Number >\&.sampleTimeSpan ()"
+Convenience method to sample a period of random length by creating a \fCTimeSpan\fP whose length is determined by sampling this distribution (time unit is the experiment's reference units), thus replacing the pattern \fCnew TimeSpan(distribution\&.sample())\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The TimeSpan sampled from this distribution 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.dist\&.NumericalDist< N extends Number >\&.sampleTimeSpan (TimeUnitunit)"
+Convenience method to sample a period of random length by creating a \fCTimeSpan\fP whose length is determined by sampling this distribution (time unit given explicitly as parameter), thus replacing the pattern \fCnew TimeSpan(distribution\&.sample(), unit)\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIunit\fP TimeUnit: the TimeUnit to assign to the sampled value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The TimeSpan sampled from this distribution 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

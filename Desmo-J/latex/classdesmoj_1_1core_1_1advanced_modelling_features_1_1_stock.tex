@@ -1,0 +1,920 @@
+\section{desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock Class Reference}
+\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}\index{desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock@{desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock}}
+
+
+Inheritance diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Stock} ({\bf Model} owner, String name, int prod\-Sort\-Order, int prod\-Q\-Capacity, int cons\-Sort\-Order, int cons\-Q\-Capacity, long initial\-Units, long capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Stock} ({\bf Model} owner, String name, long initial\-Units, long capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+synchronized void {\bf add\-Property\-Change\-Listener} (java.\-beans.\-Property\-Change\-Listener listener)
+\item 
+synchronized void {\bf add\-Property\-Change\-Listener} (String property\-Name, java.\-beans.\-Property\-Change\-Listener listener)
+\item 
+double {\bf avg\-Avail} ()
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+void {\bf fire\-Property\-Change} (java.\-beans.\-Property\-Change\-Event evt)
+\item 
+void {\bf fire\-Property\-Change} (String property\-Name, int old\-Value, int new\-Value)
+\item 
+void {\bf fire\-Property\-Change} (String property\-Name, Object old\-Value, Object new\-Value)
+\item 
+void {\bf fire\-Property\-Change} (String property\-Name, boolean old\-Value, boolean new\-Value)
+\item 
+long {\bf get\-Avail} ()
+\item 
+long {\bf get\-Capacity} ()
+\item 
+String {\bf get\-Cons\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Cons\-Refused} ()
+\item 
+long {\bf get\-Consumers} ()
+\item 
+long {\bf get\-Initial} ()
+\item 
+long {\bf get\-Maximum} ()
+\item 
+long {\bf get\-Minimum} ()
+\item 
+boolean {\bf get\-Pass\-By\-Consumers} ()
+\item 
+boolean {\bf get\-Pass\-By\-Producers} ()
+\item 
+String {\bf get\-Prod\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Prod\-Refused} ()
+\item 
+Process\-Queue$<$ {\bf Sim\-Process} $>$ {\bf get\-Producer\-Queue} ()
+\item 
+long {\bf get\-Producers} ()
+\item 
+long {\bf get\-Refused} ()
+\item 
+String {\bf get\-Where} ()
+\item 
+synchronized boolean {\bf has\-Listeners} (String property\-Name)
+\item 
+synchronized void {\bf remove\-Property\-Change\-Listener} (java.\-beans.\-Property\-Change\-Listener listener)
+\item 
+synchronized void {\bf remove\-Property\-Change\-Listener} (String property\-Name, java.\-beans.\-Property\-Change\-Listener listener)
+\item 
+void {\bf reset} ()
+\item 
+boolean {\bf retrieve} (long n)
+\item 
+void {\bf set\-Pass\-By\-Consumers} (boolean new\-Pass\-By)
+\item 
+void {\bf set\-Pass\-By\-Producers} (boolean new\-Pass\-By)
+\item 
+boolean {\bf store} (long n)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf activate\-As\-Next} ({\bf Sim\-Process} process)
+\item 
+void {\bf activate\-First\-Consumer} ()
+\item 
+void {\bf activate\-First\-Producer} ()
+\item 
+boolean {\bf check\-Process} ({\bf Sim\-Process} p, String where)
+\item 
+java.\-beans.\-Property\-Change\-Support {\bf get\-Property\-Change} ()
+\item 
+void {\bf update\-Statistics} (long n)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+transient Queue\-List$<$ {\bf Sim\-Process} $>$ {\bf \-\_\-consumer\-Queue}
+\item 
+transient \\*
+java.\-beans.\-Property\-Change\-Support {\bfseries property\-Change}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a09a74a5d91050b5b07639fc59fbf4e2a}
+
+\item 
+transient Process\-Queue\\*
+$<$ {\bf Sim\-Process} $>$ {\bf \-\_\-producer\-Queue}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is the place where a certain kind of product can be stored by producers and retrieved by consumers. There is no difference between the units of one kind of product, the units are indistinguishable. Producers are producing products and store them using {\ttfamily \doxyref{store()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5612f98102467f9010e4c22771714c46}} in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. Consumers make the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} {\ttfamily \doxyref{retrieve()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_aea2b868736dea7417ae6c238416cbf60}} the products to use them up. A \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is also providing a process synchronization between producers and consumers. If no or not enough units of a product are available for the consumers, they have to wait in a queue until new units are delivered by a producer. The \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} has a certain capacity. If the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is filled to it's capacity producers have to wait in a queue until consumers are arriving and taking units out of the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. Then the producers can fill up the freed space. This is the major difference to the \doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}. The first sort criteria of the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit of every queue can be determined by the user (default is F\-I\-F\-O and unlimited capacity). \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is derived from Queue\-Based, which provides all the statistical functionality for the consumer queue. The producer queue is managed by an internal Process\-Queue.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b} 
+
+\doxyref{Bin}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_bin}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!Stock@{Stock}}
+\index{Stock@{Stock}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{Stock}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-Stock (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{prod\-Sort\-Order, }
+\item[{int}]{prod\-Q\-Capacity, }
+\item[{int}]{cons\-Sort\-Order, }
+\item[{int}]{cons\-Q\-Capacity, }
+\item[{long}]{initial\-Units, }
+\item[{long}]{capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a4059985e340d732a3eb4f8f117373ad9}
+Constructor for a \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} with an initial number of units and a certain capacity; the queueing discipline and the capacity limit of the underlying queues for the producers and consumers can be chosen, too. Highest priority are always first in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}'s name, should indicate the kind of product stored in this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. \\
+\hline
+{\em prod\-Sort\-Order} & int \-: determines the sort order of the underlying queue implementation for the producers. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em prod\-Q\-Capacity} & int \-: The capacity of the producers queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em cons\-Sort\-Order} & int \-: determines the sort order of the underlying queue implementation for the consumers. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em cons\-Q\-Capacity} & int \-: The capacity of the consumers queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em initial\-Units} & long \-: The units of a product the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} starts with. Must be positive! \\
+\hline
+{\em capacity} & long \-: The maximum capacity of products this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} can hold. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a4059985e340d732a3eb4f8f117373ad9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!Stock@{Stock}}
+\index{Stock@{Stock}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{Stock}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-Stock (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{long}]{initial\-Units, }
+\item[{long}]{capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a59450ed14aa2bdaf103cedf2f6c35543}
+Constructor for a \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} with an initial number of units and a certain capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}'s name, should indicate the kind of product stored in this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. \\
+\hline
+{\em initial\-Units} & long \-: The units of a product the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} starts with. Must be positive! \\
+\hline
+{\em capacity} & long \-: The maximum capacity of products this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} can hold. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a59450ed14aa2bdaf103cedf2f6c35543_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!activate\-As\-Next@{activate\-As\-Next}}
+\index{activate\-As\-Next@{activate\-As\-Next}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{activate\-As\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-activate\-As\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{process}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_aace11162bc589e493110de7d30b8f846}
+Activates the Sim\-Process {\ttfamily process}, given as a parameter of this method, as the next process. This process should be a Sim\-Process waiting in a queue for some products.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process} & Sim\-Process \-: The process that is to be activated as next. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_aace11162bc589e493110de7d30b8f846_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!activate\-First\-Consumer@{activate\-First\-Consumer}}
+\index{activate\-First\-Consumer@{activate\-First\-Consumer}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{activate\-First\-Consumer}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-activate\-First\-Consumer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a37b81b3bebad5cee0ade97fcb9bdbae7}
+Activates the first process waiting in the consumer queue. That is a process which was trying to take products, but it could not get any because there were not enough products for it or another process was first in the queue to be served. This method is called every time a consumer is arriving at the waiting-\/queue and it is possible for him to pass other processes in front of him in the queue. Then we have to check if one of the other process first in the queue could be satisfied before the newly arrived one. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a37b81b3bebad5cee0ade97fcb9bdbae7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!activate\-First\-Producer@{activate\-First\-Producer}}
+\index{activate\-First\-Producer@{activate\-First\-Producer}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{activate\-First\-Producer}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-activate\-First\-Producer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_abbe8b4c39227c8efab17c049e25017ed}
+Activates the first process waiting in the producer queue. That is a process which was trying to store products, but it could store them because the capacity limit of this stock is reached. This method is called every time a producer is arriving at the waiting-\/queue and it is possible for him to pass other processes in front of him in the queue. Then we have to check if one of the other process first in the queue could store his units before the newly arrived one. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_abbe8b4c39227c8efab17c049e25017ed_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!add\-Property\-Change\-Listener@{add\-Property\-Change\-Listener}}
+\index{add\-Property\-Change\-Listener@{add\-Property\-Change\-Listener}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{add\-Property\-Change\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-add\-Property\-Change\-Listener (
+\begin{DoxyParamCaption}
+\item[{java.\-beans.\-Property\-Change\-Listener}]{listener}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ab190ef632e7cd915e902450c47e2ea98}
+The add\-Property\-Change\-Listener method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ab190ef632e7cd915e902450c47e2ea98_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!add\-Property\-Change\-Listener@{add\-Property\-Change\-Listener}}
+\index{add\-Property\-Change\-Listener@{add\-Property\-Change\-Listener}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{add\-Property\-Change\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-add\-Property\-Change\-Listener (
+\begin{DoxyParamCaption}
+\item[{String}]{property\-Name, }
+\item[{java.\-beans.\-Property\-Change\-Listener}]{listener}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a4dc28f58c9f1de03b69d161f8ea5f5fc}
+The add\-Property\-Change\-Listener method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a4dc28f58c9f1de03b69d161f8ea5f5fc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!avg\-Avail@{avg\-Avail}}
+\index{avg\-Avail@{avg\-Avail}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{avg\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-avg\-Avail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a08ffa2e5d13adb9710f5f936f64f497c}
+Returning the average number of units available in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} over the time since the last reset of the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The average number of units available in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} over the time since the last reset of the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a08ffa2e5d13adb9710f5f936f64f497c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!check\-Process@{check\-Process}}
+\index{check\-Process@{check\-Process}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{check\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-check\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p, }
+\item[{String}]{where}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5cd9de2d1b2ceffb17ad403417d113c6}
+Checks whether the Sim\-Process using the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is a valid process.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns whether the Sim\-Process is valid or not. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Sim\-Process \-: Is this Sim\-Process a valid one? \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5cd9de2d1b2ceffb17ad403417d113c6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a7f3b14150b2df548accd7a7bf3079a54}
+Returns a Reporter to produce a report about this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter reporting about the statistics of the two queues (producer and consumer) of this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!fire\-Property\-Change@{fire\-Property\-Change}}
+\index{fire\-Property\-Change@{fire\-Property\-Change}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{fire\-Property\-Change}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-fire\-Property\-Change (
+\begin{DoxyParamCaption}
+\item[{java.\-beans.\-Property\-Change\-Event}]{evt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ad6ea60239a5af861921f8bc82e58c791}
+The fire\-Property\-Change method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ad6ea60239a5af861921f8bc82e58c791_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!fire\-Property\-Change@{fire\-Property\-Change}}
+\index{fire\-Property\-Change@{fire\-Property\-Change}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{fire\-Property\-Change}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-fire\-Property\-Change (
+\begin{DoxyParamCaption}
+\item[{String}]{property\-Name, }
+\item[{int}]{old\-Value, }
+\item[{int}]{new\-Value}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5345d4dc77b95c199ee2ca5dd55f333c}
+The fire\-Property\-Change method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5345d4dc77b95c199ee2ca5dd55f333c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!fire\-Property\-Change@{fire\-Property\-Change}}
+\index{fire\-Property\-Change@{fire\-Property\-Change}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{fire\-Property\-Change}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-fire\-Property\-Change (
+\begin{DoxyParamCaption}
+\item[{String}]{property\-Name, }
+\item[{Object}]{old\-Value, }
+\item[{Object}]{new\-Value}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a09cf03040cd21fb0fab11d1039e981e8}
+The fire\-Property\-Change method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a09cf03040cd21fb0fab11d1039e981e8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!fire\-Property\-Change@{fire\-Property\-Change}}
+\index{fire\-Property\-Change@{fire\-Property\-Change}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{fire\-Property\-Change}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-fire\-Property\-Change (
+\begin{DoxyParamCaption}
+\item[{String}]{property\-Name, }
+\item[{boolean}]{old\-Value, }
+\item[{boolean}]{new\-Value}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ab60237320bf8b8a7ec456df7b14ca819}
+The fire\-Property\-Change method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ab60237320bf8b8a7ec456df7b14ca819_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Avail@{get\-Avail}}
+\index{get\-Avail@{get\-Avail}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Avail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a763ce1a267aeca8b95fa39345d668ada}
+Gets the available number of products in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} at the moment.
+
+\begin{DoxyReturn}{Returns}
+long \-: The available number of products in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} at the moment. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Capacity@{get\-Capacity}}
+\index{get\-Capacity@{get\-Capacity}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_abddb8de4c39cd74da4e8b72b2e7e8200}
+Gets the capacity property (long) value of this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}, that is the number of units this stock can hold at max.
+
+\begin{DoxyReturn}{Returns}
+long \-: The capacity property value, that is the number of units this stock can hold at max. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Cons\-Queue\-Strategy@{get\-Cons\-Queue\-Strategy}}
+\index{get\-Cons\-Queue\-Strategy@{get\-Cons\-Queue\-Strategy}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Cons\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Cons\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ac4b36e74bf17aaa991a0f8a055b29adc}
+Returns the implemented queueing discipline of the underlying consumer queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Cons\-Refused@{get\-Cons\-Refused}}
+\index{get\-Cons\-Refused@{get\-Cons\-Refused}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Cons\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Cons\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a6369660632106cc293ba223a6a127702}
+Returns the number of consumers that were refused to be enqueued because the queue for consumers was full.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of consumers that were refused to be enqueued because the queue for consumers was full. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a6369660632106cc293ba223a6a127702_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Consumers@{get\-Consumers}}
+\index{get\-Consumers@{get\-Consumers}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Consumers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Consumers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a08c464178d139182b609406656ad46f0}
+Gets the consumers property (long) value.
+
+\begin{DoxyReturn}{Returns}
+The consumers property value. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Initial@{get\-Initial}}
+\index{get\-Initial@{get\-Initial}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Initial}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Initial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a1538e68ab51ccf6def52e327ecb209c3}
+Gets the initial number of products the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} starts with.
+
+\begin{DoxyReturn}{Returns}
+long \-: The initial number of products the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} starts with. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Maximum@{get\-Maximum}}
+\index{get\-Maximum@{get\-Maximum}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Maximum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a6d5faf6e051672394cbbed8c890c6348}
+Gets the maximum number of products in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The maximum number of products in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Minimum@{get\-Minimum}}
+\index{get\-Minimum@{get\-Minimum}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Minimum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5bfd565d0afae96732b7b497b7f404be}
+Gets the minimum number of units in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} so far (since the last reset).
+
+\begin{DoxyReturn}{Returns}
+long \-: The minimum number of units in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} since the last reset. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Pass\-By\-Consumers@{get\-Pass\-By\-Consumers}}
+\index{get\-Pass\-By\-Consumers@{get\-Pass\-By\-Consumers}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Pass\-By\-Consumers}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Pass\-By\-Consumers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ad1d1ee3e9c80064d5b017b20f3b6d049}
+Returns whether entities can pass by other entities which are enqueued before them in the queue.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Indicates whether entities can pass by other entities which are enqueued before them in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Pass\-By\-Producers@{get\-Pass\-By\-Producers}}
+\index{get\-Pass\-By\-Producers@{get\-Pass\-By\-Producers}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Pass\-By\-Producers}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Pass\-By\-Producers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ad2e27bd5bbebcdacc6d8a83a8c75f088}
+Returns whether entities can pass by other entities which are enqueued before them in the queue.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Indicates whether entities can pass by other entities which are enqueued before them in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Prod\-Queue\-Strategy@{get\-Prod\-Queue\-Strategy}}
+\index{get\-Prod\-Queue\-Strategy@{get\-Prod\-Queue\-Strategy}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Prod\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Prod\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a937f9e915d7679d60c4b27f3ee0b385e}
+Returns the implemented queueing discipline of the underlying queue for producers as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Prod\-Refused@{get\-Prod\-Refused}}
+\index{get\-Prod\-Refused@{get\-Prod\-Refused}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Prod\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Prod\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a83732e14861156a1605a51f1f30b9ef7}
+Returns the number of producers that were refused to be enqueued because the queue for producers was full.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of producers that were refused to be enqueued because the queue for producers was full. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a83732e14861156a1605a51f1f30b9ef7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Producer\-Queue@{get\-Producer\-Queue}}
+\index{get\-Producer\-Queue@{get\-Producer\-Queue}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Producer\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}Process\-Queue$<${\bf Sim\-Process}$>$ desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Producer\-Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_afab6d7dc50fc79af2cf8de18e8983cf0}
+Returns the queue where the producers are waiting to deliver their units.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Process\-Queue \-: the queue where the producers are waiting to deliver their units. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Producers@{get\-Producers}}
+\index{get\-Producers@{get\-Producers}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Producers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Producers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a48e92ca6cea54a353280d15cfaa09e37}
+Gets the producers property (long) value.
+
+\begin{DoxyReturn}{Returns}
+The producers property value. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Property\-Change@{get\-Property\-Change}}
+\index{get\-Property\-Change@{get\-Property\-Change}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Property\-Change}]{\setlength{\rightskip}{0pt plus 5cm}java.\-beans.\-Property\-Change\-Support desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Property\-Change (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a37fc385ea844a3b51c99974916f04c02}
+Accessor for the property\-Change field. \index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_ab05213c9861996f08e5cf9f67e385608}
+Gets the refused property (long) value.
+
+\begin{DoxyReturn}{Returns}
+The refused property value. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!get\-Where@{get\-Where}}
+\index{get\-Where@{get\-Where}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{get\-Where}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-get\-Where (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a7ff9073e4be624235189a600498eebbf}
+Gets the where property (String) value denoting the method, where something has gone wrong.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The where property value denoting the method, where something has gone wrong. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!has\-Listeners@{has\-Listeners}}
+\index{has\-Listeners@{has\-Listeners}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{has\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}synchronized boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-has\-Listeners (
+\begin{DoxyParamCaption}
+\item[{String}]{property\-Name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a8ee6e0ed4b71b7d14304fe574e872296}
+The has\-Listeners method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a8ee6e0ed4b71b7d14304fe574e872296_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!remove\-Property\-Change\-Listener@{remove\-Property\-Change\-Listener}}
+\index{remove\-Property\-Change\-Listener@{remove\-Property\-Change\-Listener}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{remove\-Property\-Change\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-remove\-Property\-Change\-Listener (
+\begin{DoxyParamCaption}
+\item[{java.\-beans.\-Property\-Change\-Listener}]{listener}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a2d0b1b2de10c9d88ee5295d16c05ccab}
+The remove\-Property\-Change\-Listener method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a2d0b1b2de10c9d88ee5295d16c05ccab_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!remove\-Property\-Change\-Listener@{remove\-Property\-Change\-Listener}}
+\index{remove\-Property\-Change\-Listener@{remove\-Property\-Change\-Listener}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{remove\-Property\-Change\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-remove\-Property\-Change\-Listener (
+\begin{DoxyParamCaption}
+\item[{String}]{property\-Name, }
+\item[{java.\-beans.\-Property\-Change\-Listener}]{listener}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a231e01fa2c3fdf46912639b1e1c84812}
+The remove\-Property\-Change\-Listener method was generated to support the property\-Change field. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a231e01fa2c3fdf46912639b1e1c84812_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a8c589a3e17bddc250a4b7a4511f5be1b}
+Resets all statistical counters of this \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} to their default values. Both, producer queue and consumer queue are reset. The number of available units at this moment and the consumer and producer processes waiting in their queues remain unchanged. The maximum length of the queues are set to the current number of enqueued processes. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a8c589a3e17bddc250a4b7a4511f5be1b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!retrieve@{retrieve}}
+\index{retrieve@{retrieve}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{retrieve}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-retrieve (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_aea2b868736dea7417ae6c238416cbf60}
+Method for consumers to make the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} retrieve a number of n units. When there are not enough units available or another consumer is first in the queue to be served (and it is not possible to pass by), the current consumer process will be blocked and inserted in the waiting-\/queue (for consumers).
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the specified number of units can been retrieved successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of units the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is retrieving for the consumer; must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_aea2b868736dea7417ae6c238416cbf60_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!set\-Pass\-By\-Consumers@{set\-Pass\-By\-Consumers}}
+\index{set\-Pass\-By\-Consumers@{set\-Pass\-By\-Consumers}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{set\-Pass\-By\-Consumers}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-set\-Pass\-By\-Consumers (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Pass\-By}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_adcacd01e794229c97b0557b7689e2555}
+Sets the flag pass\-By to a new value. Pass\-By is indicating whether entities can pass by other entities which are enqueued before them in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Pass\-By} & boolean \-: The new value of pass\-By. Set it to {\ttfamily true} if you want entities to pass by other entities which are enqueued before them in the queue. Set it to {\ttfamily false} if you don't want entities to overtake other entities in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!set\-Pass\-By\-Producers@{set\-Pass\-By\-Producers}}
+\index{set\-Pass\-By\-Producers@{set\-Pass\-By\-Producers}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{set\-Pass\-By\-Producers}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-set\-Pass\-By\-Producers (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Pass\-By}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_abb26fe1ce89af2dbb23a5a48f48024d9}
+Sets the flag pass\-By to a new value. Pass\-By is indicating whether entities can pass by other entities which are enqueued before them in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Pass\-By} & boolean \-: The new value of pass\-By. Set it to {\ttfamily true} if you want entities to pass by other entities which are enqueued before them in the queue. Set it to {\ttfamily false} if you don't want entities to overtake other entities in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!store@{store}}
+\index{store@{store}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{store}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-store (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5612f98102467f9010e4c22771714c46}
+Method for producers to make the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} store a number of n units. When the capacity of the stock can not hold the additional incoming units or another producer is already waiting at first position in the queue (and it is not possible to pass by), the current producer process will be blocked and inserted in the queue (for producers).
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the specified number of units can been stored successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of units the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} is receiving from the producer to store. n must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5612f98102467f9010e4c22771714c46_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!update\-Statistics@{update\-Statistics}}
+\index{update\-Statistics@{update\-Statistics}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{update\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-update\-Statistics (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a2cb21e993064444c657034ca5aa34563}
+Updates the statistics when producers or consumers access the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock}. Changes the field\-Avail and fires the Property\-Change\-Event(s).
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: Is positive when producers {\ttfamily \doxyref{store()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a5612f98102467f9010e4c22771714c46}} new units in the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} and negative when the \doxyref{Stock}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock} {\ttfamily \doxyref{retrieve()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_aea2b868736dea7417ae6c238416cbf60}}'s units for the consumer process. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a2cb21e993064444c657034ca5aa34563_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!\-\_\-consumer\-Queue@{\-\_\-consumer\-Queue}}
+\index{\-\_\-consumer\-Queue@{\-\_\-consumer\-Queue}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{\-\_\-consumer\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}transient Queue\-List$<${\bf Sim\-Process}$>$ desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-\_\-consumer\-Queue\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a9b4eb5360e84d2b98a0ec7f3255244f4}
+The queue, actually storing the consumer processes waiting for products \index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}!\-\_\-producer\-Queue@{\-\_\-producer\-Queue}}
+\index{\-\_\-producer\-Queue@{\-\_\-producer\-Queue}!desmoj::core::advancedModellingFeatures::Stock@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Stock}}
+\subsubsection[{\-\_\-producer\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}transient Process\-Queue$<${\bf Sim\-Process}$>$ desmoj.\-core.\-advanced\-Modelling\-Features.\-Stock.\-\_\-producer\-Queue\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_stock_a0a71ddced85720a2029c2a705913e77a}
+The queue, actually storing the producer processes waiting to store their units in the stock 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/advanced\-Modelling\-Features/Stock.\-java\end{DoxyCompactItemize}

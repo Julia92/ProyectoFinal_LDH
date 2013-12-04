@@ -1,0 +1,279 @@
+.TH "desmoj.core.simulator.TimeOperations" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.TimeOperations \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBadd\fP (\fBTimeSpan\fP a, \fBTimeSpan\fP b)"
+.br
+.ti -1c
+.RI "static \fBTimeInstant\fP \fBadd\fP (\fBTimeSpan\fP span, \fBTimeInstant\fP instant)"
+.br
+.ti -1c
+.RI "static \fBTimeInstant\fP \fBadd\fP (\fBTimeInstant\fP instant, \fBTimeSpan\fP span)"
+.br
+.ti -1c
+.RI "static \fBTimeInstant\fP \fBsubtract\fP (\fBTimeInstant\fP instant, \fBTimeSpan\fP span)"
+.br
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBdiff\fP (\fBTimeSpan\fP a, \fBTimeSpan\fP b)"
+.br
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBdiff\fP (\fBTimeInstant\fP a, \fBTimeInstant\fP b)"
+.br
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBmultiply\fP (\fBTimeSpan\fP span, double factor)"
+.br
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBmultiply\fP (double factor, \fBTimeSpan\fP span)"
+.br
+.ti -1c
+.RI "static double \fBdivide\fP (\fBTimeSpan\fP dividend, \fBTimeSpan\fP divisor)"
+.br
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBdivide\fP (\fBTimeSpan\fP dividend, double divisor)"
+.br
+.ti -1c
+.RI "static TimeUnit \fBgetEpsilon\fP ()"
+.br
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBgetEpsilonSpan\fP ()"
+.br
+.ti -1c
+.RI "static \fBTimeFormatter\fP \fBgetTimeFormatter\fP ()"
+.br
+.ti -1c
+.RI "static \fBTimeInstant\fP \fBgetStartTime\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBTimeOperations\fP is an utility class that provides arithmetic operations for the time classes \fBTimeInstant\fP and \fBTimeSpan\fP\&. It also holds the time settings, i\&.e\&. the granularity (epsilon) and the reference time unit\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeOperations\&.add (\fBTimeSpan\fPa, \fBTimeSpan\fPb)\fC [static]\fP"
+Returns a new \fBTimeSpan\fP object representing the sum of the given \fBTimeSpan\fP objects\&. Note that the simulation will stop immediately if the resulting sum is larger than Long\&.MAX_VALUE-1 (in the unit of epsilon)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeSpan\fP as the sum of the \fBTimeSpan\fP parameters 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeSpan\fP : \fBTimeSpan\fP a 
+.br
+\fIb\fP \fBTimeSpan\fP : \fBTimeSpan\fP b 
+.RE
+.PP
+
+.SS "static \fBTimeInstant\fP desmoj\&.core\&.simulator\&.TimeOperations\&.add (\fBTimeSpan\fPspan, \fBTimeInstant\fPinstant)\fC [static]\fP"
+Returns a new Time Instant determined from the instant passed to this method plus the time span passed to method\&. In other words, this method determines the instant that is a given span after the instant provided\&. Note that the simulation will stop immediately if the resulting instant is larger than \fCLong\&.MAX_VALUE-1\fP (in the unit of epsilon)\&. The preferred time zone of the result is equal to the preferred time zone of parameter \fCb\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeInstant\fP determined from given \fBTimeInstant\fP plus the given \fBTimeSpan\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspan\fP \fBTimeSpan\fP : The \fBTimeSpan\fP to add\&.\&.\&. 
+.br
+\fIinstant\fP \fBTimeInstant\fP : \&.\&.\&.to this \fBTimeInstant\fP\&. 
+.RE
+.PP
+
+.SS "static \fBTimeInstant\fP desmoj\&.core\&.simulator\&.TimeOperations\&.add (\fBTimeInstant\fPinstant, \fBTimeSpan\fPspan)\fC [static]\fP"
+Returns a new Time Instant determined from the instant passed to this method plus the time span passed to method\&. In other words, this method determines the instant that is a given span after the instant provided\&. Note that the simulation will stop immediately if the resulting instant is larger than \fCLong\&.MAX_VALUE-1\fP (in the unit of epsilon)\&. The preferred time zone of the result is equal to the preferred time zone of instant passed to this method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeInstant\fP determined from given \fBTimeInstant\fP plus the given \fBTimeSpan\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinstant\fP \fBTimeInstant\fP : The \fBTimeInstant\fP, to which\&.\&.\&. 
+.br
+\fIspan\fP \fBTimeSpan\fP : \&.\&.\&.this \fBTimeSpan\fP will be added 
+.RE
+.PP
+
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeOperations\&.diff (\fBTimeSpan\fPa, \fBTimeSpan\fPb)\fC [static]\fP"
+Returns a new \fBTimeSpan\fP object representing the absolute difference of the given \fBTimeSpan\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeSpan\fP as the absolute difference of the \fBTimeSpan\fP parameters 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeSpan\fP : \fBTimeSpan\fP a 
+.br
+\fIb\fP \fBTimeSpan\fP : \fBTimeSpan\fP b 
+.RE
+.PP
+
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeOperations\&.diff (\fBTimeInstant\fPa, \fBTimeInstant\fPb)\fC [static]\fP"
+Returns a new \fBTimeSpan\fP object representing the absolute difference of the given \fBTimeInstant\fP objects, i\&.e\&. the span of time between the two instants of time\&. Note that the simulation will stop immediately if the resulting sum is larger than \fCLong\&.MAX_VALUE-1\fP (in the unit of epsilon)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeSpan\fP as the difference of the \fBTimeSpan\fP parameters 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeInstant\fP : \fBTimeInstant\fP a 
+.br
+\fIb\fP \fBTimeInstant\fP : \fBTimeInstant\fP b 
+.RE
+.PP
+
+.SS "static double desmoj\&.core\&.simulator\&.TimeOperations\&.divide (\fBTimeSpan\fPdividend, \fBTimeSpan\fPdivisor)\fC [static]\fP"
+Returns a new \fBTimeSpan\fP object representing the quotient of the given \fBTimeSpan\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeSpan\fP as the quotient of dividend and divisor 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdividend\fP \fBTimeSpan\fP : The dividend 
+.br
+\fIdivisor\fP \fBTimeSpan\fP : The divisor 
+.RE
+.PP
+
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeOperations\&.divide (\fBTimeSpan\fPdividend, doubledivisor)\fC [static]\fP"
+Returns a new \fBTimeSpan\fP object representing the quotient of the given \fBTimeSpan\fP and the divisor of type double\&. Note that the simulation will stop immediately if the resulting quotient is larger than Long\&.MAX_VALUE-1 (in the unit of epsilon)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeSpan\fP as the quotient of divident and divisor 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdividend\fP \fBTimeSpan\fP : The dividend 
+.br
+\fIdivisor\fP double : The divisor 
+.RE
+.PP
+
+.SS "static TimeUnit desmoj\&.core\&.simulator\&.TimeOperations\&.getEpsilon ()\fC [static]\fP"
+Returns the epsilon value representing the granularity of simulation time for this experiment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeUnit : The granularity of simulation time 
+.RE
+.PP
+
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeOperations\&.getEpsilonSpan ()\fC [static]\fP"
+Returns the smallest distinguishable \fBTimeSpan\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : The smallest distinguishable \fBTimeSpan\fP, i\&.e\&. one interval of the epsilon unit 
+.RE
+.PP
+
+.SS "static \fBTimeInstant\fP desmoj\&.core\&.simulator\&.TimeOperations\&.getStartTime ()\fC [static]\fP"
+Returns the \fBTimeInstant\fP when the experiment has started\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The point in simulation time, the experiment has started\&. 
+.RE
+.PP
+
+.SS "static \fBTimeFormatter\fP desmoj\&.core\&.simulator\&.TimeOperations\&.getTimeFormatter ()\fC [static]\fP"
+Returns the time Formatter\&. This is a package private method for internal framework use only\&. 
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeOperations\&.multiply (\fBTimeSpan\fPspan, doublefactor)\fC [static]\fP"
+Returns a new \fBTimeSpan\fP object representing the product of the given \fBTimeSpan\fP and the factor of type double\&. Note that the simulation will stop immediately if the resulting product is larger than \fCLong\&.MAX_VALUE-1\fP (in the unit of epsilon)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeSpan\fP as the product of span and factor 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspan\fP \fBTimeSpan\fP : The span of time 
+.br
+\fIfactor\fP double : The scalar factor 
+.RE
+.PP
+
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeOperations\&.multiply (doublefactor, \fBTimeSpan\fPspan)\fC [static]\fP"
+Returns a new \fBTimeSpan\fP object representing the product of the given \fBTimeSpan\fP and the factor of type double\&. Note that the simulation will stop immediately if the resulting product is larger than \fCLong\&.MAX_VALUE-1\fP (in the unit of epsilon)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeSpan\fP as the product of span and factor 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfactor\fP double : The scalar factor 
+.br
+\fIspan\fP \fBTimeSpan\fP : The span of time 
+.RE
+.PP
+
+.SS "static \fBTimeInstant\fP desmoj\&.core\&.simulator\&.TimeOperations\&.subtract (\fBTimeInstant\fPinstant, \fBTimeSpan\fPspan)\fC [static]\fP"
+Returns a new Time Instant determined from the instant passed to this method minus the time span passed to method\&. In other words, this method determines the instant that is a given span before the instant provided\&. Note that the simulation will stop immediately if the resulting instant is smaller than 0 (in the unit of epsilon)\&. The preferred time zone of the result is equal to the preferred time zone of instant passed to this method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : A new \fBTimeInstant\fP determined from given \fBTimeInstant\fP minus the given \fBTimeSpan\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinstant\fP \fBTimeInstant\fP : The \fBTimeInstant\fP, from which\&.\&.\&. 
+.br
+\fIspan\fP \fBTimeSpan\fP : \&.\&.\&.this \fBTimeSpan\fP will be subtracted 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

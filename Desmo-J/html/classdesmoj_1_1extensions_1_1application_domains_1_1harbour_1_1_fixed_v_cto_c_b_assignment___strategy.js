@@ -1,0 +1,5 @@
+var classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_fixed_v_cto_c_b_assignment___strategy =
+[
+    [ "FixedVCtoCBAssignment_Strategy", "classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_fixed_v_cto_c_b_assignment___strategy.html#a5ecb8f0024485858d66f25999fba8f78", null ],
+    [ "getJobs", "classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_fixed_v_cto_c_b_assignment___strategy.html#a26e03f50e287f71dd1962dfd6376953a", null ]
+];

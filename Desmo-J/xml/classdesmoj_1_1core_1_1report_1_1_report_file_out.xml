@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1report_1_1_report_file_out" kind="class" prot="public">
+    <compoundname>desmoj::core::report::ReportFileOut</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1report_1_1_table_output" prot="public" virt="non-virtual">desmoj.core.report.TableOutput</basecompoundref>
+    <basecompoundref refid="interfacedesmoj_1_1core_1_1report_1_1_message_receiver" prot="public" virt="non-virtual">desmoj.core.report.MessageReceiver</basecompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1core_1_1report_1_1_report_mult_rows_file_out" prot="public" virt="non-virtual">desmoj.core.report.ReportMultRowsFileOut</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a449e23d067e74d9010dc3a3c50c1ef04" prot="protected" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref></type>
+        <definition>Reporter desmoj.core.report.ReportFileOut.lastReporter</definition>
+        <argsstring></argsstring>
+        <name>lastReporter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffers the last message received for formatting the HTML table to be printed without repeating redundant information. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="38" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a3afbae5c32731aabf306258933200ece" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int desmoj.core.report.ReportFileOut._reportNumber</definition>
+        <argsstring></argsstring>
+        <name>_reportNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the number of reports written to file. The number is incremented each time this <ref refid="classdesmoj_1_1core_1_1report_1_1_report_file_out" kindref="compound">ReportFileOut</ref> is opened and closed again, completing to write a report file. To keep track of the numerous reports that can be produced by calling the Model&apos;s method <computeroutput>report()</computeroutput> this number is added to the report filename automatically. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="47" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a51d7181712bee6ff42e47fd2f9d0d2d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.report.ReportFileOut.ReportFileOut</definition>
+        <argsstring>(int timeFloats, String formatter)</argsstring>
+        <name>ReportFileOut</name>
+        <param>
+          <type>int</type>
+          <declname>timeFloats</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>formatter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a file to print reports into a HTML page. By opening the file, the necessary HTML tags to define a webpage are already inserted into the file. The parameter given should reflect the experiment that produces this file.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeFloats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of floating point digits of the simulation time values to be displayed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="59" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="59" bodyend="66"/>
+        <references refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a449e23d067e74d9010dc3a3c50c1ef04" compoundref="_report_file_out_8java" startline="38">desmoj.core.report.ReportFileOut.lastReporter</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a90c3c680ce5640fcaae24a75a6fd58ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportFileOut.close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Closes this traceout. Writes the final necessary HTML-tags to close a table row, the table and finish the HTML-page. Flushes and closes the FileOutputStream thereafter. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="73" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="73" bodyend="79"/>
+        <references refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a449e23d067e74d9010dc3a3c50c1ef04" compoundref="_report_file_out_8java" startline="38">desmoj.core.report.ReportFileOut.lastReporter</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a899f28b5e2c84fbe224ea8d03d44e668" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportFileOut.open</definition>
+        <argsstring>(String name)</argsstring>
+        <name>open</name>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Opens a new file with the given filename for writing reports into a HTML table. The output path is set to the working directory. If no String is given, the default filename &quot;DESMOJ_reportfile.html&quot; is used.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of the file to be created </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="89" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a0cde265f0f8cc502a02fddf938963e4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportFileOut.open</definition>
+        <argsstring>(String pathname, String name)</argsstring>
+        <name>open</name>
+        <param>
+          <type>String</type>
+          <declname>pathname</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Opens a new file with the given file- and pathname for writing reports into a HTML table. If no String is given, the default filename &quot;DESMOJ_reportfile.html&quot; is used. If no pathname is given the current working directory (stored as property &quot;user.dir&quot;) is used.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of the file to be created </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The file&apos;s output path </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="105" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="105" bodyend="114"/>
+        <references refid="classdesmoj_1_1core_1_1report_1_1_table_output_1a9a7703217b446444ac0cca68840b3557" compoundref="_table_output_8java" startline="101" endline="116">desmoj.core.report.TableOutput.createFileName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1ac74c69acc15c8597e11ebbbf453dfa1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportFileOut.receive</definition>
+        <argsstring>(Message m)</argsstring>
+        <name>receive</name>
+        <reimplements refid="interfacedesmoj_1_1core_1_1report_1_1_message_receiver_1af5244544a7441fedd9948731d261048b">receive</reimplements>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1report_1_1_message" kindref="compound">Message</ref></type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Messages are not handled by this reportout, so this method simply returns.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1report_1_1_message" kindref="compound">Message</ref> : The message passed to this reportout </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="123" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="123" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a64d5f55e13a3b3731a6499f8f1a30e6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.report.ReportFileOut.receive</definition>
+        <argsstring>(desmoj.core.report.Reporter r)</argsstring>
+        <name>receive</name>
+        <reimplements refid="interfacedesmoj_1_1core_1_1report_1_1_message_receiver_1a5cefefc5274d3981a568466b2173f2d4">receive</reimplements>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref></type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Receives a reporter and writes its contents formatted to a HTML table into a file in the user&apos;s default directory. In case of a <ref refid="classdesmoj_1_1core_1_1report_1_1_model_reporter" kindref="compound">ModelReporter</ref> it writes the model&apos;s information into the file. After writing the model data, all reportables registered with the <ref refid="classdesmoj_1_1core_1_1report_1_1_model_reporter" kindref="compound">ModelReporter</ref> are asked for a reporter and those are also written to the report file. After processing the Reportables, the registered subModels are asked to produce their reporters which in turn are recursively sent to this method until no other submodels are available.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref> : The <ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref> to be processed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="142" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="142" bodyend="205"/>
+        <references refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a449e23d067e74d9010dc3a3c50c1ef04" compoundref="_report_file_out_8java" startline="38">desmoj.core.report.ReportFileOut.lastReporter</references>
+        <references refid="classdesmoj_1_1core_1_1report_1_1_reporter_1acba6cda2eb4e4fcce49a62bc223cf0e8" compoundref="_reporter_8java" startline="273" endline="277">desmoj.core.report.Reporter.isOtherGroup</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classdesmoj_1_1core_1_1report_1_1_report_file_out" kindref="compound">ReportFileOut</ref> is used to create a file to let the reporters write their reports to. It receives a reporter and divides its individual text information up to be displayed in HTML format on disc in the user&apos;s local directory. The messages are displayed in a tabular design with columns for each item displayed by the reporter. For each <ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref> giving a new group-ID, a new table is opened. This leads to a number of distinct tables displayed in one HTML-page with all reporters grouped by their group-id in one table. Note that if the framework is used as an Applet in webpages there is no access to the disc and an alternative output on screen or into a graphics window must be registered at the Experiment&apos;s MessageManager for this type of messages. Errors affecting the java runtime are always displayed on the system&apos;s standard output PrintStream.</para><para><simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Tim Lechler, modified by Nicolas Knaak</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="10136">
+        <label>desmoj.core.report.ReportFileOut</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_report_file_out"/>
+        <childnode refid="10137" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10139" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10137">
+        <label>desmoj.core.report.TableOutput</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_table_output"/>
+        <childnode refid="10138" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10139">
+        <label>desmoj.core.report.MessageReceiver</label>
+        <link refid="interfacedesmoj_1_1core_1_1report_1_1_message_receiver"/>
+      </node>
+      <node id="10138">
+        <label>desmoj.core.report.FileOutput</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_file_output"/>
+      </node>
+      <node id="10142">
+        <label>desmoj.core.report.HTMLReportOutput</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_h_t_m_l_report_output"/>
+        <childnode refid="10140" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10141">
+        <label>desmoj.core.report.ASCIIReportOutput</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_a_s_c_i_i_report_output"/>
+        <childnode refid="10140" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10140">
+        <label>desmoj.core.report.ReportMultRowsFileOut</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_report_mult_rows_file_out"/>
+        <childnode refid="10136" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10143">
+        <label>desmoj.core.report.ReportFileOut</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_report_file_out"/>
+        <childnode refid="10144" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10148" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10149" relation="usage">
+          <edgelabel>lastReporter</edgelabel>
+        </childnode>
+      </node>
+      <node id="10144">
+        <label>desmoj.core.report.TableOutput</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_table_output"/>
+        <childnode refid="10145" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10147" relation="usage">
+          <edgelabel>formatter</edgelabel>
+        </childnode>
+      </node>
+      <node id="10146">
+        <label>Writer</label>
+      </node>
+      <node id="10150">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="10151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10149">
+        <label>desmoj.core.report.Reporter</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_reporter"/>
+        <childnode refid="10150" relation="usage">
+          <edgelabel>source</edgelabel>
+        </childnode>
+      </node>
+      <node id="10148">
+        <label>desmoj.core.report.MessageReceiver</label>
+        <link refid="interfacedesmoj_1_1core_1_1report_1_1_message_receiver"/>
+      </node>
+      <node id="10145">
+        <label>desmoj.core.report.FileOutput</label>
+        <link refid="classdesmoj_1_1core_1_1report_1_1_file_output"/>
+        <childnode refid="10146" relation="usage">
+          <edgelabel>file</edgelabel>
+        </childnode>
+      </node>
+      <node id="10147">
+        <label>desmoj.core.report.TableFormatter</label>
+        <link refid="interfacedesmoj_1_1core_1_1report_1_1_table_formatter"/>
+      </node>
+      <node id="10152">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="10151">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="10152" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" line="32" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/report/ReportFileOut.java" bodystart="32" bodyend="206"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a3afbae5c32731aabf306258933200ece" prot="private" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>_reportNumber</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a90c3c680ce5640fcaae24a75a6fd58ca" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>close</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_table_output_1a9a7703217b446444ac0cca68840b3557" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>createFileName</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_table_output_1abe71482e68e2853d24d217e0da90533c" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>createFormatter</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_table_output_1a6819c4beacf951eb30666fac930b6501" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>DEFAULT_FORMATTER</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1aa7e1ec34eb76aa59cc7c87792373c062" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>empty</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1af8f5a237831290e0910026b6af817a0d" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>file</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1abd3ad88763ec0335e18c6cf1cdf539b7" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>fileName</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a8e1b60713276532bba3eba787ebf8f72" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>fileOpen</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1afdb37fc8e84c819f87770582e150bb49" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>FileOutput</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_table_output_1a2ae066f5d4825f560ded436728ed6384" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>formatter</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a187c5766739dbac8f2990b3c3bd66c73" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>getEndOfLine</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a031c533ea4444a949e320e0985778b3f" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>getFileName</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a689d7ab734f6b0504d23ef79c1af9caa" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>getSeparator</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a0fcfa8a73f61b7184b61dec8e884ad19" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>isEmpty</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a053b1d42735bfb3ed6f88ac8e0230d0b" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>isOpen</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a449e23d067e74d9010dc3a3c50c1ef04" prot="protected" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>lastReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a899f28b5e2c84fbe224ea8d03d44e668" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>open</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a0cde265f0f8cc502a02fddf938963e4b" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>open</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1ac74c69acc15c8597e11ebbbf453dfa1c" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>receive</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a64d5f55e13a3b3731a6499f8f1a30e6d" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>receive</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_report_file_out_1a51d7181712bee6ff42e47fd2f9d0d2d4" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>ReportFileOut</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1ac13e959f26db56959e1c4fa76f1ea502" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>setEndOfLine</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a8e09a1529d22d9a74e8b54fe15254a26" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>setSeparator</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_table_output_1ab387a74441c5a6c8047b173942c3f453" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>TableOutput</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a9d70b63035f30a29d5f2349db79799c6" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>write</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a7c70fe3f7a266511f3f2f1630b87eb64" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>writeln</name></member>
+      <member refid="classdesmoj_1_1core_1_1report_1_1_file_output_1a739663e5c216e12c83fa6ea29b779c01" prot="public" virt="non-virtual"><scope>desmoj::core::report::ReportFileOut</scope><name>writeSep</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,329 @@
+\section{desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends Sim\-Process $>$ Class Reference}
+\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4}\index{desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+
+
+Inheritance diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Cond\-Queue} ({\bf desmoj.\-core.\-simulator.\-Model} owner, String name, int sort\-Order, int q\-Capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Cond\-Queue} ({\bf desmoj.\-core.\-simulator.\-Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+boolean {\bf get\-Check\-All} ()
+\item 
+String {\bf get\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Refused} ()
+\item 
+void {\bf set\-Check\-All} (boolean chckall)
+\item 
+void {\bf signal} ()
+\item 
+P {\bf first} ()
+\item 
+P {\bf first} (Condition$<$ P $>$ cond)
+\item 
+void {\bf wait\-Cancel} (P p)
+\item 
+boolean {\bf wait\-Until} (Condition$<$ P $>$ cond)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf activate\-As\-Next} ({\bf Sim\-Process} process)
+\item 
+boolean {\bf check\-Process} ({\bf Sim\-Process} p, String where)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Queue\-List$<$ P $>$ {\bf \-\_\-queue}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+In a Cond\-Queue processes are waiting for a specific condition to become true. Process synchronisation happens when processes are waiting in a queue for a specific condition to become true. Each process which uses {\ttfamily wait\-Until(condition)} and does not find this condition to be true, is inserted in a waiting-\/queue automatically. Whenever something happens which might influence the condition to become {\ttfamily true}, {\ttfamily \doxyref{signal()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a2268d80aaaed75d5737c38b7ab9948aa}} should be used to check if the first entity (or, if the attribute {\ttfamily check\-All} is set to true, all entities) in the waiting-\/queue finds the desired condition now and therefore can continue. The designer of the model is responsible that this check takes place! He also has to implement the condition, this can easily be done by deriving it from the interface {\ttfamily Condition}. The flag, if only the first or all entities in the queue are checking their conditions again, can be checked and changed using {\ttfamily \doxyref{get\-Check\-All()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_ae00e2847b00d3c9335db06feaa61ab37}} and {\ttfamily \doxyref{set\-Check\-All()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_ace4583513d82fae4e1b744cf6095e677}}. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is F\-I\-F\-O and unlimited capacity). Cond\-Queue is derived from Queue\-Based, which provides all the statistical functionality for a queue.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!Cond\-Queue@{Cond\-Queue}}
+\index{Cond\-Queue@{Cond\-Queue}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{Cond\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.Cond\-Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-simulator.\-Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{sort\-Order, }
+\item[{int}]{q\-Capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a0ab536ac2c858938ba3fb3f1e399bef0}
+Constructor for a Cond\-Queue where entities can wait for a certain condition (to become true). The queueing discipline and the capacity limit of the underlying queue can be chosen. Highest priority are always first in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this Cond\-Queue is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The Cond\-Queue's name \\
+\hline
+{\em sort\-Order} & int \-: determines the sort order of the underlying queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em q\-Capacity} & int \-: The capacity of the queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if Cond\-Queue should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!Cond\-Queue@{Cond\-Queue}}
+\index{Cond\-Queue@{Cond\-Queue}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{Cond\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.Cond\-Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-simulator.\-Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a86ce14ccf88f8844fcdb5c7a4d415f97}
+Constructor for a Cond\-Queue where entities can wait for a certain condition (to become true). The underlying queue has a Fifo queueing discipline and unlimited capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this Cond\-Queue is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The Cond\-Queue's name \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if Cond\-Queue should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!activate\-As\-Next@{activate\-As\-Next}}
+\index{activate\-As\-Next@{activate\-As\-Next}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{activate\-As\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.activate\-As\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{process}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a9ef626ad18690ceb28060980f4ddfa9f}
+Activates the given Sim\-Process and schedules him right after the current process. Then the process is responsible to check if the desired condition has become true. This is done in the method {\ttfamily \doxyref{wait\-Until()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_aade7aa9dbbf0ac0be7a3c815c91192a6}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process} & Sim\-Process \-: The process that will be activated now to check its condition. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a9ef626ad18690ceb28060980f4ddfa9f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!check\-Process@{check\-Process}}
+\index{check\-Process@{check\-Process}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{check\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.check\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p, }
+\item[{String}]{where}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a2cfd85908f2e9295e5ad3495d44fdf57}
+Checks whether the entity using the Cond\-Queue is a valid process.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns whether the Sim\-Process is valid or not. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Sim\-Process \-: Is this Sim\-Process a valid one? \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a7cbc187a2b1e12f209bee6e3f48ed470}
+Returns a Reporter to produce a report about this Cond\-Queue.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for the queue inside this Cond\-Queue. 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!first@{first}}
+\index{first@{first}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a6ed278014ca6a6bb67ab805bde1a5bf4}
+Returns the first process waiting in the queue. If there is no process waiting, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+Sim\-Process \-: Returns the first process in the queue (or {\ttfamily null} if no process is waiting). 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!first@{first}}
+\index{first@{first}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.first (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ P $>$}]{cond}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_ac8f47e09635281aea926922d9547aa42}
+Returns the first process waiting in the queue that complies to the given condition. If there is no such process waiting, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+Sim\-Process \-: Returns the first process in the queue which complies to the given condition. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cond} & Condition \-: The Condition {\ttfamily cond} is describing the condition to which the process must comply to. This has to be implemented by the user in the class\-: {\ttfamily Condition} in the method\-: {\ttfamily check()}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!get\-Check\-All@{get\-Check\-All}}
+\index{get\-Check\-All@{get\-Check\-All}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get\-Check\-All}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.get\-Check\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_ae00e2847b00d3c9335db06feaa61ab37}
+Returns if all entities or only the first one in the queue are getting a signal to check their conditions.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Are all entities in the queue checking their conditions? Default is {\ttfamily false}, so that only the first process in the queue is checking its condition. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!get\-Queue\-Strategy@{get\-Queue\-Strategy}}
+\index{get\-Queue\-Strategy@{get\-Queue\-Strategy}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.get\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a6dc1cbc03756712327cbb5601f0dbf2c}
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_ac5e18cfa529a4d498ce4c99ccc525531}
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of entities refused to be enqueued in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!set\-Check\-All@{set\-Check\-All}}
+\index{set\-Check\-All@{set\-Check\-All}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{set\-Check\-All}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.set\-Check\-All (
+\begin{DoxyParamCaption}
+\item[{boolean}]{chckall}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_ace4583513d82fae4e1b744cf6095e677}
+Sets the flag {\ttfamily check\-All}\-: if all entities or only the first one in the queue are getting a signal to check their conditions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em chckall} & boolean \-: Flag if all entities in the queue should check their conditions? Default is {\ttfamily false}, so that only the first entity in the queue is checking its condition. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!signal@{signal}}
+\index{signal@{signal}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{signal}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.signal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a2268d80aaaed75d5737c38b7ab9948aa}
+A {\ttfamily signal ()} should be sent every time when a condition has changed and might be true now. It activates the first process in the queue to check its condition again. Other processes might follow. \index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!wait\-Cancel@{wait\-Cancel}}
+\index{wait\-Cancel@{wait\-Cancel}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{wait\-Cancel}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.wait\-Cancel (
+\begin{DoxyParamCaption}
+\item[{P}]{p}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a7f4a854be9779cadfa9b87c920828363}
+Removes the given Sim\-Process from the Queue. The process no longer waits for its condition to become true and resumes its lifecycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-: The P to be removed from the queue \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!wait\-Until@{wait\-Until}}
+\index{wait\-Until@{wait\-Until}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{wait\-Until}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.wait\-Until (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ P $>$}]{cond}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_aade7aa9dbbf0ac0be7a3c815c91192a6}
+Lets the current process wait in the Cond\-Queue until a certain condition, given as a parameter, has become true. When the process finds its condition to have become true or {\ttfamily check\-All} is set to {\ttfamily true} the next process in the queue will be activated, too. If the capacity limit of the queue is reached, the process will not be enqueued and {\ttfamily false} returned.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process can be enqueued successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cond} & Condition \-: The condition that has to become true before the process can continue. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+desmoj.\-core.\-simulator.\-Condition 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}!\-\_\-queue@{\-\_\-queue}}
+\index{\-\_\-queue@{\-\_\-queue}!desmoj::core::advancedModellingFeatures::CondQueue< P extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Cond\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-List$<$P$>$ desmoj.\-core.\-advanced\-Modelling\-Features.\-Cond\-Queue$<$ P extends {\bf Sim\-Process} $>$.\-\_\-queue\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_cond_queue_3_01_p_01extends_01_sim_process_01_4_a8954c1860995cf1dbfab3b0958a26292}
+The queue, actually storing the processes waiting for the condition to become true 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/advanced\-Modelling\-Features/Cond\-Queue.\-java\end{DoxyCompactItemize}

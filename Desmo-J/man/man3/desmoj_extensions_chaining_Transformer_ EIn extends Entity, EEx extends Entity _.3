@@ -1,0 +1,108 @@
+.TH "desmoj.extensions.chaining.Transformer< EIn extends Entity, EEx extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.chaining.Transformer< EIn extends Entity, EEx extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Splitter< EIn, EEx >, and HasSuccessor< EEx >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransformer\fP (int incomingBufferQueueCapacity, int maxEntitiesToHandle, int parallelHandledEntities, NumericalDist<?> setupTime, NumericalDist<?> serviceTime, NumericalDist<?> recoveryTime, NumericalDist<?> transportTime, \fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBsetSuccessor\fP (Event<?super EEx > eventToScheduleWhenFinished)"
+.br
+.ti -1c
+.RI "void \fBsetSuccessor\fP (HasPredecessor<?super EEx > successor)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract EEx \fBtransformEntity\fP (EIn originalEntity)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Tranformer takes a given entitiy and transforms it into a new Type of entity\&. The user has to override the method \fBtransformEntity()\fP to define the entitiy which the transformer should emit \&. The Tranformer inherits from the Splitter and reduces its complexity for the new purpose\&. Within the Transformer executes the same behaviour like the Splitter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<EIn>\fP the entitiy which comes in the Tranformer 
+.br
+\fI<EEx>\fP the entity which leaves the Transformer
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christian Mentz
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.chaining\&.Transformer< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.Transformer (intincomingBufferQueueCapacity, intmaxEntitiesToHandle, intparallelHandledEntities, NumericalDist<?>setupTime, NumericalDist<?>serviceTime, NumericalDist<?>recoveryTime, NumericalDist<?>transportTime, \fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+
+.IP "\(bu" 2
+This Constructor sets the given times, initializes the queues and fills the free service capacity queue\&. If a given int is lower than zero the Source assumes that there is no resriction\&. This applies to incomingBufferQueueCapacity, maxEntitiesToHandle, parallelHandledEntities
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIincomingBufferQueueCapacity\fP the capatiy of the income queue 
+.br
+\fImaxEntitiesToHandle\fP the number of max entities the station can handle 
+.br
+\fIparallelHandledEntities\fP the number of max parallel entities a station can handle 
+.br
+\fIsetupTime\fP the time the station needs to set up 
+.br
+\fIserviceTime\fP the time the station needs for the service 
+.br
+\fIrecoveryTime\fP the time the station needs tor recover 
+.br
+\fItransportTime\fP the time the station needs to transport the entitiy to the next station 
+.br
+\fIowner\fP the model owner 
+.br
+\fIname\fP the name of the station 
+.br
+\fIshowInReport\fP should this construct be in the report 
+.br
+\fIshowInTrace\fP should this construct be in the trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract EEx desmoj\&.extensions\&.chaining\&.Transformer< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.transformEntity (EInoriginalEntity)\fC [protected]\fP, \fC [pure virtual]\fP"
+This Method has to be overridden to create the output entity of the Transformer\&. The method gives the user the possibility to use the originalEntity in the creation of the transormEntity
+.PP
+\fBParameters:\fP
+.RS 4
+\fIoriginalEntity\fP a reference to the original entity 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the entity the Transformer sends to the next construct 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

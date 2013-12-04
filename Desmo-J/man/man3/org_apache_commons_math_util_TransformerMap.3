@@ -1,0 +1,185 @@
+.TH "org.apache.commons.math.util.TransformerMap" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.util.TransformerMap \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.util\&.NumberTransformer\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcontainsClass\fP (Class key)"
+.br
+.ti -1c
+.RI "boolean \fBcontainsTransformer\fP (\fBNumberTransformer\fP value)"
+.br
+.ti -1c
+.RI "\fBNumberTransformer\fP \fBgetTransformer\fP (Class key)"
+.br
+.ti -1c
+.RI "Object \fBputTransformer\fP (Class key, \fBNumberTransformer\fP transformer)"
+.br
+.ti -1c
+.RI "Object \fBremoveTransformer\fP (Class key)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "Set \fBclasses\fP ()"
+.br
+.ti -1c
+.RI "Collection \fBtransformers\fP ()"
+.br
+.ti -1c
+.RI "double \fBtransform\fP (Object o)  throws MathException "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This TansformerMap automates the transformation of mixed object types\&. It provides a means to set NumberTransformers that will be selected based on the Class of the object handed to the Maps \fCdouble \fBtransform(Object o)\fP\fP method\&. 
+.PP
+\fBVersion:\fP
+.RS 4
+
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+613677 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-01-20 14:08:35 -0700 (Sun, 20 Jan 2008) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Set org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.classes ()"
+Returns the Set of Classes used as keys in the map\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Set of Classes 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.clear ()"
+Clears all the Class to Transformer mappings\&. 
+.SS "boolean org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.containsClass (Classkey)"
+Tests if a Class is present in the \fBTransformerMap\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP Class to check 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true|false 
+.RE
+.PP
+
+.SS "boolean org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.containsTransformer (\fBNumberTransformer\fPvalue)"
+Tests if a \fBNumberTransformer\fP is present in the \fBTransformerMap\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP \fBNumberTransformer\fP to check 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true|false 
+.RE
+.PP
+
+.SS "\fBNumberTransformer\fP org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.getTransformer (Classkey)"
+Returns the Transformer that is mapped to a class if mapping is not present, this returns null\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP The Class of the object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the mapped \fBNumberTransformer\fP or null\&. 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.putTransformer (Classkey, \fBNumberTransformer\fPtransformer)"
+Sets a Class to Transformer Mapping in the Map\&. If the Class is already present, this overwrites that mapping\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP The Class 
+.br
+\fItransformer\fP The \fBNumberTransformer\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the replaced transformer if one is present 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.removeTransformer (Classkey)"
+Removes a Class to Transformer Mapping in the Map\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP The Class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the removed transformer if one is present or null if none was present\&. 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.transform (Objecto) throws \fBMathException\fP"
+Attempts to transform the Object against the map of NumberTransformers\&. Otherwise it returns Double\&.NaN\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP the Object to be transformed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the double value of the Object\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the Object can not be transformed into a Double\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBorg\&.apache\&.commons\&.math\&.util\&.NumberTransformer::transform\fP(java\&.lang\&.Object) 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.util\&.NumberTransformer\fP\&.
+.SS "Collection org\&.apache\&.commons\&.math\&.util\&.TransformerMap\&.transformers ()"
+Returns the Set of NumberTransformers used as values in the map\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Set of NumberTransformers 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

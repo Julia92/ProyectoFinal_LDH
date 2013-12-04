@@ -1,0 +1,469 @@
+.TH "desmoj.core.advancedModellingFeatures.Res" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.advancedModellingFeatures.Res \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.ResourcePoolAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRes\fP (\fBModel\fP owner, String name, int sortOrder, int qCapacity, int capacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRes\fP (\fBModel\fP owner, String name, int capacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "double \fBavgUsage\fP ()"
+.br
+.ti -1c
+.RI "void \fBchangeLimit\fP (int m)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeadlockCheckOff\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeadlockCheckOn\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetAvail\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetDeadlockCheck\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetidNumber\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetLimit\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetMinimum\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetPassBy\fP ()"
+.br
+.ti -1c
+.RI "QueueList< \fBSimProcess\fP > \fBgetQueue\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetUsers\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisDeadlockDetected\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBprovide\fP (int n)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDeadlockDetected\fP (boolean dlDetected)"
+.br
+.ti -1c
+.RI "void \fBsetPassBy\fP (boolean newPassBy)"
+.br
+.ti -1c
+.RI "void \fBtakeBack\fP (\fBResource\fP[] returnedRes)"
+.br
+.ti -1c
+.RI "void \fBtakeBack\fP (int n)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivateAsNext\fP (\fBSimProcess\fP process)"
+.br
+.ti -1c
+.RI "void \fBactivateFirst\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String where)"
+.br
+.ti -1c
+.RI "int \fBheldResources\fP (\fBSimProcess\fP sProc)"
+.br
+.ti -1c
+.RI "void \fBupdateProvidedRes\fP (\fBSimProcess\fP crntProcess, \fBResource\fP[] providedRes)"
+.br
+.ti -1c
+.RI "void \fBupdateStatistics\fP (int n)"
+.br
+.ti -1c
+.RI "void \fBupdateTakenBackRes\fP (\fBSimProcess\fP crntProcess, \fBResource\fP[] returnedRes)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "QueueList< \fBSimProcess\fP > \fB_queue\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBRes\fP is the place where resources are stored in a pool\&. Processes can come by and the resource pool will \fC\fBprovide()\fP\fP resources to them\&. Each process has to give back the same resources it once has acquired by calling the \fC\fBtakeBack()\fP\fP method of the \fBRes\fP\&. \fBRes\fP is used to implement process synchronization between processes, which are using resources\&. The resource pool has a limited capacity\&. A process can acquire one or more resources and use them\&. After usage the process must release this or these same resources to make them available to other processes\&. If a process can not get the number of resources needed, it has to wait in a queue until enough resources are released by other processes\&. A process can release its resources anytime\&. After the resourcepool has \fC'takenBack'()\fP the used resources the waiting-queue is checked for processes waiting for them\&. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is FIFO and unlimited capacity)\&. Under certain circumstances a deadlock might block some waiting
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.Res\&.Res (\fBModel\fPowner, Stringname, intsortOrder, intqCapacity, intcapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBRes\fP with a number of initial resources in it\&. The queueing discipline and the capacity limit of the underlying queue can be chosen, too\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBRes\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBRes\fP's name 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIqCapacity\fP int : The capacity of the queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIcapacity\fP int : The number of resources the \fBRes\fP starts with\&. Must be positive and greater than 0\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBRes\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.Res\&.Res (\fBModel\fPowner, Stringname, intcapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBRes\fP with a number of initial resources in it\&. The underlying queue has a Fifo queueing discipline and unlimited capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBRes\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBRes\fP's name 
+.br
+\fIcapacity\fP int : The number of resources the \fBRes\fP starts with\&. Must be positive and greater than 0\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBRes\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.activateAsNext (\fBSimProcess\fPprocess)\fC [protected]\fP"
+Activates the SimProcess \fCprocess\fP, given as a parameter of this method, as the next process\&. This process should be a SimProcess waiting in the queue for some resources\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process that is to be activated as next\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.activateFirst ()\fC [protected]\fP"
+Activates the first process waiting in the queue\&. That is a process which was trying to acquire resources, but there were not enough left in the \fBRes\fP\&. Or another process was first in the queue to be served\&. This method is called every time a process returns resources or when a process in the waiting-queue is satisfied\&. 
+.SS "double desmoj\&.core\&.advancedModellingFeatures\&.Res\&.avgUsage ()"
+Returns the average usage of the \fBRes\fP\&. That means: in average, which percentage of the resources were in use over the time?
+.PP
+\fBReturns:\fP
+.RS 4
+double : the average usage of the resources in the \fBRes\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.changeLimit (intm)"
+Changes the limit of the available resources in the \fBRes\fP\&. Sets the number of the maximum available resources to m\&. m must be positive\&. This is only allowed as long as the \fBRes\fP has not been used or the \fBRes\fP has just been reset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP int : The new limit (capacity) of the \fBRes\fP\&. Must be positive\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Res\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the process using the \fBRes\fP is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the SimProcess is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.advancedModellingFeatures\&.Res\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBRes\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queue inside this \fBRes\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.deadlockCheckOff ()"
+Turns the deadlock check off\&. So whenever a SimProcess can not get the resources desired, there won't be checked if a deadlock situation might have occured\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.deadlockCheckOn ()"
+Turns the deadlock check on\&. So whenever a SimProcess can not get the resources desired, it will be checked if a deadlock situation might occur\&. 
+.SS "int desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getAvail ()"
+Returns the number of resources available in the pool at the moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of resources available at the moment\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getDeadlockCheck ()"
+Returns if the deadlock check is enabled (\fCtrue\fP) or not ( \fCfalse\fP)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if the deadlock check is enabled, \fCfalse\fP if the deadlock check is not enabled 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getidNumber ()"
+Returns the ID number of this \fC\fBRes\fP\fP object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The ID number of this \fC\fBRes\fP\fP object\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getLimit ()"
+Returns the initial number of resources in the \fBRes\fP pool\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The initial number of resources in the \fBRes\fP pool at the beginning\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getMinimum ()"
+Returns the minimum number of resources in the \fBRes\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The minimum number of resources in the \fBRes\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getPassBy ()"
+Returns whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Indicates whether entities can pass by other entities which are enqueued before them in the queue\&. 
+.RE
+.PP
+
+.SS "QueueList<\fBSimProcess\fP> desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getQueue ()"
+Returns the \fCQueueList\fP actually storing the \fCSimProcesses\fP waiting for resources\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.QueueList : the queue actually storing the \fCSimProcesses\fP waiting for resources\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getRefused ()"
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Res\&.getUsers ()"
+Returns the number of users\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of Users\&. That are processes having acquired and released resources\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.advancedModellingFeatures\&.Res\&.heldResources (\fBSimProcess\fPsProc)\fC [protected]\fP"
+Returns the number of resources held by the given SimProcess at this time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of resources held by the given SimProcess at this time\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsProc\fP SimProcess : The SimProcess which is expected to hold some Resources\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Res\&.isDeadlockDetected ()"
+Returns \fCtrue\fP if a deadlock is detected, \fCfalse\fP otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : is \fCtrue\fP if a deadlock is detected, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Res\&.provide (intn)"
+Gets a number of n resources from the \fBRes\fP pool and provides them to the Sim-process to use them\&. Hint for developers: calls the private method \fCdeliver()\fP\&. As not enough resources are available at the moment the SimProcess has to wait in a queue until enough products are available again\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the specified number of resources have been provided successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP int : The number of resources the resourcepool will \fC \fBprovide()\fP\fP to the SimProcess\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.reset ()"
+Resets the statistics of this \fBRes\fP\&. The number of available resources at this moment and the processes waiting in the queue are not changed\&. But all statistic counters are reset\&. The parent \fCQueueBased\fP is also reset\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.setDeadlockDetected (booleandlDetected)"
+Sets the boolean field \fCdeadlockDetected\fP to the given value\&. If a deadlock for this \fC\fBRes\fP\fP is detected when an unsuccessfull seize statement for a resource has taken place, then the value of \fCdeadlockDetected\fP will be set to \fCtrue\fP\&. The value will also been shown in the report of this \fC\fBRes\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdlDetected\fP boolean : the new value for the field \fCdeadlockDetected\fP\&. Should be \fCtrue\fP if this \fC\fBRes\fP\fP is involved in a deadlock\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.setPassBy (booleannewPassBy)"
+Sets the flag passBy to a new value\&. PassBy is indicating whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPassBy\fP boolean : The new value of passBy\&. Set it to \fCtrue\fP if you want entities to pass by other entities which are enqueued before them in the queue\&. Set it to \fCfalse\fP if you don't want entities to overtake other entities in the queue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.takeBack (\fBResource\fP[]returnedRes)"
+A process is using this method to put resources it has used back in the \fBRes\fP pool\&. The process can not put more resources back than it has acquired once\&. The array of returning resources can be provided by the method \fCreturnResources()\fP of the class \fCSimProcess\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIreturnedRes\fP Resource[] : The array of resources a process is returning to the resource pool\&. Can't be more resources than it once has acquired! 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.takeBack (intn)"
+A process is using this method to put resources it has used back in the \fBRes\fP pool\&. The process can not put more resources back than it has acquired once\&. This method can be used as an alternative to the method \fC\fBtakeBack(Resource[] returnedRes)\fP\fP in cases that the user does not want to provide an array of returning resources\&. This method is also compatible with older DESMO-J Versions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP int : The number of resources which should be returned to the \fBRes\fP pool\&. Can't be more than once were acquired! 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.updateProvidedRes (\fBSimProcess\fPcrntProcess, \fBResource\fP[]providedRes)\fC [protected]\fP"
+Muss durch eine andere Methode in SimProcess ersetzt werden ???
+.PP
+Soenke ????
+.PP
+A process is using this method to return all the resources it holds to the \fBRes\fP pool\&. The process can not put more resources back than it has acquired once\&. This method can be used if a Process is about to be terminated\&.
+.PP
+public void takeBackAll () { where = 'void takeBackAll ()';
+.PP
+int n = 0; // how many resources will be taken back
+.PP
+Sim-process currentProcess = \fBcurrentSimProcess()\fP;
+.PP
+if (!checkProcess(currentProcess, where)) //check the current process { return; } // if it is not valid just return // delete the entry of the currentSimProcess in the arrayOfUsedResources // search the whole vector for ( int i = 0; i < arrayOfUsedResources\&.size(); i++) { // get hold of the UsedResources pair (SimProcess/number of resources) UsedResources procHoldRes = (UsedResources)arrayOfUsedResources\&.elementAt(i);
+.PP
+if (procHoldRes\&.getProcess() == currentProcess) { // number of resources held by the currentProcess n = procHoldRes\&.getOccupiedResources ();
+.PP
+arrayOfUsedResources\&.removeElementAt(i); // delete the entry } } // end for
+.PP
+updateStatistics ( n ); // statistics will be updated
+.PP
+users++; // update users // tell in the trace that the process is releasing all its resources if ( \fBtraceIsOn()\fP ) { sendTraceNote ( 'releases all its ' + n + ' ' + this\&.getName() ); }
+.PP
+activateNext(); // give waiting process in the queue a chance } Updates the arrayOfUsedResources for this \fBRes\fP whenever resources are \fCprovided\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcrntProcess\fP SimProcess : The current SimProcess acquiring resources\&. 
+.br
+\fIprovidedRes\fP Resource[] : The array of resources the \fBRes\fP is providing to the current SimProcess\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.updateStatistics (intn)\fC [protected]\fP"
+Updates the statistics for the \fBRes\fP whenever resources are \fCprovided\fP or \fC'takenBack'\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP int : Is positive when the \fBRes\fP \fC\fBtakeBack()\fP\fP resources and negative when the \fBRes\fP \fCprovides()\fP resources\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Res\&.updateTakenBackRes (\fBSimProcess\fPcrntProcess, \fBResource\fP[]returnedRes)\fC [protected]\fP"
+Updates the arrayOfUsedResources for this \fBRes\fP whenever resources are taken back\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcrntProcess\fP SimProcess : The current SimProcess releasing resources\&. 
+.br
+\fIreturnedRes\fP Resource[] : The array of resources the \fBRes\fP will take back from the current SimProcess\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "QueueList<\fBSimProcess\fP> desmoj\&.core\&.advancedModellingFeatures\&.Res\&._queue\fC [protected]\fP"
+The queue, actually storing the processes waiting for resources 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

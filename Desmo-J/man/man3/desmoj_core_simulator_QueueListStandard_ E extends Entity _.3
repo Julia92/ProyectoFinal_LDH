@@ -1,0 +1,277 @@
+.TH "desmoj.core.simulator.QueueListStandard< E extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.QueueListStandard< E extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits QueueList< E >, and PropertyChangeListener\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQueueListStandard\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcontains\fP (E e)"
+.br
+.ti -1c
+.RI "E \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "int \fBget\fP (E element)"
+.br
+.ti -1c
+.RI "E \fBget\fP (int index)"
+.br
+.ti -1c
+.RI "String \fBgetAbbreviation\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBinsert\fP (E e)"
+.br
+.ti -1c
+.RI "boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "E \fBlast\fP ()"
+.br
+.ti -1c
+.RI "void \fBpropertyChange\fP (java\&.beans\&.PropertyChangeEvent evt)"
+.br
+.ti -1c
+.RI "boolean \fBremove\fP (E e)"
+.br
+.ti -1c
+.RI "boolean \fBremove\fP (int index)"
+.br
+.ti -1c
+.RI "E \fBsucc\fP (E e)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP proc)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "java\&.lang\&.String \fBabbreviation\fP"
+.br
+.ti -1c
+.RI "java\&.util\&.LinkedList< E > \fBqueuelist\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Is the class summing up all the collective implementation of different queueing strategies for a queue list\&. It provides all the basic methods for inserting objects in a queue, retrieving objects from a queue and getting basic informations about the queue\&. It is used in many kinds of queue implementations e\&.g\&. in the classes \fCQueueListFifo\fP and \fCQueueListLifo\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP 
+.PP
+Queue 
+.PP
+ProcessQueue 
+.PP
+QueueListFifo 
+.PP
+QueueListLifo
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Justin Neumann 
+.PP
+based upon ideas from Tim Lechler, Soenke Claassen, Johannes Go\*(4bel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.QueueListStandard ()"
+Constructs an empty \fCQueueList\fP with no reference to its client \fBQueueBased\fP\&. This no-arg constructor is necessary to instantiate an object of this class by calling the \fCjava\&.lang\&.Class\&.newInstance()\fP method\&. The reference to the \fBQueueBased\fP object making use of this queue-functionality must be provided later by calling the setQueueBased() method\&. The initial length is always zero\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.checkProcess (\fBSimProcess\fPproc)\fC [protected]\fP"
+Checks whether the process using the QueueList is a valid \fBSimProcess\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the \fBSimProcess\fP is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproc\fP \fBSimProcess\fP : Is this \fBSimProcess\fP a valid one? 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.contains (Ee)"
+Returns true if the given \fBEntity\fP is contained in the list, false otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if the given \fBEntity\fP is contained in the list, false otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP \fBEntity\fP : The \fBEntity\fP assumed to be in the list 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.first ()"
+Returns the first entity stored in the list\&. If the queue is empty, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The first entity in the list or \fCnull\fP if list is empty 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.get (Eelement)"
+Returns the position of the named \fC\fBEntity\fP\fP\&. The first position is 0, the last one size()-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: The position of the \fC\fBEntity\fP\fP or \fC-1\fP if no such exists\&. 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.get (intindex)"
+Returns the \fC\fBEntity\fP\fP queued at the named position\&. The first position is 0, the last one size()-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The \fC\fBEntity\fP\fP at the position of \fCint\fP or \fCnull\fP if no such position exists\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.getAbbreviation ()"
+Returns an abbreviation as a String to identify the sort of queueing discipline (like FIFO or LIFO or \&.\&.\&.)\&. Is used to display the queueing discipline in the report of the \fBQueueBased\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : An abbreviation to identify the sort of queueing discipline (like FIFO or LIFO or \&.\&.\&.) 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.insert (Ee)\fC [pure virtual]\fP"
+Adds a new \fBEntity\fP to the QueueList\&. Entities are inserted according to their priority in descending order\&. The highest priority \fBEntity\fP will always be first in the queue\&. Entities with same priority are inserted in specified order\&.
+.PP
+Do not forget to call the \fCstatisticalInsert()\fP and to set the queue for each entity as you define this method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP \fBEntity\fP : The \fBEntity\fP to add to the QueueList 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.isEmpty ()"
+Returns \fCtrue\fP, if no elements are inside the \fCQueueList\fP,\fCfalse\fP otherwise
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : true, if no elements are inside the \fCQueueList\fP, false otherwise 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.last ()"
+Returns the last \fBEntity\fP stored in the QueueList\&. If the QueueList is empty, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The last \fBEntity\fP in the list or \fCnull\fP if QueueList is empty 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.propertyChange (java\&.beans\&.PropertyChangeEventevt)"
+This method will be called every time the Stock (the number of available units) has changed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevt\fP java\&.beans\&.PropertyChangeEvent : The event specifying the property that has changed ans its old and new value\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.remove (Ee)"
+Removes the first occurrence of the given \fBEntity\fP from the QueueList\&. Checks if the given \fBEntity\fP to be removed does apply to all restrictions on this operation\&. These are : 
+.PD 0
+
+.IP "\(bu" 2
+The given reference to an entity must not be \fCnull\fP  
+.IP "\(bu" 2
+This QueueList must not be empty, otherwise there's nothing to remove If all these restrictions apply, \fCtrue\fP is returned and the \fBEntity\fP is removed, otherwise \fCfalse\fP is the return value because the given \fBEntity\fP could not be removed since one of the restrictions above was not met\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the given \fBEntity\fP is contained in the QueueList, \fCfalse\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP \fBEntity\fP : The \fBEntity\fP to be removed from the QueueList 
+.RE
+.PP
+
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.remove (intindex)"
+Removes the \fC\fBEntity\fP\fP queued at the named position\&. The first position is 0, the last one size()-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: The method returns \fCtrue\fP as the \fC\fBEntity\fP\fP was deleted or \fCfalse>\fP if otherwise\&. 
+.RE
+.PP
+
+.SS "E desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.succ (Ee)"
+Returns the successor to the given \fBEntity\fP in the QueueList\&. If there is no successor or no \fBEntity\fP in the QueueList, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The \fBEntity\fP before the given parameter in the QueueList or \fCnull\fP if the given \fBEntity\fP parameter 'e' has no successor in the QueueList or e itself is not contained in the QueueList 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP \fBEntity\fP : The \fBEntity\fP contained in the QueueList 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.toString ()"
+Returns a string representation of the QueueList\&. The string is built by concatenating all string representations of the contained entities, calling their \fC\fBtoString()\fP\fP methods\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The string representation of the QueueList 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "java\&.lang\&.String desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.abbreviation\fC [protected]\fP"
+An abbreviation to identify the sort of queueing discipline (like FIFO or LIFO or \&.\&.\&.) 
+.SS "java\&.util\&.LinkedList<E> desmoj\&.core\&.simulator\&.QueueListStandard< E extends \fBEntity\fP >\&.queuelist\fC [protected]\fP"
+Uses the java\&.util\&.LinkedList for implementation 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

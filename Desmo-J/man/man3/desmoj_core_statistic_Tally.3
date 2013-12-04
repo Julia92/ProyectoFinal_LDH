@@ -1,0 +1,179 @@
+.TH "desmoj.core.statistic.Tally" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.Tally \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.statistic\&.ConfidenceCalculator\fP, \fBdesmoj\&.core\&.statistic\&.DataListTally\fP, \fBdesmoj\&.core\&.statistic\&.Histogram\fP, \fBdesmoj\&.core\&.statistic\&.TallyRunning\fP, and \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.statistic\&.TallyAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTally\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTally\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMean\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetStdDev\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double val)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBTally\fP\fP class is providing a statistic analysis about one value\&. The mean value and the standard deviation is calculated on basis of the total number of observations\&. 
+.br
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBTallyRunning\fP 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.Tally\&.Tally (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBTally\fP object that is connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTally\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTally\fP object 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBTally\fP\&. The given \fBValueSupplier\fP will be observed by this \fBTally\fP object\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBTally\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBTally\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Tally\&.Tally (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBTally\fP object that has no connection to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTally\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTally\fP object 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBTally\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBTally\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.Tally\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBTally\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBTally\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Tally\&.getMean ()\fC [virtual]\fP"
+Returns the mean value of all the values observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean value of all the values observed so far\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP\&.
+.SS "double desmoj\&.core\&.statistic\&.Tally\&.getStdDev ()\fC [virtual]\fP"
+Returns the standard deviation of all the values observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation of all the values observed so far\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP\&.
+.SS "void desmoj\&.core\&.statistic\&.Tally\&.reset ()"
+Resets this \fBTally\fP object by resetting all variables to 0\&.0 \&. 
+.SS "void desmoj\&.core\&.statistic\&.Tally\&.update ()"
+Updates this \fC\fBTally\fP\fP object by fetching the actual value of the \fC\fBValueSupplier\fP\fP and processing it\&. The \fC\fBValueSupplier\fP\fP is passed in the constructor of this \fC\fBTally\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.Tally\&.update (doubleval)"
+Updates this \fC\fBTally\fP\fP object with the double value given as parameter\&. In some cases it might be more convenient to pass the value this \fC\fBTally\fP\fP will be updated with directly within the \fC\fBupdate(double val)\fP\fP method instead of going via the \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIval\fP double : The value with which this \fC\fBTally\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Tally\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBValueSupplier\fP will be fetched with the \fCvalue()\fP method of the \fBValueSupplier\fP\&. Otherwise it is expected that the actual value is passed in the Object arg\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBTally\fP\fP is updated\&. Normally a double number which is added to the statistics or \fCnull\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

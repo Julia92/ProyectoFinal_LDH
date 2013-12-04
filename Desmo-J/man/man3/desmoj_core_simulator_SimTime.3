@@ -1,0 +1,386 @@
+.TH "desmoj.core.simulator.SimTime" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.SimTime \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimTime\fP (double time)"
+.br
+.ti -1c
+.RI "\fBSimTime\fP (\fBSimTime\fP time)"
+.br
+.ti -1c
+.RI "double \fBgetTimeValue\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP (int floats)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static final \fBSimTime\fP \fBadd\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final \fBSimTime\fP \fBdiff\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisEqual\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisLarger\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisLargerOrEqual\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisNotEqual\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisSmaller\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final boolean \fBisSmallerOrEqual\fP (\fBSimTime\fP a, \fBSimTime\fP b)"
+.br
+.ti -1c
+.RI "static final \fBSimTime\fP \fBnow\fP ()"
+.br
+.ti -1c
+.RI "static \fBSimTime\fP \fBtoSimTime\fP (\fBTimeInstant\fP instant)"
+.br
+.ti -1c
+.RI "static \fBSimTime\fP \fBtoSimTime\fP (\fBTimeSpan\fP span)"
+.br
+.ti -1c
+.RI "static \fBTimeInstant\fP \fBtoTimeInstant\fP (\fBSimTime\fP simTime)"
+.br
+.ti -1c
+.RI "static \fBTimeSpan\fP \fBtoTimeSpan\fP (\fBSimTime\fP simTime)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBSimTime\fP \fBNOW\fP = new \fBSimTime\fP(0\&.0)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Represents points in simulation time\&. Is used to indicate points in simulation time at which the state of the model changes\&. Each point in simulation time is represented by an individual object of this class and offers its own methods for arithmetic operations\&. Ensures that only valid points of time are generated\&.
+.RE
+.PP
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Felix Klueckmann
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.SimTime\&.SimTime (doubletime)"
+Constructs a simtime object with the given initial time value\&. It represents a point in simulation time\&. Note that only points of future simulation time can be accessed and that trying to create a simtime object with negative initial value will stop the simulation immediately\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP double : The time value of this simtime with a simtime\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.SimTime\&.SimTime (\fBSimTime\fPtime)"
+Constructs a simtime object with the given initial time object\&. It represents a point in simulation time\&. Note that only points of future simulation time can be accessed and that trying to create a \fBSimTime\fP object with negative initial value will stop the simulation immediately\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP \fBSimTime\fP : The time of this \fBSimTime\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static final \fBSimTime\fP desmoj\&.core\&.simulator\&.SimTime\&.add (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Returns a new simtime object with a time value representing the sum of the time values of the given simtime objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimTime\fP : A new simtime as the sum of the simtime parameters 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : Simtime parameter a 
+.br
+\fIb\fP \fBSimTime\fP : Simtime parameter b 
+.RE
+.PP
+
+.SS "static final \fBSimTime\fP desmoj\&.core\&.simulator\&.SimTime\&.diff (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Returns a new simtime object with a time value representing the absolute difference of the time values of the given simtime objects\&. Note that since no negative time values are allowed, \fCnull\fP will be returned if the result of the subtraction would have resulted in a negative value\&. That is, a's time value is smaller than b's\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimTime\fP : A new \fBSimTime\fP as the absolute difference of the \fBSimTime\fP parameters given 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : Simtime parameter a of which parameter b will be subtracted 
+.br
+\fIb\fP \fBSimTime\fP : Simtime parameter b subtracted from parameter a 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.SimTime\&.getTimeValue ()"
+Returns the value of the simtime object as type double\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The value of the \fBSimTime\fP object as type double 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.SimTime\&.isEqual (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Checks if the two simtime parameters describe the same point of simulation time\&. Note that this is a static method available through calling the class \fC\fBSimTime\fP\fP i\&.e\&. \fCSimTime\&.isEqual(a,b)\fP where a and b are valid simtime objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if both parameters describe same point of simulation time 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : first comparand 
+.br
+\fIb\fP \fBSimTime\fP : second comparand 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.SimTime\&.isLarger (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is larger than the second\&. Larger means, that the time value of simtime a is larger and hence 'later' than simtime b\&. Note that this is a static method available through calling the class \fC\fBSimTime\fP\fP i\&.e\&. \fCSimTime\&.isLargerThan(a,b)\fP where a and b are valid simtime objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is larger (later) than b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : first comparand 
+.br
+\fIb\fP \fBSimTime\fP : second comparand 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.SimTime\&.isLargerOrEqual (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is larger or equal to the second\&. Larger means, that the time value of simtime a is larger and hence 'later' than simtime b\&. Equal means, that they both describe the same point in simulation time\&. Note that this is a static method available through calling the class \fC\fBSimTime\fP\fP i\&.e\&. \fCSimTime\&.isLargerOrEqual(a,b)\fP where a and b are valid simtime objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is larger (later) or equal to b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : first comparand 
+.br
+\fIb\fP \fBSimTime\fP : second comparand 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.SimTime\&.isNotEqual (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Checks if the two simtime parameters describe the different points of simulation time\&. Note that this is a static method available through calling the class \fC\fBSimTime\fP\fP i\&.e\&. \fCSimTime\&.isNotEqual(a,b)\fP where a and b are valid simtime objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if parameters describe different points of simulation time 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : first comparand 
+.br
+\fIb\fP \fBSimTime\fP : second comparand 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.SimTime\&.isSmaller (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is smaller than the second\&. Smaller means, that the time value of \fBSimTime\fP a is larger and hence 'sooner' than simtime b\&. Note that this is a static method available through calling the class \fC\fBSimTime\fP\fP i\&.e\&. \fCSimTime\&.isLargerThan(a,b)\fP where a and b are valid simtime objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is smaller (sooner) than b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : first comparand 
+.br
+\fIb\fP \fBSimTime\fP : second comparand 
+.RE
+.PP
+
+.SS "static final boolean desmoj\&.core\&.simulator\&.SimTime\&.isSmallerOrEqual (\fBSimTime\fPa, \fBSimTime\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is smaller or equal to the second\&. Smaller means, that the time value of simtime a is smaller and hence 'sooner' than simtime b\&. Equal means, that they both describe the same point in simulation time\&. Note that this is a static method available through calling the class \fC\fBSimTime\fP\fP i\&.e\&. \fCSimTime\&.isSmallerOrEqual(a,b)\fP where a and b are valid simtime objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is smaller (sooner) or equal to b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBSimTime\fP : first comparand 
+.br
+\fIb\fP \fBSimTime\fP : second comparand 
+.RE
+.PP
+
+.SS "static final \fBSimTime\fP desmoj\&.core\&.simulator\&.SimTime\&.now ()\fC [static]\fP"
+Returns the special point of time to be used for replacing the current running process or schedule an entity at the first position in the event-list\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.SimTime : The special simtime object used to indicate immediate scheduling, preempting a current \fBSimProcess\fP
+.RE
+.PP
+\&.ignore 
+.SS "static \fBSimTime\fP desmoj\&.core\&.simulator\&.SimTime\&.toSimTime (\fBTimeInstant\fPinstant)\fC [static]\fP"
+Converts the given \fBTimeInstant\fP object to a \fBSimTime\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinstant\fP \fBTimeInstant\fP : The \fBTimeInstant\fP to be converted 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimTime\fP : The resulting \fBSimTime\fP from the conversion 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann (07/09) 
+.RE
+.PP
+
+.SS "static \fBSimTime\fP desmoj\&.core\&.simulator\&.SimTime\&.toSimTime (\fBTimeSpan\fPspan)\fC [static]\fP"
+Converts the given \fBTimeSpan\fP object to a \fBSimTime\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspan\fP \fBTimeSpan\fP : The \fBTimeSpan\fP to be converted 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimTime\fP : The resulting \fBSimTime\fP from the conversion 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann (07/09) 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.SimTime\&.toString ()"
+Prints the time value of this simtime with all floating point digits\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The string representation of a simtime 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.SimTime\&.toString (intfloats)"
+Prints the time value of this simtime with the given number of floating point digits\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The string representation of a simtime 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfloats\fP int : The number of floating point digits to print 
+.RE
+.PP
+
+.SS "static \fBTimeInstant\fP desmoj\&.core\&.simulator\&.SimTime\&.toTimeInstant (\fBSimTime\fPsimTime)\fC [static]\fP"
+Converts the given \fBSimTime\fP object to a \fBTimeInstant\fP object\&. Note that only \fBSimTime\fP objects with a time value smaller or equal than Long\&.MAX_VALUE can be converted and that trying to convert a simtime object with a time value that is bigger than Long\&.MAX_VALUE will stop the simulation immediately\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsimTime\fP \fBSimTime\fP : The \fBSimTime\fP to be converted 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The resulting \fBTimeInstant\fP from the conversion 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann (07/09) 
+.RE
+.PP
+
+.SS "static \fBTimeSpan\fP desmoj\&.core\&.simulator\&.SimTime\&.toTimeSpan (\fBSimTime\fPsimTime)\fC [static]\fP"
+Converts the given \fBSimTime\fP object to a \fBTimeSpan\fP object\&. Note that only \fBSimTime\fP objects with a time value smaller or equal than Long\&.MAX_VALUE can be converted and that trying to convert a simtime object with a time value that is bigger than Long\&.MAX_VALUE will stop the simulation immediately\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsimTime\fP \fBSimTime\fP : The \fBSimTime\fP to be converted 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : The resulting \fBTimeSpan\fP from the conversion 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann (07/09) 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBSimTime\fP desmoj\&.core\&.simulator\&.SimTime\&.NOW = new \fBSimTime\fP(0\&.0)\fC [static]\fP"
+NOW defines the value for scheduling an object immediately, even replacing the current \fBSimProcess\fP\&. Since the value is otherwise arbitrary as long as it is unique and can not be confused with any other legal or illegal (negative) value, it is set to be the constant defined in java\&.lang\&.Double and in java\&.lang\&.Float representing a non-number value\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.lang\&.Double 
+.PP
+java\&.lang\&.Float 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

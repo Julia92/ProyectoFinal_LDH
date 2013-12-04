@@ -1,0 +1,223 @@
+\section{desmoj.\-core.\-statistic.\-Statistic\-Object Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object}\index{desmoj.\-core.\-statistic.\-Statistic\-Object@{desmoj.\-core.\-statistic.\-Statistic\-Object}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Statistic\-Object\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_statistic_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Statistic\-Object\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{classdesmoj_1_1core_1_1statistic_1_1_statistic_object__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Statistic\-Object} ({\bf Model} owner\-Model, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+void {\bf set\-Unit} (String unit)
+\item 
+String {\bf get\-Unit} ()
+\item 
+String {\bf get\-Unit\-Text} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double {\bf round} (double d)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final double {\bf U\-N\-D\-E\-F\-I\-N\-E\-D} = -\/1.\-0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double {\bf convert\-To\-Double} (Object obj)
+\item 
+void {\bf trace\-Update} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final double {\bf F\-R\-A\-C\-T\-I\-O\-N\-\_\-\-D\-I\-G\-I\-T\-S} = 5.\-0
+\item 
+static final double {\bf P\-R\-E\-C\-I\-S\-I\-O\-N}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+{\ttfamily \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object}} class is the super class of all other classes collecting statistical data. \par
+ It extends the {\ttfamily \doxyref{desmoj.\-core.\-simulator.\-Reportable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_reportable}} class so that it can provide a reporter to represent the statistical data in the report. \par
+ It also implements the {\ttfamily java.\-util.\-Observer} interface. So this is the observer part of the observer pattern as described in [Gamm95] that is observing the {\ttfamily desmoj.\-statistic.\-Value\-Supplier}. Whenever the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} is changing it calls the {\ttfamily update(\-Observable, Object)} method of this {\ttfamily \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object}}. Which happens inside the {\ttfamily notify\-Observers()} method of the observable {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}. 
+
+The virtual method {\ttfamily update(\-Observable, Object)} has to be implemented in all derived classes so that the {\ttfamily \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object}} is updated when the observed {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} has changed and its {\ttfamily notify\-Observers()} method is called from its {\ttfamily notify\-Statistics()} method. 
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-statistic.\-Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!Statistic\-Object@{Statistic\-Object}}
+\index{Statistic\-Object@{Statistic\-Object}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{Statistic\-Object}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Statistic\-Object.\-Statistic\-Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_a7e94f385b55730e93c48236172b61057}
+Constructor for a \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object}, preliminarily without a unit assigned
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object} \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object} in trace files. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!convert\-To\-Double@{convert\-To\-Double}}
+\index{convert\-To\-Double@{convert\-To\-Double}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{convert\-To\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Statistic\-Object.\-convert\-To\-Double (
+\begin{DoxyParamCaption}
+\item[{Object}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_ab7ab331cc0c15d207ee7e729d975ca44}
+Converts an {\ttfamily Object} to a {\ttfamily double} -\/value. If the given object is not an instance of a number wrapper class a warning is produced and the U\-N\-D\-E\-F\-I\-N\-E\-D-\/value (-\/1.\-0) is returned. \par
+ So the {\ttfamily \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object}} can be notified by a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} with the {\ttfamily notify\-Statistics(\-Object arg)} method, where the value is passed as an object in this method.
+
+\begin{DoxyReturn}{Returns}
+double \-: The double value the given object is converted to. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Object \-: The Object which will be converted to a double value. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_ab7ab331cc0c15d207ee7e729d975ca44_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!get\-Unit@{get\-Unit}}
+\index{get\-Unit@{get\-Unit}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{get\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-statistic.\-Statistic\-Object.\-get\-Unit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_aca06fcd388bfe806fb7c1a53c6db5a15}
+Get an optional unit of reported value. Default is null. This value is shown in description reports. \begin{DoxyReturn}{Returns}
+String \-: The optional unit 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!get\-Unit\-Text@{get\-Unit\-Text}}
+\index{get\-Unit\-Text@{get\-Unit\-Text}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{get\-Unit\-Text}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-statistic.\-Statistic\-Object.\-get\-Unit\-Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_a6bdd9ff905bf18a27d2c890ab1729de4}
+Textually wraps the output of {\ttfamily \doxyref{get\-Unit()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_aca06fcd388bfe806fb7c1a53c6db5a15}}, adding brackets and displaying \char`\"{}none\char`\"{} if case unit is {\ttfamily null}. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!round@{round}}
+\index{round@{round}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{round}]{\setlength{\rightskip}{0pt plus 5cm}static double desmoj.\-core.\-statistic.\-Statistic\-Object.\-round (
+\begin{DoxyParamCaption}
+\item[{double}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_a3f0eb72348466ee48bdfeea9ffcf6d83}
+Rounds a double value with repect to the {\ttfamily P\-R\-E\-C\-I\-S\-I\-O\-N}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The rounded value. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & double \-: The value to be rounded \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!set\-Unit@{set\-Unit}}
+\index{set\-Unit@{set\-Unit}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{set\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Statistic\-Object.\-set\-Unit (
+\begin{DoxyParamCaption}
+\item[{String}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_a292db67353902f20898927e3f57e6f9e}
+Set an optional unit of reported value. Default is null. This value is shown in description reports. \index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!trace\-Update@{trace\-Update}}
+\index{trace\-Update@{trace\-Update}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{trace\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Statistic\-Object.\-trace\-Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_aa01ed975ec3ae1a711112bb7477f908e}
+Leaves a message in the trace that this \doxyref{Statistic\-Object}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object} has been updated. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_aa01ed975ec3ae1a711112bb7477f908e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!F\-R\-A\-C\-T\-I\-O\-N\-\_\-\-D\-I\-G\-I\-T\-S@{F\-R\-A\-C\-T\-I\-O\-N\-\_\-\-D\-I\-G\-I\-T\-S}}
+\index{F\-R\-A\-C\-T\-I\-O\-N\-\_\-\-D\-I\-G\-I\-T\-S@{F\-R\-A\-C\-T\-I\-O\-N\-\_\-\-D\-I\-G\-I\-T\-S}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{F\-R\-A\-C\-T\-I\-O\-N\-\_\-\-D\-I\-G\-I\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}final double desmoj.\-core.\-statistic.\-Statistic\-Object.\-F\-R\-A\-C\-T\-I\-O\-N\-\_\-\-D\-I\-G\-I\-T\-S = 5.\-0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_ac8261fd4bbe26b674cb7842c883572e0}
+The number of digits after the decimal point which will be displayed for the numbers in the reports. A precision of more than that is obsolete. \index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!P\-R\-E\-C\-I\-S\-I\-O\-N@{P\-R\-E\-C\-I\-S\-I\-O\-N}}
+\index{P\-R\-E\-C\-I\-S\-I\-O\-N@{P\-R\-E\-C\-I\-S\-I\-O\-N}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{P\-R\-E\-C\-I\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}final double desmoj.\-core.\-statistic.\-Statistic\-Object.\-P\-R\-E\-C\-I\-S\-I\-O\-N\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_a93c3f5e46d4dbedb9c20b4fdbd946722}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= java.lang.Math.pow(10.0,
+            FRACTION_DIGITS)
+\end{DoxyCode}
+The number needed for rounding the results to the desired precision. \index{desmoj\-::core\-::statistic\-::\-Statistic\-Object@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}!U\-N\-D\-E\-F\-I\-N\-E\-D@{U\-N\-D\-E\-F\-I\-N\-E\-D}}
+\index{U\-N\-D\-E\-F\-I\-N\-E\-D@{U\-N\-D\-E\-F\-I\-N\-E\-D}!desmoj::core::statistic::StatisticObject@{desmoj\-::core\-::statistic\-::\-Statistic\-Object}}
+\subsubsection[{U\-N\-D\-E\-F\-I\-N\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}final double desmoj.\-core.\-statistic.\-Statistic\-Object.\-U\-N\-D\-E\-F\-I\-N\-E\-D = -\/1.\-0\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_a9e3ff8d361832be4982d2b299797bb26}
+Represents the value returned in case of an error. If no valid value can be returned. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Statistic\-Object.\-java\end{DoxyCompactItemize}

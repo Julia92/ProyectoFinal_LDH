@@ -1,0 +1,360 @@
+\section{desmoj.\-core.\-simulator.\-Schedulable Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable}\index{desmoj.\-core.\-simulator.\-Schedulable@{desmoj.\-core.\-simulator.\-Schedulable}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Schedulable\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Schedulable\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Schedulable} ({\bf Model} owner, String name, boolean show\-In\-Trace)
+\item 
+void {\bf cancel} ()
+\item 
+boolean {\bf is\-Current} ()
+\item 
+boolean {\bf is\-Scheduled} ()
+\item 
+void {\bf rename} (String new\-Name)
+\item 
+void {\bf re\-Schedule} ({\bf Time\-Span} dt)
+\item 
+void {\bf re\-Schedule} ({\bf Time\-Instant} time)
+\item 
+void {\bf re\-Schedule} ({\bf Sim\-Time} dt)
+\item 
+{\bf Time\-Instant} {\bf scheduled\-At} ()
+\item 
+{\bf Time\-Instant} {\bf scheduled\-Next} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Schedulable} {\bf clone} ()  throws Clone\-Not\-Supported\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ {\bf Event\-Note} $>$ {\bf \-\_\-schedule}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+All objects that want to be handled by the scheduler must extend this class. These are events (including external events), entities and Sim\-Processes. All functionality common to \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} objects are encapsulated here.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!Schedulable@{Schedulable}}
+\index{Schedulable@{Schedulable}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{Schedulable}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Schedulable.\-Schedulable (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_af631108e93c8385ad6b6cec728df6573}
+Constructs a \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object with the given name. Note that to identify the multiple objects that can be created of one type of \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}, each has a unique number added to its name as a suffix. The numbers represent the amount of objects being created with the same name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of the new \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object \\
+\hline
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The owner of this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_af631108e93c8385ad6b6cec728df6573_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!cancel@{cancel}}
+\index{cancel@{cancel}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{cancel}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Schedulable.\-cancel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_adbec3d50fbabe5bf13bc7457f61cd2f1}
+Removes all events scheduled for this entity from the event-\/list. The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} will not become active until scheduled again. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_adbec3d50fbabe5bf13bc7457f61cd2f1_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!clone@{clone}}
+\index{clone@{clone}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Schedulable} desmoj.\-core.\-simulator.\-Schedulable.\-clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Clone\-Not\-Supported\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a8da22ef1924b4e7850658d7935b4c805}
+Creates and returns a copy of this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}. Note that subclasses have to implement the interface java.\-lang.\-Cloneable to actually use this method as otherwise, a Clone\-Not\-Supported\-Exception will be thrown.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: A copy of this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a8da22ef1924b4e7850658d7935b4c805_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!is\-Current@{is\-Current}}
+\index{is\-Current@{is\-Current}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{is\-Current}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Schedulable.\-is\-Current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a519d044fdf7ad2addd55520b7eb0bd67}
+Shows if this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is the currently active object.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} if this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is the currently active, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a519d044fdf7ad2addd55520b7eb0bd67_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!is\-Scheduled@{is\-Scheduled}}
+\index{is\-Scheduled@{is\-Scheduled}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{is\-Scheduled}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Schedulable.\-is\-Scheduled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a1ef278c504d931bb6b6e7bf20ac5c378}
+Tests if this entity has already been scheduled.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} if already scheduled, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!rename@{rename}}
+\index{rename@{rename}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{rename}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Schedulable.\-rename (
+\begin{DoxyParamCaption}
+\item[{String}]{new\-Name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a3d5553466e20328cd9c73998b4f19b5e}
+Allows to rename a \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object while keeping its internally added serial number to keep track of the individual object. Note that invalid string parameters will result in renaming the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} to 'unnamed'.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Name} & java.\-lang.\-String \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s new name \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a3d5553466e20328cd9c73998b4f19b5e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!re\-Schedule@{re\-Schedule}}
+\index{re\-Schedule@{re\-Schedule}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{re\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Schedulable.\-re\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_aec247c473398f7010aa3727c22c05155}
+Re-\/schedules the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} by shifting all \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} by a specified {\ttfamily  \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The offset to the current simulation time at which this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is to be re-\/scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_aec247c473398f7010aa3727c22c05155_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!re\-Schedule@{re\-Schedule}}
+\index{re\-Schedule@{re\-Schedule}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{re\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Schedulable.\-re\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{time}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a80be04b81d6a6319d5ef7489f6ac50f5}
+Re-\/schedules the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} to some other point in simulation time (which should be different form the instant at which is a scheduled at the moment).
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The simulation time at which this entity is to be re-\/scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a80be04b81d6a6319d5ef7489f6ac50f5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!re\-Schedule@{re\-Schedule}}
+\index{re\-Schedule@{re\-Schedule}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{re\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Schedulable.\-re\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Time}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a3cc4ab6d499c9241a1bb4245844354b2}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{re\-Schedule(\-Time\-Span dt)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable_aec247c473398f7010aa3727c22c05155}. Re-\/schedules the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} at some other point in simulation time than it already had been scheduled before.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The offset to the current simulation time at which this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is to be re-\/scheduled \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a3cc4ab6d499c9241a1bb4245844354b2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!scheduled\-At@{scheduled\-At}}
+\index{scheduled\-At@{scheduled\-At}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{scheduled\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Schedulable.\-scheduled\-At (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_ade0c23e5c1131a4ccefa7360034bf9e3}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Returns the point of simulation time this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is scheduled at. Returns null, if the entity has not been scheduled and thus can not return an appropriate point of simulation time.\end{DoxyRefDesc}
+
+
+Use schedule\-Next() for next \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} where an event-\/note lists this entity.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point of simulation time this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is scheduled at or {\ttfamily null} otherwise 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_ade0c23e5c1131a4ccefa7360034bf9e3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!scheduled\-Next@{scheduled\-Next}}
+\index{scheduled\-Next@{scheduled\-Next}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{scheduled\-Next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Schedulable.\-scheduled\-Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a94d32bc857283d91bc842dcc6a0ec805}
+Returns the next point of time this entity is scheduled.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point of simulation time the next \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} is schedule or {\ttfamily null} otherwise 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a94d32bc857283d91bc842dcc6a0ec805_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}!\-\_\-schedule@{\-\_\-schedule}}
+\index{\-\_\-schedule@{\-\_\-schedule}!desmoj::core::simulator::Schedulable@{desmoj\-::core\-::simulator\-::\-Schedulable}}
+\subsubsection[{\-\_\-schedule}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Event\-Note}$>$ desmoj.\-core.\-simulator.\-Schedulable.\-\_\-schedule\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_schedulable_a1fa7b5da993db275c7bb7043ac49cca5}
+A list containing all scheduled entries for this \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} in future. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Schedulable.\-java\end{DoxyCompactItemize}

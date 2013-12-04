@@ -1,0 +1,139 @@
+\section{org.\-apache.\-commons.\-math.\-analysis.\-Divided\-Difference\-Interpolator Class Reference}
+\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_divided_difference_interpolator}\index{org.\-apache.\-commons.\-math.\-analysis.\-Divided\-Difference\-Interpolator@{org.\-apache.\-commons.\-math.\-analysis.\-Divided\-Difference\-Interpolator}}
+
+
+Inheritance diagram for org.\-apache.\-commons.\-math.\-analysis.\-Divided\-Difference\-Interpolator\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_divided_difference_interpolator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\-apache.\-commons.\-math.\-analysis.\-Divided\-Difference\-Interpolator\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_divided_difference_interpolator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Univariate\-Real\-Function} {\bf interpolate} (double x[$\,$], double y[$\,$])  throws Duplicate\-Sample\-Abscissa\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double[$\,$] {\bf compute\-Divided\-Difference} (double x[$\,$], double y[$\,$])  throws Duplicate\-Sample\-Abscissa\-Exception 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implements the $<$a href=\char`\"{}
+\char`\"{}{\tt http\-://mathworld.\-wolfram.\-com/\-Newtons\-Divided\-Difference\-Interpolation\-Formula.\-html}"$>$ Divided Difference Algorithm for interpolation of real univariate functions. For reference, see {\bfseries Introduction to Numerical Analysis}, I\-S\-B\-N 038795452\-X, chapter 2. 
+
+The actual code of Neville's evalution is in \doxyref{Polynomial\-Function\-Lagrange\-Form}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form}, this class provides an easy-\/to-\/use interface to it.
+
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision\-:}
+620312 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Date\-:}
+2008-\/02-\/10 12\-:28\-:59 -\/0700 (Sun, 10 Feb 2008) 
+\end{DoxyParagraph}
+\begin{DoxySince}{Since}
+1.\-2 
+\end{DoxySince}
+
+
+\subsection{Member Function Documentation}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Divided\-Difference\-Interpolator@{org\-::apache\-::commons\-::math\-::analysis\-::\-Divided\-Difference\-Interpolator}!compute\-Divided\-Difference@{compute\-Divided\-Difference}}
+\index{compute\-Divided\-Difference@{compute\-Divided\-Difference}!org::apache::commons::math::analysis::DividedDifferenceInterpolator@{org\-::apache\-::commons\-::math\-::analysis\-::\-Divided\-Difference\-Interpolator}}
+\subsubsection[{compute\-Divided\-Difference}]{\setlength{\rightskip}{0pt plus 5cm}static double [$\,$] org.\-apache.\-commons.\-math.\-analysis.\-Divided\-Difference\-Interpolator.\-compute\-Divided\-Difference (
+\begin{DoxyParamCaption}
+\item[{double}]{x[$\,$], }
+\item[{double}]{y[$\,$]}
+\end{DoxyParamCaption}
+) throws {\bf Duplicate\-Sample\-Abscissa\-Exception}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_divided_difference_interpolator_a4ca04c14fd8fcdba1d7ac84284faf0cd}
+Returns a copy of the divided difference array. 
+
+The divided difference array is defined recursively by 
+\begin{DoxyPre}
+f[x0] = f(x0)
+f[x0,x1,...,xk] = (f(x1,...,xk) - f(x0,...,x[k-1])) / (xk - x0)
+\end{DoxyPre}
+
+
+The computational complexity is O(\-N$^\wedge$2).
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the interpolating points array \\
+\hline
+{\em y} & the interpolating values array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a fresh copy of the divided difference array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Duplicate\-Sample\-Abscissa\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_duplicate_sample_abscissa_exception}} & if any abscissas coincide \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Divided\-Difference\-Interpolator@{org\-::apache\-::commons\-::math\-::analysis\-::\-Divided\-Difference\-Interpolator}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!org::apache::commons::math::analysis::DividedDifferenceInterpolator@{org\-::apache\-::commons\-::math\-::analysis\-::\-Divided\-Difference\-Interpolator}}
+\subsubsection[{interpolate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Univariate\-Real\-Function} org.\-apache.\-commons.\-math.\-analysis.\-Divided\-Difference\-Interpolator.\-interpolate (
+\begin{DoxyParamCaption}
+\item[{double}]{x[$\,$], }
+\item[{double}]{y[$\,$]}
+\end{DoxyParamCaption}
+) throws {\bf Duplicate\-Sample\-Abscissa\-Exception}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_divided_difference_interpolator_adb8ff4c69106902ac6ff99ebeacee41f}
+Computes an interpolating function for the data set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the interpolating points array \\
+\hline
+{\em y} & the interpolating values array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a function which interpolates the data set 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Duplicate\-Sample\-Abscissa\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_duplicate_sample_abscissa_exception}} & if arguments are invalid \\
+\hline
+\end{DoxyExceptions}
+a[] and c[] are defined in the general formula of Newton form\-: p(x) = a[0] + a[1](x-\/c[0]) + a[2](x-\/c[0])(x-\/c[1]) + ... + a[n](x-\/c[0])(x-\/c[1])...(x-\/c[n-\/1])
+
+When used for interpolation, the Newton form formula becomes p(x) = f[x0] + f[x0,x1](x-\/x0) + f[x0,x1,x2](x-\/x0)(x-\/x1) + ... + f[x0,x1,...,x[n-\/1]](x-\/x0)(x-\/x1)...(x-\/x[n-\/2]) Therefore, a[k] = f[x0,x1,...,xk], c[k] = x[k]. 
+
+Note x[], y[], a[] have the same length but c[]'s size is one less.
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Interpolator} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_interpolator_a5beb6c4a1303c4164c654f471947fdf8}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_divided_difference_interpolator_adb8ff4c69106902ac6ff99ebeacee41f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/org/apache/commons/math/analysis/Divided\-Difference\-Interpolator.\-java\end{DoxyCompactItemize}

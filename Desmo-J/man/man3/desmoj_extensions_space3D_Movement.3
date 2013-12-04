@@ -1,0 +1,332 @@
+.TH "desmoj.extensions.space3D.Movement" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.Movement \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMovement\fP ()"
+.br
+.ti -1c
+.RI "\fBMovement\fP (\fBTrack\fP track, \fBTimeSpan\fP accDuration, \fBTimeSpan\fP maxSpeedDuration, \fBTimeSpan\fP decDuration, double initialSpeed, double maxSpeed, double endSpeed)"
+.br
+.ti -1c
+.RI "\fBMovement\fP (\fBTrack\fP track, double accDuration, double maxSpeedDuration, double decDuration, double initialSpeed, double maxSpeed, double endSpeed)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetAccDuration\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP \fBgetCurrentMovedDistance\fP (\fBTimeInstant\fP movingStartTime, \fBTimeInstant\fP now)"
+.br
+.ti -1c
+.RI "Vector3d \fBgetCurrentMovingDirection\fP (\fBTimeInstant\fP movingStartTime, \fBTimeInstant\fP now)"
+.br
+.ti -1c
+.RI "double[] \fBgetCurrentPosition\fP (\fBTimeInstant\fP movingStartTime, \fBTimeInstant\fP now)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetDecDuration\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetEndSpeed\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetInitialSpeed\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxSpeed\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetMaxSpeedDuration\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetTotalDuration\fP ()"
+.br
+.ti -1c
+.RI "\fBTrack\fP \fBgetTrack\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisValid\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAccDuration\fP (\fBTimeSpan\fP accDuration)"
+.br
+.ti -1c
+.RI "void \fBsetDecDuration\fP (\fBTimeSpan\fP decDuration)"
+.br
+.ti -1c
+.RI "void \fBsetEndSpeed\fP (double endSpeed)"
+.br
+.ti -1c
+.RI "void \fBsetInitialSpeed\fP (double initialSpeed)"
+.br
+.ti -1c
+.RI "void \fBsetMaxSpeed\fP (double maxSpeed)"
+.br
+.ti -1c
+.RI "void \fBsetMaxSpeedDuration\fP (\fBTimeSpan\fP maxSpeedDuration)"
+.br
+.ti -1c
+.RI "void \fBsetTrack\fP (\fBTrack\fP track)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBMovement\fP class stores the track, the duration informations of each phase of a movement and its associated speed\&. A movement will be divided into 3 phases, the acceleration phase, the maximum speed phase and the deceleration phase\&. It's allowed to set the initial speed greater than the maximum speed\&. Then the acceleration phase will be used to reduce the speed to the maximum speed\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.space3D\&.Movement\&.Movement ()"
+Constructs a \fBMovement\fP object with empty values\&. 
+.SS "desmoj\&.extensions\&.space3D\&.Movement\&.Movement (\fBTrack\fPtrack, \fBTimeSpan\fPaccDuration, \fBTimeSpan\fPmaxSpeedDuration, \fBTimeSpan\fPdecDuration, doubleinitialSpeed, doublemaxSpeed, doubleendSpeed)"
+It constructs a \fBMovement\fP object with given speed and duration of each phases\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrack\fP The track associated to this movement\&. 
+.br
+\fIaccDuration\fP The duration of the acceleration phase\&. 
+.br
+\fImaxSpeedDuration\fP The duration of the phase when the movement has the maximum speed\&. 
+.br
+\fIdecDuration\fP The duration of the deceleration phase\&. 
+.br
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fImaxSpeed\fP The maximum speed\&. 
+.br
+\fIendSpeed\fP The end speed\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.space3D\&.Movement\&.Movement (\fBTrack\fPtrack, doubleaccDuration, doublemaxSpeedDuration, doubledecDuration, doubleinitialSpeed, doublemaxSpeed, doubleendSpeed)"
+It constructs a \fBMovement\fP object with given speed and duration of each phases\&. The durations are in double and measured in the unit of the reference time\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrack\fP The track associated to this movement\&. 
+.br
+\fIaccDuration\fP The duration of the acceleration phase\&. 
+.br
+\fImaxSpeedDuration\fP The duration of the phase when the movement has the maximum speed\&. 
+.br
+\fIdecDuration\fP The duration of the deceleration phase\&. 
+.br
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fImaxSpeed\fP The maximum speed\&. 
+.br
+\fIendSpeed\fP The end speed\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.space3D\&.Movement\&.getAccDuration ()"
+Gets the duration of the acceleration phase\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The duration of the acceleration phase\&. 
+.RE
+.PP
+
+.SS "\fBExtendedLength\fP desmoj\&.extensions\&.space3D\&.Movement\&.getCurrentMovedDistance (\fBTimeInstant\fPmovingStartTime, \fBTimeInstant\fPnow)"
+Gets the moved distance based on the elapsed SimTime\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovingStartTime\fP The SimTime, when the movement has started\&. 
+.br
+\fInow\fP The current SimTime\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The moved distance in \fBExtendedLength\fP\&. 
+.RE
+.PP
+
+.SS "Vector3d desmoj\&.extensions\&.space3D\&.Movement\&.getCurrentMovingDirection (\fBTimeInstant\fPmovingStartTime, \fBTimeInstant\fPnow)"
+Gets the current moving direction on this movement based on the elapsed SimTime\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovingStartTime\fP The SimTime, when the movement has started\&. 
+.br
+\fInow\fP The current SimTime\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current direction in double[3]\&. 
+.RE
+.PP
+
+.SS "double [] desmoj\&.extensions\&.space3D\&.Movement\&.getCurrentPosition (\fBTimeInstant\fPmovingStartTime, \fBTimeInstant\fPnow)"
+Gets the current position on this movement based on elapsed SimTime\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovingStartTime\fP The SimTime, when the movement has started\&. 
+.br
+\fInow\fP The current SimTime\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current position in double[3]\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.space3D\&.Movement\&.getDecDuration ()"
+Gets the duration of the deceleration phase\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The duration of the deceleration phase\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.space3D\&.Movement\&.getEndSpeed ()"
+Gets the end speed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the end speed 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.space3D\&.Movement\&.getInitialSpeed ()"
+Gets the initial speed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the initial speed 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.space3D\&.Movement\&.getMaxSpeed ()"
+Gets the maximum speed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the maximum speed 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.space3D\&.Movement\&.getMaxSpeedDuration ()"
+Gets the duration when the movement has the maximum speed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The duration when the movement has the maximum speed\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.space3D\&.Movement\&.getTotalDuration ()"
+Gets the total duration which is the sum of all the 3 phases\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The total duration\&. 
+.RE
+.PP
+
+.SS "\fBTrack\fP desmoj\&.extensions\&.space3D\&.Movement\&.getTrack ()"
+Gets the track object of this movement\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the track object of this movement\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.space3D\&.Movement\&.isValid ()"
+Tests if the movement is valid and fully specified\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true if: The \fBTrack\fP object is instantiated and if neither the track length, the total duration and the sum of the speed in each phase is zero\&. If one of these condition is zero, then all of them should be zero\&. Otherwise false will be returned\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Movement\&.setAccDuration (\fBTimeSpan\fPaccDuration)"
+Sets the acceleration duration 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaccDuration\fP the acceleration duration to set 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Movement\&.setDecDuration (\fBTimeSpan\fPdecDuration)"
+Sets the deceleration duration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdecDuration\fP the deceleration duration to set 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Movement\&.setEndSpeed (doubleendSpeed)"
+Sets the end speed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIendSpeed\fP the end speed to set 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Movement\&.setInitialSpeed (doubleinitialSpeed)"
+Sets the initial speed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialSpeed\fP the initial speed to set 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Movement\&.setMaxSpeed (doublemaxSpeed)"
+Sets the maximum speed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaxSpeed\fP the maximum speed to set 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Movement\&.setMaxSpeedDuration (\fBTimeSpan\fPmaxSpeedDuration)"
+Sets the duration of the maximum speed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaxSpeedDuration\fP the duration with the maximum speed to set 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Movement\&.setTrack (\fBTrack\fPtrack)"
+Sets the track for the movement\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrack\fP track to be set\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

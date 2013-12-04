@@ -1,0 +1,364 @@
+\section{desmoj.\-core.\-simulator.\-Model Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_model}\index{desmoj.\-core.\-simulator.\-Model@{desmoj.\-core.\-simulator.\-Model}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Model\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Model\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classdesmoj_1_1core_1_1simulator_1_1_model__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Model} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+void {\bf connect\-To\-Experiment} ({\bf Experiment} exp)
+\item 
+{\bf Model\-Reporter} {\bf create\-Reporter} ()
+\item 
+abstract String {\bf description} ()
+\item 
+abstract void {\bf do\-Initial\-Schedules} ()
+\item 
+{\bf Entity} {\bf get\-Entity} (long ident)
+\item 
+List$<$ {\bf Entity} $>$ {\bf get\-Entities} (boolean include\-Submodels)
+\item 
+{\bf Experiment} {\bf get\-Experiment} ()
+\item 
+List$<$ {\bf Reportable} $>$ {\bf get\-Reportables} ()
+\item 
+{\bf Model\-Parameter\-Manager} {\bf get\-Parameter\-Manager} ()
+\item 
+boolean {\bf has\-Sub\-Models} ()
+\item 
+abstract void {\bf init} ()
+\item 
+void {\bf init} ({\bf Model\-Options} options)
+\item 
+boolean {\bf is\-Connected} ()
+\item 
+boolean {\bf is\-Main\-Model} ()
+\item 
+boolean {\bf is\-Sub\-Model} ()
+\item 
+void {\bf register} ({\bf Reportable} r)
+\item 
+void {\bf reset} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean {\bf check\-Compatibility} ({\bf Model\-Component} other)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The model is supposed to carry references to all static modelcomponents associated to a model. These are modelcomponents like distributions and statistic counters. Note that placing all essential components inside the model class allows you to use object orientation to reuse this model to implement different versions of it using subclassing for changes necessary for using other modelling paradigms. This way models can be easily reimplemented following the process-\/, event-\/, transaction-\/ or activity-\/ oriented paradigm. Note that transaction-\/ and activity-\/oriented modelling requires the higher process synchronization mechanisms (Res, Bin, Wait\-Queue, Cond\-Queue) by Soenke Claassen. 
+
+The modelcomponents belonging to a model have to be instantiated in the {\ttfamily \doxyref{init()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_a87b82ee5c9e344c34745d4844ca72884}} method. They must not be instantiated in the model's constructor since most components need access to a valid experiment object. This can only be accessed after a model has been connected to an experiment using method {\ttfamily \doxyref{connect\-To\-Experiment(\-Experiment exp)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_a1f4e1d7a9f14a7e68f43a79c88307ffc}} which implicitly calls the {\ttfamily \doxyref{init()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_a87b82ee5c9e344c34745d4844ca72884}} method after receiving the valid reference to an experiment.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!Model@{Model}}
+\index{Model@{Model}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{Model}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Model.\-Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a0de9180d0bb5fe13e0e29b1d9c68420a}
+Constructs a model, with the given name and parameters for report and trace files.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of this model \\
+\hline
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The main model this model is associated to \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this model in trace-\/files. Set it to {\ttfamily true} if model should show up in trace, {\ttfamily false} if model should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!check\-Compatibility@{check\-Compatibility}}
+\index{check\-Compatibility@{check\-Compatibility}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{check\-Compatibility}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model.\-check\-Compatibility (
+\begin{DoxyParamCaption}
+\item[{{\bf Model\-Component}}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a51ce2fa8e668743026e948e9bb69bc36}
+Checks the given modelcomponent for compatibility. Needed exclusively when submodels are present that want to share modelcomponents between them. The standard implementation only checks if the modelcomponent {\ttfamily other} belongs to {\ttfamily this} model. For use with multiple models, the user has to specify which other models are compatible to this model by overloading this method.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns {\ttfamily true} if the given modelcomponent is compatible to this model, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxyref{Model\-Component}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component} \-: The modelcomponent that needs to be checked for compatibility to this model. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_a51ce2fa8e668743026e948e9bb69bc36_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!connect\-To\-Experiment@{connect\-To\-Experiment}}
+\index{connect\-To\-Experiment@{connect\-To\-Experiment}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{connect\-To\-Experiment}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model.\-connect\-To\-Experiment (
+\begin{DoxyParamCaption}
+\item[{{\bf Experiment}}]{exp}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a1f4e1d7a9f14a7e68f43a79c88307ffc}
+Connects this model to an experiment. The given experiment must not already be connected to some other model. Otherwise an errormessage will be given and the experiment will be stopped. Since a model that is not yet connected has no access to the experiment's messaging subsystem, 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_a1f4e1d7a9f14a7e68f43a79c88307ffc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Reporter} desmoj.\-core.\-simulator.\-Model.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a5a125f2bc9eb96fe3c1fc3185e1ec690}
+Creates the default reporter associated with this model. The default reporter returned by this method just prints the model's description as implemented in method {\ttfamily \doxyref{description()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_a0884bdf9a13a5da25b0968d34c69d387}} and appends the simulation time of the last reset. If the user's model offers more information, create a special class derived from class {\ttfamily desmoj.\-report.\-Model\-Reporter} to extract and present that extra information.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Reportable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_reportable} \-: The reporter associated with this model 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!description@{description}}
+\index{description@{description}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{description}]{\setlength{\rightskip}{0pt plus 5cm}abstract String desmoj.\-core.\-simulator.\-Model.\-description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a0884bdf9a13a5da25b0968d34c69d387}
+Should return the description of the model. Implement this method to document the model's intent, creator, date and all other information that needs to be published about this model in a report. Please use it generously, other people interested in your model will thank you.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The description of the model as a text String 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!do\-Initial\-Schedules@{do\-Initial\-Schedules}}
+\index{do\-Initial\-Schedules@{do\-Initial\-Schedules}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{do\-Initial\-Schedules}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-core.\-simulator.\-Model.\-do\-Initial\-Schedules (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_model_addaf071481a772a04520b2996e545a36}
+Implement this method to schedule the entities and/or events needed for your model to start in a defined setting. If a model is connected to an experiment and started without any initial schedules, it will not run since no events to process are on the scheduler's event-\/list. This method is called automatically by the framework when the experiment's {\ttfamily start()} method is called. \index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!get\-Entities@{get\-Entities}}
+\index{get\-Entities@{get\-Entities}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{get\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Entity}$>$ desmoj.\-core.\-simulator.\-Model.\-get\-Entities (
+\begin{DoxyParamCaption}
+\item[{boolean}]{include\-Submodels}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_ad10add799586acc576ad6820c484d82c}
+Returns a list of this model's entities.
+
+
+\begin{DoxyParams}{Parameters}
+{\em include\-Submodels} & boolean \-: Do include (true) or exclude (false) submodels' entities in the list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List$<$\-Entity$>$ \-: The class will return a list of all existing objects of {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} or null if no list exists. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!get\-Entity@{get\-Entity}}
+\index{get\-Entity@{get\-Entity}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{get\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} desmoj.\-core.\-simulator.\-Model.\-get\-Entity (
+\begin{DoxyParamCaption}
+\item[{long}]{ident}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a5b1a65093d3cae0b6881cbd1b884cd62}
+Returns the entity to the belonging identifier. \begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The class will return the {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} or null if no such exists. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!get\-Experiment@{get\-Experiment}}
+\index{get\-Experiment@{get\-Experiment}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{get\-Experiment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment} desmoj.\-core.\-simulator.\-Model.\-get\-Experiment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a7057f3b1f1ff4d87c584d5c94c057247}
+Returns the experiment that is connected to this model or {\ttfamily null} if the model is not yet connected to an experiment.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment} \-: The experiment that this model is connected to or {\ttfamily null} if no connection is established 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_a7057f3b1f1ff4d87c584d5c94c057247_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!get\-Parameter\-Manager@{get\-Parameter\-Manager}}
+\index{get\-Parameter\-Manager@{get\-Parameter\-Manager}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{get\-Parameter\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Parameter\-Manager} desmoj.\-core.\-simulator.\-Model.\-get\-Parameter\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_aa217198d782ce33539b6012bf6ba7a2e}
+Returns the \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model}'s viewpoint of the \doxyref{Parameter\-Manager}{p.}{classdesmoj_1_1core_1_1simulator_1_1_parameter_manager}
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Model\-Parameter\-Manager}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_model_parameter_manager} \-: The \doxyref{Parameter\-Manager}{p.}{classdesmoj_1_1core_1_1simulator_1_1_parameter_manager} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!get\-Reportables@{get\-Reportables}}
+\index{get\-Reportables@{get\-Reportables}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{get\-Reportables}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Reportable}$>$ desmoj.\-core.\-simulator.\-Model.\-get\-Reportables (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_ad7a2bb611bf27ccf56cdf0de65d313f6}
+Returns a copy of the dynamic list containing all reportable components of this model.
+
+\begin{DoxyReturn}{Returns}
+reportables \-: A list containing all reportable components of this model. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!has\-Sub\-Models@{has\-Sub\-Models}}
+\index{has\-Sub\-Models@{has\-Sub\-Models}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{has\-Sub\-Models}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model.\-has\-Sub\-Models (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a6c845164a0e2c0ba3e3bf79cc85aaa2c}
+Shows, if there are submodels registered with this model.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True, if there is at least one submodel registered at this \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model}, flase if there are no submodels 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!init@{init}}
+\index{init@{init}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-core.\-simulator.\-Model.\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a87b82ee5c9e344c34745d4844ca72884}
+Implement this method to do initialization work for your model. All Model\-Components associated with this model are supposed to be instantiated in this method. 
+
+{\itshape Caution! Do not use the \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model}'s constructor method to instantiate your modelcomponents!} \par
+ This prevents the modelcomponents to get contact to the associated \doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment} since a \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} can only be connected to an \doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment} after itself has been instantiated correctly. Thus it is necessary to put all initialization and instantiation work into this method. Do not use this method to do the initial schedules needed for the scheduler to start with. Use method {\ttfamily \doxyref{do\-Initial\-Schedules()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_addaf071481a772a04520b2996e545a36}} instead. If there are no events scheduled in the event-\/list, the scheduler will stop the simulation immediately because there is nothing for him to do. If you are using submodels, take care that each of the submodels has its own {\ttfamily init} method properly set up. 
+
+Implemented in {\bf desmoj.\-extensions.\-visualization2d.\-animation.\-core.\-simulator.\-Model\-Animation} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1visualization2d_1_1animation_1_1core_1_1simulator_1_1_model_animation_af4b388117c85f6a60b3f95d52cf4e3ac}.
+
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!init@{init}}
+\index{init@{init}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model.\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf Model\-Options}}]{options}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a79f40203b89c98b57376946307377fa9}
+Initializes the model by calling method {\ttfamily \doxyref{init()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_a87b82ee5c9e344c34745d4844ca72884}} to set up all model related components as specified in that method. After initializing the model, the given Model\-Option's {\ttfamily set\-Option()} method is called with this model as parameter. This enables the user to specify different model parameter settings for different experiments. It even allows automated parameter variation to give a small but handy aid for model optimization. Implement the \doxyref{Model\-Options}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_model_options} to set the parameters for your model. Make sure to react properly on the \doxyref{Model\-Options}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_model_options} given. Note that specifiying \doxyref{Model\-Options}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_model_options} is up to the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & \doxyref{Model\-Options}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_model_options} \-: The parameter settings for this model \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!is\-Connected@{is\-Connected}}
+\index{is\-Connected@{is\-Connected}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{is\-Connected}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model.\-is\-Connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a5e5b7d50f25c1e6773237548755a4c31}
+Shows if this model has already been connected to an experiment.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true}, if model is connected to an experiment, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!is\-Main\-Model@{is\-Main\-Model}}
+\index{is\-Main\-Model@{is\-Main\-Model}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{is\-Main\-Model}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model.\-is\-Main\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_abc02f55e6ff165201cc4471123524339}
+Shows if this model is a main model and thus is not submodel of other models.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns {\ttfamily true} if the model is a main model, {\ttfamily false} if it is a submodel of other models 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!is\-Sub\-Model@{is\-Sub\-Model}}
+\index{is\-Sub\-Model@{is\-Sub\-Model}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{is\-Sub\-Model}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model.\-is\-Sub\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_a4dd9aae6047e6ad23ee24a1b5eb12857}
+Shows if this model is submodel to another model and thus is not the main models.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns {\ttfamily true} if the model is a submodel of other models, {\ttfamily false} if it is a main model 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!register@{register}}
+\index{register@{register}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model.\-register (
+\begin{DoxyParamCaption}
+\item[{{\bf Reportable}}]{r}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_aed40356b15b0c39e63a848a791e7e687}
+Registers a reportable at this model. Reports can only be drawn, if the reportbale is registered at his model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \doxyref{desmoj.\-core.\-simulator.\-Reportable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_reportable} \-: The reportable to be registered \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Model@{desmoj\-::core\-::simulator\-::\-Model}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::simulator::Model@{desmoj\-::core\-::simulator\-::\-Model}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_aa96af2696575903fc44ef7ec5a74e91d}
+Resets the statistic counters of this model and of all its registered reportables. Also calls all submodels's {\ttfamily \doxyref{reset()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_aa96af2696575903fc44ef7ec5a74e91d}} methods. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Model.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,621 @@
+.TH "desmoj.core.simulator.Scheduler" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Scheduler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.NamedObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBScheduler\fP (\fBExperiment\fP exp, String name, \fBEventList\fP eventList)"
+.br
+.ti -1c
+.RI "boolean \fBisRandomizingConcurrentEvents\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTimeInstant\fP \fBpresentTime\fP ()"
+.br
+.ti -1c
+.RI "\fBEntity\fP \fBgetCurrentEntity\fP ()"
+.br
+.ti -1c
+.RI "List< \fBEntity\fP > \fBgetAllCurrentEntities\fP ()"
+.br
+.ti -1c
+.RI "\fBEventAbstract\fP \fBgetCurrentEvent\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetCurrentModel\fP ()"
+.br
+.ti -1c
+.RI "\fBSchedulable\fP \fBgetCurrentSource\fP ()"
+.br
+.ti -1c
+.RI "\fBSchedulable\fP \fBgetCurrentSchedulable\fP ()"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP \fBgetCurrentSimProcess\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetExecutionSpeedRate\fP ()"
+.br
+.ti -1c
+.RI "\fBSimClock\fP \fBgetSimClock\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBprocessNextEventNote\fP ()"
+.br
+.ti -1c
+.RI "void \fBadvanceTime\fP (\fBTimeInstant\fP now, \fBTimeInstant\fP next)"
+.br
+.ti -1c
+.RI "void \fBrealTimeSchedule\fP (\fBRealTimeEventWrapper\fP what)"
+.br
+.ti -1c
+.RI "void \fBreSchedule\fP (\fBSchedulable\fP who, \fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBreSchedule\fP (\fBSchedulable\fP who, \fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBEntity\fP who, \fBEventAbstract\fP what, \fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBEntity\fP who1, \fBEntity\fP who2, EventOf2Entities<?,?> what, \fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBEntity\fP who1, \fBEntity\fP who2, \fBEntity\fP who3, EventOf3Entities<?,?,?> what, \fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBEntity\fP who, \fBEventAbstract\fP what, \fBTimeInstant\fP when)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBEntity\fP who1, \fBEntity\fP who2, EventOf2Entities<?,?> what, \fBTimeInstant\fP when)"
+.br
+.ti -1c
+.RI "void \fBschedule\fP (\fBEntity\fP who1, \fBEntity\fP who2, \fBEntity\fP who3, EventOf3Entities<?,?,?> what, \fBTimeInstant\fP when)"
+.br
+.ti -1c
+.RI "void \fBscheduleAfter\fP (\fBSchedulable\fP after, \fBEntity\fP who, \fBEventAbstract\fP what)"
+.br
+.ti -1c
+.RI "void \fBscheduleAfter\fP (\fBSchedulable\fP after, \fBEntity\fP who1, \fBEntity\fP who2, EventOf2Entities<?,?> what)"
+.br
+.ti -1c
+.RI "void \fBscheduleAfter\fP (\fBSchedulable\fP after, \fBEntity\fP who1, \fBEntity\fP who2, \fBEntity\fP who3, EventOf3Entities<?,?,?> what)"
+.br
+.ti -1c
+.RI "void \fBscheduleBefore\fP (\fBSchedulable\fP before, \fBEntity\fP who, \fBEventAbstract\fP what)"
+.br
+.ti -1c
+.RI "void \fBscheduleBefore\fP (\fBSchedulable\fP before, \fBEntity\fP who1, \fBEntity\fP who2, EventOf2Entities<?,?> what)"
+.br
+.ti -1c
+.RI "void \fBscheduleBefore\fP (\fBSchedulable\fP before, \fBEntity\fP who1, \fBEntity\fP who2, \fBEntity\fP who3, EventOf3Entities<?,?,?> what)"
+.br
+.ti -1c
+.RI "void \fBsetExecutionSpeedRate\fP (double executionSpeedRate)"
+.br
+.ti -1c
+.RI "void \fBsetRandomizingConcurrentEvents\fP (boolean randomizing)"
+.br
+.ti -1c
+.RI "void \fBsignalStop\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBExperiment\fP \fBmyExperiment\fP"
+.br
+.ti -1c
+.RI "\fBSimClock\fP \fBclock\fP"
+.br
+.ti -1c
+.RI "\fBEventList\fP \fBevList\fP"
+.br
+.ti -1c
+.RI "boolean \fBsimulationFinished\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The scheduler is the main element controlling the run of a simulation\&. It controls the event-list in which all scheduled events are stored, picks the next event to be processed and advances the simulation clock accordingly\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, modified by Ruth Meyer, Justin Neumann 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.Scheduler\&.Scheduler (\fBExperiment\fPexp, Stringname, \fBEventList\fPeventList)"
+Constructs a scheduler with given name and the event-list (i\&.e\&. inheritor of \fC\fBdesmoj\&.core\&.simulator\&.EventList\fP\fP) to use\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexp\fP \fBExperiment\fP : The experiment that uses this \fBScheduler\fP 
+.br
+\fIname\fP java\&.lang\&.String : The scheduler's name 
+.br
+\fIeventList\fP \fBEventList\fP : The event-list to store scheduled events 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.advanceTime (\fBTimeInstant\fPnow, \fBTimeInstant\fPnext)\fC [protected]\fP"
+This method is called to notify simulator about the time passed between the execution of two events with a positive (non-zero) offset\&. The implementation of this method just sets the scheduler's clock to the new instant; note, though, that extensions to DESMO-J may overwrite this method to conduct more complex operations, e\&.g\&. extrapolate variables in continuous simulation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInow\fP \fBTimeInstant\fP : The current point in simulation time 
+.br
+\fInext\fP \fBTimeInstant\fP : The next point in simulation time to advance the clock to (e\&.g\&. instant of the next event) 
+.RE
+.PP
+
+.SS "List<\fBEntity\fP> desmoj\&.core\&.simulator\&.Scheduler\&.getAllCurrentEntities ()\fC [protected]\fP"
+Returns the currently active entities\&. Returns an empty list if the current \fBSchedulable\fP happens to be an external event or a \fBSimProcess\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+List<Entity> : A list containing the currently active entities 
+.RE
+.PP
+
+.SS "\fBEntity\fP desmoj\&.core\&.simulator\&.Scheduler\&.getCurrentEntity ()\fC [protected]\fP"
+Returns the currently active \fBEntity\fP\&. Returns \fCnull\fP if the current \fBSchedulable\fP happens to be an external event or a simprocess\&. Note that in case the current Event refers to more than one entity (\fCEventOfTwoEntities\fP, \fCEventOfThreeEntitties\fP), only the first entity is returned; to obtain all such entities, use \fC\fBgetAllCurrentEntities()\fP\fP instead\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The currently active \fBEntity\fP or \fCnull\fP in case of an external event or a simprocess being the currently active \fBSchedulable\fP 
+.RE
+.PP
+
+.SS "\fBEventAbstract\fP desmoj\&.core\&.simulator\&.Scheduler\&.getCurrentEvent ()\fC [protected]\fP"
+Returns the current active Event or \fCnull\fP\&. Note that this method can also return an external event that can not be handled like an Event since it does not support scheduling together with an entity\&. Returns \fCnull\fP if the current \fBSchedulable\fP happens to be a Sim-process that has been activated, thus no kind of Event is associated with it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Event : The currently active Event or external event or \fCnull\fP if the current \fBSchedulable\fP happens to be an activated \fBSimProcess\fP 
+.RE
+.PP
+
+.SS "\fBModel\fP desmoj\&.core\&.simulator\&.Scheduler\&.getCurrentModel ()\fC [protected]\fP"
+Returns the currently active model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBModel\fP : The currently active model or \fCnull\fP in case of no model being connected so far\&. 
+.RE
+.PP
+
+.SS "\fBSchedulable\fP desmoj\&.core\&.simulator\&.Scheduler\&.getCurrentSchedulable ()\fC [protected]\fP"
+Returns the currently active \fBSchedulable\fP object\&. This can be any of its subtypes \fBEntity\fP, \fBSimProcess\fP or external event in that order\&. For events referring to multiple enities, the first entity is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSchedulable\fP : The currently active \fBSchedulable\fP 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBEntity\fP 
+.PP
+\fBSimProcess\fP 
+.PP
+\fBExternalEvent\fP 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.core\&.simulator\&.Scheduler\&.getCurrentSimProcess ()\fC [protected]\fP"
+Returns the current \fBSimProcess\fP\&. Note that this method can only return a Sim-process\&. If the currently active \fBSchedulable\fP is not instance of Sim-process or an external event, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimProcess\fP : The currently active \fBSimProcess\fP or \fCnull\fP 
+.RE
+.PP
+
+.SS "\fBSchedulable\fP desmoj\&.core\&.simulator\&.Scheduler\&.getCurrentSource ()\fC [protected]\fP"
+Returns the \fBSchedulable\fP object that as created the current EventNode, thus being responsible for what is going on at the moment
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSchedulable\fP : The source of the currently active object(s)\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBEntity\fP 
+.PP
+\fBSimProcess\fP 
+.PP
+\fBExternalEvent\fP 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.Scheduler\&.getExecutionSpeedRate ()\fC [protected]\fP"
+Returns the current execution Speed Rate\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The current execution speed rate\&. 
+.RE
+.PP
+
+.SS "\fBSimClock\fP desmoj\&.core\&.simulator\&.Scheduler\&.getSimClock ()\fC [protected]\fP"
+Returns the actual clock for this model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimClock\fP : The actual clock for simulation time 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Scheduler\&.isRandomizingConcurrentEvents ()"
+Returns if the event-list processes concurrent Events in random order or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean: \fCtrue\fP if concurrent Events are randomized, \fCfalse\fP otherwise 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Ruth Meyer 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.Scheduler\&.presentTime ()\fC [protected]\fP"
+Returns the actual simulation time as displayed by the simulation clock\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The current point in simulation time 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Scheduler\&.processNextEventNote ()\fC [protected]\fP"
+Processes the next event-note on the event-list\&. Returns \fCtrue\fP if that \fBEventNote\fP has been processed correctly, \fCfalse\fP if an error occurred or the event-list is empty\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the next event-note was processed correctly, \fCfalse\fP if not 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.realTimeSchedule (\fBRealTimeEventWrapper\fPwhat)\fC [protected]\fP"
+Schedules the external event to happen at the simulation time equivalent to the current value of wall-clock time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhat\fP \fBExternalEvent\fP : The external event to be scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.reSchedule (\fBSchedulable\fPwho, \fBTimeSpan\fPdt)\fC [protected]\fP"
+Schedules the event to happen after a specified time\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho\fP \fBEntity\fP : The \fBEntity\fP to be scheduled 
+.br
+\fIdt\fP \fBTimeSpan\fP : The point in simulation time for the event to happen as an offset to the current simulation time 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.reSchedule (\fBSchedulable\fPwho, \fBTimeInstant\fPtime)\fC [protected]\fP"
+Schedules the event to happen at the specified time\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho\fP \fBEntity\fP : The \fBEntity\fP to be scheduled 
+.br
+\fItime\fP \fBTimeInstant\fP : The point in simulation time for the event to happen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.schedule (\fBEntity\fPwho, \fBEventAbstract\fPwhat, \fBTimeSpan\fPdt)\fC [protected]\fP"
+Schedules the event to happen after a specified time span\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho\fP \fBEntity\fP : The \fBEntity\fP to be scheduled 
+.br
+\fIwhat\fP Event : The event to manipulate the entity 
+.br
+\fIdt\fP \fBTimeSpan\fP : The point in simulation time for the event to happen as an offset to the current simulation time 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.schedule (\fBEntity\fPwho1, \fBEntity\fPwho2, EventOf2Entities<?,?>what, \fBTimeSpan\fPdt)\fC [protected]\fP"
+Schedules the event to happen after a specified time span\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwhat\fP EventOf2Entities : The event to manipulate the two entities 
+.br
+\fIdt\fP \fBTimeSpan\fP : The point in simulation time for the event to happen as an offset to the current simulation time 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.schedule (\fBEntity\fPwho1, \fBEntity\fPwho2, \fBEntity\fPwho3, EventOf3Entities<?,?,?>what, \fBTimeSpan\fPdt)\fC [protected]\fP"
+Schedules the event to happen after a specified time span\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwho3\fP \fBEntity\fP : The third entity to be scheduled
+.br
+\fIwhat\fP EventOf3Entities : The event to manipulate the two entities 
+.br
+\fIdt\fP \fBTimeSpan\fP : The point in simulation time for the event to happen as an offset to the current simulation time 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.schedule (\fBEntity\fPwho, \fBEventAbstract\fPwhat, \fBTimeInstant\fPwhen)\fC [protected]\fP"
+Schedules the event to happen at the specified time\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho\fP \fBEntity\fP : The \fBEntity\fP to be scheduled 
+.br
+\fIwhat\fP Event : The event to manipulate the entity 
+.br
+\fIwhen\fP \fBTimeInstant\fP : The point in simulation time for the event to happen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.schedule (\fBEntity\fPwho1, \fBEntity\fPwho2, EventOf2Entities<?,?>what, \fBTimeInstant\fPwhen)\fC [protected]\fP"
+Schedules the event to happen at the specified time\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwhat\fP EventOf2Entities : The event to manipulate the entity
+.br
+\fIwhen\fP \fBTimeInstant\fP : The point in simulation time for the event to happen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.schedule (\fBEntity\fPwho1, \fBEntity\fPwho2, \fBEntity\fPwho3, EventOf3Entities<?,?,?>what, \fBTimeInstant\fPwhen)\fC [protected]\fP"
+Schedules the event to happen at the specified time\&. Checks that only legal combinations of valid parameters are scheduled\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwho3\fP \fBEntity\fP : The third entity to be scheduled
+.br
+\fIwhat\fP EventOf3Entities : The event to manipulate the entity 
+.br
+\fIwhen\fP \fBTimeInstant\fP : The point in simulation time for the event to happen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.scheduleAfter (\fBSchedulable\fPafter, \fBEntity\fPwho, \fBEventAbstract\fPwhat)\fC [protected]\fP"
+Schedules the given \fBEntity\fP and Event to happen straight after the given \fBSchedulable\fP is set to be activated\&. Note that the siulation time for the newly entered \fBEventNote\fP will be set to the \fBSchedulable\fP's time and the new \fBEventNote\fP will be inserted directly after the \fBSchedulable\fP's \fBEventNote\fP\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP \fBSchedulable\fP : The \fBSchedulable\fP after which the new event-note is to be scheduled 
+.br
+\fIwho\fP \fBEntity\fP : The \fBEntity\fP to be scheduled 
+.br
+\fIwhat\fP Event : The event to be scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.scheduleAfter (\fBSchedulable\fPafter, \fBEntity\fPwho1, \fBEntity\fPwho2, EventOf2Entities<?,?>what)\fC [protected]\fP"
+Schedules the given \fBEntity\fP and Event to happen straight after the given \fBSchedulable\fP is set to be activated\&. Note that the siulation time for the newly entered \fBEventNote\fP will be set to the \fBSchedulable\fP's time and the new \fBEventNote\fP will be inserted directly after the \fBSchedulable\fP's \fBEventNote\fP\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP \fBSchedulable\fP : The \fBSchedulable\fP after which the new event-note is to be scheduled 
+.br
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwhat\fP EventOf2Entities : The event to be scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.scheduleAfter (\fBSchedulable\fPafter, \fBEntity\fPwho1, \fBEntity\fPwho2, \fBEntity\fPwho3, EventOf3Entities<?,?,?>what)\fC [protected]\fP"
+Schedules the given \fBEntity\fP and Event to happen straight after the given \fBSchedulable\fP is set to be activated\&. Note that the siulation time for the newly entered \fBEventNote\fP will be set to the \fBSchedulable\fP's time and the new \fBEventNote\fP will be inserted directly after the \fBSchedulable\fP's \fBEventNote\fP\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP \fBSchedulable\fP : The \fBSchedulable\fP after which the new event-note is to be scheduled 
+.br
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwho3\fP \fBEntity\fP : The third entity to be scheduled
+.br
+\fIwhat\fP EventOf3Entities : The event to be scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.scheduleBefore (\fBSchedulable\fPbefore, \fBEntity\fPwho, \fBEventAbstract\fPwhat)\fC [protected]\fP"
+Schedules the given \fBEntity\fP and Event to happen straight before the given \fBSchedulable\fP is scheduled\&. Note that the simulation time for the newly entered \fBEventNote\fP will be set to the \fBSchedulable\fP's time and the new \fBEventNote\fP will be inserted directly before the \fBSchedulable\fP's \fBEventNote\fP\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP \fBSchedulable\fP : The \fBSchedulable\fP before which the new event-note is to be scheduled 
+.br
+\fIwho\fP \fBEntity\fP : The \fBEntity\fP to be scheduled 
+.br
+\fIwhat\fP Event : The event to be scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.scheduleBefore (\fBSchedulable\fPbefore, \fBEntity\fPwho1, \fBEntity\fPwho2, EventOf2Entities<?,?>what)\fC [protected]\fP"
+Schedules the given \fBEntity\fP and Event to happen straight before the given \fBSchedulable\fP is scheduled\&. Note that the simulation time for the newly entered \fBEventNote\fP will be set to the \fBSchedulable\fP's time and the new \fBEventNote\fP will be inserted directly before the \fBSchedulable\fP's \fBEventNote\fP\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP \fBSchedulable\fP : The \fBSchedulable\fP before which the new event-note is to be scheduled 
+.br
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwhat\fP EventOf2Entities : The event to be scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.scheduleBefore (\fBSchedulable\fPbefore, \fBEntity\fPwho1, \fBEntity\fPwho2, \fBEntity\fPwho3, EventOf3Entities<?,?,?>what)\fC [protected]\fP"
+Schedules the given \fBEntity\fP and Event to happen straight before the given \fBSchedulable\fP is scheduled\&. Note that the simulation time for the newly entered \fBEventNote\fP will be set to the \fBSchedulable\fP's time and the new \fBEventNote\fP will be inserted directly before the \fBSchedulable\fP's \fBEventNote\fP\&. 
+.PP
+ scheduling type \fBEntity\fP object Event object  Event oriented Event or \fBSimProcess\fP Event  process oriented \fBSimProcess\fP null  external event null external event  Valid scheduling types 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP \fBSchedulable\fP : The \fBSchedulable\fP before which the new event-note is to be scheduled 
+.br
+\fIwho1\fP \fBEntity\fP : The first entity to be scheduled
+.br
+\fIwho2\fP \fBEntity\fP : The second entity to be scheduled
+.br
+\fIwho3\fP \fBEntity\fP : The third entity to be scheduled
+.br
+\fIwhat\fP EventOf3Entities : The event to be scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.setExecutionSpeedRate (doubleexecutionSpeedRate)\fC [protected]\fP"
+Sets the execution speed rate\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexecutionSpeedRate\fP double : the execution speed rate 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.setRandomizingConcurrentEvents (booleanrandomizing)\fC [protected]\fP"
+Sets the flag indicating if the event-list processes concurrent Events in random order or not\&. If a change occurred the event-list has to be changed accordingly\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrandomizing\fP boolean :\fCtrue\fP forces random order, \fCfalse\fP forces 'linear' order 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Ruth Meyer 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Scheduler\&.signalStop ()\fC [protected]\fP"
+Signals that the experiment is stopped\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.Scheduler\&.toString ()"
+Returns a string representation of the current state of the event-list\&. The string is built by concatenating all string representations of the contained entities, events and \fBTimeInstant\fP objects calling their \fC\fBtoString()\fP\fP methods\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The string representation of the queuelist 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBSimClock\fP desmoj\&.core\&.simulator\&.Scheduler\&.clock\fC [protected]\fP"
+The actual simulation clock for this scheduler\&. 
+.SS "\fBEventList\fP desmoj\&.core\&.simulator\&.Scheduler\&.evList\fC [protected]\fP"
+The event-list used by the scheduler\&. 
+.SS "\fBExperiment\fP desmoj\&.core\&.simulator\&.Scheduler\&.myExperiment\fC [protected]\fP"
+The experiment this scheduler serves\&. 
+.SS "boolean desmoj\&.core\&.simulator\&.Scheduler\&.simulationFinished\fC [protected]\fP"
+Flag to indicate whether the current simulation is running or stopped\&. If true, the simulation is stopped, if false, the simulation is still running\&. This flag is especially polled by processes exiting any synchronized method used for passivating the process thus giving control back to the scheduler\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

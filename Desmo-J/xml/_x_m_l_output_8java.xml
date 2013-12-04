@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_x_m_l_output_8java" kind="file">
+    <compoundname>XMLOutput.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output" prot="public">desmoj::extensions::xml::report::XMLOutput</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1xml_1_1report">desmoj::extensions::xml::report</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.xml.report;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.w3c.dom.Document;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_file_output" kindref="compound">desmoj.core.report.FileOutput</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="interfacedesmoj_1_1core_1_1report_1_1_output_type" kindref="compound">desmoj.core.report.OutputType</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1util_1_1_x_m_l_helper" kindref="compound">desmoj.extensions.xml.util.XMLHelper</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output" kindref="compound">XMLOutput</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_file_output" kindref="compound">FileOutput</ref><sp/>implements<sp/><ref refid="interfacedesmoj_1_1core_1_1report_1_1_output_type" kindref="compound">OutputType</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeFloats<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>reportNumber;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1a5ab17e4dd8ed4f84ecce54d44f2a6582" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Document<sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1a5ab17e4dd8ed4f84ecce54d44f2a6582" kindref="member">document</ref><sp/>=<sp/>XMLHelper.createDocument();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1add0ad9d1a9f1764422950c713c134e28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1add0ad9d1a9f1764422950c713c134e28" kindref="member">createFileName</ref>(String<sp/>pathname,<sp/>String<sp/>name,<sp/>String<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>for<sp/>proper<sp/>path<sp/>and<sp/>filename</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((pathname<sp/>==<sp/>null)<sp/>||<sp/>(pathname.length()<sp/>==<sp/>0))</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pathname<sp/>=<sp/>System.getProperty(</highlight><highlight class="stringliteral">&quot;user.dir&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((name<sp/>==<sp/>null)<sp/>||<sp/>(name<sp/>!=<sp/>null<sp/>&amp;&amp;<sp/>name.length()<sp/>==<sp/>0))</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;DESMOJ&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>for<sp/>proper<sp/>suffix<sp/>of<sp/>the<sp/>filename</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((!name.endsWith(</highlight><highlight class="stringliteral">&quot;.xml&quot;</highlight><highlight class="normal">))<sp/>||<sp/>(!name.endsWith(</highlight><highlight class="stringliteral">&quot;xml&quot;</highlight><highlight class="normal">.toUpperCase())))</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pathname<sp/>+<sp/>File.separator<sp/>+<sp/>name<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_&quot;</highlight><highlight class="normal"><sp/>+<sp/>type<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.xml&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pathname<sp/>+<sp/>File.separator<sp/>+<sp/>name;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1a9caf671c841c74b9438c5c134f04c1b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1a9caf671c841c74b9438c5c134f04c1b2" kindref="member">close</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XMLHelper.serializeDocument(<ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1a5ab17e4dd8ed4f84ecce54d44f2a6582" kindref="member">document</ref>,<sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_file_output_1af8f5a237831290e0910026b6af817a0d" kindref="member">file</ref>);<sp/></highlight><highlight class="comment">//%TODO<sp/>Commented<sp/>out<sp/>by<sp/>Diehl</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.close();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1a97fd4c2e028e78db210d5a69531b6d3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1a97fd4c2e028e78db210d5a69531b6d3a" kindref="member">setTimeFloats</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeFloats)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.timeFloats<sp/>=<sp/>timeFloats;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1af3720d3c7bfb6367c84110657e840f45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1af3720d3c7bfb6367c84110657e840f45" kindref="member">getAppendix</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;.xml&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/xml/report/XMLOutput.java"/>
+  </compounddef>
+</doxygen>

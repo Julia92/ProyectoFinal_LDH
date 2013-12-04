@@ -1,0 +1,149 @@
+.TH "desmoj.core.dist.MersenneTwisterRandomGenerator" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.MersenneTwisterRandomGenerator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMersenneTwisterRandomGenerator\fP ()"
+.br
+.ti -1c
+.RI "\fBMersenneTwisterRandomGenerator\fP (long seed)"
+.br
+.ti -1c
+.RI "double \fBnextDouble\fP ()"
+.br
+.ti -1c
+.RI "int \fBnextInt\fP (int bits)"
+.br
+.ti -1c
+.RI "void \fBtwistNumbers\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSeed\fP (long newSeed)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Random \fBjavaAPIRandomGenerator\fP"
+.br
+.ti -1c
+.RI "int[] \fBmersenneTwister\fP"
+.br
+.ti -1c
+.RI "int \fBcurrentIndex\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Mersenne twister uniform pseudo random generator configured such that a stream of [0,1] double values is produced\&. Implements the \fCdesmoj\&.dist\&.UniformRandomGenerator\fP interface\&. The algorithm for pseudo random number generation is based on the Mersenne twister variant MT19937 and has a period of 2\*{19937\*}  - 1; see \fCthe Mersenne twister wikipedia entry\fP for details\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP 
+.PP
+\fBdesmoj\&.core\&.dist\&.Distribution\fP 
+.PP
+java\&.util\&.Random
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, Johannes Go\*(4bel 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.MersenneTwisterRandomGenerator ()"
+Creates a \fBMersenneTwisterRandomGenerator\fP with seed 42\&. The value 42 has been taken by pure coincidence\&. It is not really related to Douglas Adams' 'Hitchhikers Guide to the Galaxy' trilogy of five books (so far)\&. 
+.SS "desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.MersenneTwisterRandomGenerator (longseed)"
+Creates a \fBMersenneTwisterRandomGenerator\fP with given value as initial seed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIseed\fP long : The initial seed of the underlying pseudo random generator 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.nextDouble ()"
+Returns the next pseudo random uniform [0,1] distributed double value from the stream produced by the underlying pseudo random number generator\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The next pseudo random uniform [0,1] distributed double value 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP\&.
+.SS "int desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.nextInt (intbits)"
+Returns the next pseudo random integer of a given bit length\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbits\fP int : Bit length of the integer to be returned
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double : The next pseudo random integer of a given bit length 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.setSeed (longnewSeed)"
+Sets the seed for the pseudo random number generator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewSeed\fP long : The new initial seed value for the pseudo random number generator 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP\&.
+.SS "void desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.twistNumbers ()"
+Internal procedure to create ('twist') 624 new pseudo random numbers based on the last 624 pseudo random numbers\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "int desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.currentIndex\fC [protected]\fP"
+A pointer to indicate which number from the repository to read next 
+.SS "Random desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.javaAPIRandomGenerator\fC [protected]\fP"
+The random generator provided by the Java API class \fCjava\&.util\&.Random\fP 
+.SS "int [] desmoj\&.core\&.dist\&.MersenneTwisterRandomGenerator\&.mersenneTwister\fC [protected]\fP"
+The repository for storing random numbers (which also denote the state of the generator) 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

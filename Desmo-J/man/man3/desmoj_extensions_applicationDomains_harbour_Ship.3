@@ -1,0 +1,141 @@
+.TH "desmoj.extensions.applicationDomains.harbour.Ship" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.Ship \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.ExternalTransporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBShip\fP (\fBModel\fP owner, String name, long nImportGoods, long nExportGoods, int berthLength, int nCranes, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBsetBerthLength\fP (int l)"
+.br
+.ti -1c
+.RI "int \fBgetBerthLength\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNumOfCranes\fP (int n)"
+.br
+.ti -1c
+.RI "int \fBgetNumOfCranes\fP ()"
+.br
+.ti -1c
+.RI "\fBBerth\fP \fBgetBerth\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetBerth\fP (\fBBerth\fP b)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBShip\fP is an \fC\fBExternalTransporter\fP\fP wich arrives in a container terminal to deliver and /or pick up some containers (goods)\&. It has a certain number of import/export containers that must have loaded/unloaded before it can leave a container terminal\&. The both numbers must be not negative\&. It also has a certain length that he needs to take from a berth for his berthing and a ceratin number of cranes (containerbridges) that he needs for his unloading and/or loading\&. The ship can leave the terminal after his whole unloading and/or loading\&. These both parameters must be not negative or zero\&. \fBShip\fP is derived from ExternalTrasnporter\&. Its \fC\fBlifeCycle()\fP\fP must be implemented by the user in order to specify the behavior of the \fBShip\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBExternalTransporter\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Ship\&.Ship (\fBModel\fPowner, Stringname, longnImportGoods, longnExportGoods, intberthLength, intnCranes, booleanshowInTrace)"
+Constructs a \fBShip\fP which arrives at a container terminal to deliver and/or pick up some containers (goods)\&. Implement its \fC\fBlifeCycle()\fP\fP method to specify its behavior\&. A \fBShip\fP has a number of import/export containers that must have loaded/unloaded before it can leave a container terminal\&. Both must not be negative\&. Their default value is one\&. A \fBShip\fP has also a certain length that he needs to take from a berth for his berthing and a ceratin number of cranes (containerbridges) that he needs for his unloading and /or loading\&. The default value for the number of the cranes is one\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBShip\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBShip\fP\&. 
+.br
+\fInImportGoods\fP long : The number of import goods this \fBShip\fP delivers to a container terminal\&. 
+.br
+\fInExportGoods\fP long : The number of export goods this \fBShip\fP has to pick up from a container terminal\&. 
+.br
+\fIberthLength\fP int : The length of the berth that this \fBShip\fP needs for its berthing\&. 
+.br
+\fInCranes\fP int : The number of cranes (containerbridges) that this \fBShip\fP needs for its complete unloading and /or loading\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBShip\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBBerth\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Ship\&.getBerth ()"
+Returns the berth of this \fBShip\fP where it's berthing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBBerth\fP\fP: The berth of this \fBShip\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Ship\&.getBerthLength ()"
+Returns the length of a berth that this \fBShip\fP needs for its berthing there\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The needed length of a berth for this \fBShip\fP to berth there\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Ship\&.getNumOfCranes ()"
+Returns the number of the cranes (containerbridges)that this \fBShip\fP needs for his unloading and/or loading\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of the cranes of this \fBShip\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Ship\&.setBerth (\fBBerth\fPb)"
+Sets (assings) the berth of this \fBShip\fP to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fBBerth\fP : The new berth of this \fBShip\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Ship\&.setBerthLength (intl)"
+Sets the length that this \fBShip\fP needs from a berth to berth there to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIl\fP int : The new needed length of the berth for this \fBShip\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Ship\&.setNumOfCranes (intn)"
+Sets the number of the cranes that this \fBShip\fP needs for its unloading and /or loading to a new value\&. The new value must not be negative or zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP int : The new number of cranes (containerbridges) of this \fBShip\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

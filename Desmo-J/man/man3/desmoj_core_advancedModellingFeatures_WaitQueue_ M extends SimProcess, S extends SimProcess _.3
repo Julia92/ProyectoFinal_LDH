@@ -1,0 +1,742 @@
+.TH "desmoj.core.advancedModellingFeatures.WaitQueue< M extends SimProcess, S extends SimProcess >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.advancedModellingFeatures.WaitQueue< M extends SimProcess, S extends SimProcess > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWaitQueue\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, int mSortOrder, int mQCapacity, int sSortOrder, int sQCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBWaitQueue\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "S \fBavail\fP (Condition< S > cond)"
+.br
+.ti -1c
+.RI "M \fBavailMaster\fP (Condition< M > cond)"
+.br
+.ti -1c
+.RI "boolean \fBcancelCoop\fP (\fBSimProcess\fP process)"
+.br
+.ti -1c
+.RI "boolean \fBcooperate\fP (ProcessCoop< M, S > coop)"
+.br
+.ti -1c
+.RI "boolean \fBcooperate\fP (ProcessCoop< M, S > coop, Condition< S > cond)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetMQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMRefused\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMRemoved\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetCooperationsCompleted\fP ()"
+.br
+.ti -1c
+.RI "ProcessQueue< S > \fBgetSlaveQueue\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetSQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSRefused\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSRemoved\fP ()"
+.br
+.ti -1c
+.RI "double \fBmAverageLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmAverageWaitTime\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmAverageCoopTime\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBmIsEmpty\fP ()"
+.br
+.ti -1c
+.RI "long \fBmLength\fP ()"
+.br
+.ti -1c
+.RI "long \fBmMaxLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBmMaxLengthAt\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmMaxWaitTime\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBmMaxWaitTimeAt\fP ()"
+.br
+.ti -1c
+.RI "long \fBmMinLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBmMinLengthAt\fP ()"
+.br
+.ti -1c
+.RI "double \fBmStdDevLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmStdDevWaitTime\fP ()"
+.br
+.ti -1c
+.RI "long \fBmZeroWaits\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "double \fBsAverageLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsAverageWaitTime\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBsIsEmpty\fP ()"
+.br
+.ti -1c
+.RI "long \fBsLength\fP ()"
+.br
+.ti -1c
+.RI "long \fBsMaxLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBsMaxLengthAt\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsMaxWaitTime\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBsMaxWaitTimeAt\fP ()"
+.br
+.ti -1c
+.RI "long \fBsMinLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBsMinLengthAt\fP ()"
+.br
+.ti -1c
+.RI "double \fBsStdDevLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsStdDevWaitTime\fP ()"
+.br
+.ti -1c
+.RI "long \fBsZeroWaits\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBwaitOnCoop\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivateAsNext\fP (\fBSimProcess\fP process)"
+.br
+.ti -1c
+.RI "void \fBactivateFirst\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckCondition\fP (Condition<?> cond, String \fBwhere\fP)"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String \fBwhere\fP)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "QueueList< M > \fBmasterQueue\fP"
+.br
+.ti -1c
+.RI "ProcessQueue< S > \fBslaveQueue\fP"
+.br
+.ti -1c
+.RI "long \fBmRefused\fP"
+.br
+.ti -1c
+.RI "long \fBsRefused\fP"
+.br
+.ti -1c
+.RI "long \fBcCompleted\fP"
+.br
+.ti -1c
+.RI "String \fBwhere\fP"
+.br
+.ti -1c
+.RI "long \fBmRemoved\fP"
+.br
+.ti -1c
+.RI "long \fBsRemoved\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The WaitQueue is used to synchronize the cooperation of two processes\&. One process (the master) has the leading role and is performing the cooperation while the other process (the slave) is passive during this period\&. The slave will be activated again after the cooperation is done\&. The master process is calling \fC\fBcooperate()\fP\fP to signal that it is willing to cooperate as a master\&. Slaves are calling \fC\fBwaitOnCoop()\fP\fP\&. The action performed during the cooperation of the two processes has to be implemented in the method \fCcooperation()\fP in the class \fCProcessCoop\fP\&. There are two waiting-queues, one for the masters and one for the slaves\&. If there is no corresponding master or slave available, they are inserted in a such a waiting-queue\&.
+.PP
+WaitQueue is encapsulating the queue for the master processes and has a reference to a ProcessQueue where the slaves are waiting\&.
+.PP
+The first sort criteria for the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit can be determined by the user (default is FIFO and unlimited capacity)\&. WaitQueue is derived from QueueBased, which provides all the statistical functionality for a queue\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.simulator\&.QueueBased\fP 
+.PP
+desmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998 
+.PP
+edited by Lorna Slawski (process removing added)
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.WaitQueue (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, intmSortOrder, intmQCapacity, intsSortOrder, intsQCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a WaitQueue\&. Actually there are two waiting-queues constructed, one internal \fCQueueList\fP for the masters and one separate \fCProcessQueue\fP for the slave processes\&. The queueing discipline and the capacity limit of the underlying queues can be chosen\&. Highest priority are always first in the queues\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this WaitQueue is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The WaitQueue's name 
+.br
+\fImSortOrder\fP int : determines the sort order of the underlying master queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fImQCapacity\fP int : The capacity of the master queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIsSortOrder\fP int : determines the sort order of the underlying slave queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIsQCapacity\fP int : The capacity of the slave queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if WaitQueue should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.WaitQueue (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a WaitQueue\&. Actually there are two waiting-queues constructed, one internal \fCQueueList\fP for the masters and one separate \fCProcessQueue\fP for the slave processes\&. Both queues have a FIFO sort order and no capacity limit\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this WaitQueue is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The WaitQueue's name 
+.br
+\fIshowInReport\fP boolean : Flag, if WaitQueue should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if trace messages of this WaitQueue should be displayed in the trace file\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.activateAsNext (\fBSimProcess\fPprocess)\fC [protected]\fP"
+Activates the SimProcess \fCprocess\fP, given as a parameter of this method, as the next process\&. This process should be a master process waiting in the master wait queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process that is to be activated as next\&. Should be a master process\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.activateFirst ()\fC [protected]\fP"
+Activates the first master process in the master waiting-queue\&. 
+.SS "S desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.avail (Condition< S >cond)"
+Returns the slave process waiting in the slave queue and complying to the given condition\&. If there is no such slave process waiting \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimProcess : Returns the first slave process in the slave queue which complies to the given condition\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the slave process must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "M desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.availMaster (Condition< M >cond)"
+Returns the master process waiting in the master queue and complying to the given condition\&. If there is no such master process waiting \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimProcess : Returns the first master process in the master queue which complies to the given condition\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the master process must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.cancelCoop (\fBSimProcess\fPprocess)"
+Removes the given process from its queue and activates it\&. If the process is in either the master queue or the slave queue it can be removed from there and \fCtrue\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be removed from its queue, \fCfalse\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process to be removed\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.checkCondition (Condition<?>cond, Stringwhere)\fC [protected]\fP"
+Checks whether the given condition is valid and compatible with the model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the Condition is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : Is this Condition a valid one? 
+.br
+\fIwhere\fP String : The String representation of the method where this check takes place\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the process trying to cooperate as a master or a slave is a valid SimProcess\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the SimProcess is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.br
+\fIwhere\fP String : The String representation of the method where this check takes place\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.cooperate (ProcessCoop< M, S >coop)"
+This method is to be called from a \fCSimProcess\fP which wants to cooperate as a master\&. If no suitable slave process is available at the moment, the master process will be stored in the master waiting-queue, until a suitable slave is available\&. If the capacity limit of the master queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. When a suitable slave is available its \fCcooperate\fP method (in the class \fCSimProcess\fP) will be called\&. During the cooperation the master process is the only active one\&. The slave process is passive and will be reactivated after the cooperation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcoop\fP ProcessCoop : The Process cooperation coop is describing the joint action of the two processes\&. The action to be carried out has to be implemented by the user in the class: \fCProcessCoop\fP in the method: \fCcooperation()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.cooperate (ProcessCoop< M, S >coop, Condition< S >cond)"
+This method is called from a SimProcess which wants to cooperate as a master and is looking for a slave complying to a certain condition described in \fCcond\fP\&. If no suitable slave process with this condition is available at the moment, the master process will be stored in the master waiting-queue, until a suitable slave is available\&. If the capacity limit of the master queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. During the cooperation the master process is the only active one\&. The slave process is passive and will be reactivated after the cooperation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the master queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcoop\fP ProcessCoop : The Process cooperation coop is describing the joint action of the two processes\&. This has to be implemented by the user in the class: \fCProcessCoop\fP in the method: \fCcooperation\fP\&. 
+.br
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the slave process must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this WaitQueue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queues inside this WaitQueue\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getCooperationsCompleted ()"
+Returns the number of cooperations completed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of cooperations completed\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getMQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying master queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getMRefused ()"
+Returns the number of entities refused to be enqueued in the master queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the master queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getMRemoved ()"
+Returns the number of entities which have been removed from the master queue because \fC\fBcancelCoop(SimProcess)\fP\fP has been called\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities removed from the master queue\&. 
+.RE
+.PP
+
+.SS "ProcessQueue<S> desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getSlaveQueue ()"
+Returns the \fCProcessQueue\fP where the waiting slaves are stored\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ProcessQueue : The \fCProcessQueue\fP where the slaves are waiting on masters to cooperate with\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getSQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying slave queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getSRefused ()"
+Returns the number of entities refused to be enqueued in the slave's queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the slave's queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.getSRemoved ()"
+Returns the number of entities which have been removed from the slave queue because \fC\fBcancelCoop(SimProcess)\fP\fP has been called\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities removed from the slave queue\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mAverageCoopTime ()"
+Returns the masters' (and slaves') time spent per cooperation (accounting only for the cooperation itself, excluding waiting)\&. Value is valid for the time span since the last reset\&. Returns 0 (zero) if no cooperations were completed since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : Average cooperation time since last reset or 0 no cooperations were completed since the last reset\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mAverageLength ()"
+Returns the average length of the underlying master queue since the last reset\&. If the time span since the last reset is smaller than the smallest distinguishable timespan epsilon, the current length of the master queue will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average master queue length since last reset or current length of the master queue if no distinguishable periode of time has passed\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mAverageWaitTime ()"
+Returns the average waiting time of all processes who have exited the master queue\&. Value is valid for the time span since the last reset\&. Returns 0 (zero) if no process have exited the master queue after the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : Average waiting time of all processes since last reset or 0 if no process has exited the master queue 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mIsEmpty ()"
+Returns a boolean value indicating if the master queue is empty or if any number of SimProcess is currently enqueued in it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the master queue is empty, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mLength ()"
+Returns the current length of the master queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The current master queue length 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mMaxLength ()"
+Returns the maximum length of the underlying master queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mMaxLengthAt ()"
+Returns the point of simulation time with the maximum number of processes waiting inside the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : Point of time with maximum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mMaxWaitTime ()"
+Returns the maximum duration in simulation time that an process has spent waiting inside the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeSpan : Longest waiting time of a process in the master queue since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mMaxWaitTimeAt ()"
+Returns the point of simulation time when the process with the maximum waiting time exited the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : The point of simulation time when the process with the maximum waiting time exited the master queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mMinLength ()"
+Returns the minimumn length of the underlying master queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The minimum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mMinLengthAt ()"
+Returns the point of simulation time with the minimum number of processes waiting inside the underlying master queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : Point of time with minimum master queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mStdDevLength ()"
+Returns the standard deviation of the master queue's length\&. Value is weighted over time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation for the master queue's length weighted over time\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mStdDevWaitTime ()"
+Returns the standard deviation of the master queue's processes waiting times\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The standard deviation for the master queue's processes waiting times\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mZeroWaits ()"
+Returns the number of processes that have passed through the master queue without spending time waiting\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of processes who have passed the master queue without waiting 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.reset ()"
+Resets all statistical counters to their default values\&. Both, master queue and slave queue are reset\&. The mininum and maximum length of the queues are set to the current number of queued objects\&. 
+.SS "double desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sAverageLength ()"
+Returns the average length of the slave queue since the last reset\&. If the time span since the last reset is smaller than the smallest distinguishable timespan epsilon, the current length of the slave queue will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average slave queue length since last reset or current length of the slave queue if no distinguishable periode of time has passed\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sAverageWaitTime ()"
+Returns the average waiting time of all processes who have exited the slave queue\&. Value is valid for the time span since the last reset\&. Returns 0 (zero) if no process have exited the slave queue after the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : Average waiting time of all processes since last reset or 0 if no process has exited the slave queue 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sIsEmpty ()"
+Returns a boolean value indicating if the slave queue is empty or if any number of SimProcess is currently enqueued in it\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the slave queue is empty, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sLength ()"
+Returns the current length of the slave queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The current slave queue length\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sMaxLength ()"
+Returns the maximum length of the slave queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum slave queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sMaxLengthAt ()"
+Returns the point of simulation time with the maximum number of processes waiting inside the slave queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : Point of time with maximum slave queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sMaxWaitTime ()"
+Returns the maximum duration in simulation time that an process has spent waiting inside the slave queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeSpan : Longest waiting time of a process in the slave queue since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sMaxWaitTimeAt ()"
+Returns the point of simulation time when the process with the maximum waiting time exited the slave queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : The point of simulation time when the process with the maximum waiting time exited the slave queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sMinLength ()"
+Returns the minimumn length of the slave queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The minimum slave queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sMinLengthAt ()"
+Returns the point of simulation time with the minimum number of processes waiting inside the slave queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : Point of time with minimum slave queue length since the last reset\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sStdDevLength ()"
+Returns the standard deviation of the slave queue's length\&. Value is weighted over time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation for the slave queue's length weighted over time\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sStdDevWaitTime ()"
+Returns the standard deviation of the slave queue's processes waiting times\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The standard deviation for the slave queue's processes waiting times\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sZeroWaits ()"
+Returns the number of processes that have passed through the slave queue without spending time waiting\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of processes who have passed the slave queue without waiting 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.waitOnCoop ()"
+This method is called from a SimProcess which wants to cooperate as a slave\&. If no suitable master process is available at the moment, the slave process will be stored in the slave queue, until a suitable master is available\&. If the capacity limit of the slave queue is reached, the process will not be enqueued and \fCfalse\fP returned\&. During the cooperation the master process is the only active one\&. The slave process is passive and will be reactivated after the cooperation is done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the slave queue is reached)\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.cCompleted\fC [protected]\fP"
+Counter for cooperations completed 
+.SS "QueueList<M> desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.masterQueue\fC [protected]\fP"
+The queue, actually storing the master processes waiting for slaves to cooperate with 
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mRefused\fC [protected]\fP"
+Counter for the SimProcesses which are refused to be enqueued in the master queue, because the queue capacity is full\&. 
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.mRemoved\fC [protected]\fP"
+Counter for the SimProcesses which have been removed from the master queue because \fC\fBcancelCoop(SimProcess)\fP\fP has been called\&. 
+.SS "ProcessQueue<S> desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.slaveQueue\fC [protected]\fP"
+The queue, actually storing the slave processes\&. Can contain processes only! 
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sRefused\fC [protected]\fP"
+Counter for the SimProcesses which are refused to be enqueued in the slave queue, because the queue capacity is full\&. 
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.sRemoved\fC [protected]\fP"
+Counter for the SimProcesses which have been removed from the slave queue because \fC\fBcancelCoop(SimProcess)\fP\fP has been called\&. 
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends \fBSimProcess\fP, S extends \fBSimProcess\fP >\&.where\fC [protected]\fP"
+Indicates the method where something has gone wrong\&. Is passed as a parameter to the methods \fC\fBcheckProcess()\fP\fP and \fCcheckCondition\fP\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

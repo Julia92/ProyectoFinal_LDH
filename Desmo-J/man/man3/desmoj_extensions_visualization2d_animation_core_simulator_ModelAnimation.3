@@ -1,0 +1,142 @@
+.TH "desmoj.extensions.visualization2d.animation.core.simulator.ModelAnimation" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.animation.core.simulator.ModelAnimation \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Model\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBModelAnimation\fP (\fBModelAnimation\fP owner, String name, \fBCmdGeneration\fP cmdGen, boolean showInReport, boolean showInTrace, boolean showInAnimation)"
+.br
+.ti -1c
+.RI "abstract void \fBinitAnimation\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBpresentTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.ti -1c
+.RI "\fBCmdGeneration\fP \fBgetCmdGen\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBanimationIsOn\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetModelProjectName\fP (String projectName)"
+.br
+.ti -1c
+.RI "void \fBsetModelProjectURL\fP (String projectUrl)"
+.br
+.ti -1c
+.RI "void \fBsetModelProjectIconId\fP (String iconId)"
+.br
+.ti -1c
+.RI "void \fBsetModelAuthor\fP (String modelAuthor)"
+.br
+.ti -1c
+.RI "void \fBsetModelDate\fP (String modelDate)"
+.br
+.ti -1c
+.RI "void \fBsetModelDescription\fP (String \fBdescription\fP)"
+.br
+.ti -1c
+.RI "void \fBsetModelLicense\fP (String license)"
+.br
+.ti -1c
+.RI "void \fBsetGeneratedBy\fP (String generatedBy)"
+.br
+.ti -1c
+.RI "void \fBaddRemark\fP (String remark)"
+.br
+.ti -1c
+.RI "void \fBaddIcon\fP (String id, String fileName)"
+.br
+.ti -1c
+.RI "String \fBgetRemark\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddEntityTypeAnimation\fP (\fBEntityTypeAnimation\fP type)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Animated version of model\&. \fBModelAnimation\fP extends Model about a \fBCmdGeneration\fP instance and a showInAnimation switch\&. A animated model must extend form \fBModelAnimation\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\&.ModelAnimation (\fBModelAnimation\fPowner, Stringname, \fBCmdGeneration\fPcmdGen, booleanshowInReport, booleanshowInTrace, booleanshowInAnimation)"
+\fBModelAnimation\fP extends Model about a \fBCmdGeneration\fP instance and a showInAnimation switch\&. In constructor you must define: setModelAuthor(\&.\&.), setModelDate(), addRemark(), addIcon() and setGeneratedBy() 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP supermodel, may be null 
+.br
+\fIname\fP name of model 
+.br
+\fIcmdGen\fP \fBCmdGeneration\fP object 
+.br
+\fIshowInReport\fP switch for report generation 
+.br
+\fIshowInTrace\fP switch for trace generation 
+.br
+\fIshowInAnimation\fP switch for cmds-file generation 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\&.animationIsOn ()"
+gives showInAnimation switch 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "\fBCmdGeneration\fP desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\&.getCmdGen ()"
+gives \fBCmdGeneration\fP Object 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\&.init ()\fC [virtual]\fP"
+overwrites init from Model with: initCmds(), initEntityTypes(), and \fBinitAnimation()\fP 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.Model\fP\&.
+.SS "abstract void desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\&.initAnimation ()\fC [pure virtual]\fP"
+place to init black-box components and there createAnimation Statements 
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.ModelAnimation\&.presentTime ()"
+overwrite presentTime from Model\&. Originally, before experiment start presentTime is 0\&. Now, in initPhase presentTime is initTime (from cmdGeneration object) 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

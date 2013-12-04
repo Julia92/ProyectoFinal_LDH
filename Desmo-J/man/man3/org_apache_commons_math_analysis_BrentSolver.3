@@ -1,0 +1,122 @@
+.TH "org.apache.commons.math.analysis.BrentSolver" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.BrentSolver \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolverImpl\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBrentSolver\fP (\fBUnivariateRealFunction\fP \fBf\fP)"
+.br
+.ti -1c
+.RI "double \fBsolve\fP (double min, double max, double initial)  throws MaxIterationsExceededException, FunctionEvaluationException "
+.br
+.ti -1c
+.RI "double \fBsolve\fP (double min, double max)  throws MaxIterationsExceededException,          FunctionEvaluationException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Implements the \fCBrent algorithm\fP for finding zeros of real univariate functions\&. 
+.PP
+The function should be continuous but not necessarily smooth\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617826 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 09:39:18 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.analysis\&.BrentSolver\&.BrentSolver (\fBUnivariateRealFunction\fPf)"
+Construct a solver for the given function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP function to solve\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.BrentSolver\&.solve (doublemin, doublemax, doubleinitial) throws \fBMaxIterationsExceededException\fP, \fBFunctionEvaluationException\fP"
+Find a zero in the given interval with an initial guess\&. 
+.PP
+Throws \fCIllegalArgumentException\fP if the values of the function at the three points have the same sign (note that it is allowed to have endpoints with the same sign if the initial point has opposite sign function-wise)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP the lower bound for the interval\&. 
+.br
+\fImax\fP the upper bound for the interval\&. 
+.br
+\fIinitial\fP the start value to use (must be set to min if no initial point is known)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value where the function is zero 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMaxIterationsExceededException\fP\fP the maximum iteration count is exceeded 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function 
+.br
+\fIIllegalArgumentException\fP if initial is not between min and max (even if it \fIis\fP a root) 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.BrentSolver\&.solve (doublemin, doublemax) throws \fBMaxIterationsExceededException\fP,          \fBFunctionEvaluationException\fP"
+Find a zero in the given interval\&. 
+.PP
+Requires that the values of the function at the endpoints have opposite signs\&. An \fCIllegalArgumentException\fP is thrown if this is not the case\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP the lower bound for the interval\&. 
+.br
+\fImax\fP the upper bound for the interval\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value where the function is zero 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMaxIterationsExceededException\fP\fP if the maximum iteration count is exceeded 
+.br
+\fI\fBFunctionEvaluationException\fP\fP if an error occurs evaluating the function 
+.br
+\fIIllegalArgumentException\fP if min is not less than max or the signs of the values of the function at the endpoints are not opposites 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealSolver\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

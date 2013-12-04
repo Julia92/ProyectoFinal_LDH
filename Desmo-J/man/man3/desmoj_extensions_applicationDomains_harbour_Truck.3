@@ -1,0 +1,139 @@
+.TH "desmoj.extensions.applicationDomains.harbour.Truck" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.Truck \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.ExternalTransporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTruck\fP (\fBModel\fP owner, String name, long nImportGoods, long nExportGoods, double speed, boolean showInTrace)"
+.br
+.ti -1c
+.RI "double \fBgetSpeed\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSpeed\fP (double s)"
+.br
+.ti -1c
+.RI "void \fBdrive\fP (double distance)"
+.br
+.ti -1c
+.RI "double \fBgetDrivingTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetLane\fP (\fBLane\fP l)"
+.br
+.ti -1c
+.RI "\fBLane\fP \fBgetLane\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBTruck\fP is an \fC\fBExternalTransporter\fP\fP which arrives at a container terminal to deliver and /or pick up one some containers (goods)\&. It has a certain number of import/export containers that must have loaded/unloaded before it can leave a container terminal\&. The both numbers must be not negative\&. It also has a certain speed that he drives in a container terminal with\&. the speed must be not negative or zero\&. \fBTruck\fP is derived from ExternalTrasnporter\&. Its \fC\fBlifeCycle()\fP\fP must be implemented by the user in order to specify the behavior of the \fBTruck\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBExternalTransporter\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Truck\&.Truck (\fBModel\fPowner, Stringname, longnImportGoods, longnExportGoods, doublespeed, booleanshowInTrace)"
+Constructs a \fBTruck\fP which arrives at a container terminal to deliver and/or pick up some containers (goods)\&. Implement its \fC\fBlifeCycle()\fP\fP method to specify its behavior\&. A \fBTruck\fP has a number of import/export containers that must have loaded/unloaded before it can leave a container terminal\&. Both must not be negative\&. Their default value is one\&. A \fBTruck\fP has also a certain speed that he drives in a container terminal with\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTruck\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTruck\fP\&. 
+.br
+\fInImportGoods\fP long : The number of import goods this \fBTruck\fP has to pick up from a container terminal\&. 
+.br
+\fInExportGoods\fP long : The number of export goods this \fBTruck\fP delivers to a container terminal\&. 
+.br
+\fIspeed\fP double : The speed of this \fBTruck\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBTruck\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Truck\&.drive (doubledistance)"
+This method describes the driving of the certain distance of this \fBTruck\fP\&. In this simple case only the time it takes to drive the distance with his speed\&. The time of drives of this \fBTruck\fP were counted in this method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdistance\fP double : The distance to drive\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Truck\&.getDrivingTime ()"
+Returns the whole time of this \fBTruck\fP he has driven\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The driving time of this \fBTruck\fP\&. 
+.RE
+.PP
+
+.SS "\fBLane\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Truck\&.getLane ()"
+Returns the current lane this \fBTruck\fP stands in by the HO\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBLane\fP\fP: The lane of this \fBTruck\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Truck\&.getSpeed ()"
+Returns the speed of this \fBTruck\fP he drives with\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The speed of this \fBTruck\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Truck\&.setLane (\fBLane\fPl)"
+Sets the lane where the truck waits by the holding area\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIl\fP \fC\fBLane\fP\fP: The new lane of this \fBTruck\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Truck\&.setSpeed (doubles)"
+Sets the speed of this \fBTruck\fP it drives with\&. to a new value\&. The new value must not be negative or zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP double : The new speed of this \fBTruck\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

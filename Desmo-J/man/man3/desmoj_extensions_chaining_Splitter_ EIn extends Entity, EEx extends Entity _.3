@@ -1,0 +1,103 @@
+.TH "desmoj.extensions.chaining.Splitter< EIn extends Entity, EEx extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.chaining.Splitter< EIn extends Entity, EEx extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Station< EIn >, and HasPredecessor< EIn >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSplitter\fP (List< SplitterOutput< EIn,?extends EEx >> \fBoutputConfigurations\fP, int incomingBufferQueueCapacity, int maxEntitiesToHandel, int parallelHandledEntities, NumericalDist<?> setupTime, NumericalDist<?> serviceTime, NumericalDist<?> recoveryTime, \fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetTransportTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBonServiceFinisched\fP (EIn who)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "final List< SplitterOutput
+.br
+< EIn,?extends EEx > > \fBoutputConfigurations\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Splitter takes a given Entity and splits it in the parts defined in the List of SplitterOutputs\&. The Splitter inherits all behavior from the station except the transport time which is defined in the SplitterOutput\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<EIn>\fP the entity which comes in the splitter 
+.br
+\fI<EEx>\fP the entity which leaves the splitter
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christian Mentz
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.chaining\&.Splitter< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.Splitter (List< SplitterOutput< EIn,?extends EEx >>outputConfigurations, intincomingBufferQueueCapacity, intmaxEntitiesToHandel, intparallelHandledEntities, NumericalDist<?>setupTime, NumericalDist<?>serviceTime, NumericalDist<?>recoveryTime, \fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+This Constructor sets the given times, initializes the queues and fills the free service capacity queue\&. If a given int is lower than zero the station assumes that there is no resriction\&. This applies to incomingBufferQueueCapacity, maxEntitiesToHandle, parallelHandledEntities
+.PP
+\fBParameters:\fP
+.RS 4
+\fIoutputConfigurations\fP the List of Splitteroutputs which contains the information of the outgoing entities and its ratio\&. 
+.br
+\fIincomingBufferQueueCapacity\fP the capatiy of the income queue 
+.br
+\fImaxEntitiesToHandle\fP the number of max entities the station can handle 
+.br
+\fIparallelHandledEntities\fP the number of max parallel entities a station can handle 
+.br
+\fIsetupTime\fP the time the station needs to set up 
+.br
+\fIserviceTime\fP the time the station needs for the service 
+.br
+\fIrecoveryTime\fP the time the station needs tor recover 
+.br
+\fIowner\fP the model owner 
+.br
+\fIname\fP the name of the station 
+.br
+\fIshowInReport\fP should this construct be in the report 
+.br
+\fIshowInTrace\fP should this construct be in the trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.chaining\&.Splitter< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.onServiceFinisched (EInwho)\fC [protected]\fP"
+schedules the succsessor events which a defined in the Splitteroutput class with the defined transport time 
+.SH "Member Data Documentation"
+.PP 
+.SS "final List<SplitterOutput<EIn, ? extends EEx> > desmoj\&.extensions\&.chaining\&.Splitter< EIn extends \fBEntity\fP, EEx extends \fBEntity\fP >\&.outputConfigurations\fC [protected]\fP"
+The List of Splitteroutputs 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

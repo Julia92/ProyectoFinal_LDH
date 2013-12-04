@@ -1,0 +1,105 @@
+.TH "desmoj.core.statistic.StatisticObjectSupportingTimeSpans" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.StatisticObjectSupportingTimeSpans \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.StatisticObject\fP, and Observer\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.statistic\&.Aggregate\fP, \fBdesmoj\&.core\&.statistic\&.TimeSeries\fP, and \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStatisticObjectSupportingTimeSpans\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "abstract void \fBupdate\fP (\fBTimeSpan\fP t)"
+.br
+.ti -1c
+.RI "String \fBgetUnit\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetShowTimeSpansInReport\fP (boolean value)"
+.br
+.ti -1c
+.RI "boolean \fBgetShowTimeSpansInReport\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fC\fBStatisticObjectSupportingTimeSpans\fP\fP class is the super class of the specific data collector classes able to handle \fCTimeSpan\fP objects\&. If the data collector should be used to measure the lengths of \fCTimeSpan\fPs, the method \fCsetShowTimeSpansInReport(true)\fP should be called to appropriately assign the (reference) unit\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\&.StatisticObjectSupportingTimeSpans (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBStatisticObjectSupportingTimeSpans\fP, preliminarily without a unit assigned
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBStatisticObject\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBStatisticObject\fP 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBStatisticObject\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBStatisticObject\fP in trace files\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\&.getShowTimeSpansInReport ()"
+Are values printed as TimeSpans in the report?
+.PP
+\fBReturns:\fP
+.RS 4
+true if values are printed as TimeSpans, false if not\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\&.getUnit ()"
+
+.SS "void desmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\&.setShowTimeSpansInReport (booleanvalue)"
+Sets if values should be interpreted and printed as TimeSpans (subject to the experiment's reference unit) in the Report\&. Unless a unit is explicitly otherwise using \fCsetUnit(\&.\&.\&.)\fP, this class assumes updates refer to the reference time unit\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP boolean : true, if values should be printed as TimeSpans, false if not\&. 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\&.update (\fBTimeSpan\fPt)\fC [pure virtual]\fP"
+Updates this data collector object with a specific \fCTimeSpan\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP TimeSpan : The time span to update this data collector\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.statistic\&.TimeSeries\fP, \fBdesmoj\&.core\&.statistic\&.ValueStatistics\fP, and \fBdesmoj\&.core\&.statistic\&.Aggregate\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

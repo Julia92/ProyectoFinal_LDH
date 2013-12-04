@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function" kind="class" prot="public">
+    <compoundname>org::apache::commons::math::analysis::PolynomialSplineFunction</compoundname>
+    <basecompoundref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_differentiable_univariate_real_function" prot="public" virt="non-virtual">org.apache.commons.math.analysis.DifferentiableUnivariateRealFunction</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a6bcd424836e7d64a83f345a37e829424" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.apache.commons.math.analysis.PolynomialSplineFunction.serialVersionUID</definition>
+        <argsstring></argsstring>
+        <name>serialVersionUID</name>
+        <initializer>= 1619940313389547244L</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serializable version identifier </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="62" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1ad7ac583c4d6d520dc2ec596abd5598c1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double org.apache.commons.math.analysis.PolynomialSplineFunction.knots[]</definition>
+        <argsstring>[]</argsstring>
+        <name>knots</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Spline segment interval delimiters (knots). Size is n+1 for n segments. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="65" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1ad3658e366ea0153f01693ee60321e070" prot="private" static="no" mutable="no">
+        <type><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function" kindref="compound">PolynomialFunction</ref></type>
+        <definition>PolynomialFunction org.apache.commons.math.analysis.PolynomialSplineFunction.polynomials[]</definition>
+        <argsstring>[]</argsstring>
+        <name>polynomials</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The polynomial functions that make up the spline. The first element determines the value of the spline over the first subinterval, the second over the second, etc. Spline function values are determined by evaluating these functions at <computeroutput>(x - knot[i])</computeroutput> where i is the knot segment to which x belongs. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="74" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1acd0a5433e581aba7fed525465a15b4f2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.apache.commons.math.analysis.PolynomialSplineFunction.n</definition>
+        <argsstring></argsstring>
+        <name>n</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of spline segments = number of polynomials = number of partition points - 1 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="80" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a71f20709e367101df4d7effdabdf973e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.apache.commons.math.analysis.PolynomialSplineFunction.PolynomialSplineFunction</definition>
+        <argsstring>(double knots[], PolynomialFunction polynomials[])</argsstring>
+        <name>PolynomialSplineFunction</name>
+        <param>
+          <type>double</type>
+          <declname>knots</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function" kindref="compound">PolynomialFunction</ref></type>
+          <declname>polynomials</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a polynomial spline function with the given segment delimiters and interpolating polynomials. </para><para>The constructor copies both arrays and assigns the copies to the knots and polynomials properties, respectively.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>knots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>spline segment interval delimiters </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>polynomials</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>polynomial functions that make up the spline </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>NullPointerException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if either of the input arrays is null </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if knots has length less than 2, <computeroutput>polynomials.length != knots.length - 1 </computeroutput>, or the knots array is not strictly increasing. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="98" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="98" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a33e2d16f3954053185f4cf48521d14df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double org.apache.commons.math.analysis.PolynomialSplineFunction.value</definition>
+        <argsstring>(double v)</argsstring>
+        <name>value</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_function_1a0e7a98f515a5fecfb77a21244e70b919">value</reimplements>
+        <param>
+          <type>double</type>
+          <declname>v</declname>
+        </param>
+        <exceptions> throws <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1_argument_outside_domain_exception" kindref="compound">ArgumentOutsideDomainException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the value for the function. </para><para>Throws <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1_function_evaluation_exception" kindref="compound">FunctionEvaluationException</ref> if v is outside of the domain of the function. The domain is [smallest knot, largest knot].</para><para>See <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function" kindref="compound">PolynomialSplineFunction</ref> for details on the algorithm for computing the value of the function.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the point for which the function value should be computed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the value </para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1_argument_outside_domain_exception" kindref="compound">ArgumentOutsideDomainException</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if v is outside of the domain of of the spline function (less than the smallest knot point or greater than the largest knot point) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="134" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="134" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a7169dec0a8ca201095d363804bd71b6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_function" kindref="compound">UnivariateRealFunction</ref></type>
+        <definition>UnivariateRealFunction org.apache.commons.math.analysis.PolynomialSplineFunction.derivative</definition>
+        <argsstring>()</argsstring>
+        <name>derivative</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_differentiable_univariate_real_function_1a91eeed6dae14ca71a89c395d85386c2e">derivative</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the derivative of the polynomial spline function as a <ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_function" kindref="compound">UnivariateRealFunction</ref> <simplesect kind="return"><para>the derivative function </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="155" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="155" bodyend="157"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a2f8dca407522cbb9c103fde43d0d93a2" compoundref="_polynomial_spline_function_8java" startline="164" endline="170">org.apache.commons.math.analysis.PolynomialSplineFunction.polynomialSplineDerivative</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a2f8dca407522cbb9c103fde43d0d93a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function" kindref="compound">PolynomialSplineFunction</ref></type>
+        <definition>PolynomialSplineFunction org.apache.commons.math.analysis.PolynomialSplineFunction.polynomialSplineDerivative</definition>
+        <argsstring>()</argsstring>
+        <name>polynomialSplineDerivative</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the derivative of the polynomial spline function as a <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function" kindref="compound">PolynomialSplineFunction</ref></para><para><simplesect kind="return"><para>the derivative function </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="164" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="164" bodyend="170"/>
+        <references refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a71f20709e367101df4d7effdabdf973e" compoundref="_polynomial_spline_function_8java" startline="98" endline="117">org.apache.commons.math.analysis.PolynomialSplineFunction.PolynomialSplineFunction</references>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1aa47fdc8b458a397a14932cf1352a7bab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.apache.commons.math.analysis.PolynomialSplineFunction.getN</definition>
+        <argsstring>()</argsstring>
+        <name>getN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of spline segments = the number of polynomials = the number of knot points - 1.</para><para><simplesect kind="return"><para>the number of spline segments </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="178" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="178" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a3d20938d57839f593682d57c2d6619e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function" kindref="compound">PolynomialFunction</ref>[]</type>
+        <definition>PolynomialFunction [] org.apache.commons.math.analysis.PolynomialSplineFunction.getPolynomials</definition>
+        <argsstring>()</argsstring>
+        <name>getPolynomials</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a copy of the interpolating polynomials array. </para><para>Returns a fresh copy of the array. Changes made to the copy will not affect the polynomials property.</para><para><simplesect kind="return"><para>the interpolating polynomials </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="190" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="190" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a4522cc4ef0e30e199be9e66586e76f50" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double[]</type>
+        <definition>double [] org.apache.commons.math.analysis.PolynomialSplineFunction.getKnots</definition>
+        <argsstring>()</argsstring>
+        <name>getKnots</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an array copy of the knot points. </para><para>Returns a fresh copy of the array. Changes made to the copy will not affect the knots property.</para><para><simplesect kind="return"><para>the knot points </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="204" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="204" bodyend="208"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a5a1b5544ac9ce7ad76af30c586873833" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.apache.commons.math.analysis.PolynomialSplineFunction.isStrictlyIncreasing</definition>
+        <argsstring>(double[] x)</argsstring>
+        <name>isStrictlyIncreasing</name>
+        <param>
+          <type>double[]</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determines if the given array is ordered in a strictly increasing fashion.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array to examine. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the elements in <computeroutput>x</computeroutput> are ordered in a stricly increasing manner. <computeroutput>false</computeroutput>, otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="218" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="218" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Represents a polynomial spline function. </para><para>A <bold>polynomial spline function</bold> consists of a set of <emphasis>interpolating polynomials</emphasis> and an ascending array of domain <emphasis>knot points</emphasis>, determining the intervals over which the spline function is defined by the constituent polynomials. The polynomials are assumed to have been computed to match the values of another function at the knot points. The value consistency constraints are not currently enforced by <computeroutput><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function" kindref="compound">PolynomialSplineFunction</ref></computeroutput> itself, but are assumed to hold among the polynomials and knot points passed to the constructor.</para><para>N.B.: The polynomials in the <computeroutput>polynomials</computeroutput> property must be centered on the knot points to compute the spline function values. See below.</para><para>The domain of the polynomial spline function is <computeroutput>[smallest knot, largest knot]</computeroutput>. Attempts to evaluate the function at values outside of this range generate IllegalArgumentExceptions. </para><para>The value of the polynomial spline function for an argument <computeroutput>x</computeroutput> is computed as follows: <orderedlist>
+<listitem>
+<para>The knot array is searched to find the segment to which <computeroutput>x</computeroutput> belongs. If <computeroutput>x</computeroutput> is less than the smallest knot point or greater than the largest one, an <computeroutput>IllegalArgumentException</computeroutput> is thrown. </para></listitem>
+<listitem>
+<para>Let <computeroutput>j</computeroutput> be the index of the largest knot point that is less than or equal to <computeroutput>x</computeroutput>. The value returned is <linebreak/>
+ <computeroutput>polynomials[j](x - knot[j])</computeroutput></para></listitem>
+</orderedlist>
+</para><para><simplesect kind="version"><para></para></simplesect>
+<simplesect kind="rcs"><title>Revision:</title><para>615734 </para></simplesect>
+<simplesect kind="rcs"><title>Date:</title><para>2008-01-27 23:10:03 -0700 (Sun, 27 Jan 2008) </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="9480">
+        <label>Serializable</label>
+      </node>
+      <node id="9479">
+        <label>org.apache.commons.math.analysis.UnivariateRealFunction</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_function"/>
+      </node>
+      <node id="9478">
+        <label>org.apache.commons.math.analysis.DifferentiableUnivariateRealFunction</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_differentiable_univariate_real_function"/>
+        <childnode refid="9479" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9477">
+        <label>org.apache.commons.math.analysis.PolynomialSplineFunction</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function"/>
+        <childnode refid="9478" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9480" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9484">
+        <label>Serializable</label>
+      </node>
+      <node id="9483">
+        <label>org.apache.commons.math.analysis.UnivariateRealFunction</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_function"/>
+      </node>
+      <node id="9482">
+        <label>org.apache.commons.math.analysis.DifferentiableUnivariateRealFunction</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_differentiable_univariate_real_function"/>
+        <childnode refid="9483" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9481">
+        <label>org.apache.commons.math.analysis.PolynomialSplineFunction</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function"/>
+        <childnode refid="9482" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9484" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" line="59" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/analysis/PolynomialSplineFunction.java" bodystart="58" bodyend="226"/>
+    <listofallmembers>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a7169dec0a8ca201095d363804bd71b6c" prot="public" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>derivative</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a4522cc4ef0e30e199be9e66586e76f50" prot="public" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>getKnots</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1aa47fdc8b458a397a14932cf1352a7bab" prot="public" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>getN</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a3d20938d57839f593682d57c2d6619e4" prot="public" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>getPolynomials</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a5a1b5544ac9ce7ad76af30c586873833" prot="private" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>isStrictlyIncreasing</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1ad7ac583c4d6d520dc2ec596abd5598c1" prot="private" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>knots</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1acd0a5433e581aba7fed525465a15b4f2" prot="private" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>n</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1ad3658e366ea0153f01693ee60321e070" prot="private" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>polynomials</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a2f8dca407522cbb9c103fde43d0d93a2" prot="public" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>polynomialSplineDerivative</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a71f20709e367101df4d7effdabdf973e" prot="public" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>PolynomialSplineFunction</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a6bcd424836e7d64a83f345a37e829424" prot="private" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>serialVersionUID</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_spline_function_1a33e2d16f3954053185f4cf48521d14df" prot="public" virt="non-virtual"><scope>org::apache::commons::math::analysis::PolynomialSplineFunction</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

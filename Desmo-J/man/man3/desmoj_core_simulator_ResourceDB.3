@@ -1,0 +1,239 @@
+.TH "desmoj.core.simulator.ResourceDB" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.ResourceDB \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "synchronized boolean \fBcheckForDeadlock\fP (\fBSimProcess\fP unsatProc)"
+.br
+.ti -1c
+.RI "boolean \fBdebugIsOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBdebugOff\fP ()"
+.br
+.ti -1c
+.RI "void \fBdebugOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeleteResAllocation\fP (\fBRes\fP resPool, \fBSimProcess\fP doneProc, int quantity)"
+.br
+.ti -1c
+.RI "void \fBdeleteResRequest\fP (\fBSimProcess\fP gainProc, \fBRes\fP resPool, int quantity)"
+.br
+.ti -1c
+.RI "void \fBnoteResourceAllocation\fP (\fBRes\fP resourcePool, \fBSimProcess\fP allocatingProcess, int quantity)"
+.br
+.ti -1c
+.RI "void \fBnoteResourceRequest\fP (\fBSimProcess\fP requestingProcess, \fBRes\fP resourcePool, int quantity)"
+.br
+.ti -1c
+.RI "String \fBtoHtmlString\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBResourceDB\fP (\fBExperiment\fP owner)"
+.br
+.ti -1c
+.RI "void \fBsendDebugNote\fP (String description)"
+.br
+.ti -1c
+.RI "void \fBsendMessage\fP (\fBMessage\fP m)"
+.br
+.ti -1c
+.RI "void \fBsendTraceNote\fP (String description)"
+.br
+.ti -1c
+.RI "void \fBsendWarning\fP (String description, String location, String reason, String prevention)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+In the resource database every Simprocess and the resources it requests or holds at the moment are stored\&. This information is needed i\&.e\&. for detecting deadlocks\&. An instance will be created, when an experiment is created\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.ResourceDB\&.ResourceDB (\fBExperiment\fPowner)\fC [protected]\fP"
+This private constructor is defined to prevent the compiler from generating a default public constructor\&. This constructor is called from the constructor of \fC\fBExperiment\fP\fP to make sure that for every experiment there is a new resource DB\&. The debug output for this \fC\fBResourceDB\fP\fP is turned on by default\&. But you have to make sure, that the default output for the experiment is turned on, too\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Experiment : the experiment this resource database belongs to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "synchronized boolean desmoj\&.core\&.simulator\&.ResourceDB\&.checkForDeadlock (\fBSimProcess\fPunsatProc)"
+This method is called when a \fBSimProcess\fP can not get the resources desired to check if a possible deadlock situation has occured\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIunsatProc\fP desmoj\&.SimProcess : The \fBSimProcess\fP which can not get the resources desired\&. The unsatisfied process\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : is \fCtrue\fP if a deadlock is found, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ResourceDB\&.debugIsOn ()"
+Shows if this resourceDB currently produces debug output\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : true, if resourceDB shows in debug, false if not 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.debugOff ()"
+Switches off debug output for this resourceDB\&. 
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.debugOn ()"
+Switches on debug output for this resourceDB\&. 
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.deleteResAllocation (\fBRes\fPresPool, \fBSimProcess\fPdoneProc, intquantity)"
+Deletes an entry in the resource data base (should be called when a Sim-process is done with it's requested number of resources from a resource pool (\fCRes\fP ))\&. The \fBSimProcess\fP and the number of requested resources will be deleted in the corresponding Vector (of the Res pool) in the assignment hashtable\&. The Res pool is the key to this hashtable, specifying the Vector which holds all the (SimProcess/number of requested resources)-pairs\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIresPool\fP desmoj\&.Res : The resource pool which has provided the resources\&. (The key to the hashtable) 
+.br
+\fIdoneProc\fP desmoj\&.SimProcess : The Simprocess giving back his allocated resources\&. He should be done with the resources now\&. 
+.br
+\fIquantity\fP int : The number of resources the \fBSimProcess\fP has used\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.deleteResRequest (\fBSimProcess\fPgainProc, \fBRes\fPresPool, intquantity)"
+Deletes an entry in the resource data base (should be called when a Sim-process receives it's requested number of resources from a resource pool (\fCRes\fP ))\&. The resource pool and the number of requested resources will be deleted in the request hashtable\&. The Sim-process is the key to this hashtable, specifying the RequestedResources object which holds the (resource pool/number of requested resources)-pair\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgainProc\fP desmoj\&.SimProcess : The Simprocess giving up his request for the resources\&. Hopefully he gets satisfied\&. 
+.br
+\fIresPool\fP desmoj\&.Res : The resource pool which provides the resources\&. 
+.br
+\fIquantity\fP int : The number of resources the \fBSimProcess\fP gets\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.noteResourceAllocation (\fBRes\fPresourcePool, \fBSimProcess\fPallocatingProcess, intquantity)"
+Makes an entry in the resource data base when a \fBSimProcess\fP is allocating a number of resources from a resource pool (\fCRes\fP)\&. The Sim-process and the number of allocated resources will be saved in the assignment hashtable\&. The resource pool is the key to this hashtable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIresourcePool\fP desmoj\&.Res : The resource pool which is providing the resources\&. 
+.br
+\fIallocatingProcess\fP desmoj\&.SimProcess : The Simprocess which is allocating the resources\&. 
+.br
+\fIquantity\fP int : The number of resources the \fBSimProcess\fP is allocating\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.noteResourceRequest (\fBSimProcess\fPrequestingProcess, \fBRes\fPresourcePool, intquantity)"
+Makes an entry in the resource data base when a \fBSimProcess\fP is requesting a number of resources from a resource pool (\fCRes\fP)\&. The resource pool and the number of requested resources will be saved in the request hashtable\&. The \fBSimProcess\fP is the key to this hashtable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequestingProcess\fP desmoj\&.SimProcess : The Simprocess which is requesting the resources\&. 
+.br
+\fIresourcePool\fP desmoj\&.Res : The resource pool which should provide the resources\&. 
+.br
+\fIquantity\fP int : The number of resources the \fBSimProcess\fP wants to get\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.sendDebugNote (Stringdescription)\fC [protected]\fP"
+Creates and sends a debugnote to the experiment's messagedistributor\&. Debugnotes express the internal state of the \fBResourceDB\fP to visualize the changes of state to help find bugs\&. The information about the simulation time is extracted from the experiment and must not be given as a parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdescription\fP java\&.lang\&.String : The description of the \fBResourceDB\fP's internal state to be passed with this debugnote 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.sendMessage (\fBMessage\fPm)\fC [protected]\fP"
+Sends a message to the messagedistributor handled by the experiment\&. This \fBResourceDB\fP must already be connected to an experiment in order to have a messagedistributor available to send this message to and an appropriate messagereceiver must already be registered at the messagedistributor to receive that type of message passed on to it\&. If no messaging subsystem is available to this \fBResourceDB\fP, then the mesage is printed to the standard \fCout\fP printstream as configured in the local Java runtime environment of the computer this simulation is running on\&. Note that there are shorthands for sending the standard DESMO-J messages\&. These methods create and send the appropriate Message on-the-fly: 
+.PD 0
+
+.IP "\(bu" 2
+\fC\fBsendTraceNote()\fP</clode> to send a tracenote \fP
+.IP "\(bu" 2
+\fC\fC\fBsendDebugNote()\fP\fP to send the data needed to debug models \fP
+.IP "\(bu" 2
+\fC\fC\fBsendWarning()\fP\fP to send an errormessage that does not stop the experiment \fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP \fCMessage : The message to be transmitted \fP
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fC \fBResourceDB::sendTraceNote\fP \fP
+.PP
+\fC \fBResourceDB::sendDebugNote\fP \fP
+.PP
+\fC \fBResourceDB::sendWarning\fP \fP
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.sendTraceNote (Stringdescription)\fC [protected]\fP"
+Creates and sends a tracenote to the experiment's messagedistributor\&. The information about the simulation time, model and component producing this tracenote is extracted from the experiment and must not be given as parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdescription\fP java\&.lang\&.String : The description of the tracenote 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ResourceDB\&.sendWarning (Stringdescription, Stringlocation, Stringreason, Stringprevention)\fC [protected]\fP"
+Creates and sends an error message to warn about a erroneous condition in the DESMO-J framework to the experiment's messagedistributor\&. Be sure to have a correct location, since the object and method that the error becomes apparent is not necessary the location it was produced in\&. The information about the simulation time is extracted from the \fBExperiment\fP and must not be given as a parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdescription\fP java\&.lang\&.String : The description of the error that occured 
+.br
+\fIlocation\fP java\&.lang\&.String : The class and method the error occured in 
+.br
+\fIreason\fP java\&.lang\&.String : The reason most probably responsible for the error to occur 
+.br
+\fIprevention\fP java\&.lang\&.String : The measures a user should take to prevent this warning to be issued again 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.ResourceDB\&.toHtmlString ()"
+Returns a string representation of the resource database with some HTML formatting tags\&. Lists first for every \fBSimProcess\fP all the resources he is requesting and second for every resource pool (\fCRes\fP) all the SimProcesses that are using resources from that resource pool\&. This information is useful for debugging purposes\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The string representation of this resource database\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,223 @@
+.TH "desmoj.extensions.experimentation.reflect.ReflectionManager" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.reflect.ReflectionManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static Method \fBgetMethod\fP (Class c, String methodName, Class[] params)  throws ReflectException "
+.br
+.ti -1c
+.RI "static Method \fBgetMethod\fP (Class c, String methodName)  throws ReflectException "
+.br
+.ti -1c
+.RI "static Object \fBinvokeMethod\fP (Object owner, Method method, Object[] args)  throws ReflectException "
+.br
+.ti -1c
+.RI "static Constructor \fBgetConstructor\fP (Class c, Class[] params)"
+.br
+.ti -1c
+.RI "static Object \fBinvokeConstructor\fP (Constructor c, Object[] args)  throws ReflectException "
+.br
+.ti -1c
+.RI "static Field \fBgetField\fP (Class c, String fieldName)  throws ReflectException "
+.br
+.ti -1c
+.RI "static Object \fBgetValue\fP (Object owner, Field field)  throws ReflectException "
+.br
+.ti -1c
+.RI "static void \fBsetValue\fP (Object owner, Field field, Object value)  throws ReflectException "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A utility class for using the Java Reflection API\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "static Constructor desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.getConstructor (Classc, Class[]params)\fC [static]\fP"
+Retrieves a constructor from a given class\&. If anything goes wrong a reflect exception is thrown
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the class 
+.br
+\fIparams\fP the constructor's parameter list\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a constructor object 
+.RE
+.PP
+
+.SS "static Field desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.getField (Classc, StringfieldName) throws \fBReflectException\fP\fC [static]\fP"
+Retrieves a field from a given class\&. In this implementation only fields declared directly by the given class are found\&. On errors a reflect exception is thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the class 
+.br
+\fIfieldName\fP the field name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a field object 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBReflectException\fP\fP 
+.RE
+.PP
+
+.SS "static Method desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.getMethod (Classc, StringmethodName, Class[]params) throws \fBReflectException\fP\fC [static]\fP"
+Retrieves a method of a given class\&. If anything goes wrong a \fBReflectException\fP is thrown\&. In this implementation only methods declared directly by the given class are found\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the class 
+.br
+\fImethodName\fP name of the method 
+.br
+\fIparams\fP parameter list of the method 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the method 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBReflectException\fP\fP 
+.RE
+.PP
+
+.SS "static Method desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.getMethod (Classc, StringmethodName) throws \fBReflectException\fP\fC [static]\fP"
+Retrieves a method of a given class with an empty parameter list\&. If anything goes wrong a \fBReflectException\fP is thrown\&. In this implementation only methods declared directly by the given class are found\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the class 
+.br
+\fImethodName\fP name of the method 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the method 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBReflectException\fP\fP 
+.RE
+.PP
+
+.SS "static Object desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.getValue (Objectowner, Fieldfield) throws \fBReflectException\fP\fC [static]\fP"
+Returns the value of the given field has in the specified object\&. On any error a reflect exception is thrown
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP the object who owns the field 
+.br
+\fIfield\fP the field 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the current field value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBReflectException\fP\fP 
+.RE
+.PP
+
+.SS "static Object desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.invokeConstructor (Constructorc, Object[]args) throws \fBReflectException\fP\fC [static]\fP"
+Invokes a constructor\&. If anything goes wrong a reflect exception is thrown
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP the constructor object 
+.br
+\fIargs\fP the arguments for the constructor invocation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the object created by the constructor 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBReflectException\fP\fP 
+.RE
+.PP
+
+.SS "static Object desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.invokeMethod (Objectowner, Methodmethod, Object[]args) throws \fBReflectException\fP\fC [static]\fP"
+Invokes a method on an object If anything goes wrong a reflect exception is thrown
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP the object to invoke the method on 
+.br
+\fImethod\fP the method to be invoked 
+.br
+\fIargs\fP arguments of the method call 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return value of the method call 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBReflectException\fP\fP 
+.RE
+.PP
+
+.SS "static void desmoj\&.extensions\&.experimentation\&.reflect\&.ReflectionManager\&.setValue (Objectowner, Fieldfield, Objectvalue) throws \fBReflectException\fP\fC [static]\fP"
+Sets the value of the given field of the specified object\&. On errors a reflect exception is thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP the object owning the field 
+.br
+\fIfield\fP the field 
+.br
+\fIvalue\fP the value to set the field to 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBReflectException\fP\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

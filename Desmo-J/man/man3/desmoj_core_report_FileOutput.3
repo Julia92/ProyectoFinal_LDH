@@ -1,0 +1,216 @@
+.TH "desmoj.core.report.FileOutput" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.FileOutput \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBdesmoj\&.core\&.report\&.HTMLFileOutput\fP, \fBdesmoj\&.core\&.report\&.TableOutput\fP, and \fBdesmoj\&.extensions\&.xml\&.report\&.XMLOutput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFileOutput\fP ()"
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetFileName\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisOpen\fP ()"
+.br
+.ti -1c
+.RI "void \fBopen\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBwrite\fP (String s)"
+.br
+.ti -1c
+.RI "void \fBwriteln\fP (String s)"
+.br
+.ti -1c
+.RI "void \fBwriteSep\fP (String s)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static String \fBgetEndOfLine\fP ()"
+.br
+.ti -1c
+.RI "static String \fBgetSeparator\fP ()"
+.br
+.ti -1c
+.RI "static void \fBsetEndOfLine\fP (String eolString)"
+.br
+.ti -1c
+.RI "static void \fBsetSeparator\fP (String sepString)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "String \fBfileName\fP"
+.br
+.ti -1c
+.RI "Writer \fBfile\fP"
+.br
+.ti -1c
+.RI "boolean \fBfileOpen\fP"
+.br
+.ti -1c
+.RI "boolean \fBempty\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBFileOutput\fP is the class all other filebased Output classes used within the DESMO-j framework are derived from\&. The basic functionality needed for all \fBFileOutput\fP objects are methods to open and close the stream used for output and set the two necessary types of separators for column output\&. Two methods for writing Strings into the file are supported\&. The name is needed for opening a file to identify the output channel in terms of window titles or file names, depending on the type of output the specific subclass relies on\&. Note that each object of this class supports the creation of several files in a row\&. You can open and close as many files as needed with one object\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.FileOutput\&.FileOutput ()"
+Constructs a \fBFileOutput\fP object\&. A FileOuput object is capable of opening a file using method \fC\fBopen(String fileName)\fP\fP\&. Note that if the output stream used cannot be opened, the whole error handling is printed to the system's standard output stream\&. The 'endOfLine' String is set to the underlying system's String used to separate lines as given by the system property \fCline\&.separator\fP\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.report\&.FileOutput\&.close ()"
+Flushes the buffer and closes the file\&. note that if another file with the same name is opened and written to, it will overwrite the previous file on the disc without notice\&. All users of Output objects have to call \fC\fBclose()\fP\fP to properly shut down the ouput stream after the last call to the printing methods\&. Classes overriding this method should put all necessary actions to properly close their file into the \fC\fBclose()\fP\fP method and make a call to \fCsuper\&.close()\fP as their last command to finally close buffers and files\&. 
+.SS "static String desmoj\&.core\&.report\&.FileOutput\&.getEndOfLine ()\fC [static]\fP"
+Returns the currently valid String for separating lines of output\&. This is a platform dependent String and is set to the underlying system's String by default\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String used to separate lines 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.report\&.FileOutput\&.getFileName ()"
+Returns the current fileName of this \fBFileOutput\fP or \fCnull\fP if it has not been opened and named yet\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The name of the file or \fCnull\fP if file has not been opened and named yet 
+.RE
+.PP
+
+.SS "static String desmoj\&.core\&.report\&.FileOutput\&.getSeparator ()\fC [static]\fP"
+Returns the currently active String for separating individual entries in a line of output\&. This comes in handy, when trying to write files in a certain format i\&.e\&. dbf format\&. Data from files complying to that format can easily be read and imported to a variety of standard statistics packages for further manipulation and analysis\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String used to separate entries within a line 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.report\&.FileOutput\&.isEmpty ()"
+Returns a boolean value showing if relevant data has been written to the file\&. If only file headings have been written, this method will return \fCtrue\fP to indicate that it does not contain information and thus might just as well be deleted\&. If data has been written to it, this method will return \fCfalse\fP instead\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if no relevant data but the heading has been written to this file, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.report\&.FileOutput\&.isOpen ()"
+Returns the current state of the \fBFileOutput\fP\&. \fCTrue\fP is returned, if the file has been opened successfully and can be written to\&. If the file has been closed or has not been opened yet, \fCfalse\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the file is currently open, \fCfalse\fP if not 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.FileOutput\&.open (Stringname)"
+Opens a new file with the given fileName for writing data to\&. If no String is given, the default filename 'unnamed_DESMOJ_file' is used\&. Note that opening a file with a name that already exists in the user's target directory will overwrite that existing file without notice! So be careful when choosing file names and make sure to use unique names\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the file to be created 
+.RE
+.PP
+
+.SS "static void desmoj\&.core\&.report\&.FileOutput\&.setEndOfLine (StringeolString)\fC [static]\fP"
+Sets the end-of-line separator String to the given parameter value\&. The default value is the end-of-line String of the underlying platform\&. Use this method to create files of specific formats\&. Data from files complying to that format can easily be read and imported to a variety of standard statistics packages for further manipulation and analysis\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIeolString\fP String : The String for separating lines 
+.RE
+.PP
+
+.SS "static void desmoj\&.core\&.report\&.FileOutput\&.setSeparator (StringsepString)\fC [static]\fP"
+Sets the entry separator String to the given parameter value\&. The default value is ';'\&. This is useful, when trying to write files in a certain format i\&.e\&. dbf format\&. Data from files complying to that format can easily be read and imported to a variety of standard statistics packages for further manipulation and analysis\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsepString\fP String : The String for separating entries within a line 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.FileOutput\&.write (Strings)"
+Writes the given String to the open file\&. If the given String is empty, the method will simply return without action\&. Override this method if you want your data to be written with specific tags as used in the \fC\fBHTMLFileOutput\fP\fP class\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP java\&.lang\&.String : The String to write to the file 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBHTMLFileOutput\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.FileOutput\&.writeln (Strings)"
+Writes the given String to the open file, adding a line separator to the end of the String written\&. If the string given is null or '' just a new line character will be written to the file\&. This method simply adds the end-of-line String to the String given and calls the \fCvoid \fBwrite(String s)\fP\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP java\&.lang\&.String : The String to write to the file 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.FileOutput\&.writeSep (Strings)"
+Writes the given String to the open file, adding a separator to the end of the String written\&. If the string given is null or '' just a new line character will be written to the file\&. This method simply adds the end-of-line String to the String given and calls the \fCvoid \fBwrite(String s)\fP\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP java\&.lang\&.String : The String to write to the file 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.report\&.FileOutput\&.empty\fC [protected]\fP"
+Remembers if any data has been written to it\&. If not, it might as well be deleted\&. 
+.SS "Writer desmoj\&.core\&.report\&.FileOutput\&.file\fC [protected]\fP"
+The FileWriter used to open, close and write file and data\&. 
+.SS "String desmoj\&.core\&.report\&.FileOutput\&.fileName\fC [protected]\fP"
+The name of the file produced by this \fBFileOutput\fP\&. 
+.SS "boolean desmoj\&.core\&.report\&.FileOutput\&.fileOpen\fC [protected]\fP"
+The status of the current file\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

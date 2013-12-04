@@ -1,0 +1,151 @@
+\section{desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical Class Reference}
+\label{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical}\index{desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical@{desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical}}
+
+
+Inheritance diagram for desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Cont\-Dist\-Empirical} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+void {\bf add\-Entry} (double value, double frequency)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+boolean {\bf is\-Initialized} ()
+\item 
+Double {\bf sample} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Empirically distributed stream of pseudo random numbers of type {\ttfamily double}. Values produced by this distribution follow an empirical distribution which is specified by entries consisting of the observed value and the frequency (probability) this value has been observed to occur. These entries are made by using the {\ttfamily \doxyref{add\-Entry()}{p.}{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical_a5f736f32e180e82d2ac50b3815a65fca}} method. There are a few conditions a user has to meet before actually being allowed to take a sample of this distribution.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-dist.\-Distribution}{p.}{classdesmoj_1_1core_1_1dist_1_1_distribution}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}!Cont\-Dist\-Empirical@{Cont\-Dist\-Empirical}}
+\index{Cont\-Dist\-Empirical@{Cont\-Dist\-Empirical}!desmoj::core::dist::ContDistEmpirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}}
+\subsubsection[{Cont\-Dist\-Empirical}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical.\-Cont\-Dist\-Empirical (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical_ab2a371d5c47050707bc184f8af02f0b3}
+Constructs an empirical distribution pruducing floating point values. Empirical distributions have to be initialized manually before use. This is done by calling the {\ttfamily add\-Entry(long, double)} method to add values defining the behaviour of the desired distribution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The distribution's owner \\
+\hline
+{\em name} & java.\-lang.\-String \-: The distribution's name \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for producing reports \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for producing trace output \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}!add\-Entry@{add\-Entry}}
+\index{add\-Entry@{add\-Entry}!desmoj::core::dist::ContDistEmpirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}}
+\subsubsection[{add\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical.\-add\-Entry (
+\begin{DoxyParamCaption}
+\item[{double}]{value, }
+\item[{double}]{frequency}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical_a5f736f32e180e82d2ac50b3815a65fca}
+Adds a new entry of an empirical value and its associated cumulative frequency. No two values may be equal, since there can not be two different frequencies for one observed value. Entries with same value/frequency pair as an entry already made before are simply ignored.
+
+As soon as there is exactly one value with a cumulative probability of 0 and one value with a cumulative probability of 1, this distribution is considered \char`\"{}initialized\char`\"{}, making it possible to obtain samples via the \doxyref{sample()}{p.}{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical_ac0fb6262033e3dc62784c17245cf2393} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & double \-: The empirical value observed \\
+\hline
+{\em frequency} & double \-: The corresponding cumulative frequency of the empirical value \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::dist::ContDistEmpirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical_a883f307d091aeeed38245de1bb682011}
+Creates the default reporter for the \doxyref{Real\-Dist\-Empirical}{p.}{classdesmoj_1_1core_1_1dist_1_1_real_dist_empirical} distribution.
+
+\begin{DoxyReturn}{Returns}
+Reporter \-: The reporter for the \doxyref{Real\-Dist\-Empirical}{p.}{classdesmoj_1_1core_1_1dist_1_1_real_dist_empirical} distribution 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+Cont\-Dist\-Empirical\-Reporter 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}!is\-Initialized@{is\-Initialized}}
+\index{is\-Initialized@{is\-Initialized}!desmoj::core::dist::ContDistEmpirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}}
+\subsubsection[{is\-Initialized}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical.\-is\-Initialized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical_a5d2c001d21e0afa2f1d92826ad1d37ae}
+Shows if the \doxyref{Real\-Dist\-Empirical}{p.}{classdesmoj_1_1core_1_1dist_1_1_real_dist_empirical} distribution already is initialized. Being initialized means that there is exactly one value with a cumulative probability of 0 and one value with a cumulative probability of 1.
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}!sample@{sample}}
+\index{sample@{sample}!desmoj::core::dist::ContDistEmpirical@{desmoj\-::core\-::dist\-::\-Cont\-Dist\-Empirical}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}Double desmoj.\-core.\-dist.\-Cont\-Dist\-Empirical.\-sample (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_cont_dist_empirical_ac0fb6262033e3dc62784c17245cf2393}
+Returns the next sample specified by the empirical distribution. Return values are calculated by linear interpolation between the two values surrounding that value given by the random generator.
+
+\begin{DoxyReturn}{Returns}
+Double \-: The next sample for this empirical distribution or 0 if the distribution has not been properly initialized yet 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/dist/Cont\-Dist\-Empirical.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,643 @@
+\section{desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends Sim\-Process $>$ Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4}\index{desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Process\-Queue} ({\bf Model} owner, String name, int sort\-Order, int q\-Capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Process\-Queue} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+P {\bf first} ()
+\item 
+P {\bf first} (Condition$<$ P $>$ c)
+\item 
+boolean {\bf contains} (P p)
+\item 
+int {\bf size} ()
+\item 
+int {\bf get} (P p)
+\item 
+P {\bf get} (int index)
+\item 
+Queue\-List$<$ P $>$ {\bf get\-Queue\-List} ()
+\item 
+String {\bf get\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Refused} ()
+\item 
+boolean {\bf insert} (P p)
+\item 
+boolean {\bf insert\-After} (P p, P after)
+\item 
+boolean {\bf insert\-Before} (P p, P before)
+\item 
+boolean {\bf is\-Empty} ()
+\item 
+P {\bf last} ()
+\item 
+P {\bf last} (Condition$<$ P $>$ c)
+\item 
+P {\bf pred} (P p)
+\item 
+P {\bf pred} (P p, Condition$<$ P $>$ c)
+\item 
+void {\bf remove} ({\bf Sim\-Process} p)
+\item 
+void {\bf remove\-All} ()
+\item 
+P {\bf remove\-First} ()
+\item 
+P {\bf remove\-First} (Condition$<$ P $>$ c)
+\item 
+P {\bf remove\-Last} ()
+\item 
+P {\bf remove\-Last} (Condition$<$ P $>$ c)
+\item 
+boolean {\bf remove} (int index)
+\item 
+void {\bf reset} ()
+\item 
+void {\bf set\-Queue\-Capacity} (int new\-Capacity)
+\item 
+void {\bf set\-Queue\-Strategy} (int sort\-Order)
+\item 
+void {\bf set\-Refused} (long n)
+\item 
+P {\bf succ} (P p)
+\item 
+P {\bf succ} (P p, Condition$<$ P $>$ c)
+\item 
+Iterator$<$ P $>$ {\bf iterator} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Process\-Queue provides models with a ready-\/to-\/use element to enqueue {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}}es in. The sort order of the Process\-Queue is determined first by the priorities of the enqueued Sim\-Processes and second by the given sort order. The default sort order is F\-I\-F\-O (first in, first out) but others like L\-I\-F\-O (last in, first out) can be chosen, too. See the constants in class {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}} and the derived classes from {\ttfamily Queue\-List}. The capacity of the Process\-Queue, that is the maximum number of Sim\-Processes enqueued, can be chosen, too. Note that in contrast to the 'plain' queue, this Process\-Queue always expects and returns objects that are derived from class {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}}. When modelling using the process-\/, activity-\/, or transaction-\/oriented paradigm where Sim\-Processes are used to represent the model's entities, this Process\-Queue can be used instead of the standard Queue to reduce the amount of casts needed otherwise.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} 
+
+Queue\-List 
+
+Queue\-List\-Fifo 
+
+Queue\-List\-Lifo
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler 
+
+modified by Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!Process\-Queue@{Process\-Queue}}
+\index{Process\-Queue@{Process\-Queue}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{Process\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.Process\-Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{sort\-Order, }
+\item[{int}]{q\-Capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a6b4e7622808434ed6930621eda204dd7}
+Constructs a simple priority based waiting-\/queue for Sim\-Processes, the kind of queue implementation (F\-I\-F\-O or L\-I\-F\-O) and the capacity of the queue can be chosen. 
+
+The usage of the generic version {\ttfamily Process\-Queue$<$Type$>$} where {\ttfamily Type} is derived from {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} is recommended for type safety. Using the raw type {\ttfamily Process\-Queue} yields a queue in which any {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} can be enqueued, potentially requiring type casting on accessing processes enqueued.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this Process\-Queue is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The process-\/queue's name \\
+\hline
+{\em sort\-Order} & int \-: determines the sort order of the underlying queue implementation. Choose a constant from {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}}\-: {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}}, {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or Queue\-Based.\-Random. \\
+\hline
+{\em q\-Capacity} & int \-: The capacity of the Queue, that is how many processes can be enqueued. Zero (0) can be used as shortcut for for a capacity of {\ttfamily Integer.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E} = 2,147,483,647, which should approximate an infinite queue sufficiently well for most purposes. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag if process-\/queue should produce a report \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for process-\/queue to produce trace messages \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!Process\-Queue@{Process\-Queue}}
+\index{Process\-Queue@{Process\-Queue}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{Process\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.Process\-Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ad40b1a9d6fc793e7cbfe4da2f5ba454c}
+Constructs a simple priority and F\-I\-F\-O based waiting-\/queue for Sim\-Processes with a maximum capacity of 2,147,483,647 waiting processes, which should serve as an approximation of infinite queues sufficiently well for most purposes. 
+
+The usage of the generic version {\ttfamily Process\-Queue$<$Type$>$} where {\ttfamily Type} is derived from {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} is recommended for type safety. Using the raw type {\ttfamily Process\-Queue} yields a queue in which any {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} can be enqueued, potentially requiring type casting on accessing processes enqueued.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this process-\/queue is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The process-\/queue's name \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag if process-\/queue should produce a report \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for process-\/queue to produce trace messages \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!contains@{contains}}
+\index{contains@{contains}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.contains (
+\begin{DoxyParamCaption}
+\item[{P}]{p}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ac4d00b6d10d2f3c77453fd219a664487}
+Returns {\ttfamily true} if the given {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} is contained in the queue; {\ttfamily false} otherwise.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: {\ttfamily True} if the given {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} is contained in the queue; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & E \-: The {\ttfamily \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}} we are looking for in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_aa60cb329b7e8ed51e4d814e8163c3525}
+Returns a process-\/queue-\/reporter to produce a report about this process-\/queue.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The reporter for this process-\/queue 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!first@{first}}
+\index{first@{first}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_af64c8bc16732695b5ebc2462c574a336}
+Returns the first \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} queued in this process-\/queue or {\ttfamily null} in case the queue is empty.
+
+\begin{DoxyReturn}{Returns}
+P \-: The first \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue or {\ttfamily null} if the process-\/queue is empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!first@{first}}
+\index{first@{first}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.first (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ P $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ab6bae06a6eaa742c9063a32541ea27ee}
+Returns the first \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} queued in this process-\/queue that applies to the given condition. The process-\/queue is searched from front to end and the first \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} that returns {\ttfamily true} when the condition is applied to it is returned by this method. If no \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} applies to the given condition or the process-\/queue is empty, {\ttfamily null} will be returned.
+
+\begin{DoxyReturn}{Returns}
+P \-:The first process queued in this process-\/queue applying to the given condition or {\ttfamily null} 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} returned must confirm \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!get@{get}}
+\index{get@{get}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.get (
+\begin{DoxyParamCaption}
+\item[{P}]{p}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a4dd51a04d824a7ee01ac6ec0d7a06984}
+Returns the queue index of a given {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}}.
+
+\begin{DoxyReturn}{Returns}
+int \-:The position of the process as an {\ttfamily int}. Returns -\/1 if no such position exists. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!get@{get}}
+\index{get@{get}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.get (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a808d29358f224b74218dfcf716bfb734}
+Returns the {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} queued at the named position. The first position is 0, the last one \doxyref{size()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a15c5a07fc95a932d0e92b0db61ef154f}-\/1.
+
+\begin{DoxyReturn}{Returns}
+P \-:The {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} at the position of {\ttfamily int} or {\ttfamily null} if no such position exists. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!get\-Queue\-List@{get\-Queue\-List}}
+\index{get\-Queue\-List@{get\-Queue\-List}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get\-Queue\-List}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-List$<$P$>$ desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.get\-Queue\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a0a144de0dd77588b1e2e16b2d8996732}
+Returns the underlying queue implementation, providing access to the Queue\-List implementation, e.\-g. to add Property\-Change\-Listeners.
+
+\begin{DoxyReturn}{Returns}
+Queue\-List \-: The underlying queue implementation of this Process\-Queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!get\-Queue\-Strategy@{get\-Queue\-Strategy}}
+\index{get\-Queue\-Strategy@{get\-Queue\-Strategy}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.get\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ae312216d5567dccf8db850ddaeef7eb1}
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ac5c54128ab9ff04529f582a3342b0f9c}
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of entities refused to be enqueued in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!insert@{insert}}
+\index{insert@{insert}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.insert (
+\begin{DoxyParamCaption}
+\item[{P}]{p}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_aece1236af6425f5b8ada9ecb48d0b226}
+Enters a new \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} into the Process\-Queue. If the capacity of the Process\-Queue is full, the entity will not be enqueued and {\ttfamily false} will be returned. The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will be stored in the Process\-Queue until method {\ttfamily \doxyref{remove(\-Sim\-Process p)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a8d6f5a926773a41d2ce6322136be2dda}} is called with this specific \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. Simprocesses are ordered according to their priority. Higher priorities are sorted in front of lower priorities. Simprocesses with same priority are orderer according to the strategy specified in the constructor. The first \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} inside the process-\/queue will always be the one with the highest priority.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if insertion was successful, {\ttfamily false} otherwise (i.\-e. capacity limit is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em P} & p \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be added to the Process\-Queue \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!insert\-After@{insert\-After}}
+\index{insert\-After@{insert\-After}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{insert\-After}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.insert\-After (
+\begin{DoxyParamCaption}
+\item[{P}]{p, }
+\item[{P}]{after}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ae32c2dec7d7fc81426b38ee7e218213e}
+Enters a new \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} into the process-\/queue and places it after the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If the capacity of the Process\-Queue is full, the entity will not be enqueued and {\ttfamily false} will be returned. Make sure that the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} given as reference is already queued inside the process-\/queue, else the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will not be enqueued and {\ttfamily false} will be returned. The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will be stored in the Process\-Queue until method {\ttfamily \doxyref{remove(\-Sim\-Process p)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a8d6f5a926773a41d2ce6322136be2dda}} is called with this specific \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if insertion was successful, {\ttfamily false} otherwise (i.\-e. capacity limit is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-:The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be added to the process-\/queue \\
+\hline
+{\em after} & P \-:The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} after which \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} 'p' is to be inserted \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!insert\-Before@{insert\-Before}}
+\index{insert\-Before@{insert\-Before}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{insert\-Before}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.insert\-Before (
+\begin{DoxyParamCaption}
+\item[{P}]{p, }
+\item[{P}]{before}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a0aa05fadb69d21d13ccece8f85a395ed}
+Enters a new \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} into the Process\-Queue and places it in front of the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If the capacity of the Process\-Queue is full, the \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} will not be enqueued and {\ttfamily false} will be returned. Make sure that the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} given as reference is already queued inside the Process\-Queue, else the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will not be enqueued and {\ttfamily false} will be returned. The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will be stored in the Process\-Queue until method {\ttfamily \doxyref{remove(\-Sim\-Process p)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a8d6f5a926773a41d2ce6322136be2dda}} is called with this specific \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if insertion was successful, {\ttfamily false} otherwise (i.\-e. capacity limit is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be added to the processq\-Queue \\
+\hline
+{\em before} & P \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} before which the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} 'p' is to be inserted \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a3126ed2cc76061cd0d7f762efff3143e}
+Returns a boolean value indicating if the process-\/queue is empty or if any number of \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is currently enqueued in it.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process-\/queue is empty, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{iterator}]{\setlength{\rightskip}{0pt plus 5cm}Iterator$<$P$>$ desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a82773920e85e4453aa51a650b669e830}
+Returns an iterator over the processes enqueued.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-Iterator$<$P$>$ \-: An iterator over the processes enqueued. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!last@{last}}
+\index{last@{last}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_afe60fac36aa66fadbe5306ad29124f15}
+Returns the last \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} queued in this process-\/queue or {\ttfamily null} in case the process-\/queue is empty.
+
+\begin{DoxyReturn}{Returns}
+P \-: The last \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue or {\ttfamily null} if the process-\/queue is empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!last@{last}}
+\index{last@{last}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.last (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ P $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a774824b316ce0366cc548b99f2a8945c}
+Returns the last \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} queued in this process-\/queue that applies to the given condition. The process-\/queue is searched from end to front and the first \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} that returns {\ttfamily true} when the condition is applied to it is returned by this method. If no \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} applies to the given condition or the process-\/queue is empty, {\ttfamily null} will be returned.
+
+\begin{DoxyReturn}{Returns}
+P \-: The last \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} queued in this process-\/queue applying to the given condition or {\ttfamily null} 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} returned must fulfill \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!pred@{pred}}
+\index{pred@{pred}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{pred}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.pred (
+\begin{DoxyParamCaption}
+\item[{P}]{p}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_aba0018e045cc0b813753c1fd3aee2c02}
+Returns the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} enqueued directly before the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue. If the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not contained in this process-\/queue or is at the first position thus having no possible predecessor, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+P \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} directly before the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue or {\ttfamily null}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-: An \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!pred@{pred}}
+\index{pred@{pred}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{pred}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.pred (
+\begin{DoxyParamCaption}
+\item[{P}]{p, }
+\item[{Condition$<$ P $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a5bc6bbc5be4959c998b248dbf78f87c6}
+Returns the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} enqueued before the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue that also fulfills the condition given. If the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not contained in this process-\/queue or is at the first position thus having no possible predecessor, {\ttfamily null} is returned. If no other \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} before the given one fulfills the condition, {\ttfamily null} is returned, too.
+
+\begin{DoxyReturn}{Returns}
+P \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} before the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue fulfilling to the condition or {\ttfamily null}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-: A \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue \\
+\hline
+{\em c} & Condition \-: The condition that the preceeding \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} has to fulfill \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!remove@{remove}}
+\index{remove@{remove}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a8d6f5a926773a41d2ce6322136be2dda}
+Removes the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} from the process-\/queue. If the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not in the process-\/queue, a warning will be issued but nothing else will be changed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-:The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be removed from the process-\/queue \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!remove@{remove}}
+\index{remove@{remove}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.remove (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_adce9159eb4da5bf3584407bbb27eab47}
+Removes the process queued at the given position. The first position is 0, the last one \doxyref{length()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_acd655bba0795c0fcb54791f86806e428}-\/1.
+
+\begin{DoxyReturn}{Returns}
+\-: The method returns {\ttfamily true} if a {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} exists at the given position or {\ttfamily false$>$} if otherwise. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!remove\-All@{remove\-All}}
+\index{remove\-All@{remove\-All}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{remove\-All}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.remove\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ae14d508daf9765b4f20f0f33ef8a4553}
+Removes all processes from the Queue. Has no effect on empty queues. \index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!remove\-First@{remove\-First}}
+\index{remove\-First@{remove\-First}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{remove\-First}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.remove\-First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a9e6f4afc8ab9e646f3fece88546d7384}
+Removes the first process from the queue and provides a reference to this process. If the queue is empty, null is returned.
+
+\begin{DoxyReturn}{Returns}
+P \-: The first process in this queue, which has been removed, or {\ttfamily null} in case the queue was empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!remove\-First@{remove\-First}}
+\index{remove\-First@{remove\-First}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{remove\-First}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.remove\-First (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ P $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a622911f22a8a14a91cde88bdde7d1d94}
+Removes the first process from the queue that fulfills to the given condition. Also provides a reference to this process. If the queue does not contain a process that fulfills the condition (e.\-g. if the queue is empty), null is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the process returned must fulfill\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P \-: The first process in this queue fulfilling the condition, which has been removed from the queue. {\ttfamily Null} in case no process fulfills the condition. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!remove\-Last@{remove\-Last}}
+\index{remove\-Last@{remove\-Last}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{remove\-Last}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.remove\-Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ad5dfc483f4b3cdf22a3720ff9cacfe3e}
+Removes the last process from the queue and provides a reference to this process. If the queue is empty, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+E \-: The last process in this queue, which has been removed, or {\ttfamily null} in case the queue was empty 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!remove\-Last@{remove\-Last}}
+\index{remove\-Last@{remove\-Last}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{remove\-Last}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.remove\-Last (
+\begin{DoxyParamCaption}
+\item[{Condition$<$ P $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_af048ed61d3b7adb580b1913293508c51}
+Removes the last process from the queue that fulfills to the given condition, determined by traversing the queue from last to first until a process fulfilling the condition is found. Also provides a reference to this process. If the queue does not contain a process that fulfills the condition (e.\-g. if the queue is empty), {\ttfamily null} is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Condition \-: The condition that the entity returned must fulfill\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P \-: The last process in this queue fulfilling the condition, which has been removed from the queue. {\ttfamily Null} in case no process fulfills the condition. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a3fef555e84870fb9ce29ae3a6c8f5bd8}
+Resets all statistical counters to their default values. The mininum and maximum length of the queue are set to the current number of queued objects. The counter for the entities refused to be enqueued will be reset. \index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!set\-Queue\-Capacity@{set\-Queue\-Capacity}}
+\index{set\-Queue\-Capacity@{set\-Queue\-Capacity}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{set\-Queue\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.set\-Queue\-Capacity (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Capacity}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a93b29f77e231586cf5cc992ea1e52648}
+Sets the queue capacity to a new value. Only if the new capacity is equal or larger than the current length of the queue!
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Capacity} & int \-: The new capacity of this Process\-Queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!set\-Queue\-Strategy@{set\-Queue\-Strategy}}
+\index{set\-Queue\-Strategy@{set\-Queue\-Strategy}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{set\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.set\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+\item[{int}]{sort\-Order}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a23dde80bb6421c030a924c28028506ec}
+Sets the sort order of this Process\-Queue to a new value and makes this Process\-Queue use another {\ttfamily Queue\-List} with the specified queueing discipline. Please choose a constant from {\ttfamily \doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based}} ({\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}}, {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily Queue\-Based.\-Random}) The sort order of a Process\-Queue can only be changed if the queue is empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sort\-Order} & int \-: determines the sort order of the underlying {\ttfamily Queue\-List} implementation ({\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}}, {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily Queue\-Based.\-Random}) \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!set\-Refused@{set\-Refused}}
+\index{set\-Refused@{set\-Refused}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{set\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.set\-Refused (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a4fcdfbe4fe9835d95517ac0cc7b5a03b}
+Sets the number of entities refused to be enqueued in the queue because the capacity limit is reached to a new value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: the new number of entities refused to be enqueued in the queue because the capacity limit is reached. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!size@{size}}
+\index{size@{size}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a15c5a07fc95a932d0e92b0db61ef154f}
+Returns the current length of the Queue.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of processes enqueued. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!succ@{succ}}
+\index{succ@{succ}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{succ}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.succ (
+\begin{DoxyParamCaption}
+\item[{P}]{p}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_ac106b6eb32678eaaba58e846049738f4}
+Returns the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} enqueued directly after the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue. If the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not contained in this process-\/queue or is at the last position thus having no possible successor, {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+P \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} directly after the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the Process\-Queue or {\ttfamily null} 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-: A \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}!succ@{succ}}
+\index{succ@{succ}!desmoj::core::simulator::ProcessQueue< P extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Process\-Queue$<$ P extends Sim\-Process $>$}}
+\subsubsection[{succ}]{\setlength{\rightskip}{0pt plus 5cm}P desmoj.\-core.\-simulator.\-Process\-Queue$<$ P extends {\bf Sim\-Process} $>$.succ (
+\begin{DoxyParamCaption}
+\item[{P}]{p, }
+\item[{Condition$<$ P $>$}]{c}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_process_queue_3_01_p_01extends_01_sim_process_01_4_a2624bab96b063a48537f376d1032648c}
+Returns the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} enqueued after the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue that also fulfills the condition given. If the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not contained in this process-\/queue or is at the last position thus having no possible successor, {\ttfamily null} is returned. If no other \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} after the given one fulfills the condition, {\ttfamily null} is returned, too.
+
+\begin{DoxyReturn}{Returns}
+P \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} after the given \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue fulfilling the condition or {\ttfamily null}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & P \-: A \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in the process-\/queue \\
+\hline
+{\em c} & Condition \-: The condition that the succeeding \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} has to fulfill \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Process\-Queue.\-java\end{DoxyCompactItemize}

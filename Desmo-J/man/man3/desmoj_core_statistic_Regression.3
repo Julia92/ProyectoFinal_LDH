@@ -1,0 +1,314 @@
+.TH "desmoj.core.statistic.Regression" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.Regression \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.StatisticObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRegression\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP xValsup, \fBValueSupplier\fP yValsup, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRegression\fP (\fBModel\fP ownerModel, String name, String xName, String yName, \fBValueSupplier\fP xValsup, \fBValueSupplier\fP yValsup, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRegression\fP (\fBModel\fP ownerModel, String name, String xName, String yName, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "double \fBcorrelationCoeff\fP ()"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetXMean\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetXName\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetXValue\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetYMean\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetYName\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetYValue\fP ()"
+.br
+.ti -1c
+.RI "double \fBintercept\fP ()"
+.br
+.ti -1c
+.RI "double \fBregCoeff\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "double \fBresidualStdDev\fP ()"
+.br
+.ti -1c
+.RI "double \fBstdDevRegCoeff\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double xVal, double yVal)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.ti -1c
+.RI "boolean \fBxIsConstant\fP ()"
+.br
+.ti -1c
+.RI "boolean \fByIsConstant\fP ()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final double \fBC_EPSILON\fP = 0\&.00001"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBRegression\fP\fP class is producing a linear regression for two \fC\fBValueSupplier\fP\fP objects called x and y\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.Regression\&.Regression (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPxValsup, \fBValueSupplier\fPyValsup, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBRegression\fP object with no names for the x and y values\&. The names will be set to 'X' and 'Y'\&. 
+.SS "desmoj\&.core\&.statistic\&.Regression\&.Regression (\fBModel\fPownerModel, Stringname, StringxName, StringyName, \fBValueSupplier\fPxValsup, \fBValueSupplier\fPyValsup, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBRegression\fP object that is observing two \fCValueSuppliers\fP for the x and y values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBRegression\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBRegression\fP object 
+.br
+\fIxName\fP java\&.lang\&.String : The name for the x values\&. 
+.br
+\fIyName\fP java\&.lang\&.String : The name for the y values\&. 
+.br
+\fIxValsup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the x values for the regression analysis\&. The given \fBValueSupplier\fP will be observed by this \fBRegression\fP object\&. 
+.br
+\fIyValsup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the y values for the regression analysis\&. The given \fBValueSupplier\fP will be observed by this \fBRegression\fP object\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBRegression\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBRegression\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Regression\&.Regression (\fBModel\fPownerModel, Stringname, StringxName, StringyName, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBRegression\fP object that is NOT connected to any \fCValueSuppliers\fP for the x and y values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBRegression\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBRegression\fP object 
+.br
+\fIxName\fP java\&.lang\&.String : The name for the x values\&. 
+.br
+\fIyName\fP java\&.lang\&.String : The name for the y values\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBRegression\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBRegression\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.correlationCoeff ()"
+Returns the correlation coefficient\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The correlation coefficient\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.Regression\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBRegression\fP analysis\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBRegression\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.getXMean ()"
+Returns the mean x-value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean x-value\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.Regression\&.getXName ()"
+Returns the name of the x-value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The name of the x-value\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.getXValue ()"
+Returns the actual value of the \fC\fBValueSupplier\fP\fP supplying the x-value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The actual value of the observed \fC\fBValueSupplier\fP\fP object supplying the x-value\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.getYMean ()"
+Returns the mean y-value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean y-value\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.Regression\&.getYName ()"
+Returns the name of the y-value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The name of the y-value\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.getYValue ()"
+Returns the actual value of the \fC\fBValueSupplier\fP\fP supplying the y-value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The actual value of the observed \fC\fBValueSupplier\fP\fP object supplying the y-value\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.intercept ()"
+Returns the interception of the X-axis\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The interception of the X-axis\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.regCoeff ()"
+Returns the regression coefficient\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The regression coefficient\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Regression\&.reset ()"
+Resets this \fBRegression\fP object by resetting all variables of x and y to 0\&.0 \&. The names remain the same\&. 
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.residualStdDev ()"
+Returns the residuale standard deviation\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The residuale standard deviation\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Regression\&.stdDevRegCoeff ()"
+Returns the standard deviation of the regression coefficients\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation of the regression coefficients\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Regression\&.update ()"
+Updates this \fC\fBRegression\fP\fP object by fetching the actual values of the \fC\fBValueSupplier\fP\fP s and processing them\&. The \fC\fBValueSupplier\fP\fP s are passed in the constructor of this \fC\fBRegression\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.Regression\&.update (doublexVal, doubleyVal)"
+Updates this \fC\fBRegression\fP\fP object with the x and y double values given as parameters\&. In some cases it might be more convenient to pass the values this \fC\fBRegression\fP\fP will be updated with directly within the \fC\fBupdate(double xVal, double yVal)\fP\fP method instead of going via the \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIxVal\fP double : The x value with which this \fC\fBRegression\fP\fP will be updated\&. 
+.br
+\fIyVal\fP double : The y value with which this \fC\fBRegression\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Regression\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ Whenever either of the two \fC\fBValueSupplier\fP\fP objects providing the x or y value is updated and calling \fCnotifyStatistics()\fP the x and the y value will be fetched and a new regression will be calculated\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBRegression\fP\fP is updated\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.statistic\&.Regression\&.xIsConstant ()"
+Returns \fCtrue\fP when the x-values are constant\&. That means no considerable change can be recognized\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP is returned if no considerable change of the x-values can be recognized\&. \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.statistic\&.Regression\&.yIsConstant ()"
+Returns \fCtrue\fP when the y-values are constant\&. That means no considerable change can be recognized\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP is returned if no considerable change of the y-values can be recognized\&. \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final double desmoj\&.core\&.statistic\&.Regression\&.C_EPSILON = 0\&.00001\fC [static]\fP, \fC [protected]\fP"
+Values have changed considerably only, if they have changed for more than this constant\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

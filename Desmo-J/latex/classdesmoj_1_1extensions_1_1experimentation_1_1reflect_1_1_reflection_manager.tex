@@ -1,0 +1,255 @@
+\section{desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager Class Reference}
+\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager}\index{desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager@{desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Method {\bf get\-Method} (Class c, String method\-Name, Class[$\,$] params)  throws Reflect\-Exception 
+\item 
+static Method {\bf get\-Method} (Class c, String method\-Name)  throws Reflect\-Exception 
+\item 
+static Object {\bf invoke\-Method} (Object owner, Method method, Object[$\,$] args)  throws Reflect\-Exception 
+\item 
+static Constructor {\bf get\-Constructor} (Class c, Class[$\,$] params)
+\item 
+static Object {\bf invoke\-Constructor} (Constructor c, Object[$\,$] args)  throws Reflect\-Exception 
+\item 
+static Field {\bf get\-Field} (Class c, String field\-Name)  throws Reflect\-Exception 
+\item 
+static Object {\bf get\-Value} (Object owner, Field field)  throws Reflect\-Exception 
+\item 
+static void {\bf set\-Value} (Object owner, Field field, Object value)  throws Reflect\-Exception 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A utility class for using the Java Reflection A\-P\-I.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Nicolas Knaak
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!get\-Constructor@{get\-Constructor}}
+\index{get\-Constructor@{get\-Constructor}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{get\-Constructor}]{\setlength{\rightskip}{0pt plus 5cm}static Constructor desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-get\-Constructor (
+\begin{DoxyParamCaption}
+\item[{Class}]{c, }
+\item[{Class[$\,$]}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_a32374ff9684a8cf750f58057c489e36b}
+Retrieves a constructor from a given class. If anything goes wrong a reflect exception is thrown
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the class \\
+\hline
+{\em params} & the constructor's parameter list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constructor object 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!get\-Field@{get\-Field}}
+\index{get\-Field@{get\-Field}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{get\-Field}]{\setlength{\rightskip}{0pt plus 5cm}static Field desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-get\-Field (
+\begin{DoxyParamCaption}
+\item[{Class}]{c, }
+\item[{String}]{field\-Name}
+\end{DoxyParamCaption}
+) throws {\bf Reflect\-Exception}\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_adadb1cdf397f771c0583f37d7cd59af3}
+Retrieves a field from a given class. In this implementation only fields declared directly by the given class are found. On errors a reflect exception is thrown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the class \\
+\hline
+{\em field\-Name} & the field name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a field object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!get\-Method@{get\-Method}}
+\index{get\-Method@{get\-Method}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{get\-Method}]{\setlength{\rightskip}{0pt plus 5cm}static Method desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-get\-Method (
+\begin{DoxyParamCaption}
+\item[{Class}]{c, }
+\item[{String}]{method\-Name, }
+\item[{Class[$\,$]}]{params}
+\end{DoxyParamCaption}
+) throws {\bf Reflect\-Exception}\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_a9825de961f598cc2464b475331c654e9}
+Retrieves a method of a given class. If anything goes wrong a \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception} is thrown. In this implementation only methods declared directly by the given class are found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the class \\
+\hline
+{\em method\-Name} & name of the method \\
+\hline
+{\em params} & parameter list of the method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the method 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!get\-Method@{get\-Method}}
+\index{get\-Method@{get\-Method}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{get\-Method}]{\setlength{\rightskip}{0pt plus 5cm}static Method desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-get\-Method (
+\begin{DoxyParamCaption}
+\item[{Class}]{c, }
+\item[{String}]{method\-Name}
+\end{DoxyParamCaption}
+) throws {\bf Reflect\-Exception}\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_abf3cd9fac5e3c84d7ce46c517bb6e953}
+Retrieves a method of a given class with an empty parameter list. If anything goes wrong a \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception} is thrown. In this implementation only methods declared directly by the given class are found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the class \\
+\hline
+{\em method\-Name} & name of the method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the method 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_abf3cd9fac5e3c84d7ce46c517bb6e953_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!get\-Value@{get\-Value}}
+\index{get\-Value@{get\-Value}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}static Object desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-get\-Value (
+\begin{DoxyParamCaption}
+\item[{Object}]{owner, }
+\item[{Field}]{field}
+\end{DoxyParamCaption}
+) throws {\bf Reflect\-Exception}\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_ac38e8f20361f2e2030be9083e18993a2}
+Returns the value of the given field has in the specified object. On any error a reflect exception is thrown
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & the object who owns the field \\
+\hline
+{\em field} & the field \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the current field value 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!invoke\-Constructor@{invoke\-Constructor}}
+\index{invoke\-Constructor@{invoke\-Constructor}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{invoke\-Constructor}]{\setlength{\rightskip}{0pt plus 5cm}static Object desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-invoke\-Constructor (
+\begin{DoxyParamCaption}
+\item[{Constructor}]{c, }
+\item[{Object[$\,$]}]{args}
+\end{DoxyParamCaption}
+) throws {\bf Reflect\-Exception}\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_a191c3caee04e5ae6b6f925df1d872e5c}
+Invokes a constructor. If anything goes wrong a reflect exception is thrown
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the constructor object \\
+\hline
+{\em args} & the arguments for the constructor invocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the object created by the constructor 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!invoke\-Method@{invoke\-Method}}
+\index{invoke\-Method@{invoke\-Method}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{invoke\-Method}]{\setlength{\rightskip}{0pt plus 5cm}static Object desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-invoke\-Method (
+\begin{DoxyParamCaption}
+\item[{Object}]{owner, }
+\item[{Method}]{method, }
+\item[{Object[$\,$]}]{args}
+\end{DoxyParamCaption}
+) throws {\bf Reflect\-Exception}\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_aa31e3edbfc76a6669dfc58c314a50061}
+Invokes a method on an object If anything goes wrong a reflect exception is thrown
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & the object to invoke the method on \\
+\hline
+{\em method} & the method to be invoked \\
+\hline
+{\em args} & arguments of the method call \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return value of the method call 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception}} & \\
+\hline
+\end{DoxyExceptions}
+\index{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}!set\-Value@{set\-Value}}
+\index{set\-Value@{set\-Value}!desmoj::extensions::experimentation::reflect::ReflectionManager@{desmoj\-::extensions\-::experimentation\-::reflect\-::\-Reflection\-Manager}}
+\subsubsection[{set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}static void desmoj.\-extensions.\-experimentation.\-reflect.\-Reflection\-Manager.\-set\-Value (
+\begin{DoxyParamCaption}
+\item[{Object}]{owner, }
+\item[{Field}]{field, }
+\item[{Object}]{value}
+\end{DoxyParamCaption}
+) throws {\bf Reflect\-Exception}\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflection_manager_afd04290d29e88bc7df674a548a87ff96}
+Sets the value of the given field of the specified object. On errors a reflect exception is thrown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & the object owning the field \\
+\hline
+{\em field} & the field \\
+\hline
+{\em value} & the value to set the field to \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Reflect\-Exception}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1reflect_1_1_reflect_exception}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/experimentation/reflect/Reflection\-Manager.\-java\end{DoxyCompactItemize}

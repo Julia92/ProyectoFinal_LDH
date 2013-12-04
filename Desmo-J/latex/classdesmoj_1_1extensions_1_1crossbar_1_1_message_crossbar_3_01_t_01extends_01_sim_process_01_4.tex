@@ -1,0 +1,325 @@
+\section{desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends Sim\-Process $>$ Class Reference}
+\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4}\index{desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Message\-Crossbar} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+Message\-Channel$<$ T $>$ {\bf create\-Message\-Channel} (String channel\-Name)
+\item 
+{\bf Reporter} {\bf create\-Reporter} ()
+\item 
+long {\bf get\-Delivered\-Messages} ()
+\item 
+long {\bf get\-Interrupted\-Waits} ()
+\item 
+long {\bf get\-Lost\-Messages} ()
+\item 
+Message\-Channel$<$ T $>$ {\bf get\-Message\-Channel} (String channel\-Name)
+\item 
+long {\bf get\-Observations} ()
+\item 
+long {\bf get\-Process\-Activations} ()
+\item 
+long {\bf get\-Received\-Messages} ()
+\item 
+void {\bf reset} ()
+\item 
+{\bf Time\-Instant} {\bf reset\-At} ()
+\item 
+void {\bf send\-Message} ({\bf Crossbar\-Message} message, List$<$ Message\-Channel$<$ T $>$$>$ channels\-To\-Send\-To)
+\item 
+{\bf Crossbar\-Message} {\bf wait\-For\-Message} (List$<$ Message\-Channel$<$ T $>$$>$ channels\-To\-Wait\-On)
+\item 
+{\bf Crossbar\-Message} {\bf wait\-For\-Message} (List$<$ Message\-Channel$<$ T $>$$>$ channels\-To\-Wait\-On, {\bf Time\-Instant} wait\-Until)  throws Delayed\-Interrupt\-Exception 
+\item 
+{\bf Crossbar\-Message} {\bf wait\-For\-Message} (List$<$ Message\-Channel$<$ T $>$$>$ channels\-To\-Wait\-On, {\bf Time\-Span} max\-Wait\-Time)  throws Delayed\-Interrupt\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The Message\-Crossbar is a higher modeling construct used to synchronize processes.\par
+ \par
+ The Message\-Crossbare permits the creation of any number of Message\-Channels on it. Over these channels messages can be sent from one sender process to any number of receiver processes. To receive a message a process has to wait for it on a message channel. Once a process starts waiting on a channel it is automatically passivated and blocked. If a process sends a message to a channel all process waiting there will be reactivated and unregistered from the message channel and the Message\-Crossbar.\par
+ \par
+ It is possible for a process to wait on several message channels simultaneously. It will be activated and removed from all channels if a message is received on any of those channels. In parallel it is also possible for a process to send messages to several channels simultaneously.
+
+\begin{DoxySeeAlso}{See Also}
+Message\-Channel 
+
+\doxyref{Crossbar\-Message}{p.}{classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message} 
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Malte Unkrig
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!Message\-Crossbar@{Message\-Crossbar}}
+\index{Message\-Crossbar@{Message\-Crossbar}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{Message\-Crossbar}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.Message\-Crossbar (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_acf11a1f8388cc7470b1ce549c619897a}
+Creates a Message\-Crossbar object with all parameters required. The Message\-Crossbar registers itself at the given model
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of this reportable \\
+\hline
+{\em owner} & Model \-: The model this reportable is associated to \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report Set it to {\ttfamily true} if reportable should show up in report. Set it to {\ttfamily false} if reportable should not be shown in report. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this reportable in trace files. Set it to {\ttfamily true} if reportable should show up in trace. Set it to {\ttfamily false} if reportable should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!create\-Message\-Channel@{create\-Message\-Channel}}
+\index{create\-Message\-Channel@{create\-Message\-Channel}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{create\-Message\-Channel}]{\setlength{\rightskip}{0pt plus 5cm}Message\-Channel$<$T$>$ desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.create\-Message\-Channel (
+\begin{DoxyParamCaption}
+\item[{String}]{channel\-Name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a8d079c792367a9de053ea2d7d6ff8e40}
+Creates a new Message\-Channel with is automatically associated with the Message\-Crossbar. If a channel with the specified name already exists it will be returned instead of a new channel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel\-Name} & String \-: The name of the new channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new Message\-Channel instance 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reporter} desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a293d54c397df55af78c1e613e7277285}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!get\-Delivered\-Messages@{get\-Delivered\-Messages}}
+\index{get\-Delivered\-Messages@{get\-Delivered\-Messages}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{get\-Delivered\-Messages}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.get\-Delivered\-Messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a426445c6ab0fa1cf07d2ea84b36cf71b}
+\begin{DoxyReturn}{Returns}
+The number of delivered messages. A message is considered delivered if it was forwarded to at least one waiting process. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!get\-Interrupted\-Waits@{get\-Interrupted\-Waits}}
+\index{get\-Interrupted\-Waits@{get\-Interrupted\-Waits}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{get\-Interrupted\-Waits}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.get\-Interrupted\-Waits (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a506ac2451b78198bf5ba060e7875862f}
+\begin{DoxyReturn}{Returns}
+The number of process which were interrupted while waiting on the Message\-Crossbar because their max wait time was exceeded. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!get\-Lost\-Messages@{get\-Lost\-Messages}}
+\index{get\-Lost\-Messages@{get\-Lost\-Messages}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{get\-Lost\-Messages}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.get\-Lost\-Messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a6b1884879bc7f734793c12a50233394e}
+\begin{DoxyReturn}{Returns}
+The number of message which were sent to this Message\-Crossbar but couldn't be forwarded to a receiver because no process was waiting on the Message\-Crossbar at the time the message was received. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!get\-Message\-Channel@{get\-Message\-Channel}}
+\index{get\-Message\-Channel@{get\-Message\-Channel}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{get\-Message\-Channel}]{\setlength{\rightskip}{0pt plus 5cm}Message\-Channel$<$T$>$ desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.get\-Message\-Channel (
+\begin{DoxyParamCaption}
+\item[{String}]{channel\-Name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a97a18c7bc8df62ae6740c95bc67ca7df}
+Returns the \doxyref{Message\-Channel}{p.}{} identified by the given name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel\-Name} & The name of the channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Message\-Channel}{p.}{} identified by the given name, or {\ttfamily null} if no channel with that name is managed by the Message\-Crossbar. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!get\-Observations@{get\-Observations}}
+\index{get\-Observations@{get\-Observations}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{get\-Observations}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.get\-Observations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_adcb8c88d8a7b3efbbef69b413956202b}
+\begin{DoxyReturn}{Returns}
+The number of processes which have been handled by this message Message\-Crossbar (meaning processes which entered the channel and also left it again). 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!get\-Process\-Activations@{get\-Process\-Activations}}
+\index{get\-Process\-Activations@{get\-Process\-Activations}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{get\-Process\-Activations}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.get\-Process\-Activations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_aeac07ce08bf6ede8cfc0d9beec174d56}
+\begin{DoxyReturn}{Returns}
+The number of process that were successfully activated by a delivered message. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!get\-Received\-Messages@{get\-Received\-Messages}}
+\index{get\-Received\-Messages@{get\-Received\-Messages}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{get\-Received\-Messages}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.get\-Received\-Messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_ab289cecc83f9b1afe4e2d5e91b479bc9}
+\begin{DoxyReturn}{Returns}
+The number of messages which were sent to this channel. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!reset@{reset}}
+\index{reset@{reset}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_af7782cf8f36ca13073ae79185c86c860}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!reset\-At@{reset\-At}}
+\index{reset\-At@{reset\-At}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{reset\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.reset\-At (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a3855b7227bc06897228cd1a0e7fe415b}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!send\-Message@{send\-Message}}
+\index{send\-Message@{send\-Message}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{send\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.send\-Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Crossbar\-Message}}]{message, }
+\item[{List$<$ Message\-Channel$<$ T $>$$>$}]{channels\-To\-Send\-To}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a59ec5c275db9d73f6c0e9471716bb0ed}
+Sends the given \doxyref{Crossbar\-Message}{p.}{classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message} to the specified message channels, thereby activating all processes that are waiting on these channel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to send to the specified channels\\
+\hline
+{\em channels\-To\-Send\-To} & The channels to which the message will be sent \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a59ec5c275db9d73f6c0e9471716bb0ed_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!wait\-For\-Message@{wait\-For\-Message}}
+\index{wait\-For\-Message@{wait\-For\-Message}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{wait\-For\-Message}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crossbar\-Message} desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.wait\-For\-Message (
+\begin{DoxyParamCaption}
+\item[{List$<$ Message\-Channel$<$ T $>$$>$}]{channels\-To\-Wait\-On}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_ae5d5625463450bb31146cc8ed76c26a1}
+Wait for a \doxyref{Crossbar\-Message}{p.}{classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message} on the specified message channels, thereby passivating the current process. The process is not reactivated until a message is received.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channels\-To\-Wait\-On} & The channels on which to wait for a message\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Corssbar\-Message received after waiting 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!wait\-For\-Message@{wait\-For\-Message}}
+\index{wait\-For\-Message@{wait\-For\-Message}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{wait\-For\-Message}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crossbar\-Message} desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.wait\-For\-Message (
+\begin{DoxyParamCaption}
+\item[{List$<$ Message\-Channel$<$ T $>$$>$}]{channels\-To\-Wait\-On, }
+\item[{{\bf Time\-Instant}}]{wait\-Until}
+\end{DoxyParamCaption}
+) throws {\bf Delayed\-Interrupt\-Exception}}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a2d1fe751c2d31667f19fe1be3b773aac}
+Wait for a \doxyref{Crossbar\-Message}{p.}{classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message} on the specified message channels, thereby passivating the current process. The process is not reactivated until a message is received. The parameter wait\-Until specifies the point in time to which the current process will wait for a message. If no message is received before that time, the process will be interrupted and a \doxyref{Delayed\-Interrupt\-Exception}{p.}{} will be thrown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channels\-To\-Wait\-On} & The channels on which to wait for a message \\
+\hline
+{\em wait\-Until} & The point in time at which the waiting will be interrupted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Corssbar\-Message received after waiting 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Delayed\-Interrupt\-Exception} & An exception indicating that the point in time specified by the wait\-Until parameter has passed and the waiting has been interrupted. \\
+\hline
+\end{DoxyExceptions}
+\index{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}!wait\-For\-Message@{wait\-For\-Message}}
+\index{wait\-For\-Message@{wait\-For\-Message}!desmoj::extensions::crossbar::MessageCrossbar< T extends SimProcess >@{desmoj\-::extensions\-::crossbar\-::\-Message\-Crossbar$<$ T extends Sim\-Process $>$}}
+\subsubsection[{wait\-For\-Message}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crossbar\-Message} desmoj.\-extensions.\-crossbar.\-Message\-Crossbar$<$ T extends {\bf Sim\-Process} $>$.wait\-For\-Message (
+\begin{DoxyParamCaption}
+\item[{List$<$ Message\-Channel$<$ T $>$$>$}]{channels\-To\-Wait\-On, }
+\item[{{\bf Time\-Span}}]{max\-Wait\-Time}
+\end{DoxyParamCaption}
+) throws {\bf Delayed\-Interrupt\-Exception}}\label{classdesmoj_1_1extensions_1_1crossbar_1_1_message_crossbar_3_01_t_01extends_01_sim_process_01_4_a1a8c7cc4ee983c6e5ac9a53ee2007d37}
+Wait for a \doxyref{Crossbar\-Message}{p.}{classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message} on the specified message channels, thereby passivating the current process. The process is not reactivated until a message is received. The parameter max\-Wait\-Time specifies maximum time the current process will wait for a message. If no message is received before this amount of time has elapsed, the process will be interrupted and a \doxyref{Delayed\-Interrupt\-Exception}{p.}{} will be thrown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channels\-To\-Wait\-On} & The channels on which to wait for a message \\
+\hline
+{\em max\-Wait\-Time} & The maximum amount of time until the waiting will be interrupted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The received message 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Delayed\-Interrupt\-Exception} & An exception indicating that the maximum wait time specified by the max\-Wait\-Time parameter has passed and that the waiting has been interrupted \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/crossbar/Message\-Crossbar.\-java\end{DoxyCompactItemize}

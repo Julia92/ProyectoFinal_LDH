@@ -1,0 +1,185 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation}\index{desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation@{desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Transportation} ({\bf Model} owner, String name, Numerical\-Dist$<$?$>$ transport\-Time\-Stream, boolean show\-In\-Trace)
+\item 
+void {\bf set\-Transport\-Time\-Stream} (Numerical\-Dist$<$?$>$ new\-Transport\-Time\-Stream)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf cooperation} ({\bf Sim\-Process} master, {\bf Sim\-Process} slave)
+\item 
+{\bf Time\-Span} {\bf get\-Transport\-Time\-Sample} ()
+\item 
+void {\bf transport} ({\bf Sim\-Process} master, {\bf Sim\-Process}[$\,$] slaves)
+\item 
+void {\bf transport} ({\bf Sim\-Process} master, {\bf Sim\-Process} slave)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} is the object representing the process cooperation between a {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} process and the goods (products represented by Sim-\/processes) he is transporting. It is intended that that this \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} is used with the {\ttfamily \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}} construct, where a {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}}( as a master process) is waiting for goods (slave processes) to carry them around in the manufacturing system. During the \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} the master is active and the slaves are passive. The transportation carried out together is described in the method {\ttfamily cooperation}, which can be overwritten by the user to build more complex models. Until now this method only models the time it takes to transport the goods. Note\-: when using the {\ttfamily \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}} construct the master (\doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}) will be activated after the transportation is done and the slaves will be activated after the master (if they have not been activated during the transportation already).
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}!Transportation@{Transportation}}
+\index{Transportation@{Transportation}!desmoj::extensions::applicationDomains::production::Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}}
+\subsubsection[{Transportation}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation.\-Transportation (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{Numerical\-Dist$<$?$>$}]{transport\-Time\-Stream, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_a5258e4dd99ad5538d67fa41fa9d1dcf1}
+Constructs a \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} process where a master ( {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}}) is transporting slaves ( {\ttfamily Sim\-Porcess} es) in a cooperate process. The time it takes to transport the goods is determined by the specified transport\-Time\-Stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: the name of this \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation}. \\
+\hline
+{\em transport\-Time\-Stream} & Numerical\-Dist$<$?$>$ \-: The random number stream determining the time it takes to transport the goods. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if this \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} should produce a trace output or not. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}!cooperation@{cooperation}}
+\index{cooperation@{cooperation}!desmoj::extensions::applicationDomains::production::Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}}
+\subsubsection[{cooperation}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation.\-cooperation (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{master, }
+\item[{{\bf Sim\-Process}}]{slave}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_a3b618d57a09a700f80ad31fadc5d3bab}
+The {\ttfamily \doxyref{cooperation()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_a3b618d57a09a700f80ad31fadc5d3bab}} method with only one master and one slave is not needed here. So we pass it to the more general method with an array of slaves as parameter. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_a3b618d57a09a700f80ad31fadc5d3bab_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}!get\-Transport\-Time\-Sample@{get\-Transport\-Time\-Sample}}
+\index{get\-Transport\-Time\-Sample@{get\-Transport\-Time\-Sample}!desmoj::extensions::applicationDomains::production::Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}}
+\subsubsection[{get\-Transport\-Time\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation.\-get\-Transport\-Time\-Sample (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_aa8461f96cba1ee5291c40af6b380fa8c}
+Returns a {\ttfamily Time\-Span} object representing the time it takes to transport the goods with the transporter. The time is taken from the given random number stream transport\-Time\-Stream.
+
+\begin{DoxyReturn}{Returns}
+Time\-Span \-: The time it takes to transport the goods with the transporter. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}!set\-Transport\-Time\-Stream@{set\-Transport\-Time\-Stream}}
+\index{set\-Transport\-Time\-Stream@{set\-Transport\-Time\-Stream}!desmoj::extensions::applicationDomains::production::Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}}
+\subsubsection[{set\-Transport\-Time\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation.\-set\-Transport\-Time\-Stream (
+\begin{DoxyParamCaption}
+\item[{Numerical\-Dist$<$?$>$}]{new\-Transport\-Time\-Stream}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_aaa9bd476429f057a0b7502b1520dbd58}
+Sets the transport\-Time\-Stream to a new {\ttfamily Real\-Dist} random number stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Transport\-Time\-Stream} & Numerical\-Dist$<$?$>$ \-: The new {\ttfamily Real\-Dist} random number stream determining the time it takes to transport the goods. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}!transport@{transport}}
+\index{transport@{transport}!desmoj::extensions::applicationDomains::production::Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}}
+\subsubsection[{transport}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation.\-transport (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{master, }
+\item[{{\bf Sim\-Process}[$\,$]}]{slaves}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_aa9d1ba02218c75d514835bbe8fee33a1}
+This method describes the transportation process carried out by the master process (some kind of {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}}). In this simple case only the time it takes to transport the goods is taken into consideration. If the user building the model has to implement a more complex behavior, he has to overwrite this method in a subclass. The time it takes to transport the goods is obtained from the method {\ttfamily \doxyref{get\-Transport\-Time\-Sample()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_aa8461f96cba1ee5291c40af6b380fa8c}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em master} & Sim\-Process \-: The master process which really carries out the cooperation. Should be a subclass of {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}}. \\
+\hline
+{\em slaves} & Sim\-Process[] \-: The slave processes which are lead through the cooperation by the master. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_aa9d1ba02218c75d514835bbe8fee33a1_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}!transport@{transport}}
+\index{transport@{transport}!desmoj::extensions::applicationDomains::production::Transportation@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transportation}}
+\subsubsection[{transport}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Transportation.\-transport (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{master, }
+\item[{{\bf Sim\-Process}}]{slave}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_af80db8540677297dd712b41d5e06a814}
+The {\ttfamily \doxyref{transport()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_aa9d1ba02218c75d514835bbe8fee33a1}} method with only one master and one slave is not needed here. So we pass it to the more general method with an array of slaves as parameter. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation_af80db8540677297dd712b41d5e06a814_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/production/Transportation.\-java\end{DoxyCompactItemize}

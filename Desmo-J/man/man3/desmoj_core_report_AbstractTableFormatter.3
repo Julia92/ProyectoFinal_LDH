@@ -1,0 +1,202 @@
+.TH "desmoj.core.report.AbstractTableFormatter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.AbstractTableFormatter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.report\&.ASCIITableFormatter\fP, and \fBdesmoj\&.core\&.report\&.HTMLTableFormatter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBrowIsOpen\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBtableIsOpen\fP ()"
+.br
+.ti -1c
+.RI "String \fBwriteTime\fP (String t)"
+.br
+.ti -1c
+.RI "int \fBtimePrecision\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetOutput\fP (\fBFileOutput\fP \fBout\fP)"
+.br
+.ti -1c
+.RI "void \fBsetTimePrecision\fP (int tf)"
+.br
+.ti -1c
+.RI "void \fBopenRow\fP (\fBReporter\fP rep)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReporter\fP \fBgetReporterForCurrentRow\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBtableOpen\fP = false"
+.br
+.ti -1c
+.RI "boolean \fBrowOpen\fP = false"
+.br
+.ti -1c
+.RI "\fBFileOutput\fP \fBout\fP = null"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fB_currentReporter\fP = null"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A basic implementation of the \fBTableFormatter\fP interface realizing common properties of table formatters\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBReporter\fP desmoj\&.core\&.report\&.AbstractTableFormatter\&.getReporterForCurrentRow ()\fC [protected]\fP"
+Returns the reporter which is displayed in current row\&. Maybe null, if \fBopenRow()\fP insted of \fBopenRow(Reporter)\fP was called\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the reporter which is displayed in current row\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.AbstractTableFormatter\&.openRow (\fBReporter\fPrep)"
+Opens a new row\&. Calls \fBopenRow()\fP and saves reference on reporter which will we displayed in that row\&. Reference on reporter is not necessary for getting content of reporter!!! But maybe its useful for some kind of extended reports\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrep\fP \fBReporter\fP which will be displayed in new row 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.report\&.AbstractTableFormatter\&.rowIsOpen ()"
+Sets tableOpen flag to true\&. Should always be called from subclass implementations of this method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+value of row open flag 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.TableFormatter::rowIsOpen()\fP 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.AbstractTableFormatter\&.setOutput (\fBFileOutput\fPout)"
+Sets an output file to write the table to
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP desmoj\&.report\&.FileOutput 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "void desmoj\&.core\&.report\&.AbstractTableFormatter\&.setTimePrecision (inttf)"
+Sets the time precision
+.PP
+\fBParameters:\fP
+.RS 4
+\fItf\fP time precision 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "boolean desmoj\&.core\&.report\&.AbstractTableFormatter\&.tableIsOpen ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+value of table open flag; 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.TableFormatter::tableIsOpen()\fP 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "int desmoj\&.core\&.report\&.AbstractTableFormatter\&.timePrecision ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+time precision 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.TableFormatter::timePrecision()\fP 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SS "String desmoj\&.core\&.report\&.AbstractTableFormatter\&.writeTime (Stringt)"
+Returns a formatted time string
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP time string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+formatted version of time string 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.TableFormatter::writeTime\fP(java\&.lang\&.String) 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.TableFormatter\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBReporter\fP desmoj\&.core\&.report\&.AbstractTableFormatter\&._currentReporter = null\fC [protected]\fP"
+The \fBReporter\fP displayed in current row\&. 
+.SS "\fBFileOutput\fP desmoj\&.core\&.report\&.AbstractTableFormatter\&.out = null\fC [protected]\fP"
+The \fBFileOutput\fP this table writer writes to\&. 
+.SS "boolean desmoj\&.core\&.report\&.AbstractTableFormatter\&.rowOpen = false\fC [protected]\fP"
+Flag indicating if table row is open 
+.SS "boolean desmoj\&.core\&.report\&.AbstractTableFormatter\&.tableOpen = false\fC [protected]\fP"
+Flag indicating if table is open 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

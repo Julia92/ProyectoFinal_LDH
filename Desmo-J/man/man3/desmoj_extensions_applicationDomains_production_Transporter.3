@@ -1,0 +1,150 @@
+.TH "desmoj.extensions.applicationDomains.production.Transporter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.Transporter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\fP, and \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransporter\fP (\fBModel\fP owner, String name, int minLoad, int capac, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTransporter\fP (\fBModel\fP owner, String name, int capac, boolean showInTrace)"
+.br
+.ti -1c
+.RI "int \fBgetCapacity\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetMinLoad\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCapacity\fP (int newCapacity)"
+.br
+.ti -1c
+.RI "void \fBsetMinLoad\fP (int newMinLoad)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBTransporter\fP represents any kind of vehicle or conveyor belt which carries goods (products) around in a manufacturing system\&. It has a certain capacity (maximum number of goods which can be carried around at once) and a minimum load (minimum number of goods which will be carried)\&. \fBTransporter\fP is derived from SimProcess\&. Its \fC\fBlifeCycle()\fP\fP must be implemented by the user in order to specify the behavior of the \fBTransporter\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimProcess\fP 
+.PP
+\fBTransportation\fP 
+.PP
+\fBTransportJunction\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\&.Transporter (\fBModel\fPowner, Stringname, intminLoad, intcapac, booleanshowInTrace)"
+Constructs a \fBTransporter\fP which will carry around goods in a manufacturing system\&. Implement its \fC\fBlifeCycle()\fP\fP method to specify its behavior\&. A \fBTransporter\fP has a capacity (maximum number of goods which can be transported) and a mimimum load ( a minimum number of goods it will carry)\&. Both must not be zero or negative\&. Their default value is one\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTransporter\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTransporter\fP\&. 
+.br
+\fIminLoad\fP int : The minimum number of goods this \fBTransporter\fP will carry around\&. 
+.br
+\fIcapac\fP int : The maximum number of goods this \fBTransporter\fP can carry around\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBTransporter\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\&.Transporter (\fBModel\fPowner, Stringname, intcapac, booleanshowInTrace)"
+Constructs a \fBTransporter\fP which will carry around goods in a manufacturing system\&. Implement its \fC\fBlifeCycle()\fP\fP method to specify its behavior\&. A \fBTransporter\fP has a capacity (maximum number of goods which can be transported) and a mimimum load (a minimum number of goods it will carry)\&. Use this constructor to construct a \fBTransporter\fP with a specified capacity and a minimum load of one\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBTransporter\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTransporter\fP\&. 
+.br
+\fIcapac\fP int : The maximum number of goods this \fBTransporter\fP can carry around\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBTransporter\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\&.getCapacity ()"
+Returns the capacity of this \fBTransporter\fP\&. That is the maximum number of goods it can carry around the manufacturing system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The capacity of this \fBTransporter\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\&.getMinLoad ()"
+Returns the minimum load of this \fBTransporter\fP\&. That is the minimum number of goods which must be loaded on this \fBTransporter\fP before it starts carrying them to their destination\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The minimum load of this \fBTransporter\fP 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\&.lifeCycle ()\fC [pure virtual]\fP"
+Override this method in a subclass of \fBTransporter\fP to implement the Transporters specific behaviour\&. It will at least contain something to let this \fBTransporter\fP wait in a \fC\fBTransportJunction\fP\fP for goods to carry around, like 
+.br
+ \fC TransportJunctionXY\&.cooperate(transportation);\fP
+.br
+ This method starts after a \fBTransporter\fP has been created and activated by the scheduler\&. It describes the behavior of this special \fBTransporter\fP when he is acting alone\&. All action taking place when this \fBTransporter\fP (as a master) acts together with other \fCSimProcess\fP es (as slaves) in some process cooperation is described in that special \fCcooperation\fP method of the class \fC\fBTransportation\fP\fP\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.PP
+Implemented in \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\fP, and \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\&.setCapacity (intnewCapacity)"
+Sets the capacity of this \fBTransporter\fP to a new value\&. The new value must not be zero or negative\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCapacity\fP int : The new capacity of this \fBTransporter\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\&.setMinLoad (intnewMinLoad)"
+Sets the minimum load of this \fBTransporter\fP to a new value\&. The new value must not be negative\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewMinLoad\fP int : The new minimum load of this \fBTransporter\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

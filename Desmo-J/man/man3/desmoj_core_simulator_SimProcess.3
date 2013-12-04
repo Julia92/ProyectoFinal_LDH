@@ -1,0 +1,738 @@
+.TH "desmoj.core.simulator.SimProcess" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.SimProcess \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Entity\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.simulator\&.ArrivalProcess< S extends SimProcess >\fP, \fBdesmoj\&.core\&.simulator\&.ComplexSimProcess\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.ExternalTransporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.CustomerProcess\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.MachineProcess\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQS\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Worker\fP, \fBdesmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends SimProcess >\fP, \fBdesmoj\&.extensions\&.space3D\&.SpatialSimProcess\fP, and \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.simulator\&.SimProcessAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimProcess\fP (\fBModel\fP owner, String name, boolean repeating, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBactivate\fP ()"
+.br
+.ti -1c
+.RI "void \fBactivate\fP (\fBSimTime\fP dt)"
+.br
+.ti -1c
+.RI "void \fBactivate\fP (\fBTimeInstant\fP when)"
+.br
+.ti -1c
+.RI "void \fBactivate\fP (\fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBactivateAfter\fP (\fBSchedulable\fP after)"
+.br
+.ti -1c
+.RI "void \fBactivateBefore\fP (\fBSchedulable\fP before)"
+.br
+.ti -1c
+.RI "void \fBcancelInterruptDelayed\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisDelayedInterruptScheduled\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcanCooperate\fP ()"
+.br
+.ti -1c
+.RI "void \fBclearInterruptCode\fP ()"
+.br
+.ti -1c
+.RI "void \fBcooperate\fP ()"
+.br
+.ti -1c
+.RI "\fBInterruptCode\fP \fBgetInterruptCode\fP ()"
+.br
+.ti -1c
+.RI "\fBInterruptException\fP \fBgetInterruptException\fP ()"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP \fBgetMaster\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRealTimeConstraint\fP ()"
+.br
+.ti -1c
+.RI "ProcessQueue<?extends \fBSimProcess\fP > \fBgetSlaveWaitQueue\fP ()"
+.br
+.ti -1c
+.RI "\fBComplexSimProcess\fP \fBgetSupervisor\fP ()"
+.br
+.ti -1c
+.RI "\fBSchedulable\fP \fBgetActivatedBy\fP ()"
+.br
+.ti -1c
+.RI "void \fBhold\fP (\fBSimTime\fP dt)  throws DelayedInterruptException, 			InterruptException "
+.br
+.ti -1c
+.RI "void \fBhold\fP (\fBTimeInstant\fP until)  throws DelayedInterruptException, 			InterruptException "
+.br
+.ti -1c
+.RI "void \fBhold\fP (\fBTimeSpan\fP dt)  throws DelayedInterruptException, 			InterruptException "
+.br
+.ti -1c
+.RI "void \fBhold\fP (NumericalDist<?> dist)  throws DelayedInterruptException,             InterruptException "
+.br
+.ti -1c
+.RI "void \fBinterrupt\fP (\fBInterruptCode\fP interruptReason)"
+.br
+.ti -1c
+.RI "void \fBinterrupt\fP (\fBInterruptException\fP interruptReason)"
+.br
+.ti -1c
+.RI "\fBExternalEvent\fP \fBinterruptDelayed\fP (\fBTimeInstant\fP when)"
+.br
+.ti -1c
+.RI "\fBExternalEvent\fP \fBinterruptDelayed\fP (\fBTimeSpan\fP delay)"
+.br
+.ti -1c
+.RI "boolean \fBisBlocked\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisRepeating\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisComponent\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisInterrupted\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisTerminated\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBobtainResources\fP (\fBResource\fP[] obtainedResources)"
+.br
+.ti -1c
+.RI "synchronized void \fBpassivate\fP ()  throws DelayedInterruptException, 			InterruptException "
+.br
+.ti -1c
+.RI "void \fBprepareTransport\fP ()"
+.br
+.ti -1c
+.RI "void \fBreActivate\fP (\fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBresetMaster\fP ()"
+.br
+.ti -1c
+.RI "void \fBreturnAllResources\fP ()"
+.br
+.ti -1c
+.RI "\fBResource\fP[] \fBreturnResources\fP (\fBRes\fP resPool, int n)"
+.br
+.ti -1c
+.RI "void \fBsetBlocked\fP (boolean blockStatus)"
+.br
+.ti -1c
+.RI "void \fBsetRepeating\fP (boolean repeatingStatus)"
+.br
+.ti -1c
+.RI "void \fBsetRealTimeConstraint\fP (long realTimeConstraint)"
+.br
+.ti -1c
+.RI "void \fBsetSlaveWaitQueue\fP (ProcessQueue<?extends \fBSimProcess\fP > slvWaitQueue)"
+.br
+.ti -1c
+.RI "int \fBgetSchedulingPriority\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSchedulingPriority\fP (int newPriority)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimProcess\fP \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.ti -1c
+.RI "Vector< \fBResource\fP > \fBgetUsedResources\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSupervisor\fP (\fBComplexSimProcess\fP complexProcess)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "boolean \fB_isBlocked\fP"
+.br
+.ti -1c
+.RI "boolean \fB_isTerminated\fP"
+.br
+.ti -1c
+.RI "boolean \fB_isRunning\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBSimProcess\fP represents entities with an own active lifecycle\&. Since SimProcesses are in fact special entities with extended capabilities (esp\&. the method \fC\fBlifeCycle()\fP\fP), they inherit from \fBEntity\fP and thus can also be used in conjunction with events\&. So they can be handled in both ways, event- and process-oriented\&. Clients are supposed to implement the \fC\fBlifeCycle()\fP\fP method to specify the individual behaviour of a special \fBSimProcess\fP subclass\&. Since implementing activity- and transaction-oriented synchronization mechanisms requires significant changes in this class, methods that have been implemented by Soenke Claassen have been marked\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.SimProcess\&.SimProcess (\fBModel\fPowner, Stringname, booleanrepeating, booleanshowInTrace)"
+The most general constructor of a \fBSimProcess\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the \fBSimProcess\fP 
+.br
+\fIowner\fP \fBModel\fP : The model this \fBSimProcess\fP is associated to 
+.br
+\fIrepeating\fP boolean : Flag to set the \fBSimProcess\fP' repeating behaviour: If set to \fCtrue\fP, the lifeCycle will be executed again after completion, while \fCfalse\fP will create a process whose lifeCycle is executed only once\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing \fBSimProcess\fP in trace-files\&. Set it to \fCtrue\fP if \fBSimProcess\fP should show up in trace\&. Set it to \fCfalse\fP if \fBSimProcess\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.SimProcess\&.SimProcess (\fBModel\fPowner, Stringname, booleanshowInTrace)"
+Short-cut constructor of a \fBSimProcess\fP whose \fC\fBlifeCycle()\fP\fP is only executed once\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the \fBSimProcess\fP 
+.br
+\fIowner\fP \fBModel\fP : The model this \fBSimProcess\fP is associated to 
+.br
+\fIshowInTrace\fP boolean : Flag for showing \fBSimProcess\fP in trace-files\&. Set it to \fCtrue\fP if \fBSimProcess\fP should show up in trace\&. Set it to \fCfalse\fP if \fBSimProcess\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.activate ()"
+Schedules the \fBSimProcess\fP to be activated at the present point in simulation time, yielding the same result as calling \fCactivate(new TimeSpan(0))\fP\&. The process will continue executing its \fClifeCycle\fP method\&. 
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.activate (\fBSimTime\fPdt)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBactivate(TimeSpan dt)\fP\&. Schedules the \fBSimProcess\fP to be activated at the given time offset to the current simulation time\&. This will allow a \fBSimProcess\fP to continue executing its \fClifeCycle\fP method\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBSimTime\fP : The offset to the current simulation time that this \fBSimProcess\fP is due to be activated 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.activate (\fBTimeInstant\fPwhen)"
+Schedules the \fBSimProcess\fP to be activated at the given point in simulation time\&. This will allow a \fBSimProcess\fP to continue executing its \fClifeCycle\fP method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhen\fP \fBTimeInstant\fP : The point in simulation time this process is to be activated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.activate (\fBTimeSpan\fPdt)"
+Schedules the \fBSimProcess\fP to be activated at the specified point in simulation time\&. The point of time is given as an offset to the current simulation time\&. This will allow a \fBSimProcess\fP to continue executing its \fClifeCycle\fP method\&. Thus in contrast to the entity, no Event is needed for scheduling here\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBTimeSpan\fP : The offset to the current simulation time this process is to be activated 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.activateAfter (\fBSchedulable\fPafter)"
+Schedules this \fBSimProcess\fP to be activated directly after the given \fBSchedulable\fP, which itself is already scheduled\&. Note that this \fBSimProcess\fP' point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus this \fBSimProcess\fP will continue to execute its \fClifeCycle\fP method directly after the given \fBSchedulable\fP but the simulation clock will not change\&. Please make sure that the \fBSchedulable\fP given as parameter is actually scheduled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIafter\fP \fBSchedulable\fP : The \fBSchedulable\fP this \fBSimProcess\fP should be scheduled after 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.activateBefore (\fBSchedulable\fPbefore)"
+Schedules this \fBSimProcess\fP to be activated directly before the given \fBSchedulable\fP, which itself is already scheduled\&. Note that this \fBSimProcess\fP' point of simulation time will be set to be the same as the \fBSchedulable\fP's time\&. Thus this \fBSimProcess\fP will continue to execute its \fClifeCycle\fP method directly before the given \fBSchedulable\fP but the simulation clock will not change\&. Please make sure that the \fBSchedulable\fP given as parameter is actually scheduled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbefore\fP \fBSchedulable\fP : The \fBSchedulable\fP this \fBSimProcess\fP should be scheduled before 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.cancelInterruptDelayed ()"
+Clears the currently scheduled delayed interrupt so that it wont be performed\&. This Method should be called to cancel a previously scheduled delayed interrupt\&. This is typically the case if all steps to be covered by the delayed interrupt have been performed in time (before the delayed interrupt could be executed)\&. 
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&.canCooperate ()"
+Returns \fCtrue\fP if this process can cooperate with another \fBSimProcess\fP\&. If this process is already cooperating with a master \fCfalse\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is this process ready to cooperate with another \fBSimProcess\fP? 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.clearInterruptCode ()"
+Resets the interrupt-status of this \fBSimProcess\fP to not interrupted\&. Should be called every time the \fBSimProcess\fP has successfully dealt with the interrupt\&. The internal \fC\fBInterruptCode\fP\fP of this \fBSimProcess\fP will be reset to \fCnull\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.core\&.simulator\&.SimProcess\&.clone () throws CloneNotSupportedException\fC [protected]\fP"
+As there is no generally applicable means of cloning a \fBSimProcess\fP (which would require cloning the execution state as well), this method returns a CloneNotSupportedException\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimProcess\fP : A copy of this process\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.cooperate ()"
+The current (master) process is calling this method (within \fCWaitQueue\&.cooperate()\fP) on the slave process to lead him through the joint cooperation\&. After the joint cooperation is finished the master is still active and after him the slave will be activated\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "\fBSchedulable\fP desmoj\&.core\&.simulator\&.SimProcess\&.getActivatedBy ()"
+Returns the last \fC\fBSchedulable\fP\fP that did cause the last activation (or interruption) of this \fBSimProcess\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSchedulable\fP : The \fBSchedulable\fP (e\&.g\&. other \fBSimProcess\fP, Event\&.\&.\&.) that has caused the last activation of this \fBSimProcess\fP\&. As processes may activate themselves, e\&.g\&. though a \fC\fBhold(TimeSpan t)\fP\fP or an \fC\fBactivate(TimeSpan t)\fP\fP, this method may return a reference to this process\&. The method returns \fCnull\fP if this process has not yet been activated\&. 
+.RE
+.PP
+
+.SS "\fBInterruptCode\fP desmoj\&.core\&.simulator\&.SimProcess\&.getInterruptCode ()"
+Returns the \fBInterruptCode\fP from this \fBSimProcess\fP\&. If this \fBSimProcess\fP is not interrupted, the \fBInterruptCode\fP is \fCnull\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+irqCode : The \fBInterruptCode\fP of this \fBSimProcess\fP\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.core\&.simulator\&.SimProcess\&.getMaster ()"
+Returns the master when two SimProcesses are cooperating\&. If this method is called on a \fBSimProcess\fP which is not a slave \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimProcess\fP : The master process during the cooperation or \fCnull\fP if this process is not a slave process\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.SimProcess\&.getRealTimeConstraint ()"
+Returns the realTime deadline for this \fBSimProcess\fP (in nanoseconds)\&. In case of a real-time execution (i\&. e\&. the execution speed rate is set to a positive value) the \fBScheduler\fP will produce a warning message if a deadline is missed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the realTimeConstraint in nanoseconds 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.SimProcess\&.getSchedulingPriority ()"
+Returns the process' scheduling priority\&. The scheduling priority is used to determine which process to execute first if two or more processes are activated at the same instant\&. The default priority is zero\&. Higher priorities are positive, lower priorities negative\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The process' priority 
+.RE
+.PP
+
+.SS "ProcessQueue<? extends \fBSimProcess\fP> desmoj\&.core\&.simulator\&.SimProcess\&.getSlaveWaitQueue ()"
+Returns the waiting-queue in which this \fBSimProcess\fP is waiting as a slave to cooperate with a master\&. If this method is called on a \fBSimProcess\fP which is not a slave \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+ProcessQueue : The waiting-queue in which this \fBSimProcess\fP is waiting as a slave or \fCnull\fP if this \fBSimProcess\fP is not waiting as a slave for cooperation\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "\fBComplexSimProcess\fP desmoj\&.core\&.simulator\&.SimProcess\&.getSupervisor ()"
+Returns the supervising \fC\fBComplexSimProcess\fP\fP this \fBSimProcess\fP is contained in\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBComplexSimProcess\fP : The supervising \fC\fBComplexSimProcess\fP\fP this \fBSimProcess\fP is contained in\&. Is \fCnull\fP if this \fBSimProcess\fP is not contained in any \fC\fBComplexSimProcess\fP\fP\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "Vector<\fBResource\fP> desmoj\&.core\&.simulator\&.SimProcess\&.getUsedResources ()\fC [protected]\fP"
+Returns a clone of the internal \fCVector\fP containing all the \fC\fBResource\fP\fP objects this \fBSimProcess\fP is using at the moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.util\&.Vector : the internal \fCVector\fP containing all the \fC\fBResource\fP\fP objects this \fBSimProcess\fP is using at the moment\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.hold (\fBSimTime\fPdt) throws \fBDelayedInterruptException\fP, 			\fBInterruptException\fP"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBhold(TimeSpan dt)\fP\&. Passivates a \fBSimProcess\fP for the time given\&. The simthread of this \fBSimProcess\fP is put into a lock and the scheduler, resp\&. the experiment's main thread is released from its block and continues with the next \fBEventNote\fP to be processed\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP desmoj\&.SimTime : The duration of the \fBSimProcess\fP' passivation 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.hold (\fBTimeInstant\fPuntil) throws \fBDelayedInterruptException\fP, 			\fBInterruptException\fP"
+Passivates a \fBSimProcess\fP until the given point in simulation time\&. The simthread of this \fBSimProcess\fP is put into a lock and the scheduler, resp\&. the experiment's main thread is released from its block and continues with the next event-note to be processed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIuntil\fP \fBTimeInstant\fP : The point in simulation time when the \fBSimProcess\fP' passivation ends\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.hold (\fBTimeSpan\fPdt) throws \fBDelayedInterruptException\fP, 			\fBInterruptException\fP"
+Passivates a \fBSimProcess\fP for the given span of time\&. The simthread of this \fBSimProcess\fP is put into a lock and the scheduler, resp\&. the experiment's main thread is released from its block and continues with the next \fBEventNote\fP to be processed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBTimeSpan\fP : The duration of the \fBSimProcess\fP' passivation 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.hold (NumericalDist<?>dist) throws \fBDelayedInterruptException\fP,             \fBInterruptException\fP"
+Passivates a \fBSimProcess\fP for span of time sampled from the distribution provided to the method\&. The sample is interpreted in the reference time unit\&. The \fBSimThread\fP of this \fBSimProcess\fP is put into a lock and the scheduler, resp\&. the experiment's main thread is released from its block and continues with the next \fBEventNote\fP to be processed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdist\fP NumericalDist<?> : Numerical distribution to sample the duration of the \fBSimProcess\fP' passivation from 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.interrupt (\fBInterruptCode\fPinterruptReason)"
+Interrupts the \fBSimProcess\fP setting the given \fBInterruptCode\fP as the reason for the interruption\&. Blocked, terminated or already interrupted SimProcesses can not be interrupted\&. In this case a warning message will be produced and the interrupt will be ignord\&. If the \fBSimProcess\fP is cooperating as a slave the interrupt will be passed to the master\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinterruptReason\fP desmoj\&.InterruptCode 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.interrupt (\fBInterruptException\fPinterruptReason)"
+Interrupts the \fBSimProcess\fP by throwing the given InterruptException in it's lifeCylce() method\&. The InterruptException contains an \fBInterruptCode\fP as the reason for the interruption\&. Blocked, terminated or already interrupted SimProcesses can not be interrupted\&. In this case a warning message will be produced and the interrupt will be ignord\&. If the \fBSimProcess\fP is cooperating as a slave the interrupt will be passed to the master\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinterruptReason\fP desmoj\&.InterruptException 
+.RE
+.PP
+
+.SS "\fBExternalEvent\fP desmoj\&.core\&.simulator\&.SimProcess\&.interruptDelayed (\fBTimeInstant\fPwhen)"
+Schedules this process to be interrupted at the given point in simulation time\&. Only one delayed interrupt can be scheduled at a time\&. If a delayed interrupt is scheduled after another delayed interrupt has already been scheduled a warning message will be produced and the new delayed interrupt will not be scheduled\&.
+.PP
+A delayed Interrupt must be cleared manually by calling clearInterruptDelayed() on the \fBSimProcess\fP if it wasn't performed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwhen\fP The Point in time when the interrupt is to be performed\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The event which will (at the given point in time) triger the interrupt of this process 
+.RE
+.PP
+
+.SS "\fBExternalEvent\fP desmoj\&.core\&.simulator\&.SimProcess\&.interruptDelayed (\fBTimeSpan\fPdelay)"
+Schedules this process to be interrupted after the given delay\&. Only one delayed interrupt can be scheduled at a time\&. If a delayed interrupt is scheduled after another delayed interrupt has already been scheduled a warning message will be produced and the delayed interrupt will not be scheduled\&.
+.PP
+A delayed Interrupt must be cleared manually by calling clearInterruptDelayed() on the \fBSimProcess\fP if it wasn't performed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdelay\fP The delay after which the interrupt is to be performed\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The event which will (after the given delay) triger the interrupt of this process 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&.isBlocked ()"
+Returns the current block-status of the \fBSimProcess\fP\&. If a \fBSimProcess\fP is blocked, it is waiting inside a queue or synchronization block for it's release\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if \fBSimProcess\fP is blocked, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&.isComponent ()"
+Returns the current component status of this \fBSimProcess\fP\&. If a \fBSimProcess\fP is a component of a \fC\fBComplexSimProcess\fP\fP it is blocked and passivated\&. It exists only within the \fC\fBComplexSimProcess\fP\fP; it's own lifeCycle is stopped and will only be activated again when it is removed from the \fC\fBComplexSimProcess\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if and only if this \fBSimProcess\fP is a component (part of) a \fC\fBComplexSimProcess\fP\fP; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&.isInterrupted ()"
+Returns the current interrupt-status of this \fBSimProcess\fP\&. If a \fBSimProcess\fP is interrupted, it should deal with the interrupt and then call the \fC\fBclearInterruptCode()\fP\fP -method\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if this \fBSimProcess\fP is interrupted, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&.isRepeating ()"
+Returns the current repeating-status of the \fBSimProcess\fP\&. If a \fBSimProcess\fP is repeating, the lifeCycle will be executed again after finishing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the lifeCycle of the process will be repeated finishing, while \fCfalse\fP indicates the process will terminate after the lifeCycle is completed\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&.isTerminated ()"
+Returns the current status of the \fBSimProcess\fP\&. If a \fBSimProcess\fP is terminated, it has already finished its \fC\fBlifeCycle()\fP\fP method and can not further be used as a \fBSimProcess\fP\&. A terminated \fBSimProcess\fP can still be used like any other \fBEntity\fP which it is derived from\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the \fBSimProcess\fP is terminated, \fCfalse\fP otherwise 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBEntity\fP 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.SimProcess\&.lifeCycle ()\fC [pure virtual]\fP"
+Override this method in a subclass of \fBSimProcess\fP to implement the specific behaviour of this \fBSimProcess\fP\&. This method starts after a \fBSimProcess\fP has been created and activated\&. Note that this method will be executed once or repeatedly, depending on the repeating status of the \fBSimProcess\fP\&. 
+.PP
+Implemented in \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMS\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQS\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.SimpleTransporter\fP, \fBdesmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends SimProcess >\fP, \fBdesmoj\&.core\&.simulator\&.ComplexSimProcess\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.T_Control\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\fP, \fBdesmoj\&.core\&.simulator\&.ArrivalProcess< S extends SimProcess >\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.CustomerProcess\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.MachineProcess\fP, and \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Worker\fP\&.
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.obtainResources (\fBResource\fP[]obtainedResources)"
+Makes the \fBSimProcess\fP obtain an array of resources and store them for further usage\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobtainedResources\fP \fBResource\fP[] : The array of resources obtained\&.
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "synchronized void desmoj\&.core\&.simulator\&.SimProcess\&.passivate () throws \fBDelayedInterruptException\fP, 			\fBInterruptException\fP"
+Passivates the \fBSimProcess\fP for an indefinite time\&. This method must be called by the \fBSimProcess\fP' own Thread only\&. The \fBSimProcess\fP can only be reactivated by another \fBSimProcess\fP or \fBEntity\fP\&. 
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.prepareTransport ()"
+The current (master) process is calling this method (within \fCTransportJunction\&.cooperate()\fP) on the slave process to make him prepare for the transportation\&. After the transport is finished the master is still active and after him the slave will be activated\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.reActivate (\fBTimeSpan\fPdt)"
+Re-schedules the \fBSimProcess\fP to be activated at the given \fBTimeSpan\fP offset to the current simulation time\&. The \fBSimProcess\fP has already been scheduled but is now supposed to be reactivated at some other point of simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBTimeSpan\fP : The offset to the current simulation time that this \fBSimProcess\fP is due to be re-activated 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.resetMaster ()"
+Gets the \fBInterruptCode\fP from the master and resets the master to \fCnull\fP\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.returnAllResources ()"
+Makes the \fBSimProcess\fP return all resources it holds at the moment to all the different Res pools it is holding resources from\&. This is useful in situations the Simprocess is about to terminate\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "\fBResource\fP [] desmoj\&.core\&.simulator\&.SimProcess\&.returnResources (\fBRes\fPresPool, intn)"
+Makes the \fBSimProcess\fP return a certain number of resources of the given resource pool\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIresPool\fP Res : The resource pool which resources will be returned\&. 
+.br
+\fIn\fP int : The number of resources which will be returned\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBResource\fP[] : the array containing the resources which will be returned\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.setBlocked (booleanblockStatus)"
+Sets the \fBSimProcess\fP' blocked status to the boolean value given\&. This is necessary for some operations in conjunction with some synchronization classes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIblockStatus\fP boolean : The new value for the blocked status 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.setRealTimeConstraint (longrealTimeConstraint)"
+Returns the current repeating-status of the \fBSimProcess\fP\&. If a \fBSimProcess\fP is repeating, the lifeCycle will be executed again after finishing\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the lifeCycle of the process will be repeated finishing, while \fCfalse\fP indicates the process will terminate after the lifeCycle is completed\&. Sets the realTime deadline for this \fBSimProcess\fP (in nanoseconds)\&. In case of a real-time execution (i\&. e\&. the execution speed rate is set to a positive value) the \fBScheduler\fP will produce a warning message if a deadline is missed\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrealTimeConstraint\fP the realTimeConstraint in nanoseconds to set 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.setRepeating (booleanrepeatingStatus)"
+Sets the \fBSimProcess\fP' repeating status to the boolean value given, permitting the process' lifeCycle to either start again (\fCtrue\fP) or terminate (\fCfalse\fP) after the current cycle is completed\&. Note that setting setting this property to \fCtrue\fP \fIafter\fP the the process has terinated has no effect\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrepeatingStatus\fP boolean : The new value for the repeating status 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.setSchedulingPriority (intnewPriority)"
+Sets the process' scheduling priority to a given integer value\&. The default priority (unless assigned otherwise) is zero\&. Negative priorities are lower, positive priorities are higher\&. All values should be inside the range defined by Java's integral \fCinteger\fP data type [-2147483648, +2147483647]\&.
+.PP
+An process' scheduling priority it used to determine which process is executed first if activated at the same time instant\&. Should the priority be the same, order of event execution depends on the \fC\fBEventList\fP\fP in use, e\&.g\&. activated first is executed first (\fC\fBEventTreeList\fP\fP) or random (\fC\fBRandomizingEventTreeList\fP\fP)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPriority\fP int : The new scheduling priority value 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.setSlaveWaitQueue (ProcessQueue<?extends \fBSimProcess\fP >slvWaitQueue)"
+Sets the \fBSimProcess\fP' slaveWaitQueue variable to the ProcessQueue in which this \fBSimProcess\fP is waiting as a slave to cooperate with a master\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIslvWaitQueue\fP ProcessQueue : The waiting-queue in which this \fBSimProcess\fP is waiting as a slave to cooperate with a master\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.SimProcess\&.setSupervisor (\fBComplexSimProcess\fPcomplexProcess)\fC [protected]\fP"
+Sets the supervising \fC\fBComplexSimProcess\fP\fP this \fBSimProcess\fP is contained in\&. Setting it to \fCnull\fP indicates that this \fBSimProcess\fP is not contained in any \fC\fBComplexSimProcess\fP\fP (anymore)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcomplexProcess\fP desmoj\&.ComplexSimProcess : The \fC\fBComplexSimProcess\fP\fP which serves as a container for this \fBSimProcess\fP\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&._isBlocked\fC [protected]\fP"
+Displays the current blocked status of this \fBSimProcess\fP\&. A \fBSimProcess\fP is blocked whenever it has to wait inside a queue or synchronization object\&. 
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&._isRunning\fC [protected]\fP"
+Displays if the thread in of control of this \fBSimProcess\fP is already the associated simthread\&. Is \fCtrue\fP if the simthread is active and is carrying on its lifeCycle\&. Is \fCfalse\fP if it has not started its lifeCycle yet or is terminated already\&. 
+.SS "boolean desmoj\&.core\&.simulator\&.SimProcess\&._isTerminated\fC [protected]\fP"
+Displays the current status of this \fBSimProcess\fP\&. Is \fCtrue\fP if lifeCycle method has finished, \fCfalse\fP if it is still running or has not been started yet 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

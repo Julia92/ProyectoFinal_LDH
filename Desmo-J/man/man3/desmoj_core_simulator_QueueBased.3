@@ -1,0 +1,343 @@
+.TH "desmoj.core.simulator.QueueBased" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.QueueBased \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP, and Subject< QueueBased, QueueAction >\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.advancedModellingFeatures\&.Bin\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends SimProcess >\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.Res\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.Stock\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends SimProcess, S extends SimProcess >\fP, \fBdesmoj\&.core\&.simulator\&.ProcessQueue< P extends SimProcess >\fP, \fBdesmoj\&.core\&.simulator\&.Queue< E extends Entity >\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\fP, and \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBQueueAction\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQueueBased\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBaddObserver\fP (Observer< \fBQueueBased\fP, \fBQueueAction\fP > observer)"
+.br
+.ti -1c
+.RI "double \fBaverageLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBaverageWaitTime\fP ()"
+.br
+.ti -1c
+.RI "abstract 
+.br
+\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeleteObserver\fP (Observer< \fBQueueBased\fP, \fBQueueAction\fP > observer)"
+.br
+.ti -1c
+.RI "int \fBgetQueueLimit\fP ()"
+.br
+.ti -1c
+.RI "int \fBlength\fP ()"
+.br
+.ti -1c
+.RI "int \fBmaxLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBmaxLengthAt\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBmaxWaitTime\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBmaxWaitTimeAt\fP ()"
+.br
+.ti -1c
+.RI "int \fBminLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBminLengthAt\fP ()"
+.br
+.ti -1c
+.RI "void \fBnotifyObservers\fP (\fBQueueBased\fP subject, \fBQueueAction\fP eventObject)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetQueueImpWarning\fP (boolean warnFlag)"
+.br
+.ti -1c
+.RI "double \fBstdDevLength\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBstdDevWaitTime\fP ()"
+.br
+.ti -1c
+.RI "long \fBzeroWaits\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final double \fBUNDEFINED\fP = -1"
+.br
+.ti -1c
+.RI "static final int \fBFIFO\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBLIFO\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBRANDOM\fP = 2"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddItem\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeleteItem\fP (\fBTimeInstant\fP entryTime)"
+.br
+.ti -1c
+.RI "void \fBupdateStatistics\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBqueueLimit\fP = Integer\&.MAX_VALUE"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides the typical statistics common to all ModelComponents based on Queues\&. It is set abstract to prevent users to use it straight without deriving a class first because it only provides the functionality for statistical data extraction, not the functionality for actually queueing Entities\&. The statistical values provided are the queue's length and its elements' waiting times with minimum, maximum, mean and standard deviation for each\&. This class should be used when any type of \fBModelComponent\fP using Queues is created\&. In combination with class QueueList an automatic insert/remove mechanism including search functionality with condition checking can be set up within a few lines of code\&. It also provides full automatic statistical data about the Queue used\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+QueueList
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.QueueBased\&.QueueBased (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Creates a \fBQueueBased\fP object and initializes all statistical counters\&. If this standard constructor is used a queue with Fifo sort order and no limited capacity will be created\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model it belongs to 
+.br
+\fIname\fP java\&.lang\&.String : The name for this \fBQueueBased\fP object 
+.br
+\fIshowInReport\fP boolean : Flag if values are shown in report 
+.br
+\fIshowInTrace\fP boolean : Flag if \fBQueueBased\fP writes trace messages 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.simulator\&.QueueBased\&.addItem ()\fC [protected]\fP"
+Updates the statistics when a new element is inserted into the underlying queue\&. Note that this method must always be called whenever an insertion is made\&. If class \fCQueueList\fP is used in combination with a \fBQueueBased\fP, this method gets called automatically whenever a new \fBEntity\fP is inserted\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+QueueList 
+.PP
+QueueListFifo 
+.PP
+QueueListLifo 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.QueueBased\&.averageLength ()"
+Returns the average length of the underlying queue since the last reset\&. Current length of that queue will be returned, if the time span since the last reset is smaller than the smallest distinguishable timespan epsilon\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average queue length since last reset or current length of queue if no distinguishable periode of time has passed 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.simulator\&.QueueBased\&.averageWaitTime ()"
+Returns the average waiting time of all objects who have exited the queue\&. Value is valid for the time span since the last reset\&. Returns 0 (zero) if no objects have exited the queue after the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeSpan\fP : Average waiting time of all objects since last reset or 0 if no objects have exited the queue 
+.RE
+.PP
+
+.SS "abstract \fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.simulator\&.QueueBased\&.createReporter ()\fC [pure virtual]\fP"
+Creates the reporter qualified to produce a report about a class that has been derived from \fBQueueBased\fP\&. This method is declared abstract since no real \fBQueueBased\fP is supposed to be instantiated and thus no rReporter can be defined here\&. Implement this method in the subclasses of \fBQueueBased\fP such as in class Queue\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+Queue 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.advancedModellingFeatures\&.WaitQueue< M extends SimProcess, S extends SimProcess >\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.Stock\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.Res\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.WorkStation\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.Bin\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Entrepot\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\fP, \fBdesmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends SimProcess >\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.CranesSystem\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.TransporterSystem\fP, \fBdesmoj\&.core\&.simulator\&.Queue< E extends Entity >\fP, and \fBdesmoj\&.core\&.simulator\&.ProcessQueue< P extends SimProcess >\fP\&.
+.SS "void desmoj\&.core\&.simulator\&.QueueBased\&.deleteItem (\fBTimeInstant\fPentryTime)\fC [protected]\fP"
+Updates the statistics when a new element is exiting the underlying queue\&. Note that this method must always be called whenever an object is taken from the queue\&. The simulation time parameter given provides the statistics with the information about the point of time the exiting object had enterd this queue\&. This is needed to calculate the waiting times\&. If a \fBQueueBased\fP is used in conjunction with class queuelist, this method is automatically called whenever an entity is taken from the queuelist to keep track of
+.PP
+\fBParameters:\fP
+.RS 4
+\fIentryTime\fP \fBTimeInstant\fP : Point of simulation time that the object now exiting the \fBQueueBased\fP had entered it 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.QueueBased\&.getQueueLimit ()"
+Returns the maximum possible number of entities in the underlying queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : the maximum number of entities in the queue\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.QueueBased\&.length ()"
+Returns the current length of the underlying queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The current queue length, zero if empty\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.QueueBased\&.maxLength ()"
+Returns the maximum length of the underlying queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The maximum queue length since last reset 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.QueueBased\&.maxLengthAt ()"
+Returns the point of simulation time with the maximum number of objects waiting inside the underlying queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : Point of time with maximum queue length since last reset 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.simulator\&.QueueBased\&.maxWaitTime ()"
+Returns the maximum duration in simulation time that an object has spent waiting inside the underlying queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeSpan : Longest waiting time of an object in the queue since last reset 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.QueueBased\&.maxWaitTimeAt ()"
+Returns the point of simulation time when the object with the maximum waiting time exited the underlying queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : The point of simulation time when the object with the maximum waiting time exited the queue 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.QueueBased\&.minLength ()"
+Returns the minimumn length of the underlying queue since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The minimum queue length since last reset 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.QueueBased\&.minLengthAt ()"
+Returns the point of simulation time with the minimum number of objects waiting inside the underlying queue\&. The value is valid for the period since the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.TimeInstant : Point of time with minimum queue length since last reset 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.QueueBased\&.reset ()"
+Resets all statistical counters to their default values\&. The mininum and maximum length of the queue are set to the current number of queued objects\&. 
+.SS "void desmoj\&.core\&.simulator\&.QueueBased\&.setQueueImpWarning (booleanwarnFlag)"
+Method switches on warnings issued from the underlying queue implementation if parameter given is \fCtrue\fP\&. Warnings are suppressed if \fCfalse\fP is given\&. This method is used for internal debugging only\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwarnFlag\fP boolean :\fCtrue\fP switches warnings on, \fCfalse\fP switches warnings off 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.QueueBased\&.stdDevLength ()"
+Returns the standard deviation of the queue's length\&. Value is weighted over time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation for the queue's length weighted over time 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.simulator\&.QueueBased\&.stdDevWaitTime ()"
+Returns the standard deviation of the queue's objects waiting times\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The standard deviation for the queue's objects waiting times 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.QueueBased\&.updateStatistics ()\fC [protected]\fP"
+Updates the parts of the statistics used by both addItem and deleteItem\&. 
+.SS "long desmoj\&.core\&.simulator\&.QueueBased\&.zeroWaits ()"
+Returns the number of objects that have passed through the queue without spending time waiting\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of elements who have passed the queue without waiting 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final int desmoj\&.core\&.simulator\&.QueueBased\&.FIFO = 0\fC [static]\fP"
+Defining a constant for the FIFO (First In First Out) service discipline of the underlying queue: An \fBEntity\fP inserted into the queue is removed after all entities already enqueued with the same priority\&. 
+.SS "final int desmoj\&.core\&.simulator\&.QueueBased\&.LIFO = 1\fC [static]\fP"
+Defining a constant for the LIFO (Last In First Out) service discipline of the underlying queue: An \fBEntity\fP inserted into the queue is removed before all entities already enqueued with the same priority\&. 
+.SS "int desmoj\&.core\&.simulator\&.QueueBased\&.queueLimit = Integer\&.MAX_VALUE\fC [protected]\fP"
+Represents the maximum number of entities in the queue (default is unlimited capacity)\&. 
+.SS "final int desmoj\&.core\&.simulator\&.QueueBased\&.RANDOM = 2\fC [static]\fP"
+Defining a constant for the random service discipline of the underlying queue: An \fBEntity\fP inserted into the queue may be removed before or after any other \fBEntity\fP with the same priority\&. 
+.SS "final double desmoj\&.core\&.simulator\&.QueueBased\&.UNDEFINED = -1\fC [static]\fP"
+Represents the value returned if for a given statistics no valid value can be returned\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

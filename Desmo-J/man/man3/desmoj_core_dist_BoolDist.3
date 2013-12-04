@@ -1,0 +1,101 @@
+.TH "desmoj.core.dist.BoolDist" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.BoolDist \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.Distribution\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.BoolDistBernoulli\fP, and \fBdesmoj\&.core\&.dist\&.BoolDistConstant\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBoolDist\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "abstract boolean \fBsample\fP ()"
+.br
+.ti -1c
+.RI "Object \fBsampleObject\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Superclass for all distributions returning boolean samples\&. Use this class instead of a specific distribution if the special distribution function is supposed to be specified in subclasses or changed dynamically\&. Extend this abstract class to define your special function boolean distribution\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.BoolDist\&.BoolDist (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructs a distribution returning boolean samples\&. Note that the method returning the boolean samples has to be implemented in subclasses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIshowInReport\fP boolean : Flag to show distribution in report 
+.br
+\fIshowInTrace\fP boolean : Flag to show distribution in trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract boolean desmoj\&.core\&.dist\&.BoolDist\&.sample ()\fC [pure virtual]\fP"
+Abstract method should return the specific sample as a boolean value when implemented in subclasses\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : The boolean sample to be drawn from this distribution 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.dist\&.BoolDistBernoulli\fP, and \fBdesmoj\&.core\&.dist\&.BoolDistConstant\fP\&.
+.SS "Object desmoj\&.core\&.dist\&.BoolDist\&.sampleObject ()\fC [virtual]\fP"
+Convenience method to return the distribution's sample as \fCObject\fP\&. For type safety, method \fC\fBsample()\fP\fP should be preferred\&. However, this method is useful for environments requiring a non-genetic access point to obtain samples from any distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Object : A sample from this this distribution wrapped as \fCObject\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.dist\&.Distribution\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1dist_1_1_distribution" kind="class" prot="public" abstract="yes">
+    <compoundname>desmoj::core::dist::Distribution</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_reportable" prot="public" virt="non-virtual">desmoj.core.simulator.Reportable</basecompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1core_1_1dist_1_1_bool_dist" prot="public" virt="non-virtual">desmoj.core.dist.BoolDist</derivedcompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1core_1_1dist_1_1_entity_dist_3_01_e_01extends_01_entity_01_4" prot="public" virt="non-virtual">desmoj.core.dist.EntityDist&lt; E extends Entity &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1core_1_1dist_1_1_numerical_dist_3_01_n_01extends_01_number_01_4" prot="public" virt="non-virtual">desmoj.core.dist.NumericalDist&lt; N extends Number &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classdesmoj_1_1core_1_1dist_1_1_series_3_01_o_01extends_01_object_01_4" prot="public" virt="non-virtual">desmoj.core.dist.Series&lt; O extends Object &gt;</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6d64b20fd9af32faa696c8170b9c4181" prot="protected" static="no" mutable="no">
+        <type><ref refid="interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator" kindref="compound">desmoj.core.dist.UniformRandomGenerator</ref></type>
+        <definition>desmoj.core.dist.UniformRandomGenerator desmoj.core.dist.Distribution.randomGenerator</definition>
+        <argsstring></argsstring>
+        <name>randomGenerator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The underlying uniform pseudo random generator available to every distribution inheriting from this abstract class. Valid generators have to implement the <computeroutput>desmoj.dist.UniformRandomGenerator</computeroutput> interface. By default the <computeroutput>desmoj.dist.DefaultRandomGenerator</computeroutput> is used.</para><para><simplesect kind="see"><para><ref refid="interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator" kindref="compound">desmoj.core.dist.UniformRandomGenerator</ref> </para><simplesectsep/><para><ref refid="classdesmoj_1_1core_1_1dist_1_1_linear_congruential_random_generator" kindref="compound">desmoj.core.dist.LinearCongruentialRandomGenerator</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="51" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a998e50e560af2d6dbfab6b2cc32d82e2" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.dist.Distribution.antithetic</definition>
+        <argsstring></argsstring>
+        <name>antithetic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The status of the random number generation. If set to true, antithetic values are delivered. These depend upon the kind of distribution, so this value here will probably be most useful to switch the algorithm in the implementation of the abstract <computeroutput>sample()</computeroutput> method between &quot;normal&quot; and &quot;antithetic&quot; value generation. This feature is not associated to the pseudo random generator since the algorithm for calculating antithetic values might not require antithetic uniformly distributed values. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="63" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6b495c392e37b816df12df8ba00dff5d" prot="protected" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.core.dist.Distribution.initialSeed</definition>
+        <argsstring></argsstring>
+        <name>initialSeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The seed of the underlying pseudorandom generator. The seed value is passed on to the underlying <computeroutput><ref refid="interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator" kindref="compound">UniformRandomGenerator</ref></computeroutput> but since those generators are not supposed to keep track of their initial seed value it is stored here to make sure they are not lost. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="71" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a075c300a1f99dff8ff8368b1b55b24b6" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.dist.Distribution.nonNegative</definition>
+        <argsstring></argsstring>
+        <name>nonNegative</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This flag shows, if a distribution may produce negative samples or not. This is important, if the value of a distribution&apos;s sample is to be used for creating a TimeSpan object, which allows positive values only. If this switch is set to <computeroutput>true</computeroutput>, the distribution will only return positive samples. If a negative sample is drawn, it will be dismissed and new samples will be drawn until a positive is produced, which will be returned. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="82" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1af8788181fb0efb2daf8c84c3ecfbd0d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.dist.Distribution.Distribution</definition>
+        <argsstring>(Model owner, String name, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Distribution</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a RandomDistribution object which gets its initial seed from the experiment&apos;s seedgenerator. The <computeroutput><ref refid="classdesmoj_1_1core_1_1dist_1_1_linear_congruential_random_generator" kindref="compound">LinearCongruentialRandomGenerator</ref></computeroutput> is used as the underlying uniform pseudo random number generator for all pseudo random distribution <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The distribution&apos;s owner </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The distribution&apos;s name </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag to show distribution in report </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag to show distribution in trace </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="100" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="100" bodyend="124"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6d64b20fd9af32faa696c8170b9c4181" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="51">desmoj.core.dist.Distribution.randomGenerator</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_1a7057f3b1f1ff4d87c584d5c94c057247" compoundref="core_2simulator_2_model_8java" startline="332" endline="343">desmoj.core.simulator.Model.getExperiment</references>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6b495c392e37b816df12df8ba00dff5d" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="71">desmoj.core.dist.Distribution.initialSeed</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1aba843e43cf0dcd9632041d6c2a1b0a2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.dist.Distribution.changeRandomGenerator</definition>
+        <argsstring>(desmoj.core.dist.UniformRandomGenerator randomGenerator)</argsstring>
+        <name>changeRandomGenerator</name>
+        <param>
+          <type><ref refid="interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator" kindref="compound">desmoj.core.dist.UniformRandomGenerator</ref></type>
+          <declname>randomGenerator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Changes the underlying random generator to the one given as a parameter. Custom random generators have to implement the desmoj.dist.UniormRandomGenerator interface. Note that changing the underlying random generator forces a reset, since a new generator might produce a completely different stream of pseudo random numbers that won&apos;t enable us to reproduce the stream of numbers probably delivered by the previously used generator.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>randomGenerator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.util.Random : the random generator used for creating distributions </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="139" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="139" bodyend="145"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6d64b20fd9af32faa696c8170b9c4181" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="51">desmoj.core.dist.Distribution.randomGenerator</references>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a0a5899c3752664ae6030e23839c5be6c" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="221" endline="247">desmoj.core.dist.Distribution.reset</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1aacc2c37d8ab44873290fc2b03022bc5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref></type>
+        <definition>desmoj.core.report.Reporter desmoj.core.dist.Distribution.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the default reporter associated with this distribution. The basic <computeroutput>DistributionReporter</computeroutput> returned as a default implementation of this method simply reports the distribution&apos;s name, number of observations (samples given), seed and point of simulation time of the last reset.</para><para><simplesect kind="return"><para>Reportable : The reporter associated with this distribution </para></simplesect>
+<simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1report_1_1_distribution_reporter" kindref="compound">desmoj.core.report.DistributionReporter</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="157" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="157" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a4cc8ff0414cb78f292b48dfd5826dd27" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.core.dist.Distribution.getInitialSeed</definition>
+        <argsstring>()</argsstring>
+        <name>getInitialSeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the seed value since last reset.</para><para><simplesect kind="return"><para>long : The initial seed value </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="168" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="168" bodyend="172"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6b495c392e37b816df12df8ba00dff5d" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="71">desmoj.core.dist.Distribution.initialSeed</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1ae030183a1a4fccd846edc57480aa6247" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.dist.Distribution.getNonNegative</definition>
+        <argsstring>()</argsstring>
+        <name>getNonNegative</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tells if this distribution can return negative samples.</para><para><simplesect kind="return"><para>boolean : If <computeroutput>true</computeroutput> it returns positive samples only </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="179" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="179" bodyend="183"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a075c300a1f99dff8ff8368b1b55b24b6" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="82">desmoj.core.dist.Distribution.nonNegative</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1ac787d4d318409e83cab5f600573f1c7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.core.dist.Distribution.getNumSamples</definition>
+        <argsstring>()</argsstring>
+        <name>getNumSamples</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of Samples given by this distribution. The number of samples is increased whenever the sample() method is called. It is based on the random numbers of the distribution, not on the number of random numbers produced by the underlying random generator, since some distributions use algorithms consuming more than one uniformly distributed random number to produce one sample following the desired distribution.</para><para><simplesect kind="return"><para>long : the number of samples given to clients </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="196" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="196" bodyend="200"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a654c8dc4af0cdf350449ea21e64edc82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.dist.Distribution.isAntithetic</definition>
+        <argsstring>()</argsstring>
+        <name>isAntithetic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current status for antithetic random number generation in this distribution.</para><para><simplesect kind="return"><para>boolean : The status of antithetic pseudo random number generation </para></simplesect>
+<simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6dfb5a740b184775679af684e118f7b7" kindref="member">desmoj.core.dist.Distribution::setAntithetic</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="210" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="210" bodyend="214"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a998e50e560af2d6dbfab6b2cc32d82e2" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="63">desmoj.core.dist.Distribution.antithetic</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a0a5899c3752664ae6030e23839c5be6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.dist.Distribution.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the pseudo random generator&apos;s seed and the number of samples given to zero. The field antithetic keeps the value it has had before the reset. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="221" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="221" bodyend="247"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6d64b20fd9af32faa696c8170b9c4181" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="51">desmoj.core.dist.Distribution.randomGenerator</references>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6b495c392e37b816df12df8ba00dff5d" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="71">desmoj.core.dist.Distribution.initialSeed</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a527359507e9a10981d82a193d9eedce2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.dist.Distribution.reset</definition>
+        <argsstring>(long newSeed)</argsstring>
+        <name>reset</name>
+        <param>
+          <type>long</type>
+          <declname>newSeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the pseudo random generator&apos;s seed to the value passed, the number of samples given to zero and sets antithetic to false for this distribution. Acts the same as a call of method <computeroutput><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a0a5899c3752664ae6030e23839c5be6c" kindref="member">reset()</ref></computeroutput> and a consecutive call to <computeroutput><ref refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1ac67664cf06cd901ead866ffba10bb111" kindref="member">setSeed(long)</ref></computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newSeed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long : new seed to be used by underlying random number generator after reset </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="259" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="259" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a79a483a1e8ded837827be3c6d32a339c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract Object</type>
+        <definition>abstract Object desmoj.core.dist.Distribution.sampleObject</definition>
+        <argsstring>()</argsstring>
+        <name>sampleObject</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1dist_1_1_bool_dist_1a290fa2ac2871919acad37c9db5286016">sampleObject</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1dist_1_1_entity_dist_3_01_e_01extends_01_entity_01_4_1af8eb861957e2773c24dca87a334a2f8b">sampleObject</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1dist_1_1_numerical_dist_3_01_n_01extends_01_number_01_4_1ad92131a5a1318f9e3e0e0b98ca446120">sampleObject</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1dist_1_1_series_3_01_o_01extends_01_object_01_4_1aaa58ac9a74d5eb6015162f916d767826">sampleObject</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convenience method to return the distribution&apos;s sample as <computeroutput>Object</computeroutput>. For type safety, method <computeroutput>sample()</computeroutput> should be preferred. However, this method is useful for environments requiring a non-genetic access point to obtain samples from any distribution.</para><para><simplesect kind="return"><para>Object : A sample from this this distribution wrapped as <computeroutput>Object</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="283" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6dfb5a740b184775679af684e118f7b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.dist.Distribution.setAntithetic</definition>
+        <argsstring>(boolean newAntiStatus)</argsstring>
+        <name>setAntithetic</name>
+        <param>
+          <type>boolean</type>
+          <declname>newAntiStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Switches this distribution to produce antithetic samples. To obtain antithetic random numbers, call this method with the parameter <computeroutput>true</computeroutput>. Antithetic random numbers are used to minimize the standard deviation of a series of simulation runs. The results of a run with normal random numbers has to be standardized with the results of a run using antithetic random numbers, thus doubling the number of samples needed, but also lowering the standard deviation of the results of that simulation. See [Page91, p.139].</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newAntiStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Parameter <computeroutput>true</computeroutput> switches antithetic mode on, <computeroutput>false</computeroutput> switches antithetic mode off </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="299" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="299" bodyend="304"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a998e50e560af2d6dbfab6b2cc32d82e2" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="63">desmoj.core.dist.Distribution.antithetic</references>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a0a5899c3752664ae6030e23839c5be6c" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="221" endline="247">desmoj.core.dist.Distribution.reset</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1aa8c2b92cac478050e7b549be3ea5d47d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.dist.Distribution.setNonNegative</definition>
+        <argsstring>(boolean newValue)</argsstring>
+        <name>setNonNegative</name>
+        <param>
+          <type>boolean</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the nonNegative switch to the given value. If nonNegative is set to <computeroutput>true</computeroutput> the distribution returns positive samples only, otherwise it also produces negative samples, if possible.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : If <computeroutput>true</computeroutput> the distribution is set to return positive samples only, otherwise it also produces negative samples, if possible. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="316" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="316" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1ac67664cf06cd901ead866ffba10bb111" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.dist.Distribution.setSeed</definition>
+        <argsstring>(long newSeed)</argsstring>
+        <name>setSeed</name>
+        <param>
+          <type>long</type>
+          <declname>newSeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the underlying pseudo random number generator&apos;s seed to the value given. The seed controls the starting value of the random generators and all following generated pseudo random numbers. Resetting the seed between two simulation runs will let you use identical streams of random numbers. That will enable you to compare different strategies within your model based on the same random number stream produced by the random generator.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newSeed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>long : new seed used by underlying pseudo random number generator </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="332" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="332" bodyend="341"/>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6b495c392e37b816df12df8ba00dff5d" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="71">desmoj.core.dist.Distribution.initialSeed</references>
+        <references refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a0a5899c3752664ae6030e23839c5be6c" compoundref="desmoj_2core_2dist_2_distribution_8java" startline="221" endline="247">desmoj.core.dist.Distribution.reset</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1dist_1_1_distribution_1a4c7942d7ecd2bf57b7b2146a55da8214" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.dist.Distribution.traceLastSample</definition>
+        <argsstring>(String sample)</argsstring>
+        <name>traceLastSample</name>
+        <param>
+          <type>String</type>
+          <declname>sample</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates the trace output of each sample. This method is called by sample().</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sample</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String : The last sample, converted to a String </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="350" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="350" bodyend="355"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" compoundref="_model_component_8java" startline="410" endline="412">desmoj.core.simulator.ModelComponent.currentlySendTraceNotes</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base class for all pseudo random number distributions used in this package. Defines a set of methods usefull for all kinds of random distributions that can be based upon a stream of uniform distributed pseudo random numbers. Prefabricated distributions implemented in this package can handle uniform, normal (gaussian), bernoulli, poisson and heuristic distributions with return values of the primitive data types double (floating point), long (integer) and boolean (true or false). Inherit from this class if you want to implement new types of distributions handing back values of other types than those listed above. Basic idea is to use a pseudo random generator which produces a uniformly distributed stream of double numbers between 0 and 1 use inverse transformation to generate the desired distribution. See also [Page91, p. 107] Note that although this class implements all methods, it is set to be abstract, since instantiating this class would not produce any meaningfull distribution to be used by a client.</para><para><simplesect kind="see"><para><ref refid="interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator" kindref="compound">desmoj.core.dist.UniformRandomGenerator</ref> </para><simplesectsep/><para><ref refid="classdesmoj_1_1core_1_1dist_1_1_linear_congruential_random_generator" kindref="compound">desmoj.core.dist.LinearCongruentialRandomGenerator</ref></para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Tim Lechler <verbatim>    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.</verbatim> </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="7239">
+        <label>desmoj.core.dist.Distribution</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_distribution"/>
+        <childnode refid="7240" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7240">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="7241" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7246">
+        <label>desmoj.core.dist.EntityDist&lt; E extends Entity &gt;</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_entity_dist_3_01_e_01extends_01_entity_01_4"/>
+        <childnode refid="7239" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7244">
+        <label>desmoj.core.dist.BoolDistBernoulli</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_bool_dist_bernoulli"/>
+        <childnode refid="7243" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7247">
+        <label>desmoj.core.dist.NumericalDist&lt; N extends Number &gt;</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_numerical_dist_3_01_n_01extends_01_number_01_4"/>
+        <childnode refid="7239" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7243">
+        <label>desmoj.core.dist.BoolDist</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_bool_dist"/>
+        <childnode refid="7239" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7248">
+        <label>desmoj.core.dist.Series&lt; O extends Object &gt;</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_series_3_01_o_01extends_01_object_01_4"/>
+        <childnode refid="7239" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7242">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="7245">
+        <label>desmoj.core.dist.BoolDistConstant</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_bool_dist_constant"/>
+        <childnode refid="7243" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7241">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="7242" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="7249">
+        <label>desmoj.core.dist.Distribution</label>
+        <link refid="classdesmoj_1_1core_1_1dist_1_1_distribution"/>
+        <childnode refid="7250" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7253" relation="usage">
+          <edgelabel>randomGenerator</edgelabel>
+        </childnode>
+      </node>
+      <node id="7250">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="7251" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7253">
+        <label>desmoj.core.dist.UniformRandomGenerator</label>
+        <link refid="interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator"/>
+      </node>
+      <node id="7252">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="7251">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="7252" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" line="39" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/dist/Distribution.java" bodystart="39" bodyend="356"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a998e50e560af2d6dbfab6b2cc32d82e2" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>antithetic</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1aba843e43cf0dcd9632041d6c2a1b0a2e" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>changeRandomGenerator</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1aacc2c37d8ab44873290fc2b03022bc5d" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1af8788181fb0efb2daf8c84c3ecfbd0d1" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>Distribution</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a4cc8ff0414cb78f292b48dfd5826dd27" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getInitialSeed</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1ae030183a1a4fccd846edc57480aa6247" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getNonNegative</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1ac787d4d318409e83cab5f600573f1c7d" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getNumSamples</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6b495c392e37b816df12df8ba00dff5d" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>initialSeed</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a654c8dc4af0cdf350449ea21e64edc82" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>isAntithetic</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a075c300a1f99dff8ff8368b1b55b24b6" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>nonNegative</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6d64b20fd9af32faa696c8170b9c4181" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>randomGenerator</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a0a5899c3752664ae6030e23839c5be6c" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a527359507e9a10981d82a193d9eedce2" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a692e70493310a8ece9cdef9d92e993bc" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a79a483a1e8ded837827be3c6d32a339c" prot="public" virt="pure-virtual"><scope>desmoj::core::dist::Distribution</scope><name>sampleObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a6dfb5a740b184775679af684e118f7b7" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>setAntithetic</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1aa8c2b92cac478050e7b549be3ea5d47d" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>setNonNegative</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1ac67664cf06cd901ead866ffba10bb111" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>setSeed</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1dist_1_1_distribution_1a4c7942d7ecd2bf57b7b2146a55da8214" prot="protected" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>traceLastSample</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::core::dist::Distribution</scope><name>traceOn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

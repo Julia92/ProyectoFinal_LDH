@@ -1,0 +1,119 @@
+\section{desmoj.\-core.\-simulator.\-Sim\-Clock Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_sim_clock}\index{desmoj.\-core.\-simulator.\-Sim\-Clock@{desmoj.\-core.\-simulator.\-Sim\-Clock}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Sim\-Clock\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_clock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Sim\-Clock\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_clock__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Sim\-Clock} (String name)
+\item 
+String {\bf get\-Name} ()
+\item 
+{\bf Time\-Instant} {\bf get\-Time} ()
+\item 
+String {\bf to\-String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The simulation clock shows the actual simulation time. The actual simulation time can be polled by any object but can only be set by the scheduler responsible for the actual model. The simulation clock is extending class {\ttfamily java.\-util.\-Observable} thus representing the 'observable' part in a 'observer'-\/design pattern as described in [Gamm95] page 107. This enables observers to register themselves at the simulation clock to be notified whenever the simulation time changes. This can be easily used to provide fully automatic statistical counters. Each time the simulation time changes, a counter registered at the simulation clock is notofied and can poll the value it is observing (most likely from a special {\ttfamily Value\-Supplier} object). This way, no explicit calls for the counter to update its observed value are needed. Note that on the other hand this might reduce performance in comparison to explicit update call since the value under observation might not change each time the simulation time is changed.
+
+\begin{DoxySeeAlso}{See Also}
+java.\-util.\-Observable
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler 
+
+modified by Soenke Claassen 
+
+modified by Felix Klueckmann
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Clock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}!Sim\-Clock@{Sim\-Clock}}
+\index{Sim\-Clock@{Sim\-Clock}!desmoj::core::simulator::SimClock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}}
+\subsubsection[{Sim\-Clock}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Sim\-Clock.\-Sim\-Clock (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_clock_abb0b71c838bff27cd625ef2e7f73afd5}
+Constructs a simulation clock with no parameters given. By default the actual simulation time is set to zero.
+
+\begin{DoxyAuthor}{Author}
+Tim Lechler 
+
+modified by Felix Klueckmann 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & String \-: The name of the simulation clock \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Clock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!desmoj::core::simulator::SimClock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Sim\-Clock.\-get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_clock_adfdba8053d7148107a2bc0d2a65e20f2}
+Returns the clock's name as string. This method has become necessary since the simulation clock does not extend class {\ttfamily Named\-Object\-Imp}.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The clock's name 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Clock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!desmoj::core::simulator::SimClock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}}
+\subsubsection[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Sim\-Clock.\-get\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_clock_a0e34d311ca00c27b4a87276ffa542db7}
+Returns the actual simulation time.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The actual simulation time 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Clock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!desmoj::core::simulator::SimClock@{desmoj\-::core\-::simulator\-::\-Sim\-Clock}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Sim\-Clock.\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_clock_a28d8b8bbdb1cad7b1924e8282d3f1e9b}
+Returns the clock's name as string. This method has become necessary since the simulation clock does not extend class {\ttfamily Named\-Object\-Imp}.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The clock's name 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Sim\-Clock.\-java\end{DoxyCompactItemize}

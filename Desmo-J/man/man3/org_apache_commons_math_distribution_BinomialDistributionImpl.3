@@ -1,0 +1,232 @@
+.TH "org.apache.commons.math.distribution.BinomialDistributionImpl" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.BinomialDistributionImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistribution\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBinomialDistributionImpl\fP (int trials, double p)"
+.br
+.ti -1c
+.RI "int \fBgetNumberOfTrials\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetProbabilityOfSuccess\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNumberOfTrials\fP (int trials)"
+.br
+.ti -1c
+.RI "void \fBsetProbabilityOfSuccess\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (int x)  throws MathException "
+.br
+.ti -1c
+.RI "double \fBprobability\fP (int x)"
+.br
+.ti -1c
+.RI "int \fBinverseCumulativeProbability\fP (final double p)  throws MathException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBgetDomainLowerBound\fP (double p)"
+.br
+.ti -1c
+.RI "int \fBgetDomainUpperBound\fP (double p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The default implementation of \fBBinomialDistribution\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617953 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.BinomialDistributionImpl (inttrials, doublep)"
+Create a binomial distribution with the given number of trials and probability of success\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrials\fP the number of trials\&. 
+.br
+\fIp\fP the probability of success\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.cumulativeProbability (intx) throws \fBMathException\fP\fC [virtual]\fP"
+For this distribution, X, this method returns P(X  x)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the PDF is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+PDF for this distribution\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.getDomainLowerBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value lower bound, based on \fCp\fP, used to bracket a PDF root\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value lower bound, i\&.e\&. P(X < \fIlower bound\fP) < \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.getDomainUpperBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value upper bound, based on \fCp\fP, used to bracket a PDF root\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value upper bound, i\&.e\&. P(X < \fIupper bound\fP) > \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.getNumberOfTrials ()"
+Access the number of trials for this distribution\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of trials\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.getProbabilityOfSuccess ()"
+Access the probability of success for this distribution\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the probability of success\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistribution\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.inverseCumulativeProbability (final doublep) throws \fBMathException\fP"
+For this distribution, X, this method returns the largest x, such that P(X  x)  \fCp\fP\&. 
+.PP
+Returns \fC-1\fP for p=0 and \fCInteger\&.MAX_VALUE\fP for p=1\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the largest x such that P(X  x) <= p 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the inverse cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if p < 0 or p > 1 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.probability (intx)"
+For this disbution, X, this method returns P(X = x)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the PMF is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+PMF for this distribution\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.IntegerDistribution\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.setNumberOfTrials (inttrials)"
+Change the number of trials for this distribution\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrials\fP the new number of trials\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if \fCtrials\fP is not a valid number of trials\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistribution\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.BinomialDistributionImpl\&.setProbabilityOfSuccess (doublep)"
+Change the probability of success for this distribution\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the new probability of success\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if \fCp\fP is not a valid probability\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.BinomialDistribution\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

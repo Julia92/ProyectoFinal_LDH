@@ -1,0 +1,289 @@
+.TH "desmoj.extensions.visualization2d.engine.model.Resource" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.model.Resource \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBResource\fP (\fBModel\fP model, String id, String resourceType, int resourceTotal)"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetId\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetName\fP (String name)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetResourceType\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetResourceTotal\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetResourceUsed\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetResourceFree\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetProcessEntriesAnz\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetProcessEntry\fP (int index)  throws ModelException"
+.br
+.ti -1c
+.RI "int \fBgetResourceEntriesAnz\fP (int index)"
+.br
+.ti -1c
+.RI "String[][] \fBgetWaitingQueueContent\fP ()"
+.br
+.ti -1c
+.RI "void \fBprovide\fP (String processEntityId, int priority, int resourceEntityAnz, String priorityAttribute, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBtakeProcess\fP (String processEntityId, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBtakeBack\fP (String processEntityId, int resourceGiveBackAnz, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGrafic\fP (String viewId, int x, int y, String defaultEntityTypeId, int anzVisible, boolean horizontal, Dimension deltaSize)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBgetGrafic\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Resource-station with waiting queue and process station\&. Every resource station has a total no of available resources\&. A entity needs a specified no of resources\&. The entities are waiting in a waiting-queue until the required resources are free\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.Resource (\fBModel\fPmodel, Stringid, StringresourceType, intresourceTotal)"
+Constructor, a \fBResource\fP contains a \fBList\fP and a \fBProcessNew\fP instance\&. The id's of this instances have a prefix 'res'\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP used animation\&.model\&.Model 
+.br
+\fIid\fP resourceId 
+.br
+\fIresourceType\fP resourceTypeName (only for information, its no Id) 
+.br
+\fIresourceTotal\fP total number of resources (only for information) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.createGrafic (StringviewId, intx, inty, StringdefaultEntityTypeId, intanzVisible, booleanhorizontal, DimensiondeltaSize) throws \fBModelException\fP"
+create a ProcessGrafic 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIviewId\fP Id of view 
+.br
+\fIx\fP middlepoint x-coordinate 
+.br
+\fIy\fP middlepoint y-coordinate 
+.br
+\fIdefaultEntityTypeId\fP for sizing 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+ProcessGrafic 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getGrafic ()"
+get ProcessGrafic, created before 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getId ()"
+get id of resource 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.orga\&.ClassBasic\fP\&.
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getName ()"
+get name of resource 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getProcessEntriesAnz ()"
+actual no\&. of entities (sets with process-entities) in process-part 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getProcessEntry (intindex) throws \fBModelException\fP"
+get id of entity in position index in process 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP a internal error occurred 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getResourceEntriesAnz (intindex)"
+get actual no\&. of resources, used by entity in position index 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getResourceFree ()"
+actual no of free resources 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getResourceTotal ()"
+total no\&. of available resources 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getResourceType ()"
+get resource Type (only for information) 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getResourceUsed ()"
+no of actual used resources 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "String [][] desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.getWaitingQueueContent ()"
+get content of waiting queue 
+.PP
+\fBReturns:\fP
+.RS 4
+(index)(id, rank, resources needed) 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.provide (StringprocessEntityId, intpriority, intresourceEntityAnz, StringpriorityAttribute, longtime) throws \fBModelException\fP"
+put a processEntity, that require resourceEntityAnz resources, into waiting queue 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocessEntityId\fP id of processEntity 
+.br
+\fIresourceEntityAnz\fP required no\&. of resources 
+.br
+\fItime\fP simulation time 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP processEntity isn't free 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.setName (Stringname)"
+set name of resource 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.takeBack (StringprocessEntityId, intresourceGiveBackAnz, longtime) throws \fBModelException\fP"
+removes processEntity from process 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocessEntityId\fP id of processEntity 
+.br
+\fItime\fP simulation time 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP entity isn't in process 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Resource\&.takeProcess (StringprocessEntityId, longtime) throws \fBModelException\fP"
+move processEntity from waiting queue to process 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocessEntityId\fP id of processEntity 
+.br
+\fItime\fP simulation time 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP entity isn't in waiting queue 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

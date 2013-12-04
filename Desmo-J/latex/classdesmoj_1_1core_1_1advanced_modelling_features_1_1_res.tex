@@ -1,0 +1,749 @@
+\section{desmoj.\-core.\-advanced\-Modelling\-Features.\-Res Class Reference}
+\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}\index{desmoj.\-core.\-advanced\-Modelling\-Features.\-Res@{desmoj.\-core.\-advanced\-Modelling\-Features.\-Res}}
+
+
+Inheritance diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Res\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Res\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Res} ({\bf Model} owner, String name, int sort\-Order, int q\-Capacity, int capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Res} ({\bf Model} owner, String name, int capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+double {\bf avg\-Usage} ()
+\item 
+void {\bf change\-Limit} (int m)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+void {\bf deadlock\-Check\-Off} ()
+\item 
+void {\bf deadlock\-Check\-On} ()
+\item 
+int {\bf get\-Avail} ()
+\item 
+boolean {\bf get\-Deadlock\-Check} ()
+\item 
+long {\bf getid\-Number} ()
+\item 
+int {\bf get\-Limit} ()
+\item 
+int {\bf get\-Minimum} ()
+\item 
+boolean {\bf get\-Pass\-By} ()
+\item 
+Queue\-List$<$ {\bf Sim\-Process} $>$ {\bf get\-Queue} ()
+\item 
+String {\bf get\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Refused} ()
+\item 
+long {\bf get\-Users} ()
+\item 
+boolean {\bf is\-Deadlock\-Detected} ()
+\item 
+boolean {\bf provide} (int n)
+\item 
+void {\bf reset} ()
+\item 
+void {\bf set\-Deadlock\-Detected} (boolean dl\-Detected)
+\item 
+void {\bf set\-Pass\-By} (boolean new\-Pass\-By)
+\item 
+void {\bf take\-Back} ({\bf Resource}[$\,$] returned\-Res)
+\item 
+void {\bf take\-Back} (int n)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf activate\-As\-Next} ({\bf Sim\-Process} process)
+\item 
+void {\bf activate\-First} ()
+\item 
+boolean {\bf check\-Process} ({\bf Sim\-Process} p, String where)
+\item 
+int {\bf held\-Resources} ({\bf Sim\-Process} s\-Proc)
+\item 
+void {\bf update\-Provided\-Res} ({\bf Sim\-Process} crnt\-Process, {\bf Resource}[$\,$] provided\-Res)
+\item 
+void {\bf update\-Statistics} (int n)
+\item 
+void {\bf update\-Taken\-Back\-Res} ({\bf Sim\-Process} crnt\-Process, {\bf Resource}[$\,$] returned\-Res)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Queue\-List$<$ {\bf Sim\-Process} $>$ {\bf \-\_\-queue}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} is the place where resources are stored in a pool. Processes can come by and the resource pool will {\ttfamily \doxyref{provide()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a7418318e44434efa1e13994bd298ba2c}} resources to them. Each process has to give back the same resources it once has acquired by calling the {\ttfamily \doxyref{take\-Back()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ad3b039a6e874c8d63b54a54ba8d70bb4}} method of the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} is used to implement process synchronization between processes, which are using resources. The resource pool has a limited capacity. A process can acquire one or more resources and use them. After usage the process must release this or these same resources to make them available to other processes. If a process can not get the number of resources needed, it has to wait in a queue until enough resources are released by other processes. A process can release its resources anytime. After the resourcepool has {\ttfamily \char`\"{}taken\-Back\char`\"{}()} the used resources the waiting-\/queue is checked for processes waiting for them. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is F\-I\-F\-O and unlimited capacity). Under certain circumstances a deadlock might block some waiting
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!Res@{Res}}
+\index{Res@{Res}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{Res}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-Res (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{sort\-Order, }
+\item[{int}]{q\-Capacity, }
+\item[{int}]{capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_af84260b3d3e51720036e4e28d040fc07}
+Constructor for a \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} with a number of initial resources in it. The queueing discipline and the capacity limit of the underlying queue can be chosen, too.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}'s name \\
+\hline
+{\em sort\-Order} & int \-: determines the sort order of the underlying queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em q\-Capacity} & int \-: The capacity of the queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em capacity} & int \-: The number of resources the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} starts with. Must be positive and greater than 0. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_af84260b3d3e51720036e4e28d040fc07_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!Res@{Res}}
+\index{Res@{Res}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{Res}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-Res (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a9f7d24a834f2eba7232fa3e20c09b3b5}
+Constructor for a \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} with a number of initial resources in it. The underlying queue has a Fifo queueing discipline and unlimited capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}'s name \\
+\hline
+{\em capacity} & int \-: The number of resources the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} starts with. Must be positive and greater than 0. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a9f7d24a834f2eba7232fa3e20c09b3b5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!activate\-As\-Next@{activate\-As\-Next}}
+\index{activate\-As\-Next@{activate\-As\-Next}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{activate\-As\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-activate\-As\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{process}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ab917a354ef2e34b6608b5de0cbb05dd5}
+Activates the Sim\-Process {\ttfamily process}, given as a parameter of this method, as the next process. This process should be a Sim\-Process waiting in the queue for some resources.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process} & Sim\-Process \-: The process that is to be activated as next. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ab917a354ef2e34b6608b5de0cbb05dd5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!activate\-First@{activate\-First}}
+\index{activate\-First@{activate\-First}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{activate\-First}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-activate\-First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a58867da560ed84c9c3ce2a210f628c52}
+Activates the first process waiting in the queue. That is a process which was trying to acquire resources, but there were not enough left in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. Or another process was first in the queue to be served. This method is called every time a process returns resources or when a process in the waiting-\/queue is satisfied. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a58867da560ed84c9c3ce2a210f628c52_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!avg\-Usage@{avg\-Usage}}
+\index{avg\-Usage@{avg\-Usage}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{avg\-Usage}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-avg\-Usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a48bf1df46ceb98ab86f5ba045a9acd14}
+Returns the average usage of the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. That means\-: in average, which percentage of the resources were in use over the time?
+
+\begin{DoxyReturn}{Returns}
+double \-: the average usage of the resources in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a48bf1df46ceb98ab86f5ba045a9acd14_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!change\-Limit@{change\-Limit}}
+\index{change\-Limit@{change\-Limit}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{change\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-change\-Limit (
+\begin{DoxyParamCaption}
+\item[{int}]{m}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a5f2f47f51c83ba621e46b6c532935601}
+Changes the limit of the available resources in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. Sets the number of the maximum available resources to m. m must be positive. This is only allowed as long as the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} has not been used or the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} has just been reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & int \-: The new limit (capacity) of the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. Must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a5f2f47f51c83ba621e46b6c532935601_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!check\-Process@{check\-Process}}
+\index{check\-Process@{check\-Process}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{check\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-check\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p, }
+\item[{String}]{where}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a913d2037cfbddeb357de9bc69b24c66d}
+Checks whether the process using the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} is a valid process.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns whether the Sim\-Process is valid or not. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Sim\-Process \-: Is this Sim\-Process a valid one? \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a913d2037cfbddeb357de9bc69b24c66d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a6802ada3beaba584278defb9d1b3d39c}
+Returns a Reporter to produce a report about this \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for the queue inside this \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!deadlock\-Check\-Off@{deadlock\-Check\-Off}}
+\index{deadlock\-Check\-Off@{deadlock\-Check\-Off}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{deadlock\-Check\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-deadlock\-Check\-Off (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ada59bc0eb171a33b03b1310040e791d5}
+Turns the deadlock check off. So whenever a Sim\-Process can not get the resources desired, there won't be checked if a deadlock situation might have occured. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ada59bc0eb171a33b03b1310040e791d5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!deadlock\-Check\-On@{deadlock\-Check\-On}}
+\index{deadlock\-Check\-On@{deadlock\-Check\-On}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{deadlock\-Check\-On}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-deadlock\-Check\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_aa6939c0a6067df78fc0e1b07fe40699d}
+Turns the deadlock check on. So whenever a Sim\-Process can not get the resources desired, it will be checked if a deadlock situation might occur. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_aa6939c0a6067df78fc0e1b07fe40699d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Avail@{get\-Avail}}
+\index{get\-Avail@{get\-Avail}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Avail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_af093a4f66004bb158fd03df833170854}
+Returns the number of resources available in the pool at the moment.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of resources available at the moment. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Deadlock\-Check@{get\-Deadlock\-Check}}
+\index{get\-Deadlock\-Check@{get\-Deadlock\-Check}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Deadlock\-Check}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Deadlock\-Check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_adcd8e17aeab51a928818bf1d0e33658d}
+Returns if the deadlock check is enabled ({\ttfamily true}) or not ( {\ttfamily false}).
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} if the deadlock check is enabled, {\ttfamily false} if the deadlock check is not enabled 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!getid\-Number@{getid\-Number}}
+\index{getid\-Number@{getid\-Number}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{getid\-Number}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-getid\-Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a8cffc8eca70f5d5dbcddb40806dd67c8}
+Returns the I\-D number of this {\ttfamily \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}} object.
+
+\begin{DoxyReturn}{Returns}
+long \-: The I\-D number of this {\ttfamily \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}} object. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Limit@{get\-Limit}}
+\index{get\-Limit@{get\-Limit}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_aa36aeed00dc3c3ba62dfee60dba0f612}
+Returns the initial number of resources in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} pool.
+
+\begin{DoxyReturn}{Returns}
+int \-: The initial number of resources in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} pool at the beginning. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Minimum@{get\-Minimum}}
+\index{get\-Minimum@{get\-Minimum}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Minimum}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ab176389fa3a69a8c8f232af42354f8b1}
+Returns the minimum number of resources in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}.
+
+\begin{DoxyReturn}{Returns}
+int \-: The minimum number of resources in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Pass\-By@{get\-Pass\-By}}
+\index{get\-Pass\-By@{get\-Pass\-By}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Pass\-By (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a41cc06d04876677fee1f5e6c912b2672}
+Returns whether entities can pass by other entities which are enqueued before them in the queue.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Indicates whether entities can pass by other entities which are enqueued before them in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Queue@{get\-Queue}}
+\index{get\-Queue@{get\-Queue}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-List$<${\bf Sim\-Process}$>$ desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a6962489a164a3d307f6d0b0a3e080db5}
+Returns the {\ttfamily Queue\-List} actually storing the {\ttfamily Sim\-Processes} waiting for resources.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Queue\-List \-: the queue actually storing the {\ttfamily Sim\-Processes} waiting for resources. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Queue\-Strategy@{get\-Queue\-Strategy}}
+\index{get\-Queue\-Strategy@{get\-Queue\-Strategy}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a0a0529874b3b9a7d1dde7df9c155ec6f}
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a1f9698e7232c227df22099cb0c2abeef}
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of entities refused to be enqueued in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!get\-Users@{get\-Users}}
+\index{get\-Users@{get\-Users}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{get\-Users}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-get\-Users (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a3dfbe393d65df77124676d6c2916b8b5}
+Returns the number of users.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of Users. That are processes having acquired and released resources. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!held\-Resources@{held\-Resources}}
+\index{held\-Resources@{held\-Resources}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{held\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-held\-Resources (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{s\-Proc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a9e049a37943be000350e573aed2e0ea8}
+Returns the number of resources held by the given Sim\-Process at this time.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of resources held by the given Sim\-Process at this time. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em s\-Proc} & Sim\-Process \-: The Sim\-Process which is expected to hold some Resources. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!is\-Deadlock\-Detected@{is\-Deadlock\-Detected}}
+\index{is\-Deadlock\-Detected@{is\-Deadlock\-Detected}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{is\-Deadlock\-Detected}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-is\-Deadlock\-Detected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_aef139df7a92c1ed2ab41a9ce696d2bf5}
+Returns {\ttfamily true} if a deadlock is detected, {\ttfamily false} otherwise.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: is {\ttfamily true} if a deadlock is detected, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!provide@{provide}}
+\index{provide@{provide}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{provide}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-provide (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a7418318e44434efa1e13994bd298ba2c}
+Gets a number of n resources from the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} pool and provides them to the Sim-\/process to use them. Hint for developers\-: calls the private method {\ttfamily deliver()}. As not enough resources are available at the moment the Sim\-Process has to wait in a queue until enough products are available again.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the specified number of resources have been provided successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int \-: The number of resources the resourcepool will {\ttfamily  \doxyref{provide()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a7418318e44434efa1e13994bd298ba2c}} to the Sim\-Process. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a7418318e44434efa1e13994bd298ba2c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a91475301a7759883a59e3cca3ee996dd}
+Resets the statistics of this \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}. The number of available resources at this moment and the processes waiting in the queue are not changed. But all statistic counters are reset. The parent {\ttfamily Queue\-Based} is also reset. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a91475301a7759883a59e3cca3ee996dd_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!set\-Deadlock\-Detected@{set\-Deadlock\-Detected}}
+\index{set\-Deadlock\-Detected@{set\-Deadlock\-Detected}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{set\-Deadlock\-Detected}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-set\-Deadlock\-Detected (
+\begin{DoxyParamCaption}
+\item[{boolean}]{dl\-Detected}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a7fd66fab656699565265cf6ba94d4d2d}
+Sets the boolean field {\ttfamily deadlock\-Detected} to the given value. If a deadlock for this {\ttfamily \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}} is detected when an unsuccessfull seize statement for a resource has taken place, then the value of {\ttfamily deadlock\-Detected} will be set to {\ttfamily true}. The value will also been shown in the report of this {\ttfamily \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dl\-Detected} & boolean \-: the new value for the field {\ttfamily deadlock\-Detected}. Should be {\ttfamily true} if this {\ttfamily \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res}} is involved in a deadlock. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!set\-Pass\-By@{set\-Pass\-By}}
+\index{set\-Pass\-By@{set\-Pass\-By}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{set\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-set\-Pass\-By (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Pass\-By}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a48bb443d9ef143732e2709fbc794210a}
+Sets the flag pass\-By to a new value. Pass\-By is indicating whether entities can pass by other entities which are enqueued before them in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Pass\-By} & boolean \-: The new value of pass\-By. Set it to {\ttfamily true} if you want entities to pass by other entities which are enqueued before them in the queue. Set it to {\ttfamily false} if you don't want entities to overtake other entities in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!take\-Back@{take\-Back}}
+\index{take\-Back@{take\-Back}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{take\-Back}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-take\-Back (
+\begin{DoxyParamCaption}
+\item[{{\bf Resource}[$\,$]}]{returned\-Res}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ad3b039a6e874c8d63b54a54ba8d70bb4}
+A process is using this method to put resources it has used back in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} pool. The process can not put more resources back than it has acquired once. The array of returning resources can be provided by the method {\ttfamily return\-Resources()} of the class {\ttfamily Sim\-Process}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em returned\-Res} & Resource[] \-: The array of resources a process is returning to the resource pool. Can't be more resources than it once has acquired! \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ad3b039a6e874c8d63b54a54ba8d70bb4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!take\-Back@{take\-Back}}
+\index{take\-Back@{take\-Back}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{take\-Back}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-take\-Back (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_af37c0b7a01d65e1ddf062f54f723e6d4}
+A process is using this method to put resources it has used back in the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} pool. The process can not put more resources back than it has acquired once. This method can be used as an alternative to the method {\ttfamily \doxyref{take\-Back(\-Resource[$\,$] returned\-Res)}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ad3b039a6e874c8d63b54a54ba8d70bb4}} in cases that the user does not want to provide an array of returning resources. This method is also compatible with older D\-E\-S\-M\-O-\/\-J Versions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int \-: The number of resources which should be returned to the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} pool. Can't be more than once were acquired! \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_af37c0b7a01d65e1ddf062f54f723e6d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!update\-Provided\-Res@{update\-Provided\-Res}}
+\index{update\-Provided\-Res@{update\-Provided\-Res}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{update\-Provided\-Res}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-update\-Provided\-Res (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{crnt\-Process, }
+\item[{{\bf Resource}[$\,$]}]{provided\-Res}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a2f77ff6aec1abed3c1ca92ec62afa18d}
+Muss durch eine andere Methode in Sim\-Process ersetzt werden ???
+
+Soenke ????
+
+A process is using this method to return all the resources it holds to the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} pool. The process can not put more resources back than it has acquired once. This method can be used if a Process is about to be terminated.
+
+public void take\-Back\-All () \{ where = \char`\"{}void take\-Back\-All ()\char`\"{};
+
+int n = 0; // how many resources will be taken back
+
+Sim-\/process current\-Process = \doxyref{current\-Sim\-Process()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_a3b36a67ebaf5e398ee105f93e36a04f5};
+
+if (!check\-Process(current\-Process, where)) //check the current process \{ return; \} // if it is not valid just return // delete the entry of the current\-Sim\-Process in the array\-Of\-Used\-Resources // search the whole vector for ( int i = 0; i $<$ array\-Of\-Used\-Resources.\-size(); i++) \{ // get hold of the Used\-Resources pair (Sim\-Process/number of resources) Used\-Resources proc\-Hold\-Res = (Used\-Resources)array\-Of\-Used\-Resources.\-element\-At(i);
+
+if (proc\-Hold\-Res.\-get\-Process() == current\-Process) \{ // number of resources held by the current\-Process n = proc\-Hold\-Res.\-get\-Occupied\-Resources ();
+
+array\-Of\-Used\-Resources.\-remove\-Element\-At(i); // delete the entry \} \} // end for
+
+update\-Statistics ( n ); // statistics will be updated
+
+users++; // update users // tell in the trace that the process is releasing all its resources if ( \doxyref{trace\-Is\-On()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_a6b0ad611e69fe3297c92ff8f36356e90} ) \{ send\-Trace\-Note ( \char`\"{}releases all its \char`\"{} + n + \char`\"{} \char`\"{} + this.\-get\-Name() ); \}
+
+activate\-Next(); // give waiting process in the queue a chance \} Updates the array\-Of\-Used\-Resources for this \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} whenever resources are {\ttfamily provided}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em crnt\-Process} & Sim\-Process \-: The current Sim\-Process acquiring resources. \\
+\hline
+{\em provided\-Res} & Resource[] \-: The array of resources the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} is providing to the current Sim\-Process. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!update\-Statistics@{update\-Statistics}}
+\index{update\-Statistics@{update\-Statistics}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{update\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-update\-Statistics (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a9cf9a2a9a1c04e3eb6a75e2e6b0cd797}
+Updates the statistics for the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} whenever resources are {\ttfamily provided} or {\ttfamily \char`\"{}taken\-Back\char`\"{}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int \-: Is positive when the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} {\ttfamily \doxyref{take\-Back()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ad3b039a6e874c8d63b54a54ba8d70bb4}} resources and negative when the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} {\ttfamily provides()} resources. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_a9cf9a2a9a1c04e3eb6a75e2e6b0cd797_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!update\-Taken\-Back\-Res@{update\-Taken\-Back\-Res}}
+\index{update\-Taken\-Back\-Res@{update\-Taken\-Back\-Res}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{update\-Taken\-Back\-Res}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-update\-Taken\-Back\-Res (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{crnt\-Process, }
+\item[{{\bf Resource}[$\,$]}]{returned\-Res}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ad595056618803763acc10f53f73f1f92}
+Updates the array\-Of\-Used\-Resources for this \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} whenever resources are taken back.
+
+
+\begin{DoxyParams}{Parameters}
+{\em crnt\-Process} & Sim\-Process \-: The current Sim\-Process releasing resources. \\
+\hline
+{\em returned\-Res} & Resource[] \-: The array of resources the \doxyref{Res}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res} will take back from the current Sim\-Process. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}!\-\_\-queue@{\-\_\-queue}}
+\index{\-\_\-queue@{\-\_\-queue}!desmoj::core::advancedModellingFeatures::Res@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Res}}
+\subsubsection[{\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-List$<${\bf Sim\-Process}$>$ desmoj.\-core.\-advanced\-Modelling\-Features.\-Res.\-\_\-queue\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res_ab1382a0662d4247dee8dd892bce94684}
+The queue, actually storing the processes waiting for resources 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/advanced\-Modelling\-Features/Res.\-java\end{DoxyCompactItemize}

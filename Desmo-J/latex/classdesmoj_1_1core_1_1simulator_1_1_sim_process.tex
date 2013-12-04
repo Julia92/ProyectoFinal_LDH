@@ -1,0 +1,1127 @@
+\section{desmoj.\-core.\-simulator.\-Sim\-Process Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process}\index{desmoj.\-core.\-simulator.\-Sim\-Process@{desmoj.\-core.\-simulator.\-Sim\-Process}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Sim\-Process\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Sim\-Process\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Sim\-Process} ({\bf Model} owner, String name, boolean repeating, boolean show\-In\-Trace)
+\item 
+{\bf Sim\-Process} ({\bf Model} owner, String name, boolean show\-In\-Trace)
+\item 
+void {\bf activate} ()
+\item 
+void {\bf activate} ({\bf Sim\-Time} dt)
+\item 
+void {\bf activate} ({\bf Time\-Instant} when)
+\item 
+void {\bf activate} ({\bf Time\-Span} dt)
+\item 
+void {\bf activate\-After} ({\bf Schedulable} after)
+\item 
+void {\bf activate\-Before} ({\bf Schedulable} before)
+\item 
+void {\bf cancel\-Interrupt\-Delayed} ()
+\item 
+boolean {\bfseries is\-Delayed\-Interrupt\-Scheduled} ()\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a2d787f0a963a75f5df1a12458dac1554}
+
+\item 
+boolean {\bf can\-Cooperate} ()
+\item 
+void {\bf clear\-Interrupt\-Code} ()
+\item 
+void {\bf cooperate} ()
+\item 
+{\bf Interrupt\-Code} {\bf get\-Interrupt\-Code} ()
+\item 
+{\bf Interrupt\-Exception} {\bfseries get\-Interrupt\-Exception} ()\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a04250c062d5f02fdca54992aeda33717}
+
+\item 
+{\bf Sim\-Process} {\bf get\-Master} ()
+\item 
+long {\bf get\-Real\-Time\-Constraint} ()
+\item 
+Process\-Queue$<$?extends {\bf Sim\-Process} $>$ {\bf get\-Slave\-Wait\-Queue} ()
+\item 
+{\bf Complex\-Sim\-Process} {\bf get\-Supervisor} ()
+\item 
+{\bf Schedulable} {\bf get\-Activated\-By} ()
+\item 
+void {\bf hold} ({\bf Sim\-Time} dt)  throws Delayed\-Interrupt\-Exception, 			\-Interrupt\-Exception 
+\item 
+void {\bf hold} ({\bf Time\-Instant} until)  throws Delayed\-Interrupt\-Exception, 			\-Interrupt\-Exception 
+\item 
+void {\bf hold} ({\bf Time\-Span} dt)  throws Delayed\-Interrupt\-Exception, 			\-Interrupt\-Exception 
+\item 
+void {\bf hold} (Numerical\-Dist$<$?$>$ dist)  throws Delayed\-Interrupt\-Exception,             Interrupt\-Exception 
+\item 
+void {\bf interrupt} ({\bf Interrupt\-Code} interrupt\-Reason)
+\item 
+void {\bf interrupt} ({\bf Interrupt\-Exception} interrupt\-Reason)
+\item 
+{\bf External\-Event} {\bf interrupt\-Delayed} ({\bf Time\-Instant} when)
+\item 
+{\bf External\-Event} {\bf interrupt\-Delayed} ({\bf Time\-Span} delay)
+\item 
+boolean {\bf is\-Blocked} ()
+\item 
+boolean {\bf is\-Repeating} ()
+\item 
+boolean {\bf is\-Component} ()
+\item 
+boolean {\bf is\-Interrupted} ()
+\item 
+boolean {\bf is\-Terminated} ()
+\item 
+abstract void {\bf life\-Cycle} ()
+\item 
+void {\bf obtain\-Resources} ({\bf Resource}[$\,$] obtained\-Resources)
+\item 
+synchronized void {\bf passivate} ()  throws Delayed\-Interrupt\-Exception, 			\-Interrupt\-Exception 
+\item 
+void {\bf prepare\-Transport} ()
+\item 
+void {\bf re\-Activate} ({\bf Time\-Span} dt)
+\item 
+void {\bf reset\-Master} ()
+\item 
+void {\bf return\-All\-Resources} ()
+\item 
+{\bf Resource}[$\,$] {\bf return\-Resources} ({\bf Res} res\-Pool, int n)
+\item 
+void {\bf set\-Blocked} (boolean block\-Status)
+\item 
+void {\bf set\-Repeating} (boolean repeating\-Status)
+\item 
+void {\bf set\-Real\-Time\-Constraint} (long real\-Time\-Constraint)
+\item 
+void {\bf set\-Slave\-Wait\-Queue} (Process\-Queue$<$?extends {\bf Sim\-Process} $>$ slv\-Wait\-Queue)
+\item 
+int {\bf get\-Scheduling\-Priority} ()
+\item 
+void {\bf set\-Scheduling\-Priority} (int new\-Priority)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Sim\-Process} {\bf clone} ()  throws Clone\-Not\-Supported\-Exception 
+\item 
+Vector$<$ {\bf Resource} $>$ {\bf get\-Used\-Resources} ()
+\item 
+void {\bf set\-Supervisor} ({\bf Complex\-Sim\-Process} complex\-Process)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean {\bf \-\_\-is\-Blocked}
+\item 
+boolean {\bf \-\_\-is\-Terminated}
+\item 
+boolean {\bf \-\_\-is\-Running}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} represents entities with an own active lifecycle. Since Sim\-Processes are in fact special entities with extended capabilities (esp. the method {\ttfamily \doxyref{life\-Cycle()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a38bb9fa8a520a8bd0bd26e74737fb3a3}}), they inherit from \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} and thus can also be used in conjunction with events. So they can be handled in both ways, event-\/ and process-\/oriented. Clients are supposed to implement the {\ttfamily \doxyref{life\-Cycle()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a38bb9fa8a520a8bd0bd26e74737fb3a3}} method to specify the individual behaviour of a special \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} subclass. Since implementing activity-\/ and transaction-\/oriented synchronization mechanisms requires significant changes in this class, methods that have been implemented by Soenke Claassen have been marked.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler, Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!Sim\-Process@{Sim\-Process}}
+\index{Sim\-Process@{Sim\-Process}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{Sim\-Process}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Sim\-Process.\-Sim\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{repeating, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a11a33ab6cc43882f9efeadaaf583ac26}
+The most general constructor of a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & String \-: The name of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} \\
+\hline
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is associated to \\
+\hline
+{\em repeating} & boolean \-: Flag to set the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' repeating behaviour\-: If set to {\ttfamily true}, the life\-Cycle will be executed again after completion, while {\ttfamily false} will create a process whose life\-Cycle is executed only once. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in trace-\/files. Set it to {\ttfamily true} if \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} should show up in trace. Set it to {\ttfamily false} if \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!Sim\-Process@{Sim\-Process}}
+\index{Sim\-Process@{Sim\-Process}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{Sim\-Process}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Sim\-Process.\-Sim\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a0a6eaf7c4714c48d58c67d263334254d}
+Short-\/cut constructor of a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} whose {\ttfamily \doxyref{life\-Cycle()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a38bb9fa8a520a8bd0bd26e74737fb3a3}} is only executed once.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & String \-: The name of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} \\
+\hline
+{\em owner} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is associated to \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} in trace-\/files. Set it to {\ttfamily true} if \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} should show up in trace. Set it to {\ttfamily false} if \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!activate@{activate}}
+\index{activate@{activate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{activate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-activate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aed0a3bb60dafe5ebb6004056d97dd399}
+Schedules the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be activated at the present point in simulation time, yielding the same result as calling {\ttfamily activate(new Time\-Span(0))}. The process will continue executing its {\ttfamily life\-Cycle} method. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aed0a3bb60dafe5ebb6004056d97dd399_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!activate@{activate}}
+\index{activate@{activate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{activate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Time}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a8f762f1a4177d8627222fde8b9df5740}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Replaced by \doxyref{activate(\-Time\-Span dt)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a5989026f0ad2da6a0a0691de4436bf11}. Schedules the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be activated at the given time offset to the current simulation time. This will allow a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to continue executing its {\ttfamily life\-Cycle} method.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \doxyref{Sim\-Time}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_time} \-: The offset to the current simulation time that this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is due to be activated \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a8f762f1a4177d8627222fde8b9df5740_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!activate@{activate}}
+\index{activate@{activate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{activate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{when}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a9b255e365103fd3a932a9e1a9595af12}
+Schedules the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be activated at the given point in simulation time. This will allow a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to continue executing its {\ttfamily life\-Cycle} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em when} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time this process is to be activated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a9b255e365103fd3a932a9e1a9595af12_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!activate@{activate}}
+\index{activate@{activate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{activate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a5989026f0ad2da6a0a0691de4436bf11}
+Schedules the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be activated at the specified point in simulation time. The point of time is given as an offset to the current simulation time. This will allow a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to continue executing its {\ttfamily life\-Cycle} method. Thus in contrast to the entity, no Event is needed for scheduling here.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The offset to the current simulation time this process is to be activated \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a5989026f0ad2da6a0a0691de4436bf11_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!activate\-After@{activate\-After}}
+\index{activate\-After@{activate\-After}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{activate\-After}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-activate\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{after}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a7e8322c95ff7815fdb84e1dd83264885}
+Schedules this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be activated directly after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}, which itself is already scheduled. Note that this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' point of simulation time will be set to be the same as the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time. Thus this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will continue to execute its {\ttfamily life\-Cycle} method directly after the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} but the simulation clock will not change. Please make sure that the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} given as parameter is actually scheduled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em after} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} should be scheduled after \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a7e8322c95ff7815fdb84e1dd83264885_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!activate\-Before@{activate\-Before}}
+\index{activate\-Before@{activate\-Before}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{activate\-Before}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-activate\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{before}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a6caa34aeab27384023165b82e50bee61}
+Schedules this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be activated directly before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}, which itself is already scheduled. Note that this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' point of simulation time will be set to be the same as the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}'s time. Thus this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will continue to execute its {\ttfamily life\-Cycle} method directly before the given \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} but the simulation clock will not change. Please make sure that the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} given as parameter is actually scheduled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} should be scheduled before \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a6caa34aeab27384023165b82e50bee61_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!cancel\-Interrupt\-Delayed@{cancel\-Interrupt\-Delayed}}
+\index{cancel\-Interrupt\-Delayed@{cancel\-Interrupt\-Delayed}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{cancel\-Interrupt\-Delayed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-cancel\-Interrupt\-Delayed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a0050a6de6f29ce09c454efd9574c5c7b}
+Clears the currently scheduled delayed interrupt so that it wont be performed. This Method should be called to cancel a previously scheduled delayed interrupt. This is typically the case if all steps to be covered by the delayed interrupt have been performed in time (before the delayed interrupt could be executed). 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a0050a6de6f29ce09c454efd9574c5c7b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!can\-Cooperate@{can\-Cooperate}}
+\index{can\-Cooperate@{can\-Cooperate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{can\-Cooperate}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-can\-Cooperate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa575ef8e3756b65e1bd2b8957f64b75d}
+Returns {\ttfamily true} if this process can cooperate with another \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If this process is already cooperating with a master {\ttfamily false} is returned.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is this process ready to cooperate with another \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}? 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!clear\-Interrupt\-Code@{clear\-Interrupt\-Code}}
+\index{clear\-Interrupt\-Code@{clear\-Interrupt\-Code}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{clear\-Interrupt\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-clear\-Interrupt\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a43d75df2737ab3cc0066306e95b8cf4c}
+Resets the interrupt-\/status of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to not interrupted. Should be called every time the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} has successfully dealt with the interrupt. The internal {\ttfamily \doxyref{Interrupt\-Code}{p.}{classdesmoj_1_1core_1_1simulator_1_1_interrupt_code}} of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} will be reset to {\ttfamily null}.
+
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!clone@{clone}}
+\index{clone@{clone}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} desmoj.\-core.\-simulator.\-Sim\-Process.\-clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Clone\-Not\-Supported\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ae546a084ce890d8deb4808ab8ca8d17e}
+As there is no generally applicable means of cloning a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} (which would require cloning the execution state as well), this method returns a Clone\-Not\-Supported\-Exception.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} \-: A copy of this process. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!cooperate@{cooperate}}
+\index{cooperate@{cooperate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{cooperate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-cooperate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a5030a40150abe17c1f8c4d117f613385}
+The current (master) process is calling this method (within {\ttfamily Wait\-Queue.\-cooperate()}) on the slave process to lead him through the joint cooperation. After the joint cooperation is finished the master is still active and after him the slave will be activated.
+
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a5030a40150abe17c1f8c4d117f613385_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Activated\-By@{get\-Activated\-By}}
+\index{get\-Activated\-By@{get\-Activated\-By}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Activated\-By}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Schedulable} desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Activated\-By (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_af393d71b9512334eacb102a96b6982a9}
+Returns the last {\ttfamily \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}} that did cause the last activation (or interruption) of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} (e.\-g. other \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}, Event...) that has caused the last activation of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. As processes may activate themselves, e.\-g. though a {\ttfamily \doxyref{hold(\-Time\-Span t)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a7ac5d2114c5604f485ee288cf6bd606a}} or an {\ttfamily \doxyref{activate(\-Time\-Span t)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a5989026f0ad2da6a0a0691de4436bf11}}, this method may return a reference to this process. The method returns {\ttfamily null} if this process has not yet been activated. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Interrupt\-Code@{get\-Interrupt\-Code}}
+\index{get\-Interrupt\-Code@{get\-Interrupt\-Code}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Interrupt\-Code}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interrupt\-Code} desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Interrupt\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa4fccfab8abcb926df2f275a5cad1ab4}
+Returns the \doxyref{Interrupt\-Code}{p.}{classdesmoj_1_1core_1_1simulator_1_1_interrupt_code} from this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not interrupted, the \doxyref{Interrupt\-Code}{p.}{classdesmoj_1_1core_1_1simulator_1_1_interrupt_code} is {\ttfamily null}.
+
+\begin{DoxyReturn}{Returns}
+irq\-Code \-: The \doxyref{Interrupt\-Code}{p.}{classdesmoj_1_1core_1_1simulator_1_1_interrupt_code} of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Master@{get\-Master}}
+\index{get\-Master@{get\-Master}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Master}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Master (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a21430d41e6eefe67fee8fce76377e3a5}
+Returns the master when two Sim\-Processes are cooperating. If this method is called on a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} which is not a slave {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} \-: The master process during the cooperation or {\ttfamily null} if this process is not a slave process. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Real\-Time\-Constraint@{get\-Real\-Time\-Constraint}}
+\index{get\-Real\-Time\-Constraint@{get\-Real\-Time\-Constraint}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Real\-Time\-Constraint}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Real\-Time\-Constraint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a743c42e105a14a5ba66f1f2adec297b1}
+Returns the real\-Time deadline for this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} (in nanoseconds). In case of a real-\/time execution (i. e. the execution speed rate is set to a positive value) the \doxyref{Scheduler}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler} will produce a warning message if a deadline is missed.
+
+\begin{DoxyReturn}{Returns}
+the real\-Time\-Constraint in nanoseconds 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Scheduling\-Priority@{get\-Scheduling\-Priority}}
+\index{get\-Scheduling\-Priority@{get\-Scheduling\-Priority}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Scheduling\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Scheduling\-Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa72a9b685166e8128eaff19a2657c018}
+Returns the process' scheduling priority. The scheduling priority is used to determine which process to execute first if two or more processes are activated at the same instant. The default priority is zero. Higher priorities are positive, lower priorities negative.
+
+\begin{DoxyReturn}{Returns}
+int \-: The process' priority 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Slave\-Wait\-Queue@{get\-Slave\-Wait\-Queue}}
+\index{get\-Slave\-Wait\-Queue@{get\-Slave\-Wait\-Queue}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Slave\-Wait\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}Process\-Queue$<$? extends {\bf Sim\-Process}$>$ desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Slave\-Wait\-Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a9d52350fd6a43ba84485c3bd3dd6435c}
+Returns the waiting-\/queue in which this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is waiting as a slave to cooperate with a master. If this method is called on a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} which is not a slave {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+Process\-Queue \-: The waiting-\/queue in which this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is waiting as a slave or {\ttfamily null} if this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not waiting as a slave for cooperation. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Supervisor@{get\-Supervisor}}
+\index{get\-Supervisor@{get\-Supervisor}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Supervisor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complex\-Sim\-Process} desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Supervisor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aae7f00c240b8087437c3e14be8037643}
+Returns the supervising {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}} this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is contained in.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process} \-: The supervising {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}} this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is contained in. Is {\ttfamily null} if this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not contained in any {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}}. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!get\-Used\-Resources@{get\-Used\-Resources}}
+\index{get\-Used\-Resources@{get\-Used\-Resources}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{get\-Used\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}Vector$<${\bf Resource}$>$ desmoj.\-core.\-simulator.\-Sim\-Process.\-get\-Used\-Resources (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aeadf7cafd9782de3265be03995d2abeb}
+Returns a clone of the internal {\ttfamily Vector} containing all the {\ttfamily \doxyref{Resource}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource}} objects this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is using at the moment.
+
+\begin{DoxyReturn}{Returns}
+java.\-util.\-Vector \-: the internal {\ttfamily Vector} containing all the {\ttfamily \doxyref{Resource}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource}} objects this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is using at the moment. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!hold@{hold}}
+\index{hold@{hold}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{hold}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-hold (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Time}}]{dt}
+\end{DoxyParamCaption}
+) throws {\bf Delayed\-Interrupt\-Exception}, 			{\bf Interrupt\-Exception}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a84095a4ec4ffd1f065b40663c0637903}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Replaced by \doxyref{hold(\-Time\-Span dt)}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a7ac5d2114c5604f485ee288cf6bd606a}. Passivates a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} for the time given. The simthread of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is put into a lock and the scheduler, resp. the experiment's main thread is released from its block and continues with the next \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} to be processed.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & desmoj.\-Sim\-Time \-: The duration of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' passivation \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a84095a4ec4ffd1f065b40663c0637903_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!hold@{hold}}
+\index{hold@{hold}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{hold}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-hold (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{until}
+\end{DoxyParamCaption}
+) throws {\bf Delayed\-Interrupt\-Exception}, 			{\bf Interrupt\-Exception}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a2574a5ed4e68a380325449c9129b4fe9}
+Passivates a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} until the given point in simulation time. The simthread of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is put into a lock and the scheduler, resp. the experiment's main thread is released from its block and continues with the next event-\/note to be processed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em until} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point in simulation time when the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' passivation ends. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a2574a5ed4e68a380325449c9129b4fe9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!hold@{hold}}
+\index{hold@{hold}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{hold}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-hold (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+) throws {\bf Delayed\-Interrupt\-Exception}, 			{\bf Interrupt\-Exception}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a7ac5d2114c5604f485ee288cf6bd606a}
+Passivates a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} for the given span of time. The simthread of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is put into a lock and the scheduler, resp. the experiment's main thread is released from its block and continues with the next \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} to be processed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The duration of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' passivation \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a7ac5d2114c5604f485ee288cf6bd606a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!hold@{hold}}
+\index{hold@{hold}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{hold}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-hold (
+\begin{DoxyParamCaption}
+\item[{Numerical\-Dist$<$?$>$}]{dist}
+\end{DoxyParamCaption}
+) throws {\bf Delayed\-Interrupt\-Exception},             {\bf Interrupt\-Exception}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa1f2325ab51a8ec5f2f5edf180ace17c}
+Passivates a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} for span of time sampled from the distribution provided to the method. The sample is interpreted in the reference time unit. The \doxyref{Sim\-Thread}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_thread} of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is put into a lock and the scheduler, resp. the experiment's main thread is released from its block and continues with the next \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} to be processed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & Numerical\-Dist$<$?$>$ \-: Numerical distribution to sample the duration of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' passivation from \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa1f2325ab51a8ec5f2f5edf180ace17c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!interrupt@{interrupt}}
+\index{interrupt@{interrupt}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-interrupt (
+\begin{DoxyParamCaption}
+\item[{{\bf Interrupt\-Code}}]{interrupt\-Reason}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ae1505b6275ef9e8b06f52d164bd45949}
+Interrupts the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} setting the given \doxyref{Interrupt\-Code}{p.}{classdesmoj_1_1core_1_1simulator_1_1_interrupt_code} as the reason for the interruption. Blocked, terminated or already interrupted Sim\-Processes can not be interrupted. In this case a warning message will be produced and the interrupt will be ignord. If the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is cooperating as a slave the interrupt will be passed to the master.
+
+
+\begin{DoxyParams}{Parameters}
+{\em interrupt\-Reason} & desmoj.\-Interrupt\-Code \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ae1505b6275ef9e8b06f52d164bd45949_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!interrupt@{interrupt}}
+\index{interrupt@{interrupt}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-interrupt (
+\begin{DoxyParamCaption}
+\item[{{\bf Interrupt\-Exception}}]{interrupt\-Reason}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a69dc6af2086f5f24e2b02e24161ac281}
+Interrupts the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} by throwing the given Interrupt\-Exception in it's life\-Cylce() method. The Interrupt\-Exception contains an \doxyref{Interrupt\-Code}{p.}{classdesmoj_1_1core_1_1simulator_1_1_interrupt_code} as the reason for the interruption. Blocked, terminated or already interrupted Sim\-Processes can not be interrupted. In this case a warning message will be produced and the interrupt will be ignord. If the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is cooperating as a slave the interrupt will be passed to the master.
+
+
+\begin{DoxyParams}{Parameters}
+{\em interrupt\-Reason} & desmoj.\-Interrupt\-Exception \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a69dc6af2086f5f24e2b02e24161ac281_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!interrupt\-Delayed@{interrupt\-Delayed}}
+\index{interrupt\-Delayed@{interrupt\-Delayed}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{interrupt\-Delayed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf External\-Event} desmoj.\-core.\-simulator.\-Sim\-Process.\-interrupt\-Delayed (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{when}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a65192f4a591d9ecb7ab6df270aaa6e51}
+Schedules this process to be interrupted at the given point in simulation time. Only one delayed interrupt can be scheduled at a time. If a delayed interrupt is scheduled after another delayed interrupt has already been scheduled a warning message will be produced and the new delayed interrupt will not be scheduled.
+
+A delayed Interrupt must be cleared manually by calling clear\-Interrupt\-Delayed() on the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} if it wasn't performed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em when} & The Point in time when the interrupt is to be performed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The event which will (at the given point in time) triger the interrupt of this process 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a65192f4a591d9ecb7ab6df270aaa6e51_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!interrupt\-Delayed@{interrupt\-Delayed}}
+\index{interrupt\-Delayed@{interrupt\-Delayed}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{interrupt\-Delayed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf External\-Event} desmoj.\-core.\-simulator.\-Sim\-Process.\-interrupt\-Delayed (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{delay}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_af4551bf34fc673681aaaf1e9a5da779d}
+Schedules this process to be interrupted after the given delay. Only one delayed interrupt can be scheduled at a time. If a delayed interrupt is scheduled after another delayed interrupt has already been scheduled a warning message will be produced and the delayed interrupt will not be scheduled.
+
+A delayed Interrupt must be cleared manually by calling clear\-Interrupt\-Delayed() on the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} if it wasn't performed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delay} & The delay after which the interrupt is to be performed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The event which will (after the given delay) triger the interrupt of this process 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_af4551bf34fc673681aaaf1e9a5da779d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!is\-Blocked@{is\-Blocked}}
+\index{is\-Blocked@{is\-Blocked}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{is\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-is\-Blocked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a691529ecf11423eedebec19adb07635f}
+Returns the current block-\/status of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is blocked, it is waiting inside a queue or synchronization block for it's release.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is blocked, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!is\-Component@{is\-Component}}
+\index{is\-Component@{is\-Component}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{is\-Component}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-is\-Component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ae0ac21543130c313bf22d386ad2077d6}
+Returns the current component status of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is a component of a {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}} it is blocked and passivated. It exists only within the {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}}; it's own life\-Cycle is stopped and will only be activated again when it is removed from the {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} if and only if this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is a component (part of) a {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}}; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!is\-Interrupted@{is\-Interrupted}}
+\index{is\-Interrupted@{is\-Interrupted}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{is\-Interrupted}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-is\-Interrupted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ac505562c86fe7acb86ec9c3bda61927b}
+Returns the current interrupt-\/status of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is interrupted, it should deal with the interrupt and then call the {\ttfamily \doxyref{clear\-Interrupt\-Code()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a43d75df2737ab3cc0066306e95b8cf4c}} -\/method.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is interrupted, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!is\-Repeating@{is\-Repeating}}
+\index{is\-Repeating@{is\-Repeating}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{is\-Repeating}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-is\-Repeating (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a933294ef44e00b1bdbe9b133dd6ce93b}
+Returns the current repeating-\/status of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is repeating, the life\-Cycle will be executed again after finishing.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the life\-Cycle of the process will be repeated finishing, while {\ttfamily false} indicates the process will terminate after the life\-Cycle is completed. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!is\-Terminated@{is\-Terminated}}
+\index{is\-Terminated@{is\-Terminated}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{is\-Terminated}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-is\-Terminated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa1e472eaa1afd6ecfc8df0d4947f5a80}
+Returns the current status of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is terminated, it has already finished its {\ttfamily \doxyref{life\-Cycle()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a38bb9fa8a520a8bd0bd26e74737fb3a3}} method and can not further be used as a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. A terminated \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} can still be used like any other \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} which it is derived from.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is terminated, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!life\-Cycle@{life\-Cycle}}
+\index{life\-Cycle@{life\-Cycle}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{life\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-core.\-simulator.\-Sim\-Process.\-life\-Cycle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a38bb9fa8a520a8bd0bd26e74737fb3a3}
+Override this method in a subclass of \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to implement the specific behaviour of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. This method starts after a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} has been created and activated. Note that this method will be executed once or repeatedly, depending on the repeating status of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. 
+
+Implemented in {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-Internal\-Transporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter_abe3c62357c772f13e4307dff335adb7c}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Restock\-Process\-M\-T} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_restock_process_m_t_a10df77551d565ad1b2338ca13cdfcbb0}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Restock\-Process\-Q\-T} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_restock_process_q_t_a9a7278c198ffc51163a35210d84b9053}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Restock\-Process\-M\-S} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_restock_process_m_s_a95102dc57f6a7f5ea4ad34b9cd62b051}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Restock\-Process\-Q\-S} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_restock_process_q_s_aede9fc79284dde85e7c319049640c3bb}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Simple\-Transporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_simple_transporter_afffbfb4ef7182827da6e8750b270d68d}, {\bf desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends Sim\-Process $>$} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_ad611513d2773616f26982db793c1d240}, {\bf desmoj.\-core.\-simulator.\-Complex\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process_ad292732e4638e235c508657de5a3ea35}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Transporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter_a28be8efaf796c5643c95edc7b6db744b}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-C\-\_\-\-Control} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_c___control_a54c1fbb7a4cffd9d4769644177262cad}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-T\-\_\-\-Control} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_t___control_ac09656e2e4e7e0ce409df7a49ca9a234}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Demand\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_demand_process_add081be259e849260f67f7a117ee43b0}, {\bf desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends Sim\-Process $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_a5e69a363be241d2ba2426cb9788f44a8}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Customer\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_customer_process_ad56eda35ad6e3039d4f9f105b44b42c9}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Machine\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_machine_process_a5cd68ddb2cb8191918c4284c343e2e15}, and {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-Worker} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_worker_aa41851ecb521d763f60dcd8ffb61d80b}.
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!obtain\-Resources@{obtain\-Resources}}
+\index{obtain\-Resources@{obtain\-Resources}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{obtain\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-obtain\-Resources (
+\begin{DoxyParamCaption}
+\item[{{\bf Resource}[$\,$]}]{obtained\-Resources}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a64f91a7dc1a71ab9955e95f7f3322f10}
+Makes the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} obtain an array of resources and store them for further usage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obtained\-Resources} & \doxyref{Resource}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource}[] \-: The array of resources obtained.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a64f91a7dc1a71ab9955e95f7f3322f10_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!passivate@{passivate}}
+\index{passivate@{passivate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{passivate}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void desmoj.\-core.\-simulator.\-Sim\-Process.\-passivate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws {\bf Delayed\-Interrupt\-Exception}, 			{\bf Interrupt\-Exception}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ab02478b67d2fd0a6dc7f48d710e00421}
+Passivates the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} for an indefinite time. This method must be called by the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' own Thread only. The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} can only be reactivated by another \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} or \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ab02478b67d2fd0a6dc7f48d710e00421_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!prepare\-Transport@{prepare\-Transport}}
+\index{prepare\-Transport@{prepare\-Transport}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{prepare\-Transport}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-prepare\-Transport (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a4777ed130fd9221f44a74ab1acd86939}
+The current (master) process is calling this method (within {\ttfamily Transport\-Junction.\-cooperate()}) on the slave process to make him prepare for the transportation. After the transport is finished the master is still active and after him the slave will be activated.
+
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a4777ed130fd9221f44a74ab1acd86939_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!re\-Activate@{re\-Activate}}
+\index{re\-Activate@{re\-Activate}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{re\-Activate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-re\-Activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa0bcb1938ed9aece4e94a62cd2982191}
+Re-\/schedules the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} to be activated at the given \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} offset to the current simulation time. The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} has already been scheduled but is now supposed to be reactivated at some other point of simulation time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: The offset to the current simulation time that this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is due to be re-\/activated \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa0bcb1938ed9aece4e94a62cd2982191_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!reset\-Master@{reset\-Master}}
+\index{reset\-Master@{reset\-Master}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{reset\-Master}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-reset\-Master (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a596aae2b6d10f18adaa9e007dc0f29b4}
+Gets the \doxyref{Interrupt\-Code}{p.}{classdesmoj_1_1core_1_1simulator_1_1_interrupt_code} from the master and resets the master to {\ttfamily null}.
+
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!return\-All\-Resources@{return\-All\-Resources}}
+\index{return\-All\-Resources@{return\-All\-Resources}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{return\-All\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-return\-All\-Resources (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a06db6e32b6b66db1514cf3e1161134c4}
+Makes the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} return all resources it holds at the moment to all the different Res pools it is holding resources from. This is useful in situations the Simprocess is about to terminate.
+
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a06db6e32b6b66db1514cf3e1161134c4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!return\-Resources@{return\-Resources}}
+\index{return\-Resources@{return\-Resources}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{return\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource} [$\,$] desmoj.\-core.\-simulator.\-Sim\-Process.\-return\-Resources (
+\begin{DoxyParamCaption}
+\item[{{\bf Res}}]{res\-Pool, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a31b2cf5c2931ca58011cd5bed339b753}
+Makes the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} return a certain number of resources of the given resource pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\-Pool} & Res \-: The resource pool which resources will be returned. \\
+\hline
+{\em n} & int \-: The number of resources which will be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Resource}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource}[] \-: the array containing the resources which will be returned. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a31b2cf5c2931ca58011cd5bed339b753_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!set\-Blocked@{set\-Blocked}}
+\index{set\-Blocked@{set\-Blocked}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{set\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-set\-Blocked (
+\begin{DoxyParamCaption}
+\item[{boolean}]{block\-Status}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a52c1cebf2921f5f61498f128993de4d3}
+Sets the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' blocked status to the boolean value given. This is necessary for some operations in conjunction with some synchronization classes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\-Status} & boolean \-: The new value for the blocked status \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!set\-Real\-Time\-Constraint@{set\-Real\-Time\-Constraint}}
+\index{set\-Real\-Time\-Constraint@{set\-Real\-Time\-Constraint}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{set\-Real\-Time\-Constraint}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-set\-Real\-Time\-Constraint (
+\begin{DoxyParamCaption}
+\item[{long}]{real\-Time\-Constraint}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a319a78ef16a88d16a4f0d904d944ab7c}
+Returns the current repeating-\/status of the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. If a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is repeating, the life\-Cycle will be executed again after finishing.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the life\-Cycle of the process will be repeated finishing, while {\ttfamily false} indicates the process will terminate after the life\-Cycle is completed. Sets the real\-Time deadline for this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} (in nanoseconds). In case of a real-\/time execution (i. e. the execution speed rate is set to a positive value) the \doxyref{Scheduler}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler} will produce a warning message if a deadline is missed.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em real\-Time\-Constraint} & the real\-Time\-Constraint in nanoseconds to set \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!set\-Repeating@{set\-Repeating}}
+\index{set\-Repeating@{set\-Repeating}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{set\-Repeating}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-set\-Repeating (
+\begin{DoxyParamCaption}
+\item[{boolean}]{repeating\-Status}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a80d17bb09799d2ac086556e714deb9a8}
+Sets the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' repeating status to the boolean value given, permitting the process' life\-Cycle to either start again ({\ttfamily true}) or terminate ({\ttfamily false}) after the current cycle is completed. Note that setting setting this property to {\ttfamily true} {\itshape after} the the process has terinated has no effect.
+
+
+\begin{DoxyParams}{Parameters}
+{\em repeating\-Status} & boolean \-: The new value for the repeating status \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!set\-Scheduling\-Priority@{set\-Scheduling\-Priority}}
+\index{set\-Scheduling\-Priority@{set\-Scheduling\-Priority}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{set\-Scheduling\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-set\-Scheduling\-Priority (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Priority}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_abdd128ec3d31bdb5f7e4c2113acceea7}
+Sets the process' scheduling priority to a given integer value. The default priority (unless assigned otherwise) is zero. Negative priorities are lower, positive priorities are higher. All values should be inside the range defined by Java's integral {\ttfamily integer} data type [-\/2147483648, +2147483647].
+
+An process' scheduling priority it used to determine which process is executed first if activated at the same time instant. Should the priority be the same, order of event execution depends on the {\ttfamily \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}} in use, e.\-g. activated first is executed first ({\ttfamily \doxyref{Event\-Tree\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_tree_list}}) or random ({\ttfamily \doxyref{Randomizing\-Event\-Tree\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list}}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Priority} & int \-: The new scheduling priority value \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!set\-Slave\-Wait\-Queue@{set\-Slave\-Wait\-Queue}}
+\index{set\-Slave\-Wait\-Queue@{set\-Slave\-Wait\-Queue}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{set\-Slave\-Wait\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-set\-Slave\-Wait\-Queue (
+\begin{DoxyParamCaption}
+\item[{Process\-Queue$<$?extends {\bf Sim\-Process} $>$}]{slv\-Wait\-Queue}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_ac4a334c4e6e7901f1a56c8d2843ced8b}
+Sets the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}' slave\-Wait\-Queue variable to the Process\-Queue in which this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is waiting as a slave to cooperate with a master.
+
+
+\begin{DoxyParams}{Parameters}
+{\em slv\-Wait\-Queue} & Process\-Queue \-: The waiting-\/queue in which this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is waiting as a slave to cooperate with a master. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!set\-Supervisor@{set\-Supervisor}}
+\index{set\-Supervisor@{set\-Supervisor}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{set\-Supervisor}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Sim\-Process.\-set\-Supervisor (
+\begin{DoxyParamCaption}
+\item[{{\bf Complex\-Sim\-Process}}]{complex\-Process}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_af2980397932933954d766c1e3247cbf9}
+Sets the supervising {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}} this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is contained in. Setting it to {\ttfamily null} indicates that this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is not contained in any {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}} (anymore).
+
+
+\begin{DoxyParams}{Parameters}
+{\em complex\-Process} & desmoj.\-Complex\-Sim\-Process \-: The {\ttfamily \doxyref{Complex\-Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_complex_sim_process}} which serves as a container for this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+\end{DoxyAuthor}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!\-\_\-is\-Blocked@{\-\_\-is\-Blocked}}
+\index{\-\_\-is\-Blocked@{\-\_\-is\-Blocked}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{\-\_\-is\-Blocked}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-\_\-is\-Blocked\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aac8782fa50df7b3c17430fbcfcc3fae4}
+Displays the current blocked status of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. A \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is blocked whenever it has to wait inside a queue or synchronization object. \index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!\-\_\-is\-Running@{\-\_\-is\-Running}}
+\index{\-\_\-is\-Running@{\-\_\-is\-Running}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{\-\_\-is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-\_\-is\-Running\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_aa1a0d4e97f96c9df00c0b8614a6e70d1}
+Displays if the thread in of control of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is already the associated simthread. Is {\ttfamily true} if the simthread is active and is carrying on its life\-Cycle. Is {\ttfamily false} if it has not started its life\-Cycle yet or is terminated already. \index{desmoj\-::core\-::simulator\-::\-Sim\-Process@{desmoj\-::core\-::simulator\-::\-Sim\-Process}!\-\_\-is\-Terminated@{\-\_\-is\-Terminated}}
+\index{\-\_\-is\-Terminated@{\-\_\-is\-Terminated}!desmoj::core::simulator::SimProcess@{desmoj\-::core\-::simulator\-::\-Sim\-Process}}
+\subsubsection[{\-\_\-is\-Terminated}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Sim\-Process.\-\_\-is\-Terminated\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a4637dde2f6297779d003dea217749f8e}
+Displays the current status of this \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. Is {\ttfamily true} if life\-Cycle method has finished, {\ttfamily false} if it is still running or has not been started yet 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Sim\-Process.\-java\end{DoxyCompactItemize}

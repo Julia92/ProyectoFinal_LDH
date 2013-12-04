@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_x_m_l_trace_output_8java" kind="file">
+    <compoundname>XMLTraceOutput.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output" prot="public">desmoj::extensions::xml::report::XMLTraceOutput</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1xml_1_1report">desmoj::extensions::xml::report</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.xml.report;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.w3c.dom.Element;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.w3c.dom.Text;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_message" kindref="compound">desmoj.core.report.Message</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_trace_note" kindref="compound">desmoj.core.report.TraceNote</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output" kindref="compound">XMLTraceOutput</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output" kindref="compound">XMLOutput</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Element<sp/>trace;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>noteNo<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output_1aa3a40bb82d7dc3d2d900e4c64230210a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output_1aa3a40bb82d7dc3d2d900e4c64230210a" kindref="member">XMLTraceOutput</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>method<sp/>to<sp/>be<sp/>called<sp/>when<sp/>a<sp/>Message<sp/>is<sp/>received.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>m</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Message:<sp/>The<sp/>Message<sp/>that<sp/>has<sp/>been<sp/>send.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output_1af07bf59b3c8191360cd41cd52f9048e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output_1af07bf59b3c8191360cd41cd52f9048e1" kindref="member">receive</ref>(<ref refid="classdesmoj_1_1core_1_1report_1_1_message" kindref="compound">Message</ref><sp/>m)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m<sp/>==<sp/>null<sp/>||<sp/>!(m<sp/>instanceof<sp/><ref refid="classdesmoj_1_1core_1_1report_1_1_trace_note" kindref="compound">TraceNote</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TraceNote<sp/>traceNote<sp/>=<sp/>(TraceNote)<sp/>m;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(noteNo<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trace<sp/>=<sp/>document.createElement(</highlight><highlight class="stringliteral">&quot;trace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trace.setAttribute(</highlight><highlight class="stringliteral">&quot;experiment&quot;</highlight><highlight class="normal">,<sp/>m.getExperimentName());</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>document.appendChild(trace);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>noteNo++;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Element<sp/>note<sp/>=<sp/>document.createElement(</highlight><highlight class="stringliteral">&quot;note&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>note.setAttribute(</highlight><highlight class="stringliteral">&quot;modeltime&quot;</highlight><highlight class="normal">,<sp/>traceNote.getTime());</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Element<sp/>model<sp/>=<sp/>document.createElement(</highlight><highlight class="stringliteral">&quot;model&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Text<sp/>modelText<sp/>=<sp/>document.createTextNode(traceNote.getModelName());</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>model.appendChild(modelText);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>note.appendChild(model);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!traceNote.<ref refid="classdesmoj_1_1core_1_1report_1_1_trace_note_1a4fb7e56d1a0f5912f893ee68bc34b30c" kindref="member">getEvent</ref>().equals(</highlight><highlight class="stringliteral">&quot;----&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Element<sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>=<sp/>document.createElement(</highlight><highlight class="stringliteral">&quot;event&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Text<sp/>eventText<sp/>=<sp/>document.createTextNode(traceNote.getEvent());</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>event.appendChild(eventText);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>note.appendChild(event);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!traceNote.<ref refid="classdesmoj_1_1core_1_1report_1_1_trace_note_1a6f77c55c05f5988537c9ff72cb9dbd12" kindref="member">getEntity</ref>().equals(</highlight><highlight class="stringliteral">&quot;----&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Element<sp/>entity<sp/>=<sp/>document.createElement(</highlight><highlight class="stringliteral">&quot;entity&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Text<sp/>entityText<sp/>=<sp/>document.createTextNode(traceNote.getEntity());</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>entity.appendChild(entityText);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>note.appendChild(entity);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Element<sp/>actions<sp/>=<sp/>document.createElement(</highlight><highlight class="stringliteral">&quot;actions&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Text<sp/>actionsText<sp/>=<sp/>document.createTextNode(traceNote.getDescription());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>actions.appendChild(actionsText);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>note.appendChild(actions);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>trace.appendChild(note);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>method<sp/>to<sp/>be<sp/>called<sp/>when<sp/>a<sp/>reporter<sp/>is<sp/>received<sp/>reporters<sp/>will<sp/>not<sp/>be</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>handled<sp/>by<sp/>this<sp/>class<sp/>so<sp/>it<sp/>will<sp/>simply<sp/>return</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>r</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reporter:<sp/>the<sp/>Reporter<sp/>that<sp/>has<sp/>been<sp/>send</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output_1af07bf59b3c8191360cd41cd52f9048e1" kindref="member">receive</ref>(<ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">Reporter</ref><sp/>r)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>open<sp/>a<sp/>new<sp/>file<sp/>to<sp/>write<sp/>the<sp/>output<sp/>in</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/></highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>pathname</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String:<sp/>name<sp/>of<sp/>the<sp/>path<sp/>to<sp/>write<sp/>in</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>name</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String:<sp/>name<sp/>of<sp/>the<sp/>file<sp/>to<sp/>write<sp/>in</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output_1acfbcafa56b9cfbe344840b076c008175" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_trace_output_1acfbcafa56b9cfbe344840b076c008175" kindref="member">open</ref>(String<sp/>pathname,<sp/>String<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.open(<ref refid="classdesmoj_1_1extensions_1_1xml_1_1report_1_1_x_m_l_output_1add0ad9d1a9f1764422950c713c134e28" kindref="member">createFileName</ref>(pathname,<sp/>name,<sp/></highlight><highlight class="stringliteral">&quot;trace&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/xml/report/XMLTraceOutput.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,75 @@
+.TH "desmoj.core.simulator.RealTimeEventWrapper" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.RealTimeEventWrapper \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRealTimeEventWrapper\fP (\fBExternalEvent\fP externalEvent)"
+.br
+.ti -1c
+.RI "\fBRealTimeEventWrapper\fP (\fBExternalEvent\fP externalEvent, long nanoTimeStamp)"
+.br
+.ti -1c
+.RI "void \fBrealTimeSchedule\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNanos\fP (long nanos)"
+.br
+.ti -1c
+.RI "long \fBgetNanos\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides the basic frame for user defined events\&. Derive from this class to design special real time external events for a model\&. To use real time external events, always create a new object of this class\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.RealTimeEventWrapper\&.RealTimeEventWrapper (\fBExternalEvent\fPexternalEvent)"
+Creates an real time wrapper for an external event\&. This constructor will set the nanosecond timestamp to the current value of System\&.nanoTime()\&. 
+.SS "desmoj\&.core\&.simulator\&.RealTimeEventWrapper\&.RealTimeEventWrapper (\fBExternalEvent\fPexternalEvent, longnanoTimeStamp)"
+Creates an real time wrapper for an external event\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "long desmoj\&.core\&.simulator\&.RealTimeEventWrapper\&.getNanos ()"
+Returns the nanosecond timestamp associated with the encapsulated \fBExternalEvent\fP\&. * 
+.SS "void desmoj\&.core\&.simulator\&.RealTimeEventWrapper\&.realTimeSchedule ()"
+Schedules the external event to happen at the simulation time equivalent to the nanosecond timestamp of this \fBRealTimeEventWrapper\fP\&. 
+.SS "void desmoj\&.core\&.simulator\&.RealTimeEventWrapper\&.setNanos (longnanos)"
+Sets the nanosecond timestamp of this \fBRealTimeEventWrapper\fP\&. Use method System\&.nanoTime() to get a time stamp\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

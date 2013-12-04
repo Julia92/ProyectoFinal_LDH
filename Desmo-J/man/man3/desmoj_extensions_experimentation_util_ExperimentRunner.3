@@ -1,0 +1,409 @@
+.TH "desmoj.extensions.experimentation.util.ExperimentRunner" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.util.ExperimentRunner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Observer, Runnable, and \fBdesmoj\&.core\&.util\&.Parameterizable\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBReportProvider\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExperimentRunner\fP (\fBModel\fP model)"
+.br
+.ti -1c
+.RI "\fBExperimentRunner\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetModel\fP (\fBModel\fP model)"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.ti -1c
+.RI "void \fBinitParameters\fP (Map< String, \fBAccessPoint\fP > expSettingsMap, Map< String, \fBAccessPoint\fP > modelParamMap)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP \fBgetExperiment\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetStartTime\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetStopTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.ti -1c
+.RI "void \fBstopExperiment\fP ()"
+.br
+.ti -1c
+.RI "void \fBrun\fP ()"
+.br
+.ti -1c
+.RI "void \fBfinishExperiment\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object value)"
+.br
+.ti -1c
+.RI "void \fBsetPaused\fP (boolean pause)"
+.br
+.ti -1c
+.RI "long \fBgetDelayMillis\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetDelayNanos\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDelay\fP (long millis, int nanos)"
+.br
+.ti -1c
+.RI "void \fBaddExperimentListener\fP (\fBExperimentListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveExperimentListener\fP (\fBExperimentListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBaddSimClockListener\fP (\fBSimClockListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBremoveSimClockListener\fP (\fBSimClockListener\fP l)"
+.br
+.ti -1c
+.RI "void \fBaddSimRunListener\fP (\fBSimRunListener\fP l)"
+.br
+.ti -1c
+.RI "Object[][] \fBgetModelParameterArray\fP ()"
+.br
+.ti -1c
+.RI "Object[][] \fBgetExperimentSettingsArray\fP ()"
+.br
+.ti -1c
+.RI "Map< String, \fBAccessPoint\fP > \fBgetModelParameters\fP ()"
+.br
+.ti -1c
+.RI "Map< String, \fBAccessPoint\fP > \fBgetExperimentSettings\fP ()"
+.br
+.ti -1c
+.RI "Thread \fBgetThread\fP ()"
+.br
+.ti -1c
+.RI "Map< String, \fBAccessPoint\fP > \fBcreateParameters\fP ()"
+.br
+.ti -1c
+.RI "void \fBregisterMessageReceivers\fP ()"
+.br
+.ti -1c
+.RI "\fBSimRunListener\fP[] \fBcreateSimRunListeners\fP (\fBGraphicalObserverContext\fP c)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBCREATED\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBINITIALIZED\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBRUNNING\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBPAUSED\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBSTOPPED\fP = 4"
+.br
+.ti -1c
+.RI "static final String \fBEXP_NAME\fP = 'name'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_OUTPUT_PATH\fP = 'outputPath'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_REF_TIME\fP = 'referenceTime'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_REF_UNIT\fP = 'referenceUnit'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_START_TIME\fP = 'startTime'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_STOP_TIME\fP = 'stopTime'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_SHOW_PROG_BAR\fP = 'showProgressBar'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_TRACE_START\fP = 'traceStartTime'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_TRACE_STOP\fP = 'traceStopTime'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_RAND_EVENTS\fP = 'randomizeConcurrentEvents'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_R_OUTTYPE\fP = 'reportOutputType'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_T_OUTTYPE\fP = 'traceOutputType'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_E_OUTTYPE\fP = 'errorOutputType'"
+.br
+.ti -1c
+.RI "static final String \fBEXP_D_OUTTYPE\fP = 'debugOutputType'"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetStatus\fP (int status)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP \fBcreateExperiment\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A thread a DesmoJ-Experiment can run in\&. The experiment runner can notifiy registered ExperimentListeners when the assigned experiment is (re)started, stopped or temporarily paused and registered SimClockListeners when the simulation clock is set forth\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak 
+.PP
+edited 6\&.1\&.2004 by Gunnar Kiesel (seperate output classes for all output Types) 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.ExperimentRunner (\fBModel\fPmodel)"
+Creates a new experiment runner for the given model 
+.SS "desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.ExperimentRunner ()"
+Creates a new experiment runner that is not connected to a model yet\&. The model must be set consequently using the \fC\fBsetModel()\fP\fP method\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.addExperimentListener (\fBExperimentListener\fPl)"
+Adds a listener to the contained experiment's running status 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.addSimClockListener (\fBSimClockListener\fPl)"
+Adds a listener to the contained experiment's sim clock 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.addSimRunListener (\fBSimRunListener\fPl)"
+adds a new SimRunListener\&. Reacts only on SimClockListener and ExperimentListener objects\&. This method is called from ExperimentRunner\&.setListeners()\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Ruth Meyer 
+.RE
+.PP
+
+.SS "\fBExperiment\fP desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.createExperiment ()\fC [protected]\fP"
+creates and initializes an experiment with the parameters in expParams\&. Connects the experiment to the model\&. 
+.SS "Map<String,\fBAccessPoint\fP> desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.createParameters ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+a map of experiment parameters 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.util\&.Parameterizable\fP\&.
+.SS "\fBSimRunListener\fP [] desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.createSimRunListeners (\fBGraphicalObserverContext\fPc)"
+Should return a new set of listeners to the experiment run represented by the given experiment runner in an array\&. Returns an array of size 0 by default\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.finishExperiment ()"
+Lets the experiment report (if desired) and closes all output streams by calling \fC\fBExperiment\&.finish()\fP\fP 
+.SS "long desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getDelayMillis ()"
+Returns the millisecond part of the delay between each step of the scheduler
+.PP
+\fBReturns:\fP
+.RS 4
+A long value representing the delay time in milliseconds 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getDelayNanos ()"
+Returns the nanosecond part of the delay between each step of the scheduler
+.PP
+\fBReturns:\fP
+.RS 4
+A long value representing the delay time in milliseconds 
+.RE
+.PP
+
+.SS "\fBExperiment\fP desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getExperiment ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the experiment running in this experiment runner 
+.RE
+.PP
+
+.SS "Object [][] desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getExperimentSettingsArray ()"
+Returns an array of experiment settings for this experiment run The first row contains names, the second row contains values\&. 
+.SS "\fBModel\fP desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getModel ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+model running in this experiment runner 
+.RE
+.PP
+
+.SS "Object [][] desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getModelParameterArray ()"
+Returns an array of model parameters for this experiment run The first row contains names, the second row contains values\&. 
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getStartTime ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the SimTime the current experiment starts at 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.getStopTime ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the time the current experiment will finally stop 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.init ()"
+Initializes the experiment before it is run in the thread 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.initParameters (Map< String, \fBAccessPoint\fP >expSettingsMap, Map< String, \fBAccessPoint\fP >modelParamMap)"
+Inits the experiment runner from a map of model and experiment settings
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpSettingsMap\fP map of experiment settings 
+.br
+\fImodelParamMap\fP map of model parameters 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.registerMessageReceivers ()"
+Registers new message receivers as output channels of the experiment 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.removeExperimentListener (\fBExperimentListener\fPl)"
+Removes an experiment listener 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.removeSimClockListener (\fBSimClockListener\fPl)"
+Removes a SimClock listener 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.run ()"
+Runs the contained experiment by calling it's appropriate start method 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.setDelay (longmillis, intnanos)"
+Sets the delay between each step of the scheduler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdelay,:\fP Delay time in milliseconds as a long value 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.setModel (\fBModel\fPmodel)"
+Sets the current model
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP a desmoj\&.Model 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.setPaused (booleanpause)"
+(Un)pauses running the assigned experiment by requiring and releasing the semaphore tested in the experiments proceed loop\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpause\fP boolean value indicating pause (\fCtrue\fP) or restart (\fCfalse\fP)\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.setStatus (intstatus)\fC [protected]\fP"
+Sets the experiment's status and notifies registered ExperimentListeners 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.start ()"
+Starts this thread and the contained experiment with start time 0\&.0 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.stopExperiment ()"
+Stops the experiment running in this experiment runner (forever)\&. 
+.SS "void desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.update (Observableo, Objectvalue)"
+This method is implemented for interface observer\&. It is called by the assigned experiment's SimClock every time it's value is increased\&. The methods tests and waits for the runners semaphore\&. If a delay time is set, the runner sleeps for the given delay time afterwards\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP an observable object 
+.br
+\fIvalue\fP the updated value 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final int desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.CREATED = 0\fC [static]\fP"
+Status: model not connected to experiment 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_D_OUTTYPE = 'debugOutputType'\fC [static]\fP"
+Experiment setting 'debugOutputType' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_E_OUTTYPE = 'errorOutputType'\fC [static]\fP"
+Experiment setting 'errorOutputType' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_NAME = 'name'\fC [static]\fP"
+Experiment setting 'name' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_OUTPUT_PATH = 'outputPath'\fC [static]\fP"
+Experiment setting 'outputPath' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_R_OUTTYPE = 'reportOutputType'\fC [static]\fP"
+Experiment setting 'formatter' Experiment setting 'reportOutputType' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_RAND_EVENTS = 'randomizeConcurrentEvents'\fC [static]\fP"
+Experiment setting 'randomizeConcurrentEvents' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_REF_TIME = 'referenceTime'\fC [static]\fP"
+Experiment setting 'referenceTime' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_REF_UNIT = 'referenceUnit'\fC [static]\fP"
+Experiment setting 'referenceUnit' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_SHOW_PROG_BAR = 'showProgressBar'\fC [static]\fP"
+Experiment setting 'showProgressBar' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_START_TIME = 'startTime'\fC [static]\fP"
+Experiment setting 'startTime' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_STOP_TIME = 'stopTime'\fC [static]\fP"
+Experiment setting 'stopTime' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_T_OUTTYPE = 'traceOutputType'\fC [static]\fP"
+Experiment setting 'traceOutputType' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_TRACE_START = 'traceStartTime'\fC [static]\fP"
+Experiment setting 'traceStartTime' 
+.SS "final String desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.EXP_TRACE_STOP = 'traceStopTime'\fC [static]\fP"
+Experiment setting 'traceStopTime' 
+.SS "final int desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.INITIALIZED = 1\fC [static]\fP"
+Status: Model created an connected but experiment not started yet 
+.SS "final int desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.PAUSED = 3\fC [static]\fP"
+Status: Experiment temporarily paused 
+.SS "final int desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.RUNNING = 2\fC [static]\fP"
+Status: Experiment currently running 
+.SS "final int desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.STOPPED = 4\fC [static]\fP"
+Status: Experiment finally stopped 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

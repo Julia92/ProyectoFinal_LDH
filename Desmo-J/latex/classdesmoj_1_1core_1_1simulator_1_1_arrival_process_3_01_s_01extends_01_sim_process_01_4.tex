@@ -1,0 +1,131 @@
+\section{desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends Sim\-Process $>$ Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4}\index{desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends Sim\-Process $>$@{desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends Sim\-Process $>$}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Arrival\-Process} ({\bf Model} owner, String name, Numerical\-Dist$<$ Double $>$ arrival\-Rate, boolean show\-In\-Trace)
+\item 
+abstract S {\bf create\-Successor} ()
+\item 
+desmoj.\-core.\-dist.\-Numerical\-Dist\\*
+$<$ Double $>$ {\bf get\-Arrival\-Rate} ()
+\item 
+void {\bf life\-Cycle} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+An {\ttfamily Arrival\-Process} is some kind of source for {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} es. It makes them arrive from the 'outside world' in the system of interest. So it can be viewed as the border of the system (model). The user has to specify at which rate (frequency) {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} es are arriving in the system. See the Constructor for more details. The user has to derive from this class to make his own Arrival\-Processes for the arriving processes he needs in his simulated system. He has to implement the abstract method {\ttfamily \doxyref{create\-Successor()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_a2356daf4ef57bef4d9ccced693446159}}, which should create (instantiate) the newly arriving process. It is recommended to use one Arrival\-Process for each different kind of arriving process (with its specific arrival rate).
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+modified by Ruth Meyer
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}!Arrival\-Process@{Arrival\-Process}}
+\index{Arrival\-Process@{Arrival\-Process}!desmoj::core::simulator::ArrivalProcess< S extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}}
+\subsubsection[{Arrival\-Process}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends {\bf Sim\-Process} $>$.Arrival\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{Numerical\-Dist$<$ Double $>$}]{arrival\-Rate, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_aea9879726881bc7136f6279646ddf342}
+Constructor for an Arrival\-Process to make a certain kind of \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} arrive automatically in the system at a given rate.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this Arrival\-Process belongs to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this Arrival\-Process, should indicate that this is a source of some kind of Sim\-Processes. \\
+\hline
+{\em arrival\-Rate} & desmoj.\-dist.\-Numerical\-Dist$<$\-Double$>$ \-: The rate at which the processes are arriving at the system. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if this Arrival\-Process should produce a trace output or not. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}!create\-Successor@{create\-Successor}}
+\index{create\-Successor@{create\-Successor}!desmoj::core::simulator::ArrivalProcess< S extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}}
+\subsubsection[{create\-Successor}]{\setlength{\rightskip}{0pt plus 5cm}abstract S desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends {\bf Sim\-Process} $>$.create\-Successor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_a2356daf4ef57bef4d9ccced693446159}
+Implement this abstract method so it creates (instantiates) a new {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} object which is arriving at the system (border). When this method returns {\ttfamily null} the arrival process stops its lifecycle.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-core.\-Sim\-Process \-: The {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} object which is arriving next in the system. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}!get\-Arrival\-Rate@{get\-Arrival\-Rate}}
+\index{get\-Arrival\-Rate@{get\-Arrival\-Rate}!desmoj::core::simulator::ArrivalProcess< S extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}}
+\subsubsection[{get\-Arrival\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-dist.\-Numerical\-Dist$<$Double$>$ desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends {\bf Sim\-Process} $>$.get\-Arrival\-Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_a23c36f91a481702c9980a774e155bde9}
+Returns the rate (frequency) at which the Sim\-Processes arrive at the system.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-dist.\-Real\-Dist \-: The rate (frequency) at which the Sim\-Processes arrive at the system. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}!life\-Cycle@{life\-Cycle}}
+\index{life\-Cycle@{life\-Cycle}!desmoj::core::simulator::ArrivalProcess< S extends SimProcess >@{desmoj\-::core\-::simulator\-::\-Arrival\-Process$<$ S extends Sim\-Process $>$}}
+\subsubsection[{life\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Arrival\-Process$<$ S extends {\bf Sim\-Process} $>$.life\-Cycle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_a5e69a363be241d2ba2426cb9788f44a8}
+The {\ttfamily Arrival\-Process} is some kind of source for {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} es. So its life\-Cycle is quite simple\-: Make a new {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} object and activate it. Then wait until the next {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} object is arriving at the system. Note\-: the first {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} object is arriving when this {\ttfamily Arrival\-Process} is started! This method uses the {\ttfamily \doxyref{create\-Successor()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_a2356daf4ef57bef4d9ccced693446159}} method to create a new {\ttfamily \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}} object. If this method returns {\ttfamily null} the life cycle of this {\ttfamily Arrival\-Process} will stop. 
+
+Implements {\bf desmoj.\-core.\-simulator.\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a38bb9fa8a520a8bd0bd26e74737fb3a3}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_arrival_process_3_01_s_01extends_01_sim_process_01_4_a5e69a363be241d2ba2426cb9788f44a8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Arrival\-Process.\-java\end{DoxyCompactItemize}

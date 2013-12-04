@@ -1,0 +1,86 @@
+.TH "desmoj.extensions.visualization3d.MovementPathInterpolator" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization3d.MovementPathInterpolator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits TransformInterpolator\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMovementPathInterpolator\fP (TransformGroup target, TransformGroup orientationTarget)"
+.br
+.ti -1c
+.RI "void \fBcomputeTransform\fP (float alphaValue, Transform3D transform)"
+.br
+.ti -1c
+.RI "void \fBprocessStimulus\fP (Enumeration criteria)"
+.br
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.ti -1c
+.RI "void \fBstart\fP (\fBVisualizationClockAlpha\fP alpha, float[] durationKnots, float[] speedKnots, Point3f[] positionKnots)"
+.br
+.ti -1c
+.RI "void \fBstartWithFocusOnTrack\fP (\fBVisualizationClockAlpha\fP alpha, float[] durationKnots, float[] speedKnots, Point3f[] positionKnots, Vector3d frontSideVec)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An interpolator which realize the 3-phase-translation\&. The translation is divided into 3 phases:
+.IP "\(bu" 2
+The acceleration phase
+.IP "\(bu" 2
+The maximum speed phase
+.IP "\(bu" 2
+The deceleration phase The translation behavior is defined over the speed and duration of each phase\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization3d\&.MovementPathInterpolator\&.MovementPathInterpolator (TransformGrouptarget, TransformGrouporientationTarget)"
+Creates a \fBMovementPathInterpolator\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItarget\fP The transformGroup node affected by this transformInterpolator 
+.br
+\fIorientationTarget\fP The TransformGroup responsible for the orientation\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization3d\&.MovementPathInterpolator\&.start (\fBVisualizationClockAlpha\fPalpha, float[]durationKnots, float[]speedKnots, Point3f[]positionKnots)"
+Sets the movement data and start the interpolator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIalpha\fP The alpha which gives the duration 
+.br
+\fIdurationKnots\fP A float[3] array which describes the duration of the 3 phases movement\&. 
+.br
+\fIspeedKnots\fP A float[3] array which describes the speed of the 3 phases movement\&. 
+.br
+\fIpositionKnots\fP An array of points which describe the route of the movement\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization3d\&.MovementPathInterpolator\&.stop ()"
+Stops the animation\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

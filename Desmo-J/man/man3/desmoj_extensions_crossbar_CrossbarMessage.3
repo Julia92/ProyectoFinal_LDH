@@ -1,0 +1,118 @@
+.TH "desmoj.extensions.crossbar.CrossbarMessage" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.crossbar.CrossbarMessage \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.Message\fP, and Cloneable\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBDistributionMode\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCrossbarMessage\fP (\fBModel\fP origin, String description)"
+.br
+.ti -1c
+.RI "\fBCrossbarMessage\fP (\fBModel\fP origin, String description, \fBDistributionMode\fP distributionMode)"
+.br
+.ti -1c
+.RI "\fBDistributionMode\fP \fBgetDistributionMode\fP ()"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP \fBgetSender\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCrossbarMessage\fP \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A message which a process can send to a \fBMessageCrossbar\fP or a \fBMessageChannel\fP to activate processes waiting on the them\&. The \fBCrossbarMessage\fP contains the \fBTimeInstant\fP on which it was sent and its sender (the process that send the message to the crossbar)\&.
+.br
+ 
+.br
+ Subclasses of the \fBCrossbarMessage\fP can be used to transport information between senders and receivers of messages\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+MessageCrossbar 
+.PP
+MessageChannel 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Malte Unkrig
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.crossbar\&.CrossbarMessage\&.CrossbarMessage (\fBModel\fPorigin, Stringdescription)"
+Constructs a \fBCrossbarMessage\fP with the given model and description\&. This message will be distributed to receivers by reference\&. To change that specify a \fBDistributionMode\fP using the constructor \fBCrossbarMessage#CrossbarMessage(Model, String, DistributionMode)\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIorigin\fP The model the \fBCrossbarMessage\fP belongs to\&. 
+.br
+\fIdescription\fP The description for the message\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.crossbar\&.CrossbarMessage\&.CrossbarMessage (\fBModel\fPorigin, Stringdescription, \fBDistributionMode\fPdistributionMode)"
+Constructs a \fBCrossbarMessage\fP with the given model, description and \fBDistributionMode\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIorigin\fP The model the \fBCrossbarMessage\fP belongs to\&. 
+.br
+\fIdescription\fP The description for the message\&. 
+.br
+\fIdistributionMode\fP The \fBDistributionMode\fP for this message defining whether it will be distributed to receivers by reference or as a copy\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBDistributionMode\fP desmoj\&.extensions\&.crossbar\&.CrossbarMessage\&.getDistributionMode ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBDistributionMode\fP of this message defining whether it will be passed to receiver processes by reference or as a copy\&. 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.extensions\&.crossbar\&.CrossbarMessage\&.getSender ()"
+Returns the process which sent this message to the \fBMessageCrossbar\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The sender of the \fBCrossbarMessage\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

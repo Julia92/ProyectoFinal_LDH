@@ -1,0 +1,226 @@
+\section{org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver Class Reference}
+\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver}\index{org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver@{org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver}}
+
+
+Inheritance diagram for org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Muller\-Solver} ({\bf Univariate\-Real\-Function} {\bf f})
+\item 
+double {\bf solve} (double min, double max, double initial)  throws Max\-Iterations\-Exceeded\-Exception, Function\-Evaluation\-Exception 
+\item 
+double {\bf solve} (double min, double max)  throws Max\-Iterations\-Exceeded\-Exception,          Function\-Evaluation\-Exception 
+\item 
+double {\bf solve2} (double min, double max)  throws Max\-Iterations\-Exceeded\-Exception,          Function\-Evaluation\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Implements the {\tt Muller's Method} for root finding of real univariate functions. For reference, see {\bfseries Elementary Numerical Analysis}, I\-S\-B\-N 0070124477, chapter 3. 
+
+Muller's method applies to both real and complex functions, but here we restrict ourselves to real functions. Methods \doxyref{solve()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_ab21cf9da5f20fbe95d45666633cb4b13} and \doxyref{solve2()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_a930871c7344d44e4abf11108461d1f80} find real zeros, using different ways to bypass complex arithmetics.
+
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision\-:}
+620312 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Date\-:}
+2008-\/02-\/10 12\-:28\-:59 -\/0700 (Sun, 10 Feb 2008) 
+\end{DoxyParagraph}
+\begin{DoxySince}{Since}
+1.\-2 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}!Muller\-Solver@{Muller\-Solver}}
+\index{Muller\-Solver@{Muller\-Solver}!org::apache::commons::math::analysis::MullerSolver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}}
+\subsubsection[{Muller\-Solver}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver.\-Muller\-Solver (
+\begin{DoxyParamCaption}
+\item[{{\bf Univariate\-Real\-Function}}]{f}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_ad6e8335aaba13fe940a74ae4b63bad63}
+Construct a solver for the given function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & function to solve \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}!solve@{solve}}
+\index{solve@{solve}!org::apache::commons::math::analysis::MullerSolver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver.\-solve (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max, }
+\item[{double}]{initial}
+\end{DoxyParamCaption}
+) throws {\bf Max\-Iterations\-Exceeded\-Exception}, {\bf Function\-Evaluation\-Exception}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_ab21cf9da5f20fbe95d45666633cb4b13}
+Find a real root in the given interval with initial value. 
+
+Requires bracketing condition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & the lower bound for the interval \\
+\hline
+{\em max} & the upper bound for the interval \\
+\hline
+{\em initial} & the start value to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the point at which the function value is zero 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Max\-Iterations\-Exceeded\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_max_iterations_exceeded_exception}} & if the maximum iteration count is exceeded or the solver detects convergence problems otherwise \\
+\hline
+{\em \doxyref{Function\-Evaluation\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_function_evaluation_exception}} & if an error occurs evaluating the function \\
+\hline
+{\em Illegal\-Argument\-Exception} & if any parameters are invalid \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a189bfcdd56fd85fab42826f427978824}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_ab21cf9da5f20fbe95d45666633cb4b13_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}!solve@{solve}}
+\index{solve@{solve}!org::apache::commons::math::analysis::MullerSolver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver.\-solve (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+) throws {\bf Max\-Iterations\-Exceeded\-Exception},          {\bf Function\-Evaluation\-Exception}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_ad9f2e646cd7c35d05faa143cf26ec192}
+Find a real root in the given interval. 
+
+Original Muller's method would have function evaluation at complex point. Since our f(x) is real, we have to find ways to avoid that. Bracketing condition is one way to go\-: by requiring bracketing in every iteration, the newly computed approximation is guaranteed to be real.
+
+Normally Muller's method converges quadratically in the vicinity of a zero, however it may be very slow in regions far away from zeros. For example, f(x) = exp(x) -\/ 1, min = -\/50, max = 100. In such case we use bisection as a safety backup if it performs very poorly.
+
+The formulas here use divided differences directly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & the lower bound for the interval \\
+\hline
+{\em max} & the upper bound for the interval \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the point at which the function value is zero 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Max\-Iterations\-Exceeded\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_max_iterations_exceeded_exception}} & if the maximum iteration count is exceeded or the solver detects convergence problems otherwise \\
+\hline
+{\em \doxyref{Function\-Evaluation\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_function_evaluation_exception}} & if an error occurs evaluating the function \\
+\hline
+{\em Illegal\-Argument\-Exception} & if any parameters are invalid \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_ab99bf462d38a302f82c358ac5222ee79}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_ad9f2e646cd7c35d05faa143cf26ec192_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}!solve2@{solve2}}
+\index{solve2@{solve2}!org::apache::commons::math::analysis::MullerSolver@{org\-::apache\-::commons\-::math\-::analysis\-::\-Muller\-Solver}}
+\subsubsection[{solve2}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Muller\-Solver.\-solve2 (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+) throws {\bf Max\-Iterations\-Exceeded\-Exception},          {\bf Function\-Evaluation\-Exception}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_a930871c7344d44e4abf11108461d1f80}
+Find a real root in the given interval. 
+
+\doxyref{solve2()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_a930871c7344d44e4abf11108461d1f80} differs from \doxyref{solve()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_ab21cf9da5f20fbe95d45666633cb4b13} in the way it avoids complex operations. Except for the initial [min, max], \doxyref{solve2()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_a930871c7344d44e4abf11108461d1f80} does not require bracketing condition, e.\-g. f(x0), f(x1), f(x2) can have the same sign. If complex number arises in the computation, we simply use its modulus as real approximation.
+
+Because the interval may not be bracketing, bisection alternative is not applicable here. However in practice our treatment usually works well, especially near real zeros where the imaginary part of complex approximation is often negligible.
+
+The formulas here do not use divided differences directly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & the lower bound for the interval \\
+\hline
+{\em max} & the upper bound for the interval \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the point at which the function value is zero 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Max\-Iterations\-Exceeded\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_max_iterations_exceeded_exception}} & if the maximum iteration count is exceeded or the solver detects convergence problems otherwise \\
+\hline
+{\em \doxyref{Function\-Evaluation\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_function_evaluation_exception}} & if an error occurs evaluating the function \\
+\hline
+{\em Illegal\-Argument\-Exception} & if any parameters are invalid \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_muller_solver_a930871c7344d44e4abf11108461d1f80_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/org/apache/commons/math/analysis/Muller\-Solver.\-java\end{DoxyCompactItemize}

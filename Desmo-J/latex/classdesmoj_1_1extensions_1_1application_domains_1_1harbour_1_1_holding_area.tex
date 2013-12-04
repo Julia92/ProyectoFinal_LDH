@@ -1,0 +1,150 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}\index{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area@{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Holding\-Area} ({\bf desmoj.\-core.\-simulator.\-Model} owner, String name, int m\-Sort\-Order, int m\-Q\-Capacity, int s\-Sort\-Order, int s\-Q\-Capacity, int n\-Lanes, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Lane} {\bf get\-Lane} ()
+\item 
+void {\bf take\-Back} ({\bf Lane} l)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area} is the place where {\ttfamily \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}}s serve (load/unload) {\ttfamily \doxyref{Truck}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_truck}} s at a container terminal. So what happens at the \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area} is some kind of Rendezvous synchronisation, where {\ttfamily \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}} s meet the {\ttfamily \doxyref{Truck}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_truck}}s to load/unload them. There is one wait queue for the masters ({\ttfamily \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}}s) and one queue for the slaves ( {\ttfamily \doxyref{Truck}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_truck}} s), where they have to wait for each other to cooperate. The {\ttfamily \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}} s are the masters which perform the loading/unloading operation. The corporate loading/unloading operation is described in the method {\ttfamily cooperation} in a subclass of {\ttfamily \doxyref{Loading}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_loading}} or {\ttfamily \doxyref{Unloading}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_unloading}}. The {\ttfamily \doxyref{Truck}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_truck}} s loaded/unloaded as slaves keep still during the loading/unloading operation and will be reactivated thereafter. The first sort criteria for the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit can be determined by the user (default is F\-I\-F\-O and unlimited capacity). \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area} is derived from {\ttfamily Wait\-Queue} which in turn is derived from {\ttfamily Queue\-Based}, which provides all the statistical functionality for the queues.
+
+\begin{DoxySeeAlso}{See Also}
+desmoj.\-core.\-advanced\-Modelling\-Features.\-Wait\-Queue 
+
+\doxyref{desmoj.\-core.\-simulator.\-Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} 
+
+desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Eugenia Neufeld
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area}!Holding\-Area@{Holding\-Area}}
+\index{Holding\-Area@{Holding\-Area}!desmoj::extensions::applicationDomains::harbour::HoldingArea@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area}}
+\subsubsection[{Holding\-Area}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area.\-Holding\-Area (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-simulator.\-Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{m\-Sort\-Order, }
+\item[{int}]{m\-Q\-Capacity, }
+\item[{int}]{s\-Sort\-Order, }
+\item[{int}]{s\-Q\-Capacity, }
+\item[{int}]{n\-Lanes, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area_a19a85e34d4b6ebe3411be7cd8dc67709}
+Constructor for a \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}. There are two waiting-\/queues constructed, one internal {\ttfamily Queue\-List} for the {\ttfamily \doxyref{Internal\-Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_internal_transporter}} s (masters) and one separate {\ttfamily Process\-Queue} for the {\ttfamily \doxyref{Truck}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_truck}} s (slave) processes . The queueing discipline and the capacity limit of the underlying queues can be chosen. Highest priority are always first in the queues.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}. \\
+\hline
+{\em m\-Sort\-Order} & int \-: determines the sort order of the underlying master queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em m\-Q\-Capacity} & int \-: The capacity of the master queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em s\-Sort\-Order} & int \-: determines the sort order of the underlying slave queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em s\-Q\-Capacity} & int \-: The capacity of the slave queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em int} & n\-Lanes\-: the number of the lanes of this \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if trace messages of this \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area} should be displayed in the trace file. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area}!get\-Lane@{get\-Lane}}
+\index{get\-Lane@{get\-Lane}!desmoj::extensions::applicationDomains::harbour::HoldingArea@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area}}
+\subsubsection[{get\-Lane}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lane} desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area.\-get\-Lane (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area_a02de6ca8f66c6998bbdb78275e2a5116}
+Gets a Line from the \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area} and provides it to the sim-\/process to use it. As not enough lanes are available at the moment the sim-\/process has to wait in a queue until a lane is available again.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily \doxyref{Lane}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_lane}}\-: The available lane of this \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area_a02de6ca8f66c6998bbdb78275e2a5116_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area}!take\-Back@{take\-Back}}
+\index{take\-Back@{take\-Back}!desmoj::extensions::applicationDomains::harbour::HoldingArea@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Holding\-Area}}
+\subsubsection[{take\-Back}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Holding\-Area.\-take\-Back (
+\begin{DoxyParamCaption}
+\item[{{\bf Lane}}]{l}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area_a11a9504f21ea860254ac45516248555f}
+A process is using this method to put lane it has used back in the \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & {\ttfamily \doxyref{Lane}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_lane}}\-: The lane which should be returned to the \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area_a11a9504f21ea860254ac45516248555f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/harbour/Holding\-Area.\-java\end{DoxyCompactItemize}

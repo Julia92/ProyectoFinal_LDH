@@ -1,0 +1,116 @@
+.TH "org.apache.commons.math.analysis.DividedDifferenceInterpolator" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.DividedDifferenceInterpolator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealInterpolator\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBUnivariateRealFunction\fP \fBinterpolate\fP (double x[], double y[])  throws DuplicateSampleAbscissaException "
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double[] \fBcomputeDividedDifference\fP (double x[], double y[])  throws DuplicateSampleAbscissaException "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implements the <a href='
+'http://mathworld.wolfram.com/NewtonsDividedDifferenceInterpolationFormula.html"> Divided Difference Algorithm for interpolation of real univariate functions\&. For reference, see \fBIntroduction to Numerical Analysis\fP, ISBN 038795452X, chapter 2\&. 
+.PP
+The actual code of Neville's evalution is in \fBPolynomialFunctionLagrangeForm\fP, this class provides an easy-to-use interface to it\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+620312 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-10 12:28:59 -0700 (Sun, 10 Feb 2008) 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static double [] org\&.apache\&.commons\&.math\&.analysis\&.DividedDifferenceInterpolator\&.computeDividedDifference (doublex[], doubley[]) throws \fBDuplicateSampleAbscissaException\fP\fC [static]\fP, \fC [protected]\fP"
+Returns a copy of the divided difference array\&. 
+.PP
+The divided difference array is defined recursively by 
+.PP
+.nf
+
+f[x0] = f(x0)
+f[x0,x1,\&.\&.\&.,xk] = (f(x1,\&.\&.\&.,xk) - f(x0,\&.\&.\&.,x[k-1])) / (xk - x0)
+.fi
+.PP
+.PP
+The computational complexity is O(N^2)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the interpolating points array 
+.br
+\fIy\fP the interpolating values array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a fresh copy of the divided difference array 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBDuplicateSampleAbscissaException\fP\fP if any abscissas coincide 
+.RE
+.PP
+
+.SS "\fBUnivariateRealFunction\fP org\&.apache\&.commons\&.math\&.analysis\&.DividedDifferenceInterpolator\&.interpolate (doublex[], doubley[]) throws \fBDuplicateSampleAbscissaException\fP"
+Computes an interpolating function for the data set\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the interpolating points array 
+.br
+\fIy\fP the interpolating values array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a function which interpolates the data set 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBDuplicateSampleAbscissaException\fP\fP if arguments are invalid 
+.RE
+.PP
+a[] and c[] are defined in the general formula of Newton form: p(x) = a[0] + a[1](x-c[0]) + a[2](x-c[0])(x-c[1]) + \&.\&.\&. + a[n](x-c[0])(x-c[1])\&.\&.\&.(x-c[n-1])
+.PP
+When used for interpolation, the Newton form formula becomes p(x) = f[x0] + f[x0,x1](x-x0) + f[x0,x1,x2](x-x0)(x-x1) + \&.\&.\&. + f[x0,x1,\&.\&.\&.,x[n-1]](x-x0)(x-x1)\&.\&.\&.(x-x[n-2]) Therefore, a[k] = f[x0,x1,\&.\&.\&.,xk], c[k] = x[k]\&. 
+.PP
+Note x[], y[], a[] have the same length but c[]'s size is one less\&.
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealInterpolator\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

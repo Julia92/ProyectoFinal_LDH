@@ -1,0 +1,210 @@
+\section{desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends Entity $>$ Class Reference}
+\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4}\index{desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends Entity $>$@{desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends Entity $>$}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Service\-Start\-Event}
+\item 
+class {\bfseries Station\-Start\-Event}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Station} (int incoming\-Buffer\-Queue\-Capacity, int max\-Entities\-To\-Handle, int parallel\-Handled\-Entities, Numerical\-Dist$<$?$>$ setup\-Time, Numerical\-Dist$<$?$>$ service\-Time, Numerical\-Dist$<$?$>$ recovery\-Time, Numerical\-Dist$<$?$>$ transport\-Time, {\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+Event$<$ E $>$ {\bf get\-Start\-Event} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Smart\-Reporter} {\bf create\-Default\-Reporter} ()
+\item 
+int {\bf get\-Remaining\-Service\-Capacity} ()
+\item 
+{\bf Time\-Span} {\bf get\-Setup\-Time} ()
+\item 
+{\bf Time\-Span} {\bf get\-Transport\-Time} ()
+\item 
+boolean {\bf insert\-Incoming\-Entity\-Into\-Queue} (E entity\-To\-Insert)
+\item 
+void {\bf on\-Service\-Finisched} (E who)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Station is an abstract super class of all chaining constructs. This class handles most of the processing code like the incoming buffer queue, setup queue and being handled queue. It contains the settings for max\-Entities\-To\-Handle, parallel\-Handled\-Entities, setup\-Time, service\-Time, recovery\-Time, and transport\-Time
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$\-E$>$} & The Entity which can be handled by the station\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Christian Mentz
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!Station@{Station}}
+\index{Station@{Station}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{Station}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.Station (
+\begin{DoxyParamCaption}
+\item[{int}]{incoming\-Buffer\-Queue\-Capacity, }
+\item[{int}]{max\-Entities\-To\-Handle, }
+\item[{int}]{parallel\-Handled\-Entities, }
+\item[{Numerical\-Dist$<$?$>$}]{setup\-Time, }
+\item[{Numerical\-Dist$<$?$>$}]{service\-Time, }
+\item[{Numerical\-Dist$<$?$>$}]{recovery\-Time, }
+\item[{Numerical\-Dist$<$?$>$}]{transport\-Time, }
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a44baf6d002e10480a67047320944a56f}
+This Constructor sets the given times, initializes the queues and fills the free service capacity queue. This Construktor is never called directly but rather via a super call of the inheriting classes. If a given int is lower than zero the station assumes that there is no resriction. This applies to incoming\-Buffer\-Queue\-Capacity, max\-Entities\-To\-Handle, parallel\-Handled\-Entities
+
+
+\begin{DoxyParams}{Parameters}
+{\em incoming\-Buffer\-Queue\-Capacity} & the capatiy of the income queue \\
+\hline
+{\em max\-Entities\-To\-Handle} & the number of max entities the station can handle \\
+\hline
+{\em parallel\-Handled\-Entities} & the number of max parallel entities a station can handle \\
+\hline
+{\em setup\-Time} & the time the station needs to set up \\
+\hline
+{\em service\-Time} & the time the station needs for the service \\
+\hline
+{\em recovery\-Time} & the time the station needs tor recover \\
+\hline
+{\em transport\-Time} & the time the station needs to transport the entitiy to the next station \\
+\hline
+{\em owner} & the model owner \\
+\hline
+{\em name} & the name of the station \\
+\hline
+{\em show\-In\-Report} & should this construct be in the report \\
+\hline
+{\em show\-In\-Trace} & should this construct be in the trace \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!create\-Default\-Reporter@{create\-Default\-Reporter}}
+\index{create\-Default\-Reporter@{create\-Default\-Reporter}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{create\-Default\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Smart\-Reporter} desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.create\-Default\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a9ccda7b39ade7339c7386b63a2cf6ea1}
+Creates an Smart\-Reporter and fills it with the relevant statistics of the station \index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!get\-Remaining\-Service\-Capacity@{get\-Remaining\-Service\-Capacity}}
+\index{get\-Remaining\-Service\-Capacity@{get\-Remaining\-Service\-Capacity}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{get\-Remaining\-Service\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.get\-Remaining\-Service\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a9c9ecbb1b94b5c36c02a54135e46d43d}
+gets the remaining service capacity
+
+\begin{DoxyReturn}{Returns}
+the remaining service capacity 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!get\-Setup\-Time@{get\-Setup\-Time}}
+\index{get\-Setup\-Time@{get\-Setup\-Time}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{get\-Setup\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.get\-Setup\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a44e7926ec9b5f9a90c081a1e9179204d}
+gets the setup time of the station
+
+\begin{DoxyReturn}{Returns}
+the setup time 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!get\-Start\-Event@{get\-Start\-Event}}
+\index{get\-Start\-Event@{get\-Start\-Event}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{get\-Start\-Event}]{\setlength{\rightskip}{0pt plus 5cm}Event$<$E$>$ desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.get\-Start\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a1511b0c6d460f9c7a91a02c2cd17501a}
+gets the start event of this station
+
+\begin{DoxyReturn}{Returns}
+the start event 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!get\-Transport\-Time@{get\-Transport\-Time}}
+\index{get\-Transport\-Time@{get\-Transport\-Time}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{get\-Transport\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Span} desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.get\-Transport\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a03f4578f9011653bf8319feb42cd5efc}
+gets the transport time of the station
+
+\begin{DoxyReturn}{Returns}
+the transport time 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!insert\-Incoming\-Entity\-Into\-Queue@{insert\-Incoming\-Entity\-Into\-Queue}}
+\index{insert\-Incoming\-Entity\-Into\-Queue@{insert\-Incoming\-Entity\-Into\-Queue}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{insert\-Incoming\-Entity\-Into\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.insert\-Incoming\-Entity\-Into\-Queue (
+\begin{DoxyParamCaption}
+\item[{E}]{entity\-To\-Insert}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a237b8db7a599df0ebf729c000a590c30}
+inserts an incoming entitiy into the buffer queue
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\-To\-Insert} & the entitiy to be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the entitiy is inserted succsessfully 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}!on\-Service\-Finisched@{on\-Service\-Finisched}}
+\index{on\-Service\-Finisched@{on\-Service\-Finisched}!desmoj::extensions::chaining::abstractions::Station< E extends Entity >@{desmoj\-::extensions\-::chaining\-::abstractions\-::\-Station$<$ E extends Entity $>$}}
+\subsubsection[{on\-Service\-Finisched}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-chaining.\-abstractions.\-Station$<$ E extends {\bf Entity} $>$.on\-Service\-Finisched (
+\begin{DoxyParamCaption}
+\item[{E}]{who}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_station_3_01_e_01extends_01_entity_01_4_a69153ad5b970d35864cef946a841f504}
+this method can be overridden by an inherited class
+
+
+\begin{DoxyParams}{Parameters}
+{\em who} & the entitiy of the scheduled event \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/chaining/abstractions/Station.\-java\end{DoxyCompactItemize}

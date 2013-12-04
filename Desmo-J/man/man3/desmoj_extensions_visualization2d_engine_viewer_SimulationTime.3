@@ -1,0 +1,199 @@
+.TH "desmoj.extensions.visualization2d.engine.viewer.SimulationTime" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.viewer.SimulationTime \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSimulationTime\fP (long \fBstart\fP, long end, double speed, TimeZone timezone, Locale locale)"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.ti -1c
+.RI "void \fBpause\fP ()"
+.br
+.ti -1c
+.RI "void \fBcont\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSpeed\fP (double speed)"
+.br
+.ti -1c
+.RI "double \fBgetSpeed\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSimulationTime\fP (long time)"
+.br
+.ti -1c
+.RI "long \fBgetSimulationTime\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisRunning\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisPause\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSimulationStart\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSimulationEnd\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static String \fBgetTimeString\fP (long time, int format)"
+.br
+.ti -1c
+.RI "static String \fBgetTimeZoneString\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBSHOW_DATE\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_TIME\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_MILLIS\fP = 4"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_DATE_TIME\fP = 3"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_DATE_TIME_MILLIS\fP = 7"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_TIME_MILLIS\fP = 6"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_DAY\fP = 8"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_DST\fP = 16"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_TIMEZONE\fP = 32"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_DAY_DATE_TIME_MILLIS_DST\fP = 31"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The simulationtime is allways computed from real system-time\&. The simulation-time-value is given by a long an can be interpreted in a java-typical way as a time-value\&.
+.PP
+Normally the time runs with a specified speed\&. It's can started, halted (pause), continued and stopped\&. In a trace-mode the time can step from one value to the next\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.SimulationTime (longstart, longend, doublespeed, TimeZonetimezone, Localelocale)"
+Constructor for \fBSimulationTime\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstart\fP start-time 
+.br
+\fIend\fP end-time 
+.br
+\fIspeed\fP \fBSimulationTime\fP runs speed times fast as natural time 
+.br
+\fItimezone\fP default is UTC 
+.br
+\fIlocale\fP default is Locale\&.ENGLISH 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.cont ()"
+when \fBSimulationTime\fP is on pause, then lets it go running\&. In trace-mode it jumps to next step, set by setNextStep()\&. 
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.getSpeed ()"
+get simulation-speed 
+.PP
+\fBReturns:\fP
+.RS 4
+speed, stored in \fBSimulationTime\fP 
+.RE
+.PP
+
+.SS "static String desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.getTimeString (longtime, intformat)\fC [static]\fP"
+convert the time value to human-readable format\&. time == Long\&.MIN_VALUE is written as ''\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP internal time as long 
+.br
+\fIformat\fP timeformat for output 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+time value to human-readable format 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.isRunning ()"
+means \fBSimulationTime\fP is started, not stopped and simulationEnd inn't reached\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true, when running 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.pause ()"
+lets pause \fBSimulationTime\fP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.setSimulationTime (longtime)"
+set simulation-time 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.setSpeed (doublespeed)"
+updates simulation-speed 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspeed\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.start ()"
+starts \fBSimulationTime\fP running by start-time 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.SimulationTime\&.stop ()"
+stops \fBSimulationTime\fP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

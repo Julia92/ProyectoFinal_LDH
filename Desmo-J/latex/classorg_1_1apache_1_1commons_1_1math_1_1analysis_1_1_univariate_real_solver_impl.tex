@@ -1,0 +1,594 @@
+\section{org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl Class Reference}
+\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl}\index{org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl@{org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl}}
+
+
+Inheritance diagram for org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double {\bf get\-Result} ()
+\item 
+int {\bf get\-Iteration\-Count} ()
+\item 
+void {\bf set\-Absolute\-Accuracy} (double accuracy)
+\item 
+double {\bf get\-Absolute\-Accuracy} ()
+\item 
+void {\bf reset\-Absolute\-Accuracy} ()
+\item 
+void {\bf set\-Maximal\-Iteration\-Count} (int count)
+\item 
+int {\bf get\-Maximal\-Iteration\-Count} ()
+\item 
+void {\bf reset\-Maximal\-Iteration\-Count} ()
+\item 
+void {\bf set\-Relative\-Accuracy} (double accuracy)
+\item 
+double {\bf get\-Relative\-Accuracy} ()
+\item 
+void {\bf reset\-Relative\-Accuracy} ()
+\item 
+void {\bf set\-Function\-Value\-Accuracy} (double accuracy)
+\item 
+double {\bf get\-Function\-Value\-Accuracy} ()
+\item 
+void {\bf reset\-Function\-Value\-Accuracy} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Univariate\-Real\-Solver\-Impl} ({\bf Univariate\-Real\-Function} {\bf f}, int {\bf default\-Maximal\-Iteration\-Count}, double {\bf default\-Absolute\-Accuracy})
+\item 
+final void {\bf set\-Result} (double {\bf result}, int {\bf iteration\-Count})
+\item 
+final void {\bf clear\-Result} ()
+\item 
+boolean {\bf is\-Bracketing} (double lower, double upper, {\bf Univariate\-Real\-Function} {\bf f})  throws Function\-Evaluation\-Exception 
+\item 
+boolean {\bf is\-Sequence} (double start, double mid, double end)
+\item 
+void {\bf verify\-Interval} (double lower, double upper)
+\item 
+void {\bf verify\-Sequence} (double lower, double initial, double upper)
+\item 
+void {\bf verify\-Bracketing} (double lower, double upper, {\bf Univariate\-Real\-Function} {\bf f})  throws Function\-Evaluation\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double {\bf absolute\-Accuracy}
+\item 
+double {\bf relative\-Accuracy}
+\item 
+double {\bf function\-Value\-Accuracy}
+\item 
+int {\bf maximal\-Iteration\-Count}
+\item 
+double {\bf default\-Absolute\-Accuracy}
+\item 
+double {\bf default\-Relative\-Accuracy}
+\item 
+double {\bf default\-Function\-Value\-Accuracy}
+\item 
+int {\bf default\-Maximal\-Iteration\-Count}
+\item 
+boolean {\bf result\-Computed} = false
+\item 
+double {\bf result}
+\item 
+int {\bf iteration\-Count}
+\item 
+{\bf Univariate\-Real\-Function} {\bf f}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provide a default implementation for several functions useful to generic solvers.
+
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision\-:}
+480440 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Date\-:}
+2006-\/11-\/29 00\-:14\-:12 -\/0700 (Wed, 29 Nov 2006) 
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!Univariate\-Real\-Solver\-Impl@{Univariate\-Real\-Solver\-Impl}}
+\index{Univariate\-Real\-Solver\-Impl@{Univariate\-Real\-Solver\-Impl}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{Univariate\-Real\-Solver\-Impl}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-Univariate\-Real\-Solver\-Impl (
+\begin{DoxyParamCaption}
+\item[{{\bf Univariate\-Real\-Function}}]{f, }
+\item[{int}]{default\-Maximal\-Iteration\-Count, }
+\item[{double}]{default\-Absolute\-Accuracy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a05b6bae55cc144d07e5366695c49eb7d}
+Construct a solver with given iteration count and accuracy.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & the function to solve. \\
+\hline
+{\em default\-Absolute\-Accuracy} & maximum absolute error \\
+\hline
+{\em default\-Maximal\-Iteration\-Count} & maximum number of iterations \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if f is null or the default\-Absolute\-Accuracy is not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Member Function Documentation}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!clear\-Result@{clear\-Result}}
+\index{clear\-Result@{clear\-Result}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{clear\-Result}]{\setlength{\rightskip}{0pt plus 5cm}final void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-clear\-Result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a52eeaedb3e735ba3b20984e1cc14d289}
+Convenience function for implementations. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!get\-Absolute\-Accuracy@{get\-Absolute\-Accuracy}}
+\index{get\-Absolute\-Accuracy@{get\-Absolute\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{get\-Absolute\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-get\-Absolute\-Accuracy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_ab7160f01f4e289c63ea8ed336d22d92f}
+Get the actual absolute accuracy.
+
+\begin{DoxyReturn}{Returns}
+the accuracy 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_ace57eeab06c68e791660da5d2cb9306f}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!get\-Function\-Value\-Accuracy@{get\-Function\-Value\-Accuracy}}
+\index{get\-Function\-Value\-Accuracy@{get\-Function\-Value\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{get\-Function\-Value\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-get\-Function\-Value\-Accuracy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a2cd7d567af0152ab1f7d7fc79df105fd}
+Get the actual function value accuracy. \begin{DoxyReturn}{Returns}
+the accuracy 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a2926d8477573a7929a1db23cee6cc774}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!get\-Iteration\-Count@{get\-Iteration\-Count}}
+\index{get\-Iteration\-Count@{get\-Iteration\-Count}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{get\-Iteration\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-get\-Iteration\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a4b0bed3346321d89f9e1f3f12acfae21}
+Access the last iteration count.
+
+\begin{DoxyReturn}{Returns}
+the last iteration count 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-State\-Exception} & if no root has been computed \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a06cc738ee7203642e6bbe41a800c3e03}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!get\-Maximal\-Iteration\-Count@{get\-Maximal\-Iteration\-Count}}
+\index{get\-Maximal\-Iteration\-Count@{get\-Maximal\-Iteration\-Count}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{get\-Maximal\-Iteration\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-get\-Maximal\-Iteration\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_aae2f3b69f252c7f8dc20d3be6583df19}
+Get the upper limit for the number of iterations.
+
+\begin{DoxyReturn}{Returns}
+the actual upper limit 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_ae346dc2547df10ee2d39af851b352df0}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!get\-Relative\-Accuracy@{get\-Relative\-Accuracy}}
+\index{get\-Relative\-Accuracy@{get\-Relative\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{get\-Relative\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-get\-Relative\-Accuracy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a7ab97ffc4072f6fec51ec62510f32f21}
+Get the actual relative accuracy. \begin{DoxyReturn}{Returns}
+the accuracy 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a2e3876b46f849631079ed43fd01bf123}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!get\-Result@{get\-Result}}
+\index{get\-Result@{get\-Result}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{get\-Result}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-get\-Result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_af592bf5d46c771f952bbd5a3bd8a7096}
+Access the last computed root.
+
+\begin{DoxyReturn}{Returns}
+the last computed root 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-State\-Exception} & if no root has been computed \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a09c72bc4e5822cf084622379e37c6981}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!is\-Bracketing@{is\-Bracketing}}
+\index{is\-Bracketing@{is\-Bracketing}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{is\-Bracketing}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-is\-Bracketing (
+\begin{DoxyParamCaption}
+\item[{double}]{lower, }
+\item[{double}]{upper, }
+\item[{{\bf Univariate\-Real\-Function}}]{f}
+\end{DoxyParamCaption}
+) throws {\bf Function\-Evaluation\-Exception}\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_ae287908a72bb992450cdd9b21c0364b1}
+Returns true iff the function takes opposite signs at the endpoints.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & the lower endpoint \\
+\hline
+{\em upper} & the upper endpoint \\
+\hline
+{\em f} & the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if f(lower) $\ast$ f(upper) $<$ 0 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Function\-Evaluation\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_function_evaluation_exception}} & if an error occurs evaluating the function at the endpoints \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!is\-Sequence@{is\-Sequence}}
+\index{is\-Sequence@{is\-Sequence}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{is\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-is\-Sequence (
+\begin{DoxyParamCaption}
+\item[{double}]{start, }
+\item[{double}]{mid, }
+\item[{double}]{end}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_adc96329982734b3ee86edbb22f181642}
+Returns true if the arguments form a (strictly) increasing sequence
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & first number \\
+\hline
+{\em mid} & second number \\
+\hline
+{\em end} & third number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the arguments form an increasing sequence 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!reset\-Absolute\-Accuracy@{reset\-Absolute\-Accuracy}}
+\index{reset\-Absolute\-Accuracy@{reset\-Absolute\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{reset\-Absolute\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-reset\-Absolute\-Accuracy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a9a08069a98300d4cb5a549d46ba73ee7}
+Reset the absolute accuracy to the default. 
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a3fa56e4664a37459ff1d4c4b66755f89}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!reset\-Function\-Value\-Accuracy@{reset\-Function\-Value\-Accuracy}}
+\index{reset\-Function\-Value\-Accuracy@{reset\-Function\-Value\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{reset\-Function\-Value\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-reset\-Function\-Value\-Accuracy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a4afdcbc3ca352fd4de1e9443ec12092c}
+Reset the actual function accuracy to the default. 
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a5706e8692b57065fc80dc09f469d60dd}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!reset\-Maximal\-Iteration\-Count@{reset\-Maximal\-Iteration\-Count}}
+\index{reset\-Maximal\-Iteration\-Count@{reset\-Maximal\-Iteration\-Count}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{reset\-Maximal\-Iteration\-Count}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-reset\-Maximal\-Iteration\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a841cae8d31be422dac3bff8d77f10c91}
+Reset the upper limit for the number of iterations to the default. 
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a61d65ca1bf8cf5ce9f41df220ba62b57}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!reset\-Relative\-Accuracy@{reset\-Relative\-Accuracy}}
+\index{reset\-Relative\-Accuracy@{reset\-Relative\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{reset\-Relative\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-reset\-Relative\-Accuracy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_ada77f57a896e9ba71ec52c00d364f779}
+Reset the relative accuracy to the default. 
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a3bff025b2a3304544e3659133f8244a5}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!set\-Absolute\-Accuracy@{set\-Absolute\-Accuracy}}
+\index{set\-Absolute\-Accuracy@{set\-Absolute\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{set\-Absolute\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-set\-Absolute\-Accuracy (
+\begin{DoxyParamCaption}
+\item[{double}]{accuracy}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a569173ea19e51edfee05211f653b7664}
+Set the absolute accuracy.
+
+
+\begin{DoxyParams}{Parameters}
+{\em accuracy} & the accuracy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if the accuracy can't be achieved by the solver or is otherwise deemed unreasonable. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a33269db9885c3bebd29bc3f450d823b9}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!set\-Function\-Value\-Accuracy@{set\-Function\-Value\-Accuracy}}
+\index{set\-Function\-Value\-Accuracy@{set\-Function\-Value\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{set\-Function\-Value\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-set\-Function\-Value\-Accuracy (
+\begin{DoxyParamCaption}
+\item[{double}]{accuracy}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a27d79e174e44bf45aed981e52862a391}
+Set the function value accuracy.
+
+
+\begin{DoxyParams}{Parameters}
+{\em accuracy} & the accuracy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if the accuracy can't be achieved by the solver or is otherwise deemed unreasonable. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_ab1f7e1d418aa9ae248807c1006c3752a}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!set\-Maximal\-Iteration\-Count@{set\-Maximal\-Iteration\-Count}}
+\index{set\-Maximal\-Iteration\-Count@{set\-Maximal\-Iteration\-Count}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{set\-Maximal\-Iteration\-Count}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-set\-Maximal\-Iteration\-Count (
+\begin{DoxyParamCaption}
+\item[{int}]{count}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a1fefae7c8ac7fcb72e8d571d99753d5f}
+Set the upper limit for the number of iterations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & maximum number of iterations \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a2468012c752e7939e5ffa7345d131879}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!set\-Relative\-Accuracy@{set\-Relative\-Accuracy}}
+\index{set\-Relative\-Accuracy@{set\-Relative\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{set\-Relative\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-set\-Relative\-Accuracy (
+\begin{DoxyParamCaption}
+\item[{double}]{accuracy}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a659faf6a2afeef2bbee31354ead52236}
+Set the relative accuracy.
+
+
+\begin{DoxyParams}{Parameters}
+{\em accuracy} & the relative accuracy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if the accuracy can't be achieved by the solver or is otherwise deemed unreasonable. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_a8b555c6e4d74462ce578a5b0bc7567e0}.
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!set\-Result@{set\-Result}}
+\index{set\-Result@{set\-Result}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{set\-Result}]{\setlength{\rightskip}{0pt plus 5cm}final void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-set\-Result (
+\begin{DoxyParamCaption}
+\item[{double}]{result, }
+\item[{int}]{iteration\-Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a5360844fee369d6ab2740b2ff5f7bf5d}
+Convenience function for implementations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & the result to set \\
+\hline
+{\em iteration\-Count} & the iteration count to set \\
+\hline
+\end{DoxyParams}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!verify\-Bracketing@{verify\-Bracketing}}
+\index{verify\-Bracketing@{verify\-Bracketing}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{verify\-Bracketing}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-verify\-Bracketing (
+\begin{DoxyParamCaption}
+\item[{double}]{lower, }
+\item[{double}]{upper, }
+\item[{{\bf Univariate\-Real\-Function}}]{f}
+\end{DoxyParamCaption}
+) throws {\bf Function\-Evaluation\-Exception}\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a44f1a77211c700a26f11b8ace667d319}
+Verifies that the endpoints specify an interval and the function takes opposite signs at the enpoints, throws Illegal\-Argument\-Exception if not
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & lower endpoint \\
+\hline
+{\em upper} & upper endpoint \\
+\hline
+{\em f} & function \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & \\
+\hline
+{\em \doxyref{Function\-Evaluation\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_function_evaluation_exception}} & if an error occurs evaluating the function at the endpoints \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a44f1a77211c700a26f11b8ace667d319_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!verify\-Interval@{verify\-Interval}}
+\index{verify\-Interval@{verify\-Interval}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{verify\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-verify\-Interval (
+\begin{DoxyParamCaption}
+\item[{double}]{lower, }
+\item[{double}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a4ccf76055f7c6ed934f02be77c1e8ff7}
+Verifies that the endpoints specify an interval, throws Illegal\-Argument\-Exception if not
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & lower endpoint \\
+\hline
+{\em upper} & upper endpoint \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!verify\-Sequence@{verify\-Sequence}}
+\index{verify\-Sequence@{verify\-Sequence}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{verify\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-verify\-Sequence (
+\begin{DoxyParamCaption}
+\item[{double}]{lower, }
+\item[{double}]{initial, }
+\item[{double}]{upper}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_aa59cb6094878d427b5375bb4938e0d47}
+Verifies that {\ttfamily lower $<$ initial $<$ upper} throws Illegal\-Argument\-Exception if not
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & lower endpoint \\
+\hline
+{\em initial} & initial value \\
+\hline
+{\em upper} & upper endpoint \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_aa59cb6094878d427b5375bb4938e0d47_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!absolute\-Accuracy@{absolute\-Accuracy}}
+\index{absolute\-Accuracy@{absolute\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{absolute\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-absolute\-Accuracy\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_aa22db2016a96b1e018da93a9a60303ca}
+Maximum absolute error. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!default\-Absolute\-Accuracy@{default\-Absolute\-Accuracy}}
+\index{default\-Absolute\-Accuracy@{default\-Absolute\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{default\-Absolute\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-default\-Absolute\-Accuracy\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_afe44cfa470452beee8cbfd9e784b72da}
+Default maximum absolute error. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!default\-Function\-Value\-Accuracy@{default\-Function\-Value\-Accuracy}}
+\index{default\-Function\-Value\-Accuracy@{default\-Function\-Value\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{default\-Function\-Value\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-default\-Function\-Value\-Accuracy\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a689455485034aa8a277401d6d3754deb}
+Default maximum error of function. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!default\-Maximal\-Iteration\-Count@{default\-Maximal\-Iteration\-Count}}
+\index{default\-Maximal\-Iteration\-Count@{default\-Maximal\-Iteration\-Count}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{default\-Maximal\-Iteration\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-default\-Maximal\-Iteration\-Count\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_ae09e2fbf5bc4d2aef5de5d7ed3c9b38d}
+Default maximum number of iterations. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!default\-Relative\-Accuracy@{default\-Relative\-Accuracy}}
+\index{default\-Relative\-Accuracy@{default\-Relative\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{default\-Relative\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-default\-Relative\-Accuracy\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a5974307ec462fa4bed797f8839dc9b1c}
+Default maximum relative error. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!f@{f}}
+\index{f@{f}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Univariate\-Real\-Function} org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-f\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a30c75ff5f9f4b4ed740213a68b1fc389}
+The function to solve. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!function\-Value\-Accuracy@{function\-Value\-Accuracy}}
+\index{function\-Value\-Accuracy@{function\-Value\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{function\-Value\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-function\-Value\-Accuracy\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a83d7a384f85cef6529e1d129bafa6905}
+Maximum error of function. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!iteration\-Count@{iteration\-Count}}
+\index{iteration\-Count@{iteration\-Count}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{iteration\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-iteration\-Count\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a496c4bafd7f52524efca5b32d5c4db8e}
+The last iteration count. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!maximal\-Iteration\-Count@{maximal\-Iteration\-Count}}
+\index{maximal\-Iteration\-Count@{maximal\-Iteration\-Count}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{maximal\-Iteration\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-maximal\-Iteration\-Count\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a717aa802239ffbdb03bd0ef6e203e32f}
+Maximum number of iterations. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!relative\-Accuracy@{relative\-Accuracy}}
+\index{relative\-Accuracy@{relative\-Accuracy}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{relative\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-relative\-Accuracy\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a2785e7b972feb5321f802fec4ba80cff}
+Maximum relative error. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!result@{result}}
+\index{result@{result}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{result}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-result\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_aad730f2a8e813c4b034b7c99d86b0a4b}
+The last computed root. \index{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}!result\-Computed@{result\-Computed}}
+\index{result\-Computed@{result\-Computed}!org::apache::commons::math::analysis::UnivariateRealSolverImpl@{org\-::apache\-::commons\-::math\-::analysis\-::\-Univariate\-Real\-Solver\-Impl}}
+\subsubsection[{result\-Computed}]{\setlength{\rightskip}{0pt plus 5cm}boolean org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Solver\-Impl.\-result\-Computed = false\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_solver_impl_a71aa1f6d2822cca91184e4b6410e0c54}
+Indicates where a root has been computed. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/org/apache/commons/math/analysis/Univariate\-Real\-Solver\-Impl.\-java\end{DoxyCompactItemize}

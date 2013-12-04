@@ -1,0 +1,176 @@
+.TH "org.apache.commons.collections.MapIterator" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.collections.MapIterator \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Iterator\&.
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.collections\&.iterators\&.EmptyMapIterator\fP, org\&.apache\&.commons\&.collections\&.map\&.AbstractHashedMap\&.HashMapIterator, and org\&.apache\&.commons\&.collections\&.map\&.AbstractReferenceMap\&.ReferenceMapIterator\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBhasNext\fP ()"
+.br
+.ti -1c
+.RI "Object \fBnext\fP ()"
+.br
+.ti -1c
+.RI "Object \fBgetKey\fP ()"
+.br
+.ti -1c
+.RI "Object \fBgetValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBremove\fP ()"
+.br
+.ti -1c
+.RI "Object \fBsetValue\fP (Object value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines an iterator that operates over a \fCMap\fP\&. 
+.PP
+This iterator is a special version designed for maps\&. It can be more efficient to use this rather than an entry set iterator where the option is available, and it is certainly more convenient\&. 
+.PP
+A map that provides this interface may not hold the data internally using Map Entry objects, thus this interface can avoid lots of object creation\&. 
+.PP
+In use, this iterator iterates through the keys in the map\&. After each call to \fC\fBnext()\fP\fP, the \fC\fBgetValue()\fP\fP method provides direct access to the value\&. The value can also be set using \fC\fBsetValue()\fP\fP\&. 
+.PP
+.nf
+
+\fBMapIterator\fP it = map\&.mapIterator();
+while (it\&.hasNext()) {
+  Object key = it\&.next();
+  Object value = it\&.getValue();
+  it\&.setValue(newValue);
+}
+.fi
+.PP
+.PP
+\fBSince:\fP
+.RS 4
+Commons Collections 3\&.0 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+646777 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-04-10 13:33:15 +0100 (Thu, 10 Apr 2008) 
+.RE
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Stephen Colebourne 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Object org\&.apache\&.commons\&.collections\&.MapIterator\&.getKey ()"
+Gets the current key, which is the key returned by the last call to \fC\fBnext()\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the current key 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalStateException\fP if \fC\fBnext()\fP\fP has not yet been called 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.collections\&.MapIterator\&.getValue ()"
+Gets the current value, which is the value associated with the last key returned by \fC\fBnext()\fP\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the current value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalStateException\fP if \fC\fBnext()\fP\fP has not yet been called 
+.RE
+.PP
+
+.SS "boolean org\&.apache\&.commons\&.collections\&.MapIterator\&.hasNext ()"
+Checks to see if there are more entries still to be iterated\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP if the iterator has more elements 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.collections\&.MapIterator\&.next ()"
+Gets the next \fIkey\fP from the \fCMap\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the next key in the iteration 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIjava\&.util\&.NoSuchElementException\fP if the iteration is finished 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.collections\&.MapIterator\&.remove ()"
+Removes the last returned key from the underlying \fCMap\fP (optional operation)\&. 
+.PP
+This method can be called once per call to \fC\fBnext()\fP\fP\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIUnsupportedOperationException\fP if remove is not supported by the map 
+.br
+\fIIllegalStateException\fP if \fC\fBnext()\fP\fP has not yet been called 
+.br
+\fIIllegalStateException\fP if \fC\fBremove()\fP\fP has already been called since the last call to \fC\fBnext()\fP\fP 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.collections\&.MapIterator\&.setValue (Objectvalue)"
+Sets the value associated with the current key (optional operation)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP the new value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the previous value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIUnsupportedOperationException\fP if setValue is not supported by the map 
+.br
+\fIIllegalStateException\fP if \fC\fBnext()\fP\fP has not yet been called 
+.br
+\fIIllegalStateException\fP if \fC\fBremove()\fP\fP has been called since the last call to \fC\fBnext()\fP\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

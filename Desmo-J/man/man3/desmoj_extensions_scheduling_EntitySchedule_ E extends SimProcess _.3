@@ -1,0 +1,255 @@
+.TH "desmoj.extensions.scheduling.EntitySchedule< E extends SimProcess >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.scheduling.EntitySchedule< E extends SimProcess > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntitySchedule\fP (\fBModel\fP owner, String name, E process)"
+.br
+.ti -1c
+.RI "\fBEntitySchedule\fP (\fBModel\fP owner)"
+.br
+.ti -1c
+.RI "\fBEntitySchedule\fP (\fBModel\fP owner, \fBTimeSpan\fP fromBeginOfDay, \fBTimeSpan\fP untilBeginOfDay)"
+.br
+.ti -1c
+.RI "void \fBsetProcessManagement\fP (boolean \fBactivate\fP, boolean passiviate)"
+.br
+.ti -1c
+.RI "void \fBsetTimeZone\fP (TimeZone timezone)"
+.br
+.ti -1c
+.RI "void \fBclearProcessList\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddProcess\fP (E process)"
+.br
+.ti -1c
+.RI "void \fBremoveProcess\fP (E process)"
+.br
+.ti -1c
+.RI "void \fBadd\fP (\fBEntityScheduleEntry\fP entry)"
+.br
+.ti -1c
+.RI "Object[] \fBisInSchedule\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "Object[] \fBisInSchedule\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetEndOfActualEntry\fP (\fBTimeInstant\fP now)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetBeginOfNextEntry\fP (\fBTimeInstant\fP now)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckAvailability\fP (\fBEntity\fP e, int index)"
+.br
+.ti -1c
+.RI "boolean \fBcheckAvailability\fP (\fBEntity\fP e)"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static boolean[] \fBworkingDays\fP"
+.br
+.ti -1c
+.RI "static boolean[] \fBweekend\fP"
+.br
+.ti -1c
+.RI "static boolean[] \fBallDays\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+EntitySchedule is a list of \fBEntityScheduleEntry\fP's\&. A \fBEntityScheduleEntry\fP is a time region (e\&.g\&. every workingday from 8:00 until 16:00) All \fBEntityScheduleEntry\fP's have the same timezone, stored in EntitySchedule\&.
+.PP
+EntitySchedule is a SimProcess\&. With setProcess is a process specified\&. The lifecycle of EntitySchedule will activate the with setProcess specified process at begin and end of each schedule entry\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.EntitySchedule (\fBModel\fPowner, Stringname, Eprocess)"
+Erzeugt leeren EntitySchedule mit default Zeitzone Zu begin jedes ScheduleEntry wird process aktiviert 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP 
+.br
+\fIprocess\fP 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.EntitySchedule (\fBModel\fPowner)"
+Erzeugt leeren EntitySchedule mit default Zeitzone 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.EntitySchedule (\fBModel\fPowner, \fBTimeSpan\fPfromBeginOfDay, \fBTimeSpan\fPuntilBeginOfDay)"
+Default Schedule ohne Zeitbeschraenkung, werktags mit default Zeitzone 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfromHourOfDay\fP 
+.br
+\fIuntilHourOfDay\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.add (\fBEntityScheduleEntry\fPentry)"
+fuegt dem Schedule ein \fBEntityScheduleEntry\fP hinzu 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIentry\fP 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.checkAvailability (\fBEntity\fPe, intindex)"
+Das values-array der schedule entries beschreiben Eigenschaften eines entries\&. Angenommen in jedem schedule entity steht eine unterschiedliche Anzahl der Resource e zur Verfuegung und diese Anzahl ist in der Komponente indes des values-array abgespeichert\&. Die Namen der Resourcen Entities enthalten am Ende eine laufende Nr\&. Diese Methode prueft, ob diese Nr <= der in dem aktuellen Schedule zulaessigen Anzahl ist\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP 
+.br
+\fIindex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.checkAvailability (\fBEntity\fPe)"
+Wie oben, jedoch mit index = 0 als Default Wert\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.getBeginOfNextEntry (\fBTimeInstant\fPnow)"
+compute begin of next valid scheduleEntry\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInow\fP actual simulation time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+null when no next entry exist\&. 
+.RE
+.PP
+
+.SS "Object [] desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.isInSchedule (\fBTimeInstant\fPtime)"
+prueft ob date in dem Schedule enthalten ist\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdate\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Values des ersten Entry, der date enthaelt\&. null wenn kein Entry gefunden 
+.RE
+.PP
+
+.SS "Object [] desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.isInSchedule ()"
+prueft ob currentTime in dem Schedule enthalten ist\&. Die Endzeit gehoert nicht zum ScheduleEntry 
+.PP
+\fBReturns:\fP
+.RS 4
+Capacity des ersten Entry, der date enthaelt\&. null wenn kein Entry gefunden 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.lifeCycle ()\fC [virtual]\fP"
+Override this method in a subclass of SimProcess to implement the specific behaviour of this SimProcess\&. This method starts after a SimProcess has been created and activated\&. Note that this method will be executed once or repeatedly, depending on the repeating status of the SimProcess\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean [] desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.allDays\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= 
+        
+                                        {true,  true, true, true, true, true, true}
+.fi
+.SS "boolean [] desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.weekend\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= 
+        
+                                        {true,  false,false,false,false,false,true}
+.fi
+.SS "boolean [] desmoj\&.extensions\&.scheduling\&.EntitySchedule< E extends \fBSimProcess\fP >\&.workingDays\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= 
+        
+                                        {false, true, true, true, true, true, false}
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

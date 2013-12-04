@@ -1,0 +1,459 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}\index{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth@{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Berth} ({\bf Model} owner, String name, int sort\-Order, int q\-Capacity, int length, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Berth} ({\bf Model} owner, String name, int length, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Reporter} {\bf create\-Reporter} ()
+\item 
+void {\bf change\-Length} (int l)
+\item 
+int {\bf get\-Length} ()
+\item 
+double {\bf avg\-Serv\-Time} ()
+\item 
+double {\bf avg\-Usage} ()
+\item 
+boolean {\bf take} ()
+\item 
+boolean {\bf release} ()
+\item 
+void {\bf reset} ()
+\item 
+int {\bf get\-Avail\-Length} ()
+\item 
+long {\bf get\-Users} ()
+\item 
+String {\bf get\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Refused} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf update\-Statistics} (int l)
+\item 
+boolean {\bf check\-Process} ({\bf Sim\-Process} p, String where)
+\item 
+void {\bf activate\-First} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} is the place where ships are berthing until they will be unloaded and/or loaded. {\ttfamily \doxyref{Ship}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_ship}} can come and {\ttfamily \doxyref{take()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a01e699c6aa783df670583051be14c1d0}} the needed length for his berthing. Each ship has to release the same length of the berth it once has acquired by calling the {\ttfamily \doxyref{release()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a4d9f4be7d046d4c7d3fc57c6fb4e0e57}} method of the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} is used to implement process synchronization between ships, which are using berth. The berth has a limited ccertain length. A ship can take the needed for him length to berth. After his unloading and/or loading the ship must release the taken length to make her available to other ships. If a ship can not get the needed length (enough free place) for his berthing, it has to wait in a queue until enough length ( free palce) are released by other ships. A ship can release its berthing length anytime. After the berht has {\ttfamily \doxyref{release()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a4d9f4be7d046d4c7d3fc57c6fb4e0e57}} the used length the waiting queue is checked for ships waiting for her. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is F\-I\-F\-O and unlimited capacity).
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Eugenia Neufeld
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!Berth@{Berth}}
+\index{Berth@{Berth}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{Berth}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-Berth (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{sort\-Order, }
+\item[{int}]{q\-Capacity, }
+\item[{int}]{length, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_ad3ea81d82467442a1281fc1c0eaa5a2d}
+Constructor for a \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} with a certain length. The queueing discipline and the capacity limit of the underlying queue can be chosen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}'s name \\
+\hline
+{\em sort\-Order} & int \-: determines the sort order of the underlying queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em q\-Capacity} & int \-: The capacity of the queue, that is how many processes (ships) can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em length} & int \-: The length of the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. Must be positive and greater than 0. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_ad3ea81d82467442a1281fc1c0eaa5a2d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!Berth@{Berth}}
+\index{Berth@{Berth}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{Berth}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-Berth (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{length, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a78b60b34edefc22c4b6405f509221a4e}
+Constructor for a \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} with a certain length. The underlying queue has a Fifo queueing discipline and unlimited capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}'s name \\
+\hline
+{\em length} & int \-: The lenght of this \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} Must be positive and greater than 0. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a78b60b34edefc22c4b6405f509221a4e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!activate\-First@{activate\-First}}
+\index{activate\-First@{activate\-First}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{activate\-First}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-activate\-First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a6060c24f1c4efed7899077d18299601a}
+Activates the first process (ship) waiting in the queue. That is a process which was trying to take the needed length of the berth, but there was not enough left in the berth. Or another ship was first in the queue to be served. This method is called every time a process returns length to berth or when a ship in the waiting-\/queue is satisfied. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a6060c24f1c4efed7899077d18299601a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!avg\-Serv\-Time@{avg\-Serv\-Time}}
+\index{avg\-Serv\-Time@{avg\-Serv\-Time}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{avg\-Serv\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-avg\-Serv\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a53e4f009544a3e7b3d86740e24534e38}
+Returns the average berthing time of the ships that have used this \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The average berthing time of the ships of this berth. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a53e4f009544a3e7b3d86740e24534e38_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!avg\-Usage@{avg\-Usage}}
+\index{avg\-Usage@{avg\-Usage}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{avg\-Usage}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-avg\-Usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a28d24ba27a9986423d7c4c931d742720}
+Returns the average usage of the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. That means\-: in average, which percentage of the time it was in use over the time?
+
+\begin{DoxyReturn}{Returns}
+double \-: the average usage of the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a28d24ba27a9986423d7c4c931d742720_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!change\-Length@{change\-Length}}
+\index{change\-Length@{change\-Length}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{change\-Length}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-change\-Length (
+\begin{DoxyParamCaption}
+\item[{int}]{l}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_adad047712a618c2a9a04cd7e6c8303c0}
+Changes the length of the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. Sets the length of the berth that is max. available to l. l must be positive. This is only allowed as long as the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} has not been used or the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} has just been reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & int \-: The new length of the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. Must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_adad047712a618c2a9a04cd7e6c8303c0_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!check\-Process@{check\-Process}}
+\index{check\-Process@{check\-Process}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{check\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-check\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p, }
+\item[{String}]{where}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a56856980de2d51c167e918a1fb4d070d}
+Checks whether the process (ship) using the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} is a valid process.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns whether the sim-\/process is valid or not. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Sim\-Process \-: Is this Sim\-Process a valid one? \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a56856980de2d51c167e918a1fb4d070d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reporter} desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_ab233d51e96574a2e66018584232757ef}
+Returns a Reporter to produce a report about this \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for the queue inside this \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!get\-Avail\-Length@{get\-Avail\-Length}}
+\index{get\-Avail\-Length@{get\-Avail\-Length}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{get\-Avail\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-get\-Avail\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a822de50c964258d8133380004649aa19}
+Returns the available length of the berth at the moment.
+
+\begin{DoxyReturn}{Returns}
+int \-: The length of the berth available at the moment. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!get\-Length@{get\-Length}}
+\index{get\-Length@{get\-Length}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{get\-Length}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-get\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a114f275dcab27d6004224fc349cc6781}
+Returns the length of the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}.
+
+\begin{DoxyReturn}{Returns}
+int \-: The length of the berth 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a114f275dcab27d6004224fc349cc6781_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!get\-Queue\-Strategy@{get\-Queue\-Strategy}}
+\index{get\-Queue\-Strategy@{get\-Queue\-Strategy}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{get\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-get\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a006aa3eb7c80179c23476c47b22b8881}
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_af783a85b90c50a03f8904de323326d70}
+Returns the number of ships refused to be enqueued in the queue, because the capacity limit is reached.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of ships refused to be enqueued in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!get\-Users@{get\-Users}}
+\index{get\-Users@{get\-Users}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{get\-Users}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-get\-Users (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_ab5e3f3eea7c4a3f78d949955736c9086}
+Returns the number of users (ships).
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of Users. That are ships have acquired and released the needed length of the berth. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!release@{release}}
+\index{release@{release}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a4d9f4be7d046d4c7d3fc57c6fb4e0e57}
+A \doxyref{Ship}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_ship} is using this method to release this berth and to put length it has used back to the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a4d9f4be7d046d4c7d3fc57c6fb4e0e57_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!reset@{reset}}
+\index{reset@{reset}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a3ec56072a41b2ef2bbaf89f835176adb}
+Resets the statistics of this \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth}. The number of available length at this moment and the ships waiting in the queue are not changed. But all statistic counters are reset. The parent {\ttfamily Queue\-Based} is also reset. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!take@{take}}
+\index{take@{take}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{take}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-take (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a01e699c6aa783df670583051be14c1d0}
+Provides the length to ships to use it for its berthing. As not enough length is available at the moment the \doxyref{Ship}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_ship} has to wait in a queue until enough length is available again.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the needed length has been provided successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the queue is reached). 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a01e699c6aa783df670583051be14c1d0_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}!update\-Statistics@{update\-Statistics}}
+\index{update\-Statistics@{update\-Statistics}!desmoj::extensions::applicationDomains::harbour::Berth@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Berth}}
+\subsubsection[{update\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Berth.\-update\-Statistics (
+\begin{DoxyParamCaption}
+\item[{int}]{l}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a28255da98e93e4ac7712e72d81a3d57e}
+Updates the statistics for the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} whenever berth are {\ttfamily taken} or {\ttfamily \char`\"{}released\char`\"{}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & int \-: Is positive when the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} {\ttfamily \doxyref{release()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a4d9f4be7d046d4c7d3fc57c6fb4e0e57}} some length and negative when the \doxyref{Berth}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth} {\ttfamily \doxyref{take()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a01e699c6aa783df670583051be14c1d0}} some length. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_berth_a28255da98e93e4ac7712e72d81a3d57e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/harbour/Berth.\-java\end{DoxyCompactItemize}

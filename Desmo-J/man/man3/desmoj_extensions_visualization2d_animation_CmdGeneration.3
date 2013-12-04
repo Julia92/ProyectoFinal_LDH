@@ -1,0 +1,249 @@
+.TH "desmoj.extensions.visualization2d.animation.CmdGeneration" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.animation.CmdGeneration \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.command\&.WriteCmds\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCmdGeneration\fP (String cmdFileName, String logFileName, URL iconPathURL)"
+.br
+.ti -1c
+.RI "void \fBsetStartStopTime\fP (\fBTimeInstant\fP begin, \fBTimeInstant\fP end, TimeZone timezone)"
+.br
+.ti -1c
+.RI "void \fBclose\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetCmdFileName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetLogFileName\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCheckAndLog\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetFlushSeq\fP (int flushSeq)"
+.br
+.ti -1c
+.RI "URL \fBgetCmdFileURL\fP ()"
+.br
+.ti -1c
+.RI "URL \fBgetIconPathURL\fP ()"
+.br
+.ti -1c
+.RI "void \fBwrite\fP (\fBCommand\fP c)"
+.br
+.ti -1c
+.RI "void \fBcheckAndLog\fP (\fBCommand\fP c)"
+.br
+.ti -1c
+.RI "boolean \fBisInitPhase\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetInitTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBexperimentStart\fP (\fBExperiment\fP exp, double initSpeed)"
+.br
+.ti -1c
+.RI "long \fBgetAnimationTimeInit\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetAnimationTime\fP (\fBTimeInstant\fP t)"
+.br
+.ti -1c
+.RI "long \fBgetAnimationRunTime\fP (\fBTimeInstant\fP t)"
+.br
+.ti -1c
+.RI "void \fBsetTimeZone\fP (TimeZone timezone)"
+.br
+.ti -1c
+.RI "TimeZone \fBgetTimeZone\fP ()"
+.br
+.ti -1c
+.RI "String \fBcreateInternId\fP (String name)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBCmdGeneration\fP manages cmd- and log-file generation writing simTimeBound command and converts Simtime to animationTime
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.CmdGeneration (StringcmdFileName, StringlogFileName, URLiconPathURL)"
+Supportmethods of cmds-file-generation\&. Opens cmds- and log-file and 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcmdFileName\fP 
+.br
+\fIlogFileName\fP 
+.br
+\fIiconPathURL\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIUnsupportedEncodingException\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.checkAndLog (\fBCommand\fPc)"
+The Method checkAndLog makes a syntax and semantic check of the generated animation commands\&. The commands are also logged in logFileName from constructor\&. For semantic check the whole animation environment is build in heap\&. This consumes a lot of time and heap space\&. This Method works only when its switched on with \fBsetCheckAndLog()\fP Method\&. Normally the CheckAndLog Method is switched off\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Command to write 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.close ()"
+close cmds- and log-file 
+.SS "String desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.createInternId (Stringname)"
+create an internal Id based on name\&. This id is used as an internal id by building animation objects\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.experimentStart (\fBExperiment\fPexp, doubleinitSpeed)"
+sets begin and end time of experiment, create cmds command 'createSimTimeBounds' and starts experiment 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexp\fP 
+.br
+\fIbegin\fP 
+.br
+\fIend\fP 
+.br
+\fItimezone\fP 
+.br
+\fIinitSpeed\fP 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.getAnimationRunTime (\fBTimeInstant\fPt)"
+distance between actual simTime and initTime as UnixTimeStamp 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP SimTime distance 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+computed AnimationTime distance 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.getAnimationTime (\fBTimeInstant\fPt)"
+get Unix TimeStamp of Time t, shown in viewer 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP TimeInstant, used in desmoj 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+computed Time-stamp 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.getAnimationTimeInit ()"
+get Unix TimeStamp of animation begin 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "URL desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.getCmdFileURL ()"
+get CmdFileName as File-URL 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.isInitPhase ()"
+say true when simulation isn't started 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.setCheckAndLog ()"
+Only when checkAndLog is set the Method CheckAndLog is active\&. Default is false\&. The Method checkAndLog makes a syntax and semantic check of the generated animation commands\&. The commands are also logged in logFileName from constructor\&. For semantic check the whole animation environment is build in heap\&. This consumes a lot of time and heap space\&. Normally the CheckAndLog Method is switched off\&. 
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.setFlushSeq (intflushSeq)"
+sets the number of comands, when CommandFrame\&.writeCmdBuffer is flushed in cmdFile\&. Default is 1000 A small value reduces the uses buffer space and may be increases the running time\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIflushSeq\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.setStartStopTime (\fBTimeInstant\fPbegin, \fBTimeInstant\fPend, TimeZonetimezone)"
+Defines simulation start- and stop-time\&. Must be between experiment constructor and model-experiment connect\&.
+.br
+ Attention: It makes no sence to define a TimeInstant before experiment constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbegin\fP Begin of simulation 
+.br
+\fIend\fP End of simulation 
+.br
+\fItimezone\fP Timezone of simulation, UTC when null 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.animation\&.CmdGeneration\&.write (\fBCommand\fPc)"
+write a command in CommandFrame\&.writeCmdBuffer\&. When the buffer has more than this\&.flushSeq comands, the buffer is flushed in cmdFile 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP Command to write 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

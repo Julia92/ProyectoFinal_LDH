@@ -1,0 +1,602 @@
+\section{desmoj.\-core.\-statistic.\-Regression Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_regression}\index{desmoj.\-core.\-statistic.\-Regression@{desmoj.\-core.\-statistic.\-Regression}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Regression\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{classdesmoj_1_1core_1_1statistic_1_1_regression__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Regression\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{classdesmoj_1_1core_1_1statistic_1_1_regression__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Regression} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} x\-Valsup, {\bf Value\-Supplier} y\-Valsup, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Regression} ({\bf Model} owner\-Model, String name, String x\-Name, String y\-Name, {\bf Value\-Supplier} x\-Valsup, {\bf Value\-Supplier} y\-Valsup, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Regression} ({\bf Model} owner\-Model, String name, String x\-Name, String y\-Name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+double {\bf correlation\-Coeff} ()
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+double {\bf get\-X\-Mean} ()
+\item 
+String {\bf get\-X\-Name} ()
+\item 
+double {\bf get\-X\-Value} ()
+\item 
+double {\bf get\-Y\-Mean} ()
+\item 
+String {\bf get\-Y\-Name} ()
+\item 
+double {\bf get\-Y\-Value} ()
+\item 
+double {\bf intercept} ()
+\item 
+double {\bf reg\-Coeff} ()
+\item 
+void {\bf reset} ()
+\item 
+double {\bf residual\-Std\-Dev} ()
+\item 
+double {\bf std\-Dev\-Reg\-Coeff} ()
+\item 
+void {\bf update} ()
+\item 
+void {\bf update} (double x\-Val, double y\-Val)
+\item 
+void {\bf update} (Observable o, Object arg)
+\item 
+boolean {\bf x\-Is\-Constant} ()
+\item 
+boolean {\bf y\-Is\-Constant} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final double {\bf C\-\_\-\-E\-P\-S\-I\-L\-O\-N} = 0.\-00001
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} class is producing a linear regression for two {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} objects called x and y.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!Regression@{Regression}}
+\index{Regression@{Regression}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{Regression}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Regression.\-Regression (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{x\-Valsup, }
+\item[{{\bf Value\-Supplier}}]{y\-Valsup, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a56671571f9a9916771906be1ef1bbf49}
+Constructor for a \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object with no names for the x and y values. The names will be set to \char`\"{}\-X\char`\"{} and \char`\"{}\-Y\char`\"{}. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a56671571f9a9916771906be1ef1bbf49_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!Regression@{Regression}}
+\index{Regression@{Regression}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{Regression}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Regression.\-Regression (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{String}]{x\-Name, }
+\item[{String}]{y\-Name, }
+\item[{{\bf Value\-Supplier}}]{x\-Valsup, }
+\item[{{\bf Value\-Supplier}}]{y\-Valsup, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_affdee7bfdd96f85076bac63dc768d351}
+Constructor for a \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object that is observing two {\ttfamily Value\-Suppliers} for the x and y values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object \\
+\hline
+{\em x\-Name} & java.\-lang.\-String \-: The name for the x values. \\
+\hline
+{\em y\-Name} & java.\-lang.\-String \-: The name for the y values. \\
+\hline
+{\em x\-Valsup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the x values for the regression analysis. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object. \\
+\hline
+{\em y\-Valsup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the y values for the regression analysis. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_affdee7bfdd96f85076bac63dc768d351_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!Regression@{Regression}}
+\index{Regression@{Regression}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{Regression}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Regression.\-Regression (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{String}]{x\-Name, }
+\item[{String}]{y\-Name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_ac71b97a08cc2c4f686e1eb58bbf8038c}
+Constructor for a \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object that is N\-O\-T connected to any {\ttfamily Value\-Suppliers} for the x and y values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object \\
+\hline
+{\em x\-Name} & java.\-lang.\-String \-: The name for the x values. \\
+\hline
+{\em y\-Name} & java.\-lang.\-String \-: The name for the y values. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_ac71b97a08cc2c4f686e1eb58bbf8038c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!correlation\-Coeff@{correlation\-Coeff}}
+\index{correlation\-Coeff@{correlation\-Coeff}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{correlation\-Coeff}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-correlation\-Coeff (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a1675d833f3073fde17940d18187fae64}
+Returns the correlation coefficient.
+
+\begin{DoxyReturn}{Returns}
+double \-: The correlation coefficient. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a1675d833f3073fde17940d18187fae64_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-statistic.\-Regression.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a3629f30ea8cbbe45afd0081be65df188}
+Returns a Reporter to produce a report about this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} analysis.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!get\-X\-Mean@{get\-X\-Mean}}
+\index{get\-X\-Mean@{get\-X\-Mean}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{get\-X\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-get\-X\-Mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a3e3a6c6d4e53a2e46b0907c82bd62a0a}
+Returns the mean x-\/value.
+
+\begin{DoxyReturn}{Returns}
+double \-: The mean x-\/value. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a3e3a6c6d4e53a2e46b0907c82bd62a0a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!get\-X\-Name@{get\-X\-Name}}
+\index{get\-X\-Name@{get\-X\-Name}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{get\-X\-Name}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-statistic.\-Regression.\-get\-X\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_aa9ee89aea14b8c1417c33c0733ea6490}
+Returns the name of the x-\/value.
+
+\begin{DoxyReturn}{Returns}
+String \-: The name of the x-\/value. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!get\-X\-Value@{get\-X\-Value}}
+\index{get\-X\-Value@{get\-X\-Value}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{get\-X\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-get\-X\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a3f43bb000ac2447ae331068f9b441fe8}
+Returns the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} supplying the x-\/value.
+
+\begin{DoxyReturn}{Returns}
+double \-: The actual value of the observed {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} object supplying the x-\/value. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a3f43bb000ac2447ae331068f9b441fe8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!get\-Y\-Mean@{get\-Y\-Mean}}
+\index{get\-Y\-Mean@{get\-Y\-Mean}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{get\-Y\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-get\-Y\-Mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a62bf3bd259b586bf386a61fcc9488a18}
+Returns the mean y-\/value.
+
+\begin{DoxyReturn}{Returns}
+double \-: The mean y-\/value. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a62bf3bd259b586bf386a61fcc9488a18_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!get\-Y\-Name@{get\-Y\-Name}}
+\index{get\-Y\-Name@{get\-Y\-Name}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{get\-Y\-Name}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-statistic.\-Regression.\-get\-Y\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a69fb2868940b81a200fffb9aecf00887}
+Returns the name of the y-\/value.
+
+\begin{DoxyReturn}{Returns}
+String \-: The name of the y-\/value. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!get\-Y\-Value@{get\-Y\-Value}}
+\index{get\-Y\-Value@{get\-Y\-Value}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{get\-Y\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-get\-Y\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a26ffd1f1e7b01b2519b70c05aee7a290}
+Returns the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} supplying the y-\/value.
+
+\begin{DoxyReturn}{Returns}
+double \-: The actual value of the observed {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} object supplying the y-\/value. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a26ffd1f1e7b01b2519b70c05aee7a290_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!intercept@{intercept}}
+\index{intercept@{intercept}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{intercept}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-intercept (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_aaaa160f1213f7ad59d977440a1d9eb45}
+Returns the interception of the X-\/axis.
+
+\begin{DoxyReturn}{Returns}
+double \-: The interception of the X-\/axis. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_aaaa160f1213f7ad59d977440a1d9eb45_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!reg\-Coeff@{reg\-Coeff}}
+\index{reg\-Coeff@{reg\-Coeff}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{reg\-Coeff}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-reg\-Coeff (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_ad5e7ca71a90410ce4d81e4babd4bf944}
+Returns the regression coefficient.
+
+\begin{DoxyReturn}{Returns}
+double \-: The regression coefficient. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_ad5e7ca71a90410ce4d81e4babd4bf944_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Regression.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_aeab30d99eab8834f08f9f7c0531b2ca4}
+Resets this \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression} object by resetting all variables of x and y to 0.\-0 . The names remain the same. \index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!residual\-Std\-Dev@{residual\-Std\-Dev}}
+\index{residual\-Std\-Dev@{residual\-Std\-Dev}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{residual\-Std\-Dev}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-residual\-Std\-Dev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a1a8454440c127980a56bbfdfd66f1261}
+Returns the residuale standard deviation.
+
+\begin{DoxyReturn}{Returns}
+double \-: The residuale standard deviation. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a1a8454440c127980a56bbfdfd66f1261_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!std\-Dev\-Reg\-Coeff@{std\-Dev\-Reg\-Coeff}}
+\index{std\-Dev\-Reg\-Coeff@{std\-Dev\-Reg\-Coeff}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{std\-Dev\-Reg\-Coeff}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Regression.\-std\-Dev\-Reg\-Coeff (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a7fdf4fff20c89a0abcd3ccf219b56f43}
+Returns the standard deviation of the regression coefficients.
+
+\begin{DoxyReturn}{Returns}
+double \-: The standard deviation of the regression coefficients. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a7fdf4fff20c89a0abcd3ccf219b56f43_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Regression.\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a684b7ba8decab6f6af41f1d44cd9f6dc}
+Updates this {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} object by fetching the actual values of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} s and processing them. The {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} s are passed in the constructor of this {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} object. This {\ttfamily \doxyref{update()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression_a684b7ba8decab6f6af41f1d44cd9f6dc}} method complies with the one described in D\-E\-S\-M\-O, see [Page91]. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a684b7ba8decab6f6af41f1d44cd9f6dc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Regression.\-update (
+\begin{DoxyParamCaption}
+\item[{double}]{x\-Val, }
+\item[{double}]{y\-Val}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a418628f24d49eb81415b393ef1958bb8}
+Updates this {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} object with the x and y double values given as parameters. In some cases it might be more convenient to pass the values this {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} will be updated with directly within the {\ttfamily \doxyref{update(double x\-Val, double y\-Val)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression_a418628f24d49eb81415b393ef1958bb8}} method instead of going via the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\-Val} & double \-: The x value with which this {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} will be updated. \\
+\hline
+{\em y\-Val} & double \-: The y value with which this {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} will be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a418628f24d49eb81415b393ef1958bb8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Regression.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a3964d6b54a9f0c1f51b32167c411b0cb}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression_a3964d6b54a9f0c1f51b32167c411b0cb}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+ Whenever either of the two {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} objects providing the x or y value is updated and calling {\ttfamily notify\-Statistics()} the x and the y value will be fetched and a new regression will be calculated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Regression}{p.}{classdesmoj_1_1core_1_1statistic_1_1_regression}} is updated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a3964d6b54a9f0c1f51b32167c411b0cb_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!x\-Is\-Constant@{x\-Is\-Constant}}
+\index{x\-Is\-Constant@{x\-Is\-Constant}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{x\-Is\-Constant}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-statistic.\-Regression.\-x\-Is\-Constant (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_a88f1a3ac9da3a1519172db791345a001}
+Returns {\ttfamily true} when the x-\/values are constant. That means no considerable change can be recognized.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} is returned if no considerable change of the x-\/values can be recognized. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_a88f1a3ac9da3a1519172db791345a001_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!y\-Is\-Constant@{y\-Is\-Constant}}
+\index{y\-Is\-Constant@{y\-Is\-Constant}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{y\-Is\-Constant}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-statistic.\-Regression.\-y\-Is\-Constant (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_ac93b6b71cc8c691439354f0542224086}
+Returns {\ttfamily true} when the y-\/values are constant. That means no considerable change can be recognized.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} is returned if no considerable change of the y-\/values can be recognized. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_regression_ac93b6b71cc8c691439354f0542224086_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Regression@{desmoj\-::core\-::statistic\-::\-Regression}!C\-\_\-\-E\-P\-S\-I\-L\-O\-N@{C\-\_\-\-E\-P\-S\-I\-L\-O\-N}}
+\index{C\-\_\-\-E\-P\-S\-I\-L\-O\-N@{C\-\_\-\-E\-P\-S\-I\-L\-O\-N}!desmoj::core::statistic::Regression@{desmoj\-::core\-::statistic\-::\-Regression}}
+\subsubsection[{C\-\_\-\-E\-P\-S\-I\-L\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}final double desmoj.\-core.\-statistic.\-Regression.\-C\-\_\-\-E\-P\-S\-I\-L\-O\-N = 0.\-00001\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_regression_aad0df7a96d0b5f4810f7f55376ddec70}
+Values have changed considerably only, if they have changed for more than this constant. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Regression.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,186 @@
+\section{desmoj.\-core.\-report.\-Report\-File\-Out Class Reference}
+\label{classdesmoj_1_1core_1_1report_1_1_report_file_out}\index{desmoj.\-core.\-report.\-Report\-File\-Out@{desmoj.\-core.\-report.\-Report\-File\-Out}}
+
+
+Inheritance diagram for desmoj.\-core.\-report.\-Report\-File\-Out\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_report_file_out__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-report.\-Report\-File\-Out\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_report_file_out__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Report\-File\-Out} (int time\-Floats, String {\bf formatter})
+\item 
+void {\bf close} ()
+\item 
+void {\bf open} (String name)
+\item 
+void {\bf open} (String pathname, String name)
+\item 
+void {\bf receive} ({\bf Message} m)
+\item 
+void {\bf receive} ({\bf desmoj.\-core.\-report.\-Reporter} r)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Reporter} {\bf last\-Reporter}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Report\-File\-Out}{p.}{classdesmoj_1_1core_1_1report_1_1_report_file_out} is used to create a file to let the reporters write their reports to. It receives a reporter and divides its individual text information up to be displayed in H\-T\-M\-L format on disc in the user's local directory. The messages are displayed in a tabular design with columns for each item displayed by the reporter. For each \doxyref{Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_reporter} giving a new group-\/\-I\-D, a new table is opened. This leads to a number of distinct tables displayed in one H\-T\-M\-L-\/page with all reporters grouped by their group-\/id in one table. Note that if the framework is used as an Applet in webpages there is no access to the disc and an alternative output on screen or into a graphics window must be registered at the Experiment's Message\-Manager for this type of messages. Errors affecting the java runtime are always displayed on the system's standard output Print\-Stream.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler, modified by Nicolas Knaak
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::report\-::\-Report\-File\-Out@{desmoj\-::core\-::report\-::\-Report\-File\-Out}!Report\-File\-Out@{Report\-File\-Out}}
+\index{Report\-File\-Out@{Report\-File\-Out}!desmoj::core::report::ReportFileOut@{desmoj\-::core\-::report\-::\-Report\-File\-Out}}
+\subsubsection[{Report\-File\-Out}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-report.\-Report\-File\-Out.\-Report\-File\-Out (
+\begin{DoxyParamCaption}
+\item[{int}]{time\-Floats, }
+\item[{String}]{formatter}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_file_out_a51d7181712bee6ff42e47fd2f9d0d2d4}
+Creates a file to print reports into a H\-T\-M\-L page. By opening the file, the necessary H\-T\-M\-L tags to define a webpage are already inserted into the file. The parameter given should reflect the experiment that produces this file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\-Floats} & int \-: The number of floating point digits of the simulation time values to be displayed \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::report\-::\-Report\-File\-Out@{desmoj\-::core\-::report\-::\-Report\-File\-Out}!close@{close}}
+\index{close@{close}!desmoj::core::report::ReportFileOut@{desmoj\-::core\-::report\-::\-Report\-File\-Out}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-File\-Out.\-close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_file_out_a90c3c680ce5640fcaae24a75a6fd58ca}
+Closes this traceout. Writes the final necessary H\-T\-M\-L-\/tags to close a table row, the table and finish the H\-T\-M\-L-\/page. Flushes and closes the File\-Output\-Stream thereafter. \index{desmoj\-::core\-::report\-::\-Report\-File\-Out@{desmoj\-::core\-::report\-::\-Report\-File\-Out}!open@{open}}
+\index{open@{open}!desmoj::core::report::ReportFileOut@{desmoj\-::core\-::report\-::\-Report\-File\-Out}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-File\-Out.\-open (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_file_out_a899f28b5e2c84fbe224ea8d03d44e668}
+Opens a new file with the given filename for writing reports into a H\-T\-M\-L table. The output path is set to the working directory. If no String is given, the default filename \char`\"{}\-D\-E\-S\-M\-O\-J\-\_\-reportfile.\-html\char`\"{} is used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of the file to be created \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::report\-::\-Report\-File\-Out@{desmoj\-::core\-::report\-::\-Report\-File\-Out}!open@{open}}
+\index{open@{open}!desmoj::core::report::ReportFileOut@{desmoj\-::core\-::report\-::\-Report\-File\-Out}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-File\-Out.\-open (
+\begin{DoxyParamCaption}
+\item[{String}]{pathname, }
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_file_out_a0cde265f0f8cc502a02fddf938963e4b}
+Opens a new file with the given file-\/ and pathname for writing reports into a H\-T\-M\-L table. If no String is given, the default filename \char`\"{}\-D\-E\-S\-M\-O\-J\-\_\-reportfile.\-html\char`\"{} is used. If no pathname is given the current working directory (stored as property \char`\"{}user.\-dir\char`\"{}) is used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of the file to be created \\
+\hline
+{\em pathname} & java.\-lang.\-String \-: The file's output path \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_report_file_out_a0cde265f0f8cc502a02fddf938963e4b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::report\-::\-Report\-File\-Out@{desmoj\-::core\-::report\-::\-Report\-File\-Out}!receive@{receive}}
+\index{receive@{receive}!desmoj::core::report::ReportFileOut@{desmoj\-::core\-::report\-::\-Report\-File\-Out}}
+\subsubsection[{receive}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-File\-Out.\-receive (
+\begin{DoxyParamCaption}
+\item[{{\bf Message}}]{m}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_file_out_ac74c69acc15c8597e11ebbbf453dfa1c}
+Messages are not handled by this reportout, so this method simply returns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \doxyref{Message}{p.}{classdesmoj_1_1core_1_1report_1_1_message} \-: The message passed to this reportout \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Message\-Receiver} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_message_receiver_af5244544a7441fedd9948731d261048b}.
+
+\index{desmoj\-::core\-::report\-::\-Report\-File\-Out@{desmoj\-::core\-::report\-::\-Report\-File\-Out}!receive@{receive}}
+\index{receive@{receive}!desmoj::core::report::ReportFileOut@{desmoj\-::core\-::report\-::\-Report\-File\-Out}}
+\subsubsection[{receive}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-Report\-File\-Out.\-receive (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-report.\-Reporter}}]{r}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_report_file_out_a64d5f55e13a3b3731a6499f8f1a30e6d}
+Receives a reporter and writes its contents formatted to a H\-T\-M\-L table into a file in the user's default directory. In case of a \doxyref{Model\-Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_model_reporter} it writes the model's information into the file. After writing the model data, all reportables registered with the \doxyref{Model\-Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_model_reporter} are asked for a reporter and those are also written to the report file. After processing the Reportables, the registered sub\-Models are asked to produce their reporters which in turn are recursively sent to this method until no other submodels are available.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & \doxyref{Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_reporter} \-: The \doxyref{Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_reporter} to be processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf desmoj.\-core.\-report.\-Message\-Receiver} \doxyref{}{p.}{interfacedesmoj_1_1core_1_1report_1_1_message_receiver_a5cefefc5274d3981a568466b2173f2d4}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_report_file_out_a64d5f55e13a3b3731a6499f8f1a30e6d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::report\-::\-Report\-File\-Out@{desmoj\-::core\-::report\-::\-Report\-File\-Out}!last\-Reporter@{last\-Reporter}}
+\index{last\-Reporter@{last\-Reporter}!desmoj::core::report::ReportFileOut@{desmoj\-::core\-::report\-::\-Report\-File\-Out}}
+\subsubsection[{last\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reporter} desmoj.\-core.\-report.\-Report\-File\-Out.\-last\-Reporter\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_report_file_out_a449e23d067e74d9010dc3a3c50c1ef04}
+Buffers the last message received for formatting the H\-T\-M\-L table to be printed without repeating redundant information. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/report/Report\-File\-Out.\-java\end{DoxyCompactItemize}

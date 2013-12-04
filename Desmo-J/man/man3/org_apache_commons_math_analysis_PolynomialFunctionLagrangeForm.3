@@ -1,0 +1,213 @@
+.TH "org.apache.commons.math.analysis.PolynomialFunctionLagrangeForm" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.analysis.PolynomialFunctionLagrangeForm \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealFunction\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBvalue\fP (double z)  throws FunctionEvaluationException "
+.br
+.ti -1c
+.RI "int \fBdegree\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetInterpolatingPoints\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetInterpolatingValues\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetCoefficients\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static double \fBevaluate\fP (double x[], double y[], double z)  throws DuplicateSampleAbscissaException, IllegalArgumentException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcomputeCoefficients\fP ()  throws ArithmeticException "
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBverifyInterpolationArray\fP (double x[], double y[])  throws IllegalArgumentException "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implements the representation of a real polynomial function in \fCLagrange Form\fP\&. For reference, see \fBIntroduction to Numerical Analysis\fP, ISBN 038795452X, chapter 2\&. 
+.PP
+The approximated function should be smooth enough for Lagrange polynomial to work well\&. Otherwise, consider using splines instead\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+620312 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-10 12:28:59 -0700 (Sun, 10 Feb 2008) 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.computeCoefficients () throws ArithmeticException\fC [protected]\fP"
+Calculate the coefficients of Lagrange polynomial from the interpolation data\&. It takes O(N^2) time\&. 
+.PP
+Note this computation can be ill-conditioned\&. Use with caution and only when it is necessary\&.
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIArithmeticException\fP if any abscissas coincide 
+.RE
+.PP
+
+.SS "int org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.degree ()"
+Returns the degree of the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the degree of the polynomial 
+.RE
+.PP
+
+.SS "static double org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.evaluate (doublex[], doubley[], doublez) throws \fBDuplicateSampleAbscissaException\fP, IllegalArgumentException\fC [static]\fP"
+Evaluate the Lagrange polynomial using \fCNeville's Algorithm\fP\&. It takes O(N^2) time\&. 
+.PP
+This function is made public static so that users can call it directly without instantiating \fBPolynomialFunctionLagrangeForm\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the interpolating points array 
+.br
+\fIy\fP the interpolating values array 
+.br
+\fIz\fP the point at which the function value is to be computed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the function value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBDuplicateSampleAbscissaException\fP\fP if the sample has duplicate abscissas 
+.br
+\fIIllegalArgumentException\fP if inputs are not valid 
+.RE
+.PP
+
+.SS "double [] org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.getCoefficients ()"
+Returns a copy of the coefficients array\&. 
+.PP
+Changes made to the returned copy will not affect the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a fresh copy of the coefficients array 
+.RE
+.PP
+
+.SS "double [] org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.getInterpolatingPoints ()"
+Returns a copy of the interpolating points array\&. 
+.PP
+Changes made to the returned copy will not affect the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a fresh copy of the interpolating points array 
+.RE
+.PP
+
+.SS "double [] org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.getInterpolatingValues ()"
+Returns a copy of the interpolating values array\&. 
+.PP
+Changes made to the returned copy will not affect the polynomial\&.
+.PP
+\fBReturns:\fP
+.RS 4
+a fresh copy of the interpolating values array 
+.RE
+.PP
+
+.SS "double org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.value (doublez) throws \fBFunctionEvaluationException\fP"
+Calculate the function value at the given point\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIz\fP the point at which the function value is to be computed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the function value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFunctionEvaluationException\fP\fP if a runtime error occurs 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBUnivariateRealFunction::value(double)\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.analysis\&.UnivariateRealFunction\fP\&.
+.SS "static void org\&.apache\&.commons\&.math\&.analysis\&.PolynomialFunctionLagrangeForm\&.verifyInterpolationArray (doublex[], doubley[]) throws IllegalArgumentException\fC [static]\fP, \fC [protected]\fP"
+Verifies that the interpolation arrays are valid\&. 
+.PP
+The interpolating points must be distinct\&. However it is not verified here, it is checked in \fBevaluate()\fP and \fBcomputeCoefficients()\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the interpolating points array 
+.br
+\fIy\fP the interpolating values array 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if not valid 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBevaluate(double[], double[], double)\fP 
+.PP
+\fBcomputeCoefficients()\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

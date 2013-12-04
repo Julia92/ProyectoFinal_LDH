@@ -1,0 +1,869 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kind="class" prot="public">
+    <compoundname>desmoj::core::simulator::ResourceDB</compoundname>
+    <innerclass refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1_1_assigned_resources" prot="private">desmoj::core::simulator::ResourceDB::AssignedResources</innerclass>
+    <innerclass refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1_1_requested_resources" prot="private">desmoj::core::simulator::ResourceDB::RequestedResources</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9c55edcb6404d14d750576cb1e3acd12" prot="private" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></type>
+        <definition>Experiment desmoj.core.simulator.ResourceDB._owner</definition>
+        <argsstring></argsstring>
+        <name>_owner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The reference to the experiment this <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref> belongs to. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="43" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ac9ee11cb8287a1afbcb61dd2a0e4c76f" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ResourceDB._debugMode</definition>
+        <argsstring></argsstring>
+        <name>_debugMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flag indicating if this resourceDB should be listed in the debug output file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="49" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a39aef179130eac3a6e81b5aa91c2daed" prot="private" static="no" mutable="no">
+        <type>Hashtable&lt; <ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref>, Vector&lt; AssignedResources &gt; &gt;</type>
+        <definition>Hashtable&lt;Res, Vector&lt;AssignedResources&gt; &gt; desmoj.core.simulator.ResourceDB._assignmentTable</definition>
+        <argsstring></argsstring>
+        <name>_assignmentTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores for every resource pool (the <computeroutput>Res</computeroutput> is the key to the hashtable) a Vector holding all the pairs of a <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> and the number of resources the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> holds at the moment (see the inner class <computeroutput>AssignedResources</computeroutput>). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="57" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1af60dd61a3a95ab829f88cb852978e9b2" prot="private" static="no" mutable="no">
+        <type>Hashtable&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref>, RequestedResources &gt;</type>
+        <definition>Hashtable&lt;SimProcess, RequestedResources&gt; desmoj.core.simulator.ResourceDB._requestTable</definition>
+        <argsstring></argsstring>
+        <name>_requestTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores for every <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> the resource pool (<computeroutput>Res</computeroutput>) he is requesting resources from and the number of requested resources (see the inner class <computeroutput>RequestedResources</computeroutput>). The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is building the key to the table entries which in turn are holding objects of the inner class <computeroutput>RequestedResources</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="66" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aeecd690513624032ee08aec6fc56ee45" prot="private" static="no" mutable="no">
+        <type>Hashtable&lt; <ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref>, Integer &gt;</type>
+        <definition>Hashtable&lt;Res, Integer&gt; desmoj.core.simulator.ResourceDB._effCapacity</definition>
+        <argsstring></argsstring>
+        <name>_effCapacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores for every resource pool (the <computeroutput>Res</computeroutput> is the key to the hashtable) the effective available capacity of the resource as an <computeroutput>Integer</computeroutput> object. Which is the sum of the current available capactiy of resources in the Res pool and the returned units of that Res pool due to reduction (the units which might be returned in the future because they are not stuck in a deadlock). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="76" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a7b0edcacfb7dfe1ca049da31f5a558ed" prot="private" static="no" mutable="no">
+        <type>Vector&lt; <ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref> &gt;</type>
+        <definition>Vector&lt;Res&gt; desmoj.core.simulator.ResourceDB._visitedRes</definition>
+        <argsstring></argsstring>
+        <name>_visitedRes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores all the visited resources when traversing the resource allocation graph. Maybe another implementation is performing better. You are invited to think about it. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="83" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1af60d2a8447c52d9d47daa52430fee98e" prot="private" static="no" mutable="no">
+        <type>Vector&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;</type>
+        <definition>Vector&lt;SimProcess&gt; desmoj.core.simulator.ResourceDB._visitedProcs</definition>
+        <argsstring></argsstring>
+        <name>_visitedProcs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores all the visited SimProcesses when traversing the resource allocation graph. Maybe another implementation is performing better. You are invited to think about it. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="90" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a497922531d9e7e5f85fd13e07360cae5" prot="private" static="no" mutable="no">
+        <type>Vector&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;</type>
+        <definition>Vector&lt;SimProcess&gt; desmoj.core.simulator.ResourceDB._deadlockedProcs</definition>
+        <argsstring></argsstring>
+        <name>_deadlockedProcs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores all the SimProcesses which are involved in a deadlock. Is filled when the method <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aa43ea61fdf4b181d421f801fe8c0fa57" kindref="member">checkForDeadlock()</ref></computeroutput> is called. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="96" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ab3bd17fe2fd0fdd794ab23ba5bd05a2b" prot="private" static="no" mutable="no">
+        <type>Vector&lt; <ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref> &gt;</type>
+        <definition>Vector&lt;Res&gt; desmoj.core.simulator.ResourceDB._deadlockedRes</definition>
+        <argsstring></argsstring>
+        <name>_deadlockedRes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores all the resource pools (<computeroutput>Res</computeroutput>) which are involved in a deadlock. The Vector is filled when the method <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aa43ea61fdf4b181d421f801fe8c0fa57" kindref="member">checkForDeadlock()</ref></computeroutput> is called. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="103" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a630a2846ccce03355865ef2cba17a862" prot="private" static="no" mutable="no">
+        <type>Vector&lt; <ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref> &gt;</type>
+        <definition>Vector&lt;Res&gt; desmoj.core.simulator.ResourceDB._doneRes</definition>
+        <argsstring></argsstring>
+        <name>_doneRes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores all the visited resources when traversing the resource allocation graph is done with examining all it&apos;s children vertices. Maybe another implementation is performing better. You are invited to think about it. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="110" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ae8720b8cfe7c9737d204abd671b496ad" prot="private" static="no" mutable="no">
+        <type>Vector&lt; <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> &gt;</type>
+        <definition>Vector&lt;SimProcess&gt; desmoj.core.simulator.ResourceDB._doneProcs</definition>
+        <argsstring></argsstring>
+        <name>_doneProcs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores all the visited SimProcesses when traversing the resource allocation graph is done with examining all it&apos;s children vertices. Maybe another implementation is performing better. You are invited to think about it. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="118" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a2f9e7b542c50481944df39e4fe80913e" prot="private" static="no" mutable="no">
+        <type>StringBuffer</type>
+        <definition>StringBuffer desmoj.core.simulator.ResourceDB._resAllocGraph</definition>
+        <argsstring></argsstring>
+        <name>_resAllocGraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the cycle in the resource allocation graph as a string representation. Is built up as the graph containing the cycle (deadlock) is drawn. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="125" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a74c5a269dc4e8490c77031d0ea6a3a36" prot="private" static="no" mutable="no">
+        <type>StringBuffer</type>
+        <definition>StringBuffer desmoj.core.simulator.ResourceDB._nonCycleGraph</definition>
+        <argsstring></argsstring>
+        <name>_nonCycleGraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores all the elements not belonging to the the cycle in the resource allocation graph as a string representation. Is built up as the graph containing the cycle (deadlock) is drawn. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="132" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1af2e569ec731ea1bb6056deb99c113574" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String desmoj.core.simulator.ResourceDB._where</definition>
+        <argsstring></argsstring>
+        <name>_where</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates the method where something has gone wrong. Is passed as a parameter to i.e. the method <computeroutput>checkProcess()</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="138" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a2ba8bf52324e86ef7285133b427c1d2c" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ResourceDB._cycleFound</definition>
+        <argsstring></argsstring>
+        <name>_cycleFound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates whether a cycle in the resource allocation graph is found or not. Is set to <computeroutput>true</computeroutput> if a cycle (and therefore a possible deadlock) is found and <computeroutput>false</computeroutput> if no cycle is found. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="145" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a193d485042d70dda7d208b275215d085" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.simulator.ResourceDB.ResourceDB</definition>
+        <argsstring>(Experiment owner)</argsstring>
+        <name>ResourceDB</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This private constructor is defined to prevent the compiler from generating a default public constructor. This constructor is called from the constructor of <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref></computeroutput> to make sure that for every experiment there is a new resource DB. The debug output for this <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref></computeroutput> is turned on by default. But you have to make sure, that the default output for the experiment is turned on, too.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Experiment : the experiment this resource database belongs to. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="320" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="320" bodyend="331"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a344b208035cc3a4c1878a49a20c29629" compoundref="_resource_d_b_8java" startline="738" endline="742">desmoj.core.simulator.ResourceDB.debugOn</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.sendDebugNote</definition>
+        <argsstring>(String description)</argsstring>
+        <name>sendDebugNote</name>
+        <param>
+          <type>String</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates and sends a debugnote to the experiment&apos;s messagedistributor. Debugnotes express the internal state of the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref> to visualize the changes of state to help find bugs. The information about the simulation time is extracted from the experiment and must not be given as a parameter.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The description of the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref>&apos;s internal state to be passed with this debugnote </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1485" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1485" bodyend="1490"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a36e850d8f7751dc1cc435a79df500ac9" compoundref="_resource_d_b_8java" startline="1514" endline="1532">desmoj.core.simulator.ResourceDB.sendMessage</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1aa7dcfe68c4065dae75ff52dc0d0d8f19" compoundref="_experiment_8java" startline="1230" endline="1234">desmoj.core.simulator.Experiment.getModel</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a36e850d8f7751dc1cc435a79df500ac9" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.sendMessage</definition>
+        <argsstring>(Message m)</argsstring>
+        <name>sendMessage</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1report_1_1_message" kindref="compound">Message</ref></type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a message to the messagedistributor handled by the experiment. This <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref> must already be connected to an experiment in order to have a messagedistributor available to send this message to and an appropriate messagereceiver must already be registered at the messagedistributor to receive that type of message passed on to it. If no messaging subsystem is available to this <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref>, then the mesage is printed to the standard <computeroutput>out</computeroutput> printstream as configured in the local Java runtime environment of the computer this simulation is running on. Note that there are shorthands for sending the standard DESMO-J messages. These methods create and send the appropriate Message on-the-fly: <itemizedlist>
+<listitem>
+<para><computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a50d6bf924dfdf8ceb00394809c31c317" kindref="member">sendTraceNote()</ref>&lt;/clode&gt; to send a tracenote </computeroutput></para></listitem>
+<listitem>
+<para><computeroutput><computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" kindref="member">sendDebugNote()</ref></computeroutput> to send the data needed to debug models </computeroutput></para></listitem>
+<listitem>
+<para><computeroutput><computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" kindref="member">sendWarning()</ref></computeroutput> to send an errormessage that does not stop the experiment </computeroutput></para></listitem>
+</itemizedlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>Message : The message to be transmitted </computeroutput></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><computeroutput> <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a50d6bf924dfdf8ceb00394809c31c317" kindref="member">ResourceDB::sendTraceNote</ref> </computeroutput></para><simplesectsep/><para><computeroutput> <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" kindref="member">ResourceDB::sendDebugNote</ref> </computeroutput></para><simplesectsep/><para><computeroutput> <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" kindref="member">ResourceDB::sendWarning</ref> </computeroutput></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1514" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1514" bodyend="1532"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" compoundref="_resource_d_b_8java" startline="1570" endline="1577">desmoj.core.simulator.ResourceDB.sendWarning</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a50d6bf924dfdf8ceb00394809c31c317" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.sendTraceNote</definition>
+        <argsstring>(String description)</argsstring>
+        <name>sendTraceNote</name>
+        <param>
+          <type>String</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates and sends a tracenote to the experiment&apos;s messagedistributor. The information about the simulation time, model and component producing this tracenote is extracted from the experiment and must not be given as parameters.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The description of the tracenote </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1543" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1543" bodyend="1549"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a36e850d8f7751dc1cc435a79df500ac9" compoundref="_resource_d_b_8java" startline="1514" endline="1532">desmoj.core.simulator.ResourceDB.sendMessage</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1aa7dcfe68c4065dae75ff52dc0d0d8f19" compoundref="_experiment_8java" startline="1230" endline="1234">desmoj.core.simulator.Experiment.getModel</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.sendWarning</definition>
+        <argsstring>(String description, String location, String reason, String prevention)</argsstring>
+        <name>sendWarning</name>
+        <param>
+          <type>String</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>location</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>reason</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>prevention</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates and sends an error message to warn about a erroneous condition in the DESMO-J framework to the experiment&apos;s messagedistributor. Be sure to have a correct location, since the object and method that the error becomes apparent is not necessary the location it was produced in. The information about the simulation time is extracted from the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_experiment" kindref="compound">Experiment</ref> and must not be given as a parameter.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The description of the error that occured </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The class and method the error occured in </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The reason most probably responsible for the error to occur </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prevention</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The measures a user should take to prevent this warning to be issued again </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1570" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1570" bodyend="1577"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a36e850d8f7751dc1cc435a79df500ac9" compoundref="_resource_d_b_8java" startline="1514" endline="1532">desmoj.core.simulator.ResourceDB.sendMessage</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_experiment_1aa7dcfe68c4065dae75ff52dc0d0d8f19" compoundref="_experiment_8java" startline="1230" endline="1234">desmoj.core.simulator.Experiment.getModel</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ad382d8b37a508cee8077cd4feffc13b1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized boolean</type>
+        <definition>synchronized boolean desmoj.core.simulator.ResourceDB.additionalStatus</definition>
+        <argsstring>()</argsstring>
+        <name>additionalStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the additional status of a deadlock, i.e. if the deadlock is a pending or a transient one. Returns <computeroutput>true</computeroutput> if it is a pending deadlock and <computeroutput>false</computeroutput> if it is a transient deadlock.</para><para><simplesect kind="return"><para>boolean :<computeroutput>true</computeroutput> if it is a pending deadlock and <computeroutput>false</computeroutput> if it is a transient deadlock. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="341" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="341" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a155166645e644ccabd03265475710a92" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ResourceDB.checkProcess</definition>
+        <argsstring>(SimProcess p, String where)</argsstring>
+        <name>checkProcess</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the process using the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref> is a valid process.</para><para><simplesect kind="return"><para>boolean : Returns whether the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is valid or not. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> : Is this <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> a valid one? </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="654" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="654" bodyend="679"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a24edd71d9a44a0efd36bf96eabad683f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ResourceDB.checkRes</definition>
+        <argsstring>(Res r, String where)</argsstring>
+        <name>checkRes</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the resource pool <computeroutput>Res</computeroutput> using the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b" kindref="compound">ResourceDB</ref> is a valid <computeroutput>Res</computeroutput>.</para><para><simplesect kind="return"><para>boolean : Returns whether the <computeroutput>Res</computeroutput> is valid or not. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Res : Is this resource pool <computeroutput>Res</computeroutput> a valid one? </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="689" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="689" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ae6a39562b192c86054f0f527ec06cf85" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.findCycleProc</definition>
+        <argsstring>(SimProcess vertex)</argsstring>
+        <name>findCycleProc</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>vertex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Try to find a cycle in the resource allocation graph starting with the vertex specified in the parameter <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> vertex</computeroutput>. If we can spot a cycle in the resource allocation graph it is likely that we have found a deadlock.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.SimProcess : The point to start the search of the resource allocation graph to find a deadlock (cycle in the graph). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="999" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="999" bodyend="1110"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a98e117c2ace580b1eb2779561f2061d1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.findCycleRes</definition>
+        <argsstring>(Res vertex)</argsstring>
+        <name>findCycleRes</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref></type>
+          <declname>vertex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Try to find a cycle in the resource allocation graph starting with the vertex specified in the parameter <computeroutput>Res vertex</computeroutput>. If we can spot a cycle in the resource allocation graph it is likely that we have found a deadlock.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vertex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Res : The point to start the search of the resource allocation graph to find a deadlock (cycle in the graph). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1122" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1122" bodyend="1240"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a06beba8c5afe9977fad2ea370808bb30" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.reduce</definition>
+        <argsstring>(SimProcess process)</argsstring>
+        <name>reduce</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>process</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the new effective available capacity of all resources the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> holds units from. The given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> will return the resources he holds in the future, so the returning resource units will be added to the effective available capacity of the resources.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>process</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.SimProcess : the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> which will return the resources it holds in the future. So the returning resource units can be added to the effective available capacity of the resources. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1450" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1450" bodyend="1472"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aa43ea61fdf4b181d421f801fe8c0fa57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized boolean</type>
+        <definition>synchronized boolean desmoj.core.simulator.ResourceDB.checkForDeadlock</definition>
+        <argsstring>(SimProcess unsatProc)</argsstring>
+        <name>checkForDeadlock</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>unsatProc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called when a <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> can not get the resources desired to check if a possible deadlock situation has occured.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>unsatProc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.SimProcess : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> which can not get the resources desired. The unsatisfied process. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean : is <computeroutput>true</computeroutput> if a deadlock is found, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="464" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="464" bodyend="645"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a50d6bf924dfdf8ceb00394809c31c317" compoundref="_resource_d_b_8java" startline="1543" endline="1549">desmoj.core.simulator.ResourceDB.sendTraceNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" compoundref="_resource_d_b_8java" startline="1485" endline="1490">desmoj.core.simulator.ResourceDB.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a1246d3617bcecbc362743b7d5422f762" compoundref="_resource_d_b_8java" startline="720" endline="724">desmoj.core.simulator.ResourceDB.debugIsOn</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1adf51784404781025cf1d375f3aca525f" compoundref="_resource_d_b_8java" startline="1589" endline="1670">desmoj.core.simulator.ResourceDB.toHtmlString</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" compoundref="_resource_d_b_8java" startline="1570" endline="1577">desmoj.core.simulator.ResourceDB.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a1246d3617bcecbc362743b7d5422f762" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean desmoj.core.simulator.ResourceDB.debugIsOn</definition>
+        <argsstring>()</argsstring>
+        <name>debugIsOn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Shows if this resourceDB currently produces debug output.</para><para><simplesect kind="return"><para>boolean : true, if resourceDB shows in debug, false if not </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="720" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="720" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a4c03b6f9ba2e6eaab06f451927e8af90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.debugOff</definition>
+        <argsstring>()</argsstring>
+        <name>debugOff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Switches off debug output for this resourceDB. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="729" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="729" bodyend="733"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a344b208035cc3a4c1878a49a20c29629" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.debugOn</definition>
+        <argsstring>()</argsstring>
+        <name>debugOn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Switches on debug output for this resourceDB. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="738" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="738" bodyend="742"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ad2d93340dd506541c520a68c7df31b20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.deleteResAllocation</definition>
+        <argsstring>(Res resPool, SimProcess doneProc, int quantity)</argsstring>
+        <name>deleteResAllocation</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref></type>
+          <declname>resPool</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>doneProc</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quantity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes an entry in the resource data base (should be called when a Sim-process is done with it&apos;s requested number of resources from a resource pool (<computeroutput>Res</computeroutput> )). The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> and the number of requested resources will be deleted in the corresponding Vector (of the Res pool) in the assignment hashtable. The Res pool is the key to this hashtable, specifying the Vector which holds all the (SimProcess/number of requested resources)-pairs.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>resPool</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Res : The resource pool which has provided the resources. (The key to the hashtable) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>doneProc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.SimProcess : The Simprocess giving back his allocated resources. He should be done with the resources now. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of resources the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> has used. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="762" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="762" bodyend="882"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" compoundref="_resource_d_b_8java" startline="1570" endline="1577">desmoj.core.simulator.ResourceDB.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a1246d3617bcecbc362743b7d5422f762" compoundref="_resource_d_b_8java" startline="720" endline="724">desmoj.core.simulator.ResourceDB.debugIsOn</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" compoundref="_resource_d_b_8java" startline="1485" endline="1490">desmoj.core.simulator.ResourceDB.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1adf51784404781025cf1d375f3aca525f" compoundref="_resource_d_b_8java" startline="1589" endline="1670">desmoj.core.simulator.ResourceDB.toHtmlString</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aeeb85afdcd5d864a3f82175967418613" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.deleteResRequest</definition>
+        <argsstring>(SimProcess gainProc, Res resPool, int quantity)</argsstring>
+        <name>deleteResRequest</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>gainProc</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref></type>
+          <declname>resPool</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quantity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes an entry in the resource data base (should be called when a Sim-process receives it&apos;s requested number of resources from a resource pool (<computeroutput>Res</computeroutput> )). The resource pool and the number of requested resources will be deleted in the request hashtable. The Sim-process is the key to this hashtable, specifying the RequestedResources object which holds the (resource pool/number of requested resources)-pair.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gainProc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.SimProcess : The Simprocess giving up his request for the resources. Hopefully he gets satisfied. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resPool</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Res : The resource pool which provides the resources. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of resources the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> gets. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="901" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="901" bodyend="986"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" compoundref="_resource_d_b_8java" startline="1570" endline="1577">desmoj.core.simulator.ResourceDB.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a1246d3617bcecbc362743b7d5422f762" compoundref="_resource_d_b_8java" startline="720" endline="724">desmoj.core.simulator.ResourceDB.debugIsOn</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" compoundref="_resource_d_b_8java" startline="1485" endline="1490">desmoj.core.simulator.ResourceDB.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1adf51784404781025cf1d375f3aca525f" compoundref="_resource_d_b_8java" startline="1589" endline="1670">desmoj.core.simulator.ResourceDB.toHtmlString</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1acc81c2bfe8b2cfcab7cacc65818242a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.noteResourceAllocation</definition>
+        <argsstring>(Res resourcePool, SimProcess allocatingProcess, int quantity)</argsstring>
+        <name>noteResourceAllocation</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref></type>
+          <declname>resourcePool</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>allocatingProcess</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quantity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Makes an entry in the resource data base when a <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is allocating a number of resources from a resource pool (<computeroutput>Res</computeroutput>). The Sim-process and the number of allocated resources will be saved in the assignment hashtable. The resource pool is the key to this hashtable.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>resourcePool</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Res : The resource pool which is providing the resources. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allocatingProcess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.SimProcess : The Simprocess which is allocating the resources. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of resources the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is allocating. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1257" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1257" bodyend="1366"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" compoundref="_resource_d_b_8java" startline="1570" endline="1577">desmoj.core.simulator.ResourceDB.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a1246d3617bcecbc362743b7d5422f762" compoundref="_resource_d_b_8java" startline="720" endline="724">desmoj.core.simulator.ResourceDB.debugIsOn</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" compoundref="_resource_d_b_8java" startline="1485" endline="1490">desmoj.core.simulator.ResourceDB.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1adf51784404781025cf1d375f3aca525f" compoundref="_resource_d_b_8java" startline="1589" endline="1670">desmoj.core.simulator.ResourceDB.toHtmlString</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9bd54cdf0c1ea66581aa652c6d403d79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.ResourceDB.noteResourceRequest</definition>
+        <argsstring>(SimProcess requestingProcess, Res resourcePool, int quantity)</argsstring>
+        <name>noteResourceRequest</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref></type>
+          <declname>requestingProcess</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1advanced_modelling_features_1_1_res" kindref="compound">Res</ref></type>
+          <declname>resourcePool</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quantity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Makes an entry in the resource data base when a <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is requesting a number of resources from a resource pool (<computeroutput>Res</computeroutput>). The resource pool and the number of requested resources will be saved in the request hashtable. The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> is the key to this hashtable.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>requestingProcess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.SimProcess : The Simprocess which is requesting the resources. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resourcePool</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.Res : The resource pool which should provide the resources. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>int : The number of resources the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> wants to get. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1383" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1383" bodyend="1436"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" compoundref="_resource_d_b_8java" startline="1570" endline="1577">desmoj.core.simulator.ResourceDB.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a1246d3617bcecbc362743b7d5422f762" compoundref="_resource_d_b_8java" startline="720" endline="724">desmoj.core.simulator.ResourceDB.debugIsOn</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" compoundref="_resource_d_b_8java" startline="1485" endline="1490">desmoj.core.simulator.ResourceDB.sendDebugNote</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1adf51784404781025cf1d375f3aca525f" compoundref="_resource_d_b_8java" startline="1589" endline="1670">desmoj.core.simulator.ResourceDB.toHtmlString</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1adf51784404781025cf1d375f3aca525f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String desmoj.core.simulator.ResourceDB.toHtmlString</definition>
+        <argsstring>()</argsstring>
+        <name>toHtmlString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a string representation of the resource database with some HTML formatting tags. Lists first for every <ref refid="classdesmoj_1_1core_1_1simulator_1_1_sim_process" kindref="compound">SimProcess</ref> all the resources he is requesting and second for every resource pool (<computeroutput>Res</computeroutput>) all the SimProcesses that are using resources from that resource pool. This information is useful for debugging purposes.</para><para><simplesect kind="return"><para>java.lang.String : The string representation of this resource database. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="1589" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="1589" bodyend="1670"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>In the resource database every Simprocess and the resources it requests or holds at the moment are stored. This information is needed i.e. for detecting deadlocks. An instance will be created, when an experiment is created.</para><para><simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Soenke Claassen</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" line="36" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/ResourceDB.java" bodystart="36" bodyend="1671"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a39aef179130eac3a6e81b5aa91c2daed" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_assignmentTable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a2ba8bf52324e86ef7285133b427c1d2c" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_cycleFound</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a497922531d9e7e5f85fd13e07360cae5" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_deadlockedProcs</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ab3bd17fe2fd0fdd794ab23ba5bd05a2b" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_deadlockedRes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ac9ee11cb8287a1afbcb61dd2a0e4c76f" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_debugMode</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ae8720b8cfe7c9737d204abd671b496ad" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_doneProcs</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a630a2846ccce03355865ef2cba17a862" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_doneRes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aeecd690513624032ee08aec6fc56ee45" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_effCapacity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a74c5a269dc4e8490c77031d0ea6a3a36" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_nonCycleGraph</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9c55edcb6404d14d750576cb1e3acd12" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_owner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1af60dd61a3a95ab829f88cb852978e9b2" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_requestTable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a2f9e7b542c50481944df39e4fe80913e" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_resAllocGraph</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1af60d2a8447c52d9d47daa52430fee98e" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_visitedProcs</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a7b0edcacfb7dfe1ca049da31f5a558ed" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_visitedRes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1af2e569ec731ea1bb6056deb99c113574" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>_where</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ad382d8b37a508cee8077cd4feffc13b1" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>additionalStatus</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aa43ea61fdf4b181d421f801fe8c0fa57" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>checkForDeadlock</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a155166645e644ccabd03265475710a92" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>checkProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a24edd71d9a44a0efd36bf96eabad683f" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>checkRes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a1246d3617bcecbc362743b7d5422f762" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a4c03b6f9ba2e6eaab06f451927e8af90" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a344b208035cc3a4c1878a49a20c29629" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ad2d93340dd506541c520a68c7df31b20" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>deleteResAllocation</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1aeeb85afdcd5d864a3f82175967418613" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>deleteResRequest</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1ae6a39562b192c86054f0f527ec06cf85" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>findCycleProc</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a98e117c2ace580b1eb2779561f2061d1" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>findCycleRes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1acc81c2bfe8b2cfcab7cacc65818242a8" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>noteResourceAllocation</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9bd54cdf0c1ea66581aa652c6d403d79" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>noteResourceRequest</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a06beba8c5afe9977fad2ea370808bb30" prot="private" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>reduce</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a193d485042d70dda7d208b275215d085" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>ResourceDB</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a9a6f4488c0986a3ef23aeb898f2a0fc6" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a36e850d8f7751dc1cc435a79df500ac9" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a50d6bf924dfdf8ceb00394809c31c317" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1a412f7a0d73fdccbf66856d5333481024" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_1adf51784404781025cf1d375f3aca525f" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::ResourceDB</scope><name>toHtmlString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

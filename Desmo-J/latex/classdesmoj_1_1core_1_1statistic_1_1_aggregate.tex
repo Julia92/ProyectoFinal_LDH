@@ -1,0 +1,256 @@
+\section{desmoj.\-core.\-statistic.\-Aggregate Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate}\index{desmoj.\-core.\-statistic.\-Aggregate@{desmoj.\-core.\-statistic.\-Aggregate}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Aggregate\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_aggregate__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Aggregate\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classdesmoj_1_1core_1_1statistic_1_1_aggregate__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Aggregate} ({\bf Model} owner\-Model, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Aggregate} ({\bf Model} owner\-Model, String name, boolean show\-In\-Report, boolean show\-In\-Trace, boolean is\-Reset\-Resistant)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+double {\bf get\-Maximum} ()
+\item 
+double {\bf get\-Minimum} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf update} ({\bf Time\-Span} t)
+\item 
+void {\bf update} (double n)
+\item 
+void {\bf update} (Observable o, Object arg)
+\item 
+double {\bf get\-Value} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}} class is simply counting (aggregating) a continuous (i.\-e. double) value during an experiment. Be careful the aggregate can be updated with positive and negative values!
+
+To get this {\ttfamily \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}} object updated automatically every time a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} has changed, call the {\ttfamily add\-Observer (Observer)}-\/method from the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} of interest, where Observer is this {\ttfamily \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}} object. \par
+ This must be done by the user in his model! \par
+ Consider usage of class {\ttfamily \doxyref{Count}{p.}{classdesmoj_1_1core_1_1statistic_1_1_count}} to aggregate integer values.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998 
+
+modified by Ruth Meyer, Johannes G\"{o}bel
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!Aggregate@{Aggregate}}
+\index{Aggregate@{Aggregate}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{Aggregate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Aggregate.\-Aggregate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a695c5895e247fc9dc030968ed9296a0e}
+Constructor for a \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} object \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report Set it to {\ttfamily true} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should show up in report. Set it to {\ttfamily false} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should not be shown in report. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} in trace files. Set it to {\ttfamily true} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should show up in trace. Set it to {\ttfamily false} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!Aggregate@{Aggregate}}
+\index{Aggregate@{Aggregate}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{Aggregate}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Aggregate.\-Aggregate (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace, }
+\item[{boolean}]{is\-Reset\-Resistant}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a63b589c0a77f32087a66420c2361e393}
+Constructor for a \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} object \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report Set it to {\ttfamily true} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should show up in report. Set it to {\ttfamily false} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should not be shown in report. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} in trace files. Set it to {\ttfamily true} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should show up in trace. Set it to {\ttfamily false} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should not be shown in trace. \\
+\hline
+{\em is\-Reset\-Resistant} & boolean \-: Flag for retaining the value of the aggregate during resets. Set it to {\ttfamily true} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should retain its current value and only reset min, max and observations to 0. Set it to {\ttfamily false} if this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} should also reset its value to 0. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-statistic.\-Aggregate.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a61f7f21a248ccc9c3355765ea68eee4f}
+Returns a Reporter to produce a report about this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!get\-Maximum@{get\-Maximum}}
+\index{get\-Maximum@{get\-Maximum}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{get\-Maximum}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Aggregate.\-get\-Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_ab1283bb2ca796d462dd1b44a9d26ef8d}
+Returns the maximum value observed so far.
+
+\begin{DoxyReturn}{Returns}
+double \-: The maximum value observed so far. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!get\-Minimum@{get\-Minimum}}
+\index{get\-Minimum@{get\-Minimum}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{get\-Minimum}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Aggregate.\-get\-Minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a97a09123bceb85869230ea6d4e5f4f46}
+Returns the minimum value observed so far.
+
+\begin{DoxyReturn}{Returns}
+double \-: The minimum value observed so far. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!get\-Value@{get\-Value}}
+\index{get\-Value@{get\-Value}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{get\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Aggregate.\-get\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_aa9fce44a83489236805a0b41e5838755}
+Returns the current value of the aggregate.
+
+\begin{DoxyReturn}{Returns}
+double \-: the current value of the aggregate. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Aggregate.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a8a03a5fe550853778f643497dd509b42}
+Resets this \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate} object by resetting (nearly) all variables to zero. If the flag {\ttfamily is\-Reset\-Resistant} is set to {\ttfamily true} the value of the aggregate will N\-O\-T be changed. \index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Aggregate.\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a2f275ad938ec8a7ace66dd5d18484ef2}
+Updates this data collector object with a specific {\ttfamily Time\-Span}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Time\-Span \-: The time span to update this data collector.\\
+\hline
+\end{DoxyParams}
+ 
+
+Implements {\bf desmoj.\-core.\-statistic.\-Statistic\-Object\-Supporting\-Time\-Spans} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_a9c45fb77d91dcb6a699b760390a844a6}.
+
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Aggregate.\-update (
+\begin{DoxyParamCaption}
+\item[{double}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a4b5aa9206c9bea3858f8b8dbe0e3fdcf}
+Increments the value of this {\ttfamily \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}} object by the value given in the parameter n.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & double \-: The number that will be added to the value of this {\ttfamily \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a4b5aa9206c9bea3858f8b8dbe0e3fdcf_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Aggregate@{desmoj\-::core\-::statistic\-::\-Aggregate}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Aggregate.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a2435e6f8f1dea01e2014b8335d0b09cd}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a2435e6f8f1dea01e2014b8335d0b09cd}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+ If no Object (a{\ttfamily null} value) is passed as arg, the actual value of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be fetched with the {\ttfamily value()} method of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}. Otherwise it is expected that the actual value is passed in the Object arg.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Aggregate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_aggregate}} is updated. Normally a double number which is added to the value of the aggregate or {\ttfamily null}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_aggregate_a2435e6f8f1dea01e2014b8335d0b09cd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Aggregate.\-java\end{DoxyCompactItemize}

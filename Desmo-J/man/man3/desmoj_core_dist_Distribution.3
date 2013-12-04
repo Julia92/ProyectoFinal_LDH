@@ -1,0 +1,279 @@
+.TH "desmoj.core.dist.Distribution" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.Distribution \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.BoolDist\fP, \fBdesmoj\&.core\&.dist\&.EntityDist< E extends Entity >\fP, \fBdesmoj\&.core\&.dist\&.NumericalDist< N extends Number >\fP, and \fBdesmoj\&.core\&.dist\&.Series< O extends Object >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDistribution\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBchangeRandomGenerator\fP (\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP \fBrandomGenerator\fP)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetInitialSeed\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetNonNegative\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetNumSamples\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisAntithetic\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP (long newSeed)"
+.br
+.ti -1c
+.RI "abstract Object \fBsampleObject\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetAntithetic\fP (boolean newAntiStatus)"
+.br
+.ti -1c
+.RI "void \fBsetNonNegative\fP (boolean newValue)"
+.br
+.ti -1c
+.RI "void \fBsetSeed\fP (long newSeed)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBtraceLastSample\fP (String sample)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP \fBrandomGenerator\fP"
+.br
+.ti -1c
+.RI "boolean \fBantithetic\fP"
+.br
+.ti -1c
+.RI "long \fBinitialSeed\fP"
+.br
+.ti -1c
+.RI "boolean \fBnonNegative\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for all pseudo random number distributions used in this package\&. Defines a set of methods usefull for all kinds of random distributions that can be based upon a stream of uniform distributed pseudo random numbers\&. Prefabricated distributions implemented in this package can handle uniform, normal (gaussian), bernoulli, poisson and heuristic distributions with return values of the primitive data types double (floating point), long (integer) and boolean (true or false)\&. Inherit from this class if you want to implement new types of distributions handing back values of other types than those listed above\&. Basic idea is to use a pseudo random generator which produces a uniformly distributed stream of double numbers between 0 and 1 use inverse transformation to generate the desired distribution\&. See also [Page91, p\&. 107] Note that although this class implements all methods, it is set to be abstract, since instantiating this class would not produce any meaningfull distribution to be used by a client\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP 
+.PP
+\fBdesmoj\&.core\&.dist\&.LinearCongruentialRandomGenerator\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.Distribution\&.Distribution (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Creates a RandomDistribution object which gets its initial seed from the experiment's seedgenerator\&. The \fC\fBLinearCongruentialRandomGenerator\fP\fP is used as the underlying uniform pseudo random number generator for all pseudo random distribution 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIshowInReport\fP boolean : Flag to show distribution in report 
+.br
+\fIshowInTrace\fP boolean : Flag to show distribution in trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.dist\&.Distribution\&.changeRandomGenerator (\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fPrandomGenerator)"
+Changes the underlying random generator to the one given as a parameter\&. Custom random generators have to implement the desmoj\&.dist\&.UniormRandomGenerator interface\&. Note that changing the underlying random generator forces a reset, since a new generator might produce a completely different stream of pseudo random numbers that won't enable us to reproduce the stream of numbers probably delivered by the previously used generator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrandomGenerator\fP java\&.util\&.Random : the random generator used for creating distributions 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.Distribution\&.createReporter ()"
+Creates the default reporter associated with this distribution\&. The basic \fCDistributionReporter\fP returned as a default implementation of this method simply reports the distribution's name, number of observations (samples given), seed and point of simulation time of the last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reportable : The reporter associated with this distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.DistributionReporter\fP 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.dist\&.Distribution\&.getInitialSeed ()"
+Returns the seed value since last reset\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The initial seed value 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.dist\&.Distribution\&.getNonNegative ()"
+Tells if this distribution can return negative samples\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : If \fCtrue\fP it returns positive samples only 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.dist\&.Distribution\&.getNumSamples ()"
+Returns the number of Samples given by this distribution\&. The number of samples is increased whenever the sample() method is called\&. It is based on the random numbers of the distribution, not on the number of random numbers produced by the underlying random generator, since some distributions use algorithms consuming more than one uniformly distributed random number to produce one sample following the desired distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : the number of samples given to clients 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.dist\&.Distribution\&.isAntithetic ()"
+Returns the current status for antithetic random number generation in this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : The status of antithetic pseudo random number generation 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.Distribution::setAntithetic\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Distribution\&.reset ()"
+Resets the pseudo random generator's seed and the number of samples given to zero\&. The field antithetic keeps the value it has had before the reset\&. 
+.SS "void desmoj\&.core\&.dist\&.Distribution\&.reset (longnewSeed)"
+Resets the pseudo random generator's seed to the value passed, the number of samples given to zero and sets antithetic to false for this distribution\&. Acts the same as a call of method \fC\fBreset()\fP\fP and a consecutive call to \fC\fBsetSeed(long)\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewSeed\fP long : new seed to be used by underlying random number generator after reset 
+.RE
+.PP
+
+.SS "abstract Object desmoj\&.core\&.dist\&.Distribution\&.sampleObject ()\fC [pure virtual]\fP"
+Convenience method to return the distribution's sample as \fCObject\fP\&. For type safety, method \fCsample()\fP should be preferred\&. However, this method is useful for environments requiring a non-genetic access point to obtain samples from any distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Object : A sample from this this distribution wrapped as \fCObject\fP\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.core\&.dist\&.Series< O extends Object >\fP, \fBdesmoj\&.core\&.dist\&.NumericalDist< N extends Number >\fP, \fBdesmoj\&.core\&.dist\&.EntityDist< E extends Entity >\fP, and \fBdesmoj\&.core\&.dist\&.BoolDist\fP\&.
+.SS "void desmoj\&.core\&.dist\&.Distribution\&.setAntithetic (booleannewAntiStatus)"
+Switches this distribution to produce antithetic samples\&. To obtain antithetic random numbers, call this method with the parameter \fCtrue\fP\&. Antithetic random numbers are used to minimize the standard deviation of a series of simulation runs\&. The results of a run with normal random numbers has to be standardized with the results of a run using antithetic random numbers, thus doubling the number of samples needed, but also lowering the standard deviation of the results of that simulation\&. See [Page91, p\&.139]\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewAntiStatus\fP boolean : Parameter \fCtrue\fP switches antithetic mode on, \fCfalse\fP switches antithetic mode off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Distribution\&.setNonNegative (booleannewValue)"
+Sets the nonNegative switch to the given value\&. If nonNegative is set to \fCtrue\fP the distribution returns positive samples only, otherwise it also produces negative samples, if possible\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewValue\fP boolean : If \fCtrue\fP the distribution is set to return positive samples only, otherwise it also produces negative samples, if possible\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Distribution\&.setSeed (longnewSeed)"
+Sets the underlying pseudo random number generator's seed to the value given\&. The seed controls the starting value of the random generators and all following generated pseudo random numbers\&. Resetting the seed between two simulation runs will let you use identical streams of random numbers\&. That will enable you to compare different strategies within your model based on the same random number stream produced by the random generator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewSeed\fP long : new seed used by underlying pseudo random number generator 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Distribution\&.traceLastSample (Stringsample)\fC [protected]\fP"
+Generates the trace output of each sample\&. This method is called by sample()\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsample\fP String : The last sample, converted to a String 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "boolean desmoj\&.core\&.dist\&.Distribution\&.antithetic\fC [protected]\fP"
+The status of the random number generation\&. If set to true, antithetic values are delivered\&. These depend upon the kind of distribution, so this value here will probably be most useful to switch the algorithm in the implementation of the abstract \fCsample()\fP method between 'normal' and 'antithetic' value generation\&. This feature is not associated to the pseudo random generator since the algorithm for calculating antithetic values might not require antithetic uniformly distributed values\&. 
+.SS "long desmoj\&.core\&.dist\&.Distribution\&.initialSeed\fC [protected]\fP"
+The seed of the underlying pseudorandom generator\&. The seed value is passed on to the underlying \fC\fBUniformRandomGenerator\fP\fP but since those generators are not supposed to keep track of their initial seed value it is stored here to make sure they are not lost\&. 
+.SS "boolean desmoj\&.core\&.dist\&.Distribution\&.nonNegative\fC [protected]\fP"
+This flag shows, if a distribution may produce negative samples or not\&. This is important, if the value of a distribution's sample is to be used for creating a TimeSpan object, which allows positive values only\&. If this switch is set to \fCtrue\fP, the distribution will only return positive samples\&. If a negative sample is drawn, it will be dismissed and new samples will be drawn until a positive is produced, which will be returned\&. 
+.SS "\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP desmoj\&.core\&.dist\&.Distribution\&.randomGenerator\fC [protected]\fP"
+The underlying uniform pseudo random generator available to every distribution inheriting from this abstract class\&. Valid generators have to implement the \fCdesmoj\&.dist\&.UniformRandomGenerator\fP interface\&. By default the \fCdesmoj\&.dist\&.DefaultRandomGenerator\fP is used\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP 
+.PP
+\fBdesmoj\&.core\&.dist\&.LinearCongruentialRandomGenerator\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

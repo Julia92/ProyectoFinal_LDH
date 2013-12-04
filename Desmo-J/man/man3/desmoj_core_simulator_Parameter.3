@@ -1,0 +1,226 @@
+.TH "desmoj.core.simulator.Parameter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Parameter \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBParameterType\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "Class<?> \fBgetType\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetValue\fP (Object value)"
+.br
+.ti -1c
+.RI "Object \fBgetValue\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBhasValue\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBhasDefaultValue\fP ()"
+.br
+.ti -1c
+.RI "ParameterType \fBgetParameterType\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBParameter\fP \fBcreateExperimentParameter\fP (Class<?> type, String name, Object defaultValue)"
+.br
+.ti -1c
+.RI "static \fBParameter\fP \fBcreateExperimentParameter\fP (Class<?> type, String name)"
+.br
+.ti -1c
+.RI "static \fBParameter\fP \fBcreateModelParameter\fP (Class<?> type, String name, Object value)"
+.br
+.ti -1c
+.RI "static \fBParameter\fP \fBcreateModelParameter\fP (Class<?> type, String name)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to Represent a \fBParameter\fP\&. This parameter can be an experiment- parameter or a model-parameter\&. Parameters are variables that are accessible from everywhere in the model\&. Model-parameters are assignable from model, experiment-parameters from experiment\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.simulator\&.ParameterManager\fP 
+.PP
+\fBdesmoj\&.core\&.simulator\&.ModelParameterManager\fP 
+.PP
+\fBdesmoj\&.core\&.simulator\&.ExperimentParameterManager\fP
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Janz
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBParameter\fP desmoj\&.core\&.simulator\&.Parameter\&.createExperimentParameter (Class<?>type, Stringname, ObjectdefaultValue)\fC [static]\fP"
+Factory-method to create an experiment-parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP the parameter's type 
+.br
+\fIname\fP the parameter's name 
+.br
+\fIdefaultValue\fP the parameter's default value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the created instance of \fBParameter\fP 
+.RE
+.PP
+
+.SS "static \fBParameter\fP desmoj\&.core\&.simulator\&.Parameter\&.createExperimentParameter (Class<?>type, Stringname)\fC [static]\fP"
+Factory-method to create an experiment-parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP the parameter's type 
+.br
+\fIname\fP the parameter's name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the created instance of \fBParameter\fP 
+.RE
+.PP
+
+.SS "static \fBParameter\fP desmoj\&.core\&.simulator\&.Parameter\&.createModelParameter (Class<?>type, Stringname, Objectvalue)\fC [static]\fP"
+Factory-method to create a model-parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP the parameter's type 
+.br
+\fIname\fP the parameter's name 
+.br
+\fIvalue\fP the parameter's value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the created instance of \fBParameter\fP 
+.RE
+.PP
+
+.SS "static \fBParameter\fP desmoj\&.core\&.simulator\&.Parameter\&.createModelParameter (Class<?>type, Stringname)\fC [static]\fP"
+Factory-method to create a model-parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP the parameter's type 
+.br
+\fIname\fP the parameter's name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the created instance of \fBParameter\fP 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.Parameter\&.getName ()"
+Returns the parameter's name
+.PP
+\fBReturns:\fP
+.RS 4
+the parameter's name 
+.RE
+.PP
+
+.SS "ParameterType desmoj\&.core\&.simulator\&.Parameter\&.getParameterType ()"
+Is this parameter a model-parameter or an experiment-parameter?
+.PP
+\fBReturns:\fP
+.RS 4
+ParameterType\&.MODELPARAMETER if this parameter is a model-parameter, or ParameterType\&.EXPERIMENTPARAMETER if this parameter is an experiment-parameter 
+.RE
+.PP
+
+.SS "Class<?> desmoj\&.core\&.simulator\&.Parameter\&.getType ()"
+Returns the parameter's type\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the parameter's type 
+.RE
+.PP
+
+.SS "Object desmoj\&.core\&.simulator\&.Parameter\&.getValue ()"
+returns the parameter's value
+.PP
+\fBReturns:\fP
+.RS 4
+the parameter's value 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Parameter\&.hasDefaultValue ()"
+Checks, if this parameter has a default value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+if parameter has a default value 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Parameter\&.hasValue ()"
+Checks, if this parameter has a value\&.
+.PP
+\fBReturns:\fP
+.RS 4
+if parameter has a value 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Parameter\&.setValue (Objectvalue)"
+sets the parameter's value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP the parameter's new value 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.Parameter\&.toString ()"
+Returns the parameter as a String
+.PP
+\fBReturns:\fP
+.RS 4
+the parameter as a String 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

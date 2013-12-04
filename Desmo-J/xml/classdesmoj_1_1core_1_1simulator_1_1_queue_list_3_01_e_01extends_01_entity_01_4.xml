@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4" kind="class" prot="public" abstract="yes">
+    <compoundname>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PropertyChangeListener</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Iterable&lt; E &gt;</basecompoundref>
+    <innerclass refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1_1_queue_list_iterator" prot="private">desmoj::core::simulator::QueueList&lt; E extends Entity &gt;::QueueListIterator</innerclass>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a4fef04a3dea37bc3ec0d6046d70c9b64" prot="protected" static="no" mutable="no">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></type>
+        <definition>QueueBased desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.clientQ</definition>
+        <argsstring></argsstring>
+        <name>clientQ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref> object this queuelist serves as a container for. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="47" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a20e96d0affb4cc3a0c4dbbcbe0293171" prot="protected" static="no" mutable="no">
+        <type>java.util.HashMap&lt; E, <ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref> &gt;</type>
+        <definition>java.util.HashMap&lt;E,TimeInstant&gt; desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.timemap</definition>
+        <argsstring></argsstring>
+        <name>timemap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses the java.util.WeakHashMap functionalities to link entities with their entry time. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="52" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab84b100815dfb4f75d041bdc4f33c3df" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.contains</definition>
+        <argsstring>(E e)</argsstring>
+        <name>contains</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return <computeroutput>true</computeroutput> if the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> is contained in the queue; <computeroutput>false</computeroutput> otherwise.</para><para><simplesect kind="return"><para>boolean : Should be <computeroutput>true</computeroutput> if the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> is contained in the queue; <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> we are looking for in the queue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1acadd06c3192b357caf71248761f9249b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract E</type>
+        <definition>abstract E desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.first</definition>
+        <argsstring>()</argsstring>
+        <name>first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return the first entity in the queue.</para><para><simplesect kind="return"><para>E : The first entity in the queue </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="72" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab97c31c3c0a0051546c982dbcb7b3b6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract E</type>
+        <definition>abstract E desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.get</definition>
+        <argsstring>(int index)</argsstring>
+        <name>get</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> queued at the named position. The first position is 0, the last one <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ad0c2057deef5ae12f6cbaa6355cf96ff" kindref="member">size()</ref>-1.</para><para><simplesect kind="return"><para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> at the position of <computeroutput>int</computeroutput> or <computeroutput>null</computeroutput> if no such position exists. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="81" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a2abd4957040de6f5a2813f51d5be7043" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract int</type>
+        <definition>abstract int desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.get</definition>
+        <argsstring>(E element)</argsstring>
+        <name>get</name>
+        <param>
+          <type>E</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position of the named <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput>. The first position is 0, the last one <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ad0c2057deef5ae12f6cbaa6355cf96ff" kindref="member">size()</ref>-1.</para><para><simplesect kind="return"><para>: The position of the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> or <computeroutput>-1</computeroutput> if no such exists. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="89" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab68cbb4aa39dd5b7318917922e3ff125" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract String</type>
+        <definition>abstract String desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.getAbbreviation</definition>
+        <argsstring>()</argsstring>
+        <name>getAbbreviation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return an abbreviation as a String to identify the sort of queueing discipline (like FIFO or LIFO or ...). Is used to display the queueing discipline in the report of the <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref> objects.</para><para><simplesect kind="return"><para>java.lang.String : An abbreviation to identify the sort of queueing discipline (like FIFO or LIFO or ...) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="99" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a6f44decb9ec189c4f11ac96c2049a775" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.insert</definition>
+        <argsstring>(E e)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should add a new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> to the queue.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> which will be added to the queue </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="118" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1aa7372bb6f597e9d7a70d67de776ff7ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.isEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>isEmpty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return <computeroutput>true</computeroutput> if no entities are stored in the queue at the moment, <computeroutput>false</computeroutput> otherwise.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if no entities are stored in the queue at the moment, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="163" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1afc3c6362bf4beb1d695bb564e7d03122" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract E</type>
+        <definition>abstract E desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.last</definition>
+        <argsstring>()</argsstring>
+        <name>last</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return the last <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> in the queue.</para><para><simplesect kind="return"><para>E : The last <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> in the queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="170" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a853a5088cc34e32d4c0db95414cefff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.remove</definition>
+        <argsstring>(E e)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should remove the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; from the queue. If this is done successfully <computeroutput>true</computeroutput> is returned, <computeroutput>false</computeroutput> otherwise.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> is removed successfully, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> which is to be removed from the queue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="195" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1aed9781b0eb6ccf00016db35b42878db8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.remove</definition>
+        <argsstring>(int index)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> queued at the named position.<itemizedlist>
+<listitem><para>The first position is 0, the last one <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ad0c2057deef5ae12f6cbaa6355cf96ff" kindref="member">size()</ref>-1.</para></listitem></itemizedlist>
+</para><para><simplesect kind="return"><para>: The method returns <computeroutput>true</computeroutput> as the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> exists or <computeroutput>false&gt;</computeroutput> if otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="204" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab8d322ccab095766055bc0065be791d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.setQueueBased</definition>
+        <argsstring>(QueueBased queueBase)</argsstring>
+        <name>setQueueBased</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></type>
+          <declname>queueBase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the client queue for which the entities are stored. Is needed, because this can not be done in the no-arg constructor.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>queueBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>desmoj.QueueBased : The <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref> using this queueing system. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="253" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="253" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ad0c2057deef5ae12f6cbaa6355cf96ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the actual size of the QueueList.</para><para><simplesect kind="return"><para>: The method returns the size as an <computeroutput>int</computeroutput>. The value is 0 if no <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> is in line. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="277" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="277" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ae6e523a000413883800db8566ccb3334" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract E</type>
+        <definition>abstract E desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.succ</definition>
+        <argsstring>(E e)</argsstring>
+        <name>succ</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return the successor of the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; in the queue.</para><para><simplesect kind="return"><para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> after the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; in the queue. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The successor of this <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> will be returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="316" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1aa4c253161f42b2151c97059612e68b6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract String</type>
+        <definition>abstract String desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return a string representation of the queue.</para><para><simplesect kind="return"><para>String : The string representation of the queue. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="323" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1acbb3497da2fe221e14203f18c8fdb051" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Iterator&lt; E &gt;</type>
+        <definition>Iterator&lt;E&gt; desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.iterator</definition>
+        <argsstring>()</argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an iterator over the entities enqueued.</para><para><simplesect kind="return"><para>java.lang.Iterator&lt;E&gt; : An iterator over the entities enqueued. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="330" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="330" bodyend="332"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a0adcdbc24366c2fe2a0ef3f7f6f0f33a" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></type>
+        <definition>QueueBased desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.getQueueBased</definition>
+        <argsstring>()</argsstring>
+        <name>getQueueBased</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></computeroutput> object this <computeroutput>QueueList</computeroutput> serves as a queue implementation for.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref> : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></computeroutput> object this <computeroutput>QueueList</computeroutput> serves as a container for. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="108" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="108" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a4053bfe5f4a31e1f5470743b930c82e3" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.insertAfter</definition>
+        <argsstring>(E e, E which)</argsstring>
+        <name>insertAfter</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>E</type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should insert the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; right after the position of <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;which&quot; in the queue. Should return <computeroutput>true</computeroutput> if this was done successfully. Be careful with this operation. It might disrupt your order of priorities.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if insertion was successfull, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> which will be inserted. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> determining the position after which the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; will be inserted in the queue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="136" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ae6f56070a9e0c53e0be32511f1f5899b" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.insertBefore</definition>
+        <argsstring>(E e, E which)</argsstring>
+        <name>insertBefore</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>E</type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should insert the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; right before the position of <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;which&quot; in the queue. Should return <computeroutput>true</computeroutput> if this was done successfully. Be careful with this operation. It might disrupt your order of priorities.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if insertion was successfull, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> which will be inserted. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> determining the position before which the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; will be inserted in the queue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="154" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a1de86af234a74d3aefd5e68753e9281d" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract E</type>
+        <definition>abstract E desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.pred</definition>
+        <argsstring>(E e)</argsstring>
+        <name>pred</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should return the predecessor of the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; in the queue.</para><para><simplesect kind="return"><para>E : The <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> before the given <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> &quot;e&quot; in the queue. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>E : The predecessor of this <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> will be returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="182" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ae7bd890893331562266179db50f2f758" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.removeFirst</definition>
+        <argsstring>()</argsstring>
+        <name>removeFirst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should remove the first <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> in the queue and returns <computeroutput>true</computeroutput> if done successfully, <computeroutput>false</computeroutput> otherwise.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the first <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> in the queue is removed successfully, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="214" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a146c4db251cbf406d8a4ccf27f4e8250" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.removeLast</definition>
+        <argsstring>()</argsstring>
+        <name>removeLast</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should remove the last <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> in the queue and returns <computeroutput>true</computeroutput> if done successfully, <computeroutput>false</computeroutput> otherwise.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if the last <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref></computeroutput> in the queue is removed successfully, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="224" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a624d2a4525bc93d292a561d3402a17e0" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.sendWarning</definition>
+        <argsstring>(String description, String location, String reason, String prevention)</argsstring>
+        <name>sendWarning</name>
+        <param>
+          <type>String</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>location</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>reason</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>prevention</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should send a warning to the error output by forwarding it to the associated <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref>&apos;s sendWarning</computeroutput> method. Warnings should only be sent if the <computeroutput><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref></computeroutput>&apos;s flag for queue implementation warnings is set to <computeroutput>true</computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : describing the error </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : describing the location the error occurred </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reason</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : describing the possible cause for this error </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prevention</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : telling what to do to prevent this error </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="243" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab20edc0f77432bccae6f9ca49b8aa417" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.statisticalInsert</definition>
+        <argsstring>(E e)</argsstring>
+        <name>statisticalInsert</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is used for statistical data in the class <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="286" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="286" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a1d121cec648dd1593643e23ca8db20a9" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.simulator.QueueList&lt; E extends Entity &gt;.statisticalRemove</definition>
+        <argsstring>(E e)</argsstring>
+        <name>statisticalRemove</name>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is used for statistical data in the class <ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="298" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="298" bodyend="304"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Is the abstract superclass for all the classes implementing different queueing strategies for a waiting-queue. It provides all the basic methods for inserting objects in a queue, retrieving objects from a queue and getting basic informations about the queue. It is used in many kinds of queue implementations where collective functionalities are implemented by <computeroutput>QueueListStandard</computeroutput> and are specified e.g. in <computeroutput>QueueListFifo</computeroutput> or <computeroutput>QueueListLifo</computeroutput>.</para><para><simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based" kindref="compound">QueueBased</ref> </para><simplesectsep/><para>Queue </para><simplesectsep/><para>ProcessQueue </para><simplesectsep/><para>QueueListFifo </para><simplesectsep/><para>QueueListLifo</para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Soenke Claassen </para><simplesectsep/><para>based upon ideas from Tim Lechler</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="9674">
+        <label>PropertyChangeListener</label>
+      </node>
+      <node id="9673">
+        <label>desmoj.core.simulator.QueueList&lt; E extends Entity &gt;</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4"/>
+        <childnode refid="9674" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9675" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9675">
+        <label>Iterable&lt; E &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9677">
+        <label>PropertyChangeListener</label>
+      </node>
+      <node id="9684">
+        <label>desmoj::core::observer::Subject&lt; QueueBased, QueueAction &gt;</label>
+      </node>
+      <node id="9681">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="9682" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9676">
+        <label>desmoj.core.simulator.QueueList&lt; E extends Entity &gt;</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4"/>
+        <childnode refid="9677" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9678" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9679" relation="usage">
+          <edgelabel>timemap</edgelabel>
+        </childnode>
+        <childnode refid="9680" relation="usage">
+          <edgelabel>clientQ</edgelabel>
+        </childnode>
+      </node>
+      <node id="9678">
+        <label>Iterable&lt; E &gt;</label>
+      </node>
+      <node id="9679">
+        <label>HashMap&lt; E, desmoj.core.simulator.TimeInstant &gt;</label>
+      </node>
+      <node id="9683">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="9682">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="9683" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9680">
+        <label>desmoj.core.simulator.QueueBased</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_queue_based"/>
+        <childnode refid="9681" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9684" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" line="42" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/QueueList.java" bodystart="42" bodyend="360"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a4fef04a3dea37bc3ec0d6046d70c9b64" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>clientQ</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab84b100815dfb4f75d041bdc4f33c3df" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>contains</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1acadd06c3192b357caf71248761f9249b" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>first</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab97c31c3c0a0051546c982dbcb7b3b6a" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>get</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a2abd4957040de6f5a2813f51d5be7043" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>get</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab68cbb4aa39dd5b7318917922e3ff125" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>getAbbreviation</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a0adcdbc24366c2fe2a0ef3f7f6f0f33a" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>getQueueBased</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a6f44decb9ec189c4f11ac96c2049a775" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>insert</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a4053bfe5f4a31e1f5470743b930c82e3" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>insertAfter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ae6f56070a9e0c53e0be32511f1f5899b" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>insertBefore</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1aa7372bb6f597e9d7a70d67de776ff7ad" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>isEmpty</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1acbb3497da2fe221e14203f18c8fdb051" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>iterator</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1afc3c6362bf4beb1d695bb564e7d03122" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>last</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a1de86af234a74d3aefd5e68753e9281d" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>pred</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a853a5088cc34e32d4c0db95414cefff8" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>remove</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1aed9781b0eb6ccf00016db35b42878db8" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>remove</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ae7bd890893331562266179db50f2f758" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>removeFirst</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a146c4db251cbf406d8a4ccf27f4e8250" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>removeLast</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a624d2a4525bc93d292a561d3402a17e0" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab8d322ccab095766055bc0065be791d6" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>setQueueBased</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ad0c2057deef5ae12f6cbaa6355cf96ff" prot="public" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>size</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ab20edc0f77432bccae6f9ca49b8aa417" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>statisticalInsert</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a1d121cec648dd1593643e23ca8db20a9" prot="package" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>statisticalRemove</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1ae6e523a000413883800db8566ccb3334" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>succ</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1a20e96d0affb4cc3a0c4dbbcbe0293171" prot="protected" virt="non-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>timemap</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_queue_list_3_01_e_01extends_01_entity_01_4_1aa4c253161f42b2151c97059612e68b6d" prot="public" virt="pure-virtual"><scope>desmoj::core::simulator::QueueList&lt; E extends Entity &gt;</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

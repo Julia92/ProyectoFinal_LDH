@@ -1,0 +1,112 @@
+.TH "desmoj.core.report.ReportManager" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.ReportManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.NamedObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReportManager\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBaddLast\fP (\fBReporter\fP r)"
+.br
+.ti -1c
+.RI "void \fBdeRegister\fP (\fBReporter\fP rep)"
+.br
+.ti -1c
+.RI "List< \fBReporter\fP > \fBelements\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "void \fBregister\fP (\fBReporter\fP rep)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Controls all reports given by reportable model components used during an experiment\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.ReportManager\&.ReportManager (Stringname)"
+Creates a new reportmanager with the given name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : the reportmanager's name 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.report\&.ReportManager\&.addLast (\fBReporter\fPr)"
+Adds a report to the very end of the vector hanlded by this reportmanager\&. This is needed to place submodel reporters behind existing model reporters to prevent multiple models to be mixed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIr\fP desmoj\&.report\&.Reporter 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.ReportManager\&.deRegister (\fBReporter\fPrep)"
+De-registers the given reporter from the experiment's reportmanager\&. The reporter will be removed from the list of current available reporters and thus will not produce output whenever a report has to be produced\&. When de-registering, the order according to group-ID is preserved\&. If an invalid parameter is given (i\&.e\&. a \fCnull\fP reference) this method simply returns
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrep\fP desmoj\&.report\&.Reporter : The reporter to be de-registered 
+.RE
+.PP
+
+.SS "List<\fBReporter\fP> desmoj\&.core\&.report\&.ReportManager\&.elements ()"
+Returns a list view of all registered reporters in the appropriate order\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.util\&.List : The list of reporters registered at the reportmanager 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.report\&.ReportManager\&.isEmpty ()"
+Returns a boolean value indicating whether this reportmanager contains reporters to be sent to the reportoutput or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the reportmanager conatains reporters, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.report\&.ReportManager\&.register (\fBReporter\fPrep)"
+Registers the given reporter at the experiment's reportmanager\&. All reporters registered will be sent to the reportout whenever a report has to be produced\&. When registering, the order according to group-ID is preserved\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrep\fP desmoj\&.report\&.Reporter : The reporter to be registered 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

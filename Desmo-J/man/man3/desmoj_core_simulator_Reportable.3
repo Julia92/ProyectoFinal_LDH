@@ -1,0 +1,240 @@
+.TH "desmoj.core.simulator.Reportable" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Reportable \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.Distribution\fP, desmoj\&.core\&.report\&.SimulationRunReporter\&.SimulationRunReporterProvider, \fBdesmoj\&.core\&.simulator\&.Model\fP, \fBdesmoj\&.core\&.simulator\&.QueueBased\fP, \fBdesmoj\&.core\&.statistic\&.BoolStatistic\fP, \fBdesmoj\&.core\&.statistic\&.DataListTally\&.DataList\fP, \fBdesmoj\&.core\&.statistic\&.StatisticObject\fP, \fBdesmoj\&.core\&.statistic\&.TextHistogram\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Block\fP, \fBdesmoj\&.extensions\&.chaining\&.abstractions\&.Station< E extends Entity >\fP, \fBdesmoj\&.extensions\&.crossbar\&.MessageChannel< T extends SimProcess >\fP, \fBdesmoj\&.extensions\&.crossbar\&.MessageCrossbar< T extends SimProcess >\fP, and desmoj\&.extensions\&.experimentation\&.util\&.ExperimentRunner\&.ReportProvider\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReportable\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "final \fBReporter\fP \fBgetReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetReporter\fP (Class<?extends \fBReporter\fP > reporterClass)"
+.br
+.ti -1c
+.RI "long \fBgetObservations\fP ()"
+.br
+.ti -1c
+.RI "void \fBincrementObservations\fP ()"
+.br
+.ti -1c
+.RI "void \fBincrementObservations\fP (long multiObservations)"
+.br
+.ti -1c
+.RI "boolean \fBreportIsOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBreportOff\fP ()"
+.br
+.ti -1c
+.RI "void \fBreportOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBresetAt\fP ()"
+.br
+.ti -1c
+.RI "\fBSchedulable\fP \fBgetCorrespondingSchedulable\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCorrespondingSchedulable\fP (\fBSchedulable\fP correspondingSchedulable)"
+.br
+.ti -1c
+.RI "void \fBsetDescription\fP (String description)"
+.br
+.ti -1c
+.RI "String \fBgetDescription\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReporter\fP \fBcreateDefaultReporter\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+All classes that want to publish their information have to extend this class in order to provide the necessary functions to represent their information in reports\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, modified by Chr\&. Mu\*(4ller (TH Wildau) 28\&.11\&.2012
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.Reportable\&.Reportable (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Creates a reportable object with all parameters required\&. The reportable registers itself at the given model
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of this reportable 
+.br
+\fIowner\fP \fBModel\fP : The model this reportable is associated to 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report Set it to \fCtrue\fP if reportable should show up in report\&. Set it to \fCfalse\fP if reportable should not be shown in report\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this reportable in trace files\&. Set it to \fCtrue\fP if reportable should show up in trace\&. Set it to \fCfalse\fP if reportable should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBReporter\fP desmoj\&.core\&.simulator\&.Reportable\&.createDefaultReporter ()\fC [protected]\fP"
+This method provides a reporter to generate report data about this reportable\&. In this general implementation, a \fCStandardReporter\fP is returned\&. Lacking further knowledge about a specific reportable, the \fCStandardReporter\fP is only able to read out the reportable's name, number of observations and time of last reset\&.
+.br
+.PP
+Thus, it is highly recommended that subclasses override this method to return an appropriate default reporter for the specific reportable object\&. All reportable objects in DESMO-J like \fCAccumulate\fP, \fCTally\fP, \fCCount\fP, \fCQueue\fP, and many others provide such reporters\&. 
+.br
+.PP
+If you want to extend the framework with new reportable objects, provide a suitable reporter as well and override this method to return an instance of the reporter\&. 
+.br
+.PP
+If you just need to replace the reporter used by an existing reportable (while not requiring any changes to the reportable itself), there is no need to create a subclass of the reportable: Instead of overriding this method, just call \fC\fBsetReporter()\fP\fP to have this reportable use a custom reporter instead of the default reporter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.Reporter\fP : A specific reporter for this reportable 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.core\&.simulator\&.Reportable\&.createReporter ()"
+This method provides a reporter to generate report data about this reportable\&.
+.PP
+Use \fC\fBcreateDefaultReporter()\fP\fP instead\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.Reporter\fP : A specific reporter for this reportable 
+.RE
+.PP
+
+.SS "\fBSchedulable\fP desmoj\&.core\&.simulator\&.Reportable\&.getCorrespondingSchedulable ()"
+Gets the schedulable (e\&.g\&. entity) corresponding to this reportable; may be null if no schedulable corresponds to this reportable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSchedulable\fP : The schedulable (e\&.g\&. entity) corresponding to this reportable (may be null if no schedulable corresponds to this reportable!) 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.Reportable\&.getDescription ()"
+Get an optional description of reported value\&. Default is null\&. This value is shown in description reports, only when set\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.Reportable\&.getObservations ()"
+Returns the number of observations made by the reportable object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of observations made by the reportable object\&. 
+.RE
+.PP
+
+.SS "final \fBReporter\fP desmoj\&.core\&.simulator\&.Reportable\&.getReporter ()"
+Returns an instance of a reporter for this reportable\&. Note that every reportable has to provide a default reporter, see method \fC\fBcreateDefaultReporter()\fP\fP\&. The reporter returned by this method is such a default reporter, unless the user has called \fC\fBsetReporter()\fP\fP to specify a custom reporter class to use to instantiate a Reporter from instead of the default reporter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.Reporter\fP : A reporter for this reportable 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.incrementObservations ()"
+Increments the number of observations made by this reportable by one (1)\&. 
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.incrementObservations (longmultiObservations)"
+Increments the number of observations by the amount given as parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImultiObservations\fP long : The number to increase the number of observations by 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Reportable\&.reportIsOn ()"
+Checks if this reportable produces a report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : true if report will be produced, false otherwise 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.reportOff ()"
+Switches report mode to prevent this reportable to produce reports\&. 
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.reportOn ()"
+Switches report mode of this reportable on to produce a report\&. 
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.reset ()"
+Resets the counter for observations made by this reportable\&. The point of simulation time this method was called will be stored and can be retrieved using method \fC\fBresetAt()\fP\fP\&. 
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.Reportable\&.resetAt ()"
+Shows the point in simulation time when the last reset of this reportable was made\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The point of simulation time of the last reset\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.setCorrespondingSchedulable (\fBSchedulable\fPcorrespondingSchedulable)"
+Sets the schedulable (e\&.g\&. entity) corresponding to this \fBReportable\fP\&. May be null if no schedulable corresponds to this reportable\&. If set, the schedulable must have the same model as this reportable! A model may not have a corresponding schedulable\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcorrespondingSchedulable\fP \fBSchedulable\fP : The \fBSchedulable\fP corresponding to this \fBReportable\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.setDescription (Stringdescription)"
+Set an optional description of reported value\&. Default is null\&. This value is shown in description reports, only when set\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdescription\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Reportable\&.setReporter (Class<?extends \fBReporter\fP >reporterClass)"
+Specifies a Reporter-Class to be used as reporter by this reportable\&. Note that such a Reporter has to provide a constructor requiring a reference to this object (i\&.e\&. the reportable to report about) as only parameter\&.
+.br
+ If this method is never called, a default reporter as obtained from \fC\fBcreateDefaultReporter()\fP\fP will be used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIreporterClass\fP the reporter's class 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,152 @@
+.TH "desmoj.core.dist.DiscreteDistUniform" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.DiscreteDistUniform \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits DiscreteDist< Long >\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.IntDistUniform\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDiscreteDistUniform\fP (\fBModel\fP owner, String name, long minValue, long maxValue, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetLower\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetUpper\fP ()"
+.br
+.ti -1c
+.RI "Long \fBsample\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNonNegative\fP (boolean newValue)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Uniformly distributed stream of pseudo random numbers of type long\&. Values produced by this distribution are uniformly distributed in the range specified as parameters of the constructor\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.Distribution\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Philip Joschko 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.DiscreteDistUniform\&.DiscreteDistUniform (\fBModel\fPowner, Stringname, longminValue, longmaxValue, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of pseudo random numbers following a uniform distribution\&. The specific lower and upper borders of the range of this distribution have to be given here at creation time\&. Note that the lower border in fact has to be lower than the upper border\&. If not, the parameters will be swapped to assign the higher value to the upper border of the distribution\&. Two equal values for upper and lower will be accepted, but result in a constant distribution that will invariabbly return that given value\&. In both cases a warning mesage will be produced\&.
+.br
+ Note that the range, i\&.e\&. the difference between the upper and lower border, must be less than \fCLong\&.MAX_VALUE\fP for arithmetic reasons\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIminValue\fP long : The minimum value for this distribution 
+.br
+\fImaxValue\fP long : The maximum value for this distribution 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.DiscreteDistUniform\&.createReporter ()"
+Creates the default reporter for the UniformDiscreteDist distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the UniformDiscreteDist distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.DiscreteDistUniformReporter\fP 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.dist\&.DiscreteDistUniform\&.getLower ()"
+Returns the lower border of the range of this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The lower border of the random number's range 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.dist\&.DiscreteDistUniform\&.getUpper ()"
+Returns the upper border of the range of this distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The upper border of the random number's range 
+.RE
+.PP
+
+.SS "Long desmoj\&.core\&.dist\&.DiscreteDistUniform\&.sample ()"
+Returns the next uniformly distributed integer sample\&. The value returned is basically the uniformly distributed pseudo random number produced by the underlying random generator stretched to match the range specified by the client via construtor parameters\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Long : The next uniformly distributed sample 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.DiscreteDistUniform\&.setNonNegative (booleannewValue)"
+Overrides the same method of \fCdesmoj\&.dist\&.Distribution\fP\&. It makes no sense to set a \fCUniformDiscreteDist\fP object with a negative lower border to nonNegative\&. In this case a warning will be sent\&. 
+.br
+ Sets the nonNegative switch to the given value\&. If nonNegative is set to \fCtrue\fP the distribution returns positive samples only, otherwise it also produces negative samples, if possible\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewValue\fP boolean : If \fCtrue\fP the distribution is set to return positive samples only, otherwise it also produces negative samples, if possible\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

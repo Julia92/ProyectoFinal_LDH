@@ -1,0 +1,112 @@
+.TH "desmoj.extensions.applicationDomains.harbour.C_Control" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.C_Control \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBC_Control\fP (\fBModel\fP owner, String name, int cQSortOrder, int cQCapacity, int tQSortOrder, int tQCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBCranesSystem\fP \fBgetCS\fP ()"
+.br
+.ti -1c
+.RI "void \fBtransporterArrival\fP ()"
+.br
+.ti -1c
+.RI "void \fBCraneIsIdle\fP ()"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBserveTransporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBserveCrane\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBC_Control\fP represents the control component for the cranes\&. The cranes and the transporters (external/internal) can activate (interrupt) the crane control to begin with their serving\&. Its \fC\fBlifeCycle()\fP\fP is already implemented and spezifies the behavior of the crane control\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimProcess\fP 
+.PP
+\fBCranesSystem\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\&.C_Control (\fBModel\fPowner, Stringname, intcQSortOrder, intcQCapacity, inttQSortOrder, inttQCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a crane control \fBC_Control\fP for the cranes\&. The queueing discipline and the capacity limit of the underlying queues for the cranes and for the transporters (external/internal) can be chosen\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBC_Control\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBC_Control\fP's name 
+.br
+\fIcsortOrder\fP int : determines the sort order of the underlying cranes queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIcQCapacity\fP int : The capacity of the cranes queue, that is how many cranes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fItsortOrder\fP int : determines the sort order of the underlying transporters queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fItQCapacity\fP int : The capacity of the transporters queue, that is how many transporters can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBC_Control\fP (its \fBCranesSystem\fP) should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\&.CraneIsIdle ()"
+This method is used by a crane to send the message to this crane control that it is idle and waits on its serving\&. 
+.SS "\fBCranesSystem\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\&.getCS ()"
+Returns the cranes system of this crane control\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBCranesSystem\fP\fP: The crane system of this crane control\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\&.lifeCycle ()\fC [virtual]\fP"
+This method implements crane control specific behaviour\&. This behavior is always the same therefore there is no need to implement that in a subclass of C_Cotrol\&. This method starts after a crane contrl has been created and activated by the scheduler\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\&.serveCrane ()"
+This method implements the specific behaviour of the crane control if a crane is idle must be served by this control\&. It's implemented for the case - a crane is idle and the crane control tries to find a ship that waits for his serving and this crane can be assigned to\&. If the crane was assigned it checks if the ship is ready and can be acivated\&. Override this method to specify another case or behavior\&. 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\&.serveTransporter ()"
+This method implements the specific behaviour of the crane control if a transporter arrives and must be served by this control\&. It's implemented for the case - a ship arrives and needs some cranes for his unloading and/or loading\&. Override this method to specify another case or behavior\&. 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.C_Control\&.transporterArrival ()"
+This method is used by a transporter (external/internal) to send the message to this crane control that it arrives and waits on its serving\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

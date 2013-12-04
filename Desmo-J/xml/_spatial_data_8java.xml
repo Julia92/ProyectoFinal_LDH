@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_spatial_data_8java" kind="file">
+    <compoundname>SpatialData.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data" prot="public">desmoj::extensions::space3D::SpatialData</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1space3_d">desmoj::extensions::space3D</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.space3D;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>javax.vecmath.Matrix4d;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data" kindref="compound">SpatialData</ref>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//The<sp/>4x4<sp/>matrix<sp/>(double[4][4])which<sp/>contains<sp/>the<sp/>spatial<sp/>information.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//The<sp/>first<sp/>index<sp/>indicates<sp/>the<sp/>row.<sp/>The<sp/>second<sp/>indicates<sp/>the<sp/>column.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>private<sp/>double[][]<sp/>_matrix;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Matrix4d<sp/>_matrix;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a050c9cfe5f6d78d5446d3f07827e4f73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a050c9cfe5f6d78d5446d3f07827e4f73" kindref="member">SpatialData</ref>(){</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix4d();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.setIdentity();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a4d22f6d3eeedd851cd337d8b7eaaea0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a4d22f6d3eeedd851cd337d8b7eaaea0a" kindref="member">SpatialData</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">[]<sp/>matrixData){</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>(matrixData.length&gt;=16):</highlight><highlight class="stringliteral">&quot;The<sp/>matrix<sp/>data<sp/>muss<sp/>have<sp/>more<sp/>than<sp/>16<sp/>elements.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix4d(matrixData);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>/**</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>*<sp/>Returns<sp/>the<sp/>matrix<sp/>in<sp/>a<sp/>double[16].<sp/>The<sp/>first<sp/>four<sp/>elements<sp/>are<sp/>represents<sp/>the<sp/>first<sp/>row.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>*<sp/>The<sp/>next<sp/>four<sp/>the<sp/>second<sp/>row<sp/>etc.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>*<sp/>@return<sp/>The<sp/>matrix<sp/>in<sp/>a<sp/>double[16].</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>public<sp/>double[]<sp/>getMatrix()<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>double[]<sp/>matrix<sp/>=<sp/>{_matrix.m00,_matrix.m01,_matrix.m02,_matrix.m03,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.m10,_matrix.m11,_matrix.m12,_matrix.m13,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.m20,_matrix.m21,_matrix.m22,_matrix.m23,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.m30,_matrix.m31,_matrix.m32,_matrix.m33,};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>matrix;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a48e7cc4cb4873a7ce0e2cc8b8ef95510" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Matrix4d<sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a48e7cc4cb4873a7ce0e2cc8b8ef95510" kindref="member">getMatrix</ref>(){</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_matrix;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a0612aaaa39092de41a2e5eec6c600a0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a0612aaaa39092de41a2e5eec6c600a0c" kindref="member">getPosX</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_matrix.m03;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a368e605bcfbd0027b13283e4d307b01a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a368e605bcfbd0027b13283e4d307b01a" kindref="member">getPosY</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_matrix.m13;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a42cd76d883f75d6fb5d4bd02f8ebb9b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a42cd76d883f75d6fb5d4bd02f8ebb9b1" kindref="member">getPosZ</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_matrix.m23;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a5208cb60ad1ce847f05ff94a2a035b8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a5208cb60ad1ce847f05ff94a2a035b8a" kindref="member">resetRotation</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.setColumn(0,<sp/>1,<sp/>0,<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.setColumn(1,<sp/>0,<sp/>1,<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.setColumn(2,<sp/>0,<sp/>0,<sp/>1,<sp/>0);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a65d6f81e2e9b28758658311b5c7871fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a65d6f81e2e9b28758658311b5c7871fa" kindref="member">rotX</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Matrix4d<sp/>rotMat<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix4d();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rotMat.rotX(angle);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.mul(rotMat);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>/**</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>*<sp/>Sets<sp/>the<sp/>matrix.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>*<sp/>@param<sp/>matrixData<sp/>The<sp/>new<sp/>data<sp/>in<sp/>a<sp/>double<sp/>array.<sp/>The<sp/>first<sp/>four<sp/>elements<sp/>of<sp/>the<sp/>array<sp/>will<sp/>be<sp/>the<sp/>first<sp/>row,<sp/>the<sp/>next<sp/>four<sp/>the<sp/>second<sp/>etc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>public<sp/>void<sp/>setMatrix(double[]<sp/>matrixData)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>(matrixData.length&gt;=16):&quot;The<sp/>matrixData<sp/>muss<sp/>have<sp/>at<sp/>least<sp/>16<sp/>elements.&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>_matrix.set(matrixData);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1acb80e7cf5bf0ceb282e54deac83a1c22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1acb80e7cf5bf0ceb282e54deac83a1c22" kindref="member">rotY</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Matrix4d<sp/>rotMat<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix4d();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rotMat.rotY(angle);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.mul(rotMat);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1af7cd493c3dfe69324ac155186057f543" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1af7cd493c3dfe69324ac155186057f543" kindref="member">rotZ</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Matrix4d<sp/>rotMat<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Matrix4d();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rotMat.rotZ(angle);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.mul(rotMat);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1af44190b7bf01acada2d02b30442f850d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1af44190b7bf01acada2d02b30442f850d" kindref="member">setMatrix</ref>(Matrix4d<sp/>matrixData){</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert(matrixData!=null):</highlight><highlight class="stringliteral">&quot;The<sp/>matrix<sp/>to<sp/>be<sp/>set<sp/>can&apos;t<sp/>be<sp/>null.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix=matrixData;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a23d7741ee4c5cf719929739ff7d66a65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1space3_d_1_1_spatial_data_1a23d7741ee4c5cf719929739ff7d66a65" kindref="member">setPosition</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.m03<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.m13<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_matrix.m23<sp/>=<sp/>z;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/space3D/SpatialData.java"/>
+  </compounddef>
+</doxygen>

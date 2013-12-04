@@ -1,0 +1,504 @@
+.TH "desmoj.core.simulator.TimeInstant" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.TimeInstant \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Comparable< TimeInstant >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTimeInstant\fP (long time, TimeUnit unit)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP (long timeInReferenceUnit)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP (double time, TimeUnit unit)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP (double timeInReferenceUnit)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP (Calendar calendar, boolean applyPrefferdTimeZoneFromCalendar)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP (Calendar calendar)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP (Date date)"
+.br
+.ti -1c
+.RI "long \fBgetTimeInEpsilon\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetTimeTruncated\fP (TimeUnit unit)"
+.br
+.ti -1c
+.RI "long \fBgetTimeTruncated\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetTimeRounded\fP (TimeUnit unit)"
+.br
+.ti -1c
+.RI "long \fBgetTimeRounded\fP ()"
+.br
+.ti -1c
+.RI "Calendar \fBgetTimeAsCalender\fP ()"
+.br
+.ti -1c
+.RI "Date \fBgetTimeAsDate\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetTimeAsDouble\fP (TimeUnit unit)"
+.br
+.ti -1c
+.RI "double \fBgetTimeAsDouble\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetTimeValue\fP ()"
+.br
+.ti -1c
+.RI "TimeZone \fBgetPreferredTimeZone\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPreferredTimeZone\fP (TimeZone preferredTimeZone)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetBeginOf\fP (TimeUnit smallestUnit)"
+.br
+.ti -1c
+.RI "int \fBhashCode\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
+.ti -1c
+.RI "int \fBcompareTo\fP (\fBTimeInstant\fP anotherInstant)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP (int digits)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static boolean \fBisBefore\fP (\fBTimeInstant\fP a, \fBTimeInstant\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisAfter\fP (\fBTimeInstant\fP a, \fBTimeInstant\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisAfterOrEqual\fP (\fBTimeInstant\fP a, \fBTimeInstant\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisEqual\fP (\fBTimeInstant\fP a, \fBTimeInstant\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisBeforeOrEqual\fP (\fBTimeInstant\fP a, \fBTimeInstant\fP b)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents points in simulation time\&. Is used to indicate points in simulation time at which the state of the model changes\&. Each point in simulation time is represented by an individual object of this class and offers its own methods for arithmetic operations\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.TimeInstant\&.TimeInstant (longtime, TimeUnitunit)"
+Constructs a \fBTimeInstant\fP object with the given time value in the time unit of the given parameter\&. It represents a time instant in simulation time\&. Note that trying to create a \fBTimeInstant\fP object The simulation will also stop immediately if the \fBTimeSpan\fP is larger than Long\&.MAX_VALUE-1 (in the unit of epsilon)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP long : The time value of this \fBTimeInstant\fP in the time unit of unit\&. 
+.br
+\fIunit\fP TimeUnit: the TimeUnit 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeInstant\&.TimeInstant (longtimeInReferenceUnit)"
+Constructs a \fBTimeInstant\fP object with the given time value in the time unit of the reference time\&. It represents a time Instant in simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeInReferenceUnit\fP long : The time value of this \fBTimeInstant\fP in the time unit of the reference time\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeInstant\&.TimeInstant (doubletime, TimeUnitunit)"
+Constructs a \fBTimeInstant\fP object with the given time value in the time unit given as second parameter\&. It represents a time Instant in simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP double : The time value of this \fBTimeInstant\fP in the time unit of the reference time\&.
+.br
+\fIunit\fP TimeUnit : the time unit 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeInstant\&.TimeInstant (doubletimeInReferenceUnit)"
+Constructs a \fBTimeInstant\fP object with the given time value in the time unit of the reference time\&. It represents a time Instant in simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeInReferenceUnit\fP double : The time value of this \fBTimeInstant\fP in the time unit of the reference time\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeInstant\&.TimeInstant (Calendarcalendar, booleanapplyPrefferdTimeZoneFromCalendar)"
+Constructs a \fBTimeInstant\fP object that represents the given instant of time specified by the Calendar object\&. The preferred time zone for output will can either be adopted from the Calendar object or not be set\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcalendar\fP Calendar : the instant of time that is represented by this TimeIstant 
+.br
+\fIapplyPrefferdTimeZoneFromCalendar\fP boolean : Use the time zone as set in calendar for output (true) or use UTC as default time zone for output (false)
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.Calendar 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeInstant\&.TimeInstant (Calendarcalendar)"
+Constructs a \fBTimeInstant\fP object that represents the given instant of time specified by the Calendar object\&. UTC will be used as default time zone for output\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.Calendar 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeInstant\&.TimeInstant (Datedate)"
+Constructs a \fBTimeInstant\fP object that represents the given instant of time specified by the Date object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdate\fP Date : the instant of time that is represented by this \fBTimeInstant\fP 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.Date 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int desmoj\&.core\&.simulator\&.TimeInstant\&.compareTo (\fBTimeInstant\fPanotherInstant)"
+Compares the given \fBTimeInstant\fP to this \fBTimeInstant\fP\&. This method implements the Comparable<TimeInstant> Interface
+.PP
+\fBParameters:\fP
+.RS 4
+\fIanotherInstant\fP : The \fBTimeInstant\fP to be compared to this \fBTimeInstant\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: int: Returns a negative integer, zero, or a positive integer as this \fBTimeInstant\fP is before, at the same time, or after the given \fBTimeInstant\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.TimeInstant\&.equals (Objecto)"
+Indicates whether this \fBTimeInstant\fP is equal to the given parameter\&. Returns true if the obj argument is a \fBTimeInstant\fP and represents the same point of time as this \fBTimeInstant\fP; false otherwise\&. This method overrides java\&.lang\&.Object\&.equals()
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP the reference object with which to compare\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: true if the obj argument is a \fBTimeInstant\fP and represents the same point of time as this \fBTimeInstant\fP; false otherwise\&. 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.TimeInstant\&.getBeginOf (TimeUnitsmallestUnit)"
+Determines that last instant prior to this instant at which a new period of the unit provided 'begins', which means smaller units are zero\&. 
+.br
+ Examples: Assume this \fBTimeInstant\fP is 28\&.12\&.2011 11:23:45:678\&. <br> Calling \fCgetBeginOf(TimeUnit\&.TimeUnit\&.DAYS)\fP yields 28\&.12\&.2011 00:00:00:000 (begin of current hour)\&.<br> Calling \fCgetBeginOf(TimeUnit\&.TimeUnit\&.MINUTES)\fP yields 28\&.12\&.2011 11:23:00:000 (begin of current day)\&.<br> Note that days are interpreted with respect to this instant's preferred time zone\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsmallestUnit\fP TimeUnit : the unit to begin (i\&.e\&. smaller units set to zero); must be TimeUnit\&.DAYS, TimeUnit\&.HOURS, TimeUnit\&.MINUTES, TimeUnit\&.SECONDS or TimeUnit\&.MILLISECONDS\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP: The \fBTimeInstant\fP at which the day/hour/minute/second/millisecond of the this \fBTimeInstant\fP has begun\&. 
+.RE
+.PP
+
+.SS "TimeZone desmoj\&.core\&.simulator\&.TimeInstant\&.getPreferredTimeZone ()"
+The preferred time zone for printing this time instant\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeZone: the time zone to use for printing this \fBTimeInstant\fP\&. 
+.RE
+.PP
+
+.SS "Calendar desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeAsCalender ()"
+Returns the value of this \fBTimeInstant\fP object as a Calender object\&. Note that the TimeZone of the Calender object returend is set to this \fBTimeInstant\fP's preferred TimeZone (which defaults to UTC unless set differently)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Calendar: a Calendar representation of this \fBTimeInstant\fP 
+.RE
+.PP
+
+.SS "Date desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeAsDate ()"
+Returns the value of this \fBTimeInstant\fP object as a Date object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Date: a Date representation of this \fBTimeInstant\fP 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeAsDouble (TimeUnitunit)"
+Returns the value of this \fBTimeInstant\fP object as a double type in the time unit given as a parameter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double: the time value of the \fBTimeInstant\fP object as a double type in the time unit given as a parameter 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeAsDouble ()"
+Returns the value of this \fBTimeInstant\fP object as a double type in the time unit of the reference time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double: the time value of the \fBTimeInstant\fP object as a double type in the time unit given as a parameter 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeInEpsilon ()"
+Returns the value of the \fBTimeInstant\fP object as a long type in the time unit of epsilon
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeInstant\fP object as a long type in the time unit of epsilon 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeRounded (TimeUnitunit)"
+Returns the value of this \fBTimeInstant\fP object as a long type in the time unit given as a parameter\&. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIunit\fP the TimeUnit
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeInstant\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeRounded ()"
+Returns the value of this \fBTimeInstant\fP object as a long type in the time unit of the reference time\&. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeInstant\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeTruncated (TimeUnitunit)"
+Returns the value of this \fBTimeInstant\fP object as a long type in the time unit given as a parameter\&. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeInstant\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeTruncated ()"
+Returns the value of this \fBTimeInstant\fP object as a long type in the time unit of the reference time\&. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeInstant\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.TimeInstant\&.getTimeValue ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBgetTimeAsDouble()\fP\&. The value of this \fBTimeInstant\fP object as a double type in the time unit of the reference time\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+double: the time value of the \fBTimeInstant\fP object as a double type in the time unit given as a parameter 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.TimeInstant\&.hashCode ()"
+Returns a hash code value for the object\&. This method overrides java\&.lang\&.Object\&.hashCode() to support efficient treatment in HashMaps\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: int: A hash code value for this \fBTimeInstant\fP\&. 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeInstant\&.isAfter (\fBTimeInstant\fPa, \fBTimeInstant\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is after the second\&. After means, that the time value of \fBTimeInstant\fP a is larger and hence 'later' than \fBTimeInstant\fP b\&. Note that this is a static method available through calling the class \fC\fBTimeInstant\fP\fP i\&.e\&. \fCTimeInstant\&.isAfter(a,b)\fP where a and b are valid \fBTimeInstant\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is after (later) than b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeInstant\fP : first comparand 
+.br
+\fIb\fP \fBTimeInstant\fP : second comparand 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeInstant\&.isAfterOrEqual (\fBTimeInstant\fPa, \fBTimeInstant\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is after the second or equal to the second\&. After means, that the time value of \fBTimeInstant\fP a is larger and hence after \fBTimeInstant\fP b\&. Equal means, that they both describe the same point in simulation time\&. Note that this is a static method available through calling the class \fC\fBTimeInstant\fP\fP i\&.e\&. \fCTimeInstant\&.isAfterOrEqual(a,b)\fP where a and b are valid timeInstant objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is after (later than )b or equal to b
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeInstant\fP : first comparand 
+.br
+\fIb\fP \fBTimeInstant\fP : second comparand 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeInstant\&.isBefore (\fBTimeInstant\fPa, \fBTimeInstant\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is before the second\&. Before means, that the time value of \fBTimeInstant\fP a is smaller and hence 'earlier' than \fBTimeInstant\fP b\&. Note that this is a static method available through calling the class \fC\fBTimeInstant\fP\fP i\&.e\&. \fCTimeInstant\&.isAfter(a,b)\fP where a and b are valid \fBTimeInstant\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is before (earlier) than b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeInstant\fP : first comparand 
+.br
+\fIb\fP \fBTimeInstant\fP : second comparand 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeInstant\&.isBeforeOrEqual (\fBTimeInstant\fPa, \fBTimeInstant\fPb)\fC [static]\fP"
+Checks if the first of two points of simulation time is before the second or equal to the second\&. Before means, that the time value of \fBTimeInstant\fP a is smaller and hence before \fBTimeInstant\fP b\&. Equal means, that they both describe the same point in simulation time\&. Note that this is a static method available through calling the class \fC\fBTimeInstant\fP\fP i\&.e\&. \fCTimeInstant\&.isBeforeOrEqual(a,b)\fP where a and b are valid timeInstant objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is before (earlier than )b or equal to b
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeInstant\fP : first comparand 
+.br
+\fIb\fP \fBTimeInstant\fP : second comparand 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeInstant\&.isEqual (\fBTimeInstant\fPa, \fBTimeInstant\fPb)\fC [static]\fP"
+Checks if the two \fBTimeInstant\fP parameters describe the same point of simulation time\&. Note that this is a static method available through calling the class \fC\fBTimeInstant\fP\fP i\&.e\&. \fCTimeInstant\&.isEqual(a,b)\fP where a and b are valid \fBTimeInstant\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if both parameters describe same point of simulation time 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeInstant\fP : first comparand 
+.br
+\fIb\fP \fBTimeInstant\fP : second comparand 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.TimeInstant\&.setPreferredTimeZone (TimeZonepreferredTimeZone)"
+Sets the preferred time zone for printing this time instant\&. Note that this time zone does not affect the internal representation of this \fBTimeInstant\fP (stored as multiple of \fBExperiment\fP's epsilon since the start of the epoch, i\&.e\&. January 1, 1970, 00:00:00 GMT); the preferred TimeZone just servers TimeFormatters generating a convenient output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpreferredTimeZone\fP java\&.util\&.TimeZone : The time value of this \fBTimeInstant\fP in the time unit of the reference time\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.TimeInstant\&.toString ()"
+Returns the String Representation of this \fBTimeInstant\fP according to the \fBTimeFormatter\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.lang\&.Object::toString() 
+.PP
+\fBdesmoj\&.core\&.simulator\&.TimeFormatter\fP 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.TimeInstant\&.toString (intdigits)"
+Returns the String Representation of this \fBTimeInstant\fP according to the \fBTimeFormatter\fP, truncating digits after the decimal point if necessary\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdigits\fP Maximum number of digits after decimal point
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.lang\&.Object::toString() 
+.PP
+\fBdesmoj\&.core\&.simulator\&.TimeFormatter\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

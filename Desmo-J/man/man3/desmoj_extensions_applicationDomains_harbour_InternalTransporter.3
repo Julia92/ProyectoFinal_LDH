@@ -1,0 +1,330 @@
+.TH "desmoj.extensions.applicationDomains.harbour.InternalTransporter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.InternalTransporter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBInternalTransporter\fP (\fBModel\fP owner, String name, int capac, double speedLoad, double speedEmpty, \fBT_Control\fP ts, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBCrane\fP \fBgetCrane\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCrane\fP (\fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\fP c)"
+.br
+.ti -1c
+.RI "void \fBdriveLoad\fP (double distance)"
+.br
+.ti -1c
+.RI "void \fBdriveEmpty\fP (double distance)"
+.br
+.ti -1c
+.RI "void \fBsetSpeedEmpty\fP (double s)"
+.br
+.ti -1c
+.RI "double \fBgetSpeedEmpty\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSpeedLoad\fP (double s)"
+.br
+.ti -1c
+.RI "double \fBgetSpeedLoad\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetJob\fP (\fBJob\fP j)"
+.br
+.ti -1c
+.RI "\fBJob\fP \fBgetJob\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCurrentCapacity\fP (int c)"
+.br
+.ti -1c
+.RI "int \fBgetCurrentCapacity\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBimportJobCycle\fP (\fBJob\fP j)"
+.br
+.ti -1c
+.RI "abstract void \fBexportJobCycle\fP (\fBJob\fP j)"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetNumEmptyDrives\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetNumLoadedDrives\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetTimeEmptyDrives\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetTimeLoadedDrives\fP ()"
+.br
+.ti -1c
+.RI "void \fBpickUp\fP (\fBSimTime\fP time)"
+.br
+.ti -1c
+.RI "void \fBpickDown\fP (\fBSimTime\fP time)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBInternalTransporter\fP represents any kind of vehicle (AGV, VC, chassis) which carries goods (containers) around in a container terminal\&. It has a certain loaded and empty speed when he drives in a terminal and is loaded or empty\&. He has also a certain transporter control which he gets his \fC\fBJob\fP\fP to do by\&. \fBInternalTransporter\fP is derived from Transporter\&. Because of that he has a certain capacity (maximum number of goods which can be carried around at once) and a minimum load (minimum number of goods which will be carried) that one is\&. Its \fC\fBlifeCycle()\fP\fP is already implemented and spezifies the behavior of the \fBInternalTransporter\fP\&. But its methods \fC\fBimportJobCycle(Job j)\fP\fP and \fCExportJobCycle(Job j)\fP must be ipmlemented by the user in order to specify the behavior of the \fBInternalTransporter\fP if he does an emport or export job\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBTransporter\fP 
+.PP
+\fBT_Control\fP 
+.PP
+\fBJob\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.InternalTransporter (\fBModel\fPowner, Stringname, intcapac, doublespeedLoad, doublespeedEmpty, \fBT_Control\fPts, booleanshowInTrace)"
+Constructs an Internal Transporter which will carry around containers (goods) in a container terminal\&. Implement its \fC\fBimportJobCycle(Job j)\fP\fP method and \fC\fBexportJobCycle(Job j)\fP\fP to specify its behavior when he gets an ex- or import job\&. An Internal Transporter has like a Transporter a capacity (maximum number of goods which can be transported) and a mimimum load ( a minimum number of goods it will carry)\&. Both must not be zero or negative\&. The capacity default value is one\&. The minimum load has always value one\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBTransporter\fP It has a certain loaded and empty speed when he drives in a terminal and is loaded or empty\&. Both must not be zero or negative\&. He has also a certain transporter control which he gets his job to do by\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBInternalTransporter\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBInternalTransporter\fP\&. 
+.br
+\fIcapac\fP int : The maximum number of goods this \fBInternalTransporter\fP can carry around\&. 
+.br
+\fIspeedLoad\fP double : The loaded speed of this \fBInternalTransporter\fP\&. 
+.br
+\fIspeedEmpty\fP double : The empty speed of this \fBInternalTransporter\fP\&. 
+.br
+\fIts\fP \fC\fBT_Control\fP\fP: The transporter control wchich this \fBInternalTransporter\fP belongs to\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBInternalTransporter\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.driveEmpty (doubledistance)"
+This method describes the driving the certain distance of the internal transporter if he is empty (has no goods)\&. In this simple case only the time it takes to drive the distance with his empty speed\&. The number and time of empty drives were counted in this method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdistance\fP double : The distance to drive 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.driveLoad (doubledistance)"
+This method describes the driving the certain distance of the internal transporter if he is loaded (has some goods)\&. In this simple case only the time it takes to drive the distance with his loaded speed\&. The number and time of loaded drives were counted in this method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdistance\fP double : The distance to drive 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.exportJobCycle (\fBJob\fPj)\fC [pure virtual]\fP"
+Override this method in a subclass of \fBInternalTransporter\fP to implement that internal transporter's specific behaviour if he has to do an export job in a container terminal\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIj\fP \fC\fBJob\fP\fP: The export job of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "\fBCrane\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getCrane ()"
+Returns the crane (containerbridge) which this \fBInternalTransporter\fP is assigned to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBCrane\fP\fP: The assigned crane of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getCurrentCapacity ()"
+Returns the current capacity of this \fBInternalTransporter\fP\&. That is the number of goods (containers) he carries at the moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The current capacity of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "\fBJob\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getJob ()"
+Returns the current job of this \fBInternalTransporter\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBJob\fP\fP: The job of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getNumEmptyDrives ()"
+Returns the number of empty drives that this \fBInternalTransporter\fP has done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of empty drives of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getNumLoadedDrives ()"
+Returns the number of loaded drives that this \fBInternalTransporter\fP has done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of loaded drives of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getSpeedEmpty ()"
+Returns the empty speed of this \fBInternalTransporter\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The empty speed of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getSpeedLoad ()"
+Returns the loaded speed of this \fBInternalTransporter\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The loaded speed of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getTimeEmptyDrives ()"
+Returns the whole time of empty drives that this \fBInternalTransporter\fP has done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The whole time of empty drives of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.getTimeLoadedDrives ()"
+Returns the whole time of loaded drives that this \fBInternalTransporter\fP has done\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The whole time of loaded drives of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.importJobCycle (\fBJob\fPj)\fC [pure virtual]\fP"
+Override this method in a subclass of \fBInternalTransporter\fP to implement that internal transporter's specific behaviour if he has to do an import job in a container terminal\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIj\fP \fC\fBJob\fP\fP: The import job of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.lifeCycle ()\fC [virtual]\fP"
+This method implements the internal transporter specific behaviour\&. This behavior is always the same therefore there is no need to implement that in a subclass of \fBInternalTransporter\fP\&. This method starts after an internal transporter has been created and activated by the scheduler\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.Transporter\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.pickDown (\fBSimTime\fPtime)"
+This method describes the unloading of the internal transporter\&. In this simple case only the time it takes to unload a good/container from itself\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP SimTime : The needed time to unload\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.pickUp (\fBSimTime\fPtime)"
+This method describes the loading of the internal transporter\&. In this simple case only the time it takes to load a container/good on itself\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP SimTime : The needed time to load\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.reset ()"
+To reset all the statistics about this \fBInternalTransporter\fP\&. 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.setCrane (\fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\fPc)"
+Sets the crane that this \fBInternalTransporter\fP must be assigned to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP \fC\fBCrane\fP\fP: The new assigned crane of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.setCurrentCapacity (intc)"
+Sets the current capacity of this \fBInternalTransporter\fP to a new value\&. The new value must not be negative\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIc\fP int : The new current capacity of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.setJob (\fBJob\fPj)"
+Sets the job of this \fBInternalTransporter\fP that he has to do\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIj\fP \fC\fBJob\fP\fP: The new job of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.setSpeedEmpty (doubles)"
+Sets the empty speed of this \fBInternalTransporter\fP to a new value\&. The new value must not be zero or negative\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP double : The new empty speed of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.InternalTransporter\&.setSpeedLoad (doubles)"
+Sets the loaded speed of this \fBInternalTransporter\fP to a new value\&. The new value must not be zero or negative\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP double : The new loaded speed of this \fBInternalTransporter\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,129 @@
+.TH "desmoj.extensions.applicationDomains.production.DemandProcess" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.DemandProcess \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDemandProcess\fP (\fBModel\fP owner, String name, \fBEntrepot\fP supplier, NumericalDist< Long > quantity, NumericalDist<?> interval, boolean showInTrace)"
+.br
+.ti -1c
+.RI "NumericalDist<?> \fBgetDemandInterval\fP ()"
+.br
+.ti -1c
+.RI "NumericalDist< Long > \fBgetDemandQuantity\fP ()"
+.br
+.ti -1c
+.RI "\fBEntrepot\fP \fBgetEntrepot\fP ()"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDemandInterval\fP (NumericalDist<?> newDemandInterval)"
+.br
+.ti -1c
+.RI "void \fBsetDemandQuantity\fP (NumericalDist< Long > newDemandQuantity)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBDemandProcess\fP is a kind of process representing the demand in a manufacturing system\&. It is some kind of drain for the products manufactured in the production system\&. So it can be viewed as the border of the simulated system, where the products disappear\&. It is meant to model the demand of the market where the finished products leaving the manufacturing system are sold\&. It has three main parameters to be specified (see the Constructor): The \fC\fBEntrepot\fP\fP where the products to be sold are stored, the random number distribution to determine the quantity of demanded products, the rate (frequenzy) also a random number distribution, at which the demand occurs\&. Once the \fBDemandProcess\fP has obtained the products, they are consumed and will leave the simulated system for ever\&. Actually they will be destroyed as the the garbage collector will get them\&. Internally \fCCustomerProcesss\fP es are set up and initialized, which are the ones actually fetching the products from the \fC\fBEntrepot\fP\fP\&. But this is done automatically, so the user does not have to care about it\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\&.DemandProcess (\fBModel\fPowner, Stringname, \fBEntrepot\fPsupplier, NumericalDist< Long >quantity, NumericalDist<?>interval, booleanshowInTrace)"
+Constructor of a \fBDemandProcess\fP\&. The \fBDemandProcess\fP is fetching a certain quantity of products from the given \fC\fBEntrepot\fP\fP in certain intervals\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBDemandProcess\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBDemandProcess\fP\&. 
+.br
+\fIsupplier\fP desmoj\&.Entrepot : The \fC\fBEntrepot\fP\fP supplying the products this \fBDemandProcess\fP is buying\&. 
+.br
+\fIquantity\fP NumericalDist<Long> : The random number distribution determining the demand (quantity) of this \fBDemandProcess\fP\&. Use \fCdesmoj\&.dist\&.DiscreteDistConstant<Long>\fP to simulate a constant demand\&. 
+.br
+\fIinterval\fP NumericalDist<?> : The random number distribution determining the intervals in which the demand occurs\&. Use e\&.g\&. \fCdesmoj\&.dist\&.DiscreteDistConstant\fP to simulate fixed intervals\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBDemandProcess\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "NumericalDist<?> desmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\&.getDemandInterval ()"
+Returns the random number distribution determining the intervals in which the demand occurs\&.
+.PP
+\fBReturns:\fP
+.RS 4
+NumericalDist<?> : The random number distribution determining the intervals in which the demand occurs\&. 
+.RE
+.PP
+
+.SS "NumericalDist<Long> desmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\&.getDemandQuantity ()"
+Returns the random number distribution determining the demand (quantity)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+NumericalDist<Long> : The random number distribution determining the demand (quantity)\&. 
+.RE
+.PP
+
+.SS "\fBEntrepot\fP desmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\&.getEntrepot ()"
+Returns the \fC\fBEntrepot\fP\fP supplying the products this \fBDemandProcess\fP is demanding\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntrepot\fP : The \fC\fBEntrepot\fP\fP supplying the products this \fBDemandProcess\fP is demanding\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\&.lifeCycle ()\fC [virtual]\fP"
+The \fBDemandProcess\fP is fetching in certain intervals a certain quantity of products from the given \fC\fBEntrepot\fP\fP and destroys them\&. So it serves as a drain for the finished products\&. To prevent this process from being blocked waiting in the queue of the \fC\fBEntrepot\fP\fP, it will instantiate \fC\fBCustomerProcess\fP\fP es which will actually fetching the products from the \fC\fBEntrepot\fP\fP\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\&.setDemandInterval (NumericalDist<?>newDemandInterval)"
+Sets the intervals in which the demand occurs to the new given random number distribution\&. Use \fCdesmoj\&.dist\&.RealDistConstant\fP to simulate constant intervals\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDemandInterval\fP NumericalDist<?> : The new random number distribution determining the intervals in which the demand occurs\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.DemandProcess\&.setDemandQuantity (NumericalDist< Long >newDemandQuantity)"
+Sets the demand (quantity) to the new given random number distribution\&. Use \fCdesmoj\&.dist\&.IntDistConstant\fP to simulate a constant demand\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDemandQuantity\fP NumericalDist<Long> : The new random number distribution determining the demand (quantity)\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,751 @@
+\section{org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array Class Reference}
+\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array}\index{org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array@{org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array}}
+
+
+Inheritance diagram for org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Resizable\-Double\-Array} ()
+\item 
+{\bf Resizable\-Double\-Array} (int {\bf initial\-Capacity})
+\item 
+{\bf Resizable\-Double\-Array} (int {\bf initial\-Capacity}, float {\bf expansion\-Factor})
+\item 
+{\bf Resizable\-Double\-Array} (int {\bf initial\-Capacity}, float {\bf expansion\-Factor}, float {\bf contraction\-Criteria})
+\item 
+{\bf Resizable\-Double\-Array} (int {\bf initial\-Capacity}, float {\bf expansion\-Factor}, float {\bf contraction\-Criteria}, int {\bf expansion\-Mode})
+\item 
+synchronized void {\bf add\-Element} (double value)
+\item 
+synchronized double {\bf add\-Element\-Rolling} (double value)
+\item 
+synchronized void {\bf clear} ()
+\item 
+synchronized void {\bf contract} ()
+\item 
+synchronized void {\bf discard\-Front\-Elements} (int i)
+\item 
+float {\bf get\-Contraction\-Criteria} ()
+\item 
+synchronized double {\bf get\-Element} (int index)
+\item 
+synchronized double[$\,$] {\bf get\-Elements} ()
+\item 
+float {\bf get\-Expansion\-Factor} ()
+\item 
+int {\bf get\-Expansion\-Mode} ()
+\item 
+synchronized int {\bf get\-Num\-Elements} ()
+\item 
+synchronized double[$\,$] {\bf get\-Values} ()
+\item 
+void {\bf set\-Contraction\-Criteria} (float {\bf contraction\-Criteria})
+\item 
+synchronized void {\bf set\-Element} (int index, double value)
+\item 
+void {\bf set\-Expansion\-Factor} (float {\bf expansion\-Factor})
+\item 
+void {\bf set\-Expansion\-Mode} (int {\bf expansion\-Mode})
+\item 
+synchronized void {\bf set\-Num\-Elements} (int i)
+\item 
+synchronized int {\bf start} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int {\bf A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E} = 1
+\item 
+static final int {\bf M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E} = 0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf check\-Contract\-Expand} (float contraction\-Critera, float {\bf expansion\-Factor})
+\item 
+synchronized void {\bf expand} ()
+\item 
+void {\bf set\-Initial\-Capacity} (int {\bf initial\-Capacity})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float {\bf contraction\-Criteria} = 2.\-5f
+\item 
+float {\bf expansion\-Factor} = 2.\-0f
+\item 
+int {\bf expansion\-Mode} = {\bf M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}
+\item 
+int {\bf initial\-Capacity} = 16
+\item 
+double[$\,$] {\bf internal\-Array}
+\item 
+int {\bf num\-Elements} = 0
+\item 
+int {\bf start\-Index} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A variable length \doxyref{Double\-Array}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array} implementation that automatically handles expanding and contracting its internal storage array as elements are added and removed. 
+
+The internal storage array starts with capacity determined by the {\ttfamily initial\-Capacity} property, which can be set by the constructor. The default initial capacity is 16. Adding elements using \doxyref{add\-Element(double)}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a92bf109c1bd11b2b8ad312bbed29e13e} appends elements to the end of the array. When there are no open entries at the end of the internal storage array, the array is expanded. The size of the expanded array depends on the {\ttfamily expansion\-Mode} and {\ttfamily expansion\-Factor} properties. The {\ttfamily expansion\-Mode} determines whether the size of the array is multiplied by the {\ttfamily expansion\-Factor} (M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E) or if the expansion is additive (A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E -- {\ttfamily expansion\-Factor} storage locations added). The default {\ttfamily expansion\-Mode} is M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E and the default {\ttfamily expansion\-Factor} is 2.\-0. 
+
+The \doxyref{add\-Element\-Rolling(double)}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a503cbf4a4a334030e27a5a63d2456f4c} method adds a new element to the end of the internal storage array and adjusts the \char`\"{}usable window\char`\"{} of the internal array forward by one position (effectively making what was the second element the first, and so on). Repeated activations of this method (or activation of \doxyref{discard\-Front\-Elements(int)}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a7cbc39dbb4280a2e5877bd824a838c99}) will effectively orphan the storage locations at the beginning of the internal storage array. To reclaim this storage, each time one of these methods is activated, the size of the internal storage array is compared to the number of addressable elements (the {\ttfamily num\-Elements} property) and if the difference is too large, the internal array is contracted to size {\ttfamily num\-Elements + 1.} The determination of when the internal storage array is \char`\"{}too large\char`\"{} depends on the {\ttfamily expansion\-Mode} and {\ttfamily contraction\-Factor} properties. If the {\ttfamily expansion\-Mode} is {\ttfamily M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}, contraction is triggered when the ratio between storage array length and {\ttfamily num\-Elements} exceeds {\ttfamily contraction\-Factor.} If the {\ttfamily expansion\-Mode} is {\ttfamily A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E,} the number of excess storage locations is compared to {\ttfamily contraction\-Factor.} 
+
+To avoid cycles of expansions and contractions, the {\ttfamily expansion\-Factor} must not exceed the {\ttfamily contraction\-Factor.} Constructors and mutators for both of these properties enforce this requirement, throwing Illegal\-Argument\-Exception if it is violated. 
+
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision\-:}
+618057 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Date\-:}
+2008-\/02-\/03 11\-:58\-:54 -\/0700 (Sun, 03 Feb 2008) 
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!Resizable\-Double\-Array@{Resizable\-Double\-Array}}
+\index{Resizable\-Double\-Array@{Resizable\-Double\-Array}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{Resizable\-Double\-Array}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-Resizable\-Double\-Array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a1e2c01980cd78fb7546d8dfd9351f00c}
+Create a Resizable\-Array with default properties. 
+\begin{DoxyItemize}
+\item {\ttfamily initial\-Capacity = 16} 
+\item {\ttfamily expansion\-Mode = M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E} 
+\item {\ttfamily expansion\-Factor = 2.\-5} 
+\item {\ttfamily contraction\-Factor = 2.\-0} 
+\end{DoxyItemize}\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!Resizable\-Double\-Array@{Resizable\-Double\-Array}}
+\index{Resizable\-Double\-Array@{Resizable\-Double\-Array}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{Resizable\-Double\-Array}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-Resizable\-Double\-Array (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ad1813cbeb0f34119f5818fba1e6fbc41}
+Create a Resizable\-Array with the specified initial capacity. Other properties take default values\-: 
+\begin{DoxyItemize}
+\item {\ttfamily expansion\-Mode = M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E} 
+\item {\ttfamily expansion\-Factor = 2.\-5} 
+\item {\ttfamily contraction\-Factor = 2.\-0} 
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & The initial size of the internal storage array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if initial\-Capacity is not $>$ 0 \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ad1813cbeb0f34119f5818fba1e6fbc41_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!Resizable\-Double\-Array@{Resizable\-Double\-Array}}
+\index{Resizable\-Double\-Array@{Resizable\-Double\-Array}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{Resizable\-Double\-Array}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-Resizable\-Double\-Array (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity, }
+\item[{float}]{expansion\-Factor}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a11fcebab040edaefd2a70151c79ce3f7}
+Create a Resizable\-Array with the specified initial capacity and expansion factor. The remaining properties take default values\-: 
+\begin{DoxyItemize}
+\item {\ttfamily expansion\-Mode = M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E} 
+\item {\ttfamily contraction\-Factor = 0.\-5 + expansion\-Factor} 
+\end{DoxyItemize}
+
+Throws Illegal\-Argument\-Exception if the following conditions are not met\-: 
+\begin{DoxyItemize}
+\item {\ttfamily initial\-Capacity $>$ 0} 
+\item {\ttfamily expansion\-Factor $>$ 1} 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & The initial size of the internal storage array \\
+\hline
+{\em expansion\-Factor} & the array will be expanded based on this parameter \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if parameters are not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a11fcebab040edaefd2a70151c79ce3f7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!Resizable\-Double\-Array@{Resizable\-Double\-Array}}
+\index{Resizable\-Double\-Array@{Resizable\-Double\-Array}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{Resizable\-Double\-Array}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-Resizable\-Double\-Array (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity, }
+\item[{float}]{expansion\-Factor, }
+\item[{float}]{contraction\-Criteria}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a0c7b4d3f9acbe4ae8c79b05501f8f9b9}
+Create a Resizable\-Array with the specified initial\-Capacity, expansion\-Factor, and contraction\-Criteria. The {\ttfamily expansion\-Mode} will default to {\ttfamily M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E.}
+
+Throws Illegal\-Argument\-Exception if the following conditions are not met\-: 
+\begin{DoxyItemize}
+\item {\ttfamily initial\-Capacity $>$ 0} 
+\item {\ttfamily expansion\-Factor $>$ 1} 
+\item {\ttfamily contraction\-Factor $>$= expansion\-Factor} 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & The initial size of the internal storage array \\
+\hline
+{\em expansion\-Factor} & the array will be expanded based on this parameter \\
+\hline
+{\em contraction\-Criteria} & The contraction Criteria. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if parameters are not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a0c7b4d3f9acbe4ae8c79b05501f8f9b9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!Resizable\-Double\-Array@{Resizable\-Double\-Array}}
+\index{Resizable\-Double\-Array@{Resizable\-Double\-Array}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{Resizable\-Double\-Array}]{\setlength{\rightskip}{0pt plus 5cm}org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-Resizable\-Double\-Array (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity, }
+\item[{float}]{expansion\-Factor, }
+\item[{float}]{contraction\-Criteria, }
+\item[{int}]{expansion\-Mode}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a02715736b537526f7a960d51875541e4}
+Create a Resizable\-Array with the specified properties.
+
+Throws Illegal\-Argument\-Exception if the following conditions are not met\-: 
+\begin{DoxyItemize}
+\item {\ttfamily initial\-Capacity $>$ 0} 
+\item {\ttfamily expansion\-Factor $>$ 1} 
+\item {\ttfamily contraction\-Factor $>$= expansion\-Factor} 
+\item {\ttfamily expansion\-Mode in \{M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E, A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E\}}  
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & the initial size of the internal storage array \\
+\hline
+{\em expansion\-Factor} & the array will be expanded based on this parameter \\
+\hline
+{\em contraction\-Criteria} & the contraction Criteria \\
+\hline
+{\em expansion\-Mode} & the expansion mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if parameters are not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a02715736b537526f7a960d51875541e4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!add\-Element@{add\-Element}}
+\index{add\-Element@{add\-Element}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{add\-Element}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-add\-Element (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a92bf109c1bd11b2b8ad312bbed29e13e}
+Adds an element to the end of this expandable array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & to be added to end of array \\
+\hline
+\end{DoxyParams}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-util.\-Double\-Array} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_a347c72406c0b4c85b46a73d66457aa34}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a92bf109c1bd11b2b8ad312bbed29e13e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!add\-Element\-Rolling@{add\-Element\-Rolling}}
+\index{add\-Element\-Rolling@{add\-Element\-Rolling}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{add\-Element\-Rolling}]{\setlength{\rightskip}{0pt plus 5cm}synchronized double org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-add\-Element\-Rolling (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a503cbf4a4a334030e27a5a63d2456f4c}
+Adds an element to the end of the array and removes the first element in the array. Returns the discarded first element. The effect is similar to a push operation in a F\-I\-F\-O queue. 
+
+Example\-: If the array contains the elements 1, 2, 3, 4 (in that order) and add\-Element\-Rolling(5) is invoked, the result is an array containing the entries 2, 3, 4, 5 and the value returned is 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to be added to the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value which has been discarded or \char`\"{}pushed\char`\"{} out of the array by this rolling insert 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-util.\-Double\-Array} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_a8aa2fff7b3371a8aa8adf7b74bd40bbc}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a503cbf4a4a334030e27a5a63d2456f4c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!check\-Contract\-Expand@{check\-Contract\-Expand}}
+\index{check\-Contract\-Expand@{check\-Contract\-Expand}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{check\-Contract\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-check\-Contract\-Expand (
+\begin{DoxyParamCaption}
+\item[{float}]{contraction\-Critera, }
+\item[{float}]{expansion\-Factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a3aaac84b10f64f63c2f09cd154a96726}
+Checks the expansion factor and the contraction criteria and throws an Illegal\-Argument\-Exception if the contraction\-Criteria is less than the expansion\-Criteria
+
+
+\begin{DoxyParams}{Parameters}
+{\em expansion\-Factor} & factor to be checked \\
+\hline
+{\em contraction\-Critera} & critera to be checked \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if the contraction\-Criteria is less than the expansion\-Criteria. \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!clear@{clear}}
+\index{clear@{clear}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a12e1042fcf4e23d2af373f7f0841c424}
+Clear the array, reset the size to the initial\-Capacity and the number of elements to zero. 
+
+Implements {\bf org.\-apache.\-commons.\-math.\-util.\-Double\-Array} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_a010496d02237d3b12b228a378a825720}.
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!contract@{contract}}
+\index{contract@{contract}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{contract}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-contract (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a40fa40faec8ec6ade31953fed8e98a2b}
+Contracts the storage array to the (size of the element set) + 1 -\/ to avoid a zero length array. This function also resets the start\-Index to zero. \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!discard\-Front\-Elements@{discard\-Front\-Elements}}
+\index{discard\-Front\-Elements@{discard\-Front\-Elements}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{discard\-Front\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-discard\-Front\-Elements (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a7cbc39dbb4280a2e5877bd824a838c99}
+Discards the {\ttfamily i{\ttfamily  initial elements of the array. For example, if the array contains the elements 1,2,3,4, invoking {\ttfamily discard\-Front\-Elements(2)} will cause the first two elements to be discarded, leaving 3,4 in the array. Throws illegal\-Argument\-Exception if i exceeds num\-Elements.}}
+
+{\ttfamily {\ttfamily 
+\begin{DoxyParams}{Parameters}
+{\em i} & the number of elements to discard from the front of the array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if i is greater than num\-Elements. \\
+\hline
+\end{DoxyExceptions}
+}}
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a7cbc39dbb4280a2e5877bd824a838c99_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!expand@{expand}}
+\index{expand@{expand}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{expand}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-expand (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a06f3bead2e00045fbd03b210a5c7a416}
+Expands the internal storage array using the expansion factor. 
+
+if {\ttfamily expansion\-Mode} is set to M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E, the new array size will be {\ttfamily internal\-Array.\-length $\ast$ expansion\-Factor.} If {\ttfamily expansion\-Mode} is set to A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E, the length after expansion will be {\ttfamily internal\-Array.\-length + expansion\-Factor} \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!get\-Contraction\-Criteria@{get\-Contraction\-Criteria}}
+\index{get\-Contraction\-Criteria@{get\-Contraction\-Criteria}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{get\-Contraction\-Criteria}]{\setlength{\rightskip}{0pt plus 5cm}float org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-get\-Contraction\-Criteria (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a7206489dcd50f7959edc7eb2992d1ca4}
+The contraction criteria defines when the internal array will contract to store only the number of elements in the element array. If the {\ttfamily expansion\-Mode} is {\ttfamily M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}, contraction is triggered when the ratio between storage array length and {\ttfamily num\-Elements} exceeds {\ttfamily contraction\-Factor}. If the {\ttfamily expansion\-Mode} is {\ttfamily A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}, the number of excess storage locations is compared to {\ttfamily contraction\-Factor.}
+
+\begin{DoxyReturn}{Returns}
+the contraction criteria used to reclaim memory. 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!get\-Element@{get\-Element}}
+\index{get\-Element@{get\-Element}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{get\-Element}]{\setlength{\rightskip}{0pt plus 5cm}synchronized double org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-get\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a9175fe9c64ce121b99f1a7a9b76823e1}
+Returns the element at the specified index
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index to fetch a value from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value stored at the specified index 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Array\-Index\-Out\-Of\-Bounds\-Exception} & if {\ttfamily index} is less than zero or is greater than {\ttfamily \doxyref{get\-Num\-Elements()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a4867e8a1b5286f7a41ceb130d5580694} -\/ 1}. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-util.\-Double\-Array} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_a4788b0b461ccc0479fdd084bec4c9fec}.
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!get\-Elements@{get\-Elements}}
+\index{get\-Elements@{get\-Elements}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{get\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}synchronized double [$\,$] org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-get\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_acf87696cae93f22fbe65ad4d94024b62}
+Returns a double array containing the elements of this {\ttfamily Resizable\-Array}. This method returns a copy, not a reference to the underlying array, so that changes made to the returned array have no effect on this {\ttfamily Resizable\-Array.} \begin{DoxyReturn}{Returns}
+the double array. 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-util.\-Double\-Array} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_a1817778927ba7081bdc06b1a268a20de}.
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!get\-Expansion\-Factor@{get\-Expansion\-Factor}}
+\index{get\-Expansion\-Factor@{get\-Expansion\-Factor}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{get\-Expansion\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}float org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-get\-Expansion\-Factor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a4a27067f85029e987a88e0e8a98e8fa0}
+The expansion factor controls the size of a new aray when an array needs to be expanded. The {\ttfamily expansion\-Mode} determines whether the size of the array is multiplied by the {\ttfamily expansion\-Factor} (M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E) or if the expansion is additive (A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E -- {\ttfamily expansion\-Factor} storage locations added). The default {\ttfamily expansion\-Mode} is M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E and the default {\ttfamily expansion\-Factor} is 2.\-0.
+
+\begin{DoxyReturn}{Returns}
+the expansion factor of this expandable double array 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!get\-Expansion\-Mode@{get\-Expansion\-Mode}}
+\index{get\-Expansion\-Mode@{get\-Expansion\-Mode}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{get\-Expansion\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-get\-Expansion\-Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ab28c913053be5ef3fa0012b133f63779}
+The {\ttfamily expansion\-Mode} determines whether the internal storage array grows additively (A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E) or multiplicatively (M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E) when it is expanded.
+
+\begin{DoxyReturn}{Returns}
+Returns the expansion\-Mode. 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!get\-Num\-Elements@{get\-Num\-Elements}}
+\index{get\-Num\-Elements@{get\-Num\-Elements}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{get\-Num\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}synchronized int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-get\-Num\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a4867e8a1b5286f7a41ceb130d5580694}
+Returns the number of elements currently in the array. Please note that this is different from the length of the internal storage array.
+
+\begin{DoxyReturn}{Returns}
+number of elements 
+\end{DoxyReturn}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-util.\-Double\-Array} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_a89da043e713a69ce300c5f0f7e8fc087}.
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!get\-Values@{get\-Values}}
+\index{get\-Values@{get\-Values}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{get\-Values}]{\setlength{\rightskip}{0pt plus 5cm}synchronized double [$\,$] org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-get\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ac3b418d3c0f45b683127694b2da23302}
+Returns the internal storage array. Note that this method returns a reference to the internal storage array, not a copy, and to correctly address elements of the array, the {\ttfamily start\-Index} is required (available via the \doxyref{start}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a70c7c35747b386233c1b3ec8901da4d9} method). This method should only be used in cases where copying the internal array is not practical. The \doxyref{get\-Elements}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_acf87696cae93f22fbe65ad4d94024b62} method should be used in all other cases.
+
+\begin{DoxyReturn}{Returns}
+the internal storage array used by this object 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!set\-Contraction\-Criteria@{set\-Contraction\-Criteria}}
+\index{set\-Contraction\-Criteria@{set\-Contraction\-Criteria}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{set\-Contraction\-Criteria}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-set\-Contraction\-Criteria (
+\begin{DoxyParamCaption}
+\item[{float}]{contraction\-Criteria}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a64acd762fc9f935b349c703753247547}
+Sets the contraction criteria for this Expand\-Contract\-Double\-Array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em contraction\-Criteria} & contraction criteria \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a64acd762fc9f935b349c703753247547_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!set\-Element@{set\-Element}}
+\index{set\-Element@{set\-Element}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{set\-Element}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-set\-Element (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ac2d60b4ce4e53faa27dc45c74a7938ea}
+Sets the element at the specified index. If the specified index is greater than {\ttfamily \doxyref{get\-Num\-Elements()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a4867e8a1b5286f7a41ceb130d5580694} -\/ 1}, the {\ttfamily num\-Elements} property is increased to {\ttfamily index +1} and additional storage is allocated (if necessary) for the new element and all (uninitialized) elements between the new element and the previous end of the array).
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index to store a value in \\
+\hline
+{\em value} & value to store at the specified index \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Array\-Index\-Out\-Of\-Bounds\-Exception} & if {\ttfamily index} is less than zero. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-util.\-Double\-Array} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1util_1_1_double_array_a083ed88f659246e6a7557e03b4a763f4}.
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!set\-Expansion\-Factor@{set\-Expansion\-Factor}}
+\index{set\-Expansion\-Factor@{set\-Expansion\-Factor}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{set\-Expansion\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-set\-Expansion\-Factor (
+\begin{DoxyParamCaption}
+\item[{float}]{expansion\-Factor}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a1bdc1dfc580dae7b0f9866b6f11f85f7}
+Sets the expansion\-Factor. Throws Illegal\-Argument\-Exception if the the following conditions are not met\-: 
+\begin{DoxyItemize}
+\item {\ttfamily expansion\-Factor $>$ 1} 
+\item {\ttfamily contraction\-Factor $>$= expansion\-Factor} 
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em expansion\-Factor} & the new expansion factor value. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if expansion\-Factor is $<$= 1 or greater than contraction\-Factor \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a1bdc1dfc580dae7b0f9866b6f11f85f7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!set\-Expansion\-Mode@{set\-Expansion\-Mode}}
+\index{set\-Expansion\-Mode@{set\-Expansion\-Mode}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{set\-Expansion\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-set\-Expansion\-Mode (
+\begin{DoxyParamCaption}
+\item[{int}]{expansion\-Mode}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a10873780079ffd462348f95ffab9c63f}
+Sets the {\ttfamily expansion\-Mode}. The specified value must be one of A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E, M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E.
+
+
+\begin{DoxyParams}{Parameters}
+{\em expansion\-Mode} & The expansion\-Mode to set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if the specified mode value is not valid \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!set\-Initial\-Capacity@{set\-Initial\-Capacity}}
+\index{set\-Initial\-Capacity@{set\-Initial\-Capacity}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{set\-Initial\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-set\-Initial\-Capacity (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\-Capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ab0efdde68c87c78281249d7c577a21f2}
+Sets the initial capacity. Should only be invoked by constructors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\-Capacity} & of the array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if {\ttfamily initial\-Capacity} is not positive. \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!set\-Num\-Elements@{set\-Num\-Elements}}
+\index{set\-Num\-Elements@{set\-Num\-Elements}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{set\-Num\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-set\-Num\-Elements (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ad869414a896f93dbc179ad13f0f83ab5}
+This function allows you to control the number of elements contained in this array, and can be used to \char`\"{}throw out\char`\"{} the last n values in an array. This function will also expand the internal array as needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & a new number of elements \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if {\ttfamily i} is negative. \\
+\hline
+\end{DoxyExceptions}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!start@{start}}
+\index{start@{start}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}synchronized int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a70c7c35747b386233c1b3ec8901da4d9}
+Returns the starting index of the internal array. The starting index is the position of the first addressable element in the internal storage array. The addressable elements in the array are {\ttfamily  internal\-Array[start\-Index],...,internal\-Array[start\-Index + num\-Elements -\/1] }
+
+\begin{DoxyReturn}{Returns}
+starting index 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E@{A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}}
+\index{A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E@{A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E = 1\hspace{0.3cm}{\ttfamily [static]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a4b3720d652ac26588c35c15a498c81fa}
+additive expansion mode \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!contraction\-Criteria@{contraction\-Criteria}}
+\index{contraction\-Criteria@{contraction\-Criteria}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{contraction\-Criteria}]{\setlength{\rightskip}{0pt plus 5cm}float org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-contraction\-Criteria = 2.\-5f\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a8877b0c4e1658ea5f15bf40c8646f36a}
+The contraction criteria determines when the internal array will be contracted to fit the number of elements contained in the element array + 1. \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!expansion\-Factor@{expansion\-Factor}}
+\index{expansion\-Factor@{expansion\-Factor}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{expansion\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}float org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-expansion\-Factor = 2.\-0f\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a961ef37ef3c91e34036298f30034e713}
+The expansion factor of the array. When the array needs to be expanded, the new array size will be {\ttfamily internal\-Array.\-length $\ast$ expansion\-Factor} if {\ttfamily expansion\-Mode} is set to M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E, or {\ttfamily internal\-Array.\-length + expansion\-Factor} if {\ttfamily expansion\-Mode} is set to A\-D\-D\-I\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E. \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!expansion\-Mode@{expansion\-Mode}}
+\index{expansion\-Mode@{expansion\-Mode}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{expansion\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-expansion\-Mode = {\bf M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_abd57ac08e08c9f448ec3c867c3a0e82d}
+Determines whether array expansion by {\ttfamily expansion\-Factor} is additive or multiplicative. \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!initial\-Capacity@{initial\-Capacity}}
+\index{initial\-Capacity@{initial\-Capacity}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{initial\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-initial\-Capacity = 16\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a6671cf3bcb84e35fe77cfb2dab125262}
+The initial capacity of the array. Initial capacity is not exposed as a property as it is only meaningful when passed to a constructor. \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!internal\-Array@{internal\-Array}}
+\index{internal\-Array@{internal\-Array}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{internal\-Array}]{\setlength{\rightskip}{0pt plus 5cm}double [$\,$] org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-internal\-Array\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_a7236a45e5f7edfeeb85a3d0b4a073955}
+The internal storage array. \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E@{M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}}
+\index{M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E@{M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-M\-U\-L\-T\-I\-P\-L\-I\-C\-A\-T\-I\-V\-E\-\_\-\-M\-O\-D\-E = 0\hspace{0.3cm}{\ttfamily [static]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_acd5f6919cde4ee770b01b277d40f7ad0}
+multiplicative expansion mode \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!num\-Elements@{num\-Elements}}
+\index{num\-Elements@{num\-Elements}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{num\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-num\-Elements = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_af65282ee2e0313572f3655fa7bce74ee}
+The number of addressable elements in the array. Note that this has nothing to do with the length of the internal storage array. \index{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}!start\-Index@{start\-Index}}
+\index{start\-Index@{start\-Index}!org::apache::commons::math::util::ResizableDoubleArray@{org\-::apache\-::commons\-::math\-::util\-::\-Resizable\-Double\-Array}}
+\subsubsection[{start\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-util.\-Resizable\-Double\-Array.\-start\-Index = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1util_1_1_resizable_double_array_ae692a8537b5b22bec16ca2f6d5e6e7ed}
+The position of the first addressable element in the internal storage array. The addressable elements in the array are {\ttfamily  internal\-Array[start\-Index],...,internal\-Array[start\-Index + num\-Elements -\/1] } 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/org/apache/commons/math/util/Resizable\-Double\-Array.\-java\end{DoxyCompactItemize}

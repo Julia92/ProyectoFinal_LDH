@@ -1,0 +1,392 @@
+.TH "desmoj.core.simulator.TimeSpan" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.TimeSpan \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Comparable< TimeSpan >\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBBuilder\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTimeSpan\fP (long duration, TimeUnit unit)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP (long duration)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP (double duration, TimeUnit unit)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP (double duration)"
+.br
+.ti -1c
+.RI "long \fBgetTimeInEpsilon\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetTimeTruncated\fP (TimeUnit unit)"
+.br
+.ti -1c
+.RI "long \fBgetTimeTruncated\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetTimeRounded\fP (TimeUnit unit)"
+.br
+.ti -1c
+.RI "long \fBgetTimeRounded\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetTimeAsDouble\fP (TimeUnit unit)"
+.br
+.ti -1c
+.RI "double \fBgetTimeAsDouble\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisShorterOrEqual\fP (\fBTimeSpan\fP a, \fBTimeSpan\fP b)"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object obj)"
+.br
+.ti -1c
+.RI "int \fBhashCode\fP ()"
+.br
+.ti -1c
+.RI "int \fBcompareTo\fP (\fBTimeSpan\fP anotherTimeSpan)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP (int digits)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static boolean \fBisLonger\fP (\fBTimeSpan\fP a, \fBTimeSpan\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisLongerOrEqual\fP (\fBTimeSpan\fP a, \fBTimeSpan\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisShorter\fP (\fBTimeSpan\fP a, \fBTimeSpan\fP b)"
+.br
+.ti -1c
+.RI "static boolean \fBisEqual\fP (\fBTimeSpan\fP a, \fBTimeSpan\fP b)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBTimeSpan\fP \fBZERO\fP = new \fBTimeSpan\fP(0, MICROSECONDS)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Represents spans of simulation time\&. Each span of simulation time is represented by an individual object of this class and offers its own methods for arithmetic operations and comparison\&. Ensures that only valid spans of time are generated\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Felix Klueckmann 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.TimeSpan\&.TimeSpan (longduration, TimeUnitunit)"
+Constructs a \fBTimeSpan\fP object with the given time value in the time unit of the given parameter\&. It represents a time span in simulation time\&. Note that trying to create a \fBTimeSpan\fP object with a negative value will stop the simulation immediately\&. The simulation will also stop immediately if the \fBTimeSpan\fP is larger than Long\&.MAX_VALUE-1 (in the unit of epsilon)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIduration\fP long : The time value of this \fBTimeSpan\fP 
+.br
+\fIunit\fP TimeUnit: the TimeUnit 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeSpan\&.TimeSpan (longduration)"
+Constructs a \fBTimeSpan\fP object with the given time value in the time unit of the reference time\&. It represents a time span in simulation time\&. Note that trying to create a \fBTimeSpan\fP object with a negative value will stop the simulation immediately\&. The simulation will also stop immediately if the \fBTimeSpan\fP is larger than Long\&.MAX_VALUE-1 (in the unit of epsilon)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIduration\fP long : The time value of this \fBTimeSpan\fP in the time unit of the reference time\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeSpan\&.TimeSpan (doubleduration, TimeUnitunit)"
+Constructs a \fBTimeSpan\fP object with the given time value in the given timeUnit\&. It represents a time span in simulation time\&. Note that trying to create a \fBTimeSpan\fP object with a negative value will stop the simulation immediately\&. The simulation will also stop immediately if the \fBTimeSpan\fP is larger than Long\&.MAX_VALUE-1 (in the unit of epsilon)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIduration\fP double : The time value of this \fBTimeSpan\fP in the time unit of the reference time\&. 
+.br
+\fIunit\fP TimeUnit : the time unit 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.TimeSpan\&.TimeSpan (doubleduration)"
+Constructs a \fBTimeSpan\fP object with the given time value in the time unit of the reference time\&. It represents a time span in simulation time\&. Note that trying to create a \fBTimeSpan\fP object with a negative value will stop the simulation immediately\&.The simulation will also stop immediately if the \fBTimeSpan\fP is larger than Long\&.MAX_VALUE-1 (in the unit of epsilon)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIduration\fP double : The time value of this \fBTimeSpan\fP in the time unit of the reference time\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int desmoj\&.core\&.simulator\&.TimeSpan\&.compareTo (\fBTimeSpan\fPanotherTimeSpan)"
+Compares the given \fBTimeSpan\fP to this \fBTimeSpan\fP\&. This method implements the Comparable<TimeSpan> Interface
+.PP
+\fBParameters:\fP
+.RS 4
+\fIanotherTimeSpan\fP The \fBTimeSpan\fP to be compared to this \fBTimeSpan\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int: Returns a negative integer, zero, or a positive integer as this \fBTimeSpan\fP is shorter than, equal to, or longer than the given parameter\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.TimeSpan\&.equals (Objectobj)"
+Indicates whether this \fBTimeSpan\fP is equal to the given parameter\&. Returns true if the obj argument is a \fBTimeSpan\fP and is of equal length as this \fBTimeSpan\fP; false otherwise\&. This method overrides java\&.lang\&.Object\&.equals()
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the reference object with which to compare\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if the obj argument is a \fBTimeSpan\fP and is of equal length as this \fBTimeSpan\fP; false otherwise\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.TimeSpan\&.getTimeAsDouble (TimeUnitunit)"
+Returns the value of this \fBTimeSpan\fP object as a double type in the time unit given as a parameter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double: the time value of the \fBTimeSpan\fP object as a double type in the time unit given as a parameter 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.TimeSpan\&.getTimeAsDouble ()"
+Returns the value of this \fBTimeSpan\fP object as a double type in the time unit of the reference time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double: the time value of the \fBTimeSpan\fP object as a double type in the time unit given as a parameter 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeSpan\&.getTimeInEpsilon ()"
+Returns the value of the \fBTimeSpan\fP object as a long type in the time unit of epsilon
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeSpan\fP object as a long type in the time unit of epsilon 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeSpan\&.getTimeRounded (TimeUnitunit)"
+Returns the value of this \fBTimeSpan\fP object as a long type in the time unit given as a parameter\&. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIunit\fP : the TimeUnit
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeSpan\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeSpan\&.getTimeRounded ()"
+Returns the value of this \fBTimeSpan\fP object as a long type in the time unit of the reference time\&. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeSpan\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeSpan\&.getTimeTruncated (TimeUnitunit)"
+Returns the value of this \fBTimeSpan\fP object as a long type in the time unit given as a parameter\&. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIunit\fP : the TimeUnit
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeSpan\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.TimeSpan\&.getTimeTruncated ()"
+Returns the value of this \fBTimeSpan\fP object as a long type in the time unit of the reference time\&. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long: the time value of the \fBTimeSpan\fP object as a long type in the time unit given as a parameter or Long\&.MIN_VALUE if conversion would negatively overflow, or Long\&.MAX_VALUE if it would positively overflow\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.TimeSpan\&.hashCode ()"
+Returns a hash code value for the object\&. This methode overides java\&.lang\&.Object\&.hashCode()\&.The method is supported for the benefit of hashtables such as those provided by java\&.util\&.Hashtable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int: a hash code value for this \fBTimeSpan\fP\&. 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeSpan\&.isEqual (\fBTimeSpan\fPa, \fBTimeSpan\fPb)\fC [static]\fP"
+Indicates whether \fBTimeSpan\fP a is equal to \fBTimeSpan\fP b, i\&.e\&. they are of equal length\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeSpan\fP: first comparand 
+.br
+\fIb\fP \fBTimeSpan\fP: second comparand 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if a is equal to b; false otherwise\&. 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeSpan\&.isLonger (\fBTimeSpan\fPa, \fBTimeSpan\fPb)\fC [static]\fP"
+Checks if the first of two spans of simulation time is longer than the second\&. Note that this is a static method available through calling the class \fC\fBTimeSpan\fP\fP i\&.e\&. \fCTimeSpan\&.isLonger(a,b)\fP where a and b are valid \fBTimeSpan\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is longer than b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeSpan\fP : first comparand 
+.br
+\fIb\fP \fBTimeSpan\fP : second comparand 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeSpan\&.isLongerOrEqual (\fBTimeSpan\fPa, \fBTimeSpan\fPb)\fC [static]\fP"
+Checks if the first of two spans of simulation time is longer than the second or equal to the second\&. Note that this is a static method available through calling the class \fC\fBTimeSpan\fP\fP i\&.e\&. \fCTimeSpan\&.isLonger(a,b)\fP where a and b are valid \fBTimeSpan\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is longer than b or equal to b\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeSpan\fP : first comparand 
+.br
+\fIb\fP \fBTimeSpan\fP : second comparand 
+.RE
+.PP
+
+.SS "static boolean desmoj\&.core\&.simulator\&.TimeSpan\&.isShorter (\fBTimeSpan\fPa, \fBTimeSpan\fPb)\fC [static]\fP"
+Checks if the first of two spans of simulation time is shorter than the second\&. Note that this is a static method available through calling the class \fC\fBTimeSpan\fP\fP i\&.e\&. \fCTimeSpan\&.isShorter(a,b)\fP where a and b are valid \fBTimeSpan\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is shorter than b 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeSpan\fP : first comparand 
+.br
+\fIb\fP \fBTimeSpan\fP : second comparand 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.TimeSpan\&.isShorterOrEqual (\fBTimeSpan\fPa, \fBTimeSpan\fPb)"
+Checks if the first of two spans of simulation time is shorter than the second or equal to the second\&. Note that this is a static method available through calling the class \fC\fBTimeSpan\fP\fP i\&.e\&. \fCTimeSpan\&.isShorterOrEqual(a,b)\fP where a and b are valid \fBTimeSpan\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : True if a is shorter than b or equal to b\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP \fBTimeSpan\fP : first comparand 
+.br
+\fIb\fP \fBTimeSpan\fP : second comparand 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.TimeSpan\&.toString ()"
+Returns the String Representation of this \fBTimeSpan\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.lang\&.Object::toString() 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.TimeSpan\&.toString (intdigits)"
+Returns the String Representation of this \fBTimeSpan\fP according to the \fBTimeFormatter\fP, truncating digits after the decimal point if necessary\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdigits\fP Maximum number of digits after decimal point
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.lang\&.Object::toString() 
+.PP
+\fBdesmoj\&.core\&.simulator\&.TimeFormatter\fP 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final \fBTimeSpan\fP desmoj\&.core\&.simulator\&.TimeSpan\&.ZERO = new \fBTimeSpan\fP(0, MICROSECONDS)\fC [static]\fP"
+ZERO defines the value for scheduling an object immediately, even replacing the current \fBSimProcess\fP\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

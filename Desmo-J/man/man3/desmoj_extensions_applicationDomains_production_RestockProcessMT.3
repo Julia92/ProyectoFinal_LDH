@@ -1,0 +1,267 @@
+.TH "desmoj.extensions.applicationDomains.production.RestockProcessMT" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.production.RestockProcessMT \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRestockProcessMT\fP (\fBModel\fP owner, String name, long mil, \fBTimeSpan\fP t, \fBStock\fP client, NumericalDist<?> lt, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRestockProcessMT\fP (\fBModel\fP owner, String name, long mil, \fBSimTime\fP t, \fBStock\fP client, NumericalDist<?> lt, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRestockProcessMT\fP (\fBModel\fP owner, String name, long mil, \fBTimeSpan\fP t, \fBStock\fP client, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBRestockProcessMT\fP (\fBModel\fP owner, String name, long mil, \fBSimTime\fP t, \fBStock\fP client, boolean showInTrace)"
+.br
+.ti -1c
+.RI "long \fBgetActualOrderQuantity\fP ()"
+.br
+.ti -1c
+.RI "NumericalDist<?> \fBgetLeadTime\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMaxInventoryLevel\fP ()"
+.br
+.ti -1c
+.RI "\fBSimTime\fP \fBgetReviewPeriod\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetReviewSpan\fP ()"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetLeadTime\fP (desmoj\&.core\&.dist\&.NumericalDist< Double > newLeadTime)"
+.br
+.ti -1c
+.RI "void \fBsetMaxInventoryLevel\fP (long newMaxInventoryLevel)"
+.br
+.ti -1c
+.RI "void \fBsetReviewSpan\fP (\fBTimeSpan\fP newReviewSpan)"
+.br
+.ti -1c
+.RI "void \fBsetReviewPeriod\fP (\fBSimTime\fP newReviewPeriod)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBRestockProcessMT\fP is a process restocking a \fCStock\fP up to a maximum (M) inventory level on a periodic review bases (fixed Time span = T)\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.RestockProcessMT (\fBModel\fPowner, Stringname, longmil, \fBTimeSpan\fPt, \fBStock\fPclient, NumericalDist<?>lt, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessMT\fP\fP which restocks a client \fCStock\fP after a fixed time period up to a maximum inventory level\&. The lead time (time gap between placement and receipt of an order) will be given as a real random number distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessMT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessMT\fP\fP 
+.br
+\fImil\fP long : The maximum inventory level the Stock will be filled up to with every order\&. 
+.br
+\fIt\fP TimeSpan : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIlt\fP NumericalDist<?> : The lead time random number distribution to determine the time between placement and receipt of an order\&. If \fCnull\fP the lead time is zero\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessMT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessMT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessMT\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.RestockProcessMT (\fBModel\fPowner, Stringname, longmil, \fBSimTime\fPt, \fBStock\fPclient, NumericalDist<?>lt, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessMT\fP\fP which restocks a client \fCStock\fP after a fixed time period up to a maximum inventory level\&. The lead time (time gap between placement and receipt of an order) will be given as a real random number distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessMT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessMT\fP\fP 
+.br
+\fImil\fP long : The maximum inventory level the Stock will be filled up to with every order\&. 
+.br
+\fIt\fP SimTime : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIlt\fP NumericalDist<?> : The lead time random number distribution to determine the time between placement and receipt of an order\&. If \fCnull\fP the lead time is zero\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessMT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessMT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessMT\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Type of t (SimTime) to be replaced with TimeInstant\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.RestockProcessMT (\fBModel\fPowner, Stringname, longmil, \fBTimeSpan\fPt, \fBStock\fPclient, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessMT\fP\fP which restocks a client \fCStock\fP after a fixed time period up to a maximum inventory level\&. The lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessMT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessMT\fP\fP 
+.br
+\fImil\fP long : The maximum inventory level the Stock will be filled up to with every order\&. 
+.br
+\fIt\fP TimeSpan : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessMT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessMT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessMT\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.RestockProcessMT (\fBModel\fPowner, Stringname, longmil, \fBSimTime\fPt, \fBStock\fPclient, booleanshowInTrace)"
+Constructs a \fC\fBRestockProcessMT\fP\fP which restocks a client \fCStock\fP after a fixed time period up to a maximum inventory level\&. The lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fC\fBRestockProcessMT\fP\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of the \fC\fBRestockProcessMT\fP\fP 
+.br
+\fImil\fP long : The maximum inventory level the Stock will be filled up to with every order\&. 
+.br
+\fIt\fP SimTime : The time period between the inventory reviews (in this case also the placements of the orders)\&. 
+.br
+\fIclient\fP Stock : The \fCStock\fP which will replenished\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the \fC\fBRestockProcessMT\fP\fP in trace-files\&. Set it to \fCtrue\fP if \fBRestockProcessMT\fP should show up in trace\&. Set it to \fCfalse\fP if \fBRestockProcessMT\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Type of t (SimTime) to be replaced with TimeInstant\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.getActualOrderQuantity ()"
+Returns the quantity (number of units) to be stored in the Stock\&. Changes every time a new order is placed!
+.PP
+\fBReturns:\fP
+.RS 4
+long : The Stock will be replenished with this number of units\&. 
+.RE
+.PP
+
+.SS "NumericalDist<?> desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.getLeadTime ()"
+Returns the random number distribution for the lead time (time between placement and receipt of an order)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.dist\&.NumericalDist : The random number distribution for the lead time (time between placement and receipt of an order)\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.getMaxInventoryLevel ()"
+Returns the maximum inventory level to which the Stock will be refilled in every cycle\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum inventory level to which the Stock will be refilled in every cycle\&. 
+.RE
+.PP
+
+.SS "\fBSimTime\fP desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.getReviewPeriod ()"
+Returns the time (as a SimTime object) between every replenishment of the Stock\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimTime : The time (as a SimTime object) between every replenishment of the Stock\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBgetReviewSpan()\fP\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.getReviewSpan ()"
+Returns the time span between every replenishment of the Stock\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The time (as a SimTime object) between every replenishment of the Stock\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.lifeCycle ()\fC [virtual]\fP"
+The \fC\fBRestockProcessMT\fP\fP replenishes the associated \fCStock\fP up to the maximum (M) inventory level every period (T)\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.setLeadTime (desmoj\&.core\&.dist\&.NumericalDist< Double >newLeadTime)"
+Set the lead time to a new real random number distribution\&. If set to \fCnull\fP the lead time is zero\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewLeadTime\fP desmoj\&.dist\&.NumericalDist<Double> : The new real random number distribution determining the lead time\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.setMaxInventoryLevel (longnewMaxInventoryLevel)"
+Sets the maximum inventory level to a new value\&. Make sure it is greater than zero and less than the capacity of the Stock\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewMaxInventoryLevel\fP long : The new maximum inventory level\&. Make sure it is greater than zero and less than the capacity of the Stock\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.setReviewPeriod (\fBSimTime\fPnewReviewPeriod)"
+Sets the review period to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewReviewPeriod\fP desmoj\&.SimTime : The new value for the review period\&. \fCnull\fP will be rejected\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBsetReviewSpan(TimeSpan newReviewSpan)\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.setReviewSpan (\fBTimeSpan\fPnewReviewSpan)"
+Sets the review period to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewReviewPeriod\fP desmoj\&.SimTime : The new value for the review period\&. \fCnull\fP will be rejected\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

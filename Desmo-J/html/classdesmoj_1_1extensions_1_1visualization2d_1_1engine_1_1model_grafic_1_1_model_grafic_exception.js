@@ -1,0 +1,4 @@
+var classdesmoj_1_1extensions_1_1visualization2d_1_1engine_1_1model_grafic_1_1_model_grafic_exception =
+[
+    [ "ModelGraficException", "classdesmoj_1_1extensions_1_1visualization2d_1_1engine_1_1model_grafic_1_1_model_grafic_exception.html#aa71fd836616da5226bce4be30cc52fcd", null ]
+];

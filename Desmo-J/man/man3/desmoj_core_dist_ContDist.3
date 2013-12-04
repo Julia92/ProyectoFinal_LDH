@@ -1,0 +1,101 @@
+.TH "desmoj.core.dist.ContDist" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDist \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits NumericalDist< Double >\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.ContDistAggregate\fP, \fBdesmoj\&.core\&.dist\&.ContDistBeta\fP, \fBdesmoj\&.core\&.dist\&.ContDistConstant\fP, \fBdesmoj\&.core\&.dist\&.ContDistCustom\fP, \fBdesmoj\&.core\&.dist\&.ContDistEmpirical\fP, \fBdesmoj\&.core\&.dist\&.ContDistExponential\fP, \fBdesmoj\&.core\&.dist\&.ContDistGamma\fP, \fBdesmoj\&.core\&.dist\&.ContDistNormal\fP, \fBdesmoj\&.core\&.dist\&.ContDistTriangular\fP, and \fBdesmoj\&.core\&.dist\&.ContDistUniform\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDist\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsampleTimeSpan\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBsampleTimeSpan\fP (TimeUnit unit)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Superclass for all distributions returning (near-)continuous samples of type \fCDouble\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler, Johannes Goebel 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDist\&.ContDist (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructs a distribution returning continuously distributed double samples\&. Note that the method \fCDouble sample()\fP returning the samples (inherited from \fCNumericalDist<N>\fP) has to be implemented in subclasses\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIshowInReport\fP boolean : Flag to show distribution in report 
+.br
+\fIshowInTrace\fP boolean : Flag to show distribution in trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBTimeSpan\fP desmoj\&.core\&.dist\&.ContDist\&.sampleTimeSpan ()"
+Convenience method to sample a period of random length by creating a \fCTimeSpan\fP whose length is determined by sampling this distribution (time unit is the experiment's reference units), thus replacing the pattern \fCnew TimeSpan(distribution\&.sample())\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The TimeSpan sampled from this distribution 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.dist\&.ContDist\&.sampleTimeSpan (TimeUnitunit)"
+Convenience method to sample a period of random length by creating a \fCTimeSpan\fP whose length is determined by sampling this distribution (time unit given explicitly as parameter), thus replacing the pattern \fCnew TimeSpan(distribution\&.sample(), unit)\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIunit\fP TimeUnit: the TimeUnit to assign to the sampled value
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TimeSpan : The TimeSpan sampled from this distribution 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

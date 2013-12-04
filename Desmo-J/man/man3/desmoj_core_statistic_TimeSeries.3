@@ -1,0 +1,381 @@
+.TH "desmoj.core.statistic.TimeSeries" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.TimeSeries \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.statistic\&.TimeSeriesAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, String fileName, \fBTimeInstant\fP start, \fBTimeInstant\fP end, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, String fileName, \fBSimTime\fP start, \fBSimTime\fP end, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, String fileName, \fBValueSupplier\fP valSup, \fBTimeInstant\fP start, \fBTimeInstant\fP end, boolean automatic, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, String fileName, \fBValueSupplier\fP valSup, \fBSimTime\fP start, \fBSimTime\fP end, boolean automatic, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, \fBTimeInstant\fP start, \fBTimeInstant\fP end, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, \fBSimTime\fP start, \fBSimTime\fP end, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, \fBTimeInstant\fP start, \fBTimeInstant\fP end, boolean automatic, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTimeSeries\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, \fBSimTime\fP start, \fBSimTime\fP end, boolean automatic, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (\fBTimeSpan\fP t)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double val)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.ti -1c
+.RI "void \fBconnectToPlotter\fP (java\&.util\&.Observer plotter)"
+.br
+.ti -1c
+.RI "void \fBstartRecordingValues\fP ()"
+.br
+.ti -1c
+.RI "List< Double > \fBgetDataValues\fP ()"
+.br
+.ti -1c
+.RI "List< Double > \fBgetTimeValues\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBTimeSeries\fP\fP class is recording data from a \fC\fBValueSupplier\fP\fP object and saving it to a file, making data available to a TimeSeriesPlotter or doing both\&. Either every time the \fC\fBValueSupplier\fP\fP object has changed or at every tick of the SimClock\&. See the automatic parameter in the constructor\&. If writing to a file is claimed, the first line of the file contains the name of the file\&. Then each line of the file contains a SimTime value and the value of the \fC\fBValueSupplier\fP\fP object at that point of time in the simulation, separated by a ';'\&. 
+.br
+ One can choose when the recording of the values will start and stop\&. See the constructor for further information\&. 
+.br
+ Reseting the \fC\fBTimeSeries\fP\fP object will delete the contents of the file\&. 
+.br
+ This \fC\fBTimeSeries\fP\fP object will be the observer of the \fC\fBValueSupplier\fP\fP object given in the constructor\&. When constructing a new \fC\fBTimeSeries\fP\fP object it will be added to the list of observers of the \fC\fBValueSupplier\fP\fP\&. That means this \fC\fBTimeSeries\fP\fP object will be updated automatically every time the observed \fC\fBValueSupplier\fP\fP has changed and has called its \fCnotifyStatistics()\fP method\&.
+.PP
+As separator between different values (e\&.g\&. SimTime and value of the Valuesupplier) ';' is used\&. See also FileOutput\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.FileOutput\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+modified by Philip Joschko 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, StringfileName, \fBTimeInstant\fPstart, \fBTimeInstant\fPend, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that has NO connection to a \fC\fBValueSupplier\fP\fP but will write data to the given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIfileName\fP java\&.lang\&.String : The name of the file the values will be saved to\&. Must comply to the naming rules of the underlying Operating System\&. This name will be saved in the first line of the file\&. 
+.br
+\fIstart\fP TimeInstant : The instant at which this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP TimeInstant : The instant at which this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, StringfileName, \fBSimTime\fPstart, \fBSimTime\fPend, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that has NO connection to a \fC\fBValueSupplier\fP\fP but will write data to the given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIfileName\fP java\&.lang\&.String : The name of the file the values will be saved to\&. Must comply to the naming rules of the underlying Operating System\&. This name will be saved in the first line of the file\&. 
+.br
+\fIstart\fP SimTime : The point of SimTime this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP SimTime : The point of SimTime this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Types of start and end (SimTime) to be replaced with TimeInstant\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, StringfileName, \fBValueSupplier\fPvalSup, \fBTimeInstant\fPstart, \fBTimeInstant\fPend, booleanautomatic, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that will observe a \fC\fBValueSupplier\fP\fP and write data to the given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIfileName\fP java\&.lang\&.String : The name of the file the values will be saved to\&. Must comply to the naming rules of the underlying Operating System\&. This name will be saved in the first line of the file\&. 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The values from this \fBValueSupplier\fP will be recorded and saved in the file\&. The given \fBValueSupplier\fP will be observed by this \fBTimeSeries\fP object\&. 
+.br
+\fIstart\fP TimeInstant : The instant at which this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP TimeInstant : The instant at which this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIautomatic\fP boolean : Shall the values be recorded automatically at every tick of the SimClock? 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, StringfileName, \fBValueSupplier\fPvalSup, \fBSimTime\fPstart, \fBSimTime\fPend, booleanautomatic, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that will observe a \fC\fBValueSupplier\fP\fP and write data to the given file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIfileName\fP java\&.lang\&.String : The name of the file the values will be saved to\&. Must comply to the naming rules of the underlying Operating System\&. This name will be saved in the first line of the file\&. 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The values from this \fBValueSupplier\fP will be recorded and saved in the file\&. The given \fBValueSupplier\fP will be observed by this \fBTimeSeries\fP object\&. 
+.br
+\fIstart\fP SimTime : The point of SimTime this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP SimTime : The point of SimTime this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIautomatic\fP boolean : Shall the values be recorded automatically at every tick of the SimClock? 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Types of start and end (SimTime) to be replaced with TimeInstant\&.
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, \fBTimeInstant\fPstart, \fBTimeInstant\fPend, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that has NO connection to a \fC\fBValueSupplier\fP\fP and will NOT write data into a file\&. If you will not connect this object to a TimeSeriesPlotter after using this constructor, it will be useless\&. Choose another constructor for writing data to file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIstart\fP TimeInstant : The instant at which this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP TimeInstant : The instant at which this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, \fBSimTime\fPstart, \fBSimTime\fPend, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that has NO connection to a \fC\fBValueSupplier\fP\fP and will NOT write data into a file\&. If you will not connect this object to a TimeSeriesPlotter after using this constructor, it will be useless\&. Choose another constructor for writing data to file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIstart\fP SimTime : The point of SimTime this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP SimTime : The point of SimTime this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Types of start and end (SimTime) to be replaced with TimeInstant\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, \fBTimeInstant\fPstart, \fBTimeInstant\fPend, booleanautomatic, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that will observe a \fC\fBValueSupplier\fP\fP but will NOT write data into a file\&. If you will not connect this object to a TimeSeriesPlotter after using this constructor, it will be useless! Choose another constructor for writing data to file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The values from this \fBValueSupplier\fP will be recorded and saved in the file\&. The given \fBValueSupplier\fP will be observed by this \fBTimeSeries\fP object\&. 
+.br
+\fIstart\fP TimeInstant : The point of SimTime this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP TimeInstant : The point of SimTime this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIautomatic\fP boolean : Shall the values be recorded automatically at every tick of the SimClock? 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, \fBSimTime\fPstart, \fBSimTime\fPend, booleanautomatic, booleanshowInTrace)"
+Constructor for a \fBTimeSeries\fP object that will observe a \fC\fBValueSupplier\fP\fP but will NOT write data into a file\&. If you will not connect this object to a TimeSeriesPlotter after using this constructor, it will be useless! Choose another constructor for writing data to file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTimeSeries\fP object is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTimeSeries\fP object 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The values from this \fBValueSupplier\fP will be recorded and saved in the file\&. The given \fBValueSupplier\fP will be observed by this \fBTimeSeries\fP object\&. 
+.br
+\fIstart\fP SimTime : The point of SimTime this \fBTimeSeries\fP will start to save the values to the file\&. 
+.br
+\fIend\fP SimTime : The point of SimTime this \fBTimeSeries\fP will stop to save the values to the file\&. Choose an end time that lies before the start time to record the values for all the time\&. 
+.br
+\fIautomatic\fP boolean : Shall the values be recorded automatically at every tick of the SimClock? 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBTimeSeries\fP in trace files\&. Set it to \fCtrue\fP if \fBTimeSeries\fP should show up in trace\&. Set it to \fCfalse\fP if \fBTimeSeries\fP should not be shown in trace\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Types of start and end (SimTime) to be replaced with TimeInstant\&.
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.statistic\&.TimeSeries\&.connectToPlotter (java\&.util\&.Observerplotter)"
+Connects this statistic object with its GraphicalObserver\&. Advises this object to keep the values in the memory, because the TimeSeriesPlotter requires this\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIplotter\fP The TimeSeriesPlotter which will display this \fBTimeSeries\fP object\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.TimeSeries\&.createReporter ()"
+Returns a null pointer and no Reporter! All the data (values) will be saved in a file or displayed in the GraphicalObserver, so no extra report is needed\&. 
+.br
+ Overrides the method: \fBcreateReporter()\fP from \fBdesmoj\&.core\&.simulator\&.Reportable\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter :\fCnull\fP will be returned 
+.RE
+.PP
+
+.SS "List<Double> desmoj\&.core\&.statistic\&.TimeSeries\&.getDataValues ()"
+Gets the list of data values\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The list with all the data values\&. 
+.RE
+.PP
+
+.SS "List<Double> desmoj\&.core\&.statistic\&.TimeSeries\&.getTimeValues ()"
+Gets the list of time values\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The list of all the time values\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.TimeSeries\&.getValue ()"
+Returns the actual value of the \fC\fBValueSupplier\fP\fP which values are recorded from this \fBTimeSeries\fP object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The actual value of the observed \fC\fBValueSupplier\fP\fP object\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.TimeSeries\&.reset ()"
+Resets this \fBTimeSeries\fP object by deleting the contents of the file to which all the data is saved to\&. The name of the file will remain the same\&. This is done by closing and opening the existing file\&. 
+.SS "void desmoj\&.core\&.statistic\&.TimeSeries\&.startRecordingValues ()"
+Lets this \fBTimeSeries\fP record all values to memory, even if no TimeSeriesPlotter is present\&. Useful for connecting the plotter later in an experiment evaluation environment, e\&.g\&. after experiment conduction\&. 
+.SS "void desmoj\&.core\&.statistic\&.TimeSeries\&.update (\fBTimeSpan\fPt)\fC [virtual]\fP"
+Updates this data collector object with a specific \fCTimeSpan\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP TimeSpan : The time span to update this data collector\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBdesmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\fP\&.
+.SS "void desmoj\&.core\&.statistic\&.TimeSeries\&.update ()"
+Updates this \fC\fBTimeSeries\fP\fP object by fetching the actual value of the \fC\fBValueSupplier\fP\fP and processing it\&. The \fC\fBValueSupplier\fP\fP is passed in the constructor of this \fC\fBTimeSeries\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.TimeSeries\&.update (doubleval)"
+Updates this \fC\fBTimeSeries\fP\fP object with the double value given as parameter\&. In some cases it might be more convenient to pass the value this \fC\fBValueStatistics\fP\fP will be updated with directly within the \fC\fBupdate(double val)\fP\fP method instead of going via the \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIval\fP double : The value with which this \fC\fBTimeSeries\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.TimeSeries\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBTimeSeries\fP\fP is updated\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

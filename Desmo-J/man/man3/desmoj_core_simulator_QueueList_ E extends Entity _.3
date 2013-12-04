@@ -1,0 +1,266 @@
+.TH "desmoj.core.simulator.QueueList< E extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.QueueList< E extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits PropertyChangeListener, and Iterable< E >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract boolean \fBcontains\fP (E e)"
+.br
+.ti -1c
+.RI "abstract E \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "abstract E \fBget\fP (int index)"
+.br
+.ti -1c
+.RI "abstract int \fBget\fP (E element)"
+.br
+.ti -1c
+.RI "abstract String \fBgetAbbreviation\fP ()"
+.br
+.ti -1c
+.RI "abstract void \fBinsert\fP (E e)"
+.br
+.ti -1c
+.RI "abstract boolean \fBisEmpty\fP ()"
+.br
+.ti -1c
+.RI "abstract E \fBlast\fP ()"
+.br
+.ti -1c
+.RI "abstract boolean \fBremove\fP (E e)"
+.br
+.ti -1c
+.RI "abstract boolean \fBremove\fP (int index)"
+.br
+.ti -1c
+.RI "void \fBsetQueueBased\fP (\fBQueueBased\fP queueBase)"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.ti -1c
+.RI "abstract E \fBsucc\fP (E e)"
+.br
+.ti -1c
+.RI "abstract String \fBtoString\fP ()"
+.br
+.ti -1c
+.RI "Iterator< E > \fBiterator\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBQueueBased\fP \fBclientQ\fP"
+.br
+.ti -1c
+.RI "java\&.util\&.HashMap< E, \fBTimeInstant\fP > \fBtimemap\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Is the abstract superclass for all the classes implementing different queueing strategies for a waiting-queue\&. It provides all the basic methods for inserting objects in a queue, retrieving objects from a queue and getting basic informations about the queue\&. It is used in many kinds of queue implementations where collective functionalities are implemented by \fCQueueListStandard\fP and are specified e\&.g\&. in \fCQueueListFifo\fP or \fCQueueListLifo\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP 
+.PP
+Queue 
+.PP
+ProcessQueue 
+.PP
+QueueListFifo 
+.PP
+QueueListLifo
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based upon ideas from Tim Lechler
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract boolean desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.contains (Ee)\fC [pure virtual]\fP"
+Should return \fCtrue\fP if the given \fC\fBEntity\fP\fP is contained in the queue; \fCfalse\fP otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Should be \fCtrue\fP if the given \fC\fBEntity\fP\fP is contained in the queue; \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fC\fBEntity\fP\fP we are looking for in the queue\&. 
+.RE
+.PP
+
+.SS "abstract E desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.first ()\fC [pure virtual]\fP"
+Should return the first entity in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The first entity in the queue 
+.RE
+.PP
+
+.SS "abstract E desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.get (intindex)\fC [pure virtual]\fP"
+Returns the \fC\fBEntity\fP\fP queued at the named position\&. The first position is 0, the last one \fBsize()\fP-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The \fC\fBEntity\fP\fP at the position of \fCint\fP or \fCnull\fP if no such position exists\&. 
+.RE
+.PP
+
+.SS "abstract int desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.get (Eelement)\fC [pure virtual]\fP"
+Returns the position of the named \fC\fBEntity\fP\fP\&. The first position is 0, the last one \fBsize()\fP-1\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: The position of the \fC\fBEntity\fP\fP or \fC-1\fP if no such exists\&. 
+.RE
+.PP
+
+.SS "abstract String desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.getAbbreviation ()\fC [pure virtual]\fP"
+Should return an abbreviation as a String to identify the sort of queueing discipline (like FIFO or LIFO or \&.\&.\&.)\&. Is used to display the queueing discipline in the report of the \fBQueueBased\fP objects\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : An abbreviation to identify the sort of queueing discipline (like FIFO or LIFO or \&.\&.\&.) 
+.RE
+.PP
+
+.SS "abstract void desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.insert (Ee)\fC [pure virtual]\fP"
+Should add a new \fBEntity\fP to the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fBEntity\fP which will be added to the queue 
+.RE
+.PP
+
+.SS "abstract boolean desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.isEmpty ()\fC [pure virtual]\fP"
+Should return \fCtrue\fP if no entities are stored in the queue at the moment, \fCfalse\fP otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if no entities are stored in the queue at the moment, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "Iterator<E> desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.iterator ()"
+Returns an iterator over the entities enqueued\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.Iterator<E> : An iterator over the entities enqueued\&. 
+.RE
+.PP
+
+.SS "abstract E desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.last ()\fC [pure virtual]\fP"
+Should return the last \fC\fBEntity\fP\fP in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The last \fC\fBEntity\fP\fP in the queue\&. 
+.RE
+.PP
+
+.SS "abstract boolean desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.remove (Ee)\fC [pure virtual]\fP"
+Should remove the given \fC\fBEntity\fP\fP 'e' from the queue\&. If this is done successfully \fCtrue\fP is returned, \fCfalse\fP otherwise\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the given \fC\fBEntity\fP\fP is removed successfully, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The \fC\fBEntity\fP\fP which is to be removed from the queue\&. 
+.RE
+.PP
+
+.SS "abstract boolean desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.remove (intindex)\fC [pure virtual]\fP"
+Removes the \fC\fBEntity\fP\fP queued at the named position\&.
+.IP "\(bu" 2
+The first position is 0, the last one \fBsize()\fP-1\&.
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+: The method returns \fCtrue\fP as the \fC\fBEntity\fP\fP exists or \fCfalse>\fP if otherwise\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.setQueueBased (\fBQueueBased\fPqueueBase)"
+Sets the client queue for which the entities are stored\&. Is needed, because this can not be done in the no-arg constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIqueueBase\fP desmoj\&.QueueBased : The \fBQueueBased\fP using this queueing system\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.size ()"
+Returns the actual size of the QueueList\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: The method returns the size as an \fCint\fP\&. The value is 0 if no \fBEntity\fP is in line\&. 
+.RE
+.PP
+
+.SS "abstract E desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.succ (Ee)\fC [pure virtual]\fP"
+Should return the successor of the given \fC\fBEntity\fP\fP 'e' in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The \fC\fBEntity\fP\fP after the given \fC\fBEntity\fP\fP 'e' in the queue\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP E : The successor of this \fC\fBEntity\fP\fP will be returned\&. 
+.RE
+.PP
+
+.SS "abstract String desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.toString ()\fC [pure virtual]\fP"
+Should return a string representation of the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The string representation of the queue\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBQueueBased\fP desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.clientQ\fC [protected]\fP"
+The \fBQueueBased\fP object this queuelist serves as a container for\&. 
+.SS "java\&.util\&.HashMap<E,\fBTimeInstant\fP> desmoj\&.core\&.simulator\&.QueueList< E extends \fBEntity\fP >\&.timemap\fC [protected]\fP"
+Uses the java\&.util\&.WeakHashMap functionalities to link entities with their entry time\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

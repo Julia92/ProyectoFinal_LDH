@@ -1,0 +1,730 @@
+\section{desmoj.\-core.\-statistic.\-Histogram Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_histogram}\index{desmoj.\-core.\-statistic.\-Histogram@{desmoj.\-core.\-statistic.\-Histogram}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Histogram\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Histogram\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Histogram} ({\bf Model} owner\-Model, String name, double lower\-End, double upper\-End, int cells, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Histogram} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, double lower\-End, double upper\-End, int cells, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Histogram} ({\bf Model} owner\-Model, String name, double[$\,$] range, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Histogram} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, double[$\,$] range, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+boolean {\bf is\-Condensed} ()
+\item 
+void {\bf set\-Condensed} (boolean condensed)
+\item 
+void {\bf change\-Parameters} (double low, double up, int cel)
+\item 
+void {\bf change\-Parameters} (double[$\,$] range)
+\item 
+boolean {\bf chi\-Square\-Test} (long[$\,$] values, double confidence)
+\item 
+boolean {\bf chi\-Square\-Test} (long[$\,$] values, int deg\-Freedom, double confidence)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+int {\bf get\-Cells} ()
+\item 
+double {\bf get\-Cell\-Width} ()
+\item 
+double {\bf get\-Mean\-Width} ()
+\item 
+double {\bf get\-Lower\-Limit} (int cell)
+\item 
+int {\bf get\-Most\-Frequented\-Cell} ()
+\item 
+int[$\,$] {\bf get\-Most\-Frequented\-Cells} ()
+\item 
+long {\bf get\-Observations\-In\-Cell} (int cell)
+\item 
+double {\bf get\-Upper\-Limit} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf update} ()
+\item 
+void {\bf update} (double val)
+\item 
+void {\bf update} (Observable o, Object arg)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf check\-Param\-And\-Init\-Range} (double lower\-Limit, double upper\-Limit, int cells)
+\item 
+void {\bf check\-Param\-And\-Init\-Range} (double[$\,$] range)
+\item 
+void {\bf init\-Table} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} class is providing a statistic analysis about values. An interval is divided into sections with an under-\/ and an overflow section. When a value is updated it will be decided to which section it belongs to and the counter for that section will be updated. In the end the report will show how many values belong to which section. \par
+
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998 
+
+edited by Lorna Slawski (changes in implementation and added possibility of non-\/equidistant sections as well as the Chi-\/squared test)
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!Histogram@{Histogram}}
+\index{Histogram@{Histogram}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{Histogram}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram.\-Histogram (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{double}]{lower\-End, }
+\item[{double}]{upper\-End, }
+\item[{int}]{cells, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_ae30b3593e5c58b9720c1b8d2346cd252}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with equidistant interval cells that will N\-O\-T be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em lower\-End} & double \-: The lower end of the interval. \\
+\hline
+{\em upper\-End} & double \-: The upper end of the interval. \\
+\hline
+{\em cells} & int \-: The number of cells (sections) the given interval will be divided into. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_ae30b3593e5c58b9720c1b8d2346cd252_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!Histogram@{Histogram}}
+\index{Histogram@{Histogram}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{Histogram}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram.\-Histogram (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{double}]{lower\-End, }
+\item[{double}]{upper\-End, }
+\item[{int}]{cells, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_abbaf67af1d83827e448a727f9116d34f}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with equidistant interval cells that will be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the value for this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em lower\-End} & double \-: The lower end of the interval. \\
+\hline
+{\em upper\-End} & double \-: The upper end of the interval. \\
+\hline
+{\em cells} & int \-: The number of cells (sections) the given interval will be divided into. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_abbaf67af1d83827e448a727f9116d34f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!Histogram@{Histogram}}
+\index{Histogram@{Histogram}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{Histogram}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram.\-Histogram (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{double[$\,$]}]{range, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_ad199d5e1c00dd52772f70980147bebbb}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with user-\/defined interval cells that will N\-O\-T be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em range} & double[] \-: The interval with the lower limit of each cell and the upper limit of the interval as the final value. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_ad199d5e1c00dd52772f70980147bebbb_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!Histogram@{Histogram}}
+\index{Histogram@{Histogram}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{Histogram}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Histogram.\-Histogram (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{double[$\,$]}]{range, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_af2be75a2249ae377a1834e04da285d31}
+Constructor for a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object with user-\/defined interval cells that will be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the value for this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object. \\
+\hline
+{\em range} & double[] \-: The interval with the lower limit of each cell and the upper limit of the interval as the final value. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_af2be75a2249ae377a1834e04da285d31_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!change\-Parameters@{change\-Parameters}}
+\index{change\-Parameters@{change\-Parameters}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{change\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-change\-Parameters (
+\begin{DoxyParamCaption}
+\item[{double}]{low, }
+\item[{double}]{up, }
+\item[{int}]{cel}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a26e964a9c9c1d62495a3a63e5ab5c21b}
+Changes the parameters of the interval and its number of segments. Can only be done after construction of a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} or after a reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em low} & double \-: The lower end of the interval. \\
+\hline
+{\em up} & double \-: The upper end of the interval. \\
+\hline
+{\em cel} & int \-: The number of cells (sections) the given interval will be divided into. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a26e964a9c9c1d62495a3a63e5ab5c21b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!change\-Parameters@{change\-Parameters}}
+\index{change\-Parameters@{change\-Parameters}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{change\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-change\-Parameters (
+\begin{DoxyParamCaption}
+\item[{double[$\,$]}]{range}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_afa63d4c1ce87fd80626c2d3b6423033a}
+Changes the parameters of the interval and its number of segments. Can only be done after construction of a \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} or after a reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em range} & double[] \-: The array holding the lower limits of the interval sections and the upper limit as the final value. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_afa63d4c1ce87fd80626c2d3b6423033a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}}
+\index{check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{check\-Param\-And\-Init\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-check\-Param\-And\-Init\-Range (
+\begin{DoxyParamCaption}
+\item[{double}]{lower\-Limit, }
+\item[{double}]{upper\-Limit, }
+\item[{int}]{cells}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a46c07376f8f3ce34abc1187f991b86d7}
+Checks the segmentation of the given equidistant interval and then initializes the range array. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a46c07376f8f3ce34abc1187f991b86d7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}}
+\index{check\-Param\-And\-Init\-Range@{check\-Param\-And\-Init\-Range}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{check\-Param\-And\-Init\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-check\-Param\-And\-Init\-Range (
+\begin{DoxyParamCaption}
+\item[{double[$\,$]}]{range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a0bf5461be82820e76e01ecc9805beba2}
+Checks the segmentation of the given user-\/defined interval and then initializes the range array. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a0bf5461be82820e76e01ecc9805beba2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!chi\-Square\-Test@{chi\-Square\-Test}}
+\index{chi\-Square\-Test@{chi\-Square\-Test}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{chi\-Square\-Test}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-statistic.\-Histogram.\-chi\-Square\-Test (
+\begin{DoxyParamCaption}
+\item[{long[$\,$]}]{values, }
+\item[{double}]{confidence}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_aa389f11f50a5ff90656317c4252adaf6}
+Performs Pearson's Chi-\/square test on given frequencies, a fixed degree of freedom and desired probability. The frequencies are given in an array either including under-\/ and overflow cells or not. The degree of freedom is set to 1 deducted from the number of given cells. On an error the Chi-\/squared test is not performed and false is returned. Details on errors are given out in the error message log. The result is {\ttfamily true} if the null hypothesis can not be rejected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & long[]\-: Array of assumed frequencies for each cell.\\
+\hline
+{\em confidence} & double\-: (1-\/alpha) probability level.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean \-: {\ttfamily true} if the the null hypothesis can not be rejected. {\ttfamily false} on error or if the null hypothesis has to be rejected. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_aa389f11f50a5ff90656317c4252adaf6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!chi\-Square\-Test@{chi\-Square\-Test}}
+\index{chi\-Square\-Test@{chi\-Square\-Test}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{chi\-Square\-Test}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-statistic.\-Histogram.\-chi\-Square\-Test (
+\begin{DoxyParamCaption}
+\item[{long[$\,$]}]{values, }
+\item[{int}]{deg\-Freedom, }
+\item[{double}]{confidence}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_af5ce411079ea1489dc33d2708eb7c4dd}
+Performs Pearson's Chi-\/square test on given frequencies, degrees of freedom and desired probability. The frequencies are given in an array either including under-\/ and overflow cells or not. On error the Chi-\/squared test is not performed and false is returned. Details on errors are given out in the error message log. The result is true if the null hypothesis can not be rejected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & long[]\-: Array of assumed frequencies for each cell. \\
+\hline
+{\em deg\-Freedom} & int\-: Degrees of freedom of the test. \\
+\hline
+{\em confidence} & double\-: (1-\/alpha) probability level.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean \-: {\ttfamily true} if the the null hypothesis can not be rejected. {\ttfamily false} on error or if the null hypothesis has to be rejected. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_af5ce411079ea1489dc33d2708eb7c4dd_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-statistic.\-Histogram.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_aebc3249da3901e1db5e29f69c362a8f7}
+Returns a Reporter to produce a report about this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Cells@{get\-Cells}}
+\index{get\-Cells@{get\-Cells}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Cells}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-statistic.\-Histogram.\-get\-Cells (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_afa065d9b0d9786be808af50a6f665c2a}
+Returns the number of cells the interval is divided into.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of cells the interval is divided into. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Cell\-Width@{get\-Cell\-Width}}
+\index{get\-Cell\-Width@{get\-Cell\-Width}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Cell\-Width}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Histogram.\-get\-Cell\-Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_aa9a4ca444ee876e41abf1889908a3afc}
+Returns the mean width of all cells.
+
+\begin{DoxyReturn}{Returns}
+double \-: The mean width of all cells.
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]The same functionality is given by \doxyref{get\-Mean\-Width()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_a9935e3e7239928ec22a7223218067d54}. \end{DoxyRefDesc}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_aa9a4ca444ee876e41abf1889908a3afc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Lower\-Limit@{get\-Lower\-Limit}}
+\index{get\-Lower\-Limit@{get\-Lower\-Limit}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Lower\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Histogram.\-get\-Lower\-Limit (
+\begin{DoxyParamCaption}
+\item[{int}]{cell}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a431d00c952096aa6db61c813d3533cb5}
+Returns the lower limit of the given cell. If the given cell is negative, {\ttfamily U\-N\-D\-E\-F\-I\-N\-E\-D} (-\/1) will be returned.
+
+\begin{DoxyReturn}{Returns}
+double \-: The lower limit of the given cell. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & int \-: The cell for which we want to know its lower limit. Should be zero or positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a431d00c952096aa6db61c813d3533cb5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Mean\-Width@{get\-Mean\-Width}}
+\index{get\-Mean\-Width@{get\-Mean\-Width}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Mean\-Width}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Histogram.\-get\-Mean\-Width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a9935e3e7239928ec22a7223218067d54}
+Returns the mean width of all cells.
+
+\begin{DoxyReturn}{Returns}
+double \-: The mean width of all cells. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a9935e3e7239928ec22a7223218067d54_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Most\-Frequented\-Cell@{get\-Most\-Frequented\-Cell}}
+\index{get\-Most\-Frequented\-Cell@{get\-Most\-Frequented\-Cell}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Most\-Frequented\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-statistic.\-Histogram.\-get\-Most\-Frequented\-Cell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a02b2e2ffc0d58e3e46f233c9e416815c}
+Returns the number of the first cell holding the maximum value.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of one cell holding the maximum value.
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Gives the same result as the first entry of the returned array of \doxyref{get\-Most\-Frequented\-Cells()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_a77dbd4cf3d5de3242a109e1e3cefee07}. \end{DoxyRefDesc}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Most\-Frequented\-Cells@{get\-Most\-Frequented\-Cells}}
+\index{get\-Most\-Frequented\-Cells@{get\-Most\-Frequented\-Cells}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Most\-Frequented\-Cells}]{\setlength{\rightskip}{0pt plus 5cm}int [$\,$] desmoj.\-core.\-statistic.\-Histogram.\-get\-Most\-Frequented\-Cells (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a77dbd4cf3d5de3242a109e1e3cefee07}
+Returns the numbers of the most frequented cells, so far.
+
+\begin{DoxyReturn}{Returns}
+int[] \-: An array with the numbers of the most frequented cells. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Observations\-In\-Cell@{get\-Observations\-In\-Cell}}
+\index{get\-Observations\-In\-Cell@{get\-Observations\-In\-Cell}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Observations\-In\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-statistic.\-Histogram.\-get\-Observations\-In\-Cell (
+\begin{DoxyParamCaption}
+\item[{int}]{cell}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a8a2c0de2b79ace57c6b259fda99af334}
+Returns the observations made for the given cell, so far.
+
+\begin{DoxyReturn}{Returns}
+long \-: The observations made for the given cell. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & int \-: The cell of which want to get the number of observations made for. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a8a2c0de2b79ace57c6b259fda99af334_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!get\-Upper\-Limit@{get\-Upper\-Limit}}
+\index{get\-Upper\-Limit@{get\-Upper\-Limit}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{get\-Upper\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Histogram.\-get\-Upper\-Limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a0d63f399de666cf406955176ad76bef7}
+Returns the upper limit of the whole interval.
+
+\begin{DoxyReturn}{Returns}
+double \-: The upper limit of the whole interval. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!init\-Table@{init\-Table}}
+\index{init\-Table@{init\-Table}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{init\-Table}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-init\-Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a8eba7c809597d7cb21965e38cbed9cd7}
+Initializes the table by setting each cell counter to zero. \index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!is\-Condensed@{is\-Condensed}}
+\index{is\-Condensed@{is\-Condensed}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{is\-Condensed}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-statistic.\-Histogram.\-is\-Condensed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a00cc18534ec3df8c8b306ecf14b37bb8}
+Returns whether output is condensed, i.\-e. empty cells on the right tail not shown.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Not displaying unused cells in report view ({\ttfamily true}) or printing all cells ({\ttfamily false}). 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a88eac829cc2f5c310a4fdaf0cfb32025}
+Resets this \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} object by resetting the counters for each cell to zero. That means the array of the cell counters will be reset, but the interval and the number of sections this interval is divided into will remain the same. The parameters of the interval can be changed with the {\ttfamily change\-Parameters} method after the reset. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a88eac829cc2f5c310a4fdaf0cfb32025_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!set\-Condensed@{set\-Condensed}}
+\index{set\-Condensed@{set\-Condensed}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{set\-Condensed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-set\-Condensed (
+\begin{DoxyParamCaption}
+\item[{boolean}]{condensed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_ac57e720c1caad55ba984b1c4ba9411c6}
+Sets whether output should be condensed, i.\-e. empty cells on the right tail not shown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em condensed} & boolean\-: Not displaying unused cells in report view ({\ttfamily true}) or printing all cells ({\ttfamily false}). \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_abba961c0845d0c4b2893934464571c0e}
+Updates this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} object by fetching the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and processing it. The {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} is passed in the constructor of this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} object. This {\ttfamily \doxyref{update()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_abba961c0845d0c4b2893934464571c0e}} method complies with the one described in D\-E\-S\-M\-O, see [Page91]. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_abba961c0845d0c4b2893934464571c0e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-update (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a37fc827821b3cfcc12a4bb2305bae198}
+Updates this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} object with the double value given as parameter. In some cases it might be more convenient to pass the value this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} will be updated with directly within the {\ttfamily \doxyref{update(double val)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_a37fc827821b3cfcc12a4bb2305bae198}} method instead of going via the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & double \-: The value with which this {\ttfamily \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram}} will be updated. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::statistic\-::\-Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::Histogram@{desmoj\-::core\-::statistic\-::\-Histogram}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Histogram.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_histogram_a00ee6a8fd974e045ec62ba24865f73c4}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram_a00ee6a8fd974e045ec62ba24865f73c4}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+ If no Object (a{\ttfamily null} value) is passed as arg, the actual value of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be fetched with the {\ttfamily value()} method of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}. Otherwise it is expected that the actual value is passed in the Object arg.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally}} is updated. Normally a double number which is added to the statistics or {\ttfamily null}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_histogram_a00ee6a8fd974e045ec62ba24865f73c4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Histogram.\-java\end{DoxyCompactItemize}

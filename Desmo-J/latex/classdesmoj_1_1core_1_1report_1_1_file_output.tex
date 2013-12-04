@@ -1,0 +1,289 @@
+\section{desmoj.\-core.\-report.\-File\-Output Class Reference}
+\label{classdesmoj_1_1core_1_1report_1_1_file_output}\index{desmoj.\-core.\-report.\-File\-Output@{desmoj.\-core.\-report.\-File\-Output}}
+
+
+Inheritance diagram for desmoj.\-core.\-report.\-File\-Output\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_file_output__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-report.\-File\-Output\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classdesmoj_1_1core_1_1report_1_1_file_output__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf File\-Output} ()
+\item 
+void {\bf close} ()
+\item 
+String {\bf get\-File\-Name} ()
+\item 
+boolean {\bf is\-Empty} ()
+\item 
+boolean {\bf is\-Open} ()
+\item 
+void {\bf open} (String name)
+\item 
+void {\bf write} (String s)
+\item 
+void {\bf writeln} (String s)
+\item 
+void {\bf write\-Sep} (String s)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String {\bf get\-End\-Of\-Line} ()
+\item 
+static String {\bf get\-Separator} ()
+\item 
+static void {\bf set\-End\-Of\-Line} (String eol\-String)
+\item 
+static void {\bf set\-Separator} (String sep\-String)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String {\bf file\-Name}
+\item 
+Writer {\bf file}
+\item 
+boolean {\bf file\-Open}
+\item 
+boolean {\bf empty}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output} is the class all other filebased Output classes used within the D\-E\-S\-M\-O-\/j framework are derived from. The basic functionality needed for all \doxyref{File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output} objects are methods to open and close the stream used for output and set the two necessary types of separators for column output. Two methods for writing Strings into the file are supported. The name is needed for opening a file to identify the output channel in terms of window titles or file names, depending on the type of output the specific subclass relies on. Note that each object of this class supports the creation of several files in a row. You can open and close as many files as needed with one object.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!File\-Output@{File\-Output}}
+\index{File\-Output@{File\-Output}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{File\-Output}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-report.\-File\-Output.\-File\-Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_afdb37fc8e84c819f87770582e150bb49}
+Constructs a \doxyref{File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output} object. A File\-Ouput object is capable of opening a file using method {\ttfamily \doxyref{open(\-String file\-Name)}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output_a7a76480de575c0a89367407afae6b601}}. Note that if the output stream used cannot be opened, the whole error handling is printed to the system's standard output stream. The 'end\-Of\-Line' String is set to the underlying system's String used to separate lines as given by the system property {\ttfamily line.\-separator}. 
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!close@{close}}
+\index{close@{close}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-File\-Output.\-close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_ac2a86ad5973ee3f9cda5fdf577f89954}
+Flushes the buffer and closes the file. note that if another file with the same name is opened and written to, it will overwrite the previous file on the disc without notice. All users of Output objects have to call {\ttfamily \doxyref{close()}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output_ac2a86ad5973ee3f9cda5fdf577f89954}} to properly shut down the ouput stream after the last call to the printing methods. Classes overriding this method should put all necessary actions to properly close their file into the {\ttfamily \doxyref{close()}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output_ac2a86ad5973ee3f9cda5fdf577f89954}} method and make a call to {\ttfamily super.\-close()} as their last command to finally close buffers and files. \index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!get\-End\-Of\-Line@{get\-End\-Of\-Line}}
+\index{get\-End\-Of\-Line@{get\-End\-Of\-Line}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{get\-End\-Of\-Line}]{\setlength{\rightskip}{0pt plus 5cm}static String desmoj.\-core.\-report.\-File\-Output.\-get\-End\-Of\-Line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a187c5766739dbac8f2990b3c3bd66c73}
+Returns the currently valid String for separating lines of output. This is a platform dependent String and is set to the underlying system's String by default.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String used to separate lines 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!get\-File\-Name@{get\-File\-Name}}
+\index{get\-File\-Name@{get\-File\-Name}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{get\-File\-Name}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-report.\-File\-Output.\-get\-File\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a031c533ea4444a949e320e0985778b3f}
+Returns the current file\-Name of this \doxyref{File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output} or {\ttfamily null} if it has not been opened and named yet.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The name of the file or {\ttfamily null} if file has not been opened and named yet 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!get\-Separator@{get\-Separator}}
+\index{get\-Separator@{get\-Separator}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{get\-Separator}]{\setlength{\rightskip}{0pt plus 5cm}static String desmoj.\-core.\-report.\-File\-Output.\-get\-Separator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a689d7ab734f6b0504d23ef79c1af9caa}
+Returns the currently active String for separating individual entries in a line of output. This comes in handy, when trying to write files in a certain format i.\-e. dbf format. Data from files complying to that format can easily be read and imported to a variety of standard statistics packages for further manipulation and analysis.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String used to separate entries within a line 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-File\-Output.\-is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a0fcfa8a73f61b7184b61dec8e884ad19}
+Returns a boolean value showing if relevant data has been written to the file. If only file headings have been written, this method will return {\ttfamily true} to indicate that it does not contain information and thus might just as well be deleted. If data has been written to it, this method will return {\ttfamily false} instead.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if no relevant data but the heading has been written to this file, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!is\-Open@{is\-Open}}
+\index{is\-Open@{is\-Open}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{is\-Open}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-File\-Output.\-is\-Open (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a053b1d42735bfb3ed6f88ac8e0230d0b}
+Returns the current state of the \doxyref{File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output}. {\ttfamily True} is returned, if the file has been opened successfully and can be written to. If the file has been closed or has not been opened yet, {\ttfamily false} is returned.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the file is currently open, {\ttfamily false} if not 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!open@{open}}
+\index{open@{open}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-File\-Output.\-open (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a7a76480de575c0a89367407afae6b601}
+Opens a new file with the given file\-Name for writing data to. If no String is given, the default filename \char`\"{}unnamed\-\_\-\-D\-E\-S\-M\-O\-J\-\_\-file\char`\"{} is used. Note that opening a file with a name that already exists in the user's target directory will overwrite that existing file without notice! So be careful when choosing file names and make sure to use unique names.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of the file to be created \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!set\-End\-Of\-Line@{set\-End\-Of\-Line}}
+\index{set\-End\-Of\-Line@{set\-End\-Of\-Line}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{set\-End\-Of\-Line}]{\setlength{\rightskip}{0pt plus 5cm}static void desmoj.\-core.\-report.\-File\-Output.\-set\-End\-Of\-Line (
+\begin{DoxyParamCaption}
+\item[{String}]{eol\-String}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_ac13e959f26db56959e1c4fa76f1ea502}
+Sets the end-\/of-\/line separator String to the given parameter value. The default value is the end-\/of-\/line String of the underlying platform. Use this method to create files of specific formats. Data from files complying to that format can easily be read and imported to a variety of standard statistics packages for further manipulation and analysis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em eol\-String} & String \-: The String for separating lines \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!set\-Separator@{set\-Separator}}
+\index{set\-Separator@{set\-Separator}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{set\-Separator}]{\setlength{\rightskip}{0pt plus 5cm}static void desmoj.\-core.\-report.\-File\-Output.\-set\-Separator (
+\begin{DoxyParamCaption}
+\item[{String}]{sep\-String}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a8e09a1529d22d9a74e8b54fe15254a26}
+Sets the entry separator String to the given parameter value. The default value is ';'. This is useful, when trying to write files in a certain format i.\-e. dbf format. Data from files complying to that format can easily be read and imported to a variety of standard statistics packages for further manipulation and analysis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sep\-String} & String \-: The String for separating entries within a line \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!write@{write}}
+\index{write@{write}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-File\-Output.\-write (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a9d70b63035f30a29d5f2349db79799c6}
+Writes the given String to the open file. If the given String is empty, the method will simply return without action. Override this method if you want your data to be written with specific tags as used in the {\ttfamily \doxyref{H\-T\-M\-L\-File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_h_t_m_l_file_output}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & java.\-lang.\-String \-: The String to write to the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{H\-T\-M\-L\-File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_h_t_m_l_file_output} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!writeln@{writeln}}
+\index{writeln@{writeln}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{writeln}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-File\-Output.\-writeln (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a7c70fe3f7a266511f3f2f1630b87eb64}
+Writes the given String to the open file, adding a line separator to the end of the String written. If the string given is null or \char`\"{}\char`\"{} just a new line character will be written to the file. This method simply adds the end-\/of-\/line String to the String given and calls the {\ttfamily void \doxyref{write(\-String s)}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output_a9d70b63035f30a29d5f2349db79799c6}} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & java.\-lang.\-String \-: The String to write to the file \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_file_output_a7c70fe3f7a266511f3f2f1630b87eb64_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!write\-Sep@{write\-Sep}}
+\index{write\-Sep@{write\-Sep}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{write\-Sep}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-report.\-File\-Output.\-write\-Sep (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a739663e5c216e12c83fa6ea29b779c01}
+Writes the given String to the open file, adding a separator to the end of the String written. If the string given is null or \char`\"{}\char`\"{} just a new line character will be written to the file. This method simply adds the end-\/of-\/line String to the String given and calls the {\ttfamily void \doxyref{write(\-String s)}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output_a9d70b63035f30a29d5f2349db79799c6}} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & java.\-lang.\-String \-: The String to write to the file \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_file_output_a739663e5c216e12c83fa6ea29b779c01_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!empty@{empty}}
+\index{empty@{empty}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-File\-Output.\-empty\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_aa7e1ec34eb76aa59cc7c87792373c062}
+Remembers if any data has been written to it. If not, it might as well be deleted. \index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!file@{file}}
+\index{file@{file}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{file}]{\setlength{\rightskip}{0pt plus 5cm}Writer desmoj.\-core.\-report.\-File\-Output.\-file\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_af8f5a237831290e0910026b6af817a0d}
+The File\-Writer used to open, close and write file and data. \index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!file\-Name@{file\-Name}}
+\index{file\-Name@{file\-Name}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{file\-Name}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-report.\-File\-Output.\-file\-Name\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_abd3ad88763ec0335e18c6cf1cdf539b7}
+The name of the file produced by this \doxyref{File\-Output}{p.}{classdesmoj_1_1core_1_1report_1_1_file_output}. \index{desmoj\-::core\-::report\-::\-File\-Output@{desmoj\-::core\-::report\-::\-File\-Output}!file\-Open@{file\-Open}}
+\index{file\-Open@{file\-Open}!desmoj::core::report::FileOutput@{desmoj\-::core\-::report\-::\-File\-Output}}
+\subsubsection[{file\-Open}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-report.\-File\-Output.\-file\-Open\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_file_output_a8e1b60713276532bba3eba787ebf8f72}
+The status of the current file. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/report/File\-Output.\-java\end{DoxyCompactItemize}

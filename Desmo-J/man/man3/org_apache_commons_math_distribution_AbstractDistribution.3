@@ -1,0 +1,84 @@
+.TH "org.apache.commons.math.distribution.AbstractDistribution" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.AbstractDistribution \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.Distribution\fP, and Serializable\&.
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (double x0, double x1)  throws MathException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAbstractDistribution\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for probability distributions\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617953 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.AbstractDistribution\&.AbstractDistribution ()\fC [protected]\fP"
+Default constructor\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.AbstractDistribution\&.cumulativeProbability (doublex0, doublex1) throws \fBMathException\fP"
+For a random variable X whose values are distributed according to this distribution, this method returns P(x0  X  x1)\&. 
+.PP
+The default implementation uses the identity
+.PP
+P(x0  X  x1) = P(X  x1) - P(X  x0) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx0\fP the (inclusive) lower bound 
+.br
+\fIx1\fP the (inclusive) upper bound 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the probability that a random variable with this distribution will take a value between \fCx0\fP and \fCx1\fP, including the endpoints\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if \fCx0 > x1\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.Distribution\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,431 @@
+.TH "desmoj.extensions.visualization2d.engine.model.ProcessNew" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.model.ProcessNew \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBProcessEntry\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProcessNew\fP (\fBModel\fP model, String praefix, String id, String resourceType, int resourceTotal, String listId)"
+.br
+.ti -1c
+.RI "\fBProcessNew\fP (\fBModel\fP model, String praefix, String id, String listId)"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetId\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetName\fP (String name)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetListId\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetCommentText\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCommentText\fP (String text)"
+.br
+.ti -1c
+.RI "Color \fBgetCommentColor\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCommentColor\fP (Color color)"
+.br
+.ti -1c
+.RI "Font \fBgetCommentFont\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCommentFont\fP (int style, int size)"
+.br
+.ti -1c
+.RI "boolean \fBisCommentSizeExt\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCommentSizeExt\fP (boolean commentSizeExt)"
+.br
+.ti -1c
+.RI "boolean \fBisAbstractResource\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetResourceType\fP (String type)  throws ModelException"
+.br
+.ti -1c
+.RI "String \fBgetResourceType\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetResourceTotal\fP (int total)  throws ModelException"
+.br
+.ti -1c
+.RI "int \fBgetResourceTotal\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetResourceUsed\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetResourceFree\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetEntriesAnz\fP ()"
+.br
+.ti -1c
+.RI "String[] \fBgetProcessEntries\fP (int index)"
+.br
+.ti -1c
+.RI "String[] \fBgetResourceEntries\fP (int index)"
+.br
+.ti -1c
+.RI "int \fBgetResourceEntriesAnz\fP (int index)"
+.br
+.ti -1c
+.RI "void \fBaddEntry\fP (String[] processEntityIds, String[] resourceEntityIds, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "void \fBaddEntry\fP (String[] processEntityIds, int resourceEntityAnz, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "String[][] \fBremoveEntry\fP (String entityId, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "boolean \fBcontains\fP (String id)"
+.br
+.ti -1c
+.RI "void \fBprintEntries\fP ()"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGrafic\fP (String viewId, int x, int y, String defaultEntityTypeId, int anzVisible, boolean horizontal, boolean showResources, Dimension deltaSize)"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBgetGrafic\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final String \fBPREFIX_PROCESS\fP = 'process:'"
+.br
+.ti -1c
+.RI "static final String \fBPREFIX_RESOURCE\fP = 'resource:'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Working-station with a line of resource-entities and a line of processed entities\&. In every step you can add a set of process-entities and a set of resource-entities\&. This process-entities are processed together and use for this the resources of the associated resource set\&.
+.PP
+There are two different Types of processes: In a non abstract process every involved process- and resource-entity is stored explicitly\&. In an abstract process only the involved process-entities are stored explicitly\&. Here we assume, all resource-entities are identical\&. Only the total no of available and no of used resources are stored\&.
+.PP
+NEW Version
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.ProcessNew (\fBModel\fPmodel, Stringpraefix, Stringid, StringresourceType, intresourceTotal, StringlistId)"
+Constructor of abstract Processes\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP used animation\&.model\&.Model 
+.br
+\fIid\fP processId 
+.br
+\fIresourceType\fP resourceTypeName (only for information, its no Id) 
+.br
+\fIresourceTotal\fP total number of available resources (only for information) 
+.br
+\fIlistId\fP optional id of a list, which include all processed entities before 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.ProcessNew (\fBModel\fPmodel, Stringpraefix, Stringid, StringlistId)"
+Constructor of an non-abstract Processes\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP processId 
+.br
+\fIlistId\fP optional id of a list, which include all processed entities before 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.addEntry (String[]processEntityIds, String[]resourceEntityIds, longtime) throws \fBModelException\fP"
+adds set of process- and resource-entities to process\&. An additional entry is created\&. Only for non abstract processes 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocessEntityIds\fP array of process-entity-id's 
+.br
+\fIresourceEntityIds\fP array of resource-entity-id's 
+.br
+\fItime\fP simulation-time 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP an added entity isn't free 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.addEntry (String[]processEntityIds, intresourceEntityAnz, longtime) throws \fBModelException\fP"
+adds set of process- and no\&. of resources to process\&. An additional entry is created\&. Only for abstract processes 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocessEntityIds\fP array of process-entity-id's 
+.br
+\fIresourceEntityAnz\fP no\&. of resources used to process this process-entities 
+.br
+\fItime\fP actual simulation-time 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP an added entity isn't free 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.contains (Stringid)"
+check if an entity with id stored in process 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.createGrafic (StringviewId, intx, inty, StringdefaultEntityTypeId, intanzVisible, booleanhorizontal, booleanshowResources, DimensiondeltaSize)"
+create a ProcessGrafic 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIviewId\fP Id of view 
+.br
+\fIx\fP middle point x-coordinate 
+.br
+\fIy\fP middle point y-coordinate 
+.br
+\fIdefaultEntityTypeId\fP for sizing 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+ProcessGrafic 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getEntriesAnz ()"
+gets no\&. of entries (process-sets) actual processed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getGrafic ()"
+get ProcessGrafic, created before 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getId ()"
+get id of process-station 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.orga\&.ClassBasic\fP\&.
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getListId ()"
+get id of list, where are the processed entities are before this may be null 
+.PP
+\fBReturns:\fP
+.RS 4
+ListId 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getName ()"
+get name of process-station 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "String [] desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getProcessEntries (intindex)"
+gets entity-id's of process-set in entry with index 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "String [] desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getResourceEntries (intindex)"
+gets entity-id's of resource-set in entry with index 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getResourceEntriesAnz (intindex)"
+gets no\&. of resources in resource-set in entry with index 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+no\&. of resources in resource-set with index -1 when no resource-set with index 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getResourceFree ()"
+compute no\&. of free resources, as difference between total and used resources\&. Has no information when process isn't abstract\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getResourceTotal ()"
+gets total of resources\&. Has no information when process isn't abstract\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getResourceType ()"
+get resource type\&. Null when process isn't abstract\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.getResourceUsed ()"
+compute no of used resources\&. Has no information when process isn't abstract\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.isAbstractResource ()"
+informs about abstractness of process 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.printEntries ()"
+makes a control-print on System\&.out 
+.SS "String [][] desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.removeEntry (StringentityId, longtime) throws \fBModelException\fP"
+remove an entry(process- and resource-set) that include the entity with id entityId 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIentityId\fP entityId to find an entry 
+.br
+\fItime\fP simulation time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+out[0] array of removed process-id's out[1] array of removed resource-id's (only for non-abstract processes) this arrays are empty, when no entry to remove found\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP this\&.getId contains a \fBCmd\&.VALUE_SEPARATOR\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.setName (Stringname)"
+set name of process-station 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.setResourceTotal (inttotal) throws \fBModelException\fP"
+sets total of resources\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItotal\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP process is non abstract\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.ProcessNew\&.setResourceType (Stringtype) throws \fBModelException\fP"
+sets resource type (only for information) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP process is non abstract\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

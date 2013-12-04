@@ -1,0 +1,268 @@
+.TH "org.apache.commons.collections.list.TreeList" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.collections.list.TreeList \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits AbstractList\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBAVLNode\fP"
+.br
+.ti -1c
+.RI "class \fBTreeListIterator\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTreeList\fP ()"
+.br
+.ti -1c
+.RI "\fBTreeList\fP (Collection coll)"
+.br
+.ti -1c
+.RI "Object \fBget\fP (int index)"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.ti -1c
+.RI "Iterator \fBiterator\fP ()"
+.br
+.ti -1c
+.RI "ListIterator \fBlistIterator\fP ()"
+.br
+.ti -1c
+.RI "ListIterator \fBlistIterator\fP (int fromIndex)"
+.br
+.ti -1c
+.RI "int \fBindexOf\fP (Object object)"
+.br
+.ti -1c
+.RI "boolean \fBcontains\fP (Object object)"
+.br
+.ti -1c
+.RI "Object[] \fBtoArray\fP ()"
+.br
+.ti -1c
+.RI "void \fBadd\fP (int index, Object obj)"
+.br
+.ti -1c
+.RI "Object \fBset\fP (int index, Object obj)"
+.br
+.ti -1c
+.RI "Object \fBremove\fP (int index)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A \fCList\fP implementation that is optimised for fast insertions and removals at any index in the list\&. 
+.PP
+This list implementation utilises a tree structure internally to ensure that all insertions and removals are O(log n)\&. This provides much faster performance than both an \fCArrayList\fP and a \fCLinkedList\fP where elements are inserted and removed repeatedly from anywhere in the list\&. 
+.PP
+The following relative performance statistics are indicative of this class: 
+.PP
+.nf
+
+             get  add  insert  iterate  remove
+\fBTreeList\fP       3    5       1       2       1
+ArrayList      1    1      40       1      40
+LinkedList  5800    1     350       2     325
+.fi
+.PP
+ \fCArrayList\fP is a good general purpose list implementation\&. It is faster than \fC\fBTreeList\fP\fP for most operations except inserting and removing in the middle of the list\&. \fCArrayList\fP also uses less memory as \fC\fBTreeList\fP\fP uses one object per entry\&. 
+.PP
+\fCLinkedList\fP is rarely a good choice of implementation\&. \fC\fBTreeList\fP\fP is almost always a good replacement for it, although it does use sligtly more memory\&.
+.PP
+\fBSince:\fP
+.RS 4
+Commons Collections 3\&.1 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+1\&.1 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008/02/19 16:57:07 
+.RE
+.PP
+.PP
+\fBAuthor:\fP
+.RS 4
+Joerg Schmuecker 
+.PP
+Stephen Colebourne 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.TreeList ()"
+Constructs a new empty list\&. 
+.SS "org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.TreeList (Collectioncoll)"
+Constructs a new empty list that copies the specified list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcoll\fP the collection to copy 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fINullPointerException\fP if the collection is null 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.add (intindex, Objectobj)"
+Adds a new element to the list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP the index to add before 
+.br
+\fIobj\fP the element to add 
+.RE
+.PP
+
+.SS "void org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.clear ()"
+Clears the list, removing all entries\&. 
+.SS "boolean org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.contains (Objectobject)"
+Searches for the presence of an object in the list\&.
+.PP
+\fBReturns:\fP
+.RS 4
+true if the object is found 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.get (intindex)"
+Gets the element at the specified index\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP the index to retrieve 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the element at the specified index 
+.RE
+.PP
+
+.SS "int org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.indexOf (Objectobject)"
+Searches for the index of an object in the list\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the index of the object, -1 if not found 
+.RE
+.PP
+
+.SS "Iterator org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.iterator ()"
+Gets an iterator over the list\&.
+.PP
+\fBReturns:\fP
+.RS 4
+an iterator over the list 
+.RE
+.PP
+
+.SS "ListIterator org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.listIterator ()"
+Gets a ListIterator over the list\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the new iterator 
+.RE
+.PP
+
+.SS "ListIterator org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.listIterator (intfromIndex)"
+Gets a ListIterator over the list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfromIndex\fP the index to start from 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the new iterator 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.remove (intindex)"
+Removes the element at the specified index\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP the index to remove 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the previous object at that index 
+.RE
+.PP
+
+.SS "Object org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.set (intindex, Objectobj)"
+Sets the element at the specified index\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP the index to set 
+.br
+\fIobj\fP the object to store at the specified index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the previous object at that index 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIndexOutOfBoundsException\fP if the index is invalid 
+.RE
+.PP
+
+.SS "int org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.size ()"
+Gets the current size of the list\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the current size 
+.RE
+.PP
+
+.SS "Object [] org\&.apache\&.commons\&.collections\&.list\&.TreeList\&.toArray ()"
+Converts the list into an array\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the list as an array 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

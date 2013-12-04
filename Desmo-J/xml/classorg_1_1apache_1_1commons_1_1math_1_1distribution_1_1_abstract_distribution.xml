@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution" kind="class" prot="public">
+    <compoundname>org::apache::commons::math::distribution::AbstractDistribution</compoundname>
+    <basecompoundref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_distribution" prot="public" virt="non-virtual">org.apache.commons.math.distribution.Distribution</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Serializable</basecompoundref>
+    <derivedcompoundref refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_continuous_distribution" prot="public" virt="non-virtual">org.apache.commons.math.distribution.AbstractContinuousDistribution</derivedcompoundref>
+    <derivedcompoundref refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_integer_distribution" prot="public" virt="non-virtual">org.apache.commons.math.distribution.AbstractIntegerDistribution</derivedcompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution_1adea40e51145d0f31de2f28313cbe2750" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.apache.commons.math.distribution.AbstractDistribution.serialVersionUID</definition>
+        <argsstring></argsstring>
+        <name>serialVersionUID</name>
+        <initializer>= -38038050983108802L</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serializable version identifier </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" line="32" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution_1a69b03d7cd00b00c946eea69dfa8da7ba" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.apache.commons.math.distribution.AbstractDistribution.AbstractDistribution</definition>
+        <argsstring>()</argsstring>
+        <name>AbstractDistribution</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" line="37" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" bodystart="37" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution_1a240f9e95109838d7a1dfb5af57c2ebd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double org.apache.commons.math.distribution.AbstractDistribution.cumulativeProbability</definition>
+        <argsstring>(double x0, double x1)</argsstring>
+        <name>cumulativeProbability</name>
+        <reimplements refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_distribution_1ad43685ba7ac5c6a72b4fd06a226347a9">cumulativeProbability</reimplements>
+        <param>
+          <type>double</type>
+          <declname>x0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x1</declname>
+        </param>
+        <exceptions> throws <ref refid="classorg_1_1apache_1_1commons_1_1math_1_1_math_exception" kindref="compound">MathException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For a random variable X whose values are distributed according to this distribution, this method returns P(x0 <le/> X <le/> x1). </para><para>The default implementation uses the identity</para><para>P(x0 <le/> X <le/> x1) = P(X <le/> x1) - P(X <le/> x0) </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the (inclusive) lower bound </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the (inclusive) upper bound </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the probability that a random variable with this distribution will take a value between <computeroutput>x0</computeroutput> and <computeroutput>x1</computeroutput>, including the endpoints. </para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classorg_1_1apache_1_1commons_1_1math_1_1_math_exception" kindref="compound">MathException</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the cumulative probability can not be computed due to convergence or other numerical errors. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IllegalArgumentException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <computeroutput>x0 &gt; x1</computeroutput> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" line="58" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" bodystart="58" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base class for probability distributions.</para><para><simplesect kind="version"><para></para></simplesect>
+<simplesect kind="rcs"><title>Revision:</title><para>617953 </para></simplesect>
+<simplesect kind="rcs"><title>Date:</title><para>2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="5767">
+        <label>org.apache.commons.math.distribution.AbstractIntegerDistribution</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_integer_distribution"/>
+        <childnode refid="5755" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5771">
+        <label>org.apache.commons.math.distribution.PoissonDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_poisson_distribution_impl"/>
+        <childnode refid="5767" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5757">
+        <label>Serializable</label>
+      </node>
+      <node id="5770">
+        <label>org.apache.commons.math.distribution.PascalDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_pascal_distribution_impl"/>
+        <childnode refid="5767" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5760">
+        <label>org.apache.commons.math.distribution.ChiSquaredDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_chi_squared_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5758">
+        <label>org.apache.commons.math.distribution.AbstractContinuousDistribution</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_continuous_distribution"/>
+        <childnode refid="5755" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5759">
+        <label>org.apache.commons.math.distribution.CauchyDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_cauchy_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5761">
+        <label>org.apache.commons.math.distribution.ExponentialDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_exponential_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5765">
+        <label>org.apache.commons.math.distribution.TDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_t_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5755">
+        <label>org.apache.commons.math.distribution.AbstractDistribution</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution"/>
+        <childnode refid="5756" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5757" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5766">
+        <label>org.apache.commons.math.distribution.WeibullDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_weibull_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5762">
+        <label>org.apache.commons.math.distribution.FDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_f_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5763">
+        <label>org.apache.commons.math.distribution.GammaDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_gamma_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5756">
+        <label>org.apache.commons.math.distribution.Distribution</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_distribution"/>
+      </node>
+      <node id="5768">
+        <label>org.apache.commons.math.distribution.BinomialDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_binomial_distribution_impl"/>
+        <childnode refid="5767" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5769">
+        <label>org.apache.commons.math.distribution.HypergeometricDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_hypergeometric_distribution_impl"/>
+        <childnode refid="5767" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5764">
+        <label>org.apache.commons.math.distribution.NormalDistributionImpl</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_normal_distribution_impl"/>
+        <childnode refid="5758" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5774">
+        <label>Serializable</label>
+      </node>
+      <node id="5772">
+        <label>org.apache.commons.math.distribution.AbstractDistribution</label>
+        <link refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution"/>
+        <childnode refid="5773" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5774" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5773">
+        <label>org.apache.commons.math.distribution.Distribution</label>
+        <link refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_distribution"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" line="29" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/org/apache/commons/math/distribution/AbstractDistribution.java" bodystart="28" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution_1a69b03d7cd00b00c946eea69dfa8da7ba" prot="protected" virt="non-virtual"><scope>org::apache::commons::math::distribution::AbstractDistribution</scope><name>AbstractDistribution</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution_1a240f9e95109838d7a1dfb5af57c2ebd2" prot="public" virt="non-virtual"><scope>org::apache::commons::math::distribution::AbstractDistribution</scope><name>cumulativeProbability</name></member>
+      <member refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_distribution_1a72faeb4e48d8607d791fcb3fa9afb0e3" prot="public" virt="non-virtual" ambiguityscope="org::apache::commons::math::distribution::Distribution."><scope>org::apache::commons::math::distribution::AbstractDistribution</scope><name>cumulativeProbability</name></member>
+      <member refid="classorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_abstract_distribution_1adea40e51145d0f31de2f28313cbe2750" prot="private" virt="non-virtual"><scope>org::apache::commons::math::distribution::AbstractDistribution</scope><name>serialVersionUID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

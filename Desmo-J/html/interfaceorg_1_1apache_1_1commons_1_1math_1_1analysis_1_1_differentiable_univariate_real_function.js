@@ -1,0 +1,4 @@
+var interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_differentiable_univariate_real_function =
+[
+    [ "derivative", "interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_differentiable_univariate_real_function.html#a91eeed6dae14ca71a89c395d85386c2e", null ]
+];

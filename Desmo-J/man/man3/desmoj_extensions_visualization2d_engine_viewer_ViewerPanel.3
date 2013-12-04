@@ -1,0 +1,565 @@
+.TH "desmoj.extensions.visualization2d.engine.viewer.ViewerPanel" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.viewer.ViewerPanel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits JPanel\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBFileClose\fP"
+.br
+.ti -1c
+.RI "class \fBFileOpen\fP"
+.br
+.ti -1c
+.RI "class \fBIconDirectory\fP"
+.br
+.ti -1c
+.RI "class \fBPause\fP"
+.br
+.ti -1c
+.RI "class \fBResizeListener\fP"
+.br
+.ti -1c
+.RI "class \fBSnapShot\fP"
+.br
+.ti -1c
+.RI "class \fBSnapShotDirectory\fP"
+.br
+.ti -1c
+.RI "class \fBSpeedField\fP"
+.br
+.ti -1c
+.RI "class \fBSpeedMenu\fP"
+.br
+.ti -1c
+.RI "class \fBSpeedSlider\fP"
+.br
+.ti -1c
+.RI "class \fBStart\fP"
+.br
+.ti -1c
+.RI "class \fBStop\fP"
+.br
+.ti -1c
+.RI "class \fBTimeFlow\fP"
+.br
+.ti -1c
+.RI "class \fBZoomField\fP"
+.br
+.ti -1c
+.RI "class \fBZoomMenu\fP"
+.br
+.ti -1c
+.RI "class \fBZoomSlider\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBViewerPanel\fP (URL cmdFile, URL simulationIconDir, AppletContext appletContext, Locale locale)"
+.br
+.ti -1c
+.RI "\fBViewerPanel\fP (URL cmdFile, URL simulationIconDir, URL snapshotDir, AppletContext appletContext, Locale locale)"
+.br
+.ti -1c
+.RI "void \fBsetDefaultPath\fP (String defaultCmdPath, String defaultIconPath, String defaultSnapShotPath)"
+.br
+.ti -1c
+.RI "void \fBsetDefaultPath\fP (String defaultCmdPath, String defaultIconPath)"
+.br
+.ti -1c
+.RI "void \fBlastCall\fP ()"
+.br
+.ti -1c
+.RI "\fBLanguageSupport\fP \fBgetLanguage\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetModelName\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBsetStatusMessage\fP (String message)"
+.br
+.ti -1c
+.RI "void \fBsetCoordinatePoint\fP (Point p)"
+.br
+.ti -1c
+.RI "void \fBupdateSimulationTimeBounds\fP (boolean valid)"
+.br
+.ti -1c
+.RI "void \fBupdateSimulationTime\fP (boolean valid)"
+.br
+.ti -1c
+.RI "\fBSimulationTime\fP \fBgetSimulationTimeInstance\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetSimulationTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSimulationSpeedGUI\fP (double speed)"
+.br
+.ti -1c
+.RI "double \fBgetSimulationSpeed\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSimulationSpeed\fP (double speed)"
+.br
+.ti -1c
+.RI "void \fBsetSimulationZoomGUI\fP (double zoom)"
+.br
+.ti -1c
+.RI "double \fBgetSimulationZoom\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSimulationZoom\fP (double zoom)  throws ModelGraficException"
+.br
+.ti -1c
+.RI "Point \fBgetSimulationZoomCenter\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSimulationZoomCenter\fP (Point p)"
+.br
+.ti -1c
+.RI "void \fBsetTimeFlowMode\fP (int timeFlowMode)"
+.br
+.ti -1c
+.RI "int \fBgetTimeFlowMode\fP ()"
+.br
+.ti -1c
+.RI "\fBSimulationThread\fP \fBgetSimulationThread\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBInfoPane\fP \fBgetInfoPane\fP ()"
+.br
+.ti -1c
+.RI "static PrintWriter \fBgetLogWriter\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final Font \fBFONT_BIG\fP = new Font('SansSerif',Font\&.PLAIN,20)"
+.br
+.ti -1c
+.RI "static final Font \fBFONT_MIDDLE\fP = new Font('SansSerif',Font\&.PLAIN,15)"
+.br
+.ti -1c
+.RI "static final Font \fBFONT_SMALL\fP = new Font('SansSerif',Font\&.PLAIN,10)"
+.br
+.ti -1c
+.RI "static final Font \fBFONT_DEFAULT\fP = new Font('SansSerif',Font\&.PLAIN,10)"
+.br
+.ti -1c
+.RI "static final long \fBREPAINT_DELAY\fP = 100"
+.br
+.ti -1c
+.RI "static final Color \fBHEADER_BG_COLOR\fP = new Color(220, 220, 220)"
+.br
+.ti -1c
+.RI "static final Color \fBSTATUS_BG_COLOR\fP = new Color(220, 220, 220)"
+.br
+.ti -1c
+.RI "static final Color \fBSTATUS_MSG_COLOR\fP = Color\&.red"
+.br
+.ti -1c
+.RI "static final Color \fBINFO_HEADER_FG_COLOR\fP = Color\&.red"
+.br
+.ti -1c
+.RI "static final Color \fBINFO_HEADER_BG_COLOR\fP = Color\&.yellow"
+.br
+.ti -1c
+.RI "static final Color \fBINFO_TEXT_FG_COLOR\fP = Color\&.black"
+.br
+.ti -1c
+.RI "static final Color \fBINFO_TEXT_BG_COLOR\fP = Color\&.white"
+.br
+.ti -1c
+.RI "static final Color \fBINFO_OLD_FG_COLOR\fP = Color\&.gray"
+.br
+.ti -1c
+.RI "static final int \fBTimeFlowMode_CONTINIUM\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBTimeFlowMode_STEP_FLOW\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBTimeFlowMode_STEP_SINGLE\fP = 3"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfileOpen\fP ()  throws IOException "
+.br
+.ti -1c
+.RI "void \fBfileClose\fP ()  throws ModelGraficException, IOException"
+.br
+.ti -1c
+.RI "void \fBreload\fP ()"
+.br
+.ti -1c
+.RI "long \fBexecuteInitCommands\fP ()"
+.br
+.ti -1c
+.RI "long \fBexecuteRunCommands\fP (long until)"
+.br
+.ti -1c
+.RI "void \fBupdateDynamic\fP (long time)"
+.br
+.ti -1c
+.RI "\fBDesmoJ_Info\fP \fBgetDesmoJ_Info\fP ()"
+.br
+.ti -1c
+.RI "AppletContext \fBgetAppletContext\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetViewerName\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteStatusMsg\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSimulationThreadNull\fP ()"
+.br
+.ti -1c
+.RI "JMenuBar \fBcreateMenueBar\fP (ActionListener exitListener)"
+.br
+.ti -1c
+.RI "int \fBgetMenuBarHeight\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "String[] \fBtimeModeVal\fP = null"
+.br
+.ti -1c
+.RI "boolean \fBspeedHandler\fP = true"
+.br
+.ti -1c
+.RI "boolean \fBzoomHandler\fP = true"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Swing-Panel to animate a simulation\&. Will be called by \fBViewerFrame\fP and \fBViewerApplet\fP
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.ViewerPanel (URLcmdFile, URLsimulationIconDir, AppletContextappletContext, Localelocale)"
+starts viewer application 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcmdFile\fP URL of cmds-file thats opens automaticly, null otherwise 
+.br
+\fIsimulationIconPathURL\fP URL of simulation icon directory 
+.br
+\fIappletContext\fP null, when this panel is part of a JFrame 
+.br
+\fIlocale\fP locale of this panel 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.ViewerPanel (URLcmdFile, URLsimulationIconDir, URLsnapshotDir, AppletContextappletContext, Localelocale)"
+starts viewer application 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcmdFile\fP URL of cmds-file thats opens automaticly, null otherwise 
+.br
+\fIsimulationIconPathURL\fP URL of simulation icon directory 
+.br
+\fIsnapshot\fP URL of snapshot directory 
+.br
+\fIappletContext\fP null, when this panel is part of a JFrame 
+.br
+\fIlocale\fP locale of this panel 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "JMenuBar desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.createMenueBar (ActionListenerexitListener)\fC [protected]\fP"
+create menue of \fBViewerFrame\fP and \fBViewerApplet\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexitListener\fP ActionListener, which close the \fBViewerFrame\fP when null, Data menuBar has no exitItem 
+.br
+\fIisApplet\fP when true, there is no 'Data' menuBar 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.executeInitCommands ()\fC [protected]\fP"
+Execute commands from init-phase, used by fileReset() 
+.PP
+\fBReturns:\fP
+.RS 4
+Time of first command in run-phase 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.executeRunCommands (longuntil)\fC [protected]\fP"
+Aktualisiert die angezeigte Simulationszeit, used by \fBSimulationThread\fP Fuehrt Commands bis zur aktuellen Simulationszeit aus (RunPhase) 
+.PP
+\fBReturns:\fP
+.RS 4
+Time des naechsten Command 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.fileClose () throws \fBModelGraficException\fP, IOException\fC [protected]\fP"
+close simulationThread, close data-file,, close log-file, reset model, remove model from gui 
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIModelGraficException\fP 
+.br
+\fIIOException\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.fileOpen () throws IOException\fC [protected]\fP"
+opens cmdFile, must be called behind constructor\&. 
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIOException\fP 
+.RE
+.PP
+
+.SS "static \fBInfoPane\fP desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.getInfoPane ()\fC [static]\fP"
+\fBInfoPane\fP is a window to show data of an entity 
+.PP
+\fBReturns:\fP
+.RS 4
+\fBInfoPane\fP 
+.RE
+.PP
+
+.SS "static PrintWriter desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.getLogWriter ()\fC [static]\fP"
+get's the logWriter 
+.PP
+\fBReturns:\fP
+.RS 4
+PrintWriter for logging 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.getSimulationSpeed ()"
+get simulation-speed-value stored in viewer application 
+.PP
+\fBReturns:\fP
+.RS 4
+simulation-speed, stored in Viewer 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.getSimulationTime ()"
+get actual simulation-time 
+.PP
+\fBReturns:\fP
+.RS 4
+simulation-time, stored in Model 
+.RE
+.PP
+
+.SS "\fBSimulationTime\fP desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.getSimulationTimeInstance ()"
+get simulation-time-instance created in fileReset() 
+.PP
+\fBReturns:\fP
+.RS 4
+simulation-time-instance, stored in Viewer 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.getSimulationZoom ()"
+get simulation-zoom-value 
+.PP
+\fBReturns:\fP
+.RS 4
+simulation-zoom-value, stored in Viewer 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.getTimeFlowMode ()"
+set time-flow-mode, possible values can you find in constant declarations 
+.PP
+\fBReturns:\fP
+.RS 4
+time-flow-mode, stored in Viewer 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.lastCall ()"
+sorgt dafuer, dass nach der ModelGrafic Neu- Initialisierung der ZoomCenterPoint in der Mitte des selektierten View angezeigt wird\&. Analogon zum ChangeEventHandler beim Wechseln der ViewGrafic\&. Wird mit SwingUtilities\&.invokeLater() als letzte Anweisung in der SwingEventQueue ausgefuehrt\&. Voraussetzungen fuer den Aufruf:
+.IP "\(bu" 2
+Size des \fBViewerPanel\fP muss feststehen (Nach dem \fBViewerFrame\fP Konstruktor\&. Wird aufgerufen von:
+.IP "\(bu" 2
+nach der \fBViewerFrame\fP Konstruktor, damit die Anzeige nach dem Neustart stimmt
+.IP "\(bu" 2
+in fileOpen, damit die Anzeige nach dem manuellen oeffnen stimmt
+.IP "\(bu" 2
+in reload, damit die Anzeige nach dem Betaetigen des Start-Buttons stimmt\&. 
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.reload ()\fC [protected]\fP"
+used when start button is pressed 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setCoordinatePoint (Pointp)"
+set coordinate point to show in status line 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setDefaultPath (StringdefaultCmdPath, StringdefaultIconPath, StringdefaultSnapShotPath)"
+set default path for Data->open aund Data->icon menue\&. When this paths are null, the menue have no function used only for aplication version (not for applets) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdefaultCmdPath\fP with this path starts Data->open menue 
+.br
+\fIdefaultIconPath\fP with this path starts Data->icon menue 
+.br
+\fIdefaultSnapShotPath\fP with this path starts Data->snapshot menue 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setDefaultPath (StringdefaultCmdPath, StringdefaultIconPath)"
+set default path for Data->open aund Data->icon menue\&. When this paths are null, the menue have no function used only for aplication version (not for applets) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdefaultCmdPath\fP with this path starts Data->open menue 
+.br
+\fIdefaultIconPath\fP with this path starts Data->icon menue and Data->snapshot menue 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setModelName (Stringname)"
+set model-name and repaint it 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setSimulationSpeed (doublespeed)"
+set simulation-speed-value end update gui 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspeed\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setSimulationSpeedGUI (doublespeed)"
+update of speedField and speedSlider in gui 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspeed\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setSimulationZoom (doublezoom) throws \fBModelGraficException\fP"
+set simulation-zoom-value without update of zoomField and zoomSlider 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIzoom\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIModelGraficException\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setSimulationZoomGUI (doublezoom)"
+update of zoomField and zoomSlider in gui 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIzoom\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setStatusMessage (Stringmessage)"
+set status-message and repaint it 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.setTimeFlowMode (inttimeFlowMode)"
+set time-flow-mode, possible values can you find in constant declarations 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeFlowMode\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.updateSimulationTime (booleanvalid)"
+repaint \fBSimulationTime\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalid\fP when true use data from \fBSimulationTime\fP, else '' 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.viewer\&.ViewerPanel\&.updateSimulationTimeBounds (booleanvalid)"
+repaint SimulationTimeBounds 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalid\fP when true use data from \fBSimulationTime\fP, else '' 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

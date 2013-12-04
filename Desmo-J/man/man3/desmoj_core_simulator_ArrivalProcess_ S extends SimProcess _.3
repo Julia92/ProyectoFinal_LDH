@@ -1,0 +1,93 @@
+.TH "desmoj.core.simulator.ArrivalProcess< S extends SimProcess >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.ArrivalProcess< S extends SimProcess > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBArrivalProcess\fP (\fBModel\fP owner, String name, NumericalDist< Double > arrivalRate, boolean showInTrace)"
+.br
+.ti -1c
+.RI "abstract S \fBcreateSuccessor\fP ()"
+.br
+.ti -1c
+.RI "desmoj\&.core\&.dist\&.NumericalDist
+.br
+< Double > \fBgetArrivalRate\fP ()"
+.br
+.ti -1c
+.RI "void \fBlifeCycle\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+An \fCArrivalProcess\fP is some kind of source for \fC\fBSimProcess\fP\fP es\&. It makes them arrive from the 'outside world' in the system of interest\&. So it can be viewed as the border of the system (model)\&. The user has to specify at which rate (frequency) \fC\fBSimProcess\fP\fP es are arriving in the system\&. See the Constructor for more details\&. The user has to derive from this class to make his own ArrivalProcesses for the arriving processes he needs in his simulated system\&. He has to implement the abstract method \fC\fBcreateSuccessor()\fP\fP, which should create (instantiate) the newly arriving process\&. It is recommended to use one ArrivalProcess for each different kind of arriving process (with its specific arrival rate)\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+modified by Ruth Meyer
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.ArrivalProcess< S extends \fBSimProcess\fP >\&.ArrivalProcess (\fBModel\fPowner, Stringname, NumericalDist< Double >arrivalRate, booleanshowInTrace)"
+Constructor for an ArrivalProcess to make a certain kind of \fBSimProcess\fP arrive automatically in the system at a given rate\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this ArrivalProcess belongs to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this ArrivalProcess, should indicate that this is a source of some kind of SimProcesses\&. 
+.br
+\fIarrivalRate\fP desmoj\&.dist\&.NumericalDist<Double> : The rate at which the processes are arriving at the system\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this ArrivalProcess should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract S desmoj\&.core\&.simulator\&.ArrivalProcess< S extends \fBSimProcess\fP >\&.createSuccessor ()\fC [pure virtual]\fP"
+Implement this abstract method so it creates (instantiates) a new \fC\fBSimProcess\fP\fP object which is arriving at the system (border)\&. When this method returns \fCnull\fP the arrival process stops its lifecycle\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.core\&.SimProcess : The \fC\fBSimProcess\fP\fP object which is arriving next in the system\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.dist\&.NumericalDist<Double> desmoj\&.core\&.simulator\&.ArrivalProcess< S extends \fBSimProcess\fP >\&.getArrivalRate ()"
+Returns the rate (frequency) at which the SimProcesses arrive at the system\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.dist\&.RealDist : The rate (frequency) at which the SimProcesses arrive at the system\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ArrivalProcess< S extends \fBSimProcess\fP >\&.lifeCycle ()\fC [virtual]\fP"
+The \fCArrivalProcess\fP is some kind of source for \fC\fBSimProcess\fP\fP es\&. So its lifeCycle is quite simple: Make a new \fC\fBSimProcess\fP\fP object and activate it\&. Then wait until the next \fC\fBSimProcess\fP\fP object is arriving at the system\&. Note: the first \fC\fBSimProcess\fP\fP object is arriving when this \fCArrivalProcess\fP is started! This method uses the \fC\fBcreateSuccessor()\fP\fP method to create a new \fC\fBSimProcess\fP\fP object\&. If this method returns \fCnull\fP the life cycle of this \fCArrivalProcess\fP will stop\&. 
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

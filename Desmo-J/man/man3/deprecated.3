@@ -1,0 +1,146 @@
+.TH "deprecated" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+deprecated \- Deprecated List 
+
+.IP "\fBMember \fBdesmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends SimProcess, S extends SimProcess >\&.hold\fP (SimTime dt)\fP" 1c
+This methode is replaced by hold(TimeSpan dt)\&. 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.IntDist\fP \fP" 1c
+Replaced by DiscreteDist 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.IntDistConstant\fP \fP" 1c
+Replaced by DiscreteDistConstant 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.IntDistEmpirical\fP \fP" 1c
+Replaced by DiscreteDistEmpirical 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.IntDistPoisson\fP \fP" 1c
+Replaced by DiscreteDistPoisson 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.IntDistUniform\fP \fP" 1c
+Replaced by DiscreteDistUniform 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.RealDist\fP \fP" 1c
+Replaced by ContDist 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.RealDistConstant\fP \fP" 1c
+Replaced by DiscreteDistConstant 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.RealDistEmpirical\fP \fP" 1c
+Replaced by ContDistEmpirical 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.RealDistErlang\fP \fP" 1c
+Replaced by ContDistErlang 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.RealDistExponential\fP \fP" 1c
+Replaced by ContDistExponential 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.RealDistNormal\fP \fP" 1c
+Replaced by ContDistNormal 
+.IP "\fBClass \fBdesmoj\&.core\&.dist\&.RealDistUniform\fP \fP" 1c
+Replaced by ContDistUniform 
+.IP "\fBClass \fBdesmoj\&.core\&.report\&.HTMLFileOutput\fP \fP" 1c
+Replaced by the TableFormatter interface and the classes ASCIITableFormatter and HTMLTableFormatter for more flexible simulation output 
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Condition< E extends Entity >\&.check\fP ()\fP" 1c
+Replaced by \fCModelCondition\&.check() \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Entity\&.getPriority\fP ()\fP" 1c
+\fC Replaced by \fCgetQueueingPriority()\fP to avoid confusing with the scheduling priority of an event or process\&.  \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Entity\&.getQueue\fP ()\fP" 1c
+\fC Prefer usage of getQueues() as an entity may be queued in multiple queues, call getQueueList() to obtaint the QueueList<?> objects \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Entity\&.schedule\fP (Event<?> what, SimTime dt)\fP" 1c
+\fC Replaced by schedule(Event what,TimeSpan dt)\&. Schedules this Entity to be manipulated by the given Event at the given offset to the current simulation time\&. Note that the given point in simulation time is the positive offset to the current simulation time as displayed by the simulation clock\&. Method returns with a warning message if either Entity or Event are already scheduled in the event-list\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Entity\&.setPriority\fP (int newPriority)\fP" 1c
+\fC Replaced by \fCsetQueueingPriority(int newPriority)\fP to avoid confusing with the scheduling priority of an event or process\&.  \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Event< E extends Entity >\&.schedule\fP (E who, SimTime dt)\fP" 1c
+\fC Replaced by schedule(E who,TimeSpan dt)\&. Schedules this event to act on the given Entity at the specified point in simulation time\&. The point of time is given as an offset to the current simulation time as displayed by the simulation clock\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.debugOff\fP (SimTime stopTime)\fP" 1c
+\fC Use debugOff(TimeInstant startTime)\&. Switches the debug output off at the given point of simulation time\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.debugOn\fP (SimTime startTime)\fP" 1c
+\fC Use debugOn(TimeInstant startTime)\&. Switches the debug output on at the given point of simulation time\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.debugPeriod\fP (SimTime startTime, SimTime stopTime)\fP" 1c
+\fC Replaced by debugTime(TimeInstant a, TimeInstant b)\&. Switches the debug output on for the given period of simulation time\&. If the second parameter (off) is 'sooner' then the first parameter (on), they will be swapped automatically\&. Same parameters will result in no debug output at all! \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.getEpsilon\fP ()\fP" 1c
+\fC Use getEpsilonUnit()\&. Returns a SimTime representation of the granularity of simulation time for this experiment\&. So far, Hour, Minute, Second and Millisecond are supported\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.getTimeFloats\fP ()\fP" 1c
+\fC Depends on TimeFormatter in use\&. Returns the experiment's number of floating point digits of simulation time that are displayed in the various output files, as read from the SingleUnitTimeFormatter, if in use\&. Otherwise, 0 will be returned\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.start\fP (SimTime initTime)\fP" 1c
+\fC Use start(TimeInstant initTime)\&. Starts the experiment with the given simulation time as starting time\&. The experiment will not start unless a valid model has been connected to it before\&. Note that in order to stop the simulation at some point of time, the \fCstop\fP method has to be called first\&. \fCStopCondition\fP s can be given alternatively\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.stop\fP (Condition<?> stopCond)\fP" 1c
+\fC Replaced by \fCstop(ModelCondition stopCond)\fP \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.stop\fP (SimTime stopTime)\fP" 1c
+\fC Stops the simulation at the given point of simulation time\&. If no valid simulation time is given, the default is 0\&.0 which would not let the simulation run past that time\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.traceOff\fP (SimTime stopTime)\fP" 1c
+\fC Use traceOff(TimeInstant startTime)\&. Switches the trace output off at the given point of simulation time\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.traceOn\fP (SimTime startTime)\fP" 1c
+\fC Use traceOn(TimeInstant startTime)\&. Switches the trace output on at the given point of simulation time\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Experiment\&.tracePeriod\fP (SimTime startTime, SimTime stopTime)\fP" 1c
+\fC Replaced by tracePeriod(TimeInstant startTime, TimeInstant stopTime)\&. Switches the trace output on for the given period of simulation time\&. If the second parameter (off) is 'sooner' then the first parameter (on), they will be swapped automatically\&. Same parameters will result in no trace output at all\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.ExternalEvent\&.schedule\fP (SimTime dt)\fP" 1c
+\fC Replaced by schedule(TimeSpan dt)\&.Schedules this external Event to make the desired changes to the experiment or model at the specified point in simulation time\&. The point of time is given as an offset to the current simulation time as displayed by the simclock\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.ExternalEventStop\&.schedule\fP (SimTime dt)\fP" 1c
+\fC Replaced by schedule(TimeSpan dt)\&.Schedules this external Event to make the desired changes to the experiment or model at the specified point in simulation time\&. The point of time is given as an offset to the current simulation time as displayed by the simclock\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.ModelComponent\&.currentTime\fP ()\fP" 1c
+\fC Replaced by presentTime()\&. Returns the current simulation time as displayed by the simulation clock responsible for this modelcomponent\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.ModelComponent\&.epsilon\fP ()\fP" 1c
+\fC Use TimeOperations\&.getEpsilon()\&. Returns the minimum distinguishable span of simulation time for this experiment\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Schedulable\&.reSchedule\fP (SimTime dt)\fP" 1c
+\fC Use reSchedule(TimeSpan dt)\&. Re-schedules the Schedulable at some other point in simulation time than it already had been scheduled before\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.Schedulable\&.scheduledAt\fP ()\fP" 1c
+\fC Returns the point of simulation time this Schedulable is scheduled at\&. Returns null, if the entity has not been scheduled and thus can not return an appropriate point of simulation time\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.SimProcess\&.activate\fP (SimTime dt)\fP" 1c
+\fC Replaced by activate(TimeSpan dt)\&. Schedules the SimProcess to be activated at the given time offset to the current simulation time\&. This will allow a SimProcess to continue executing its \fClifeCycle\fP method\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.SimProcess\&.hold\fP (SimTime dt)\fP" 1c
+\fC Replaced by hold(TimeSpan dt)\&. Passivates a SimProcess for the time given\&. The simthread of this SimProcess is put into a lock and the scheduler, resp\&. the experiment's main thread is released from its block and continues with the next EventNote to be processed\&. \fP
+.IP "\fBClass \fBdesmoj\&.core\&.simulator\&.SimTime\fP \fP" 1c
+\fC Represents points in simulation time\&. Is used to indicate points in simulation time at which the state of the model changes\&. Each point in simulation time is represented by an individual object of this class and offers its own methods for arithmetic operations\&. Ensures that only valid points of time are generated\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.simulator\&.TimeInstant\&.getTimeValue\fP ()\fP" 1c
+\fC Replaced by getTimeAsDouble()\&. The value of this TimeInstant object as a double type in the time unit of the reference time\&. \fP
+.IP "\fBClass \fBdesmoj\&.core\&.simulator\&.Units\fP \fP" 1c
+\fC Prefer usage of Java standard classes, e\&.g\&. \fCjava\&.util\&.concurrent\&.TimeUnit\fP for time units\&.  \fP
+.IP "\fBClass \fBdesmoj\&.core\&.simulator\&.UTCTimeFormatter\fP \fP" 1c
+\fC Replaced by PatternBasedTimeFormatter\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.statistic\&.Histogram\&.getCellWidth\fP ()\fP" 1c
+\fC The same functionality is given by getMeanWidth()\&.  \fP
+.IP "\fBMember \fBdesmoj\&.core\&.statistic\&.Histogram\&.getMostFrequentedCell\fP ()\fP" 1c
+\fC Gives the same result as the first entry of the returned array of getMostFrequentedCells()\&.  \fP
+.IP "\fBMember \fBdesmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries\fP (Model ownerModel, String name, String fileName, SimTime start, SimTime end, boolean showInTrace)\fP" 1c
+\fC Types of start and end (SimTime) to be replaced with TimeInstant\&.  \fP
+.IP "\fBMember \fBdesmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries\fP (Model ownerModel, String name, SimTime start, SimTime end, boolean showInTrace)\fP" 1c
+\fC Types of start and end (SimTime) to be replaced with TimeInstant\&.  \fP
+.IP "\fBMember \fBdesmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries\fP (Model ownerModel, String name, ValueSupplier valSup, SimTime start, SimTime end, boolean automatic, boolean showInTrace)\fP" 1c
+\fC Types of start and end (SimTime) to be replaced with TimeInstant\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.statistic\&.TimeSeries\&.TimeSeries\fP (Model ownerModel, String name, String fileName, ValueSupplier valSup, SimTime start, SimTime end, boolean automatic, boolean showInTrace)\fP" 1c
+\fC Types of start and end (SimTime) to be replaced with TimeInstant\&. \fP
+.IP "\fBMember \fBdesmoj\&.core\&.util\&.SimRunEvent\&.getSimTime\fP ()\fP" 1c
+\fC Replaced by getCurrentTime()\&.  \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.getReviewPeriod\fP ()\fP" 1c
+\fC Replaced by getReviewSpan()\&.  \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.RestockProcessMT\fP (Model owner, String name, long mil, SimTime t, Stock client, boolean showInTrace)\fP" 1c
+\fC Type of t (SimTime) to be replaced with TimeInstant\&.  \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.RestockProcessMT\fP (Model owner, String name, long mil, SimTime t, Stock client, NumericalDist<?> lt, boolean showInTrace)\fP" 1c
+\fC Type of t (SimTime) to be replaced with TimeInstant\&.  \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessMT\&.setReviewPeriod\fP (SimTime newReviewPeriod)\fP" 1c
+\fC Replaced by setReviewSpan(TimeSpan newReviewSpan)\&.  \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.getReviewPeriod\fP ()\fP" 1c
+\fC Replaced by getReviewSpan()\&.  \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.RestockProcessQT\fP (Model owner, String name, long q, SimTime t, Stock client, NumericalDist< Double > lt, boolean showInTrace)\fP" 1c
+\fC Type of t (SimTime) to be replaced with TimeInstant\&.  \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.RestockProcessQT\fP (Model owner, String name, long q, SimTime t, Stock client, boolean showInTrace)\fP" 1c
+\fC Type of t (SimTime) to be replaced with TimeInstant\&. \fP
+.IP "\fBMember \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.RestockProcessQT\&.setReviewPeriod\fP (SimTime newReviewPeriod)\fP" 1c
+\fC Replaced by setReviewSpan(TimeSpan newReviewSpan)\&.  \fP
+.IP "\fBClass \fBdesmoj\&.extensions\&.dimensions\&.Duration\fP \fP" 1c
+\fC Replaced by \fBdesmoj\&.core\&.simulator\&.TimeSpan\fP \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.ConvergenceException\&.ConvergenceException\fP (String msg)\fP" 1c
+\fC as of 1\&.2, replaced by \fBConvergenceException(String, Object[])\fP  \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.ConvergenceException\&.ConvergenceException\fP (String msg, Throwable rootCause)\fP" 1c
+\fC as of 1\&.2, replaced by \fBConvergenceException(String, Object[], Throwable)\fP  \fP
+.IP "\fBClass \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactory\fP \fP" 1c
+\fC pluggability of distribution instances is now provided through constructors and setters\&.  \fP
+.IP "\fBClass \fBorg\&.apache\&.commons\&.math\&.distribution\&.DistributionFactoryImpl\fP \fP" 1c
+\fC pluggability of distribution instances is now provided through constructors and setters\&.  \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.FunctionEvaluationException\&.FunctionEvaluationException\fP (double argument, String message, Throwable cause)\fP" 1c
+\fC as of 1\&.2, replaced by \fBFunctionEvaluationException(double, String, Object[], Throwable)\fP  \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.FunctionEvaluationException\&.FunctionEvaluationException\fP (double argument, String message)\fP" 1c
+\fC as of 1\&.2, replaced by \fBFunctionEvaluationException(double, String, Object[])\fP  \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.MathConfigurationException\&.MathConfigurationException\fP (String message)\fP" 1c
+\fC as of 1\&.2, replaced by \fBMathConfigurationException(String, Object[])\fP  \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.MathConfigurationException\&.MathConfigurationException\fP (String message, Throwable cause)\fP" 1c
+\fC as of 1\&.2, replaced by \fBMathConfigurationException(String, Object[], Throwable)\fP  \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.MathException\&.MathException\fP (String msg)\fP" 1c
+\fC as of 1\&.2, replaced by \fBMathException(String, Object[])\fP  \fP
+.IP "\fBMember \fBorg\&.apache\&.commons\&.math\&.MathException\&.MathException\fP (String msg, Throwable rootCause)\fP" 1c
+\fC as of 1\&.2, replaced by \fBMathException(String, Object[], Throwable)\fP \fP
+.PP
+

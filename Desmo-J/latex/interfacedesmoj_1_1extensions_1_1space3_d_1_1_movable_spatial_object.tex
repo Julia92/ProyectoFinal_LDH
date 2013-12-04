@@ -1,0 +1,634 @@
+\section{desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object Interface Reference}
+\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}\index{desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object@{desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract void {\bf attach} ({\bf Movable\-Spatial\-Object} host)
+\item 
+abstract void {\bf cancel\-Movement} ()
+\item 
+abstract void {\bf cancel\-Rotation} ()
+\item 
+abstract void {\bf detach} ()
+\item 
+abstract double {\bf get\-Acc} ()
+\item 
+abstract {\bf Spatial\-Object} {\bf get\-Current\-Location} ()
+\item 
+abstract {\bf Movement} {\bf get\-Current\-Movement} ()
+\item 
+abstract {\bf Rotation} {\bf get\-Current\-Rotation} ()
+\item 
+abstract double {\bf get\-Current\-Speed} ()
+\item 
+abstract double {\bf get\-Dec} ()
+\item 
+abstract double {\bf get\-Max\-Speed} ()
+\item 
+abstract boolean {\bf is\-Attached} ()
+\item 
+abstract boolean {\bf is\-Focused\-On\-Track} ()
+\item 
+abstract boolean {\bf is\-Moving} ()
+\item 
+abstract boolean {\bf is\-Rotating} ()
+\item 
+abstract void {\bf move} ({\bf Spatial\-Object} destination, String entry\-Point\-Name, boolean focus\-On\-Track)
+\item 
+abstract void {\bf move} ({\bf Spatial\-Object} destination, String entry\-Point\-Name, {\bf Time\-Span} duration, boolean focus\-On\-Track)
+\item 
+abstract void {\bf move} ({\bf Spatial\-Object} destination, String entry\-Point\-Name, {\bf Time\-Span} duration, double max\-Speed, double acc, double dec, boolean focus\-On\-Track)
+\item 
+abstract void {\bf move} ({\bf Movement} movement, boolean focus\-On\-Track)
+\item 
+abstract void {\bf notify\-Moving\-Done} ()
+\item 
+abstract void {\bf notify\-Rotating\-Done} ()
+\item 
+abstract void {\bf rot\-X} (double angle, {\bf Time\-Span} duration)
+\item 
+abstract void {\bf rot\-Y} (double angle, {\bf Time\-Span} duration)
+\item 
+abstract void {\bf rot\-Z} (double angle, {\bf Time\-Span} duration)
+\item 
+abstract void {\bf send\-To\-Location} ({\bf Spatial\-Object} destination)
+\item 
+abstract void {\bf send\-To\-Location\-Entry\-Point} ({\bf Spatial\-Object} destination, String entry\-Point)
+\item 
+abstract void {\bf send\-To\-Location\-Exit\-Point} ({\bf Spatial\-Object} destination, String exit\-Point)
+\item 
+abstract void {\bf set\-Acc} (double acc)
+\item 
+abstract void {\bf set\-Dec} (double dec)
+\item 
+abstract void {\bf set\-Max\-Speed} (double max\-Speed)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This interface extends the \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} interface by moving animation methods. The class which implements this is meant to be a movable object in the simulation. The methods cover the setting and getting spatial transformation data.
+
+A \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} (M\-S\-O) can contain other Movable\-Spatial\-Objects as components to simulate the movable extensions/parts of an object. The other way around, a M\-S\-O can also be the child-\/\-M\-S\-O of other M\-S\-Os. In this case, the Attach and Detach methods will be deactivated. All the getting methods will return the local attributes without considering the parent M\-S\-O. The position and the orientation are represented in the parent-\/\-M\-S\-O's local coordinates. For the move methods only the move(movement, focus\-On\-Track) will be remained usable. To declare a M\-S\-O as a child-\/\-M\-S\-O, the parent M\-S\-O must be give in the constructor. This is the only way to declare it and it can't be modified afterwards.
+
+\begin{DoxyAuthor}{Author}
+Fred Sun 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!attach@{attach}}
+\index{attach@{attach}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{attach}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-attach (
+\begin{DoxyParamCaption}
+\item[{{\bf Movable\-Spatial\-Object}}]{host}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_af21a5d64b858ed4b7b00d218d08c956b}
+Add a child-\/component to this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. This Method shouldn't be called by user. The arrangement will be done by the specific constructor. 
+\begin{DoxyParams}{Parameters}
+{\em child\-M\-S\-O} & The child-\/\-Movable\-Spatial\-Object to be added. Snaps to another \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. If the host moves, this object will be moved, too. The relative position to the host object will be kept. If attached, this object shouldn't be able to change its position and orientation itself anymore. \\
+\hline
+{\em host} & The \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} who to attach to. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a17ae10f65b3cff673fe683a0ecad6b46}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_ab6c62786b4737d2a59e7b188606ea738}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!cancel\-Movement@{cancel\-Movement}}
+\index{cancel\-Movement@{cancel\-Movement}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{cancel\-Movement}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-cancel\-Movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_ad13031232e7b550744890ea7b43f3dfd}
+Cancel the movement if there is a movement performing. 
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a7b684b6da1cec4aea5c3770231a70364}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a933d3c1a8fbed0c4f17c3e16b86caf0d}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!cancel\-Rotation@{cancel\-Rotation}}
+\index{cancel\-Rotation@{cancel\-Rotation}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{cancel\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-cancel\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a46c58dadf8df7076e75254a1904b38c4}
+Cancel the rotation if there is a rotation performing. 
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_aaa0703b853bd16caf794b0bec41516c7}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a381f199152e073e2f75d5ca6316f0973}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!detach@{detach}}
+\index{detach@{detach}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{detach}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-detach (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a376bf3ee2b38aa9d2f82c52604463b0c}
+Returns true if this object contains the given \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} as child-\/component. 
+\begin{DoxyParams}{Parameters}
+{\em child\-M\-S\-O} & The \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this object contains it as child\-M\-S\-O, false if not. Releases from the host object if this object is attached to it. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a8aa4497b3c9015f5a5db672c28725791}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a7b559bfb1aaa19d11dbb9160628d1ba0}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!get\-Acc@{get\-Acc}}
+\index{get\-Acc@{get\-Acc}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{get\-Acc}]{\setlength{\rightskip}{0pt plus 5cm}abstract double desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-get\-Acc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a8f5fccbd3200b99f560f237318c8dc30}
+Gets the acceleration of the object. The default value is 0. \begin{DoxyReturn}{Returns}
+The acceleration 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a8e49af3989545235a4ef9f27d85f42da}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a6a021bae3434df1cafd1d88de0e1469c}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!get\-Current\-Location@{get\-Current\-Location}}
+\index{get\-Current\-Location@{get\-Current\-Location}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{get\-Current\-Location}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf Spatial\-Object} desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-get\-Current\-Location (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a6f6d4fc90ee7a4c0027cdf47a73f34b0}
+Gets an iterator over all the child-\/\-Movable\-Spatial\-Obejct's this object contains \begin{DoxyReturn}{Returns}
+An iterator over all the child-\/\-M\-S\-O's this object contains. Returns the \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} where this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is currently located. 
+
+The \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} where this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is located. Null, if it isn't located at any \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object}. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_ad7a684095cc8fadacdfcecefdd7fd5af}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_acec8760d3a72c2da489f55f037531e68}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!get\-Current\-Movement@{get\-Current\-Movement}}
+\index{get\-Current\-Movement@{get\-Current\-Movement}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{get\-Current\-Movement}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf Movement} desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-get\-Current\-Movement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_ada97310660f303e4811c1ee1020b3be6}
+Gets the current \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} object. \begin{DoxyReturn}{Returns}
+The current \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} object. Null, if this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} isn't moving. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_ad0b23a8b70928fcae290fc95b94648c2}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a5aad175bbf9629a668a83d0aee03782a}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!get\-Current\-Rotation@{get\-Current\-Rotation}}
+\index{get\-Current\-Rotation@{get\-Current\-Rotation}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{get\-Current\-Rotation}]{\setlength{\rightskip}{0pt plus 5cm}abstract {\bf Rotation} desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-get\-Current\-Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a56d7c7aae1e5bb79b320255133dbf3b0}
+Gets the current \doxyref{Rotation}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_rotation} object. \begin{DoxyReturn}{Returns}
+The current \doxyref{Rotation}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_rotation} object. Null, if this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} isn't rotating. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_ac2b0ebbddbfb549d1c0d4213b2a18dec}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_ab1ba4778c3fe2de8ce82d8ff4404aeaa}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!get\-Current\-Speed@{get\-Current\-Speed}}
+\index{get\-Current\-Speed@{get\-Current\-Speed}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{get\-Current\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}abstract double desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-get\-Current\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_aa93a390923e07832367df8ea1e77e5b5}
+Gets the current moving speed of the object. \begin{DoxyReturn}{Returns}
+The current moving speed. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_ab49bde067888e07fb88f5791200e3fba}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a0a09b16781af3c5c60c02dc3a386b4c7}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!get\-Dec@{get\-Dec}}
+\index{get\-Dec@{get\-Dec}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{get\-Dec}]{\setlength{\rightskip}{0pt plus 5cm}abstract double desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-get\-Dec (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_af588fa3d3a2bb937a3ace5f504e2ca77}
+Gets the negative acceleration of the object. The default value is 0. \begin{DoxyReturn}{Returns}
+The negative acceleration 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a7f2c3819980390d3e9e63b6e742cfbb1}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a98f009ae9c0f9fcb3907e7228ef7a4da}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!get\-Max\-Speed@{get\-Max\-Speed}}
+\index{get\-Max\-Speed@{get\-Max\-Speed}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{get\-Max\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}abstract double desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-get\-Max\-Speed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a43c09b147f3c261c810ffdf0465c5b10}
+Gets the vector which points to the front side of this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. The default vector is null. \begin{DoxyReturn}{Returns}
+The normalized vector which shows the front side. Gets the maximum speed of the object. If it's 0, the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} won't have speed limitation. The default value is 0. 
+
+The maximum speed of the object 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a6ddf9a8ad075ed306ad5d48232db36e7}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a8b5fb76340bfc0ec1a65f81d2f157e4d}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!is\-Attached@{is\-Attached}}
+\index{is\-Attached@{is\-Attached}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{is\-Attached}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-is\-Attached (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_ac18dad4d07651906631cf28553fd0abb}
+Gets how many child-\/\-Movable\-Spatial\-Object's this object has. \begin{DoxyReturn}{Returns}
+The number of the child-\/\-M\-S\-O's of this obejct. Gets the parent-\/\-Movable\-Spaital\-Object if this Object is a component of it 
+
+The parent-\/\-M\-S\-O if exist. Else, null. Check whether this object has any child-\/\-Movable\-Spatial\-Object 
+
+True if there is a child\-M\-S\-O. False if there is no child\-M\-S\-O. I\-Shows whether the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is attached. 
+
+Whether the Movable\-Spatial\-Obejct is attached. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a46c84abf59d94e286b6383fa43a6febc}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a104b9537a430260ac870ba065efba7d2}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!is\-Focused\-On\-Track@{is\-Focused\-On\-Track}}
+\index{is\-Focused\-On\-Track@{is\-Focused\-On\-Track}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{is\-Focused\-On\-Track}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-is\-Focused\-On\-Track (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a167c7193c271d472f1a5c90b66e9cf86}
+Returns whether the Focus\-On\-Track function is on. \begin{DoxyReturn}{Returns}
+True if it's set. False if it's not set. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_afb85e0be4d4b65659a58d5caa5fc01b4}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a7a4e23723bceee0d92511f5d9b74cad0}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!is\-Moving@{is\-Moving}}
+\index{is\-Moving@{is\-Moving}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{is\-Moving}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-is\-Moving (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a3ff8f3ef229c5a877bc24373b2eeb241}
+Shows whether the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is moving. \begin{DoxyReturn}{Returns}
+whether the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is moving. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a2f2063b640c1a78667f2aab517073c8d}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_aa78c926d9a6e4df1b96877b6f291e915}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!is\-Rotating@{is\-Rotating}}
+\index{is\-Rotating@{is\-Rotating}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{is\-Rotating}]{\setlength{\rightskip}{0pt plus 5cm}abstract boolean desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-is\-Rotating (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a1c35bd8de78685c66e7e163e3269c8ec}
+Shows whether the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is rotating. \begin{DoxyReturn}{Returns}
+whether the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is rotating. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a4d82461318621d0348b7fb61d075ecc0}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a039008648c98763c1b71fdef048d46b3}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{entry\-Point\-Name, }
+\item[{boolean}]{focus\-On\-Track}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_ab33bd9bf45b6b5d5293398008a42d427}
+Show whether the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is a child-\/component of another \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} \begin{DoxyReturn}{Returns}
+true, if this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is part of another \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. False, if it's not. Move the object to the position of another \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} without a specified duration. It use the acceleration, deceleration and the maximum speed of the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. For this method the maximum speed of the object must be given or an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown. If the acceleration is $<$= 0 O\-R deceleration of the object is $>$= 0, then the kinematical attributes won't be calculated and the movement will start with the maximum speed and break to zero immediately at the destination. If the object is already moving it will move to the new destination. (not for \doxyref{Movable\-Spatial\-Sim\-Process}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process}) 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination object we want to move to. \\
+\hline
+{\em enttry\-Point\-Name} & The name of the specific entry point at the destination object, which should be steered to. \\
+\hline
+{\em focus\-On\-Track} & Whether the orientation of the moving object should focus to the moving direction. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a2597d3d1f8d6ba13d9d52957895ed9a9}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a54bf4dfa5f9254e8a37f3ead85993fc1}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{entry\-Point\-Name, }
+\item[{{\bf Time\-Span}}]{duration, }
+\item[{boolean}]{focus\-On\-Track}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a2da053b8793d7e0f0d8ddc7510dbd733}
+Move the object to the position of another \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} with a specified duration. It use the acceleration, deceleration and the maximum speed of the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object}. If the acceleration is $<$= 0 O\-R deceleration of the object is $>$= 0, then the kinematical attributes won't be calculated and the movement will start with the speed needed to arrive the destination in time. If the maximum speed of the object is initialized ($>$0), then an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown if it is not possible to make to the destination in time. If the object is already moving it will move to the new destination. (not for \doxyref{Movable\-Spatial\-Sim\-Process}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process}) 
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination object we want to move to. \\
+\hline
+{\em enttry\-Point\-Name} & The name of the specific entry point at the destination object, which should be steered to. \\
+\hline
+{\em duration} & The duration of the movement in Time\-Span. \\
+\hline
+{\em focus\-On\-Track} & Whether the orientation of the moving object should focus to the moving direction. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a947739b80324c12bc555bdb9ab5fa1fa}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a7f199237a8c0fc034018b14f6c6e5eca}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{entry\-Point\-Name, }
+\item[{{\bf Time\-Span}}]{duration, }
+\item[{double}]{max\-Speed, }
+\item[{double}]{acc, }
+\item[{double}]{dec, }
+\item[{boolean}]{focus\-On\-Track}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_ac55d0ba3937ea460364722461ad90239}
+Move the object to the position of another \doxyref{Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_spatial_object} with specific attributes. There are different varieties of movement modes depends on the initialized parameters (O = initialized, X = not initialized(means invalid or null))\-:
+
+case 1\-: duration O, max\-Speed O, acc \& dec O\-: The movement will be performed according to the parameters. If the given parameters can't be satisfied, an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown.
+
+case 2\-: duration X, max\-Speed O, acc \& dec O\-: The object will be moved to the destination with the fastest speed possible.
+
+case 3\-: duration O, max\-Speed X, acc \& dec O\-: The object will move to the destination with the given acceleration and deceleration and try to reach the destination in time. If the given parameters can't be satisfied, an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown.
+
+case 4\-: duration X, max\-Speed X, acc \& dec O\-: The object will be accelerated and followed by a deceleration. There's no constant phase in the movement.
+
+case 5\-: duration O, max\-Speed O, acc or dec X\-: The object will start with the speed needed to arrive the destination in the given time and break suddenly to zero at the end of the movement. The max\-Speed gives the speed limit of the movement. If the given parameters can't be satisfied, an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception} will be thrown.
+
+case 6\-: duration X, max\-Speed O, acc or dec X\-: The movement will start with the max\-Speed and stops the destination.
+
+case 7\-: duration O, max\-Speed X, acc or dec X\-: The movement will start with the speed needed to arrive the destination with the duration given.
+
+All other combinations of these parameters will cause an \doxyref{Illegal\-Move\-Exception}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_illegal_move_exception}.
+
+If the object is already moving it will move to the new destination. (not for \doxyref{Movable\-Spatial\-Sim\-Process}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process}) 
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination object we want to move to. \\
+\hline
+{\em enttry\-Point\-Name} & The name of the specific entry point at the destination object, which should be steered to. \\
+\hline
+{\em duration} & The duration of the movement in Time\-Span(optional). \\
+\hline
+{\em max\-Speed} & The maximum speed of the movement(optional). \\
+\hline
+{\em acc} & The acceleration of the movement(optional). \\
+\hline
+{\em dec} & The deceleration of the movement(optional). \\
+\hline
+{\em focus\-On\-Track} & Whether the orientation of the moving object should focus to the moving direction. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_ab6859db7a189d1288c772c6b94101150}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a5648ee6580a876e6e98aa1c3590891d1}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!move@{move}}
+\index{move@{move}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf Movement}}]{movement, }
+\item[{boolean}]{focus\-On\-Track}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a4b22ae21868793b2ce434eecce239dd8}
+Move the object to the destination according to the given movement object. If the object is already moving it will move to the new destination. (not for \doxyref{Movable\-Spatial\-Sim\-Process}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process}) If this \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} is a child-\/\-M\-S\-O, the \doxyref{Track}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_track} which is contained in the \doxyref{Movement}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movement} parameter should be in the local coordinates of this object. 
+\begin{DoxyParams}{Parameters}
+{\em movement} & The movement which should be performed. \\
+\hline
+{\em focus\-On\-Track} & Whether the orientation of the moving object should focus to the moving direction. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a3924869f4f5abfe83380773fd7b87b44}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a0e12e39806de5ffbe1ed4c1878b1cc6f}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!notify\-Moving\-Done@{notify\-Moving\-Done}}
+\index{notify\-Moving\-Done@{notify\-Moving\-Done}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{notify\-Moving\-Done}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-notify\-Moving\-Done (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_ab16dc92b0427020cccaeeaed084549a2}
+Notifies the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} that the moving is finished and updates the new coordinates. This method shouldn't be called by user! 
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a4fac06666c4caac46ee2be36f4651f88}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a42dade6cc6b05b6fbc36eb9e8c34f3f3}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!notify\-Rotating\-Done@{notify\-Rotating\-Done}}
+\index{notify\-Rotating\-Done@{notify\-Rotating\-Done}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{notify\-Rotating\-Done}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-notify\-Rotating\-Done (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a3c060c489a2e1f67821d26ec60313ba1}
+Notifies the \doxyref{Movable\-Spatial\-Object}{p.}{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object} that the rotating is finished and updates the new coordinates. This method shouldn't be called by user! 
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a2cde6bb3c79992bd30da513875de325b}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a5984c1df3403cb27791a894b1b25085a}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!rot\-X@{rot\-X}}
+\index{rot\-X@{rot\-X}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{rot\-X}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-rot\-X (
+\begin{DoxyParamCaption}
+\item[{double}]{angle, }
+\item[{{\bf Time\-Span}}]{duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a1c9d04a05584750948a1fb8195fe2729}
+Rotates the object about the x-\/axis using an animation. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & The start angle \\
+\hline
+{\em duration} & The duration of the animation \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a2e477de4bea84409ea796afc5e9c26f6}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a161a67465f436a414084c1005dfab4fc}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!rot\-Y@{rot\-Y}}
+\index{rot\-Y@{rot\-Y}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{rot\-Y}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-rot\-Y (
+\begin{DoxyParamCaption}
+\item[{double}]{angle, }
+\item[{{\bf Time\-Span}}]{duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a4d45e0bf56befcf978fdb92c3df69e04}
+Rotates the object about the y-\/axis using an animation. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & The start angle \\
+\hline
+{\em duration} & The duration of the animation \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a65657f01c46ba6955b29a537caa91827}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a238711038310c3b1c4b1f10cd74012dd}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!rot\-Z@{rot\-Z}}
+\index{rot\-Z@{rot\-Z}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{rot\-Z}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-rot\-Z (
+\begin{DoxyParamCaption}
+\item[{double}]{angle, }
+\item[{{\bf Time\-Span}}]{duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_af6e20afefe4461cc212d41a485f002fe}
+Rotates the object about the z-\/axis using an animation. 
+\begin{DoxyParams}{Parameters}
+{\em angle} & The start angle \\
+\hline
+{\em duration} & The duration of the animation \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a3f489335c494cc82b537f91fdb0fa150}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a6b0c10eb35373e52deeb7b87e8d63d7b}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!send\-To\-Location@{send\-To\-Location}}
+\index{send\-To\-Location@{send\-To\-Location}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{send\-To\-Location}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-send\-To\-Location (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_aed908a60165e96ef515f32c3ed711e31}
+Set this object to the position of the destination object and change the current\-Location to the destination object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination this object will be send to. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a04ba340dcedb08b5f14ed043a1884a9d}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a1faa5eb669d8f6806da3617a77e66649}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!send\-To\-Location\-Entry\-Point@{send\-To\-Location\-Entry\-Point}}
+\index{send\-To\-Location\-Entry\-Point@{send\-To\-Location\-Entry\-Point}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{send\-To\-Location\-Entry\-Point}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-send\-To\-Location\-Entry\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{entry\-Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a3577cc319e89274a1d5d509b1c76e369}
+Set this object to the position of the given entry point of the destination object. The current\-Location will also be changed to the destination object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination object the current\-Location should be set to. \\
+\hline
+{\em entry\-Point} & The specific entry point of the destination object. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a9ee7bd8ca3e9ef081864727e4f1d9b5d}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_af032db0f3826d8ccaa695948728c0eb4}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!send\-To\-Location\-Exit\-Point@{send\-To\-Location\-Exit\-Point}}
+\index{send\-To\-Location\-Exit\-Point@{send\-To\-Location\-Exit\-Point}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{send\-To\-Location\-Exit\-Point}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-send\-To\-Location\-Exit\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Spatial\-Object}}]{destination, }
+\item[{String}]{exit\-Point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a38e404509ffb078927086cf536a680bb}
+Set this object to the position of the given exit point of the destination object. The current\-Location will also be changed to the destination object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & The destination object the current\-Location should be set to. \\
+\hline
+{\em exit\-Point} & The specific exit point of the destination object this object will be send to. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a209fb023a6ed8498cb6f29eade0a0f9d}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a43bfe37fa6072fa6a42b9bf553f3581a}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!set\-Acc@{set\-Acc}}
+\index{set\-Acc@{set\-Acc}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{set\-Acc}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-set\-Acc (
+\begin{DoxyParamCaption}
+\item[{double}]{acc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_a701f085bedadc6ba46c90d8f3d81ef1a}
+Sets the acceleration of the object. 
+\begin{DoxyParams}{Parameters}
+{\em acc} & The acceleration \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a2ae0fdd4ea384787145a50dfe24a3f30}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a2ede40f8d5ff465ee9bbc266a2cfec32}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!set\-Dec@{set\-Dec}}
+\index{set\-Dec@{set\-Dec}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{set\-Dec}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-set\-Dec (
+\begin{DoxyParamCaption}
+\item[{double}]{dec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_abd8218818c37a0bc44e4516d890a13d3}
+Sets the negative acceleration of the object. 
+\begin{DoxyParams}{Parameters}
+{\em dec} & The negative acceleration \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_a85bf5e122f3902cf02f79709d3ec8722}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_a3ae429a5da79f1238181cc2b7e6cd118}.
+
+\index{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}!set\-Max\-Speed@{set\-Max\-Speed}}
+\index{set\-Max\-Speed@{set\-Max\-Speed}!desmoj::extensions::space3D::MovableSpatialObject@{desmoj\-::extensions\-::space3\-D\-::\-Movable\-Spatial\-Object}}
+\subsubsection[{set\-Max\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Object.\-set\-Max\-Speed (
+\begin{DoxyParamCaption}
+\item[{double}]{max\-Speed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{interfacedesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_object_afd562680f2f7818d36fdf47f861f89fd}
+Sets the maximum speed of this object 
+\begin{DoxyParams}{Parameters}
+{\em max\-Speed} & The maximum speed of the object \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_sim_process_ad8ce6a98b7a21093e478a5fb027e66fa}, and {\bf desmoj.\-extensions.\-space3\-D.\-Movable\-Spatial\-Entity} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1space3_d_1_1_movable_spatial_entity_ab355ab47c1ca9461235c05243c9ef878}.
+
+
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/space3\-D/Movable\-Spatial\-Object.\-java\end{DoxyCompactItemize}

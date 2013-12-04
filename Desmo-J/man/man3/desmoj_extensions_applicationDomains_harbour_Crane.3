@@ -1,0 +1,376 @@
+.TH "desmoj.extensions.applicationDomains.harbour.Crane" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.Crane \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.SimProcess\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCrane\fP (\fBModel\fP owner, String name, int bufferCapacity, \fBC_Control\fP cs, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBCrane\fP (\fBModel\fP owner, String name, \fBC_Control\fP cs, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBload\fP (\fBSimTime\fP time)"
+.br
+.ti -1c
+.RI "void \fBunload\fP (\fBSimTime\fP time)"
+.br
+.ti -1c
+.RI "void \fBdrive\fP (\fBSimTime\fP time)"
+.br
+.ti -1c
+.RI "long \fBgetNumLoadedUnits\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetNumUnloadedUnits\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetShip\fP (\fBShip\fP s)"
+.br
+.ti -1c
+.RI "\fBShip\fP \fBgetShip\fP ()"
+.br
+.ti -1c
+.RI "\fBC_Control\fP \fBgetCS\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCS\fP (\fBC_Control\fP cs)"
+.br
+.ti -1c
+.RI "\fBStock\fP \fBgetBuffer\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetBuffer\fP (\fBStock\fP b)"
+.br
+.ti -1c
+.RI "long \fBgetNumToLoadUnits\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetNumToUnloadUnits\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNumToLoadUnits\fP (long n)"
+.br
+.ti -1c
+.RI "void \fBsetNumToUnloadUnits\fP (long n)"
+.br
+.ti -1c
+.RI "boolean \fBload\fP (\fBLoading\fP loading)"
+.br
+.ti -1c
+.RI "boolean \fBunload\fP (\fBUnloading\fP unloading)"
+.br
+.ti -1c
+.RI "boolean \fBwaitOnUnloading\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBwaitOnLoading\fP ()"
+.br
+.ti -1c
+.RI "WaitQueue \fBgetWLoadQueue\fP ()"
+.br
+.ti -1c
+.RI "WaitQueue \fBgetWUnloadQueue\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetWLoadQueue\fP (WaitQueue wq)"
+.br
+.ti -1c
+.RI "void \fBsetWUnloadQueue\fP (WaitQueue wq)"
+.br
+.ti -1c
+.RI "double \fBgetLoadTime\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetUnloadTime\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A \fBCrane\fP represents any kind of cranes (containerbridges, gantry crane) which loads/unloads containers(goods) onto/from an external/internal transporter or into/from yard in a container terminal\&. \fBCrane\fP is derived from SimProcess\&. Its \fC\fBlifeCycle()\fP\fP must be implemented to spezify the behavior of the \fBCrane\fP\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBSimProcess\fP 
+.PP
+\fBC_Control\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.Crane (\fBModel\fPowner, Stringname, intbufferCapacity, \fBC_Control\fPcs, booleanshowInTrace)"
+Constructs a \fBCrane\fP which will loads/unloads containers(goods) onto/from an external/internal transporter or into/from yard in a container terminal\&. Implement its \fClifeCycle\fP method to specify its behavior\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBCrane\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBCrane\fP\&. 
+.br
+\fIbufferCapacity\fP int : The maximum number of containers(goods) this \fBCrane\fP can store in its buffer\&. 
+.br
+\fIcs\fP \fC\fBC_Control\fP\fP: The crane control which this \fBCrane\fP belongs to\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBCrane\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.Crane (\fBModel\fPowner, Stringname, \fBC_Control\fPcs, booleanshowInTrace)"
+Constructs a \fBCrane\fP which will loads/unloads containers(goods) onto/from an external/internal transporter or into/from yard in a container terminal\&. Implement its \fClifeCycle\fP method to specify its behavior\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP desmoj\&.Model : The model this \fBCrane\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBCrane\fP\&. 
+.br
+\fIcs\fP \fC\fBC_Control\fP\fP: The crane control which this \fBCrane\fP belongs to\&. 
+.br
+\fIshowInTrace\fP boolean : Flag, if this \fBCrane\fP should produce a trace output or not\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.drive (\fBSimTime\fPtime)"
+This method describes the driving of the crane ( crane speader)\&. In this simple case only the time it takes to drive\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP SimTime : The time to drive\&. 
+.RE
+.PP
+
+.SS "\fBStock\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getBuffer ()"
+Returns the buffer of this crane\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCStock\fP: The buffer of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "\fBC_Control\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getCS ()"
+Returns the crane control this crane belongs to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBC_Control\fP\fP: The crane control of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getLoadTime ()"
+Returns the whole loading time of this crane\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole loading time of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getNumLoadedUnits ()"
+Returns the number of the units that this \fBCrane\fP has loaded\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the loaded of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getNumToLoadUnits ()"
+Returns the number of the units this crane has to load\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the units this crane has to load\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getNumToUnloadUnits ()"
+Returns the number of the units this crane has to unload\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the units this crane has to unload\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getNumUnloadedUnits ()"
+Returns the number of the units that this \fBCrane\fP has unloaded\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of the unloaded of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "\fBShip\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getShip ()"
+Returns the ship this \fBCrane\fP is assigned to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fC\fBShip\fP\fP: The ship of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getUnloadTime ()"
+Returns the whole unloading time of this crane\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The whole unloading time of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "WaitQueue desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getWLoadQueue ()"
+Returns the queue where this \fBCrane\fP waits to load an internal transporter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCWaitQueue\fP: The waiting load queue of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "WaitQueue desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.getWUnloadQueue ()"
+Returns the queue where this \fBCrane\fP waits to unload an internal transporter\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCWaitQueue\fP: The waiting unload queue of this \fBCrane\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.load (\fBSimTime\fPtime)"
+This method describes the loading action of this crane\&. In this simple case only the time it takes to load a container (an unit)\&. The number and time of loaded units were counted in this method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP SimTime : The loading time\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.load (\fBLoading\fPloading)"
+This method describes the loading action of this crane if has to wait for an internal transporter before loading it\&. In this simple case only the time it takes to load the internal transporter with the \fC\fBLoading\fP\fP action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIloading\fP \fC\fBLoading\fP\fP: The loading process\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.reset ()"
+To reset the statistics about unloaded und loaded units of this \fBCrane\fP\&. 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.setBuffer (\fBStock\fPb)"
+Sets the buffer of this crane to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIb\fP \fCStock\fP: The new buffer for this crane\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.setCS (\fBC_Control\fPcs)"
+Sets the crane control of this crane to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcs\fP \fC\fBC_Control\fP\fP: The new crane control for this crane\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.setNumToLoadUnits (longn)"
+Sets the number of the units this crane to has to load\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of the units this crane has to load\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.setNumToUnloadUnits (longn)"
+Sets the number of the units this crane to has to unload\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of the units this crane has to unload\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.setShip (\fBShip\fPs)"
+Sets the ship this crane is assigned to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP \fBShip\fP : The new ship for this crane \&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.setWLoadQueue (WaitQueuewq)"
+Sets the queue where this crane waits for an internal transpoter to load it to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwq\fP \fCWaitQueue\fP: The waiting load queue for this crane \&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.setWUnloadQueue (WaitQueuewq)"
+Sets the queue where this crane waits for an internal transpoter to unload it to a new value\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwq\fP \fCWaitQueue\fP: The waiting unload queue for this crane \&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.unload (\fBSimTime\fPtime)"
+This method describes the unloading action of this crane\&. In this simple case only the time it takes to unload a container (an unit)\&. The number and time of unloaded units were counted in this method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP SimTime : The unloading time\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.unload (\fBUnloading\fPunloading)"
+This method describes the unloading action of this crane if has to wait for an internal transporter before unloading it\&. In this simple case only the time it takes to unload the internal transporter with the \fC\fBUnloading\fP\fP action\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIunloading\fP \fC\fBUnloading\fP\fP: The unloading process\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.waitOnLoading ()"
+This method must be used by an internal transporter if he wants to be loaded by this crane\&. If the crane is not idle, the internal trasnporter will wait by the crane for his loading\&. 
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Crane\&.waitOnUnloading ()"
+This method must be used by an internal transporter if he wants to be unloaded by this crane\&. If the crane is not idle, the internal trasnporter will wait by the crane for his unloading\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

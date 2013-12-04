@@ -1,0 +1,229 @@
+.TH "desmoj.core.statistic.TextHistogram" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.TextHistogram \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.Reportable\fP, and Observer\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTextHistogram\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBTextHistogram\fP (\fBModel\fP ownerModel, String name, \fBTextSupplier\fP textSup, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetLastString\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetLeastFrequentedString\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetMostFrequentedString\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNumberOfStringsObserved\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetObservationsOfString\fP (String obsStr)"
+.br
+.ti -1c
+.RI "String[] \fBgetStringsObserved\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (String updateStr)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTextSupplier\fP \fBgetTextSupplier\fP ()"
+.br
+.ti -1c
+.RI "void \fBtraceUpdate\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fC\fBTextHistogram\fP\fP class is providing a statistic analysis about text values\&. Given Strings are counted and the report will show the amount of every given text\&. If the given parameter is a null pointer it will not be counted\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Lorna Slawski 
+.PP
+based on the classes \fC\fBHistogram\fP\fP and \fC\fBValueStatistics\fP\fP from Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.TextHistogram\&.TextHistogram (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBTextHistogram\fP object that will NOT be connected to a \fC\fBTextSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTextHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTextHistogram\fP object\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.TextHistogram\&.TextHistogram (\fBModel\fPownerModel, Stringname, \fBTextSupplier\fPtextSup, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBTextHistogram\fP object that will be connected to a \fC\fBTextSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBTextHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBTextHistogram\fP object\&. 
+.br
+\fItextValSup\fP \fBTextSupplier\fP : The \fBTextSupplier\fP providing the String for this \fBTextHistogram\fP\&. The given TextValueSupplier will be observed by this \fBTextHistogram\fP object\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBTextHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBTextHistogram\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.TextHistogram\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBTextHistogram\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.TextHistogramReporter : The Reporter for this \fBTextHistogram\fP\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.TextHistogram\&.getLastString ()"
+Returns the last observed String of this \fBTextHistogram\fP object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : The last String observed so far\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.TextHistogram\&.getLeastFrequentedString ()"
+Returns the String with the least number of entries\&. Several Strings are separated by a comma\&. If there are no entries yet an empty String ('') is being returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String: The String with the least number of entries\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.statistic\&.TextHistogram\&.getMostFrequentedString ()"
+Returns the String with the largest number of entries\&. Several Strings are separated by a comma\&. If there are no entries yet an empty String ('') is being returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String: The String with the highest number of entries\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.statistic\&.TextHistogram\&.getNumberOfStringsObserved ()"
+Returns the number of Strings observed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of Strings which have been observed\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.statistic\&.TextHistogram\&.getObservationsOfString (StringobsStr)"
+Returns the number of observations for the given String\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobsStr\fP java\&.lang\&.String: The String of which want to get the number of observations made for\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of observations for the given String\&. 
+.RE
+.PP
+
+.SS "String [] desmoj\&.core\&.statistic\&.TextHistogram\&.getStringsObserved ()"
+Returns an array of Strings observed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String[] : The array of Strings observed\&. 
+.RE
+.PP
+
+.SS "\fBTextSupplier\fP desmoj\&.core\&.statistic\&.TextHistogram\&.getTextSupplier ()\fC [protected]\fP"
+Returns the \fBTextSupplier\fP object providing all the Strings\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTextSupplier\fP : The \fBTextSupplier\fP object providing the Strings for this \fBTextHistogram\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.TextHistogram\&.reset ()"
+Resets this \fBTextHistogram\fP object by deleting all observed Strings\&. 
+.SS "void desmoj\&.core\&.statistic\&.TextHistogram\&.traceUpdate ()\fC [protected]\fP"
+Leaves a message in the trace that this \fBStatisticObject\fP has been updated\&. 
+.SS "void desmoj\&.core\&.statistic\&.TextHistogram\&.update ()"
+Updates this \fC\fBTextHistogram\fP\fP object by fetching the actual value of the \fC\fBTextSupplier\fP\fP and processing it\&. If the actual value is a \fCnull\fP pointer it will not be counted and an error is given out in the error report\&. The \fC\fBTextSupplier\fP\fP is passed in the constructor of this \fC\fBTextHistogram\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.TextHistogram\&.update (StringupdateStr)"
+Updates this \fC\fBTextHistogram\fP\fP object with the String value given as parameter\&. If the parameter is a \fCnull\fP pointer it will not be counted and an error is given out in the error report\&. In some cases it might be more convenient to pass the String value this \fC\fBTextHistogram\fP\fP will be updated with directly within the \fC\fBupdate(String updateStr)\fP\fP method instead of going via the \fC\fBTextSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIupdateStr\fP String : The String with which this \fC\fBTextHistogram\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.TextHistogram\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBTextSupplier\fP will be fetched with the \fCtext()\fP method of the \fBTextSupplier\fP\&. Otherwise it is expected that the actual text is passed in the Object arg\&. If the the actual value is a \fCnull\fP pointer it will not be counted and an error is given out in the error report\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fCStatistic Object\fP is updated\&. Normally a String which is added to the statistics or \fCnull\fP when there is an actual text to be given with the \fCtext()\fP method\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

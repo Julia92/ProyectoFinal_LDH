@@ -1,0 +1,261 @@
+.TH "desmoj.core.advancedModellingFeatures.CondQueue< P extends SimProcess >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.advancedModellingFeatures.CondQueue< P extends SimProcess > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCondQueue\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, int sortOrder, int qCapacity, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBCondQueue\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetCheckAll\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCheckAll\fP (boolean chckall)"
+.br
+.ti -1c
+.RI "void \fBsignal\fP ()"
+.br
+.ti -1c
+.RI "P \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "P \fBfirst\fP (Condition< P > cond)"
+.br
+.ti -1c
+.RI "void \fBwaitCancel\fP (P p)"
+.br
+.ti -1c
+.RI "boolean \fBwaitUntil\fP (Condition< P > cond)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivateAsNext\fP (\fBSimProcess\fP process)"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String where)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "QueueList< P > \fB_queue\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+In a CondQueue processes are waiting for a specific condition to become true\&. Process synchronisation happens when processes are waiting in a queue for a specific condition to become true\&. Each process which uses \fCwaitUntil(condition)\fP and does not find this condition to be true, is inserted in a waiting-queue automatically\&. Whenever something happens which might influence the condition to become \fCtrue\fP, \fC\fBsignal()\fP\fP should be used to check if the first entity (or, if the attribute \fCcheckAll\fP is set to true, all entities) in the waiting-queue finds the desired condition now and therefore can continue\&. The designer of the model is responsible that this check takes place! He also has to implement the condition, this can easily be done by deriving it from the interface \fCCondition\fP\&. The flag, if only the first or all entities in the queue are checking their conditions again, can be checked and changed using \fC\fBgetCheckAll()\fP\fP and \fC\fBsetCheckAll()\fP\fP\&. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is FIFO and unlimited capacity)\&. CondQueue is derived from QueueBased, which provides all the statistical functionality for a queue\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.CondQueue (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, intsortOrder, intqCapacity, booleanshowInReport, booleanshowInTrace)"
+Constructor for a CondQueue where entities can wait for a certain condition (to become true)\&. The queueing discipline and the capacity limit of the underlying queue can be chosen\&. Highest priority are always first in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this CondQueue is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The CondQueue's name 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIqCapacity\fP int : The capacity of the queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if CondQueue should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.CondQueue (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a CondQueue where entities can wait for a certain condition (to become true)\&. The underlying queue has a Fifo queueing discipline and unlimited capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this CondQueue is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The CondQueue's name 
+.br
+\fIshowInReport\fP boolean : Flag, if CondQueue should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.activateAsNext (\fBSimProcess\fPprocess)\fC [protected]\fP"
+Activates the given SimProcess and schedules him right after the current process\&. Then the process is responsible to check if the desired condition has become true\&. This is done in the method \fC\fBwaitUntil()\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process that will be activated now to check its condition\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the entity using the CondQueue is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the SimProcess is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this CondQueue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queue inside this CondQueue\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "P desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.first ()"
+Returns the first process waiting in the queue\&. If there is no process waiting, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimProcess : Returns the first process in the queue (or \fCnull\fP if no process is waiting)\&. 
+.RE
+.PP
+
+.SS "P desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.first (Condition< P >cond)"
+Returns the first process waiting in the queue that complies to the given condition\&. If there is no such process waiting, \fCnull\fP is returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimProcess : Returns the first process in the queue which complies to the given condition\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : The Condition \fCcond\fP is describing the condition to which the process must comply to\&. This has to be implemented by the user in the class: \fCCondition\fP in the method: \fCcheck()\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.getCheckAll ()"
+Returns if all entities or only the first one in the queue are getting a signal to check their conditions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Are all entities in the queue checking their conditions? Default is \fCfalse\fP, so that only the first process in the queue is checking its condition\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.getQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.getRefused ()"
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the queue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.setCheckAll (booleanchckall)"
+Sets the flag \fCcheckAll\fP: if all entities or only the first one in the queue are getting a signal to check their conditions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchckall\fP boolean : Flag if all entities in the queue should check their conditions? Default is \fCfalse\fP, so that only the first entity in the queue is checking its condition\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.signal ()"
+A \fCsignal ()\fP should be sent every time when a condition has changed and might be true now\&. It activates the first process in the queue to check its condition again\&. Other processes might follow\&. 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.waitCancel (Pp)"
+Removes the given SimProcess from the Queue\&. The process no longer waits for its condition to become true and resumes its lifecycle\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP P : The P to be removed from the queue 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&.waitUntil (Condition< P >cond)"
+Lets the current process wait in the CondQueue until a certain condition, given as a parameter, has become true\&. When the process finds its condition to have become true or \fCcheckAll\fP is set to \fCtrue\fP the next process in the queue will be activated, too\&. If the capacity limit of the queue is reached, the process will not be enqueued and \fCfalse\fP returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the process can be enqueued successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcond\fP Condition : The condition that has to become true before the process can continue\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.core\&.simulator\&.Condition 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "QueueList<P> desmoj\&.core\&.advancedModellingFeatures\&.CondQueue< P extends \fBSimProcess\fP >\&._queue\fC [protected]\fP"
+The queue, actually storing the processes waiting for the condition to become true 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

@@ -1,0 +1,437 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4" kind="class" prot="public" abstract="yes">
+    <compoundname>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">desmoj::extensions::chaining::abstractions::Station&lt; EIn &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">desmoj::extensions::chaining::abstractions::HasPredecessor&lt; EIn &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">desmoj::extensions::chaining::abstractions::HasSuccessor&lt; EEx &gt;</basecompoundref>
+    <innerclass refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extee5223d399d4689a171e9d5f25d7c8929" prot="package">desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;::MergerStartEvent</innerclass>
+    <innerclass refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extec0c46114b5d3707a7989b68d43627a9e" prot="package">desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;::PartsContainer</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1aa5804bee5439305d75f35bd9b7eed076" prot="private" static="no" mutable="no">
+        <type>final HashMap&lt; Class&lt;?extends EIn &gt;, Queue&lt; EIn &gt; &gt;</type>
+        <definition>final HashMap&lt;Class&lt;? extends EIn&gt;, Queue&lt;EIn&gt; &gt; desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.incomingEntitiesQueueContainer</definition>
+        <argsstring></argsstring>
+        <name>incomingEntitiesQueueContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a map of queues which contains the incoming entities separated by class of the entity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="122" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1ac866444529e694ab4649cff1a06ef0d2" prot="private" static="no" mutable="no">
+        <type>final MergerConfig&lt; EIn &gt;</type>
+        <definition>final MergerConfig&lt;EIn&gt; desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.mergerConfig</definition>
+        <argsstring></argsstring>
+        <name>mergerConfig</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the Mergerconfig which holds the required entities and ratios </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="126" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a77272524c6f18bd192db527105b15b55" prot="private" static="no" mutable="no">
+        <type>SuccessorAdministration&lt; EEx &gt;</type>
+        <definition>SuccessorAdministration&lt;EEx&gt; desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.successorAdministration</definition>
+        <argsstring></argsstring>
+        <name>successorAdministration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Helper class for handling the successor of this station </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="308" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a9c0051b78803ab7994466e80bfe1c9e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.Merger</definition>
+        <argsstring>(MergerConfig&lt; EIn &gt; mergerConfig, int incomingBufferQueueCapacity, int maxEntitiesToHandle, int parallelHandledEntities, NumericalDist&lt;?&gt; setupTime, NumericalDist&lt;?&gt; serviceTime, NumericalDist&lt;?&gt; recoveryTime, NumericalDist&lt;?&gt; transportTime, Model owner, String name, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>Merger</name>
+        <param>
+          <type>MergerConfig&lt; EIn &gt;</type>
+          <declname>mergerConfig</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>incomingBufferQueueCapacity</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxEntitiesToHandle</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>parallelHandledEntities</declname>
+        </param>
+        <param>
+          <type>NumericalDist&lt;?&gt;</type>
+          <declname>setupTime</declname>
+        </param>
+        <param>
+          <type>NumericalDist&lt;?&gt;</type>
+          <declname>serviceTime</declname>
+        </param>
+        <param>
+          <type>NumericalDist&lt;?&gt;</type>
+          <declname>recoveryTime</declname>
+        </param>
+        <param>
+          <type>NumericalDist&lt;?&gt;</type>
+          <declname>transportTime</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This Constructor sets the mergerconfig, the given times, initializes the queues and fills the free service capacity queue. If a given int is lower than zero the station assumes that there is no restriction. This applies to incomingBufferQueueCapacity, maxEntitiesToHandle, parallelHandledEntities. Furthermore the incoming entities queue container is initialized to hold the incomming entities.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mergerConfig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the Mergerconfig which holds the required entities and ratios </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>incomingBufferQueueCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the capatiy of the income queue </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxEntitiesToHandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of max entities the station can handle </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parallelHandledEntities</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of max parallel entities a station can handle </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>setupTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the time the station needs to set up </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>serviceTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the time the station needs for the service </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>recoveryTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the time the station needs tor recover </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transportTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the time the station needs to transport the entitiy to the next station </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the model owner </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the station </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>should this construct be in the report </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>should this construct be in the trace </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="158" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="158" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1af9fff9b68bb911c3ea3182a896d1d325" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Event&lt; EIn &gt;</type>
+        <definition>Event&lt;EIn&gt; desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.getStartEvent</definition>
+        <argsstring>()</argsstring>
+        <name>getStartEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the Startevent of the Merger </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="209" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="209" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1af45910f12e1ac969e0b14c0f4295991e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.setSuccessor</definition>
+        <argsstring>(Event&lt;?super EEx &gt; eventToScheduleWhenFinished)</argsstring>
+        <name>setSuccessor</name>
+        <param>
+          <type>Event&lt;?super EEx &gt;</type>
+          <declname>eventToScheduleWhenFinished</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="310" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="310" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1ac4fa63979c27f5237afbbda959cfc16c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.setSuccessor</definition>
+        <argsstring>(HasPredecessor&lt;?super EEx &gt; successor)</argsstring>
+        <name>setSuccessor</name>
+        <param>
+          <type>HasPredecessor&lt;?super EEx &gt;</type>
+          <declname>successor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="314" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="314" bodyend="316"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a44d753657f53520af0bd84453a456817" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Queue&lt; EIn &gt;</type>
+        <definition>Queue&lt;EIn&gt; desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.getPartsQueueForIncomingEntityClass</definition>
+        <argsstring>(Class&lt;?extends Entity &gt; incomingEntityClass)</argsstring>
+        <name>getPartsQueueForIncomingEntityClass</name>
+        <param>
+          <type>Class&lt;?extends <ref refid="classdesmoj_1_1core_1_1simulator_1_1_entity" kindref="compound">Entity</ref> &gt;</type>
+          <declname>incomingEntityClass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets a reference to the previously by the constructor created queue for the given class incomingEntityClass If a queue for the entities class cannot be found this method searches for superclasses of the entity. This gives the possibility to use a for instance a Tire class queue for RedTires classes</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>incomingEntityClass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the entities class to search the appropriate queue</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns the appropriate queue </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="188" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="188" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a1be3af836818504c373cfd8af2ff5e63" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.scheduleStationStartEventForPartsContainer</definition>
+        <argsstring>(PartsContainer partsContainer)</argsstring>
+        <name>scheduleStationStartEventForPartsContainer</name>
+        <param>
+          <type>PartsContainer</type>
+          <declname>partsContainer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>schedules the StationStartEvent with the internal created Partscontainer</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>partsContainer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="251" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="251" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1af8545826822846a2d0609294425a2053" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PartsContainer</type>
+        <definition>PartsContainer desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.tryToComposePartsContainerFromAvailableParts</definition>
+        <argsstring>()</argsstring>
+        <name>tryToComposePartsContainerFromAvailableParts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method trys to compose the Partscontainer with the entities in the parts queues.</para><para><simplesect kind="return"><para>the PartsContainer if succsess or null if there a not enough entities in the parts queues </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="264" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="264" bodyend="303"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a0594cab37444fb4b2aca80b725c1262a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract EEx</type>
+        <definition>abstract EEx desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.mergeEntities</definition>
+        <argsstring>(Map&lt; Class&lt;?extends EIn &gt;, List&lt; EIn &gt;&gt; parts)</argsstring>
+        <name>mergeEntities</name>
+        <param>
+          <type>Map&lt; Class&lt;?extends EIn &gt;, List&lt; EIn &gt;&gt;</type>
+          <declname>parts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This Method has to be overridden by the user and creates the outgoing entity. The user has the possibility to use the incomming entities of the Merger to define the new entity</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a reference to the parts list </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the outgoing entity which leaves the Merger </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="221" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a5a41780ab255e2b7ab00457eb14f9b35" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;.onServiceFinisched</definition>
+        <argsstring>(EIn who)</argsstring>
+        <name>onServiceFinisched</name>
+        <param>
+          <type>EIn</type>
+          <declname>who</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This method schedules the successor event with the defined transport time. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="228" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="228" bodyend="243"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Merger merges the in the Mergerconfig defined entities into the EEx entity. The Merger waits until enough entities of the required types are in the internal partsQueue and than creates a PartsContainer. With this PartsContainer the StationStartevent is scheduled instantly and the common run through the internal Station stages can be conducted.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;EIn&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the entity which comes in the Transformer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;EEx&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the entity which leaves the Transformer</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Christian Mentz</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="8721">
+        <label>desmoj::extensions::chaining::abstractions::HasSuccessor&lt; EEx &gt;</label>
+      </node>
+      <node id="8720">
+        <label>desmoj::extensions::chaining::abstractions::HasPredecessor&lt; EIn &gt;</label>
+      </node>
+      <node id="8719">
+        <label>desmoj::extensions::chaining::abstractions::Station&lt; EIn &gt;</label>
+      </node>
+      <node id="8718">
+        <label>desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;</label>
+        <link refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4"/>
+        <childnode refid="8719" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8720" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8721" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8725">
+        <label>desmoj::extensions::chaining::abstractions::HasSuccessor&lt; EEx &gt;</label>
+      </node>
+      <node id="8724">
+        <label>desmoj::extensions::chaining::abstractions::HasPredecessor&lt; EIn &gt;</label>
+      </node>
+      <node id="8723">
+        <label>desmoj::extensions::chaining::abstractions::Station&lt; EIn &gt;</label>
+      </node>
+      <node id="8722">
+        <label>desmoj.extensions.chaining.Merger&lt; EIn extends Entity, EEx extends Entity &gt;</label>
+        <link refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4"/>
+        <childnode refid="8723" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8724" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8725" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" line="43" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/chaining/Merger.java" bodystart="42" bodyend="318"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a44d753657f53520af0bd84453a456817" prot="private" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>getPartsQueueForIncomingEntityClass</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1af9fff9b68bb911c3ea3182a896d1d325" prot="public" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>getStartEvent</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1aa5804bee5439305d75f35bd9b7eed076" prot="private" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>incomingEntitiesQueueContainer</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a0594cab37444fb4b2aca80b725c1262a" prot="protected" virt="pure-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>mergeEntities</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a9c0051b78803ab7994466e80bfe1c9e6" prot="public" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>Merger</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1ac866444529e694ab4649cff1a06ef0d2" prot="private" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>mergerConfig</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a5a41780ab255e2b7ab00457eb14f9b35" prot="protected" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>onServiceFinisched</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a1be3af836818504c373cfd8af2ff5e63" prot="private" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>scheduleStationStartEventForPartsContainer</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1af45910f12e1ac969e0b14c0f4295991e" prot="public" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>setSuccessor</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1ac4fa63979c27f5237afbbda959cfc16c" prot="public" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>setSuccessor</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1a77272524c6f18bd192db527105b15b55" prot="private" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>successorAdministration</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_1af8545826822846a2d0609294425a2053" prot="private" virt="non-virtual"><scope>desmoj::extensions::chaining::Merger&lt; EIn extends Entity, EEx extends Entity &gt;</scope><name>tryToComposePartsContainerFromAvailableParts</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

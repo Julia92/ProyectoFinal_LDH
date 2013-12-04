@@ -1,0 +1,107 @@
+.TH "desmoj.extensions.chaining.Source< E extends Entity >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.chaining.Source< E extends Entity > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Station< E >, and HasSuccessor< E >\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBSourceDummyEntity\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetSuccessor\fP (Event<?super E > eventToScheduleWhenFinished)"
+.br
+.ti -1c
+.RI "void \fBsetSuccessor\fP (HasPredecessor<?super E > successor)"
+.br
+.ti -1c
+.RI "\fBSource\fP (int maxEntitiesToProduce, int parallelProducedEntities, NumericalDist<?> setupTime, NumericalDist<?> productionTime, NumericalDist<?> recoveryTime, NumericalDist<?> transportTime, \fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBstartCreatingEntities\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "abstract E \fBcreateEntity\fP ()"
+.br
+.ti -1c
+.RI "void \fBonServiceFinisched\fP (E who)"
+.br
+.ti -1c
+.RI "\fBSmartReporter\fP \fBcreateDefaultReporter\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The source creates new Entities and send them to the successor\&. The Sink inherits all behavior from the station except the possible restriction of the buffer queue\&. The user has to override the createEntity Method the create the Entity the source should send to the successor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI<E>\fP The Entitiy which is created by the source
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Christian Mentz
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.chaining\&.Source< E extends \fBEntity\fP >\&.Source (intmaxEntitiesToProduce, intparallelProducedEntities, NumericalDist<?>setupTime, NumericalDist<?>productionTime, NumericalDist<?>recoveryTime, NumericalDist<?>transportTime, \fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+This Constructor sets the given times, initializes the queues and fills the free service capacity queue\&. If a given int is lower than zero the Source assumes that there is no restriction\&. This applies to incomingBufferQueueCapacity, maxEntitiesToHandle, parallelHandledEntities
+.PP
+\fBParameters:\fP
+.RS 4
+\fImaxEntitiesToProduce\fP the number of max entities the station can handle 
+.br
+\fIparallelProducedEntities\fP the number of max parallel entities a station can handle 
+.br
+\fIsetupTime\fP the time the station needs to set up 
+.br
+\fIproductionTime\fP the time the station needs for the service 
+.br
+\fIrecoveryTime\fP the time the station needs tor recover 
+.br
+\fItransportTime\fP the time the station needs to transport the entitiy to the next station 
+.br
+\fIowner\fP the model owner 
+.br
+\fIname\fP the name of the station 
+.br
+\fIshowInReport\fP should this construct be in the report 
+.br
+\fIshowInTrace\fP should this construct be in the trace 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.chaining\&.Source< E extends \fBEntity\fP >\&.onServiceFinisched (Ewho)\fC [protected]\fP"
+Schedules the successor event with a the created entity and the defined transport time 
+.SS "void desmoj\&.extensions\&.chaining\&.Source< E extends \fBEntity\fP >\&.startCreatingEntities ()"
+The source starts with creating entities if this method is not called previously\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

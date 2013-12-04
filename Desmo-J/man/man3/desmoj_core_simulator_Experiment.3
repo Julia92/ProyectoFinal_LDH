@@ -1,0 +1,1315 @@
+.TH "desmoj.core.simulator.Experiment" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Experiment \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.NamedObject\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExperiment\fP (String name)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP (String name, boolean output)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP (String name, String pathName)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP (String name, TimeUnit epsilon, TimeUnit referenceUnit, \fBTimeFormatter\fP formatter)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP (String name, String pathName, String reportOutputType, String traceOutputType, String errorOutputType, String debugOutputType)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP (String name, String pathName, TimeUnit epsilon, TimeUnit referenceUnit, \fBTimeFormatter\fP formatter, String reportOutputType, String traceOutputType, String errorOutputType, String debugOutputType)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP (String name, String outputPath, TimeUnit epsilon, TimeUnit referenceUnit, \fBTimeFormatter\fP formatter, ArrayList< String > reportOutputs, ArrayList< String > traceOutputs, ArrayList< String > errorOutputs, ArrayList< String > debugOutputs)"
+.br
+.ti -1c
+.RI "\fBExperiment\fP (String name, String outputPath, ArrayList< String > reportOutputs, ArrayList< String > traceOutputs, ArrayList< String > errorOutputs, ArrayList< String > debugOutputs)"
+.br
+.ti -1c
+.RI "void \fBaddDebugReceiver\fP (\fBMessageReceiver\fP trcRec)"
+.br
+.ti -1c
+.RI "void \fBaddErrorReceiver\fP (\fBMessageReceiver\fP trcRec)"
+.br
+.ti -1c
+.RI "void \fBaddReceiver\fP (\fBMessageReceiver\fP trcRec, Class<?> messageType)"
+.br
+.ti -1c
+.RI "void \fBaddTraceReceiver\fP (\fBMessageReceiver\fP trcRec)"
+.br
+.ti -1c
+.RI "boolean \fBdebugIsOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBdebugOff\fP (\fBTimeInstant\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBdebugOff\fP (\fBSimTime\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBdebugOn\fP (\fBTimeInstant\fP startTime)"
+.br
+.ti -1c
+.RI "void \fBdebugOn\fP (\fBSimTime\fP startTime)"
+.br
+.ti -1c
+.RI "void \fBdebugPeriod\fP (\fBTimeInstant\fP startTime, \fBTimeInstant\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBdebugPeriod\fP (\fBSimTime\fP startTime, \fBSimTime\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBdeRegister\fP (\fBFileOutput\fP file)"
+.br
+.ti -1c
+.RI "void \fBfinish\fP ()"
+.br
+.ti -1c
+.RI "\fBDistributionManager\fP \fBgetDistributionManager\fP ()"
+.br
+.ti -1c
+.RI "TimeUnit \fBgetEpsilonUnit\fP ()"
+.br
+.ti -1c
+.RI "\fBSimTime\fP \fBgetEpsilon\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetExecutionSpeedRate\fP ()"
+.br
+.ti -1c
+.RI "\fBMessageDistributor\fP \fBgetMessageManager\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetOutputPath\fP ()"
+.br
+.ti -1c
+.RI "List< List< String > > \fBgetOutputAppendixes\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRealTimeStartTime\fP ()"
+.br
+.ti -1c
+.RI "TimeUnit \fBgetReferenceUnit\fP ()"
+.br
+.ti -1c
+.RI "\fBResourceDB\fP \fBgetResourceDB\fP ()"
+.br
+.ti -1c
+.RI "\fBScheduler\fP \fBgetScheduler\fP ()"
+.br
+.ti -1c
+.RI "\fBSimClock\fP \fBgetSimClock\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetStopTime\fP ()"
+.br
+.ti -1c
+.RI "List< \fBModelCondition\fP > \fBgetStopConditions\fP ()"
+.br
+.ti -1c
+.RI "void \fBremoveStopConditions\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetTimeFloats\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisAborted\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisConnected\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisPreparing\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisRandomizingConcurrentEvents\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisRunning\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisShowProgressBar\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisStopped\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBhasError\fP ()"
+.br
+.ti -1c
+.RI "void \fBproceed\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDelayInMillis\fP (long delay)"
+.br
+.ti -1c
+.RI "long \fBgetDelayInMillis\fP ()"
+.br
+.ti -1c
+.RI "void \fBregister\fP (\fBOutputType\fP file)"
+.br
+.ti -1c
+.RI "void \fBregisterFileOutput\fP (\fBFileOutput\fP file)"
+.br
+.ti -1c
+.RI "void \fBremoveDebugReceiver\fP (\fBMessageReceiver\fP msgRec)"
+.br
+.ti -1c
+.RI "void \fBremoveErrorReceiver\fP (\fBMessageReceiver\fP msgRec)"
+.br
+.ti -1c
+.RI "void \fBremoveReceiver\fP (\fBMessageReceiver\fP msgRec)"
+.br
+.ti -1c
+.RI "void \fBremoveReceiver\fP (\fBMessageReceiver\fP msgRec, Class<?> messageType)"
+.br
+.ti -1c
+.RI "void \fBremoveTraceReceiver\fP (\fBMessageReceiver\fP msgRec)"
+.br
+.ti -1c
+.RI "void \fBrename\fP (String newName)"
+.br
+.ti -1c
+.RI "void \fBreport\fP ()"
+.br
+.ti -1c
+.RI "void \fBreport\fP (\fBModel\fP m)"
+.br
+.ti -1c
+.RI "void \fBrandomizeConcurrentEvents\fP (boolean randomizing)"
+.br
+.ti -1c
+.RI "void \fBsetExecutionSpeedRate\fP (double rate)"
+.br
+.ti -1c
+.RI "void \fBsetSeedGenerator\fP (long seed)"
+.br
+.ti -1c
+.RI "void \fBsetRandomNumberGenerator\fP (Class<?extends \fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP > randomNumberGenerator)"
+.br
+.ti -1c
+.RI "void \fBsetShowProgressBar\fP (boolean newShowProgressBar)"
+.br
+.ti -1c
+.RI "void \fBsetSilent\fP (boolean silent)"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.ti -1c
+.RI "void \fBstart\fP (\fBTimeInstant\fP initTime)"
+.br
+.ti -1c
+.RI "void \fBstart\fP (\fBSimTime\fP initTime)"
+.br
+.ti -1c
+.RI "void \fBstop\fP (\fBModelCondition\fP stopCond)"
+.br
+.ti -1c
+.RI "void \fBstop\fP (Condition<?> stopCond)"
+.br
+.ti -1c
+.RI "void \fBstop\fP (\fBTimeInstant\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBstop\fP (\fBSimTime\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBtraceIsOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBtraceOff\fP (\fBTimeInstant\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBtraceOff\fP (\fBSimTime\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBtraceOn\fP (\fBTimeInstant\fP startTime)"
+.br
+.ti -1c
+.RI "void \fBtraceOn\fP (\fBSimTime\fP startTime)"
+.br
+.ti -1c
+.RI "void \fBtracePeriod\fP (\fBTimeInstant\fP startTime, \fBTimeInstant\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBtracePeriod\fP (\fBSimTime\fP startTime, \fBSimTime\fP stopTime)"
+.br
+.ti -1c
+.RI "void \fBwriteReport\fP (\fBModel\fP m, String suffix)"
+.br
+.ti -1c
+.RI "void \fBwriteReport\fP (String suffix)"
+.br
+.ti -1c
+.RI "void \fBsetDescription\fP (String description)"
+.br
+.ti -1c
+.RI "String \fBgetDescription\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBsetTimeFormatter\fP (\fBTimeFormatter\fP format)"
+.br
+.ti -1c
+.RI "static String \fBgetDesmoJVersion\fP ()"
+.br
+.ti -1c
+.RI "static String \fBgetDesmoJLicense\fP (boolean html)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final String \fBDEFAULT_REPORT_OUTPUT_TYPE\fP = 'desmoj\&.core\&.report\&.HTMLReportOutput'"
+.br
+.ti -1c
+.RI "static final String \fBDEFAULT_TRACE_OUTPUT_TYPE\fP = 'desmoj\&.core\&.report\&.HTMLTraceOutput'"
+.br
+.ti -1c
+.RI "static final String \fBDEFAULT_ERROR_OUTPUT_TYPE\fP = 'desmoj\&.core\&.report\&.HTMLErrorOutput'"
+.br
+.ti -1c
+.RI "static final String \fBDEFAULT_DEBUG_OUTPUT_TYPE\fP = 'desmoj\&.core\&.report\&.HTMLDebugOutput'"
+.br
+.ti -1c
+.RI "static final int \fBNOT_INITIALIZED\fP = -3"
+.br
+.ti -1c
+.RI "static final int \fBINITIALIZED\fP = -2"
+.br
+.ti -1c
+.RI "static final int \fBCONNECTED\fP = -1"
+.br
+.ti -1c
+.RI "static final int \fBSTARTED\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBSTOPPED\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBRUNNING\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBABORTED\fP = 3"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBScheduler\fP \fBcreateScheduler\fP (String name, \fBEventList\fP evl)"
+.br
+.ti -1c
+.RI "void \fBinterrupt\fP (\fBDESMOJException\fP e)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBScheduler\fP \fBclientScheduler\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBExperiment\fP is the class that provides the infrastructure for running the simulation of a model\&. It contains all data structures necessary to simulate the model and takes care of all necessary output\&. To actually run an experiment, a new instance of the experiment class and a new instance of the desired model have to be created\&. To link both instances, call the \fCconnectToExperiment(Experiment e)\fP method of the model instance and pass the new experiment as a parameter\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Soenke Claassen, Ruth Meyer, Nicolas Knaak, Gunnar Kiesel,Felix Klueckmann
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013  new Example Variable _traceOutput, _reportOutput for Outputclasscollection new class constructors \fBExperiment(String , String , ArrayList<String> , ArrayList<String> ,ArrayList<String> , ArrayList<String> )\fP and \fBExperiment\fP(String , String , TimeUnit ,TimeUnit , \fBTimeFormatter\fP ,ArrayList<String> , ArrayList<String> ,ArrayList<String> ,ArrayList<String> ) 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Xiufeng Li 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname)"
+Constructs a new \fBExperiment\fP with a given name\&. Data channel output (report, error, debug, trace) will either be written to HTML files in the current directory\&. Epsilon (granularity of simulation) defaults to a microsecond, reference time (default time unit) to a second\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname, booleanoutput)"
+Constructs a new \fBExperiment\fP with the given parameters\&. \fBExperiment\fP name can be specified\&. Data channel output (report, error, debug, trace) will either be suppressed or written to HTML files in the current directory\&. Epsilon (granularity of simulation) defaults to a microsecond, reference time (default time unit) to a second\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.br
+\fIoutput\fP boolean : This flag indicates if the experiment should write output files in the default format (HTML) or no output files at all\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname, StringpathName)"
+Constructs a new \fBExperiment\fP with the given parameters\&. \fBExperiment\fP name and output path can be specified\&. Data channel output (report, error, debug, trace) will either be written to HTML files, epsilon (granularity of simulation) defaults to a microsecond, reference time (default time unit) to a second\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.br
+\fIpathName\fP java\&.lang\&.String : The output path for report files 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname, TimeUnitepsilon, TimeUnitreferenceUnit, \fBTimeFormatter\fPformatter)"
+Constructs a new \fBExperiment\fP with the given parameters\&. This is a shortcut constructor\&. Parameters for the name, the granularity(epsilon), the reference time unit and a time formatter are needed\&. All other possible settings are set to default values\&. These settings for an experiment without special ExperimentOptions are: 
+.PD 0
+
+.IP "1." 4
+seed = 979 : The initial seed setting for the seed-generator 
+.PP
+The default stop condition for this experiment will never interfere, always returning false\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.br
+\fIepsilon\fP java\&.util\&.concurrent\&.TimeUnit: The granularity of simulation time\&. 
+.br
+\fIreferenceUnit\fP java\&.util\&.concurrent\&.TimeUnit : In statements without an explicit declaration of a TimeUnit the reference unit is used\&. 
+.br
+\fIformatter\fP \fBdesmoj\&.core\&.simulator\&.TimeFormatter\fP: Defines how time values will be formatted in the output files\&.
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.concurrent\&.TimeUnit 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname, StringpathName, StringreportOutputType, StringtraceOutputType, StringerrorOutputType, StringdebugOutputType)"
+Constructs a new \fBExperiment\fP with the given parameters\&. \fBExperiment\fP name, output path and a single file type per output channel can be specified\&. Epsilon (granularity of simulation) defaults to a microsecond, reference time (default time unit) to a second\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.br
+\fIpathName\fP java\&.lang\&.String : The output path for report files 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.simulator\&.Units\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIreportOutputType\fP 
+.br
+\fItraceOutputType\fP 
+.br
+\fIerrorOutputType\fP 
+.br
+\fIdebugOutputType\fP 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname, StringpathName, TimeUnitepsilon, TimeUnitreferenceUnit, \fBTimeFormatter\fPformatter, StringreportOutputType, StringtraceOutputType, StringerrorOutputType, StringdebugOutputType)"
+Constructs a new \fBExperiment\fP with the given parameters\&. \fBExperiment\fP name, output path, epsilon, reference time unit, time format, can be specified\&. Same holds for file output channels, though this constructor assumes a single file type per output channel\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.br
+\fIpathName\fP java\&.lang\&.String : The output path for report files 
+.br
+\fIepsilon\fP java\&.util\&.concurrent\&.TimeUnit: The granularity of simulation time\&. 
+.br
+\fIreferenceUnit\fP java\&.util\&.concurrent\&.TimeUnit : In statements without an explicit declaration of a TimeUnit the reference unit is used\&. 
+.br
+\fIformatter\fP \fBdesmoj\&.core\&.simulator\&.TimeFormatter\fP: Defines how time values will be formatted in the output files\&.
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.concurrent\&.TimeUnit 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname, StringoutputPath, TimeUnitepsilon, TimeUnitreferenceUnit, \fBTimeFormatter\fPformatter, ArrayList< String >reportOutputs, ArrayList< String >traceOutputs, ArrayList< String >errorOutputs, ArrayList< String >debugOutputs)"
+Constructs a new \fBExperiment\fP with the given parameters\&. This is the most flexible constructor\&. \fBExperiment\fP name, output path, epsilon, reference time unit, time format, and multiple file types per output channel can be specified\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.br
+\fIoutputPath\fP java\&.lang\&.String : The output path for report files 
+.br
+\fIepsilon\fP java\&.util\&.concurrent\&.TimeUnit: The granularity of simulation time\&. 
+.br
+\fIreferenceUnit\fP java\&.util\&.concurrent\&.TimeUnit : In statements without an explicit declaration of a TimeUnit the reference unit is used\&. 
+.br
+\fIformatter\fP \fBdesmoj\&.core\&.simulator\&.TimeFormatter\fP: Defines how time values will be formatted in the output files\&.
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+java\&.util\&.concurrent\&.TimeUnit 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.Experiment\&.Experiment (Stringname, StringoutputPath, ArrayList< String >reportOutputs, ArrayList< String >traceOutputs, ArrayList< String >errorOutputs, ArrayList< String >debugOutputs)"
+Constructs a new \fBExperiment\fP with the given parameters\&. \fBExperiment\fP name, output path and a multiple file type per output channel can be specified\&. Epsilon (granularity of simulation) defaults to a microsecond, reference time (default time unit) to a second\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP String : The name of the experiment determining the outputfile's names, too\&. So please avoid characters that your local filesystem does not support in filenames\&. 
+.br
+\fIoutputPath\fP java\&.lang\&.String : The output path for report files 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.simulator\&.Units\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.addDebugReceiver (\fBMessageReceiver\fPtrcRec)"
+Adds a messagereceiver for debugnotes to the experiment\&. Whenever a model produces a message of that type, it will also be sent to the given messagereceiver for further processing\&. Note that the given receiver must be capable of handling debugnotes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrcRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver for the given type of messages 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.addErrorReceiver (\fBMessageReceiver\fPtrcRec)"
+Adds a messagereceiver for error messages to the experiment\&. Whenever a model produces a message of that type, it will also be sent to the given messagereceiver for further processing\&. Note that the given receiver must be capable of handling messagereceiver\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrcRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver for the given type of messages 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.addReceiver (\fBMessageReceiver\fPtrcRec, Class<?>messageType)"
+Adds a messagereceiver for the given subtype of message to the experiment\&. Whenever a model produces a message of that type, it will also be sent to the given messagereceiver for further processing\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrcRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver for the given type of messages 
+.br
+\fImessageType\fP Class : The type of message to be sent to the given messagereceiver 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.addTraceReceiver (\fBMessageReceiver\fPtrcRec)"
+Adds a messagereceiver for tracenotes to the experiment\&. Whenever a model produces a message of that type, it will also be sent to the given messagereceiver for further processing\&. Note that the given Receiver must be capable of handling tracenotes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrcRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver for the given type of messages 
+.RE
+.PP
+
+.SS "\fBScheduler\fP desmoj\&.core\&.simulator\&.Experiment\&.createScheduler (Stringname, \fBEventList\fPevl)\fC [protected]\fP"
+Creates a scheduler for this experiment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP experiment name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new scheduler 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.debugIsOn ()"
+Returns a boolean indicating whether debug notes are forwarded to the debug ouput or not\&. Debug ouput can be switched on and off using the methods \fC\fBdebugOn(TimeInstant startTime)\fP\fP or \fC\fBdebugOff(TimeInstant stopTime)\fP\fP
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.debugOff (\fBTimeInstant\fPstopTime)"
+Switches the debug output off at the given point of simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopTime\fP \fBTimeInstant\fP : The point in simulation time to switch off debug 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.debugOff (\fBSimTime\fPstopTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBdebugOff(TimeInstant startTime)\fP\&. Switches the debug output off at the given point of simulation time\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopTime\fP \fBSimTime\fP : The point in simulation time to switch debug off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.debugOn (\fBTimeInstant\fPstartTime)"
+Switches the debug output on at the given point of simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBTimeInstant\fP : The point in simulation time to switch on debug 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.debugOn (\fBSimTime\fPstartTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBdebugOn(TimeInstant startTime)\fP\&. Switches the debug output on at the given point of simulation time\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBSimTime\fP : The point in simulation time to switch debug on 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.debugPeriod (\fBTimeInstant\fPstartTime, \fBTimeInstant\fPstopTime)"
+Switches the debug output on for the given period of simulation time\&. If the second parameter (off) is 'sooner' then the first parameter (on), they will be swapped automatically\&. Same parameters will result in no debug output at all!
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBTimeInstant\fP : The point in simulation time to switch debug on 
+.br
+\fIstopTime\fP \fBTimeInstant\fP : The point in simulation time to switch debug off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.debugPeriod (\fBSimTime\fPstartTime, \fBSimTime\fPstopTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by debugTime(TimeInstant a, TimeInstant b)\&. Switches the debug output on for the given period of simulation time\&. If the second parameter (off) is 'sooner' then the first parameter (on), they will be swapped automatically\&. Same parameters will result in no debug output at all!
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBSimTime\fP : The point in simulation time to switch debug on 
+.br
+\fIstopTime\fP \fBSimTime\fP : The point in simulation time to switch debug off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.deRegister (\fBFileOutput\fPfile)"
+De-registers a file at the experiment\&. Registered files will be flushed and closed after the experiment has finished\&. If the file is manually closed by the user and has been registered at the \fBExperiment\fP, deRegister it
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile\fP desmoj\&.report\&.FileOutput : The file to be closed with the end of an \fBExperiment\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.finish ()"
+Stopps all running simprocesses that might still be scheduled and closes the output files\&. 
+.SS "long desmoj\&.core\&.simulator\&.Experiment\&.getDelayInMillis ()"
+Returns the delay between each step of the scheduler
+.PP
+\fBReturns:\fP
+.RS 4
+A long value representing the delay time in milliseconds 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak 
+.RE
+.PP
+
+.SS "static String desmoj\&.core\&.simulator\&.Experiment\&.getDesmoJLicense (booleanhtml)\fC [static]\fP"
+Returns the DESMO-J license
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhtml\fP boolean: Include link (HTML, true) or not (plain text, false)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The string 'Apache License, Version 2\&.0', embedded in a HTML link tag (currently http://www.apache.org/licenses/LICENSE-2.0) if \fChtml\fP is set true\&. 
+.RE
+.PP
+
+.SS "static String desmoj\&.core\&.simulator\&.Experiment\&.getDesmoJVersion ()\fC [static]\fP"
+Returns the current DESMO-J version
+.PP
+\fBReturns:\fP
+.RS 4
+The string '2\&.4\&.0'\&. 
+.RE
+.PP
+
+.SS "\fBDistributionManager\fP desmoj\&.core\&.simulator\&.Experiment\&.getDistributionManager ()"
+Returns the distributionmanager for this experiment\&. Distributions need access to the distributionmanager for handling antithetic modes, resetting and their initial seeds\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.dist\&.DistributionManager : The distributionmanager for this experiment 
+.RE
+.PP
+
+.SS "\fBSimTime\fP desmoj\&.core\&.simulator\&.Experiment\&.getEpsilon ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBgetEpsilonUnit()\fP\&. Returns a \fBSimTime\fP representation of the granularity of simulation time for this experiment\&. So far, Hour, Minute, Second and Millisecond are supported\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimTime\fP : The Granularity of the simulation time 
+.RE
+.PP
+
+.SS "TimeUnit desmoj\&.core\&.simulator\&.Experiment\&.getEpsilonUnit ()"
+Returns the epsilon value representing the granularity of simulation time for this experiment\&. So far, Hour, Minute, Second and Millisecond are supported\&. Default (unless set explicitly) is TimeUnit\&.MICROSECONDS\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeUnit : The Granularity of the simulation time 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.simulator\&.Experiment\&.getExecutionSpeedRate ()"
+Returns the current execution Speed Rate\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The current execution speed rate\&. 
+.RE
+.PP
+
+.SS "\fBMessageDistributor\fP desmoj\&.core\&.simulator\&.Experiment\&.getMessageManager ()"
+Returns the messagemanager for this experiment\&. Messages need access to the MessageManager for distributing the messages to one or more specified output streams\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.dist\&.MessageManager : The messagemanager for this experiment 
+.RE
+.PP
+
+.SS "\fBModel\fP desmoj\&.core\&.simulator\&.Experiment\&.getModel ()"
+Returns the model that is connected to this experiment or \fCnull\fP if no model is connected so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBModel\fP : The model that this experiment is connected to or \fCnull\fP if no connection is established\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.Experiment\&.getOutputPath ()"
+Returns the name of the path the experiment's report-, trace-, debug- and error-files are written to\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String the experiment's output path 
+.RE
+.PP
+
+.SS "TimeUnit desmoj\&.core\&.simulator\&.Experiment\&.getReferenceUnit ()"
+Returns the reference unit for this experiment\&. This is the time unit mapped to a time step of 1\&.0 in simulation time\&. So far, Hour, Minute, Second and Millisecond are supported\&. Default (unless set explicitly) is TimeUnit\&.SECONDS\&.
+.PP
+\fBReturns:\fP
+.RS 4
+TimeUnit : The reference unit\&. 
+.RE
+.PP
+
+.SS "\fBResourceDB\fP desmoj\&.core\&.simulator\&.Experiment\&.getResourceDB ()"
+Returns the resource database for this experiment\&. The \fCRes\fP objects need access to the resource database to note their resource allocations and requests and for deadlock detection\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.ResourceDB : the resource database storing all resource allocations and requests\&. 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.RE
+.PP
+
+.SS "\fBScheduler\fP desmoj\&.core\&.simulator\&.Experiment\&.getScheduler ()"
+Returns the scheduler for this experiment\&. ModelComponents need access to the scheduler for identifying the current active entity or process and to schedule themselves or other schedulables to activate at a given time in the future\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBScheduler\fP : The scheduler for this experiment 
+.RE
+.PP
+
+.SS "\fBSimClock\fP desmoj\&.core\&.simulator\&.Experiment\&.getSimClock ()"
+Returns the simclock for this experiment\&. ModelComponents need access to the simclock for retrieveing the current simulation time\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SimCLock : The simclock for this experiment 
+.RE
+.PP
+
+.SS "List<\fBModelCondition\fP> desmoj\&.core\&.simulator\&.Experiment\&.getStopConditions ()"
+Returns the Conditions which can cause an experiment to stop\&. May be empty if there are no such Conditions\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Condition 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Janz 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.Experiment\&.getStopTime ()"
+Returns the \fBTimeInstant\fP when the experiment is expected to stop running\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The time at which the experiment is expected to stop running\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.Experiment\&.getTimeFloats ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Depends on \fBTimeFormatter\fP in use\&. Returns the experiment's number of floating point digits of simulation time that are displayed in the various output files, as read from the \fBSingleUnitTimeFormatter\fP, if in use\&. Otherwise, 0 will be returned\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of floating point digits of simulation time to be displayed in output files 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.hasError ()"
+Determines whether or not an error or warning has yet occurred during this experiment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : \fCTrue\fP if at least one error has occurred in the model connected to this experiment or one of its submodels, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.interrupt (\fBDESMOJException\fPe)\fC [protected]\fP"
+Interrupts experiment execution in case a fatal problem prevents the experiment from being continued\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP DESMOJException : The exception that caused the interrupt 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.isAborted ()"
+Displays the current state of the simulation run\&. If an experient is aborted, it can not be proceeded\&. All SimThreads still active are stopped, the main routine can finish\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the simulation is aborted, \fCfalse\fP if it has not started yet or is still running 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.isConnected ()"
+Shows if this experiment has already been connected to a model\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP, if experiment is connected to a model, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.isPreparing ()"
+Shows if this experiment has not run yet\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP, if experiment is not running yet, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.isRandomizingConcurrentEvents ()"
+Returns if the event-list processes concurrent Events in random order or not\&. Default is not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean: \fCtrue\fP if concurrent Events are randomized, \fCfalse\fP otherwise 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Ruth Meyer 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.isRunning ()"
+Displays the current state of the simulation run\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the simulation is running, \fCfalse\fP if it has not started yet or has already finished 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.isShowProgressBar ()"
+Returns if a progress bar should be displayed for this experiment or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if a progress bar should be displayed for this experiment, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.isStopped ()"
+Displays the current state of the simulation run\&. If an experient is stopped, it can be proceeded by calling \fBproceed()\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP, if experiment is stopped, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.proceed ()"
+Proceeds with a stopped experiment\&. An experiment can be stopped, if either its status is changed from \fCRUNNING\fP to some other state, the scheduler runs out of scheduled events or if the \fCcheck()\fP method of the given stop \fCCondition\fP returns \fCtrue\fP after an event has been processed\&. 
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.randomizeConcurrentEvents (booleanrandomizing)"
+Determines if the event-list processes concurrent Events in random order or not\&. Default is not, i\&.e\&. when a new experiment is constructed, the event-list is set to 'linear' order\&. Note: If you want the event-list to randomize concurrent Events you should call this method BEFORE scheduling any events\&. Otherwise any connections between events established via scheduleBefore() or scheduleAfter() are lost\&. So it's a good idea to call this method only once and right after constructing the experiment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrandomizing\fP boolean :\fCtrue\fP forces random order, \fCfalse\fP forces 'linear' order 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Ruth Meyer 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.register (\fBOutputType\fPfile)"
+Registers a file output (Report, Trace, Error, Debug) in specific formats (e\&.g\&. HTML, ASCII, XML) at the experiment\&. Registered files will be flushed and closed after the experiment has finished\&. This is handy for modellers producing their own output who want their files to be closed at the end of the experiment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile\fP desmoj\&.report\&.FileOutput : The file to be closed with the end of an experiment 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.registerFileOutput (\fBFileOutput\fPfile)"
+Registers a custom file output at the experiment, e\&.g\&. TimeSeries plotting data to a file\&. Registered files will be flushed and closed after the experiment has finished\&. This is handy for modellers producing their own output who want their files to be closed at the end of the experiment\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile\fP desmoj\&.report\&.FileOutput : The file to be closed with the end of an experiment 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.removeDebugReceiver (\fBMessageReceiver\fPmsgRec)"
+Removes a messagereceiver for debugnotes from the experiment's messagedistributor\&. Whenever a model produces a message of that type, it will not be sent to the given messagereceiver anymore\&. Note that if the messagereceiver is also registered for other types of messages, these will not be affected\&. Use method \fCremoveReceiverAll(MessageReceiver msgRec)\fP to remove a messagereceiver from all types of messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsgRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver to be removed from the messagedistributor's list for the given messagetype 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.removeErrorReceiver (\fBMessageReceiver\fPmsgRec)"
+Removes a messagereceiver for errormessages from the experiment's messagedistributor\&. Whenever a model produces a message of that type, it will not be sent to the given messagereceiver anymore\&. Note that if the messagereceiver is also registered for other types of messages, these will not be affected\&. Use method \fCremoveReceiverAll(MessageReceiver msgRec)\fP to remove a messagereceiver from all types of messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsgRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver to be removed from the vessagedistributor's list for the given messagetype 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.removeReceiver (\fBMessageReceiver\fPmsgRec)"
+Removes a messagereceiver from the experiment's messagedistributor\&. The given messagereceiver will not receive messages of any type any more Use method \fCremoveReceiver(MessageReceiver msgRec, Class messageType)\fP to remove the messagereceiver from one type of messages only\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsgRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver to be removed from the messagedistributor's list for the given messagetype 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.removeReceiver (\fBMessageReceiver\fPmsgRec, Class<?>messageType)"
+Removes a messagereceiver for the given subtype of message from the \fBExperiment\fP's messagedistributor\&. Whenever a model produces a message of that type, it will not be sent to the given messagereceiver anymore\&. Note that if the messagereceiver is also registered for other types of messages, these will not be affected\&. Use method \fCremoveReceiverAll(MessageReceiver msgRec)\fP to remove a messagereceiver from all types of messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsgRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver to be removed from the messagedistributor's list for the given messagetype 
+.br
+\fImessageType\fP Class : The type of message not to be sent to the given messagereceiver 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.removeStopConditions ()"
+Removes all conditions set to stop the experiment\&. 
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.removeTraceReceiver (\fBMessageReceiver\fPmsgRec)"
+Removes a messagereceiver for tracenotes from the experiment's messagedistributor\&. Whenever a model produces a message of that type, it will not be sent to the given messagereceiver anymore\&. Note that if the messagereceiver is also registered for other types of messages, these will not be affected\&. Use method \fCremoveReceiverAll(MessageReceiver msgRec)\fP to remove a messagereceiver from all types of messages\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsgRec\fP desmoj\&.report\&.MessageReceiver : The new messagereceiver to be removed from the messagedistributor's list for the given messagetype 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.rename (StringnewName)"
+Overrides inherited \fCNamedObjectImp\&.rename(String newName)\fP method to prevent the user from changing the experiment's name during an experiment\&. Renaming is not allowed with experiments, since it would not allow the user to identify the reports produced by an experiment\&. The method simply returns without changing the experiment's name, ignoring the given parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP java\&.lang\&.String : The parameter given is not taken as the new name, method simply returns 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.report ()"
+Writes a report about the model connected top this experiment, its reportable components and all related submodels into the report output\&. Note that a report can only be produced, if a valid main model is already connected to the experiment\&. 
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.report (\fBModel\fPm)"
+Writes a report about the given model which has to be connected to this experiment as main model or as a submodel\&. Note that this will report about a branch of the tree of submodels constructed\&. A report will only be produced, if the model given is connected to this experiment\&. All reportable components of this model and all related submodels will be sent to the report output configured at the experiment's messagedistributor\&. Note that a report can only be produced, if a valid main model is already connected to the experiment\&. 
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.setDelayInMillis (longdelay)"
+Sets the delay between each step of the scheduler\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdelay\fP : Delay time in milliseconds as a long value 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.setExecutionSpeedRate (doublerate)"
+Sets the speed rate for an execution that is proportional to wall-clock time (real time)\&. Set the speed rate to a value bigger than zero for a simulation that will progress proportional to wall-clock time\&. The following equation applies for speed rates >0 : rate*simulation time = wallclock-time\&. If the speed rate is 0 or less the simulation will be executed as fast as possible\&. Default is 0 (as-fast-as-possible)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrate\fP double : The execution speed rate 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.setRandomNumberGenerator (Class<?extends \fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP >randomNumberGenerator)"
+Sets the underlying pseudo random number generator to be used by all distributions created from now on\&. The default generator is LinearCongruentialRandomGenerator; any other generator to be used must implement the interface UniformRandomGenerator\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.dist\&.LinearCongruentialRandomGenerator\fP 
+.PP
+\fBdesmoj\&.core\&.dist\&.UniformRandomGenerator\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrandomNumberGenerator\fP Class : The random number generator class to be used 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.setSeedGenerator (longseed)"
+Sets the seed of the SeedGenerator to the given value\&. If the seed is not set here, its default is 979, unless specified different in the ExperimentOptions\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIseed\fP long : The seed for the SeedGenerator 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.setShowProgressBar (booleannewShowProgressBar)"
+Sets the new value for showing the progress bar for this experiment or not\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewShowProgressBar\fP boolean : set it to \fCtrue\fP if a progress bar should be displayed; for not showing the progress bar of this experiment set it to \fCfalse\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.setSilent (booleansilent)"
+Sets the new value for displaying basic experiment notifications like 'experiment started', 'experiment stopped' oder 'experiment resumed' at the system output\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsilent\fP boolean : set it to \fCtrue\fP to suppress notifications or \fCfalse\fP to print them\&. 
+.RE
+.PP
+
+.SS "static void desmoj\&.core\&.simulator\&.Experiment\&.setTimeFormatter (\fBTimeFormatter\fPformat)\fC [static]\fP"
+Sets the \fC\fBTimeFormatter\fP\fP to be used for output of time strings\&. Observe that if this method is called \fIbefore\fP creating an \fC\fBExperiment\fP\fP object, a non-null \fC\fBTimeFormatter\fP\fP passed to the \fC\fBExperiment\fP\fP's constructor will overwrite the setting of this method-
+.PP
+\fBParameters:\fP
+.RS 4
+\fIformat\fP \fBTimeFormatter\fP : the formatter to be used for formatting time Strings\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.start ()"
+Starts the simulation with default start time 0\&. This method can only be used once on an experiment\&. it initializes the connected model and starts the simulation\&. Note that in order to stop the simulation, the \fC\fBstop(TimeInstant stopTime)\fP\fP method has to be called first! 
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.start (\fBTimeInstant\fPinitTime)"
+Starts the experiment with the given simulation time as starting time\&. The experiment will not start unless a valid model has been connected to it before\&. Note that in order to stop the simulation at some point of time, the \fCstop\fP method has to be called first\&. \fCStopCondition\fP s can be given alternatively\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitTime\fP \fBTimeInstant\fP : The starting time instant 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.start (\fBSimTime\fPinitTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBstart(TimeInstant initTime)\fP\&. Starts the experiment with the given simulation time as starting time\&. The experiment will not start unless a valid model has been connected to it before\&. Note that in order to stop the simulation at some point of time, the \fCstop\fP method has to be called first\&. \fCStopCondition\fP s can be given alternatively\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitTime\fP \fBTimeInstant\fP : The starting time instant 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.stop (\fBModelCondition\fPstopCond)"
+Specifies a \fBModelCondition\fP to stop the simulation\&. Note that this methode can be called muliple times, defining alternative conditions to terminate the simulation\&. Once at least one of the conditions passed using this method returns true, the experiment will stop\&. Beware that the simulation will run endlessly if none of the conditions are met; thus it is recommended to additionally always use a time limit if none of the conditions in question can be proven to be met during the run of the simulation!
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopCond\fP \fBModelCondition\fP : A condition to stop the simulation once it's check() methode returns true\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.stop (Condition<?>stopCond)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fC\fBstop(ModelCondition stopCond)\fP\fP
+.RE
+.PP
+.PP
+Specifies a Condition to stop the simulation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopCond\fP Condition<?> : A condition to stop the simulation once it's check() methode returns true\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.stop (\fBTimeInstant\fPstopTime)"
+Stops the simulation at the given point of simulation time\&. If no valid simulation time is given, the default is 0 which would not let the simulation run past that time\&. Repeatedly calling this method will override stop times specified before\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopTime\fP desmoj\&.TimeInstant : The point of simulation time to stop the simulation 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.stop (\fBSimTime\fPstopTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Stops the simulation at the given point of simulation time\&. If no valid simulation time is given, the default is 0\&.0 which would not let the simulation run past that time\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopTime\fP desmoj\&.SimTime : The point of simulation time to stop the simulation 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.stop ()"
+Stops the simulation at the current simulation time (immediately)\&. A stopped Simulation run can be resumed by calling \fBproceed()\fP\&. 
+.SS "boolean desmoj\&.core\&.simulator\&.Experiment\&.traceIsOn ()"
+Returns a boolean indicating whether trace notes are forwarded to the trace ouput or not\&. Trace ouput can be switched on and off using the methods \fC\fBtraceOn(TimeInstant startTime)\fP\fP and \fC\fBtraceOff(TimeInstant stopTime)\fP\fP
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.traceOff (\fBTimeInstant\fPstopTime)"
+Switches the trace output off at the given point of simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopTime\fP \fBTimeInstant\fP : The point in simulation time to switch trace off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.traceOff (\fBSimTime\fPstopTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBtraceOff(TimeInstant startTime)\fP\&. Switches the trace output off at the given point of simulation time\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstopTime\fP \fBSimTime\fP : The point in simulation time to switch trace off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.traceOn (\fBTimeInstant\fPstartTime)"
+Switches the trace output on at the given point of simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBTimeInstant\fP : The point in simulation time to switch trace on 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.traceOn (\fBSimTime\fPstartTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBtraceOn(TimeInstant startTime)\fP\&. Switches the trace output on at the given point of simulation time\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBSimTime\fP : The point in simulation time to switch trace on 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.tracePeriod (\fBTimeInstant\fPstartTime, \fBTimeInstant\fPstopTime)"
+Switches the trace output on for the given period of simulation time\&. If the second parameter (off) is 'sooner' then the first parameter (on), they will be swapped automatically\&. Same parameters will result in no trace output at all\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBTimeInstant\fP : The point in simulation time to switch trace on 
+.br
+\fIstopTime\fP \fBTimeInstant\fP : The point in simulation time to switch trace off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.tracePeriod (\fBSimTime\fPstartTime, \fBSimTime\fPstopTime)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by tracePeriod(\fBTimeInstant\fP startTime, \fBTimeInstant\fP stopTime)\&. Switches the trace output on for the given period of simulation time\&. If the second parameter (off) is 'sooner' then the first parameter (on), they will be swapped automatically\&. Same parameters will result in no trace output at all\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartTime\fP \fBSimTime\fP : The point in simulation time to switch trace on 
+.br
+\fIstopTime\fP \fBSimTime\fP : The point in simulation time to switch trace off 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.writeReport (\fBModel\fPm, Stringsuffix)"
+Triggers the reporters of the given model or submodel to write their report data into the report output registered at the experiment's messagemanager\&. The string given will be added as a suffix to the report filename to help identify teh report when more than one report is produced by one \fBExperiment\fP at differnet points of simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP desmoj\&.Model 
+.br
+\fIsuffix\fP java\&.lang\&.String : Suffix for report filename if multiple reports are drawn 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Experiment\&.writeReport (Stringsuffix)"
+Triggers the reporters to write their data into the report output registered at the experiment's messagemanager\&. The string given will be added as a suffix to the report filename to help identification when more than one report is produced by one \fBExperiment\fP at differnet points of simulation time\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsuffix\fP java\&.lang\&.String : Suffix for report filename if multiple reports are drawn 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final int desmoj\&.core\&.simulator\&.Experiment\&.ABORTED = 3\fC [static]\fP"
+Status of an \fBExperiment\fP finished and to be cleared\&. 
+.SS "\fBScheduler\fP desmoj\&.core\&.simulator\&.Experiment\&.clientScheduler\fC [protected]\fP"
+The scheduler used for this experiment\&. 
+.SS "final int desmoj\&.core\&.simulator\&.Experiment\&.CONNECTED = -1\fC [static]\fP"
+Status of an \fBExperiment\fP connected to a \fBModel\fP and ready to be started\&. 
+.SS "final String desmoj\&.core\&.simulator\&.Experiment\&.DEFAULT_DEBUG_OUTPUT_TYPE = 'desmoj\&.core\&.report\&.HTMLDebugOutput'\fC [static]\fP"
+The default debug output 
+.SS "final String desmoj\&.core\&.simulator\&.Experiment\&.DEFAULT_ERROR_OUTPUT_TYPE = 'desmoj\&.core\&.report\&.HTMLErrorOutput'\fC [static]\fP"
+The default error output 
+.SS "final String desmoj\&.core\&.simulator\&.Experiment\&.DEFAULT_REPORT_OUTPUT_TYPE = 'desmoj\&.core\&.report\&.HTMLReportOutput'\fC [static]\fP"
+The default report output 
+.SS "final String desmoj\&.core\&.simulator\&.Experiment\&.DEFAULT_TRACE_OUTPUT_TYPE = 'desmoj\&.core\&.report\&.HTMLTraceOutput'\fC [static]\fP"
+The default trace output 
+.SS "final int desmoj\&.core\&.simulator\&.Experiment\&.INITIALIZED = -2\fC [static]\fP"
+Status of an \fBExperiment\fP instantiated with all needed accessories available\&. 
+.SS "final int desmoj\&.core\&.simulator\&.Experiment\&.NOT_INITIALIZED = -3\fC [static]\fP"
+Status of an \fBExperiment\fP just created without any accessories created yet\&. 
+.SS "final int desmoj\&.core\&.simulator\&.Experiment\&.RUNNING = 2\fC [static]\fP"
+Status of an \fBExperiment\fP currently running the simulation\&. 
+.SS "final int desmoj\&.core\&.simulator\&.Experiment\&.STARTED = 0\fC [static]\fP"
+Status of an \fBExperiment\fP being started\&. Only if an \fBExperiment\fP is 
+.SS "final int desmoj\&.core\&.simulator\&.Experiment\&.STOPPED = 1\fC [static]\fP"
+Status of an \fBExperiment\fP stopped after having run\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

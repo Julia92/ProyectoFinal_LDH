@@ -1,0 +1,737 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}\index{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block@{desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Block} ({\bf Model} owner, String name, int typ, long {\bf capacity}, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Block} ({\bf Model} owner, String name, int typ, long {\bf capacity}, long {\bf init}, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Block} ({\bf Model} owner, String name, int typ, long {\bf capacity}, long {\bf init}, int {\bf ctyp}, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+long {\bf get\-Maximum} ()
+\item 
+long {\bf get\-Minimum} ()
+\item 
+double {\bf Occup\-Rate} ()
+\item 
+{\bf Reporter} {\bf create\-Reporter} ()
+\item 
+boolean {\bf store} (long n)
+\item 
+double {\bf avg\-Capacity} ()
+\item 
+boolean {\bf retrieve} (long n)
+\item 
+long {\bf get\-Producers} ()
+\item 
+long {\bf get\-Consumers} ()
+\item 
+boolean {\bf plan} (long n)
+\item 
+long {\bf get\-Initial} ()
+\item 
+void {\bf reset} ()
+\item 
+boolean {\bf is\-Free} (long n)
+\item 
+int {\bf get\-Typ} ()
+\item 
+void {\bf set\-Typ} (int t)
+\item 
+boolean {\bf reserve} (long n)
+\item 
+long {\bf get\-Capacity} ()
+\item 
+long {\bf get\-Current\-Capacity} ()
+\item 
+void {\bf set\-H\-O} ({\bf Holding\-Area} {\bf ho})
+\item 
+{\bf Holding\-Area} {\bf get\-H\-O} ()
+\item 
+void {\bf set\-C\-Typ} (int {\bf ctyp})
+\item 
+int {\bf get\-C\-Typ} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf update\-Statistics} ()
+\item 
+boolean {\bf check\-Process} ({\bf Sim\-Process} p, String {\bf where})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long {\bf avail\-\_\-to\-\_\-reserve}
+\item 
+long {\bf avail\-\_\-to\-\_\-plan}
+\item 
+long {\bf current\-Capacity}
+\item 
+long {\bf capacity}
+\item 
+long {\bf init} = 0
+\item 
+long {\bf producers} = 0
+\item 
+long {\bf consumers} = 0
+\item 
+long {\bf min}
+\item 
+long {\bf max}
+\item 
+double {\bf w\-Sum\-Avail} = 0.\-0
+\item 
+String {\bf where}
+\item 
+{\bf Holding\-Area} {\bf ho} = null
+\item 
+int {\bf ctyp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is the place where containers (or other kind of goods) can be stored by transpoters or cranes and retrieved by transporters or cranes. The storing is possible using {\ttfamily \doxyref{store()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ada41f51aa660ecb430a0a22b82988f03}} of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. With the {\ttfamily \doxyref{retrieve()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ac3004e549c1ca766076ba488732cab86}} a container can be retrieved from the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. A \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is a part of the container {\ttfamily \doxyref{Yard}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_yard}}. There are no queues for processes want to store or retrieve one container. If no or not enough containers are available to retrieve, the tries to do that will be refused. The \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} has a certain capacity that measures in T\-E\-Us. So a 20-\/foot-\/container weigths one T\-E\-U and 40-\/foot-\/container 2 T\-E\-Us. If the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is filled to it's capacity the tries to store a container there will be refused. \doxyref{Yard}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_yard} is part of the composite design pattern as described in [Gamm97] page 163 in which it represents the the component class. \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is derived from Reportable, which provides the report functionality for the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Reportable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_reportable_acd824db6fee6310c0d797aa3ab5e1d50}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Eugenia Neufeld
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!Block@{Block}}
+\index{Block@{Block}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{Block}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-Block (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{typ, }
+\item[{long}]{capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a19e26fadd254fbf26ae9e3465a0f81b4}
+Constructor for a \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} of a certain typ with a certain capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}'s name. \\
+\hline
+{\em typ} & int \-: The \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}'s type. It can be only 0 -\/ for export containers, 1-\/ for import containers or 2 -\/ mixed\-: for import and export containers. \\
+\hline
+{\em capacity} & long \-: The maximum capacity (T\-E\-U) of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a19e26fadd254fbf26ae9e3465a0f81b4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!Block@{Block}}
+\index{Block@{Block}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{Block}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-Block (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{typ, }
+\item[{long}]{capacity, }
+\item[{long}]{init, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a11d9b97eb8534804a23aee6ecdbcca1c}
+Constructor for a \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} with an initial number of T\-E\-Us and a certain capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}'s name. \\
+\hline
+{\em typ} & int \-: The \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}'s type. It can be only 0 -\/ for export containers, 1-\/ for import containers or 2 -\/ mixed\-: for import and export containers. \\
+\hline
+{\em capacity} & long \-: The maximum capacity of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \\
+\hline
+{\em init} & long \-: The initial occupied capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} starts with. Must be positive! \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a11d9b97eb8534804a23aee6ecdbcca1c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!Block@{Block}}
+\index{Block@{Block}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{Block}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-Block (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{typ, }
+\item[{long}]{capacity, }
+\item[{long}]{init, }
+\item[{int}]{ctyp, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a65ea80c05b6c824905ba39afe7ad99b4}
+Constructor for a \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} with an initial number of T\-E\-Us, a certain capacity and a certain container typ.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}'s name. \\
+\hline
+{\em typ} & int \-: The \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}'s type. It can be only 0 -\/ for export containers, 1-\/ for import containers or 2 -\/ mixed\-: for import and export containers. \\
+\hline
+{\em capacity} & long \-: The maximum capacity of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \\
+\hline
+{\em ctyp} & int \-: The container type of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. It can be only 0-\/ for empty, 1-\/ for normal, 2-\/ for reefer, 4-\/ for overlarge, 5-\/ for danger containers. \\
+\hline
+{\em init} & long \-: The initial occupied capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} starts with. Must be positive! \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a65ea80c05b6c824905ba39afe7ad99b4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!avg\-Capacity@{avg\-Capacity}}
+\index{avg\-Capacity@{avg\-Capacity}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{avg\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-avg\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_adc6c257099e1867c1c7bd158a12967a5}
+Returning the average number of T\-E\-Us available in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} over the time since the last reset of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The average number of T\-E\-Us available in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} over the time since the last reset of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_adc6c257099e1867c1c7bd158a12967a5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!check\-Process@{check\-Process}}
+\index{check\-Process@{check\-Process}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{check\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-check\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p, }
+\item[{String}]{where}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a25c680e2dba1f623318c9c984a40c08d}
+Checks whether the entity using the bin is a valid process.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Returns whether the sim-\/process is valid or not. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Sim\-Process \-: Is this Sim\-Process a valid one? \\
+\hline
+{\em where} & String \-: The method having called {\ttfamily \doxyref{check\-Process()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a25c680e2dba1f623318c9c984a40c08d}} as a String. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a25c680e2dba1f623318c9c984a40c08d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reporter} desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_acc22ef8b77c44bcc3c95415b99971b81}
+Returns a Reporter to produce a report about this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter reporting about the statistics of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Capacity@{get\-Capacity}}
+\index{get\-Capacity@{get\-Capacity}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ada9a37b4fe5615736131afe97f5473b4}
+Gets the max. capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Consumers@{get\-Consumers}}
+\index{get\-Consumers@{get\-Consumers}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Consumers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Consumers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a498de333592e9731538b107671ab21ef}
+Gets the number of the processes that retrieved from this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+long \-: consumers number. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-C\-Typ@{get\-C\-Typ}}
+\index{get\-C\-Typ@{get\-C\-Typ}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-C\-Typ}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-C\-Typ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a3264271e77076262678a78fd3e3a4cbb}
+Gets the container typ of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}\-: what kind of container is that \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} for.
+
+\begin{DoxyReturn}{Returns}
+long \-: The container typ of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Current\-Capacity@{get\-Current\-Capacity}}
+\index{get\-Current\-Capacity@{get\-Current\-Capacity}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Current\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Current\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_af1b85e09531160d04691396c6b673314}
+Gets the current capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The current capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-H\-O@{get\-H\-O}}
+\index{get\-H\-O@{get\-H\-O}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-H\-O}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Holding\-Area} desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-H\-O (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a1b7ba97abaf2039f15e9e49e26aa9673}
+Gets the holding area this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is assigned to.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}}\-: The Holding area the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is assigned to. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Initial@{get\-Initial}}
+\index{get\-Initial@{get\-Initial}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Initial}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Initial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a9b7972e9ce423f59faec4adece8dd22f}
+Gets the initial number of T\-E\-Us the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} starts with.
+
+\begin{DoxyReturn}{Returns}
+long \-: The initial number of T\-E\-Us the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} starts with. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Maximum@{get\-Maximum}}
+\index{get\-Maximum@{get\-Maximum}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Maximum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ad5b0fafc41d321b8a461e9b89639fcfd}
+Gets the maximum number of T\-E\-Us in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The maximum number of T\-E\-Us in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Minimum@{get\-Minimum}}
+\index{get\-Minimum@{get\-Minimum}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Minimum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_afff3458a6d702a3bbd3f0ae31099a0d5}
+Gets the minimum number of T\-E\-Us (goods) in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The minimum number of T\-E\-Us (goods) in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Producers@{get\-Producers}}
+\index{get\-Producers@{get\-Producers}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Producers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Producers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_aa85b7bcac09fd3f4450d9ab403d76a68}
+Gets the number of the processes that stored in this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+long \-: producers number. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!get\-Typ@{get\-Typ}}
+\index{get\-Typ@{get\-Typ}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{get\-Typ}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-get\-Typ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ae55a11f4425ff59a86a35deea20023bb}
+Gets the typ of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The typ of the Stock. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!is\-Free@{is\-Free}}
+\index{is\-Free@{is\-Free}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{is\-Free}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-is\-Free (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a42f0af49db69f80e49721ba4100750b4}
+Method to check if the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is free (it can be stored there) for at least some T\-E\-Us.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of T\-E\-Us that are at least must be avalaible (free). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} is free, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!Occup\-Rate@{Occup\-Rate}}
+\index{Occup\-Rate@{Occup\-Rate}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{Occup\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-Occup\-Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a84663fcddfd1c45d20b874d79462d828}
+Gets the occupation rate of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The occupation rate of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a84663fcddfd1c45d20b874d79462d828_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!plan@{plan}}
+\index{plan@{plan}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{plan}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-plan (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a155ac550533ec5df3ec223b6441c07cc}
+Method for consumers to make the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} plan a number of n T\-E\-Us (a place for a container) to be retrieved there later. When all the containers are already planed for the later retrieving the try to plan will be refused.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if a container can been planed successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of T\-E\-Us that a container that is in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} weights. n must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a155ac550533ec5df3ec223b6441c07cc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!reserve@{reserve}}
+\index{reserve@{reserve}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{reserve}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-reserve (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a9d8480c414326e7e36b203b14f5b74d6}
+Method for producers to make the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} reserve a number of n T\-E\-Us (a place for a container) to be stored there later. When the whole available capacity is already reserved the try to reserve will be refused.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if a place for a container can been reserved successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of T\-E\-Us that are needed for a container to be stored in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. n must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a9d8480c414326e7e36b203b14f5b74d6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!reset@{reset}}
+\index{reset@{reset}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a29f2077970a414665dacdb78012603ae}
+To reset the statistics of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. The current capacity and the number of avalaible T\-E\-Us for the storing and retrieving, reserving and planing are not changed. But all statistic counters are reset. The {\ttfamily Reportable} is also reset. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a29f2077970a414665dacdb78012603ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!retrieve@{retrieve}}
+\index{retrieve@{retrieve}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{retrieve}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-retrieve (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ac3004e549c1ca766076ba488732cab86}
+Method for consumers to make the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} retrieve a number of n T\-E\-Us (a container). When the block is empty the try to retrieve will be refused.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the container can been stored successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The weight of the container to be stored in this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. n must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ac3004e549c1ca766076ba488732cab86_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!set\-C\-Typ@{set\-C\-Typ}}
+\index{set\-C\-Typ@{set\-C\-Typ}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{set\-C\-Typ}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-set\-C\-Typ (
+\begin{DoxyParamCaption}
+\item[{int}]{ctyp}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a61bdf3d6684529e4d5463d5c66c3cc87}
+Sets the container typ of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} to a new value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctyp} & int \-: The new container typ of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!set\-H\-O@{set\-H\-O}}
+\index{set\-H\-O@{set\-H\-O}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{set\-H\-O}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-set\-H\-O (
+\begin{DoxyParamCaption}
+\item[{{\bf Holding\-Area}}]{ho}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a8a199dfd73aac71dfe6e8c929797420d}
+Assigns this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} to a new holding area.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ho} & {\ttfamily \doxyref{Holding\-Area}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_holding_area}}\-: The new holding area of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!set\-Typ@{set\-Typ}}
+\index{set\-Typ@{set\-Typ}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{set\-Typ}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-set\-Typ (
+\begin{DoxyParamCaption}
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a12c3abc2932e8e5f55a6cf0efc27e15a}
+Sets the typ of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} to a new value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & int \-: The new typ of this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!store@{store}}
+\index{store@{store}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{store}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-store (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ada41f51aa660ecb430a0a22b82988f03}
+Method for producers to make the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} store a number of n T\-E\-Us (a container). When the capacity of the block can not hold the additional incoming T\-E\-Us the try to store will be refused.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the container can been stored successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The weight of the container to be stored in this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. n must be positive. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ada41f51aa660ecb430a0a22b82988f03_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!update\-Statistics@{update\-Statistics}}
+\index{update\-Statistics@{update\-Statistics}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{update\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-update\-Statistics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a76257e2c3886b86261fcc5db4cb77083}
+Updates the statistics for the current capacity. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a76257e2c3886b86261fcc5db4cb77083_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!avail\-\_\-to\-\_\-plan@{avail\-\_\-to\-\_\-plan}}
+\index{avail\-\_\-to\-\_\-plan@{avail\-\_\-to\-\_\-plan}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{avail\-\_\-to\-\_\-plan}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-avail\-\_\-to\-\_\-plan\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ac05c6f93194c36b2e572133b33879756}
+The number of T\-E\-Us that are aready occupied and are avalaible for the retrieving. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!avail\-\_\-to\-\_\-reserve@{avail\-\_\-to\-\_\-reserve}}
+\index{avail\-\_\-to\-\_\-reserve@{avail\-\_\-to\-\_\-reserve}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{avail\-\_\-to\-\_\-reserve}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-avail\-\_\-to\-\_\-reserve\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a456a237cd66fc14edfcced2998d6f557}
+The number of T\-E\-Us that are free, can be used for the storing. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!capacity@{capacity}}
+\index{capacity@{capacity}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{capacity}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-capacity\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ac8e57bf4cce2ed082f34cdbed7830b9c}
+The max. capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!consumers@{consumers}}
+\index{consumers@{consumers}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{consumers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-consumers = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a3ef1c4163ec18e5d4173f6a1769a8502}
+The number of consumers having retrieved containers from this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!ctyp@{ctyp}}
+\index{ctyp@{ctyp}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{ctyp}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-ctyp\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a7b188ecf49179869c8138fcae4c2c85e}
+Te conatiner typ of this block\-: the typ of the containers that can be stored/retrieved from this block. 0-\/empty, 1-\/ normal, 2-\/reefer, 4-\/overlarge, 5-\/ danger containers \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!current\-Capacity@{current\-Capacity}}
+\index{current\-Capacity@{current\-Capacity}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{current\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-current\-Capacity\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a0dc1dc8b13f788271abad3a8d6718454}
+The current capacity of the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block}. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!ho@{ho}}
+\index{ho@{ho}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{ho}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Holding\-Area} desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-ho = null\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_aace5e33228a602d59fd247c6c2251fdb}
+The Holding area this block is assigned to. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!init@{init}}
+\index{init@{init}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-init = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a2200c5267badca3fb16d9254b60570c4}
+The initial T\-E\-Us in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!max@{max}}
+\index{max@{max}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-max\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a92bd6b3afa4f4ebb56e7fe713ccc726b}
+The maximum number of T\-E\-Us in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!min@{min}}
+\index{min@{min}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-min\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a78d30638f0f5369ad8ac53dc902dad90}
+The minimum number of T\-E\-Us in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!producers@{producers}}
+\index{producers@{producers}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{producers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-producers = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_ab56ff046b506185fa0f325e23fecbc78}
+The number of processes having used this \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} to store products \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!where@{where}}
+\index{where@{where}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{where}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-where\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a5cf488576aeb58ea797acd1a58367611}
+Indicates the method where something has gone wrong. Is passed as a parameter to the method {\ttfamily \doxyref{check\-Process()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_a25c680e2dba1f623318c9c984a40c08d}}. \index{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}!w\-Sum\-Avail@{w\-Sum\-Avail}}
+\index{w\-Sum\-Avail@{w\-Sum\-Avail}!desmoj::extensions::applicationDomains::harbour::Block@{desmoj\-::extensions\-::application\-Domains\-::harbour\-::\-Block}}
+\subsubsection[{w\-Sum\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-harbour.\-Block.\-w\-Sum\-Avail = 0.\-0\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block_afe30bfd291baef5c87a025d053fec028}
+Weighted sum of available T\-E\-Us in the \doxyref{Block}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1_block} over the time (must be divided by the total time to get the average available T\-E\-Us!) 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/harbour/Block.\-java\end{DoxyCompactItemize}

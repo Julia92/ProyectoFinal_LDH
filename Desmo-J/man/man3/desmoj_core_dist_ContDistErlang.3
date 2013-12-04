@@ -1,0 +1,140 @@
+.TH "desmoj.core.dist.ContDistErlang" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.ContDistErlang \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.ContDistExponential\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.dist\&.RealDistErlang\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBContDistErlang\fP (\fBModel\fP owner, String name, long order, double \fBmean\fP, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMean\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetOrder\fP ()"
+.br
+.ti -1c
+.RI "Double \fBsample\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBk\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Erlang distributed stream of pseudo random numbers of type double\&. Erlang distributed streams are specified by a mean value and their order\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.ContDistErlang\&.ContDistErlang (\fBModel\fPowner, Stringname, longorder, doublemean, booleanshowInReport, booleanshowInTrace)"
+Creates a stream of pseudo random numbers following a normal (a\&.k\&.a\&. 'Gaussian') distribution\&. The specific mean and standard deviation values have to be given here at creation time, as well as the seed for the underlying pseudo random generator\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIorder\fP long : The order of the Erlang distribution (>=1) 
+.br
+\fImean\fP double : The mean value for this distribution 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.ContDistErlang\&.createReporter ()"
+Creates the default reporter for the \fBRealDistErlang\fP distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the \fBRealDistErlang\fP distribution 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.core\&.report\&.ContDistErlangReporter\fP 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.dist\&.ContDistErlang\&.getMean ()"
+Returns the mean value of this Erlang distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean value of this Erlang distribution\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.dist\&.ContDistErlang\&.getOrder ()"
+Returns the order of the Erlang distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The order of this Erlang distribution\&. 
+.RE
+.PP
+
+.SS "Double desmoj\&.core\&.dist\&.ContDistErlang\&.sample ()"
+Returns the next Erlang distributed sample from this distribution\&. The algorithm used is taken from DESMO-C from Thomas Schniewind [Schni98] Volume 2, page 222, file realdist\&.cc\&. It has been adapted to Java and extended to handle antithetic random numbers if antithetic mode is switched on\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Double : The next Erlang distributed sample 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "long desmoj\&.core\&.dist\&.ContDistErlang\&.k\fC [protected]\fP"
+The order 'k' of the Erlang distribution 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

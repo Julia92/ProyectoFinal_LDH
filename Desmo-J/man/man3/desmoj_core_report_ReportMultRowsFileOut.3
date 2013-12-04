@@ -1,0 +1,77 @@
+.TH "desmoj.core.report.ReportMultRowsFileOut" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.report.ReportMultRowsFileOut \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.report\&.ReportFileOut\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.report\&.ASCIIReportOutput\fP, and \fBdesmoj\&.core\&.report\&.HTMLReportOutput\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBReportMultRowsFileOut\fP (int simTimeFloatingDigits, String \fBformatter\fP)"
+.br
+.ti -1c
+.RI "void \fBreceive\fP (\fBdesmoj\&.core\&.report\&.Reporter\fP r)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBoffsetDescriptionsOneColumn\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBReportMultRowsFileOut\fP is used to create a file to let the reporters write their reports to\&. It receives a reporter and divides its individual text information up to be displayed in HTML format on disc in the user's local directory\&. The messages are displayed in a tabular design with columns for each item displayed by the reporter\&. For each \fBReporter\fP giving a new group-ID, a new table is opened\&. This leads to a number of distinct tables displayed in one HTML-page with all reporters grouped by their group-id in one table\&. This special \fBReportFileOut\fP is designed to write reports with more than one row for one reporter\&. This is needed for the \fCWaitQueueReporter\fP where there will be one row for the data of the waiting slaves and one row for the data of the waiting masters and for the \fC\fBHistogramReporter\fP\fP where there will be multiple rows, one for each segment (cell) of ther interval\&. Note that if the framework is used as an Applet in webpages there is no access to the disc and an alternative output on screen or into a graphics window must be registered at the Experiment's MessageManager for this type of messages\&. Errors affecting the java runtime are always displayed on the system's standard output PrintStream\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+of \fBReportFileOut\fP class : Tim Lechler, modified by Soenke Claassen and Nicolas Knaak, modified by Chr\&. Mu\*(4ller (TH Wildau) 28\&.11\&.2012
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.report\&.ReportMultRowsFileOut\&.ReportMultRowsFileOut (intsimTimeFloatingDigits, Stringformatter)"
+Creates a file to print reports into a HTML page\&. By opening the file, the necessary HTML tags to define a webpage are already inserted into the file\&. The parameter given should reflect the experiment that produces this file\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsimTimeFloatingDigits\fP int : The number of floating point digits of the simulation time values to be displayed 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static void desmoj\&.core\&.report\&.ReportMultRowsFileOut\&.offsetDescriptionsOneColumn ()\fC [static]\fP"
+Set report output such that nested \fBReporter\fP descriptions are offset by one column, thus improving readability at the expense of space\&. 
+.SS "void desmoj\&.core\&.report\&.ReportMultRowsFileOut\&.receive (\fBdesmoj\&.core\&.report\&.Reporter\fPr)"
+Receives a reporter and writes its contents formatted to a HTML table into a file in the user's default directory\&. In case of a \fBModelReporter\fP it writes the model's information into the file\&. After writing the model data, all reportables registered with the \fBModelReporter\fP are asked for a reporter and those are also written to the report file\&. After processing the Reportables, the registered subModels are asked to produce their reporters which in turn are recursively sent to this method until no other submodels are available\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIr\fP \fBReporter\fP : The \fBReporter\fP to be processed 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.report\&.MessageReceiver\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

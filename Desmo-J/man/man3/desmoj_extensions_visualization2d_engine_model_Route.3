@@ -1,0 +1,244 @@
+.TH "desmoj.extensions.visualization2d.engine.model.Route" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.model.Route \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Container< Long >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRoute\fP (\fBModel\fP model, String id, String sourceId, String sinkId, double length)"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetName\fP (String name)"
+.br
+.ti -1c
+.RI "String \fBgetSourceId\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetSinkId\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetLength\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetShow\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetShow\fP (int show)"
+.br
+.ti -1c
+.RI "Color \fBgetColor\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetColor\fP (Color color)"
+.br
+.ti -1c
+.RI "int \fBgetLineSize\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetLineSize\fP (int size)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.extensions\&.visualization2d\&.engine\&.modelGrafic\&.Grafic\fP \fBcreateGrafic\fP (Point[] points)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.extensions\&.visualization2d\&.engine\&.modelGrafic\&.Grafic\fP \fBgetGrafic\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBaddToContainer\fP (String entityId, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "boolean \fBremoveFromContainer\fP (String entityId, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "Object[][] \fBgetRelPosition\fP (long time)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBSHOW_NOTHING\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_NAME\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_LENGTH\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_DIRECTION\fP = 4"
+.br
+.ti -1c
+.RI "static final int \fBSHOW_LINE\fP = 8"
+.br
+.ti -1c
+.RI "static final int \fBLINE_Size_Normal\fP = 2"
+.br
+.ti -1c
+.RI "static final int \fBLINE_Size_Small\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBLINE_Size_Big\fP = 4"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A route is a polyline between a start- and a end-station\&. The line has a length and an entity can move on it with a velocity stored in its velocity-attribute
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.Route (\fBModel\fPmodel, Stringid, StringsourceId, StringsinkId, doublelength)"
+\fBRoute\fP from sourceId to sinkId with length 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP used animation\&.model\&.Model 
+.br
+\fIid\fP routeId 
+.br
+\fIsourceId\fP station with sourceId 
+.br
+\fIsinkId\fP station with sinkId 
+.br
+\fIlength\fP length of route 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.addToContainer (StringentityId, longtime) throws \fBModelException\fP"
+add entityId at sourceId on route 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIentityId\fP 
+.br
+\fItime\fP time of operation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true, when successful 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.extensions\&.visualization2d\&.engine\&.modelGrafic\&.Grafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.createGrafic (Point[]points)"
+create RouteGrafic as polyline with innerpoints points\&. The endpoints are given from source- and sink- station 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpoints\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+RouteGrafic 
+.RE
+.PP
+
+.SS "Color desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.getColor ()"
+get color of route line 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "\fBdesmoj\&.extensions\&.visualization2d\&.engine\&.modelGrafic\&.Grafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.getGrafic ()"
+get stationGrafic, which was ceated before 
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.getLineSize ()"
+get size of route line 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.getName ()"
+name of route, can be null 
+.SS "Object [][] desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.getRelPosition (longtime)"
+Compute the relative position of every entity in this route (container)\&. This is a value between 0 (start of route) and 1 (end of route)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP actual simulation time 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBgetRelPosition(long time)\fP[i][0]: key of i\&.th entity in route (String)\&. \fBgetRelPosition(long time)\fP[i][1]: relative Position of i\&.th entity in route (Double)\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.getShow ()"
+Show is the sum of Route\&.SHOW_ Flags 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.removeFromContainer (StringentityId, longtime) throws \fBModelException\fP"
+remove entityId from route entityId time time of operation 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.setColor (Colorcolor)"
+set color of route line and description 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcolor\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.setLineSize (intsize)"
+set the line size, for values look at Route\&.LINE_Size flags 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsize\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Route\&.setShow (intshow)"
+Show is the sum of Route\&.SHOW_ Flags 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIshow\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

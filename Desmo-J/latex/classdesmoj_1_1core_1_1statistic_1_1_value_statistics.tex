@@ -1,0 +1,346 @@
+\section{desmoj.\-core.\-statistic.\-Value\-Statistics Class Reference}
+\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}\index{desmoj.\-core.\-statistic.\-Value\-Statistics@{desmoj.\-core.\-statistic.\-Value\-Statistics}}
+
+
+Inheritance diagram for desmoj.\-core.\-statistic.\-Value\-Statistics\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-statistic.\-Value\-Statistics\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Value\-Statistics} ({\bf Model} owner\-Model, String name, {\bf Value\-Supplier} val\-Sup, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Value\-Statistics} ({\bf Model} owner\-Model, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+double {\bf get\-Last\-Value} ()
+\item 
+double {\bf get\-Maximum} ()
+\item 
+abstract double {\bf get\-Mean} ()
+\item 
+double {\bf get\-Minimum} ()
+\item 
+abstract double {\bf get\-Std\-Dev} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf update} ({\bf Time\-Span} t)
+\item 
+void {\bf update} ()
+\item 
+void {\bf update} (double val)
+\item 
+void {\bf update} (Observable o, Object arg)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Value\-Supplier} {\bf get\-Value\-Supplier} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} class is the super class for all the classes providing a statistic analysis about one value (e.\-g. minimum and maximum values). Derived classes are\-: \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally}, \doxyref{Accumulate}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate} and \doxyref{Histogram}{p.}{classdesmoj_1_1core_1_1statistic_1_1_histogram} (because it is derived from \doxyref{Tally}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally}).
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!Value\-Statistics@{Value\-Statistics}}
+\index{Value\-Statistics@{Value\-Statistics}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{Value\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Value\-Statistics.\-Value\-Statistics (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{{\bf Value\-Supplier}}]{val\-Sup, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a78d9c13180096b2b5449dc0142b34e80}
+Constructor for a \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} object that will be connected to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} object \\
+\hline
+{\em val\-Sup} & \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} providing the value for this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}. The given \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be observed by this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} object. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a78d9c13180096b2b5449dc0142b34e80_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!Value\-Statistics@{Value\-Statistics}}
+\index{Value\-Statistics@{Value\-Statistics}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{Value\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-statistic.\-Value\-Statistics.\-Value\-Statistics (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a1ab58f4b4457195329039f2a0337adb4}
+Constructor for a \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} object that has N\-O connection to a {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner\-Model} & Model \-: The model this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} is associated to \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} object \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag for showing the report about this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing the trace output of this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!get\-Last\-Value@{get\-Last\-Value}}
+\index{get\-Last\-Value@{get\-Last\-Value}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{get\-Last\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Value\-Statistics.\-get\-Last\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a04f54a5bde8f704a51789e563feaf81c}
+Returns the last observed value of this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} object.
+
+\begin{DoxyReturn}{Returns}
+double \-: The last value observed so far. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!get\-Maximum@{get\-Maximum}}
+\index{get\-Maximum@{get\-Maximum}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{get\-Maximum}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Value\-Statistics.\-get\-Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a9b55d2c9c95264c1617ea062052131c9}
+Returns the maximum value observed so far.
+
+\begin{DoxyReturn}{Returns}
+double \-: The maximum value observed so far. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a9b55d2c9c95264c1617ea062052131c9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!get\-Mean@{get\-Mean}}
+\index{get\-Mean@{get\-Mean}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{get\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}abstract double desmoj.\-core.\-statistic.\-Value\-Statistics.\-get\-Mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_af62fa9f16261f9184c388a2d67d64cd2}
+Returns the mean value of all the values observed so far. Has to be implemented in a derived class.
+
+\begin{DoxyReturn}{Returns}
+double \-: The mean value of all the values observed so far. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-core.\-statistic.\-Accumulate} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a07d2605d92677400ab2e523eadd161a9}, and {\bf desmoj.\-core.\-statistic.\-Tally} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally_a5579903777e94f57d5d7634572bc8b08}.
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!get\-Minimum@{get\-Minimum}}
+\index{get\-Minimum@{get\-Minimum}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{get\-Minimum}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-statistic.\-Value\-Statistics.\-get\-Minimum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_aad8587e2ef044281bf62c499ef14ccb3}
+Returns the minimum value observed so far.
+
+\begin{DoxyReturn}{Returns}
+double \-: The minimum value observed so far. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_aad8587e2ef044281bf62c499ef14ccb3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!get\-Std\-Dev@{get\-Std\-Dev}}
+\index{get\-Std\-Dev@{get\-Std\-Dev}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{get\-Std\-Dev}]{\setlength{\rightskip}{0pt plus 5cm}abstract double desmoj.\-core.\-statistic.\-Value\-Statistics.\-get\-Std\-Dev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_ad2266fa71210c9a13b393e68e98622b4}
+Returns the standard deviation of all the values observed so far. Has to be implemented in a derived class.
+
+\begin{DoxyReturn}{Returns}
+double \-: The standard deviation of all the values observed so far. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-core.\-statistic.\-Accumulate} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_accumulate_a034a8c3c09d4768904ed931a657f93fe}, and {\bf desmoj.\-core.\-statistic.\-Tally} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_tally_a0daef9e4da772b80e985121404533dae}.
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!get\-Value\-Supplier@{get\-Value\-Supplier}}
+\index{get\-Value\-Supplier@{get\-Value\-Supplier}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{get\-Value\-Supplier}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Value\-Supplier} desmoj.\-core.\-statistic.\-Value\-Statistics.\-get\-Value\-Supplier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_aec498abda3f582314d72e2e64c0891c4}
+Returns the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} object providing all the values.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} \-: The \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} object providing the values for this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Value\-Statistics.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_af6f26bec926a5aafae5ad4544309aac7}
+Resets this \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics} object by resetting all variables to 0.\-0 . \index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Value\-Statistics.\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a755c1f1eb9e2f6c6888488b760a0e0cb}
+Updates this data collector object with a specific {\ttfamily Time\-Span}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Time\-Span \-: The time span to update this data collector.\\
+\hline
+\end{DoxyParams}
+ 
+
+Implements {\bf desmoj.\-core.\-statistic.\-Statistic\-Object\-Supporting\-Time\-Spans} \doxyref{}{p.}{classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_a9c45fb77d91dcb6a699b760390a844a6}.
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Value\-Statistics.\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a364ed44d072e814b30236443e5ed4c59}
+Updates this {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} object by fetching the actual value of the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} and processing it. The {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}} is passed in the constructor of this {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} object. This {\ttfamily \doxyref{update()}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a364ed44d072e814b30236443e5ed4c59}} method complies with the one described in D\-E\-S\-M\-O, see [Page91]. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a364ed44d072e814b30236443e5ed4c59_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Value\-Statistics.\-update (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a853db1a0defddb747f4a4dce28c29302}
+Updates this {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} object with the double value given as parameter. In some cases it might be more convenient to pass the value this {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} will be updated with directly within the {\ttfamily \doxyref{update(double val)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a853db1a0defddb747f4a4dce28c29302}} method instead of going via the {\ttfamily \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & double \-: The value with which this {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} will be updated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a853db1a0defddb747f4a4dce28c29302_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::statistic\-::\-Value\-Statistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}!update@{update}}
+\index{update@{update}!desmoj::core::statistic::ValueStatistics@{desmoj\-::core\-::statistic\-::\-Value\-Statistics}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-statistic.\-Value\-Statistics.\-update (
+\begin{DoxyParamCaption}
+\item[{Observable}]{o, }
+\item[{Object}]{arg}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a32f03e495ba3b5b81ab089b33ed297e5}
+Implementation of the virtual {\ttfamily \doxyref{update(\-Observable, Object)}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a32f03e495ba3b5b81ab089b33ed297e5}} method of the {\ttfamily Observer} interface. This method will be called automatically from an {\ttfamily Observable} object within its {\ttfamily notify\-Observers()} method. \par
+ If no Object (a{\ttfamily null} value) is passed as arg, the actual value of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier} will be fetched with the {\ttfamily value()} method of the \doxyref{Value\-Supplier}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_supplier}. Otherwise it is expected that the actual value is passed in the Object arg.
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & java.\-util.\-Observable \-: The Observable calling this method within its own {\ttfamily notify\-Observers()} method. \\
+\hline
+{\em arg} & Object \-: The Object with which this {\ttfamily \doxyref{Value\-Statistics}{p.}{classdesmoj_1_1core_1_1statistic_1_1_value_statistics}} is updated. Normally a double number or Time\-Span which is added to the statistics or {\ttfamily null}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1statistic_1_1_value_statistics_a32f03e495ba3b5b81ab089b33ed297e5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/statistic/Value\-Statistics.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+var classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter =
+[
+    [ "TimeSeriesDataSetAdapter", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#aae90b62bf521971dbd0c15e489d746b5", null ],
+    [ "getDomainBounds", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a3e3ba3b1ac5df278c30ca2c29460c062", null ],
+    [ "getDomainBounds", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a60b5bebc2de67dd10192060edae7011f", null ],
+    [ "getDomainLowerBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a71ab0675666eeb7784cf509b946847dd", null ],
+    [ "getDomainLowerBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a6eed6bf6e0b46b4978beca0db16c5cc2", null ],
+    [ "getDomainRange", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a2338366d687ef03f435e28a2910e5798", null ],
+    [ "getDomainUpperBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a5705e647797c57cea191ecb10c05a5b8", null ],
+    [ "getDomainUpperBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a4835a761f9e50852b453a3ff9b1fbe1e", null ],
+    [ "getItemCount", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a45de4187aa41f7789aa8c62411ffa39e", null ],
+    [ "getMaximumDomainValue", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#aaddb936307b6350ed3cdb2ce43bbe3e0", null ],
+    [ "getMaximumRangeValue", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a17248ab8924bd03e2514dda435f5db29", null ],
+    [ "getMinimumDomainValue", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a8c1952965e489202a25151296c4cf918", null ],
+    [ "getMinimumRangeValue", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#ab308817430e1f28ae4019c92e1fbc8fc", null ],
+    [ "getRangeBounds", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a83387f4153f4ba1fc5403b01ac14d670", null ],
+    [ "getRangeLowerBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#aac9ed1d6cda0d1e593c554401aaf35a7", null ],
+    [ "getRangeLowerBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#aa39ea654ddbc3705b550af21869959c6", null ],
+    [ "getRangeTimeUnit", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#aafdaae49179d8bd993cd02f037f4a298", null ],
+    [ "getRangeUpperBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a49d281c58c9b203a6630ad0242b1f388", null ],
+    [ "getRangeUpperBound", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#afb976e465fc9505c9aea786228c06684", null ],
+    [ "getSeriesCount", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a6915173f60934ce213aa2638579e35cb", null ],
+    [ "getSeriesKey", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a2e9b59353066d64fd2202c19d252f082", null ],
+    [ "getValueRange", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a3d6e9d5bd6846690703d1f66e28f77ef", null ],
+    [ "getX", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a6023a16b2bac0abcd02802750fc628d6", null ],
+    [ "getY", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a58e0c0bef59c5b3031c4f237e4bd6e6f", null ],
+    [ "isValid", "classdesmoj_1_1extensions_1_1grafic_1_1util_1_1_time_series_data_set_adapter.html#a2cbff6972d136d51161a83cc1a76d24d", null ]
+];

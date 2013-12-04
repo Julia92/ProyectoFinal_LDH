@@ -1,0 +1,337 @@
+.TH "desmoj.core.advancedModellingFeatures.Bin" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.advancedModellingFeatures.Bin \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.advancedModellingFeatures\&.BinAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBin\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, int sortOrder, int qCapacity, long initialUnits, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBBin\fP (\fBdesmoj\&.core\&.simulator\&.Model\fP owner, String name, long initialUnits, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "double \fBavgAvail\fP ()"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBretrieve\fP (long n)"
+.br
+.ti -1c
+.RI "long \fBgetAvail\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetConsumers\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetInitial\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetMaximum\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBgetPassBy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetProducers\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPassBy\fP (boolean newPassBy)"
+.br
+.ti -1c
+.RI "void \fBstore\fP (long n)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBactivateAsNext\fP (\fBSimProcess\fP process)"
+.br
+.ti -1c
+.RI "void \fBactivateFirst\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String where)"
+.br
+.ti -1c
+.RI "void \fBupdateStatistics\fP (long n)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "QueueList< \fBSimProcess\fP > \fB_queue\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBBin\fP is the place where producers can store their products for consumers to come and use them up\&. \fBBin\fP is used to implement process synchronization between producers and consumers\&. Producers are producing products and store them using \fC\fBstore()\fP\fP in the bin\&. Consumers make the \fBBin\fP \fCdeliver()\fP the products to use them up\&. If no or not enough units of a product are available for the consumers, they have to wait in a queue until new units are delivered by a producer\&. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is FIFO and unlimited capacity)\&. \fBBin\fP is derived from QueueBased, which provides all the statistical functionality for a queue\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.Bin (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, intsortOrder, intqCapacity, longinitialUnits, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBBin\fP with a number of initial units of a product in it\&. The queueing discipline and the capacity limit of the underlying queue can be chosen, too\&. Highest priority are always first in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBBin\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBBin\fP's name 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIqCapacity\fP int : The capacity of the queue, that is how many processes can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIinitialUnits\fP long : The units of a product the \fBBin\fP starts with\&. Must be positive\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBBin\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.Bin (\fBdesmoj\&.core\&.simulator\&.Model\fPowner, Stringname, longinitialUnits, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBBin\fP with a number of initial units of a product in it\&. The underlying queue has a Fifo queueing discipline and unlimited capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBBin\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBBin\fP's name 
+.br
+\fIinitialUnits\fP long : The units of a product the \fBBin\fP starts with\&. Must be positive\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBBin\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.activateAsNext (\fBSimProcess\fPprocess)\fC [protected]\fP"
+Activates the SimProcess \fCprocess\fP, given as a parameter of this method, as the next process\&. This process should be a SimProcess waiting in the queue for some products\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess\fP SimProcess : The process that is to be activated as next\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.activateFirst ()\fC [protected]\fP"
+Activates the first process waiting in the queue\&. That is a process which was trying to take products, but it could not get any because there were not enough products for it or another process was first in the queue to be served\&. This method is called every time a producer has given new products or a consumer in the waiting-queue is satisfied\&. 
+.SS "double desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.avgAvail ()"
+Returning the average number of products available in the bin over the time since the last reset of the bin\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average number of products available in the bin over the time since the last reset of the bin\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the entity using the bin is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the SimProcess is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.br
+\fIwhere\fP String : The method having called \fC\fBcheckProcess()\fP\fP as a String\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBBin\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queue inside this bin 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getAvail ()"
+Returns the number of units available at the moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of units available at the moment\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getConsumers ()"
+Returns the number of consumers having visited the \fBBin\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of consumers having visited the bin\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getInitial ()"
+Returns the initial number of products in the bin\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of products the bin started with\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getMaximum ()"
+Returns the maximum number of products in the bin\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The maximum number of products in the bin\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getPassBy ()"
+Returns whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Indicates whether entities can pass by other entities which are enqueued before them in the queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getProducers ()"
+Returns the number of producers having used the \fBBin\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of producers having put products in the bin\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.getRefused ()"
+Returns the number of entities refused to be enqueued in the queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of entities refused to be enqueued in the queue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.reset ()"
+To reset the statistics of this bin\&. The number of available products at this moment and the processes waiting in the queue are not changed\&. But all statistic counters are reset\&. The \fCQueueBased\fP is also reset\&. 
+.SS "boolean desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.retrieve (longn)"
+Method for consumers to make the \fBBin\fP deliver a number of n products\&. When there are not enough products available or another consumer is first in the queue to be served (and it is not possible to pass by), the current consumer process will be blocked and inserted in the waiting-queue\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the specified number of units have been delivered successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the queue is reached)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of products the \fBBin\fP is delivering to the consumer\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.setPassBy (booleannewPassBy)"
+Sets the flag passBy to a new value\&. PassBy is indicating whether entities can pass by other entities which are enqueued before them in the queue\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPassBy\fP boolean : The new value of passBy\&. Set it to \fCtrue\fP if you want entities to pass by other entities which are enqueued before them in the queue\&. Set it to \fCfalse\fP if you don't want entities to overtake other entities in the queue\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.store (longn)"
+Method for producers to put a number of n new products in the \fBBin\fP\&. When producers \fC\fBstore()\fP\fP new products n is positive\&. Producers can always store products into the \fBBin\fP and will never be inserted in a queue and blocked, because the \fBBin\fP has no capacity limit\&.\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : The number of products put into the \fBBin\fP\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.advancedModellingFeatures\&.Bin\&.updateStatistics (longn)\fC [protected]\fP"
+Updates the statistics for producers and consumers\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP long : Is positive when producers \fC\fBstore()\fP\fP new products in the bin and negative when the \fBBin\fP \fCdeliver()\fP's products to the consumer process\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "QueueList<\fBSimProcess\fP> desmoj\&.core\&.advancedModellingFeatures\&.Bin\&._queue\fC [protected]\fP"
+The queue, actually storing the processes waiting for products 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

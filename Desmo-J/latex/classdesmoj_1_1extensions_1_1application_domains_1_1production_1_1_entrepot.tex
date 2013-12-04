@@ -1,0 +1,738 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}\index{desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot@{desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Entrepot} ({\bf Model} owner, String name, int sort\-Order, int q\-Capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Entrepot} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+double {\bf avg\-Avail} ()
+\item 
+boolean {\bf contains} ({\bf Sim\-Process} product)
+\item 
+{\bf Reporter} {\bf create\-Reporter} ()
+\item 
+int {\bf get\-Avail} ()
+\item 
+int {\bf get\-Avail\-Comply\-With} (Condition condition)
+\item 
+long {\bf get\-Customers} ()
+\item 
+long {\bf get\-Maximum} ()
+\item 
+boolean {\bf get\-Pass\-By} ()
+\item 
+String {\bf get\-Queue\-Strategy} ()
+\item 
+long {\bf get\-Refused} ()
+\item 
+long {\bf get\-Sold\-Products} ()
+\item 
+boolean {\bf is\-Empty} ()
+\item 
+Enumeration {\bf products} ()
+\item 
+{\bf Sim\-Process}[$\,$] {\bf remove\-All\-Products} ()
+\item 
+{\bf Sim\-Process}[$\,$] {\bf remove\-All\-Products} (Condition condition)
+\item 
+{\bf Sim\-Process} {\bf remove\-Product} ()
+\item 
+void {\bf remove\-Product} ({\bf Sim\-Process} product)
+\item 
+{\bf Sim\-Process}[$\,$] {\bf remove\-Products} (long n)
+\item 
+{\bf Sim\-Process}[$\,$] {\bf remove\-Products} (int n, Condition condition)
+\item 
+void {\bf reset} ()
+\item 
+void {\bf set\-Pass\-By} (boolean new\-Pass\-By)
+\item 
+void {\bf store\-Product} ({\bf Sim\-Process} product)
+\item 
+void {\bf store\-Products} ({\bf Sim\-Process}[$\,$] finished\-Prods)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf activate\-As\-Next} ({\bf Sim\-Process} process)
+\item 
+void {\bf activate\-First} ()
+\item 
+boolean {\bf check\-Process} ({\bf Sim\-Process} p, String where)
+\item 
+void {\bf update\-Statistics} (long n)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is some kind of storage where products (in the form of {\ttfamily Sim\-Process} es) can be stored. They will be stored in a kind of F\-I\-F\-O order, that means the products arriving first at the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} will be the first ones to be removed. One can remove products from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} in order to sell (or dispatch) them or to process them in any other way. Note\-: while products can enter the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} themselves, another process ( {\ttfamily Sim\-Process}) is needed to remove the products from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. Because the product processes are passivated while they are stored in the Entepot! The \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} has no capacity limit, so it can store (almost) an endless number of products. The maximum number of available products in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} will be shown in the report and can be used to judge what a reasonable capacity limit for the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} in the real world might be. In contrast the queue for the waiting customers can have a certain limit. If the customers' queue capacity is reached any further customer will be rejected (refused to service). The default number of products an \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} starts with is zero. It will be filled during simulation by some manufacturing process (or the product process itself) using the {\ttfamily \doxyref{store\-Product()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ac26a75bf8aec42a4914b137602ce26ea}} method. Products can be retrieved (removed) from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} using one of the {\ttfamily \doxyref{remove\-Product()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a704154f6902edf37de067caddd5e858c}} methods. If no or not enough products are available the costumers have to wait in a queue until new products are stored in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. The first sort criteria of the customer queue is always highest priorities first. The second queueing discipline and the capacity limit of the customer queue can be determined by the user (default is F\-I\-F\-O and unlimited capacity). As long as the products (Sim\-Processes) are stored in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} they are passivated and blocked. \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is derived from Queue\-Based, which provides all the statistical functionality for the customer queue.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a8d9c9825a806f8a873dd470a8e4afb3b} 
+
+Bin
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!Entrepot@{Entrepot}}
+\index{Entrepot@{Entrepot}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{Entrepot}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-Entrepot (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{sort\-Order, }
+\item[{int}]{q\-Capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_aeb41ce8958a7d8558a563dbfe1364c98}
+Constructs an empty \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} where products (Sim\-Processes) can be stored and retrieved. The queueing discipline and the capacity of the underlying customer queue can be chosen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+{\em sort\-Order} & int \-: determines the sort order of the underlying queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em q\-Capacity} & int \-: The capacity of the queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} should produce trace messages or not. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_aeb41ce8958a7d8558a563dbfe1364c98_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!Entrepot@{Entrepot}}
+\index{Entrepot@{Entrepot}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{Entrepot}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-Entrepot (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a4f0149e532309a739a3cf139a3931fee}
+Constructs an empty \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} where products (Sim\-Processes) can be stored and retrieved. The underlying queue has a F\-I\-F\-O queueing discipline and unlimited capacity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} should produce trace messages or not. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a4f0149e532309a739a3cf139a3931fee_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!activate\-As\-Next@{activate\-As\-Next}}
+\index{activate\-As\-Next@{activate\-As\-Next}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{activate\-As\-Next}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-activate\-As\-Next (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{process}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a29190ac2dddebf4a18674258824d1d93}
+Activates the sim-\/process {\ttfamily process}, given as a parameter of this method, as the next process. This process should be a sim-\/process waiting in the queue for some products.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process} & Sim\-Process \-: The process that is to be activated as next. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a29190ac2dddebf4a18674258824d1d93_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!activate\-First@{activate\-First}}
+\index{activate\-First@{activate\-First}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{activate\-First}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-activate\-First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a111a51bb0275784709a18877eab495bb}
+Activates the first process waiting in the customers' queue. That is a process which was trying to get products, but it could not get any because there were not enough products for it or another process was first in the queue to be served. This method is called every time new products have arrived in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} or a customer in the waiting-\/queue is satisfied. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a111a51bb0275784709a18877eab495bb_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!avg\-Avail@{avg\-Avail}}
+\index{avg\-Avail@{avg\-Avail}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{avg\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-avg\-Avail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a93e54b9b68700c8e209515a018a77690}
+Returns the average number of products available in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} over the time since the last reset of the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}.
+
+\begin{DoxyReturn}{Returns}
+double \-: The average number of products available in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} over the time since the last reset of the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a93e54b9b68700c8e209515a018a77690_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!check\-Process@{check\-Process}}
+\index{check\-Process@{check\-Process}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{check\-Process}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-check\-Process (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{p, }
+\item[{String}]{where}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a2e5c9f2bd94ffad489002607d261b799}
+Checks whether the sim-\/process using the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is a valid process.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} if and only if the given Sim\-Process is valid and model compatible; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Sim\-Process \-: Is this Sim\-Process a valid one? \\
+\hline
+{\em where} & String \-: The method having called {\ttfamily \doxyref{check\-Process()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a2e5c9f2bd94ffad489002607d261b799}} as a String. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a2e5c9f2bd94ffad489002607d261b799_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!contains@{contains}}
+\index{contains@{contains}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-contains (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{product}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ab2916bd2c9b2efc1d0988bbaf4703198}
+Checks if the given product (Sim\-Process) is contained in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} if and only if the specified Sim\-Process is the same as a component in this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}, as determined by the equals method; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em product} & desmoj.\-Sim\-Process \-: The product which might be in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reporter} desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a1bf33ea99f59da4e5c1784ea0d2f7465}
+Returns a Reporter to produce a report about this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for the queue inside this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. 
+\end{DoxyReturn}
+
+
+Implements {\bf desmoj.\-core.\-simulator.\-Queue\-Based} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a2e84c8f20fbf625475d4764c03e5a249}.
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Avail@{get\-Avail}}
+\index{get\-Avail@{get\-Avail}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Avail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a579cd4e203c6eed4a4646ef3cc75f9e2}
+Returns the number of products available at the moment.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of products available at the moment. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Avail\-Comply\-With@{get\-Avail\-Comply\-With}}
+\index{get\-Avail\-Comply\-With@{get\-Avail\-Comply\-With}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Avail\-Comply\-With}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Avail\-Comply\-With (
+\begin{DoxyParamCaption}
+\item[{Condition}]{condition}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a2fbcc6a4a251993c9d9a1ef34b2b452e}
+Returns the number of products available in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} at the moment which are in compliance with the given {\ttfamily Condition}. This method is useful to test if enough products are available which are in compliance with a given condition (i.\-e. before you use the method {\ttfamily remove\-Products(n, condition)}).
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of products available in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} at the moment which are in compliance with the given {\ttfamily Condition}. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em condition} & desmoj.\-Condition \-: The {\ttfamily Condition} the products have to be in compliance with. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a2fbcc6a4a251993c9d9a1ef34b2b452e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Customers@{get\-Customers}}
+\index{get\-Customers@{get\-Customers}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Customers}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Customers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a4db213795d51fecd4378416ac70f86bd}
+Returns the number of customers having obtained products from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of customers having obtained products from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Maximum@{get\-Maximum}}
+\index{get\-Maximum@{get\-Maximum}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Maximum}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Maximum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_adc763346e977ee61495e56ea8c4f75a4}
+Returns the maximum number of products in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}.
+
+\begin{DoxyReturn}{Returns}
+long \-: The maximum number of products in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Pass\-By@{get\-Pass\-By}}
+\index{get\-Pass\-By@{get\-Pass\-By}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Pass\-By (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a340a228f057399ec216a1b726cf7b903}
+Returns whether entities can pass by other entities which are enqueued before them in the queue.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Indicates whether entities can pass by other entities which are enqueued before them in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Queue\-Strategy@{get\-Queue\-Strategy}}
+\index{get\-Queue\-Strategy@{get\-Queue\-Strategy}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Queue\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Queue\-Strategy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a8dff004fdce529339714ae94e6b78f6a}
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report.
+
+\begin{DoxyReturn}{Returns}
+String \-: The String indicating the queueing discipline. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Refused@{get\-Refused}}
+\index{get\-Refused@{get\-Refused}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Refused}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Refused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a1eea8444a40ebe922602da2b93196b7f}
+Returns the number of Sim\-Processes refused to be enqueued in the queue, because the capacity limit is reached.
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of Sim\-Processes refused to be enqueued in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!get\-Sold\-Products@{get\-Sold\-Products}}
+\index{get\-Sold\-Products@{get\-Sold\-Products}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{get\-Sold\-Products}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-get\-Sold\-Products (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a02ca8ced0981dcfef14bf86e5542acbd}
+Returns the number of products which already have been sold (passed through this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}).
+
+\begin{DoxyReturn}{Returns}
+long \-: The number of products which already have been sold (passed through this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}). 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a092d76d6136670452569c503faf3dedb}
+Tests if the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is empty (has no products stored).
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true} if and only if this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} has no products stored (it is empty); {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!products@{products}}
+\index{products@{products}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{products}]{\setlength{\rightskip}{0pt plus 5cm}Enumeration desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-products (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a8f11fb158d236b9dec8bb87a0ba747d0}
+Returns an enumeration of the products stored in this {\ttfamily \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}}. The returned {\ttfamily Enumeration} object will generate all items contained in the vector {\ttfamily products}.
+
+\begin{DoxyReturn}{Returns}
+java.\-util.\-Enumeration \-: An enumeration of the products in this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!remove\-All\-Products@{remove\-All\-Products}}
+\index{remove\-All\-Products@{remove\-All\-Products}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{remove\-All\-Products}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} [$\,$] desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-remove\-All\-Products (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a88d56b7eda8920e27b90483980842fb3}
+Removes (and returns) all products (Sim\-Processes) from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} which are contained in there at the moment, even if other processes are waiting in the queue. Note, that as long as the life\-Cycles of the products (Sim\-Processes) leaving the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} are not terminated they will automatically be activated after the current Sim\-Process! If no products are available at the moment {\ttfamily null} will be returned. The products will be retrieved in a kind of F\-I\-F\-O order, that means the product which arrived first in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is the first to be removed.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Sim\-Process[] \-: All the products contained in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} at the moment will be removed. The life\-Cycles of their Sim\-Processes will be activated as long as they are not terminated. Is {\ttfamily null} if no products are available at the moment. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a88d56b7eda8920e27b90483980842fb3_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!remove\-All\-Products@{remove\-All\-Products}}
+\index{remove\-All\-Products@{remove\-All\-Products}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{remove\-All\-Products}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} [$\,$] desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-remove\-All\-Products (
+\begin{DoxyParamCaption}
+\item[{Condition}]{condition}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a93ba0e16a93e15abbd6d933dec1b52ef}
+Removes (and returns) all products (Sim\-Processes) which are in compliance with the given condition from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}, no matter if there are other processes waiting in the queue. Note, that as long as the life\-Cycles of the products (Sim\-Processes) leaving the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} are not terminated they will automatically be activated after the current Sim\-Process! If no products complying with the given condition are available at the moment {\ttfamily null} will be returned. The products will be retrieved in a kind of F\-I\-F\-O order, that means the product which arrived first in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is the first to be removed. To check if there are any products available which are in compliance with the given condition use the method {\ttfamily \doxyref{get\-Avail\-Comply\-With()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a2fbcc6a4a251993c9d9a1ef34b2b452e}}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Sim\-Process[] \-: All the products which are in compliance with the given condition and are removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. The life\-Cycles of their Sim\-Processes will be activated as long as they are not terminated. Is {\ttfamily null} if no such products are available at the moment. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em condition} & desmoj.\-Condition \-: The condition the products to be removed must comply with. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a93ba0e16a93e15abbd6d933dec1b52ef_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!remove\-Product@{remove\-Product}}
+\index{remove\-Product@{remove\-Product}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{remove\-Product}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-remove\-Product (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a704154f6902edf37de067caddd5e858c}
+Removes (and returns) one product (Sim\-Process) from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. Note, that as long as the life\-Cycle of the product (Sim\-Process) leaving the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is not terminated it will automatically be activated after the current Sim\-Process! If no products are available at the moment the requesting Sim\-Process will be enqueued in the wait queue until a product becomes available. In case the capacity limit of the wait queue is reached the current Sim\-Process will be rejected and not get any product ( {\ttfamily null} will be returned). The product will be retrieved in a kind of F\-I\-F\-O order, that means the product which arrived first in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is the first to be removed.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Sim\-Process \-: The product which is removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. The life\-Cycles of this Sim\-Process will be activated as long as he is not terminated. Is {\ttfamily null} if the capacity limit of the wait queue is reached and therefore the Sim\-Process is refused to be serviced or another failure has occured. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a704154f6902edf37de067caddd5e858c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!remove\-Product@{remove\-Product}}
+\index{remove\-Product@{remove\-Product}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{remove\-Product}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-remove\-Product (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{product}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ad785308de60c069e4fb25e4c2d12f965}
+Removes a certain product (Sim\-Process) from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}, if the given product is stored in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}, no matter if other processes are waiting in the queue already. Note that as long as the life\-Cycle of the products (Sim\-Processes) leaving the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is not terminated they will automatically be activated after the current Sim\-Process! To use this method one must know which product(s) are in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. To check which products are contained use methods like {\ttfamily \doxyref{products()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a8f11fb158d236b9dec8bb87a0ba747d0}} or {\ttfamily \doxyref{contains()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ab2916bd2c9b2efc1d0988bbaf4703198}}. The products will be retrieved in a kind of F\-I\-F\-O order that means the product which arrived first in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is the first to be removed. Users of this method will not be enqueued in the waiting-\/queue, because no one can ensure that the requested Sim\-Process will ever arrive in this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em product} & desmoj.\-Sim\-Process \-: The product to be removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. Note that this Sim\-Process will be activated after the current Sim\-Process as long as its life\-Cycle is not terminated. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ad785308de60c069e4fb25e4c2d12f965_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!remove\-Products@{remove\-Products}}
+\index{remove\-Products@{remove\-Products}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{remove\-Products}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} [$\,$] desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-remove\-Products (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a11e9c5af56ff546f27a1045ac39cf04e}
+Removes (and returns) a certain number of products (Sim\-Processes) from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. Note, that as long as the life\-Cycles of the products (Sim\-Processes) leaving the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} are not terminated they will automatically be activated after the current Sim\-Process! If not enough products are available at the moment the requesting Sim\-Process will be enqueued in the wait queue until enough products become available. In case the capacity limit of the wait queue is reached the current Sim-\/process will be rejected and not get any products ({\ttfamily null} will be returned). The products will be retrieved in a kind of F\-I\-F\-O order, that means the product which arrived first in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is the first to be removed.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Sim\-Process[] \-: All the products which are removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. The life\-Cycles of their Sim\-Processes will be activated as long as they are not terminated. Is {\ttfamily null} if the capacity limit of the wait queue is reached and therefore the Sim\-Process is refused to be serviced or another failure has occured. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int \-: The number of products to be removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a11e9c5af56ff546f27a1045ac39cf04e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!remove\-Products@{remove\-Products}}
+\index{remove\-Products@{remove\-Products}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{remove\-Products}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} [$\,$] desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-remove\-Products (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{Condition}]{condition}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_aa26918935f9e8a6835f3d07f2b03e76b}
+Removes (and returns) a certain number of products (Sim\-Processes) from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} which are in compliance with the given condition. Note, that as long as the life\-Cycles of the products (Sim\-Processes) leaving the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} are not terminated they will automatically be activated after the current Sim\-Process! If not enough products are available at the moment the requesting Sim\-Process will be enqueued in the waiting-\/queue until enough products become available. In case the capacity limit of the wait queue is reached the current Sim\-Process will be rejected and not get any products ({\ttfamily null} will be returned). The products will be retrieved in a kind of F\-I\-F\-O order, that means the product which arrived first in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} is the first to be removed. To make sure there are enough products available which are in compliance with the given condition use the method {\ttfamily \doxyref{get\-Avail\-Comply\-With()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a2fbcc6a4a251993c9d9a1ef34b2b452e}}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Sim\-Process[] \-: All the products which are in compliance with the given condition and are removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. The life\-Cycles of their Sim\-Processes will be activated as long as they are not terminated. Is {\ttfamily null} if the capacity limit of the wait queue is reached and therefore the sim-\/process is refused to be serviced or another failure has occured. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int \-: The number of products (which are in compliance with the given condition) to be removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+{\em condition} & desmoj.\-Condition \-: The condition the products to be removed must comply with. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_aa26918935f9e8a6835f3d07f2b03e76b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!reset@{reset}}
+\index{reset@{reset}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a7ae68bd13ad9d5485c6b83216e7603ce}
+To reset the statistics of this \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. The number of available products at this moment and the processes waiting in the queue are not changed. But all statistic counters are reset. The {\ttfamily Queue\-Based} is also reset. 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a7ae68bd13ad9d5485c6b83216e7603ce_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!set\-Pass\-By@{set\-Pass\-By}}
+\index{set\-Pass\-By@{set\-Pass\-By}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{set\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-set\-Pass\-By (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Pass\-By}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_af3d2ca134078699a7b7981acbcfe7f51}
+Sets the flag pass\-By to a new value. Pass\-By is indicating whether entities can pass by other entities which are enqueued before them in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Pass\-By} & boolean \-: The new value of pass\-By. Set it to {\ttfamily true} if you want entities to pass by other entities which are enqueued before them in the queue. Set it to {\ttfamily false} if you don't want entities to overtake other entities in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!store\-Product@{store\-Product}}
+\index{store\-Product@{store\-Product}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{store\-Product}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-store\-Product (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{product}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ac26a75bf8aec42a4914b137602ce26ea}
+Stores a sim-\/process as a product in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. As there is no capacity limit for the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}, Sim\-Processes can always be stored. The products will be kept in a Vector and retrieved in a kind of F\-I\-F\-O order (as long as no other conditions for retrieval have to be met). As long as the Sim-\/process is kept in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} it is passivated and blocked.
+
+
+\begin{DoxyParams}{Parameters}
+{\em product} & desmoj.\-Sim\-Process \-: The sim-\/process (product) to be stored in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ac26a75bf8aec42a4914b137602ce26ea_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!store\-Products@{store\-Products}}
+\index{store\-Products@{store\-Products}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{store\-Products}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-store\-Products (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}[$\,$]}]{finished\-Prods}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a44b5a66f23fd9bfa81fe0f46f3bebe98}
+Stores an array of Sim\-Processes as products in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. Make sure that the current Sim\-Process is not in the array of products to be stored. Because when the current Sim\-Process gets passivated the execution of this method will stop! As there is no capacity limit for the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}, Sim-\/processes can always be stored. The products will be kept in a Vector and retrieved in a kind of F\-I\-F\-O order (as long as no other conditions for retrieval have to be met). As long as the sim-\/processes are kept in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} they are passivated and blocked.
+
+
+\begin{DoxyParams}{Parameters}
+{\em finished\-Prods} & desmoj.\-Sim\-Process[] \-: The array of Sim\-Processes (products) to be stored in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_a44b5a66f23fd9bfa81fe0f46f3bebe98_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}!update\-Statistics@{update\-Statistics}}
+\index{update\-Statistics@{update\-Statistics}!desmoj::extensions::applicationDomains::production::Entrepot@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Entrepot}}
+\subsubsection[{update\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Entrepot.\-update\-Statistics (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ad40dcece8c0d2d6fc46b05194eafbccc}
+Updates the statistics every time a product (Sim\-Process) is stored in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} or removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & long \-: The number of products stored in or removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. Is positive when products are stored in the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot} and negative when products are removed from the \doxyref{Entrepot}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_entrepot_ad40dcece8c0d2d6fc46b05194eafbccc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/production/Entrepot.\-java\end{DoxyCompactItemize}

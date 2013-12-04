@@ -1,0 +1,259 @@
+.TH "desmoj.extensions.applicationDomains.harbour.Berth" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.applicationDomains.harbour.Berth \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBerth\fP (\fBModel\fP owner, String name, int sortOrder, int qCapacity, int length, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBBerth\fP (\fBModel\fP owner, String name, int length, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBReporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBchangeLength\fP (int l)"
+.br
+.ti -1c
+.RI "int \fBgetLength\fP ()"
+.br
+.ti -1c
+.RI "double \fBavgServTime\fP ()"
+.br
+.ti -1c
+.RI "double \fBavgUsage\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBtake\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBrelease\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetAvailLength\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetUsers\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetQueueStrategy\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetRefused\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBupdateStatistics\fP (int l)"
+.br
+.ti -1c
+.RI "boolean \fBcheckProcess\fP (\fBSimProcess\fP p, String where)"
+.br
+.ti -1c
+.RI "void \fBactivateFirst\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+\fBBerth\fP is the place where ships are berthing until they will be unloaded and/or loaded\&. \fC\fBShip\fP\fP can come and \fC\fBtake()\fP\fP the needed length for his berthing\&. Each ship has to release the same length of the berth it once has acquired by calling the \fC\fBrelease()\fP\fP method of the \fBBerth\fP\&. \fBBerth\fP is used to implement process synchronization between ships, which are using berth\&. The berth has a limited ccertain length\&. A ship can take the needed for him length to berth\&. After his unloading and/or loading the ship must release the taken length to make her available to other ships\&. If a ship can not get the needed length (enough free place) for his berthing, it has to wait in a queue until enough length ( free palce) are released by other ships\&. A ship can release its berthing length anytime\&. After the berht has \fC\fBrelease()\fP\fP the used length the waiting queue is checked for ships waiting for her\&. The first sort criteria of the queue is always highest priorities first, the second queueing discipline of the underlying queue and the capacity limit can be determined by the user (default is FIFO and unlimited capacity)\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBQueueBased\fP
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Eugenia Neufeld
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.Berth (\fBModel\fPowner, Stringname, intsortOrder, intqCapacity, intlength, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBBerth\fP with a certain length\&. The queueing discipline and the capacity limit of the underlying queue can be chosen\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBBerth\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBBerth\fP's name 
+.br
+\fIsortOrder\fP int : determines the sort order of the underlying queue implementation\&. Choose a constant from \fCQueueBased\fP like \fC\fBQueueBased\&.FIFO\fP\fP or \fC\fBQueueBased\&.LIFO\fP\fP or \&.\&.\&. 
+.br
+\fIqCapacity\fP int : The capacity of the queue, that is how many processes (ships) can be enqueued\&. Zero (0) means unlimited capacity\&. 
+.br
+\fIlength\fP int : The length of the \fBBerth\fP\&. Must be positive and greater than 0\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBBerth\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.Berth (\fBModel\fPowner, Stringname, intlength, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBBerth\fP with a certain length\&. The underlying queue has a Fifo queueing discipline and unlimited capacity\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The model this \fBBerth\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The \fBBerth\fP's name 
+.br
+\fIlength\fP int : The lenght of this \fBBerth\fP Must be positive and greater than 0\&. 
+.br
+\fIshowInReport\fP boolean : Flag, if \fBBerth\fP should produce a report or not\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for trace to produce trace messages\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.activateFirst ()\fC [protected]\fP"
+Activates the first process (ship) waiting in the queue\&. That is a process which was trying to take the needed length of the berth, but there was not enough left in the berth\&. Or another ship was first in the queue to be served\&. This method is called every time a process returns length to berth or when a ship in the waiting-queue is satisfied\&. 
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.avgServTime ()"
+Returns the average berthing time of the ships that have used this \fBBerth\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The average berthing time of the ships of this berth\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.avgUsage ()"
+Returns the average usage of the \fBBerth\fP\&. That means: in average, which percentage of the time it was in use over the time?
+.PP
+\fBReturns:\fP
+.RS 4
+double : the average usage of the \fBBerth\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.changeLength (intl)"
+Changes the length of the \fBBerth\fP\&. Sets the length of the berth that is max\&. available to l\&. l must be positive\&. This is only allowed as long as the \fBBerth\fP has not been used or the \fBBerth\fP has just been reset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIl\fP int : The new length of the \fBBerth\fP\&. Must be positive\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.checkProcess (\fBSimProcess\fPp, Stringwhere)\fC [protected]\fP"
+Checks whether the process (ship) using the \fBBerth\fP is a valid process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Returns whether the sim-process is valid or not\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP SimProcess : Is this SimProcess a valid one? 
+.RE
+.PP
+
+.SS "\fBReporter\fP desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.createReporter ()\fC [virtual]\fP"
+Returns a Reporter to produce a report about this \fBBerth\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for the queue inside this \fBBerth\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.simulator\&.QueueBased\fP\&.
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.getAvailLength ()"
+Returns the available length of the berth at the moment\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The length of the berth available at the moment\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.getLength ()"
+Returns the length of the \fBBerth\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The length of the berth 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.getQueueStrategy ()"
+Returns the implemented queueing discipline of the underlying queue as a String, so it can be displayed in the report\&.
+.PP
+\fBReturns:\fP
+.RS 4
+String : The String indicating the queueing discipline\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.getRefused ()"
+Returns the number of ships refused to be enqueued in the queue, because the capacity limit is reached\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of ships refused to be enqueued in the queue\&. 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.getUsers ()"
+Returns the number of users (ships)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The number of Users\&. That are ships have acquired and released the needed length of the berth\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.release ()"
+A \fBShip\fP is using this method to release this berth and to put length it has used back to the \fBBerth\fP\&. 
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.reset ()"
+Resets the statistics of this \fBBerth\fP\&. The number of available length at this moment and the ships waiting in the queue are not changed\&. But all statistic counters are reset\&. The parent \fCQueueBased\fP is also reset\&. 
+.SS "boolean desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.take ()"
+Provides the length to ships to use it for its berthing\&. As not enough length is available at the moment the \fBShip\fP has to wait in a queue until enough length is available again\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : Is \fCtrue\fP if the needed length has been provided successfully, \fCfalse\fP otherwise (i\&.e\&. capacity limit of the queue is reached)\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.applicationDomains\&.harbour\&.Berth\&.updateStatistics (intl)\fC [protected]\fP"
+Updates the statistics for the \fBBerth\fP whenever berth are \fCtaken\fP or \fC'released'\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIl\fP int : Is positive when the \fBBerth\fP \fC\fBrelease()\fP\fP some length and negative when the \fBBerth\fP \fC\fBtake()\fP\fP some length\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

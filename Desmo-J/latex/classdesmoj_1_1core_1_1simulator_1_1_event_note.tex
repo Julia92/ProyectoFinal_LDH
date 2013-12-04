@@ -1,0 +1,344 @@
+\section{desmoj.\-core.\-simulator.\-Event\-Note Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_event_note}\index{desmoj.\-core.\-simulator.\-Event\-Note@{desmoj.\-core.\-simulator.\-Event\-Note}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Event\-Note\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classdesmoj_1_1core_1_1simulator_1_1_event_note__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Event\-Note\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classdesmoj_1_1core_1_1simulator_1_1_event_note__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Event\-Note} ({\bf Entity} who1, {\bf Entity} who2, {\bf Entity} who3, {\bf Event\-Abstract} what, {\bf Time\-Instant} when, int how\-Important, {\bf Schedulable} source)
+\item 
+{\bf Event\-Note} {\bf copy} ({\bf Schedulable} source)
+\item 
+boolean {\bf equals} (Object object)
+\item 
+int {\bf hash\-Code} ()
+\item 
+int {\bf compare\-To} ({\bf Event\-Note} note)
+\item 
+{\bf Entity} {\bf get\-Entity1} ()
+\item 
+{\bf Entity} {\bf get\-Entity2} ()
+\item 
+{\bf Entity} {\bf get\-Entity3} ()
+\item 
+{\bf Event\-Abstract} {\bf get\-Event} ()
+\item 
+long {\bf get\-Number\-Of\-Entities} ()
+\item 
+{\bf Time\-Instant} {\bf get\-Time} ()
+\item 
+int {\bf get\-Priority} ()
+\item 
+{\bf Schedulable} {\bf get\-Source} ()
+\item 
+String {\bf to\-String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Event notes contain any information needed for any type of {\ttfamily \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}}, event or process. Since {\ttfamily \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}} are tightly coupled with the {\ttfamily \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}}, a change of the {\ttfamily \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}} might alo force the {\ttfamily \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}} to contain other information especially concerning the data structures used in the {\ttfamily \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}} as well. To adopt the {\ttfamily Event notes} extend them to carry the specific data and methods you need for a possible change of the {\ttfamily \doxyref{Event\-List}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_list}}. The implementation here includes data and methods for event information only, since the default implementation of class {\ttfamily Event\-Vector} needs no special information stored inside the {\ttfamily Event notes}.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler 
+
+modified by Justin Neumann
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!Event\-Note@{Event\-Note}}
+\index{Event\-Note@{Event\-Note}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{Event\-Note}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Event\-Note.\-Event\-Note (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{who1, }
+\item[{{\bf Entity}}]{who2, }
+\item[{{\bf Entity}}]{who3, }
+\item[{{\bf Event\-Abstract}}]{what, }
+\item[{{\bf Time\-Instant}}]{when, }
+\item[{int}]{how\-Important, }
+\item[{{\bf Schedulable}}]{source}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a442fa6faab15eba4fb954caff2b941b3}
+Event notes can only be created if all relevant data can be supplied at creation time. Note that all relevant associations of the given Schedulables towards this event-\/note are built in this constructor ensuring that each scheduled \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} has access to its associated \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em who1} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The first entity that is scheduled to be change during the course of the event or the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} (or null, if such an entity is not defined) \\
+\hline
+{\em who2} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The second entity that is scheduled to be change during the course of the event or the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} (or null, if such an entity is not defined) \\
+\hline
+{\em who3} & \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The third entity that is scheduled to be change during the course of the event or the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} (or null, if such an entity is not defined) \\
+\hline
+{\em what} & Event \-: The type of Event that scheduled to happen to the \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} or entities \\
+\hline
+{\em when} & \doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The point of time that this event-\/note is supposed to be processed by the scheduling mechanism \\
+\hline
+{\em how\-Important} & int \-: The scheduling priority of this event note \\
+\hline
+{\em source} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} responsible for creating this event note \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!compare\-To@{compare\-To}}
+\index{compare\-To@{compare\-To}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{compare\-To}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Event\-Note.\-compare\-To (
+\begin{DoxyParamCaption}
+\item[{{\bf Event\-Note}}]{note}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_ae5bedb398cecc3d44b2c01b3e665f9ae}
+Compares the given \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} to this event-\/note. This method implements the Comparable$<$\-Event\-Note$>$ Interface
+
+
+\begin{DoxyParams}{Parameters}
+{\em note} & The event-\/note to be compared to this event-\/note\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a negative integer, zero, or a positive integer as this event-\/note is before, at the same time, or after the given \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_note_ae5bedb398cecc3d44b2c01b3e665f9ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!copy@{copy}}
+\index{copy@{copy}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Note} desmoj.\-core.\-simulator.\-Event\-Note.\-copy (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{source}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a28d69f8239525e2ddc0fa4b1bc183138}
+Copies the event-\/note. W\-A\-R\-N\-I\-N\-G\-: No additional reference is set to linked \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} responsible for copying this event note\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} associated to this event-\/note 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_note_a28d69f8239525e2ddc0fa4b1bc183138_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!equals@{equals}}
+\index{equals@{equals}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Event\-Note.\-equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{object}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a82a8a5e44137f31e81dda0794ba81550}
+Returns whether this {\ttfamily \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}} equals another one or not.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} or {\ttfamily false}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_note_a82a8a5e44137f31e81dda0794ba81550_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Entity1@{get\-Entity1}}
+\index{get\-Entity1@{get\-Entity1}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Entity1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Entity1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a6c163b01f559d975c274840a083eccd6}
+Returns the entity that is associated with this event-\/note.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} associated to this event-\/note 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Entity2@{get\-Entity2}}
+\index{get\-Entity2@{get\-Entity2}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Entity2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Entity2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a09769f1aa63c2a46604476c9f4f75acb}
+Returns the entity that is associated with this event-\/note.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} associated to this event-\/note 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Entity3@{get\-Entity3}}
+\index{get\-Entity3@{get\-Entity3}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Entity3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Entity3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_abb467d2f4fa27357d87d0b3722661961}
+Returns the entity that is associated with this event-\/note.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} associated to this event-\/note 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Event@{get\-Event}}
+\index{get\-Event@{get\-Event}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Abstract} desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_af246122edee15b353885adaf1d32e49a}
+Returns the event associated with this event-\/note.
+
+\begin{DoxyReturn}{Returns}
+Event \-: The event associated with this event-\/note 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Number\-Of\-Entities@{get\-Number\-Of\-Entities}}
+\index{get\-Number\-Of\-Entities@{get\-Number\-Of\-Entities}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Number\-Of\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Number\-Of\-Entities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_aba2ed9205eca8262b16f49bf218c4eef}
+Returns the number of included entities.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily int} \-: The number of entities 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Priority@{get\-Priority}}
+\index{get\-Priority@{get\-Priority}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a62afed3a9b2b6aa3d79a13fbd85269a5}
+Returns the priority of this event-\/note.
+
+\begin{DoxyReturn}{Returns}
+int \-: The scheduling priority of this \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Source@{get\-Source}}
+\index{get\-Source@{get\-Source}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Schedulable} desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Source (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a29d6d8c72e21fe239b3e6666548291ef}
+Returns the \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} that has created this event note.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} that has created this event note 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Event\-Note.\-get\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a17153859d7e7794111b09588fadc8e3c}
+Returns the point of time associated with this event-\/note.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: Point of time in simulation associated with this \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!hash\-Code@{hash\-Code}}
+\index{hash\-Code@{hash\-Code}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{hash\-Code}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Event\-Note.\-hash\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a7106ef421a725cb34e18efed3c2393b5}
+Returns a hash code value for the object. This method overrides java.\-lang.\-Object.\-hash\-Code() to support efficient treatment in Hash\-Maps.
+
+\begin{DoxyReturn}{Returns}
+\-: int\-: A hash code value for this \doxyref{Event\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note}. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_note_a7106ef421a725cb34e18efed3c2393b5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Event\-Note@{desmoj\-::core\-::simulator\-::\-Event\-Note}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!desmoj::core::simulator::EventNote@{desmoj\-::core\-::simulator\-::\-Event\-Note}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Event\-Note.\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_event_note_a9d3e35be20b3e0e2206f3ccceaa8459d}
+Returns a string representing the elements bundled in this event-\/note. It calls the {\ttfamily \doxyref{to\-String()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_event_note_a9d3e35be20b3e0e2206f3ccceaa8459d}} methods of every element putting each in brackets containing one or two letters to indicate the type of element. 
+
+
+\begin{DoxyItemize}
+\item En\-: \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}, \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} or {\ttfamily null} 
+\item Ev\-: Event, external event or {\ttfamily null} 
+\item t\-: simulation time 
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: String representing the contained elements. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_event_note_a9d3e35be20b3e0e2206f3ccceaa8459d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Event\-Note.\-java\end{DoxyCompactItemize}

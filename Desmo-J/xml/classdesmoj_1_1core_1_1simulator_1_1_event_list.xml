@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1simulator_1_1_event_list" kind="class" prot="public" abstract="yes">
+    <compoundname>desmoj::core::simulator::EventList</compoundname>
+    <derivedcompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list" prot="public" virt="non-virtual">desmoj.core.simulator.EventTreeList</derivedcompoundref>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1ae3cd450a378f45e003fe39fd98c7081c" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+        <definition>abstract EventNote desmoj.core.simulator.EventList.firstNote</definition>
+        <argsstring>()</argsstring>
+        <name>firstNote</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a25a764af8d755c27f26e2ec9a98e5156">firstNote</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the first event-note in the event-list. That <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> contains information about the next event to happen and will be the next event processed by the scheduler.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The first event-note in the event-list </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="41" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a4b94b5255eda40dc3c540adebedc0f9a" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.EventList.insert</definition>
+        <argsstring>(EventNote newNote)</argsstring>
+        <name>insert</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1aad126fd414435b761db403de2c48e200">insert</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list_1a27afab982221a1176472fb5edbd11903">insert</reimplementedby>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>newNote</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a new event-note into the event-list. Event notes are sorted by the point if time they are scheduled to happen. This method ensures that the new event-note is inserted in the right place in the event-list, scanning through the list whenever a new event-note has to be inserted.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note to be sorted into the event-list </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="52" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1afbef5601e1e69f67026d4aefcc3cab11" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.EventList.insertAfter</definition>
+        <argsstring>(EventNote afterNote, EventNote newNote)</argsstring>
+        <name>insertAfter</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list_1ae559b64aa939f8415a22f80aa555828a">insertAfter</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a42015d8372274fe003612894b3b3471b">insertAfter</reimplementedby>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>afterNote</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>newNote</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts the new event-note straight after the other specified <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. This other <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> must already be scheduled. Otherwise a warning will be issued and the method returns without changing the event-list.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>afterNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note already scheduled, that the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> is supposed to be inserted after. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The new event-note to be inserted before the specified <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="66" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a0a4bdb3e42d50d00e0f3d2dcde474a74" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.EventList.insertAsFirst</definition>
+        <argsstring>(EventNote newNote)</argsstring>
+        <name>insertAsFirst</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list_1a18815086c67094aae42520dbd289aade">insertAsFirst</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a9486630e5e5cdb7f60fff06e83e33d76">insertAsFirst</reimplementedby>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>newNote</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> at the first position in the event-list. The Event encapsulated in that <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> will probably be the next event to be processed by the scheduler (unless some other calls to this method are made before). Note that this operation changes the scheduled time of the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> to the actual simulation time to keep the temporal order of the event-list.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note to be inserted at the first position in the event-list </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="80" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a63a49b5d43b4d2a98bb0c0b375e86986" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.EventList.insertBefore</definition>
+        <argsstring>(EventNote beforeNote, EventNote newNote)</argsstring>
+        <name>insertBefore</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list_1a57ce1e29fd2ebe1a9190b6cb4ad5c309">insertBefore</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a8f63f33a68b87eee66cb4908b1919706">insertBefore</reimplementedby>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>beforeNote</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>newNote</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts the new event-note straight before the other specified <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. This other <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> must already be scheduled. Otherwise the position to insert the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> can not be determined, resulting in a ItemNotScheduledException being thrown.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>beforeNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note already scheduled, that the new <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> is supposed to be inserted before. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newNote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The new event-note to be inserted before the specified <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1abacdeedf8459827d8010fb847d2814cf" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean desmoj.core.simulator.EventList.isEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>isEmpty</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a1ca9a3d1addd87c1219e1393bf5c7e7d">isEmpty</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tests if there are any scheduled events contained in the event-list. If the event-list happens to be empty during the run of a simulation, this is a criterium to stop the simulation, since no further action is scheduled.</para><para><simplesect kind="return"><para>boolean : Is <computeroutput>true</computeroutput> if there are no <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> contained in the event-list, <computeroutput>false</computeroutput> otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="106" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1ae8841feff3a88c208222f1cc83fafb00" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+        <definition>abstract EventNote desmoj.core.simulator.EventList.lastNote</definition>
+        <argsstring>()</argsstring>
+        <name>lastNote</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a5cd0ed6f76f49852bcee85884f866da8">lastNote</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> in the event-list.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The last <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> in the event-list </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="113" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1aa4be8c1722961adf23fdf31f210d1a60" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+        <definition>abstract EventNote desmoj.core.simulator.EventList.nextNote</definition>
+        <argsstring>(EventNote origin)</argsstring>
+        <name>nextNote</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1aecbfeba586d7f544475ac49615002228">nextNote</reimplementedby>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the next event-note in the event-list relative to the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. If the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> is not contained in the event-list or happens to be the last <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> in the event-list, <computeroutput>null</computeroutput> will be returned.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note following the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> or &lt;ocde&gt;null if the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> was last or not found </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>origin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note whose successor is wanted </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="126" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a69c44e3c7718f05810c54a55ffa1d077" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+        <definition>abstract EventNote desmoj.core.simulator.EventList.prevNote</definition>
+        <argsstring>(EventNote origin)</argsstring>
+        <name>prevNote</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a8202f35ec489522a44b9b14d649f5b1d">prevNote</reimplementedby>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the previous <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> in the event-list relative to the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref>. If the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> is not contained in the event-list or happens to be the first event-note in the evnet-list, <computeroutput>null</computeroutput> will be returned.</para><para><simplesect kind="return"><para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note following the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> or &lt;ocde&gt;null if the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> was first or not found </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>origin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> : The event-note whose predecessor is wanted </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="139" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1ae35e88c74d361c29b626d92da7691062" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.EventList.remove</definition>
+        <argsstring>(EventNote note)</argsstring>
+        <name>remove</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list_1a9041addba9ded9ee40d3af247c8ea525">remove</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a6f92b56a141392f5a888e2ca3f5fa3e8">remove</reimplementedby>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref></type>
+          <declname>note</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the given <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> from the event-list.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>note</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_note" kindref="compound">EventNote</ref> . The event-note to be removed from the event-list </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="147" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a0f573145fd386e96e8f6a304f4e99bd8" prot="package" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>abstract void</type>
+        <definition>abstract void desmoj.core.simulator.EventList.removeFirst</definition>
+        <argsstring>()</argsstring>
+        <name>removeFirst</name>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list_1a75e0fea73c8edbc0dba9a930a6bd65fe">removeFirst</reimplementedby>
+        <reimplementedby refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list_1a1f5009051efa46c3ae50887f0ed528e8">removeFirst</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the first event-note from the event-list. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="152" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This interface describes the set of methods an event-list carrying the scheduled events and entities in a temporal order has to implement. This is a part of the framework that does not have to be implemented by the user in order to get a simulation running, since the scheduler already uses the class EventVector as default <ref refid="classdesmoj_1_1core_1_1simulator_1_1_event_list" kindref="compound">EventList</ref> construction. Since each step in the discrete simulation requires searching and manipulating the event-list, this is probably one of the best places in the framework to optimize execution performance. Especially if special models show specific behaviour i.e. primarily inserting new events at the very end of the event-list, other implementations of the event-list might support faster access times.</para><para><simplesect kind="see"><para>EventVectorList</para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Tim Lechler</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="7617">
+        <label>desmoj.core.simulator.EventTreeList</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_event_tree_list"/>
+        <childnode refid="7616" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7618">
+        <label>desmoj.core.simulator.RandomizingEventTreeList</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_randomizing_event_tree_list"/>
+        <childnode refid="7617" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7616">
+        <label>desmoj.core.simulator.EventList</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_event_list"/>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" line="32" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/simulator/EventList.java" bodystart="32" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1ae3cd450a378f45e003fe39fd98c7081c" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>firstNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a4b94b5255eda40dc3c540adebedc0f9a" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>insert</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1afbef5601e1e69f67026d4aefcc3cab11" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>insertAfter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a0a4bdb3e42d50d00e0f3d2dcde474a74" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>insertAsFirst</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a63a49b5d43b4d2a98bb0c0b375e86986" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>insertBefore</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1abacdeedf8459827d8010fb847d2814cf" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>isEmpty</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1ae8841feff3a88c208222f1cc83fafb00" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>lastNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1aa4be8c1722961adf23fdf31f210d1a60" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>nextNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a69c44e3c7718f05810c54a55ffa1d077" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>prevNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1ae35e88c74d361c29b626d92da7691062" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>remove</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_event_list_1a0f573145fd386e96e8f6a304f4e99bd8" prot="package" virt="pure-virtual"><scope>desmoj::core::simulator::EventList</scope><name>removeFirst</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

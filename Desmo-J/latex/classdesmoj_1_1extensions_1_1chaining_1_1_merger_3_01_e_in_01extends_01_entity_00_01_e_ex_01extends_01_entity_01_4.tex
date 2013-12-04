@@ -1,0 +1,158 @@
+\section{desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$ Class Reference}
+\label{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4}\index{desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$@{desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01exte4cae3e8d1277f5ff122f19003acfde9c}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Merger\-Start\-Event}
+\item 
+class {\bfseries Parts\-Container}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Merger} (Merger\-Config$<$ E\-In $>$ merger\-Config, int incoming\-Buffer\-Queue\-Capacity, int max\-Entities\-To\-Handle, int parallel\-Handled\-Entities, Numerical\-Dist$<$?$>$ setup\-Time, Numerical\-Dist$<$?$>$ service\-Time, Numerical\-Dist$<$?$>$ recovery\-Time, Numerical\-Dist$<$?$>$ transport\-Time, {\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+Event$<$ E\-In $>$ {\bf get\-Start\-Event} ()
+\item 
+void {\bfseries set\-Successor} (Event$<$?super E\-Ex $>$ event\-To\-Schedule\-When\-Finished)\label{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_af45910f12e1ac969e0b14c0f4295991e}
+
+\item 
+void {\bfseries set\-Successor} (Has\-Predecessor$<$?super E\-Ex $>$ successor)\label{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_ac4fa63979c27f5237afbbda959cfc16c}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract E\-Ex {\bf merge\-Entities} (Map$<$ Class$<$?extends E\-In $>$, List$<$ E\-In $>$$>$ parts)
+\item 
+void {\bf on\-Service\-Finisched} (E\-In who)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Merger merges the in the Mergerconfig defined entities into the E\-Ex entity. The Merger waits until enough entities of the required types are in the internal parts\-Queue and than creates a Parts\-Container. With this Parts\-Container the Station\-Startevent is scheduled instantly and the common run through the internal Station stages can be conducted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$\-E\-In$>$} & the entity which comes in the Transformer \\
+\hline
+{\em $<$\-E\-Ex$>$} & the entity which leaves the Transformer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Christian Mentz
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}!Merger@{Merger}}
+\index{Merger@{Merger}!desmoj::extensions::chaining::Merger< EIn extends Entity, EEx extends Entity >@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}}
+\subsubsection[{Merger}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends {\bf Entity}, E\-Ex extends {\bf Entity} $>$.Merger (
+\begin{DoxyParamCaption}
+\item[{Merger\-Config$<$ E\-In $>$}]{merger\-Config, }
+\item[{int}]{incoming\-Buffer\-Queue\-Capacity, }
+\item[{int}]{max\-Entities\-To\-Handle, }
+\item[{int}]{parallel\-Handled\-Entities, }
+\item[{Numerical\-Dist$<$?$>$}]{setup\-Time, }
+\item[{Numerical\-Dist$<$?$>$}]{service\-Time, }
+\item[{Numerical\-Dist$<$?$>$}]{recovery\-Time, }
+\item[{Numerical\-Dist$<$?$>$}]{transport\-Time, }
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_a9c0051b78803ab7994466e80bfe1c9e6}
+This Constructor sets the mergerconfig, the given times, initializes the queues and fills the free service capacity queue. If a given int is lower than zero the station assumes that there is no restriction. This applies to incoming\-Buffer\-Queue\-Capacity, max\-Entities\-To\-Handle, parallel\-Handled\-Entities. Furthermore the incoming entities queue container is initialized to hold the incomming entities.
+
+
+\begin{DoxyParams}{Parameters}
+{\em merger\-Config} & the Mergerconfig which holds the required entities and ratios \\
+\hline
+{\em incoming\-Buffer\-Queue\-Capacity} & the capatiy of the income queue \\
+\hline
+{\em max\-Entities\-To\-Handle} & the number of max entities the station can handle \\
+\hline
+{\em parallel\-Handled\-Entities} & the number of max parallel entities a station can handle \\
+\hline
+{\em setup\-Time} & the time the station needs to set up \\
+\hline
+{\em service\-Time} & the time the station needs for the service \\
+\hline
+{\em recovery\-Time} & the time the station needs tor recover \\
+\hline
+{\em transport\-Time} & the time the station needs to transport the entitiy to the next station \\
+\hline
+{\em owner} & the model owner \\
+\hline
+{\em name} & the name of the station \\
+\hline
+{\em show\-In\-Report} & should this construct be in the report \\
+\hline
+{\em show\-In\-Trace} & should this construct be in the trace \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}!get\-Start\-Event@{get\-Start\-Event}}
+\index{get\-Start\-Event@{get\-Start\-Event}!desmoj::extensions::chaining::Merger< EIn extends Entity, EEx extends Entity >@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}}
+\subsubsection[{get\-Start\-Event}]{\setlength{\rightskip}{0pt plus 5cm}Event$<$E\-In$>$ desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends {\bf Entity}, E\-Ex extends {\bf Entity} $>$.get\-Start\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_af9fff9b68bb911c3ea3182a896d1d325}
+returns the Startevent of the Merger \index{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}!merge\-Entities@{merge\-Entities}}
+\index{merge\-Entities@{merge\-Entities}!desmoj::extensions::chaining::Merger< EIn extends Entity, EEx extends Entity >@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}}
+\subsubsection[{merge\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}abstract E\-Ex desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends {\bf Entity}, E\-Ex extends {\bf Entity} $>$.merge\-Entities (
+\begin{DoxyParamCaption}
+\item[{Map$<$ Class$<$?extends E\-In $>$, List$<$ E\-In $>$$>$}]{parts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_a0594cab37444fb4b2aca80b725c1262a}
+This Method has to be overridden by the user and creates the outgoing entity. The user has the possibility to use the incomming entities of the Merger to define the new entity
+
+
+\begin{DoxyParams}{Parameters}
+{\em parts} & a reference to the parts list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the outgoing entity which leaves the Merger 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}!on\-Service\-Finisched@{on\-Service\-Finisched}}
+\index{on\-Service\-Finisched@{on\-Service\-Finisched}!desmoj::extensions::chaining::Merger< EIn extends Entity, EEx extends Entity >@{desmoj\-::extensions\-::chaining\-::\-Merger$<$ E\-In extends Entity, E\-Ex extends Entity $>$}}
+\subsubsection[{on\-Service\-Finisched}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-chaining.\-Merger$<$ E\-In extends {\bf Entity}, E\-Ex extends {\bf Entity} $>$.on\-Service\-Finisched (
+\begin{DoxyParamCaption}
+\item[{E\-In}]{who}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1chaining_1_1_merger_3_01_e_in_01extends_01_entity_00_01_e_ex_01extends_01_entity_01_4_a5a41780ab255e2b7ab00457eb14f9b35}
+This method schedules the successor event with the defined transport time. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/chaining/Merger.\-java\end{DoxyCompactItemize}

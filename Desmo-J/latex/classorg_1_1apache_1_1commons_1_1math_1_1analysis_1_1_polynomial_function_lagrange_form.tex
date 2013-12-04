@@ -1,0 +1,285 @@
+\section{org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form Class Reference}
+\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form}\index{org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form@{org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form}}
+
+
+Inheritance diagram for org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double {\bf value} (double z)  throws Function\-Evaluation\-Exception 
+\item 
+int {\bf degree} ()
+\item 
+double[$\,$] {\bf get\-Interpolating\-Points} ()
+\item 
+double[$\,$] {\bf get\-Interpolating\-Values} ()
+\item 
+double[$\,$] {\bf get\-Coefficients} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double {\bf evaluate} (double x[$\,$], double y[$\,$], double z)  throws Duplicate\-Sample\-Abscissa\-Exception, Illegal\-Argument\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf compute\-Coefficients} ()  throws Arithmetic\-Exception 
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf verify\-Interpolation\-Array} (double x[$\,$], double y[$\,$])  throws Illegal\-Argument\-Exception 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implements the representation of a real polynomial function in {\tt Lagrange Form}. For reference, see {\bfseries Introduction to Numerical Analysis}, I\-S\-B\-N 038795452\-X, chapter 2. 
+
+The approximated function should be smooth enough for Lagrange polynomial to work well. Otherwise, consider using splines instead.
+
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision\-:}
+620312 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Date\-:}
+2008-\/02-\/10 12\-:28\-:59 -\/0700 (Sun, 10 Feb 2008) 
+\end{DoxyParagraph}
+\begin{DoxySince}{Since}
+1.\-2 
+\end{DoxySince}
+
+
+\subsection{Member Function Documentation}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!compute\-Coefficients@{compute\-Coefficients}}
+\index{compute\-Coefficients@{compute\-Coefficients}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{compute\-Coefficients}]{\setlength{\rightskip}{0pt plus 5cm}void org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-compute\-Coefficients (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws Arithmetic\-Exception\hspace{0.3cm}{\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a2e01866e3fd08a16997c64699506b1e6}
+Calculate the coefficients of Lagrange polynomial from the interpolation data. It takes O(\-N$^\wedge$2) time. 
+
+Note this computation can be ill-\/conditioned. Use with caution and only when it is necessary.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Arithmetic\-Exception} & if any abscissas coincide \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a2e01866e3fd08a16997c64699506b1e6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!degree@{degree}}
+\index{degree@{degree}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{degree}]{\setlength{\rightskip}{0pt plus 5cm}int org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-degree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a14870615d3fc4fdddf0504e65f238d71}
+Returns the degree of the polynomial.
+
+\begin{DoxyReturn}{Returns}
+the degree of the polynomial 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}static double org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-evaluate (
+\begin{DoxyParamCaption}
+\item[{double}]{x[$\,$], }
+\item[{double}]{y[$\,$], }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+) throws {\bf Duplicate\-Sample\-Abscissa\-Exception}, Illegal\-Argument\-Exception\hspace{0.3cm}{\ttfamily [static]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a297e9b1b27c8f33b96fe5cfc64a64893}
+Evaluate the Lagrange polynomial using {\tt Neville's Algorithm}. It takes O(\-N$^\wedge$2) time. 
+
+This function is made public static so that users can call it directly without instantiating \doxyref{Polynomial\-Function\-Lagrange\-Form}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the interpolating points array \\
+\hline
+{\em y} & the interpolating values array \\
+\hline
+{\em z} & the point at which the function value is to be computed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the function value 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Duplicate\-Sample\-Abscissa\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_duplicate_sample_abscissa_exception}} & if the sample has duplicate abscissas \\
+\hline
+{\em Illegal\-Argument\-Exception} & if inputs are not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a297e9b1b27c8f33b96fe5cfc64a64893_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!get\-Coefficients@{get\-Coefficients}}
+\index{get\-Coefficients@{get\-Coefficients}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{get\-Coefficients}]{\setlength{\rightskip}{0pt plus 5cm}double [$\,$] org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-get\-Coefficients (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a408aad5131f70f2475e4ecc68b84eb98}
+Returns a copy of the coefficients array. 
+
+Changes made to the returned copy will not affect the polynomial.
+
+\begin{DoxyReturn}{Returns}
+a fresh copy of the coefficients array 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a408aad5131f70f2475e4ecc68b84eb98_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!get\-Interpolating\-Points@{get\-Interpolating\-Points}}
+\index{get\-Interpolating\-Points@{get\-Interpolating\-Points}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{get\-Interpolating\-Points}]{\setlength{\rightskip}{0pt plus 5cm}double [$\,$] org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-get\-Interpolating\-Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a8a0ed8338e11f0e881daa3a4e80eb3ee}
+Returns a copy of the interpolating points array. 
+
+Changes made to the returned copy will not affect the polynomial.
+
+\begin{DoxyReturn}{Returns}
+a fresh copy of the interpolating points array 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!get\-Interpolating\-Values@{get\-Interpolating\-Values}}
+\index{get\-Interpolating\-Values@{get\-Interpolating\-Values}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{get\-Interpolating\-Values}]{\setlength{\rightskip}{0pt plus 5cm}double [$\,$] org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-get\-Interpolating\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a7b4b91f16963f7015b2ae95878ab563d}
+Returns a copy of the interpolating values array. 
+
+Changes made to the returned copy will not affect the polynomial.
+
+\begin{DoxyReturn}{Returns}
+a fresh copy of the interpolating values array 
+\end{DoxyReturn}
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!value@{value}}
+\index{value@{value}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{value}]{\setlength{\rightskip}{0pt plus 5cm}double org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-value (
+\begin{DoxyParamCaption}
+\item[{double}]{z}
+\end{DoxyParamCaption}
+) throws {\bf Function\-Evaluation\-Exception}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a7c1752d420d504a0ad5508ab750a87fe}
+Calculate the function value at the given point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em z} & the point at which the function value is to be computed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the function value 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxyref{Function\-Evaluation\-Exception}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1_function_evaluation_exception}} & if a runtime error occurs \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Univariate\-Real\-Function\-::value(double)}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_function_a0e7a98f515a5fecfb77a21244e70b919} 
+\end{DoxySeeAlso}
+
+
+Implements {\bf org.\-apache.\-commons.\-math.\-analysis.\-Univariate\-Real\-Function} \doxyref{}{p.}{interfaceorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_univariate_real_function_a0e7a98f515a5fecfb77a21244e70b919}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a7c1752d420d504a0ad5508ab750a87fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}!verify\-Interpolation\-Array@{verify\-Interpolation\-Array}}
+\index{verify\-Interpolation\-Array@{verify\-Interpolation\-Array}!org::apache::commons::math::analysis::PolynomialFunctionLagrangeForm@{org\-::apache\-::commons\-::math\-::analysis\-::\-Polynomial\-Function\-Lagrange\-Form}}
+\subsubsection[{verify\-Interpolation\-Array}]{\setlength{\rightskip}{0pt plus 5cm}static void org.\-apache.\-commons.\-math.\-analysis.\-Polynomial\-Function\-Lagrange\-Form.\-verify\-Interpolation\-Array (
+\begin{DoxyParamCaption}
+\item[{double}]{x[$\,$], }
+\item[{double}]{y[$\,$]}
+\end{DoxyParamCaption}
+) throws Illegal\-Argument\-Exception\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}\label{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a9acdf21212ea1142c7ca07b0ffa3720a}
+Verifies that the interpolation arrays are valid. 
+
+The interpolating points must be distinct. However it is not verified here, it is checked in \doxyref{evaluate()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a297e9b1b27c8f33b96fe5cfc64a64893} and \doxyref{compute\-Coefficients()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a2e01866e3fd08a16997c64699506b1e6}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the interpolating points array \\
+\hline
+{\em y} & the interpolating values array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\-Argument\-Exception} & if not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{evaluate(double[$\,$], double[$\,$], double)}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a297e9b1b27c8f33b96fe5cfc64a64893} 
+
+\doxyref{compute\-Coefficients()}{p.}{classorg_1_1apache_1_1commons_1_1math_1_1analysis_1_1_polynomial_function_lagrange_form_a2e01866e3fd08a16997c64699506b1e6} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/org/apache/commons/math/analysis/Polynomial\-Function\-Lagrange\-Form.\-java\end{DoxyCompactItemize}

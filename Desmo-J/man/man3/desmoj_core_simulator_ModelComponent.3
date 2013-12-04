@@ -1,0 +1,411 @@
+.TH "desmoj.core.simulator.ModelComponent" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.ModelComponent \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.NamedObject\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.advancedModellingFeatures\&.ProcessCoop< M extends SimProcess, S extends SimProcess >\fP, \fBdesmoj\&.core\&.simulator\&.Condition< E extends Entity >\fP, \fBdesmoj\&.core\&.simulator\&.ModelCondition\fP, \fBdesmoj\&.core\&.simulator\&.Reportable\fP, \fBdesmoj\&.core\&.simulator\&.Resource\fP, \fBdesmoj\&.core\&.simulator\&.Schedulable\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.FIFO_Transport_Strategy\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.FixedVCtoCBAssignment_Strategy\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.Gates\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.MostFreePlaceBlockYardStrategy\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.harbour\&.RandomBlockYardStrategy\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.PartsList\fP, \fBdesmoj\&.extensions\&.applicationDomains\&.production\&.TransportTerminal\fP, \fBdesmoj\&.extensions\&.space3D\&.Track\fP, \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.processStation\&.ProcessStationAnimation< Proc extends EntityBasicAnimation, Res extends EntityBasicAnimation >\fP, \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.processStation\&.ProcessStationOldAnimation< Res extends EntityBasicAnimation, Proc extends EntityBasicAnimation >\fP, \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.processStation\&.ProcessStationResAbstrAnimation< Proc extends EntityBasicAnimation >\fP, \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.processStation\&.ProcessStationResNoAnimation< Proc extends EntityBasicAnimation >\fP, \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.transport\&.TransportRouteAnimation< E extends EntityBasicAnimation >\fP, and \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.transport\&.TransportStationAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBModelComponent\fP (\fBModel\fP ownerModel, String name)"
+.br
+.ti -1c
+.RI "\fBModelComponent\fP (\fBModel\fP ownerModel, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBSchedulable\fP \fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "\fBEntity\fP \fBcurrentEntity\fP ()"
+.br
+.ti -1c
+.RI "List< \fBEntity\fP > \fBcurrentEntityAll\fP ()"
+.br
+.ti -1c
+.RI "\fBEventAbstract\fP \fBcurrentEvent\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBcurrentModel\fP ()"
+.br
+.ti -1c
+.RI "\fBSimProcess\fP \fBcurrentSimProcess\fP ()"
+.br
+.ti -1c
+.RI "\fBSimTime\fP \fBcurrentTime\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBpresentTime\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBdebugIsOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBdebugOff\fP ()"
+.br
+.ti -1c
+.RI "void \fBdebugOn\fP ()"
+.br
+.ti -1c
+.RI "\fBSimTime\fP \fBepsilon\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisExperimentCompatible\fP (\fBModelComponent\fP other)"
+.br
+.ti -1c
+.RI "boolean \fBisModelCompatible\fP (\fBModelComponent\fP other)"
+.br
+.ti -1c
+.RI "void \fBsendDebugNote\fP (String description)"
+.br
+.ti -1c
+.RI "void \fBsendMessage\fP (\fBMessage\fP m)"
+.br
+.ti -1c
+.RI "void \fBsendTraceNote\fP (String description)"
+.br
+.ti -1c
+.RI "void \fBsendWarning\fP (String description, String location, String reason, String prevention)"
+.br
+.ti -1c
+.RI "void \fBskipTraceNote\fP ()"
+.br
+.ti -1c
+.RI "void \fBskipTraceNote\fP (int numSkipped)"
+.br
+.ti -1c
+.RI "boolean \fBtraceIsOn\fP ()"
+.br
+.ti -1c
+.RI "void \fBtraceOff\fP ()"
+.br
+.ti -1c
+.RI "void \fBtraceOn\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBcurrentlySendDebugNotes\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBcurrentlySendTraceNotes\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Encapsulates all information relevant to each component of a model\&. Its basic intention is to connect each modelcomponent to a single \fBModel\fP object as the owner of this modelcomponent\&. Through this connection all relevant information about that \fBModel\fP can be retrieved\&. It is part of the composite design pattern as described in [Gamm97] page 163 in which it represents the component class\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.ModelComponent\&.ModelComponent (\fBModel\fPownerModel, Stringname)"
+Constructs a modelcomponent with the given String as name and the given model as the associated owner of this component\&. Components can only be created after the corresponding model object has been instantiated\&. The default preset for the showInTrace option is \fCfalse\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the component 
+.br
+\fIownerModel\fP \fBModel\fP : The model this component is associated to\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.simulator\&.ModelComponent\&.ModelComponent (\fBModel\fPownerModel, Stringname, booleanshowInTrace)"
+Constructs a modelcomponent with the given String as name and the given model as the associated owner of this component\&. Components can thus only be created after the corresponding model object has been instantiated\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the component 
+.br
+\fIownerModel\fP \fBModel\fP : The model this component is associated to 
+.br
+\fIshowInTrace\fP boolean : Flag for showing component in trace-files\&. Set it to \fCtrue\fP if component should show up in trace\&. Set it to \fCfalse\fP if component should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBSchedulable\fP desmoj\&.core\&.simulator\&.ModelComponent\&.current ()"
+Returns the currently active \fBSchedulable\fP object that is handled by the scheduler\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSchedulable\fP : The current \fBSchedulable\fP object\&. 
+.RE
+.PP
+
+.SS "\fBEntity\fP desmoj\&.core\&.simulator\&.ModelComponent\&.currentEntity ()"
+Returns the currently active \fBEntity\fP\&. Returns \fCnull\fP if the current \fBSchedulable\fP happens to be an external event or a \fBSimProcess\fP\&. Note that in case the current Event refers to more than one entity (\fCEventTwoEntitties\fP, \fCEventThreeEntitties\fP), only the first entity is returned; to obtain all such entities, use \fCgetAllCurrentEntities()\fP instead\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The currently active \fBEntity\fP or \fCnull\fP in case of an external event or a \fBSimProcess\fP being the currently active \fBSchedulable\fP 
+.RE
+.PP
+
+.SS "List<\fBEntity\fP> desmoj\&.core\&.simulator\&.ModelComponent\&.currentEntityAll ()"
+Returns the currently active entities\&. Returns an empty list if the current \fBSchedulable\fP happens to be an external event or a \fBSimProcess\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+List<Entity> : A list containing the currently active entities 
+.RE
+.PP
+
+.SS "\fBEventAbstract\fP desmoj\&.core\&.simulator\&.ModelComponent\&.currentEvent ()"
+Returns the currently active Event that is handled by the scheduler\&. It returns \fCnull\fP if a process Event is the current active \fBSchedulable\fP, thus no Event is active\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Event : The current active Event or \fCnull\fP if the current active \fBSchedulable\fP is a process 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ModelComponent\&.currentlySendDebugNotes ()\fC [protected]\fP"
+returns true if this model component should currently send debug notes (i\&.e\&. experiment and the component are both in debug mode)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ModelComponent\&.currentlySendTraceNotes ()\fC [protected]\fP"
+returns true if this model component should currently send trace notes (i\&.e\&. experiment and the component are both in trace mode)\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBModel\fP desmoj\&.core\&.simulator\&.ModelComponent\&.currentModel ()"
+Returns the model that the currently active Event or \fBEntity\fP handled by the scheduler belongs to or the main model connected to the experiment, if no model can be returned by the scheduler\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBModel\fP : The current active or the main model connected to the experiment, if no model can be returned by the scheduler 
+.RE
+.PP
+
+.SS "\fBSimProcess\fP desmoj\&.core\&.simulator\&.ModelComponent\&.currentSimProcess ()"
+Returns the currently active \fBSimProcess\fP that is handled by the scheduler\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimProcess\fP : The current active \fBSimProcess\fP\&. 
+.RE
+.PP
+
+.SS "\fBSimTime\fP desmoj\&.core\&.simulator\&.ModelComponent\&.currentTime ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Replaced by \fBpresentTime()\fP\&. Returns the current simulation time as displayed by the simulation clock responsible for this modelcomponent\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimTime\fP : The current simulation time 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ModelComponent\&.debugIsOn ()"
+Shows if this modelcomponent currently produces debug output\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : true, if modelcomponent shows in debug, false if not 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.debugOff ()"
+Switches off debug output for this modelcomponent\&. Does nothing if trace is already switched off\&. 
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.debugOn ()"
+Switches on debug output for this modelcomponent\&. Does nothing if debug is already switched on\&. 
+.SS "\fBSimTime\fP desmoj\&.core\&.simulator\&.ModelComponent\&.epsilon ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBTimeOperations\&.getEpsilon()\fP\&. Returns the minimum distinguishable span of simulation time for this experiment\&.
+.RE
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSimTime\fP : The minimum ditinguishable span of simulation time 
+.RE
+.PP
+
+.SS "\fBModel\fP desmoj\&.core\&.simulator\&.ModelComponent\&.getModel ()"
+Returns the model that owns this component\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBModel\fP : The model that this component is associated to 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ModelComponent\&.isExperimentCompatible (\fBModelComponent\fPother)"
+Tests if the modelcomponent given as parameter is a component of the same experiment as this modelcomponent\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : true, if this modelcomponent belongs to the same experiment as this modelcomponent, false otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIother\fP \fBModelComponent\fP : the other modelcomponent to check compatibility with 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ModelComponent\&.isModelCompatible (\fBModelComponent\fPother)"
+Tests if the modelcomponent given as parameter is a component of the same model as this modelcomponent\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP, if this modelcomponent belongs to the same model as the given modelcomponent, \fCfalse\fP otherwise 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIother\fP \fBModelComponent\fP : the other modelcomponent to check compatibility with 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.ModelComponent\&.presentTime ()"
+Returns the current simulation time as displayed by the simulation clock responsible for this modelcomponent\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The current point of simulation time 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.sendDebugNote (Stringdescription)"
+Creates and sends a debugnote to the experiment's messagedistributor\&. Debugnotes express the internal state of a modelcomponent to visualize the changes of state to help find bugs\&. Classes \fC\fBScheduler\fP\fP and \fCQueue\fP both produce debugnotes if set to do so representing the data stored inside them\&. The information about the simulation time is extracted from the experiment and must not be given as a parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdescription\fP java\&.lang\&.String : The description of a modelcomponent's internal state to be passed with this debugnote 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.sendMessage (\fBMessage\fPm)"
+Sends a message to the messagedistributor handled by the experiment\&. This modelcomponent must already be connected to an experiment in order to have a messagedistributor available to send this message to and an appropriate messagereceiver must already be registered at the messagedistributor to receive that type of message passed on to it\&. If no messaging subsystem is available to this modelcomponent, then the mesage is printed to the standard \fCout\fP printstream as configured in the local Java runtime environment of the computer this simulation is running on\&. Note that there are shorthands for sending the standard DESMO-J messages\&. These methods create and send the appropriate Message on-the-fly: 
+.PD 0
+
+.IP "\(bu" 2
+\fC\fBsendTraceNote()\fP</clode> to send a tracenote \fP
+.IP "\(bu" 2
+\fC\fC\fBsendDebugNote()\fP\fP to send the data needed to debug models \fP
+.IP "\(bu" 2
+\fC\fC\fBsendWarning()\fP\fP to send an errormessage that does not stop the experiment \fP
+.PP
+.PP
+\fC
+.PP
+\fBParameters:\fP
+.RS 4
+\fIm\fP Message : The message to be transmitted 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBModelComponent::sendTraceNote\fP 
+.PP
+\fBModelComponent::sendDebugNote\fP 
+.PP
+\fBModelComponent::sendWarning\fP 
+.RE
+.PP
+\fP
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.sendTraceNote (Stringdescription)"
+Creates and sends a tracenote to the experiment's messagedistributor\&. The information about the simulation time, model and component producing this tracenote is extracted from the experiment and must not be given as parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdescription\fP java\&.lang\&.String : The description of the tracenote 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.sendWarning (Stringdescription, Stringlocation, Stringreason, Stringprevention)"
+Creates and sends an error message to warn about a erroneous condition in the DESMO-J framework to the experiment's messagedistributor\&. Be sure to have a correct location, since the object and method that the error becomes apparent is not necessary the location it was produced in\&. The information about the simulation time is extracted from the \fBExperiment\fP and must not be given as a parameter\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdescription\fP java\&.lang\&.String : The description of the error that occured 
+.br
+\fIlocation\fP java\&.lang\&.String : The class and method the error occured in 
+.br
+\fIreason\fP java\&.lang\&.String : The reason most probably responsible for the error to occur 
+.br
+\fIprevention\fP java\&.lang\&.String : The measures a user should take to prevent this warning to be issued again 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.skipTraceNote ()"
+Skips the next tracenote\&. The next tracenote produced by any object in the DESMO-J framework will not be distributed by the experiment's messagemanager\&. This is necessary for some operations to hide the framework's actions and thus not confuse the modeller\&. 
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.skipTraceNote (intnumSkipped)"
+Skips the next number of tracenotes\&. The next -numSkipped - number of tracenotes produced by any object in the DESMO-J framework will not be distributed by the experiment's messagemanager\&. This is necessary for some operations to hide the framework's actions and thus not confuse the modeller\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInumSkipped\fP int : The number of future tracenotes to be skipped 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.ModelComponent\&.traceIsOn ()"
+Shows if this modelcomponent currently produces trace output\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean : true, if modelcomponent shows in trace, false if not 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.traceOff ()"
+Switches off trace output for this modelcomponent\&. Does nothing if trace is already switched off\&. 
+.SS "void desmoj\&.core\&.simulator\&.ModelComponent\&.traceOn ()"
+Switches on trace output for this modelcomponent\&. Does nothing if trace is already switched on\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

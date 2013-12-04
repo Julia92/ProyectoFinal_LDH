@@ -1,0 +1,235 @@
+.TH "desmoj.extensions.space3D.Track" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.Track \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.space3D\&.SimpleTrack\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTrack\fP (\fBModel\fP owner, String trackName, String startLocationName, String destinationLocationName, String exitPointName, String entryPointName, \fBExtendedLength\fP[] startPosition, \fBExtendedLength\fP[] destination, boolean showInTrace)"
+.br
+.ti -1c
+.RI "String \fBgetDestinyLocationName\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP[] \fBgetDestination\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetDestinationValue\fP ()"
+.br
+.ti -1c
+.RI "abstract Vector3d \fBgetDirectionAt\fP (double length)"
+.br
+.ti -1c
+.RI "String \fBgetEnrtyPointName\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetExitPointName\fP ()"
+.br
+.ti -1c
+.RI "abstract double \fBgetLength\fP ()"
+.br
+.ti -1c
+.RI "abstract \fBExtendedLength\fP[] \fBgetPositionAt\fP (double length)"
+.br
+.ti -1c
+.RI "String \fBgetStartLocationName\fP ()"
+.br
+.ti -1c
+.RI "\fBExtendedLength\fP[] \fBgetStarLengthUnits\fP ()"
+.br
+.ti -1c
+.RI "double[] \fBgetStartPositionValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetStartPosition\fP (\fBExtendedLength\fP[] position)"
+.br
+.ti -1c
+.RI "void \fBsetDestinyPosition\fP (\fBExtendedLength\fP[] position)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+This is the basic class of the \fBTrack\fP\&. All Tracks should inherit from this class\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.space3D\&.Track\&.Track (\fBModel\fPowner, StringtrackName, StringstartLocationName, StringdestinationLocationName, StringexitPointName, StringentryPointName, \fBExtendedLength\fP[]startPosition, \fBExtendedLength\fP[]destination, booleanshowInTrace)"
+Constructs a \fBTrack\fP and initialize the basic attributes\&. The name for the start- and the destiny location, the entry- and exit points are optional\&. The start- and the destiny position must be specified\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP The model this entity is associated to\&. 
+.br
+\fItrackName\fP The name of this \fBTrack\fP\&. 
+.br
+\fIstartLocationName\fP The name of the start location\&. 
+.br
+\fIdestinationLocationName\fP The name of the destiny location\&. 
+.br
+\fIexitPointName\fP The name of the exit point\&. 
+.br
+\fIentryPointName\fP The name of the entry point\&. 
+.br
+\fIstartPosition\fP The start position of the \fBTrack\fP\&. It must be a \fBExtendedLength\fP[] with a length of 3\&. 
+.br
+\fIdestination\fP The end position of the \fBTrack\fP\&. It must be a \fBExtendedLength\fP[] with a length of 3\&. 
+.br
+\fIshowInTrace\fP Flag for showing entity in trace-files\&. Set it to true if entity should show up in trace\&. Set to false in entity should not be shown in trace\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBExtendedLength\fP [] desmoj\&.extensions\&.space3D\&.Track\&.getDestination ()"
+Gets the destiny position in \fBExtendedLength\fP[]\&. The first element represents the x-position, the second the y-position and the third the z-position\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The destiny position in \fBExtendedLength\fP\&. 
+.RE
+.PP
+
+.SS "double [] desmoj\&.extensions\&.space3D\&.Track\&.getDestinationValue ()"
+Gives the end position of the \fBTrack\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The end position in a double[3]\&. The value represents meters\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.space3D\&.Track\&.getDestinyLocationName ()"
+Gets the name of the destiny location\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the destiny\&. Null, if it'n not specified\&. 
+.RE
+.PP
+
+.SS "abstract Vector3d desmoj\&.extensions\&.space3D\&.Track\&.getDirectionAt (doublelength)\fC [pure virtual]\fP"
+Gets the current moving direction based on the specified length from the start position on the track\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlength\fP The length from the start position to the current position\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The normalized vector which points to the current moving direction\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.extensions\&.space3D\&.SimpleTrack\fP\&.
+.SS "String desmoj\&.extensions\&.space3D\&.Track\&.getEnrtyPointName ()"
+Gets the name of the entry point at the destiny location\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the entry point\&. Null, if it's not specified\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.space3D\&.Track\&.getExitPointName ()"
+Gets the name of the exit point at the start location\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the exit point\&. Null, if it's not specified\&. 
+.RE
+.PP
+
+.SS "abstract double desmoj\&.extensions\&.space3D\&.Track\&.getLength ()\fC [pure virtual]\fP"
+Gives the total length of the \fBTrack\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The length of the \fBTrack\fP in a double value\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.extensions\&.space3D\&.SimpleTrack\fP\&.
+.SS "abstract \fBExtendedLength\fP [] desmoj\&.extensions\&.space3D\&.Track\&.getPositionAt (doublelength)\fC [pure virtual]\fP"
+Gets the coordinates (in \fBExtendedLength\fP) of the current position based on the specified length from the start position on the track\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlength\fP The length from the start position to the position which we want to know\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBExtendedLength\fP[3] array which represents the x-, y- and the z-coordinates\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdesmoj\&.extensions\&.space3D\&.SimpleTrack\fP\&.
+.SS "\fBExtendedLength\fP [] desmoj\&.extensions\&.space3D\&.Track\&.getStarLengthUnits ()"
+Gets the start position in \fBExtendedLength\fP[]\&. The first element represents the x-position, the second the y-position and the third the z-position\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The start position in \fBExtendedLength\fP\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.extensions\&.space3D\&.Track\&.getStartLocationName ()"
+Gets the name of the start location\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the start location\&. Null, if it's not specified\&. 
+.RE
+.PP
+
+.SS "double [] desmoj\&.extensions\&.space3D\&.Track\&.getStartPositionValue ()"
+Gives the start Position of the \fBTrack\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The start position in a double[3]\&. The value represents meters\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Track\&.setDestinyPosition (\fBExtendedLength\fP[]position)"
+Sets the destiny position of this track\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIposition\fP The position to be set\&. It must be a \fBExtendedLength\fP of length 3\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.Track\&.setStartPosition (\fBExtendedLength\fP[]position)"
+Sets the start position of this track\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIposition\fP The position to be set\&. It must be a \fBExtendedLength\fP of length 3\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

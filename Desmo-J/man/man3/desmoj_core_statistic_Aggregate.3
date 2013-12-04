@@ -1,0 +1,185 @@
+.TH "desmoj.core.statistic.Aggregate" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.Aggregate \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\fP\&.
+.PP
+Inherited by \fBdesmoj\&.extensions\&.visualization2d\&.animation\&.core\&.statistic\&.AggregateAnimation\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAggregate\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBAggregate\fP (\fBModel\fP ownerModel, String name, boolean showInReport, boolean showInTrace, boolean isResetResistant)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaximum\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMinimum\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (\fBTimeSpan\fP t)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double n)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.ti -1c
+.RI "double \fBgetValue\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBAggregate\fP\fP class is simply counting (aggregating) a continuous (i\&.e\&. double) value during an experiment\&. Be careful the aggregate can be updated with positive and negative values!
+.PP
+To get this \fC\fBAggregate\fP\fP object updated automatically every time a \fC\fBValueSupplier\fP\fP has changed, call the \fCaddObserver (Observer)\fP-method from the \fC\fBValueSupplier\fP\fP of interest, where Observer is this \fC\fBAggregate\fP\fP object\&. 
+.br
+ This must be done by the user in his model! 
+.br
+ Consider usage of class \fC\fBCount\fP\fP to aggregate integer values\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Soenke Claassen 
+.PP
+based on DESMO-C from Thomas Schniewind, 1998 
+.PP
+modified by Ruth Meyer, Johannes Go\*(4bel
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.Aggregate\&.Aggregate (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBAggregate\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBAggregate\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBAggregate\fP object 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report Set it to \fCtrue\fP if this \fBAggregate\fP should show up in report\&. Set it to \fCfalse\fP if this \fBAggregate\fP should not be shown in report\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBAggregate\fP in trace files\&. Set it to \fCtrue\fP if this \fBAggregate\fP should show up in trace\&. Set it to \fCfalse\fP if this \fBAggregate\fP should not be shown in trace\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.Aggregate\&.Aggregate (\fBModel\fPownerModel, Stringname, booleanshowInReport, booleanshowInTrace, booleanisResetResistant)"
+Constructor for a \fBAggregate\fP object\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBAggregate\fP is associated to 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBAggregate\fP object 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report Set it to \fCtrue\fP if this \fBAggregate\fP should show up in report\&. Set it to \fCfalse\fP if this \fBAggregate\fP should not be shown in report\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing this \fBAggregate\fP in trace files\&. Set it to \fCtrue\fP if this \fBAggregate\fP should show up in trace\&. Set it to \fCfalse\fP if this \fBAggregate\fP should not be shown in trace\&. 
+.br
+\fIisResetResistant\fP boolean : Flag for retaining the value of the aggregate during resets\&. Set it to \fCtrue\fP if this \fBAggregate\fP should retain its current value and only reset min, max and observations to 0\&. Set it to \fCfalse\fP if this \fBAggregate\fP should also reset its value to 0\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.Aggregate\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBAggregate\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBAggregate\fP\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Aggregate\&.getMaximum ()"
+Returns the maximum value observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The maximum value observed so far\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Aggregate\&.getMinimum ()"
+Returns the minimum value observed so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The minimum value observed so far\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.Aggregate\&.getValue ()"
+Returns the current value of the aggregate\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : the current value of the aggregate\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Aggregate\&.reset ()"
+Resets this \fBAggregate\fP object by resetting (nearly) all variables to zero\&. If the flag \fCisResetResistant\fP is set to \fCtrue\fP the value of the aggregate will NOT be changed\&. 
+.SS "void desmoj\&.core\&.statistic\&.Aggregate\&.update (\fBTimeSpan\fPt)\fC [virtual]\fP"
+Updates this data collector object with a specific \fCTimeSpan\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP TimeSpan : The time span to update this data collector\&.
+.RE
+.PP
+ 
+.PP
+Implements \fBdesmoj\&.core\&.statistic\&.StatisticObjectSupportingTimeSpans\fP\&.
+.SS "void desmoj\&.core\&.statistic\&.Aggregate\&.update (doublen)"
+Increments the value of this \fC\fBAggregate\fP\fP object by the value given in the parameter n\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIn\fP double : The number that will be added to the value of this \fC\fBAggregate\fP\fP object\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.Aggregate\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBValueSupplier\fP will be fetched with the \fCvalue()\fP method of the \fBValueSupplier\fP\&. Otherwise it is expected that the actual value is passed in the Object arg\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBAggregate\fP\fP is updated\&. Normally a double number which is added to the value of the aggregate or \fCnull\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

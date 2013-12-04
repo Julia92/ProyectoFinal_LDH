@@ -1,0 +1,641 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4" kind="class" prot="public">
+    <compoundname>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1simulator_1_1_reportable" prot="public" virt="non-virtual">desmoj.core.simulator.Reportable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a18550f875d8dda0c40361099a0bef040" prot="private" static="no" mutable="no">
+        <type>final MessageCrossbar&lt; T &gt;</type>
+        <definition>final MessageCrossbar&lt;T&gt; desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.messageCrossbar</definition>
+        <argsstring></argsstring>
+        <name>messageCrossbar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="" kindref="compound">MessageCrossbar</ref> this MessageChannel resides on. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="51" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1af5d0d9a54390aa51ec5ac886bc07e83c" prot="private" static="no" mutable="no">
+        <type>final ProcessQueue&lt; T &gt;</type>
+        <definition>final ProcessQueue&lt;T&gt; desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.passivatedProcessesQueue</definition>
+        <argsstring></argsstring>
+        <name>passivatedProcessesQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A queue of all processes which are currently waiting on this message channel. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="57" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ab50e85591f2828dc59e4d4223f44eba4" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.deliveredMessages</definition>
+        <argsstring></argsstring>
+        <name>deliveredMessages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A counter keeping track of the messages which were successfully delivered to a waiting process. A message is considered delivered if it was forwarded to at least one waiting process. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="64" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a10fba456d824912995a56e3f2b9f9255" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.lostMessages</definition>
+        <argsstring></argsstring>
+        <name>lostMessages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A counter keeping track of the messages which could not be delivered to a waiting process. A message is considered lost if it could not be forwarded to any receiver because at the time it was received there was no process waiting on the MessageChannel. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="72" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ab82982ccd6a3a60a9d62c244629afc31" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.indirectProcessActivations</definition>
+        <argsstring></argsstring>
+        <name>indirectProcessActivations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A counter keeping track of processes which are leaving this channel because they were activated, but were activated by a message received on another channel. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="79" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ad95cfd1a7d9372f261e8038e611eb80c" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.interruptedWaits</definition>
+        <argsstring></argsstring>
+        <name>interruptedWaits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A counter keeping track of the processes which were interrupted and removed from this channel because of their max waiting time on the MessageChannel was reached. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="86" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa5127a494a9b1587a2a43f122570179f" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.MessageChannel</definition>
+        <argsstring>(Model owner, String name, boolean showInTrace, MessageCrossbar&lt; T &gt; messageCrossbar)</argsstring>
+        <name>MessageChannel</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <param>
+          <type>MessageCrossbar&lt; T &gt;</type>
+          <declname>messageCrossbar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a new MessageChannel.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The model to which this MessageChannel belongs. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the MessageChannel. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to show this MessageChannel in the trace or not. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>messageCrossbar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="" kindref="compound">MessageCrossbar</ref> this MessageChannel is associated with. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="101" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="101" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a650e06c1e954aff3d9678abf533ed37b" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.abortWaiting</definition>
+        <argsstring>(T process)</argsstring>
+        <name>abortWaiting</name>
+        <param>
+          <type>T</type>
+          <declname>process</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the given process from the queue of processes waiting for a message and increments the counter of interrupted waits.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>process</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The process to remove from this channel. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="114" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="114" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa2a5f8adfa232d85c3ae9075aa7a98d2" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.addWaitingProcess</definition>
+        <argsstring>(T process)</argsstring>
+        <name>addWaitingProcess</name>
+        <param>
+          <type>T</type>
+          <declname>process</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a process to the queue of process waiting for a message on this channel.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>process</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The process to add to this channel. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="128" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="128" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a94b8d6b8468af119e012e717d87ae1d1" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ProcessQueue&lt; T &gt;</type>
+        <definition>ProcessQueue&lt;T&gt; desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getPassivatedProcessesQueue</definition>
+        <argsstring>()</argsstring>
+        <name>getPassivatedProcessesQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The queue of process waiting for messages on this channel. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="200" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="200" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa01ae7d6e46645462e1adfa5b514c104" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; T &gt;</type>
+        <definition>Set&lt;T&gt; desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.receiveMessageAndRemoveWaitingProcesses</definition>
+        <argsstring>()</argsstring>
+        <name>receiveMessageAndRemoveWaitingProcesses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Receive a message which leads to the updating of several internal counters and the removal of all waiting processes from this channel.</para><para><simplesect kind="return"><para>A Set of all removed processes. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="229" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="229" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a9cfea974e18a69894501774ebf47f755" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.removePassivatedProcessesThatWereActivatedByAMessageOnAnotherChannel</definition>
+        <argsstring>(Collection&lt; T &gt; processesToRemove)</argsstring>
+        <name>removePassivatedProcessesThatWereActivatedByAMessageOnAnotherChannel</name>
+        <param>
+          <type>Collection&lt; T &gt;</type>
+          <declname>processesToRemove</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes all processes from this channel which have been activated by a message received on another channel (on which the given processes were also waiting).</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>processesToRemove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The removed processes. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="262" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="262" bodyend="272"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a5a95acd502ac6c680696148ee85c6df1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getDeliveredMessages</definition>
+        <argsstring>()</argsstring>
+        <name>getDeliveredMessages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of delivered messages. A message is considered delivered if it was forwarded to at least one waiting process. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="144" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="144" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a731141b78ce59f046266969c824fe3a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object</type>
+        <definition>Object desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getDirectProcessActivations</definition>
+        <argsstring>()</argsstring>
+        <name>getDirectProcessActivations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of process which were activated by a message directly received on this channel. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="153" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="153" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a50b16b1c6d675d021568fb7cd9f5c844" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getIndirectProcessActivations</definition>
+        <argsstring>()</argsstring>
+        <name>getIndirectProcessActivations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of process which were removed from this channel because they were activated (indirectly) by a message received on another channel. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="163" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="163" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa686c351ee235561bcd8b4cfc757a081" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getInterruptedWaits</definition>
+        <argsstring>()</argsstring>
+        <name>getInterruptedWaits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of process which were interrupted while waiting on this channel because their max wait time was exceeded. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="172" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="172" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aac05abcf4a38ddda25a6d8223b3939b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getLostMessages</definition>
+        <argsstring>()</argsstring>
+        <name>getLostMessages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of message which were sent to this channel but couldn&apos;t be forwarded to a receiver because no process was waiting on the channel when the message was received. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="182" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="182" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a61858b1a8e053bcafbc32ba1fcf04c53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getObservations</definition>
+        <argsstring>()</argsstring>
+        <name>getObservations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of processes which have been handled by this message channel (meaning processes which entered the channel and also left it again). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="192" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="192" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a832802fde3f6ce265933a6f8873904b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getProcessActivations</definition>
+        <argsstring>()</argsstring>
+        <name>getProcessActivations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of process which were removed from this channel because they were activated either by a message received directly on this channel or by a message received (indirectly) on another channel. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="211" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="211" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a7a1135de64bf3d2fdc635e69d767826f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.getReceivedMessages</definition>
+        <argsstring>()</argsstring>
+        <name>getReceivedMessages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of messages which were sent to this channel. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="219" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="219" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ad7fc59b6738ebdd744beb34314ea5c9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="275" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="275" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a298c36bf0b6e4a2915f2655ebad9b4ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+        <definition>TimeInstant desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.resetAt</definition>
+        <argsstring>()</argsstring>
+        <name>resetAt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="284" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="284" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1afc23d233bec3023259725e0b4d4ac22d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.send</definition>
+        <argsstring>(CrossbarMessage message)</argsstring>
+        <name>send</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref></type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends the given <ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref> to the channel, thereby activating all processes that are waiting on the channel.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to send to the channel. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="296" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="296" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ac5fa4b56164c0a1b1ba36976fdac5ca8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref></type>
+        <definition>CrossbarMessage desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.waitForMessage</definition>
+        <argsstring>()</argsstring>
+        <name>waitForMessage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait for a <ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref> on this channel, thereby passivating the current process. The process is not reactivated until a message is received.</para><para><simplesect kind="return"><para>The message that was received. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="308" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="308" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a075161781b0235683c83a19d7c8b0599" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref></type>
+        <definition>CrossbarMessage desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.waitForMessage</definition>
+        <argsstring>(TimeInstant waitUntil)</argsstring>
+        <name>waitForMessage</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_instant" kindref="compound">TimeInstant</ref></type>
+          <declname>waitUntil</declname>
+        </param>
+        <exceptions> throws <ref refid="classdesmoj_1_1core_1_1exception_1_1_delayed_interrupt_exception" kindref="compound">DelayedInterruptException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait for a <ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref> on this channel, thereby passivating the current process. The process is not reactivated until a message is received. The parameter waitUntil specifies the point in time to which the current process will wait for a message. If no message is received before that time the process will be interrupted and a <ref refid="" kindref="compound">DelayedInterruptException</ref> will be thrown.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>waitUntil</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point in time up to which the process will wait for a message before the waiting is aborted.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The message that was received.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>DelayedInterruptException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The exception that indicates the process has reached its max wait time and has been interrupted. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="332" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="332" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1adb86b299c7ca9c3a6e7261333da4a8d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref></type>
+        <definition>CrossbarMessage desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;.waitForMessage</definition>
+        <argsstring>(TimeSpan maxWaitTime)</argsstring>
+        <name>waitForMessage</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_time_span" kindref="compound">TimeSpan</ref></type>
+          <declname>maxWaitTime</declname>
+        </param>
+        <exceptions> throws <ref refid="classdesmoj_1_1core_1_1exception_1_1_delayed_interrupt_exception" kindref="compound">DelayedInterruptException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wait for a <ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref> on this channel, thereby passivating the current process. The process is not reactivated until a message is received. The parameter maxWaitTime specifies the time the current process will wait for a message. If no message is received before the wait time has passed the process will be interrupted and a <ref refid="" kindref="compound">DelayedInterruptException</ref> will be thrown.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxWaitTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time the process will wait for a message before the waiting is aborted.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The message that was received.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>DelayedInterruptException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The exception that indicates the process has reached its max wait time and has been interrupted. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="355" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="355" bodyend="357"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Represents a message channel which resides on a <ref refid="" kindref="compound">MessageCrossbar</ref>. MessageChannels can only be used in conjunction with a message crossbar.<linebreak/>
+ <linebreak/>
+ On the one hand MessageChannels allow for processes to wait for <ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref>s on them (passivating the process) and on the other hand they allow for processes to send CrossbarMessages to them. If a <ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref> is received this leads to the immediate activation of all process waiting on the channel.</para><para><simplesect kind="see"><para>MessageCrossbar </para><simplesectsep/><para><ref refid="classdesmoj_1_1extensions_1_1crossbar_1_1_crossbar_message" kindref="compound">CrossbarMessage</ref> </para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Malte Unkrig</para></simplesect>
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at <ulink url="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</ulink></para><para>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameter restricting the types of processes which can wait on a MessageChannel. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="8746">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="8747" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8745">
+        <label>desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;</label>
+        <link refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4"/>
+        <childnode refid="8746" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8748">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="8747">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="8748" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8750">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="8751" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8749">
+        <label>desmoj.extensions.crossbar.MessageChannel&lt; T extends SimProcess &gt;</label>
+        <link refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4"/>
+        <childnode refid="8750" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8752">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="8751">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="8752" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" line="46" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/crossbar/MessageChannel.java" bodystart="46" bodyend="359"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a650e06c1e954aff3d9678abf533ed37b" prot="package" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>abortWaiting</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa2a5f8adfa232d85c3ae9075aa7a98d2" prot="package" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>addWaitingProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a111404e7ef6ab2c597bc099e7e0a8101" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ab50e85591f2828dc59e4d4223f44eba4" prot="private" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>deliveredMessages</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a5a95acd502ac6c680696148ee85c6df1" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getDeliveredMessages</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a731141b78ce59f046266969c824fe3a8" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getDirectProcessActivations</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a50b16b1c6d675d021568fb7cd9f5c844" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getIndirectProcessActivations</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa686c351ee235561bcd8b4cfc757a081" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getInterruptedWaits</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aac05abcf4a38ddda25a6d8223b3939b6" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getLostMessages</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a61858b1a8e053bcafbc32ba1fcf04c53" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a94b8d6b8468af119e012e717d87ae1d1" prot="package" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getPassivatedProcessesQueue</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a832802fde3f6ce265933a6f8873904b0" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getProcessActivations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a7a1135de64bf3d2fdc635e69d767826f" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getReceivedMessages</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ab82982ccd6a3a60a9d62c244629afc31" prot="private" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>indirectProcessActivations</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ad95cfd1a7d9372f261e8038e611eb80c" prot="private" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>interruptedWaits</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a10fba456d824912995a56e3f2b9f9255" prot="private" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>lostMessages</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa5127a494a9b1587a2a43f122570179f" prot="package" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>MessageChannel</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a18550f875d8dda0c40361099a0bef040" prot="private" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>messageCrossbar</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1af5d0d9a54390aa51ec5ac886bc07e83c" prot="private" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>passivatedProcessesQueue</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1aa01ae7d6e46645462e1adfa5b514c104" prot="package" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>receiveMessageAndRemoveWaitingProcesses</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a9cfea974e18a69894501774ebf47f755" prot="package" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>removePassivatedProcessesThatWereActivatedByAMessageOnAnotherChannel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ad7fc59b6738ebdd744beb34314ea5c9b" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a298c36bf0b6e4a2915f2655ebad9b4ab" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1afc23d233bec3023259725e0b4d4ac22d" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>send</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>traceOn</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1ac5fa4b56164c0a1b1ba36976fdac5ca8" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>waitForMessage</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1a075161781b0235683c83a19d7c8b0599" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>waitForMessage</name></member>
+      <member refid="classdesmoj_1_1extensions_1_1crossbar_1_1_message_channel_3_01_t_01extends_01_sim_process_01_4_1adb86b299c7ca9c3a6e7261333da4a8d0" prot="public" virt="non-virtual"><scope>desmoj::extensions::crossbar::MessageChannel&lt; T extends SimProcess &gt;</scope><name>waitForMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

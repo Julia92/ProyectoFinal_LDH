@@ -1,0 +1,210 @@
+.TH "desmoj.core.simulator.Schedulable" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.Schedulable \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.simulator\&.ModelComponent\fP\&.
+.PP
+Inherited by \fBdesmoj\&.core\&.simulator\&.Entity\fP, and \fBdesmoj\&.core\&.simulator\&.EventAbstract\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSchedulable\fP (\fBModel\fP owner, String name, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBcancel\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisCurrent\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBisScheduled\fP ()"
+.br
+.ti -1c
+.RI "void \fBrename\fP (String newName)"
+.br
+.ti -1c
+.RI "void \fBreSchedule\fP (\fBTimeSpan\fP dt)"
+.br
+.ti -1c
+.RI "void \fBreSchedule\fP (\fBTimeInstant\fP time)"
+.br
+.ti -1c
+.RI "void \fBreSchedule\fP (\fBSimTime\fP dt)"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBscheduledAt\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBscheduledNext\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSchedulable\fP \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "List< \fBEventNote\fP > \fB_schedule\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+All objects that want to be handled by the scheduler must extend this class\&. These are events (including external events), entities and SimProcesses\&. All functionality common to \fBSchedulable\fP objects are encapsulated here\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.Schedulable\&.Schedulable (\fBModel\fPowner, Stringname, booleanshowInTrace)"
+Constructs a \fBSchedulable\fP object with the given name\&. Note that to identify the multiple objects that can be created of one type of \fBSchedulable\fP, each has a unique number added to its name as a suffix\&. The numbers represent the amount of objects being created with the same name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP java\&.lang\&.String : The name of the new \fBSchedulable\fP object 
+.br
+\fIowner\fP \fBModel\fP : The owner of this \fBSchedulable\fP object 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.simulator\&.Schedulable\&.cancel ()"
+Removes all events scheduled for this entity from the event-list\&. The \fBEntity\fP will not become active until scheduled again\&. 
+.SS "\fBSchedulable\fP desmoj\&.core\&.simulator\&.Schedulable\&.clone () throws CloneNotSupportedException\fC [protected]\fP"
+Creates and returns a copy of this \fBSchedulable\fP\&. Note that subclasses have to implement the interface java\&.lang\&.Cloneable to actually use this method as otherwise, a CloneNotSupportedException will be thrown\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBSchedulable\fP : A copy of this \fBSchedulable\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Schedulable\&.isCurrent ()"
+Shows if this \fBSchedulable\fP is the currently active object\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if this \fBSchedulable\fP is the currently active, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.Schedulable\&.isScheduled ()"
+Tests if this entity has already been scheduled\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean :\fCtrue\fP if already scheduled, \fCfalse\fP otherwise 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Schedulable\&.rename (StringnewName)"
+Allows to rename a \fBSchedulable\fP object while keeping its internally added serial number to keep track of the individual object\&. Note that invalid string parameters will result in renaming the \fBSchedulable\fP to 'unnamed'\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP java\&.lang\&.String : The \fBSchedulable\fP's new name 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Schedulable\&.reSchedule (\fBTimeSpan\fPdt)"
+Re-schedules the \fBSchedulable\fP by shifting all \fBEventNote\fP by a specified \fC \fBTimeSpan\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBTimeSpan\fP : The offset to the current simulation time at which this \fBSchedulable\fP is to be re-scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Schedulable\&.reSchedule (\fBTimeInstant\fPtime)"
+Re-schedules the \fBSchedulable\fP to some other point in simulation time (which should be different form the instant at which is a scheduled at the moment)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItime\fP \fBTimeInstant\fP : The simulation time at which this entity is to be re-scheduled 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.simulator\&.Schedulable\&.reSchedule (\fBSimTime\fPdt)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBreSchedule(TimeSpan dt)\fP\&. Re-schedules the \fBSchedulable\fP at some other point in simulation time than it already had been scheduled before\&.
+.RE
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdt\fP \fBTimeSpan\fP : The offset to the current simulation time at which this \fBSchedulable\fP is to be re-scheduled 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.Schedulable\&.scheduledAt ()"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Returns the point of simulation time this \fBSchedulable\fP is scheduled at\&. Returns null, if the entity has not been scheduled and thus can not return an appropriate point of simulation time\&.
+.RE
+.PP
+.PP
+Use scheduleNext() for next \fBTimeInstant\fP where an event-note lists this entity\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The point of simulation time this \fBSchedulable\fP is scheduled at or \fCnull\fP otherwise 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.Schedulable\&.scheduledNext ()"
+Returns the next point of time this entity is scheduled\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : The point of simulation time the next \fBEntity\fP is schedule or \fCnull\fP otherwise 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "List<\fBEventNote\fP> desmoj\&.core\&.simulator\&.Schedulable\&._schedule\fC [protected]\fP"
+A list containing all scheduled entries for this \fBSchedulable\fP in future\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

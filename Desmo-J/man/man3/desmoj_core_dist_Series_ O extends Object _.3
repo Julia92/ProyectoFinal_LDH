@@ -1,0 +1,207 @@
+.TH "desmoj.core.dist.Series< O extends Object >" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.dist.Series< O extends Object > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.dist\&.Distribution\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSeries\fP (\fBModel\fP owner, String name, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetReverse\fP (boolean direc)"
+.br
+.ti -1c
+.RI "boolean \fBisforward\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetRepeating\fP (boolean repeat)"
+.br
+.ti -1c
+.RI "void \fBremove\fP (int position)"
+.br
+.ti -1c
+.RI "void \fBclearList\fP ()"
+.br
+.ti -1c
+.RI "void \fBadd\fP (O element)"
+.br
+.ti -1c
+.RI "void \fBaddAll\fP (Collection< O > collection)"
+.br
+.ti -1c
+.RI "void \fBset\fP (O element, int position)"
+.br
+.ti -1c
+.RI "int \fBgetNumberOfAvailableElements\fP ()"
+.br
+.ti -1c
+.RI "O \fBsample\fP ()"
+.br
+.ti -1c
+.RI "Object \fBsampleObject\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A series is a special distribution returning preset, user-defined entries from a list\&. Series may be used to simulate certain non-random scenarios within the simulation or to include external sources of (preudo) random distributions
+.PP
+The internal list can be set to be traversed backwards and/or to repeat once its end has been reached\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Broder Fredrich 
+.PP
+.nf
+    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.dist\&.Series< O extends Object >\&.Series (\fBModel\fPowner, Stringname, booleanshowInReport, booleanshowInTrace)"
+Creates a new Series\&. Default behaviour when returning samples is - starting at 1st element - reading forward - non-repeating
+.PP
+\fBParameters:\fP
+.RS 4
+\fIowner\fP Model : The distribution's owner 
+.br
+\fIname\fP java\&.lang\&.String : The distribution's name 
+.br
+\fIshowInReport\fP boolean : Flag for producing reports 
+.br
+\fIshowInTrace\fP boolean : Flag for producing trace output 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.dist\&.Series< O extends Object >\&.add (Oelement)"
+Adds a new sample entry at the end of the entry list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIelement\fP E : entry to be added 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Series< O extends Object >\&.addAll (Collection< O >collection)"
+Adds all elements of a given Collection to the entry list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcollection\fP Collection<E> : The collection whose entries will be added\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Series< O extends Object >\&.clearList ()"
+Removes all entries from the sample list\&. 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.dist\&.Series< O extends Object >\&.createReporter ()"
+Creates the default reporter for the series\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Reporter : The reporter for the Series 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.dist\&.Series< O extends Object >\&.getNumberOfAvailableElements ()"
+Returns the amount of samples this series can still return, given the current reading direction and repeating property\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : Amount of samples that can be returned before the series reaches its end\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.dist\&.Series< O extends Object >\&.isforward ()"
+Returns whether this series is getting read forward\&. 
+.SS "void desmoj\&.core\&.dist\&.Series< O extends Object >\&.remove (intposition)"
+Removes am entry at a certain position out of the sample list, lowering the index of all following entries by one\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIposition\fP int : The position to remove the value from\&. 
+.RE
+.PP
+
+.SS "O desmoj\&.core\&.dist\&.Series< O extends Object >\&.sample ()"
+Returns the next sample from the entry list\&.
+.PP
+\fBReturns:\fP
+.RS 4
+E : The sample to be returned\&. 
+.RE
+.PP
+
+.SS "Object desmoj\&.core\&.dist\&.Series< O extends Object >\&.sampleObject ()\fC [virtual]\fP"
+Convenience method to return the series' sample as \fCObject\fP\&. For type safety, method \fC\fBsample()\fP\fP should be preferred\&. However, this method is useful for environments requiring a non-genetic access point to obtain samples from any distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Object : A sample from this this distribution wrapped as \fCObject\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.dist\&.Distribution\fP\&.
+.SS "void desmoj\&.core\&.dist\&.Series< O extends Object >\&.set (Oelement, intposition)"
+Replaces the entry at a certain position with a given entry\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIelement\fP E : The new entry to replace the old one\&. 
+.br
+\fIposition\fP int : The position at which the entry should be replaced\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Series< O extends Object >\&.setRepeating (booleanrepeat)"
+Sets whether reading samples from the list is continued from start once the last sample has been returned\&. If the list is getting read backwards, enabling this will cause the series to start over from the end of the list once the first value has been read\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrepeat\fP boolean : Whether this series repeats its value list once the last value has been returned\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.dist\&.Series< O extends Object >\&.setReverse (booleandirec)"
+Sets the reading direction for the sample list of this series\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdirec\fP boolean : true - forward; false - backwards 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

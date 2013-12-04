@@ -1,0 +1,243 @@
+.TH "org.apache.commons.math.distribution.PoissonDistributionImpl" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.PoissonDistributionImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.PoissonDistribution\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPoissonDistributionImpl\fP (double p)"
+.br
+.ti -1c
+.RI "\fBPoissonDistributionImpl\fP (double p, \fBNormalDistribution\fP z)"
+.br
+.ti -1c
+.RI "double \fBgetMean\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetMean\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBprobability\fP (int x)"
+.br
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (int x)  throws MathException "
+.br
+.ti -1c
+.RI "double \fBnormalApproximateProbability\fP (int x)  throws MathException "
+.br
+.ti -1c
+.RI "void \fBsetNormal\fP (\fBNormalDistribution\fP value)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBgetDomainLowerBound\fP (double p)"
+.br
+.ti -1c
+.RI "int \fBgetDomainUpperBound\fP (double p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implementation for the \fBPoissonDistribution\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617953 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.PoissonDistributionImpl (doublep)"
+Create a new Poisson distribution with the given the mean\&. The mean value must be positive; otherwise an \fCIllegalArgument\fP is thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the Poisson mean 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if p  0 
+.RE
+.PP
+
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.PoissonDistributionImpl (doublep, \fBNormalDistribution\fPz)"
+Create a new Poisson distribution with the given the mean\&. The mean value must be positive; otherwise an \fCIllegalArgument\fP is thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the Poisson mean 
+.br
+\fIz\fP a normal distribution used to compute normal approximations\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if p  0 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.cumulativeProbability (intx) throws \fBMathException\fP\fC [virtual]\fP"
+The probability distribution function P(X <= x) for a Poisson distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the PDF is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Poisson distribution function evaluated at x 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.getDomainLowerBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value lower bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain lower bound 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "int org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.getDomainUpperBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value upper bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain upper bound 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractIntegerDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.getMean ()"
+Get the Poisson mean for the distribution\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the Poisson mean for the distribution\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.PoissonDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.normalApproximateProbability (intx) throws \fBMathException\fP"
+Calculates the Poisson distribution function using a normal approximation\&. The \fCN(mean, sqrt(mean))\fP distribution is used to approximate the Poisson distribution\&. 
+.PP
+The computation uses 'half-correction' -- evaluating the normal distribution function at \fCx + 0\&.5\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the upper bound, inclusive 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the distribution function value calculated using a normal approximation 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if an error occurs computing the normal approximation 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.PoissonDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.probability (intx)"
+The probability mass function P(X = x) for a Poisson distribution\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the probability density function is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of the probability mass function at x 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.IntegerDistribution\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.setMean (doublep)"
+Set the Poisson mean for the distribution\&. The mean value must be positive; otherwise an \fCIllegalArgument\fP is thrown\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the Poisson mean value 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if p  0 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.PoissonDistribution\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.PoissonDistributionImpl\&.setNormal (\fBNormalDistribution\fPvalue)"
+Modify the normal distribution used to compute normal approximations\&. The caller is responsible for insuring the normal distribution has the proper parameter settings\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP the new distribution 
+.RE
+.PP
+\fBSince:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

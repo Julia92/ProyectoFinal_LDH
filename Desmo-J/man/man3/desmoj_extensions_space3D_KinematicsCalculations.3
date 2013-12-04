@@ -1,0 +1,309 @@
+.TH "desmoj.extensions.space3D.KinematicsCalculations" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.KinematicsCalculations \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBMovement\fP \fBconfigureMovement\fP (\fBMovement\fP movement, double totalDistance, double initialSpeed, double maxSpeed, double acc, double dec, \fBTimeSpan\fP totalSimDuration)"
+.br
+.ti -1c
+.RI "static \fBMovement\fP \fBconfigureMovement\fP (\fBMovement\fP movement, double totalDistance, double initialSpeed, double acc, double dec, \fBTimeSpan\fP totalSimDuration)"
+.br
+.ti -1c
+.RI "static \fBMovement\fP \fBconfigureMovement\fP (\fBMovement\fP movement, double totalDistance, double initialSpeed, double maxSpeed, double acc, double dec)"
+.br
+.ti -1c
+.RI "static double \fBgetAcceleration\fP (double initialSpeed, double endSpeed, \fBTimeSpan\fP duration)"
+.br
+.ti -1c
+.RI "static double \fBgetCurrentSpeed\fP (\fBMovement\fP movement, \fBTimeInstant\fP movingStartTime, \fBTimeInstant\fP now)"
+.br
+.ti -1c
+.RI "static double \fBgetDistanceOfSpeedBoundedAcceleration\fP (double initialSpeed, double endSpeed, double acc)"
+.br
+.ti -1c
+.RI "static double \fBgetDistanceOfTimedAcceleration\fP (double duration, double initialSpeed, double acc)"
+.br
+.ti -1c
+.RI "static double \fBgetDurationOfDistanceBoundedMovement\fP (double distance, double initialSpeed, double endSpeed)"
+.br
+.ti -1c
+.RI "static double \fBgetDurationOfSpeedBoundedAcceleration\fP (double initialSpeed, double endSpeed, double acc)"
+.br
+.ti -1c
+.RI "static double \fBgetMaxAcceleratedSpeed\fP (double distance, double initialSpeed, double endSpeed, double acc, double dec)"
+.br
+.ti -1c
+.RI "static double \fBgetSpeedOfDistanceBoundedAcceleration\fP (double distance, double initialSpeed, double acc)"
+.br
+.ti -1c
+.RI "static double \fBgetSpeedOfTimedAcceleration\fP (double duration, double initialSpeed, double acc)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class is a utility class for the calculations of time-spatial-relations of object movements\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBMovement\fP desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.configureMovement (\fBMovement\fPmovement, doubletotalDistance, doubleinitialSpeed, doublemaxSpeed, doubleacc, doubledec, \fBTimeSpan\fPtotalSimDuration)\fC [static]\fP"
+The static get method for the \fBKinematicsCalculations\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The singleton \fBKinematicsCalculations\fP Configures the \fBMovement\fP object based on the track length, the start speed, the maximum speed, the acceleration, the deceleration and a given total duration\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovement\fP The movement to be configured\&. 
+.br
+\fItotalDistance\fP The total length for the movement\&. 
+.br
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fImaxSpeed\fP The maximum speed\&. 
+.br
+\fIacc\fP The acceleration\&. 
+.br
+\fIdec\fP The deceleration\&. 
+.br
+\fItotalSimDuration\fP The given duration in SimTime\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBMovement\fP object whose total distance and duration matches to the given distance and duration\&. 
+.RE
+.PP
+
+.SS "static \fBMovement\fP desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.configureMovement (\fBMovement\fPmovement, doubletotalDistance, doubleinitialSpeed, doubleacc, doubledec, \fBTimeSpan\fPtotalSimDuration)\fC [static]\fP"
+Configures the \fBMovement\fP object based on the track length, the start speed, the acceleration, the deceleration and a given total duration\&. There's no maximum speed limitation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovement\fP The movement to be configured\&. 
+.br
+\fItotalDistance\fP The total length for the movement\&. 
+.br
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fIacc\fP The acceleration\&. 
+.br
+\fIdec\fP The deceleration\&. 
+.br
+\fItotalSimDuration\fP The given duration in SimTime\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBMovement\fP object whose total distance and duration matches to the given distance and duration\&. 
+.RE
+.PP
+
+.SS "static \fBMovement\fP desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.configureMovement (\fBMovement\fPmovement, doubletotalDistance, doubleinitialSpeed, doublemaxSpeed, doubleacc, doubledec)\fC [static]\fP"
+Configures the \fBMovement\fP object of an object's movement based on the track, the initial speed, the maximum speed, the acceleration and the deceleration of the object\&. Its duration represents the shortest duration to the destination possible (with the maximum speed as limitation)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovement\fP The movement to be configured\&. 
+.br
+\fItotalDistance\fP The total length of the movement\&. 
+.br
+\fIinitialSpeed\fP The initial Speed\&. 
+.br
+\fImaxSpeed\fP The maximum speed of the moving object\&. 
+.br
+\fIacc\fP The acceleration of the moving object\&. 
+.br
+\fIdec\fP The deceleration of the moving object\&. It's normally a negative value\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBMovement\fP object whose total distance matches the given distance\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getAcceleration (doubleinitialSpeed, doubleendSpeed, \fBTimeSpan\fPduration)\fC [static]\fP"
+Gets the acceleration value based on the initial, the end speed and the acceleration duration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fIendSpeed\fP The end speed\&. 
+.br
+\fIduration\fP The duration of the acceleration\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The acceleration\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getCurrentSpeed (\fBMovement\fPmovement, \fBTimeInstant\fPmovingStartTime, \fBTimeInstant\fPnow)\fC [static]\fP"
+Gets the current speed based on the elapsed time and the movement object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImovement\fP The movement within the current speed should be calculated\&. 
+.br
+\fImovingStartTime\fP The SimTime, when the movement has started\&. 
+.br
+\fInow\fP The current SimTime\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current speed of the movement\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getDistanceOfSpeedBoundedAcceleration (doubleinitialSpeed, doubleendSpeed, doubleacc)\fC [static]\fP"
+Gets the distance of the acceleration or deceleration from an initial speed to an end speed with a given acceleration or deceleration value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fIendSpeed\fP The end speed\&. 
+.br
+\fIacc\fP The acceleration or deceleration\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The distance needed\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getDistanceOfTimedAcceleration (doubleduration, doubleinitialSpeed, doubleacc)\fC [static]\fP"
+Gets the distance moved based on the acceleration and the duration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIduration\fP The duration of the movement\&. 
+.br
+\fIinitialSpeed\fP The speed offset\&. 
+.br
+\fIacc\fP The acceleration\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The distance moved with the specified duration after the duration\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getDurationOfDistanceBoundedMovement (doubledistance, doubleinitialSpeed, doubleendSpeed)\fC [static]\fP"
+Gets the duration of a simple movement based of its moving distance, initial speed and the end speed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdistance\fP The distance of the movement\&. 
+.br
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fIendSpeed\fP The end speed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The duration\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getDurationOfSpeedBoundedAcceleration (doubleinitialSpeed, doubleendSpeed, doubleacc)\fC [static]\fP"
+Gets the duration of the acceleration or the deceleration from an initial speed to a end speed with a given acceleration or deceleration value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fIendSpeed\fP The end speed\&. 
+.br
+\fIacc\fP the acceleration or deceleration value\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The duration needed\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getMaxAcceleratedSpeed (doubledistance, doubleinitialSpeed, doubleendSpeed, doubleacc, doubledec)\fC [static]\fP"
+Gets the maximum speed if the movement only consist of an acceleration from a start speed followed by a deceleration to the end speed for a certain distance\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdistance\fP The total distance of the movement\&. 
+.br
+\fIinitialSpeed\fP The start speed\&. 
+.br
+\fIendSpeed\fP The end speed\&. 
+.br
+\fIacc\fP The acceleration\&. 
+.br
+\fIdec\fP The deceleration\&. Normally a negative value\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The maximum speed can be reached\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getSpeedOfDistanceBoundedAcceleration (doubledistance, doubleinitialSpeed, doubleacc)\fC [static]\fP"
+Gets the speed based on the acceleration, initial speed and the moved distance\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdistance\fP The distance which the movement shouldn't exceed\&. 
+.br
+\fIinitialSpeed\fP The initial speed\&. 
+.br
+\fIacc\fP The acceleration 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The speed after the movement\&. 
+.RE
+.PP
+
+.SS "static double desmoj\&.extensions\&.space3D\&.KinematicsCalculations\&.getSpeedOfTimedAcceleration (doubleduration, doubleinitialSpeed, doubleacc)\fC [static]\fP"
+Gets the speed based on the acceleration and the duration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIduration\fP The duration of the movement\&. 
+.br
+\fIinitialSpeed\fP The speed offset\&. 
+.br
+\fIacc\fP The acceleration\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The speed of the movement with the acceleration after the duration\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

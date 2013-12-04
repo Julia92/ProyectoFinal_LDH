@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="_visualization_clock_8java" kind="file">
+    <compoundname>VisualizationClock.java</compoundname>
+    <innerclass refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock" prot="public">desmoj::extensions::visualization3d::VisualizationClock</innerclass>
+    <innernamespace refid="namespacedesmoj_1_1extensions_1_1visualization3d">desmoj::extensions::visualization3d</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">desmoj.extensions.visualization3d;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock" kindref="compound">VisualizationClock</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//the<sp/>time<sp/>of<sp/>the<sp/>last<sp/>update<sp/>in<sp/>modified<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>_lastUpdatePointNewTime;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//the<sp/>time<sp/>of<sp/>the<sp/>last<sp/>update<sp/>in<sp/>system<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>_lastUpdatePointSystemTime;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//the<sp/>speed<sp/>rate<sp/>of<sp/>the<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_rate;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28" refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a2ee1f5827cfcff2daeb5499fbf66680a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a2ee1f5827cfcff2daeb5499fbf66680a" kindref="member">VisualizationClock</ref>(){</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_lastUpdatePointNewTime<sp/>=<sp/>0l;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_rate<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_lastUpdatePointSystemTime<sp/>=<sp/>System.currentTimeMillis();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38" refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a0100cdadb9dbf0f8bed8b7ba0cbf82c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a0100cdadb9dbf0f8bed8b7ba0cbf82c0" kindref="member">getTime</ref>(){</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>delta<sp/>=<sp/>System.currentTimeMillis()<sp/>-<sp/>_lastUpdatePointSystemTime;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_lastUpdatePointNewTime<sp/>+<sp/>((long)<sp/>(delta<sp/>*<sp/>_rate));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48" refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a6fd074f53df453fd48317b4141f443f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a6fd074f53df453fd48317b4141f443f6" kindref="member">setRate</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rate){</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_lastUpdatePointNewTime<sp/>=<sp/>this.getTime();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_lastUpdatePointSystemTime<sp/>=<sp/>System.currentTimeMillis();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_rate<sp/>=<sp/>rate;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58" refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a535f50bedf1136b69c2c07c91fc87994" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classdesmoj_1_1extensions_1_1visualization3d_1_1_visualization_clock_1a535f50bedf1136b69c2c07c91fc87994" kindref="member">getRate</ref>(){</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_rate;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/extensions/visualization3d/VisualizationClock.java"/>
+  </compounddef>
+</doxygen>

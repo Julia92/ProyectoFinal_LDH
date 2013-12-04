@@ -1,0 +1,328 @@
+\section{desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends Sim\-Process $>$ Class Reference}
+\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4}\index{desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Entity\-Schedule} ({\bf Model} owner, String name, E process)
+\item 
+{\bf Entity\-Schedule} ({\bf Model} owner)
+\item 
+{\bf Entity\-Schedule} ({\bf Model} owner, {\bf Time\-Span} from\-Begin\-Of\-Day, {\bf Time\-Span} until\-Begin\-Of\-Day)
+\item 
+void {\bfseries set\-Process\-Management} (boolean {\bf activate}, boolean passiviate)\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a21da492c150f1956aeec09ef7f144cfc}
+
+\item 
+void {\bfseries set\-Time\-Zone} (Time\-Zone timezone)\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a5c3ffd31f03758e5d43aa21f1e8382e5}
+
+\item 
+void {\bfseries clear\-Process\-List} ()\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_acfd1cebc9e2f6b74a5e8013ebf13ccf7}
+
+\item 
+void {\bfseries add\-Process} (E process)\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_acbb01fa786bcd529ffaeec7424c7f365}
+
+\item 
+void {\bfseries remove\-Process} (E process)\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a42f9ed432b644bcc14b5eb1c6e65fe93}
+
+\item 
+void {\bf add} ({\bf Entity\-Schedule\-Entry} entry)
+\item 
+Object[$\,$] {\bf is\-In\-Schedule} ({\bf Time\-Instant} time)
+\item 
+Object[$\,$] {\bf is\-In\-Schedule} ()
+\item 
+{\bf Time\-Instant} {\bfseries get\-End\-Of\-Actual\-Entry} ({\bf Time\-Instant} now)\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a5bb8d96df13b57604492117759e702d6}
+
+\item 
+{\bf Time\-Instant} {\bf get\-Begin\-Of\-Next\-Entry} ({\bf Time\-Instant} now)
+\item 
+String {\bfseries to\-String} ()\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a09553e1e4663554b1ed0d92648813d42}
+
+\item 
+boolean {\bf check\-Availability} ({\bf Entity} e, int index)
+\item 
+boolean {\bf check\-Availability} ({\bf Entity} e)
+\item 
+void {\bf life\-Cycle} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static boolean[$\,$] {\bfseries working\-Days}
+\item 
+static boolean[$\,$] {\bfseries weekend}
+\item 
+static boolean[$\,$] {\bfseries all\-Days}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Entity\-Schedule is a list of \doxyref{Entity\-Schedule\-Entry}{p.}{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_entry}'s. A \doxyref{Entity\-Schedule\-Entry}{p.}{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_entry} is a time region (e.\-g. every workingday from 8\-:00 until 16\-:00) All \doxyref{Entity\-Schedule\-Entry}{p.}{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_entry}'s have the same timezone, stored in Entity\-Schedule.
+
+Entity\-Schedule is a Sim\-Process. With set\-Process is a process specified. The lifecycle of Entity\-Schedule will activate the with set\-Process specified process at begin and end of each schedule entry.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+{\tt christian.\-mueller@th-\/wildau.\-de} \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!Entity\-Schedule@{Entity\-Schedule}}
+\index{Entity\-Schedule@{Entity\-Schedule}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{Entity\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.Entity\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{E}]{process}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a0d1afa7a9bef512695273b5d6ddbf1a2}
+Erzeugt leeren Entity\-Schedule mit default Zeitzone Zu begin jedes Schedule\-Entry wird process aktiviert 
+\begin{DoxyParams}{Parameters}
+{\em owner} & \\
+\hline
+{\em process} & \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a0d1afa7a9bef512695273b5d6ddbf1a2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!Entity\-Schedule@{Entity\-Schedule}}
+\index{Entity\-Schedule@{Entity\-Schedule}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{Entity\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.Entity\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a5d98de88783c37a5418ece58fa09a8e3}
+Erzeugt leeren Entity\-Schedule mit default Zeitzone 
+\begin{DoxyParams}{Parameters}
+{\em owner} & \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!Entity\-Schedule@{Entity\-Schedule}}
+\index{Entity\-Schedule@{Entity\-Schedule}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{Entity\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.Entity\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{{\bf Time\-Span}}]{from\-Begin\-Of\-Day, }
+\item[{{\bf Time\-Span}}]{until\-Begin\-Of\-Day}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a356cd3eb28a2423f333543e3beb982ea}
+Default Schedule ohne Zeitbeschraenkung, werktags mit default Zeitzone 
+\begin{DoxyParams}{Parameters}
+{\em from\-Hour\-Of\-Day} & \\
+\hline
+{\em until\-Hour\-Of\-Day} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!add@{add}}
+\index{add@{add}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.add (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\-Schedule\-Entry}}]{entry}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_aeaeb8987f8a12c3b48a81b1c573b8989}
+fuegt dem Schedule ein \doxyref{Entity\-Schedule\-Entry}{p.}{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_entry} hinzu 
+\begin{DoxyParams}{Parameters}
+{\em entry} & \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!check\-Availability@{check\-Availability}}
+\index{check\-Availability@{check\-Availability}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{check\-Availability}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.check\-Availability (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a3f1992029badd8750074988b3bf24bf0}
+Das values-\/array der schedule entries beschreiben Eigenschaften eines entries. Angenommen in jedem schedule entity steht eine unterschiedliche Anzahl der Resource e zur Verfuegung und diese Anzahl ist in der Komponente indes des values-\/array abgespeichert. Die Namen der Resourcen Entities enthalten am Ende eine laufende Nr. Diese Methode prueft, ob diese Nr $<$= der in dem aktuellen Schedule zulaessigen Anzahl ist. 
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!check\-Availability@{check\-Availability}}
+\index{check\-Availability@{check\-Availability}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{check\-Availability}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.check\-Availability (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity}}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_aebb484ee5e2e16dcf75f618fd8559d1b}
+Wie oben, jedoch mit index = 0 als Default Wert. 
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!get\-Begin\-Of\-Next\-Entry@{get\-Begin\-Of\-Next\-Entry}}
+\index{get\-Begin\-Of\-Next\-Entry@{get\-Begin\-Of\-Next\-Entry}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{get\-Begin\-Of\-Next\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.get\-Begin\-Of\-Next\-Entry (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{now}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a3c37872fccf8ab14514d963b93e0a0bd}
+compute begin of next valid schedule\-Entry. 
+\begin{DoxyParams}{Parameters}
+{\em now} & actual simulation time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null when no next entry exist. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a3c37872fccf8ab14514d963b93e0a0bd_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!is\-In\-Schedule@{is\-In\-Schedule}}
+\index{is\-In\-Schedule@{is\-In\-Schedule}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{is\-In\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}Object [$\,$] desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.is\-In\-Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Instant}}]{time}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_ac9d026ba413b60e4ba3f9fadc0ca4611}
+prueft ob date in dem Schedule enthalten ist. 
+\begin{DoxyParams}{Parameters}
+{\em date} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Values des ersten Entry, der date enthaelt. null wenn kein Entry gefunden 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_ac9d026ba413b60e4ba3f9fadc0ca4611_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!is\-In\-Schedule@{is\-In\-Schedule}}
+\index{is\-In\-Schedule@{is\-In\-Schedule}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{is\-In\-Schedule}]{\setlength{\rightskip}{0pt plus 5cm}Object [$\,$] desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.is\-In\-Schedule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_ac6a57b6ae203c69b10fad8e00d97b15e}
+prueft ob current\-Time in dem Schedule enthalten ist. Die Endzeit gehoert nicht zum Schedule\-Entry \begin{DoxyReturn}{Returns}
+Capacity des ersten Entry, der date enthaelt. null wenn kein Entry gefunden 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!life\-Cycle@{life\-Cycle}}
+\index{life\-Cycle@{life\-Cycle}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{life\-Cycle}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.life\-Cycle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_ad611513d2773616f26982db793c1d240}
+Override this method in a subclass of Sim\-Process to implement the specific behaviour of this Sim\-Process. This method starts after a Sim\-Process has been created and activated. Note that this method will be executed once or repeatedly, depending on the repeating status of the Sim\-Process. 
+
+Implements {\bf desmoj.\-core.\-simulator.\-Sim\-Process} \doxyref{}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process_a38bb9fa8a520a8bd0bd26e74737fb3a3}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_ad611513d2773616f26982db793c1d240_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!all\-Days@{all\-Days}}
+\index{all\-Days@{all\-Days}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{all\-Days}]{\setlength{\rightskip}{0pt plus 5cm}boolean [$\,$] desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.all\-Days\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a6bf24bda0951cb45d62ced35b82c3956}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= 
+        
+                                        \{\textcolor{keyword}{true},  \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}\}
+\end{DoxyCode}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!weekend@{weekend}}
+\index{weekend@{weekend}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{weekend}]{\setlength{\rightskip}{0pt plus 5cm}boolean [$\,$] desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.weekend\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a70055f44350d7046d441b35a1d2de89d}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= 
+        
+                                        \{\textcolor{keyword}{true},  \textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{false},\textcolor{keyword}{true}\}
+\end{DoxyCode}
+\index{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}!working\-Days@{working\-Days}}
+\index{working\-Days@{working\-Days}!desmoj::extensions::scheduling::EntitySchedule< E extends SimProcess >@{desmoj\-::extensions\-::scheduling\-::\-Entity\-Schedule$<$ E extends Sim\-Process $>$}}
+\subsubsection[{working\-Days}]{\setlength{\rightskip}{0pt plus 5cm}boolean [$\,$] desmoj.\-extensions.\-scheduling.\-Entity\-Schedule$<$ E extends {\bf Sim\-Process} $>$.working\-Days\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1scheduling_1_1_entity_schedule_3_01_e_01extends_01_sim_process_01_4_a03944aae100e7de44afd85c64daff1ee}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= 
+        
+                                        \{\textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/scheduling/Entity\-Schedule.\-java\end{DoxyCompactItemize}

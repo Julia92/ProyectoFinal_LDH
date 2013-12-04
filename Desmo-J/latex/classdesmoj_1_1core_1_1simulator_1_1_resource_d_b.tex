@@ -1,0 +1,404 @@
+\section{desmoj.\-core.\-simulator.\-Resource\-D\-B Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b}\index{desmoj.\-core.\-simulator.\-Resource\-D\-B@{desmoj.\-core.\-simulator.\-Resource\-D\-B}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+synchronized boolean {\bf check\-For\-Deadlock} ({\bf Sim\-Process} unsat\-Proc)
+\item 
+boolean {\bf debug\-Is\-On} ()
+\item 
+void {\bf debug\-Off} ()
+\item 
+void {\bf debug\-On} ()
+\item 
+void {\bf delete\-Res\-Allocation} ({\bf Res} res\-Pool, {\bf Sim\-Process} done\-Proc, int quantity)
+\item 
+void {\bf delete\-Res\-Request} ({\bf Sim\-Process} gain\-Proc, {\bf Res} res\-Pool, int quantity)
+\item 
+void {\bf note\-Resource\-Allocation} ({\bf Res} resource\-Pool, {\bf Sim\-Process} allocating\-Process, int quantity)
+\item 
+void {\bf note\-Resource\-Request} ({\bf Sim\-Process} requesting\-Process, {\bf Res} resource\-Pool, int quantity)
+\item 
+String {\bf to\-Html\-String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Resource\-D\-B} ({\bf Experiment} owner)
+\item 
+void {\bf send\-Debug\-Note} (String description)
+\item 
+void {\bf send\-Message} ({\bf Message} m)
+\item 
+void {\bf send\-Trace\-Note} (String description)
+\item 
+void {\bf send\-Warning} (String description, String location, String reason, String prevention)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+In the resource database every Simprocess and the resources it requests or holds at the moment are stored. This information is needed i.\-e. for detecting deadlocks. An instance will be created, when an experiment is created.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!Resource\-D\-B@{Resource\-D\-B}}
+\index{Resource\-D\-B@{Resource\-D\-B}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{Resource\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Resource\-D\-B.\-Resource\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf Experiment}}]{owner}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a193d485042d70dda7d208b275215d085}
+This private constructor is defined to prevent the compiler from generating a default public constructor. This constructor is called from the constructor of {\ttfamily \doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment}} to make sure that for every experiment there is a new resource D\-B. The debug output for this {\ttfamily \doxyref{Resource\-D\-B}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b}} is turned on by default. But you have to make sure, that the default output for the experiment is turned on, too.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Experiment \-: the experiment this resource database belongs to. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a193d485042d70dda7d208b275215d085_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!check\-For\-Deadlock@{check\-For\-Deadlock}}
+\index{check\-For\-Deadlock@{check\-For\-Deadlock}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{check\-For\-Deadlock}]{\setlength{\rightskip}{0pt plus 5cm}synchronized boolean desmoj.\-core.\-simulator.\-Resource\-D\-B.\-check\-For\-Deadlock (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{unsat\-Proc}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_aa43ea61fdf4b181d421f801fe8c0fa57}
+This method is called when a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} can not get the resources desired to check if a possible deadlock situation has occured.
+
+
+\begin{DoxyParams}{Parameters}
+{\em unsat\-Proc} & desmoj.\-Sim\-Process \-: The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} which can not get the resources desired. The unsatisfied process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean \-: is {\ttfamily true} if a deadlock is found, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_aa43ea61fdf4b181d421f801fe8c0fa57_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!debug\-Is\-On@{debug\-Is\-On}}
+\index{debug\-Is\-On@{debug\-Is\-On}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{debug\-Is\-On}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Resource\-D\-B.\-debug\-Is\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a1246d3617bcecbc362743b7d5422f762}
+Shows if this resource\-D\-B currently produces debug output.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: true, if resource\-D\-B shows in debug, false if not 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!debug\-Off@{debug\-Off}}
+\index{debug\-Off@{debug\-Off}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{debug\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-debug\-Off (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a4c03b6f9ba2e6eaab06f451927e8af90}
+Switches off debug output for this resource\-D\-B. \index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!debug\-On@{debug\-On}}
+\index{debug\-On@{debug\-On}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{debug\-On}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-debug\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a344b208035cc3a4c1878a49a20c29629}
+Switches on debug output for this resource\-D\-B. \index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!delete\-Res\-Allocation@{delete\-Res\-Allocation}}
+\index{delete\-Res\-Allocation@{delete\-Res\-Allocation}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{delete\-Res\-Allocation}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-delete\-Res\-Allocation (
+\begin{DoxyParamCaption}
+\item[{{\bf Res}}]{res\-Pool, }
+\item[{{\bf Sim\-Process}}]{done\-Proc, }
+\item[{int}]{quantity}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_ad2d93340dd506541c520a68c7df31b20}
+Deletes an entry in the resource data base (should be called when a Sim-\/process is done with it's requested number of resources from a resource pool ({\ttfamily Res} )). The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} and the number of requested resources will be deleted in the corresponding Vector (of the Res pool) in the assignment hashtable. The Res pool is the key to this hashtable, specifying the Vector which holds all the (Sim\-Process/number of requested resources)-\/pairs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\-Pool} & desmoj.\-Res \-: The resource pool which has provided the resources. (The key to the hashtable) \\
+\hline
+{\em done\-Proc} & desmoj.\-Sim\-Process \-: The Simprocess giving back his allocated resources. He should be done with the resources now. \\
+\hline
+{\em quantity} & int \-: The number of resources the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} has used. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_ad2d93340dd506541c520a68c7df31b20_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!delete\-Res\-Request@{delete\-Res\-Request}}
+\index{delete\-Res\-Request@{delete\-Res\-Request}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{delete\-Res\-Request}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-delete\-Res\-Request (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{gain\-Proc, }
+\item[{{\bf Res}}]{res\-Pool, }
+\item[{int}]{quantity}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_aeeb85afdcd5d864a3f82175967418613}
+Deletes an entry in the resource data base (should be called when a Sim-\/process receives it's requested number of resources from a resource pool ({\ttfamily Res} )). The resource pool and the number of requested resources will be deleted in the request hashtable. The Sim-\/process is the key to this hashtable, specifying the Requested\-Resources object which holds the (resource pool/number of requested resources)-\/pair.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gain\-Proc} & desmoj.\-Sim\-Process \-: The Simprocess giving up his request for the resources. Hopefully he gets satisfied. \\
+\hline
+{\em res\-Pool} & desmoj.\-Res \-: The resource pool which provides the resources. \\
+\hline
+{\em quantity} & int \-: The number of resources the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} gets. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_aeeb85afdcd5d864a3f82175967418613_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!note\-Resource\-Allocation@{note\-Resource\-Allocation}}
+\index{note\-Resource\-Allocation@{note\-Resource\-Allocation}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{note\-Resource\-Allocation}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-note\-Resource\-Allocation (
+\begin{DoxyParamCaption}
+\item[{{\bf Res}}]{resource\-Pool, }
+\item[{{\bf Sim\-Process}}]{allocating\-Process, }
+\item[{int}]{quantity}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_acc81c2bfe8b2cfcab7cacc65818242a8}
+Makes an entry in the resource data base when a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is allocating a number of resources from a resource pool ({\ttfamily Res}). The Sim-\/process and the number of allocated resources will be saved in the assignment hashtable. The resource pool is the key to this hashtable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\-Pool} & desmoj.\-Res \-: The resource pool which is providing the resources. \\
+\hline
+{\em allocating\-Process} & desmoj.\-Sim\-Process \-: The Simprocess which is allocating the resources. \\
+\hline
+{\em quantity} & int \-: The number of resources the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is allocating. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_acc81c2bfe8b2cfcab7cacc65818242a8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!note\-Resource\-Request@{note\-Resource\-Request}}
+\index{note\-Resource\-Request@{note\-Resource\-Request}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{note\-Resource\-Request}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-note\-Resource\-Request (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Process}}]{requesting\-Process, }
+\item[{{\bf Res}}]{resource\-Pool, }
+\item[{int}]{quantity}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a9bd54cdf0c1ea66581aa652c6d403d79}
+Makes an entry in the resource data base when a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is requesting a number of resources from a resource pool ({\ttfamily Res}). The resource pool and the number of requested resources will be saved in the request hashtable. The \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} is the key to this hashtable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em requesting\-Process} & desmoj.\-Sim\-Process \-: The Simprocess which is requesting the resources. \\
+\hline
+{\em resource\-Pool} & desmoj.\-Res \-: The resource pool which should provide the resources. \\
+\hline
+{\em quantity} & int \-: The number of resources the \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} wants to get. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a9bd54cdf0c1ea66581aa652c6d403d79_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!send\-Debug\-Note@{send\-Debug\-Note}}
+\index{send\-Debug\-Note@{send\-Debug\-Note}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{send\-Debug\-Note}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-send\-Debug\-Note (
+\begin{DoxyParamCaption}
+\item[{String}]{description}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a9a6f4488c0986a3ef23aeb898f2a0fc6}
+Creates and sends a debugnote to the experiment's messagedistributor. Debugnotes express the internal state of the \doxyref{Resource\-D\-B}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b} to visualize the changes of state to help find bugs. The information about the simulation time is extracted from the experiment and must not be given as a parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & java.\-lang.\-String \-: The description of the \doxyref{Resource\-D\-B}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b}'s internal state to be passed with this debugnote \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a9a6f4488c0986a3ef23aeb898f2a0fc6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!send\-Message@{send\-Message}}
+\index{send\-Message@{send\-Message}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{send\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-send\-Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Message}}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a36e850d8f7751dc1cc435a79df500ac9}
+Sends a message to the messagedistributor handled by the experiment. This \doxyref{Resource\-D\-B}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b} must already be connected to an experiment in order to have a messagedistributor available to send this message to and an appropriate messagereceiver must already be registered at the messagedistributor to receive that type of message passed on to it. If no messaging subsystem is available to this \doxyref{Resource\-D\-B}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b}, then the mesage is printed to the standard {\ttfamily out} printstream as configured in the local Java runtime environment of the computer this simulation is running on. Note that there are shorthands for sending the standard D\-E\-S\-M\-O-\/\-J messages. These methods create and send the appropriate Message on-\/the-\/fly\-: 
+\begin{DoxyItemize}
+\item {\ttfamily \doxyref{send\-Trace\-Note()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a50d6bf924dfdf8ceb00394809c31c317}$<$/clode$>$ to send a tracenote }
+\item {\ttfamily {\ttfamily \doxyref{send\-Debug\-Note()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a9a6f4488c0986a3ef23aeb898f2a0fc6}} to send the data needed to debug models }
+\item {\ttfamily {\ttfamily \doxyref{send\-Warning()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a412f7a0d73fdccbf66856d5333481024}} to send an errormessage that does not stop the experiment }
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em m} & {\ttfamily Message \-: The message to be transmitted }\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+{\ttfamily  \doxyref{Resource\-D\-B\-::send\-Trace\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a50d6bf924dfdf8ceb00394809c31c317} }
+
+{\ttfamily  \doxyref{Resource\-D\-B\-::send\-Debug\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a9a6f4488c0986a3ef23aeb898f2a0fc6} }
+
+{\ttfamily  \doxyref{Resource\-D\-B\-::send\-Warning}{p.}{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a412f7a0d73fdccbf66856d5333481024} }
+\end{DoxySeeAlso}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a36e850d8f7751dc1cc435a79df500ac9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!send\-Trace\-Note@{send\-Trace\-Note}}
+\index{send\-Trace\-Note@{send\-Trace\-Note}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{send\-Trace\-Note}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-send\-Trace\-Note (
+\begin{DoxyParamCaption}
+\item[{String}]{description}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a50d6bf924dfdf8ceb00394809c31c317}
+Creates and sends a tracenote to the experiment's messagedistributor. The information about the simulation time, model and component producing this tracenote is extracted from the experiment and must not be given as parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & java.\-lang.\-String \-: The description of the tracenote \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a50d6bf924dfdf8ceb00394809c31c317_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!send\-Warning@{send\-Warning}}
+\index{send\-Warning@{send\-Warning}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{send\-Warning}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Resource\-D\-B.\-send\-Warning (
+\begin{DoxyParamCaption}
+\item[{String}]{description, }
+\item[{String}]{location, }
+\item[{String}]{reason, }
+\item[{String}]{prevention}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a412f7a0d73fdccbf66856d5333481024}
+Creates and sends an error message to warn about a erroneous condition in the D\-E\-S\-M\-O-\/\-J framework to the experiment's messagedistributor. Be sure to have a correct location, since the object and method that the error becomes apparent is not necessary the location it was produced in. The information about the simulation time is extracted from the \doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment} and must not be given as a parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & java.\-lang.\-String \-: The description of the error that occured \\
+\hline
+{\em location} & java.\-lang.\-String \-: The class and method the error occured in \\
+\hline
+{\em reason} & java.\-lang.\-String \-: The reason most probably responsible for the error to occur \\
+\hline
+{\em prevention} & java.\-lang.\-String \-: The measures a user should take to prevent this warning to be issued again \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_a412f7a0d73fdccbf66856d5333481024_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Resource\-D\-B@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}!to\-Html\-String@{to\-Html\-String}}
+\index{to\-Html\-String@{to\-Html\-String}!desmoj::core::simulator::ResourceDB@{desmoj\-::core\-::simulator\-::\-Resource\-D\-B}}
+\subsubsection[{to\-Html\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Resource\-D\-B.\-to\-Html\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_resource_d_b_adf51784404781025cf1d375f3aca525f}
+Returns a string representation of the resource database with some H\-T\-M\-L formatting tags. Lists first for every \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} all the resources he is requesting and second for every resource pool ({\ttfamily Res}) all the Sim\-Processes that are using resources from that resource pool. This information is useful for debugging purposes.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The string representation of this resource database. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Resource\-D\-B.\-java\end{DoxyCompactItemize}

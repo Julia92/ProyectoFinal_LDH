@@ -1,0 +1,172 @@
+.TH "desmoj.extensions.experimentation.ui.HistogramPlotter" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.experimentation.ui.HistogramPlotter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.experimentation\&.ui\&.GraphicalObserver\fP, \fBdesmoj\&.core\&.util\&.ExperimentListener\fP, and \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ChartOwner\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHistogramPlotter\fP (String title, \fBGraphicalObserverContext\fP context, \fBHistogram\fP data, String xUnit, int winWidth, int winHeight)"
+.br
+.ti -1c
+.RI "\fBHistogramPlotter\fP (String title, \fBGraphicalObserverContext\fP context, \fBHistogram\fP data, String xUnit, int winWidth, int winHeight, int x, int y)"
+.br
+.ti -1c
+.RI "Component \fBgetGUI\fP ()"
+.br
+.ti -1c
+.RI "void \fBexperimentRunning\fP (\fBSimRunEvent\fP e)"
+.br
+.ti -1c
+.RI "void \fBexperimentStopped\fP (\fBSimRunEvent\fP e)"
+.br
+.ti -1c
+.RI "void \fBexperimentPaused\fP (\fBSimRunEvent\fP e)"
+.br
+.ti -1c
+.RI "void \fBdrawChart\fP (Graphics g)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A simple histogram plotter based on the statistic class Histogram and the UI class \fBChartPanel\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Nicolas Knaak 
+.PP
+Philip Joschko
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.HistogramPlotter\&.HistogramPlotter (Stringtitle, \fBGraphicalObserverContext\fPcontext, \fBHistogram\fPdata, StringxUnit, intwinWidth, intwinHeight)"
+Creates a new \fBHistogramPlotter\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP name displayed in window title 
+.br
+\fIcontext\fP graphical observer context the plotter is displayed in 
+.br
+\fIdata\fP HistogramData consisting of double values to be displayed in the histogram 
+.br
+\fIxUnit\fP unit label for x axis 
+.br
+\fIwinWidth\fP width of window 
+.br
+\fIwinHeight\fP height of window 
+.RE
+.PP
+
+.SS "desmoj\&.extensions\&.experimentation\&.ui\&.HistogramPlotter\&.HistogramPlotter (Stringtitle, \fBGraphicalObserverContext\fPcontext, \fBHistogram\fPdata, StringxUnit, intwinWidth, intwinHeight, intx, inty)"
+Creates a new \fBHistogramPlotter\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP name displayed in window title 
+.br
+\fIcontext\fP graphical observer context the plotter is displayed in 
+.br
+\fIdata\fP HistogramData consisting of double values to be displayed in the histogram 
+.br
+\fIxUnit\fP unit label for x axis 
+.br
+\fIwinWidth\fP width of window 
+.br
+\fIwinHeight\fP height of window 
+.br
+\fIx\fP horizontal window location 
+.br
+\fIy\fP vertical window location 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.HistogramPlotter\&.drawChart (Graphicsg)"
+Draws the histogram bars given by the Histogram statistic object into the chart\&. This method is automatically invoked by the chart object, if it has to repaint\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.ChartOwner\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.HistogramPlotter\&.experimentPaused (\fBSimRunEvent\fPe)"
+Called when experiment is paused\&. Current HistogramData is displayed in chart until restarting the simulation\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP a SimRunEvent 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.extensions\&.experimentation\&.access\&.ExperimentListener::experimentPaused(SimRunEvent) 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.util\&.ExperimentListener\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.HistogramPlotter\&.experimentRunning (\fBSimRunEvent\fPe)"
+Called when experiment is (re)started\&. Nothing happens here\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP a SimRunEvent 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.extensions\&.experimentation\&.access\&.ExperimentListener::experimentRunning(SimRunEvent) 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.util\&.ExperimentListener\fP\&.
+.SS "void desmoj\&.extensions\&.experimentation\&.ui\&.HistogramPlotter\&.experimentStopped (\fBSimRunEvent\fPe)"
+Called when experiment is stopped\&. HistogramData is displayed in chart\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe\fP a SimRunEvent 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+desmoj\&.extensions\&.experimentation\&.access\&.ExperimentListener::experimentStopped(SimRunEvent) 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.core\&.util\&.ExperimentListener\fP\&.
+.SS "Component desmoj\&.extensions\&.experimentation\&.ui\&.HistogramPlotter\&.getGUI ()\fC [virtual]\fP"
+
+.PP
+\fBReturns:\fP
+.RS 4
+The GUI component of this observer (a \fCjfree\&.org\&.chart\&.ChartPanel\fP)\&. 
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBdesmoj\&.extensions\&.experimentation\&.ui\&.GraphicalObserver::getGUI()\fP 
+.RE
+.PP
+
+.PP
+Implements \fBdesmoj\&.extensions\&.experimentation\&.ui\&.GraphicalObserver\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

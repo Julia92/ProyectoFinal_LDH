@@ -1,0 +1,392 @@
+\section{desmoj.\-core.\-dist.\-Distribution Class Reference}
+\label{classdesmoj_1_1core_1_1dist_1_1_distribution}\index{desmoj.\-core.\-dist.\-Distribution@{desmoj.\-core.\-dist.\-Distribution}}
+
+
+Inheritance diagram for desmoj.\-core.\-dist.\-Distribution\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-dist.\-Distribution\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Distribution} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+void {\bf change\-Random\-Generator} ({\bf desmoj.\-core.\-dist.\-Uniform\-Random\-Generator} {\bf random\-Generator})
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+long {\bf get\-Initial\-Seed} ()
+\item 
+boolean {\bf get\-Non\-Negative} ()
+\item 
+long {\bf get\-Num\-Samples} ()
+\item 
+boolean {\bf is\-Antithetic} ()
+\item 
+void {\bf reset} ()
+\item 
+void {\bf reset} (long new\-Seed)
+\item 
+abstract Object {\bf sample\-Object} ()
+\item 
+void {\bf set\-Antithetic} (boolean new\-Anti\-Status)
+\item 
+void {\bf set\-Non\-Negative} (boolean new\-Value)
+\item 
+void {\bf set\-Seed} (long new\-Seed)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf trace\-Last\-Sample} (String sample)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf desmoj.\-core.\-dist.\-Uniform\-Random\-Generator} {\bf random\-Generator}
+\item 
+boolean {\bf antithetic}
+\item 
+long {\bf initial\-Seed}
+\item 
+boolean {\bf non\-Negative}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base class for all pseudo random number distributions used in this package. Defines a set of methods usefull for all kinds of random distributions that can be based upon a stream of uniform distributed pseudo random numbers. Prefabricated distributions implemented in this package can handle uniform, normal (gaussian), bernoulli, poisson and heuristic distributions with return values of the primitive data types double (floating point), long (integer) and boolean (true or false). Inherit from this class if you want to implement new types of distributions handing back values of other types than those listed above. Basic idea is to use a pseudo random generator which produces a uniformly distributed stream of double numbers between 0 and 1 use inverse transformation to generate the desired distribution. See also [Page91, p. 107] Note that although this class implements all methods, it is set to be abstract, since instantiating this class would not produce any meaningfull distribution to be used by a client.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-dist.\-Uniform\-Random\-Generator}{p.}{interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator} 
+
+\doxyref{desmoj.\-core.\-dist.\-Linear\-Congruential\-Random\-Generator}{p.}{classdesmoj_1_1core_1_1dist_1_1_linear_congruential_random_generator}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!Distribution@{Distribution}}
+\index{Distribution@{Distribution}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{Distribution}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-dist.\-Distribution.\-Distribution (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_af8788181fb0efb2daf8c84c3ecfbd0d1}
+Creates a Random\-Distribution object which gets its initial seed from the experiment's seedgenerator. The {\ttfamily \doxyref{Linear\-Congruential\-Random\-Generator}{p.}{classdesmoj_1_1core_1_1dist_1_1_linear_congruential_random_generator}} is used as the underlying uniform pseudo random number generator for all pseudo random distribution 
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The distribution's owner \\
+\hline
+{\em name} & java.\-lang.\-String \-: The distribution's name \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag to show distribution in report \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag to show distribution in trace \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution_af8788181fb0efb2daf8c84c3ecfbd0d1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!change\-Random\-Generator@{change\-Random\-Generator}}
+\index{change\-Random\-Generator@{change\-Random\-Generator}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{change\-Random\-Generator}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Distribution.\-change\-Random\-Generator (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-dist.\-Uniform\-Random\-Generator}}]{random\-Generator}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_aba843e43cf0dcd9632041d6c2a1b0a2e}
+Changes the underlying random generator to the one given as a parameter. Custom random generators have to implement the desmoj.\-dist.\-Uniorm\-Random\-Generator interface. Note that changing the underlying random generator forces a reset, since a new generator might produce a completely different stream of pseudo random numbers that won't enable us to reproduce the stream of numbers probably delivered by the previously used generator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em random\-Generator} & java.\-util.\-Random \-: the random generator used for creating distributions \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution_aba843e43cf0dcd9632041d6c2a1b0a2e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-core.\-dist.\-Distribution.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_aacc2c37d8ab44873290fc2b03022bc5d}
+Creates the default reporter associated with this distribution. The basic {\ttfamily Distribution\-Reporter} returned as a default implementation of this method simply reports the distribution's name, number of observations (samples given), seed and point of simulation time of the last reset.
+
+\begin{DoxyReturn}{Returns}
+Reportable \-: The reporter associated with this distribution 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-report.\-Distribution\-Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_distribution_reporter} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!get\-Initial\-Seed@{get\-Initial\-Seed}}
+\index{get\-Initial\-Seed@{get\-Initial\-Seed}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{get\-Initial\-Seed}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-dist.\-Distribution.\-get\-Initial\-Seed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a4cc8ff0414cb78f292b48dfd5826dd27}
+Returns the seed value since last reset.
+
+\begin{DoxyReturn}{Returns}
+long \-: The initial seed value 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!get\-Non\-Negative@{get\-Non\-Negative}}
+\index{get\-Non\-Negative@{get\-Non\-Negative}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{get\-Non\-Negative}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-dist.\-Distribution.\-get\-Non\-Negative (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_ae030183a1a4fccd846edc57480aa6247}
+Tells if this distribution can return negative samples.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: If {\ttfamily true} it returns positive samples only 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!get\-Num\-Samples@{get\-Num\-Samples}}
+\index{get\-Num\-Samples@{get\-Num\-Samples}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{get\-Num\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-dist.\-Distribution.\-get\-Num\-Samples (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_ac787d4d318409e83cab5f600573f1c7d}
+Returns the number of Samples given by this distribution. The number of samples is increased whenever the sample() method is called. It is based on the random numbers of the distribution, not on the number of random numbers produced by the underlying random generator, since some distributions use algorithms consuming more than one uniformly distributed random number to produce one sample following the desired distribution.
+
+\begin{DoxyReturn}{Returns}
+long \-: the number of samples given to clients 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution_ac787d4d318409e83cab5f600573f1c7d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!is\-Antithetic@{is\-Antithetic}}
+\index{is\-Antithetic@{is\-Antithetic}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{is\-Antithetic}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-dist.\-Distribution.\-is\-Antithetic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a654c8dc4af0cdf350449ea21e64edc82}
+Returns the current status for antithetic random number generation in this distribution.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: The status of antithetic pseudo random number generation 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-dist.\-Distribution\-::set\-Antithetic}{p.}{classdesmoj_1_1core_1_1dist_1_1_distribution_a6dfb5a740b184775679af684e118f7b7} 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Distribution.\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a0a5899c3752664ae6030e23839c5be6c}
+Resets the pseudo random generator's seed and the number of samples given to zero. The field antithetic keeps the value it has had before the reset. \index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!reset@{reset}}
+\index{reset@{reset}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Distribution.\-reset (
+\begin{DoxyParamCaption}
+\item[{long}]{new\-Seed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a527359507e9a10981d82a193d9eedce2}
+Resets the pseudo random generator's seed to the value passed, the number of samples given to zero and sets antithetic to false for this distribution. Acts the same as a call of method {\ttfamily \doxyref{reset()}{p.}{classdesmoj_1_1core_1_1dist_1_1_distribution_a0a5899c3752664ae6030e23839c5be6c}} and a consecutive call to {\ttfamily \doxyref{set\-Seed(long)}{p.}{classdesmoj_1_1core_1_1dist_1_1_distribution_ac67664cf06cd901ead866ffba10bb111}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Seed} & long \-: new seed to be used by underlying random number generator after reset \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!sample\-Object@{sample\-Object}}
+\index{sample\-Object@{sample\-Object}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{sample\-Object}]{\setlength{\rightskip}{0pt plus 5cm}abstract Object desmoj.\-core.\-dist.\-Distribution.\-sample\-Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a79a483a1e8ded837827be3c6d32a339c}
+Convenience method to return the distribution's sample as {\ttfamily Object}. For type safety, method {\ttfamily sample()} should be preferred. However, this method is useful for environments requiring a non-\/genetic access point to obtain samples from any distribution.
+
+\begin{DoxyReturn}{Returns}
+Object \-: A sample from this this distribution wrapped as {\ttfamily Object}. 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-core.\-dist.\-Series$<$ O extends Object $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1dist_1_1_series_3_01_o_01extends_01_object_01_4_aaa58ac9a74d5eb6015162f916d767826}, {\bf desmoj.\-core.\-dist.\-Numerical\-Dist$<$ N extends Number $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1dist_1_1_numerical_dist_3_01_n_01extends_01_number_01_4_ad92131a5a1318f9e3e0e0b98ca446120}, {\bf desmoj.\-core.\-dist.\-Entity\-Dist$<$ E extends Entity $>$} \doxyref{}{p.}{classdesmoj_1_1core_1_1dist_1_1_entity_dist_3_01_e_01extends_01_entity_01_4_af8eb861957e2773c24dca87a334a2f8b}, and {\bf desmoj.\-core.\-dist.\-Bool\-Dist} \doxyref{}{p.}{classdesmoj_1_1core_1_1dist_1_1_bool_dist_a290fa2ac2871919acad37c9db5286016}.
+
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!set\-Antithetic@{set\-Antithetic}}
+\index{set\-Antithetic@{set\-Antithetic}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{set\-Antithetic}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Distribution.\-set\-Antithetic (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Anti\-Status}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a6dfb5a740b184775679af684e118f7b7}
+Switches this distribution to produce antithetic samples. To obtain antithetic random numbers, call this method with the parameter {\ttfamily true}. Antithetic random numbers are used to minimize the standard deviation of a series of simulation runs. The results of a run with normal random numbers has to be standardized with the results of a run using antithetic random numbers, thus doubling the number of samples needed, but also lowering the standard deviation of the results of that simulation. See [Page91, p.\-139].
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Anti\-Status} & boolean \-: Parameter {\ttfamily true} switches antithetic mode on, {\ttfamily false} switches antithetic mode off \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution_a6dfb5a740b184775679af684e118f7b7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!set\-Non\-Negative@{set\-Non\-Negative}}
+\index{set\-Non\-Negative@{set\-Non\-Negative}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{set\-Non\-Negative}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Distribution.\-set\-Non\-Negative (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Value}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_aa8c2b92cac478050e7b549be3ea5d47d}
+Sets the non\-Negative switch to the given value. If non\-Negative is set to {\ttfamily true} the distribution returns positive samples only, otherwise it also produces negative samples, if possible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Value} & boolean \-: If {\ttfamily true} the distribution is set to return positive samples only, otherwise it also produces negative samples, if possible. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!set\-Seed@{set\-Seed}}
+\index{set\-Seed@{set\-Seed}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{set\-Seed}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Distribution.\-set\-Seed (
+\begin{DoxyParamCaption}
+\item[{long}]{new\-Seed}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_ac67664cf06cd901ead866ffba10bb111}
+Sets the underlying pseudo random number generator's seed to the value given. The seed controls the starting value of the random generators and all following generated pseudo random numbers. Resetting the seed between two simulation runs will let you use identical streams of random numbers. That will enable you to compare different strategies within your model based on the same random number stream produced by the random generator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Seed} & long \-: new seed used by underlying pseudo random number generator \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution_ac67664cf06cd901ead866ffba10bb111_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!trace\-Last\-Sample@{trace\-Last\-Sample}}
+\index{trace\-Last\-Sample@{trace\-Last\-Sample}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{trace\-Last\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-dist.\-Distribution.\-trace\-Last\-Sample (
+\begin{DoxyParamCaption}
+\item[{String}]{sample}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a4c7942d7ecd2bf57b7b2146a55da8214}
+Generates the trace output of each sample. This method is called by sample().
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & String \-: The last sample, converted to a String \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1dist_1_1_distribution_a4c7942d7ecd2bf57b7b2146a55da8214_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!antithetic@{antithetic}}
+\index{antithetic@{antithetic}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{antithetic}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-dist.\-Distribution.\-antithetic\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a998e50e560af2d6dbfab6b2cc32d82e2}
+The status of the random number generation. If set to true, antithetic values are delivered. These depend upon the kind of distribution, so this value here will probably be most useful to switch the algorithm in the implementation of the abstract {\ttfamily sample()} method between \char`\"{}normal\char`\"{} and \char`\"{}antithetic\char`\"{} value generation. This feature is not associated to the pseudo random generator since the algorithm for calculating antithetic values might not require antithetic uniformly distributed values. \index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!initial\-Seed@{initial\-Seed}}
+\index{initial\-Seed@{initial\-Seed}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{initial\-Seed}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-dist.\-Distribution.\-initial\-Seed\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a6b495c392e37b816df12df8ba00dff5d}
+The seed of the underlying pseudorandom generator. The seed value is passed on to the underlying {\ttfamily \doxyref{Uniform\-Random\-Generator}{p.}{interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator}} but since those generators are not supposed to keep track of their initial seed value it is stored here to make sure they are not lost. \index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!non\-Negative@{non\-Negative}}
+\index{non\-Negative@{non\-Negative}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{non\-Negative}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-dist.\-Distribution.\-non\-Negative\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a075c300a1f99dff8ff8368b1b55b24b6}
+This flag shows, if a distribution may produce negative samples or not. This is important, if the value of a distribution's sample is to be used for creating a Time\-Span object, which allows positive values only. If this switch is set to {\ttfamily true}, the distribution will only return positive samples. If a negative sample is drawn, it will be dismissed and new samples will be drawn until a positive is produced, which will be returned. \index{desmoj\-::core\-::dist\-::\-Distribution@{desmoj\-::core\-::dist\-::\-Distribution}!random\-Generator@{random\-Generator}}
+\index{random\-Generator@{random\-Generator}!desmoj::core::dist::Distribution@{desmoj\-::core\-::dist\-::\-Distribution}}
+\subsubsection[{random\-Generator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-dist.\-Uniform\-Random\-Generator} desmoj.\-core.\-dist.\-Distribution.\-random\-Generator\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1dist_1_1_distribution_a6d64b20fd9af32faa696c8170b9c4181}
+The underlying uniform pseudo random generator available to every distribution inheriting from this abstract class. Valid generators have to implement the {\ttfamily desmoj.\-dist.\-Uniform\-Random\-Generator} interface. By default the {\ttfamily desmoj.\-dist.\-Default\-Random\-Generator} is used.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-dist.\-Uniform\-Random\-Generator}{p.}{interfacedesmoj_1_1core_1_1dist_1_1_uniform_random_generator} 
+
+\doxyref{desmoj.\-core.\-dist.\-Linear\-Congruential\-Random\-Generator}{p.}{classdesmoj_1_1core_1_1dist_1_1_linear_congruential_random_generator} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/dist/Distribution.\-java\end{DoxyCompactItemize}

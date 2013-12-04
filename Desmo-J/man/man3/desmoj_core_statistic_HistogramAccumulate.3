@@ -1,0 +1,316 @@
+.TH "desmoj.core.statistic.HistogramAccumulate" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.statistic.HistogramAccumulate \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.core\&.statistic\&.Accumulate\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHistogramAccumulate\fP (\fBModel\fP ownerModel, String name, double lowerEnd, double upperEnd, int cells, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBHistogramAccumulate\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, boolean automatic, double lowerEnd, double upperEnd, int cells, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBHistogramAccumulate\fP (\fBModel\fP ownerModel, String name, double[] range, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "\fBHistogramAccumulate\fP (\fBModel\fP ownerModel, String name, \fBValueSupplier\fP valSup, boolean automatic, double[] range, boolean showInReport, boolean showInTrace)"
+.br
+.ti -1c
+.RI "void \fBchangeParameters\fP (double low, double up, int cel)"
+.br
+.ti -1c
+.RI "void \fBchangeParameters\fP (double[] range)"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.core\&.report\&.Reporter\fP \fBcreateReporter\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetCells\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMeanWidth\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetLowerLimit\fP (int cell)"
+.br
+.ti -1c
+.RI "int[] \fBgetMostFrequentedCells\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeSpan\fP \fBgetObservationsInCell\fP (int cell)"
+.br
+.ti -1c
+.RI "double \fBgetUpperLimit\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double value)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (Observable o, Object arg)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheckParamAndInitRange\fP (double lowerLimit, double upperLimit, int cells)"
+.br
+.ti -1c
+.RI "void \fBcheckParamAndInitRange\fP (double[] range)"
+.br
+.ti -1c
+.RI "void \fBinitTable\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fC\fBHistogramAccumulate\fP\fP class is providing a statistic analysis about values\&. With each update an observed value is changed\&. An interval is divided into sections with an under- and an overflow section\&. When a value is updated it will be decided to which section it belongs to and the time where the observed value is in that section will be updated\&. In the end the report will show how long values belong to which section\&. 
+.br
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Chr\&. Mu\*(4ller (TH Wildau) 28\&.11\&.12
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.statistic\&.HistogramAccumulate\&.HistogramAccumulate (\fBModel\fPownerModel, Stringname, doublelowerEnd, doubleupperEnd, intcells, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with equidistant interval cells that will NOT be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIlowerEnd\fP double : The lower end of the interval\&. 
+.br
+\fIupperEnd\fP double : The upper end of the interval\&. 
+.br
+\fIcells\fP int : The number of cells (sections) the given interval will be divided into\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.HistogramAccumulate\&.HistogramAccumulate (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, booleanautomatic, doublelowerEnd, doubleupperEnd, intcells, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with equidistant interval cells that will be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBHistogram\fP\&. The given \fBValueSupplier\fP will be observed by this \fBHistogram\fP object\&. 
+.br
+\fIautomatic\fP boolean : Flag for observing the \fBValueSupplier\fP at every tick of the SimClock\&. Set it to \fCtrue\fP to have it observed at every SimClock tick\&. 
+.br
+\fIlowerEnd\fP double : The lower end of the interval\&. 
+.br
+\fIupperEnd\fP double : The upper end of the interval\&. 
+.br
+\fIcells\fP int : The number of cells (sections) the given interval will be divided into\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.HistogramAccumulate\&.HistogramAccumulate (\fBModel\fPownerModel, Stringname, double[]range, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with user-defined interval cells that will NOT be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIrange\fP double[] : The interval with the lower limit of each cell and the upper limit of the interval as the final value\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "desmoj\&.core\&.statistic\&.HistogramAccumulate\&.HistogramAccumulate (\fBModel\fPownerModel, Stringname, \fBValueSupplier\fPvalSup, booleanautomatic, double[]range, booleanshowInReport, booleanshowInTrace)"
+Constructor for a \fBHistogram\fP object with user-defined interval cells that will be connected to a \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIownerModel\fP Model : The model this \fBHistogram\fP is associated to\&. 
+.br
+\fIname\fP java\&.lang\&.String : The name of this \fBHistogram\fP object\&. 
+.br
+\fIvalSup\fP \fBValueSupplier\fP : The \fBValueSupplier\fP providing the value for this \fBHistogram\fP\&. The given \fBValueSupplier\fP will be observed by this \fBHistogram\fP object\&. 
+.br
+\fIautomatic\fP boolean : Flag for observing the \fBValueSupplier\fP at every tick of the SimClock\&. Set it to \fCtrue\fP to have it observed at every SimClock tick\&. 
+.br
+\fIrange\fP double[] : The interval with the lower limit of each cell and the upper limit of the interval as the final value\&. 
+.br
+\fIshowInReport\fP boolean : Flag for showing the report about this \fBHistogram\fP\&. 
+.br
+\fIshowInTrace\fP boolean : Flag for showing the trace output of this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.changeParameters (doublelow, doubleup, intcel)"
+Changes the parameters of the interval and its number of segments\&. Can only be done after construction of a \fBHistogram\fP or after a reset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlow\fP double : The lower end of the interval\&. 
+.br
+\fIup\fP double : The upper end of the interval\&. 
+.br
+\fIcel\fP int : The number of cells (sections) the given interval will be divided into\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.changeParameters (double[]range)"
+Changes the parameters of the interval and its number of segments\&. Can only be done after construction of a \fBHistogram\fP or after a reset\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP double[] : The array holding the lower limits of the interval sections and the upper limit as the final value\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.checkParamAndInitRange (doublelowerLimit, doubleupperLimit, intcells)\fC [protected]\fP"
+Checks the segmentation of the given equidistant interval and then initializes the range array\&. 
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.checkParamAndInitRange (double[]range)\fC [protected]\fP"
+Checks the segmentation of the given user-defined interval and then initializes the range array\&. 
+.SS "\fBdesmoj\&.core\&.report\&.Reporter\fP desmoj\&.core\&.statistic\&.HistogramAccumulate\&.createReporter ()"
+Returns a Reporter to produce a report about this \fBHistogram\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+desmoj\&.report\&.Reporter : The Reporter for this \fBHistogram\fP\&. 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.statistic\&.HistogramAccumulate\&.getCells ()"
+Returns the number of cells the interval is divided into\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The number of cells the interval is divided into\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.HistogramAccumulate\&.getLowerLimit (intcell)"
+Returns the lower limit of the given cell\&. If the given cell is negative, \fCUNDEFINED\fP (-1) will be returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The lower limit of the given cell\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcell\fP int : The cell for which we want to know its lower limit\&. Should be zero or positive\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.HistogramAccumulate\&.getMeanWidth ()"
+Returns the mean width of all cells\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The mean width of all cells\&. 
+.RE
+.PP
+
+.SS "int [] desmoj\&.core\&.statistic\&.HistogramAccumulate\&.getMostFrequentedCells ()"
+Returns the numbers of the most frequented cells, so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int[] : An array with the numbers of the most frequented cells\&. 
+.RE
+.PP
+
+.SS "\fBTimeSpan\fP desmoj\&.core\&.statistic\&.HistogramAccumulate\&.getObservationsInCell (intcell)"
+Returns the observations made for the given cell, so far\&.
+.PP
+\fBReturns:\fP
+.RS 4
+long : The observations made for the given cell\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcell\fP int : The cell of which want to get the number of observations made for\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.core\&.statistic\&.HistogramAccumulate\&.getUpperLimit ()"
+Returns the upper limit of the whole interval\&.
+.PP
+\fBReturns:\fP
+.RS 4
+double : The upper limit of the whole interval\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.initTable ()\fC [protected]\fP"
+Initializes the table by setting each cell counter to zero\&. 
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.reset ()"
+Resets this \fBHistogram\fP object by resetting the counters for each cell to zero\&. That means the array of the cell counters will be reset, but the interval and the number of sections this interval is divided into will remain the same\&. The parameters of the interval can be changed with the \fCchangeParameters\fP method after the reset\&. 
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.update ()"
+Updates this \fC\fBHistogram\fP\fP object by fetching the actual value of the \fC\fBValueSupplier\fP\fP and processing it\&. The \fC\fBValueSupplier\fP\fP is passed in the constructor of this \fC\fBHistogram\fP\fP object\&. This \fC\fBupdate()\fP\fP method complies with the one described in DESMO, see [Page91]\&. 
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.update (doublevalue)"
+Updates this \fC\fBHistogram\fP\fP object with the double value given as parameter\&. In some cases it might be more convenient to pass the value this \fC\fBHistogram\fP\fP will be updated with directly within the \fC\fBupdate(double val)\fP\fP method instead of going via the \fC\fBValueSupplier\fP\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIval\fP double : The value with which this \fC\fBHistogram\fP\fP will be updated\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.core\&.statistic\&.HistogramAccumulate\&.update (Observableo, Objectarg)"
+Implementation of the virtual \fC\fBupdate(Observable, Object)\fP\fP method of the \fCObserver\fP interface\&. This method will be called automatically from an \fCObservable\fP object within its \fCnotifyObservers()\fP method\&. 
+.br
+ If no Object (a\fCnull\fP value) is passed as arg, the actual value of the \fBValueSupplier\fP will be fetched with the \fCvalue()\fP method of the \fBValueSupplier\fP\&. Otherwise it is expected that the actual value is passed in the Object arg\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIo\fP java\&.util\&.Observable : The Observable calling this method within its own \fCnotifyObservers()\fP method\&. 
+.br
+\fIarg\fP Object : The Object with which this \fC\fBTally\fP\fP is updated\&. Normally a double number which is added to the statistics or \fCnull\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

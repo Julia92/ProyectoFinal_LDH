@@ -1,0 +1,240 @@
+.TH "desmoj.core.simulator.EventNote" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.core.simulator.EventNote \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Comparable< EventNote >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEventNote\fP (\fBEntity\fP who1, \fBEntity\fP who2, \fBEntity\fP who3, \fBEventAbstract\fP what, \fBTimeInstant\fP when, int howImportant, \fBSchedulable\fP source)"
+.br
+.ti -1c
+.RI "\fBEventNote\fP \fBcopy\fP (\fBSchedulable\fP source)"
+.br
+.ti -1c
+.RI "boolean \fBequals\fP (Object object)"
+.br
+.ti -1c
+.RI "int \fBhashCode\fP ()"
+.br
+.ti -1c
+.RI "int \fBcompareTo\fP (\fBEventNote\fP note)"
+.br
+.ti -1c
+.RI "\fBEntity\fP \fBgetEntity1\fP ()"
+.br
+.ti -1c
+.RI "\fBEntity\fP \fBgetEntity2\fP ()"
+.br
+.ti -1c
+.RI "\fBEntity\fP \fBgetEntity3\fP ()"
+.br
+.ti -1c
+.RI "\fBEventAbstract\fP \fBgetEvent\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetNumberOfEntities\fP ()"
+.br
+.ti -1c
+.RI "\fBTimeInstant\fP \fBgetTime\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetPriority\fP ()"
+.br
+.ti -1c
+.RI "\fBSchedulable\fP \fBgetSource\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Event notes contain any information needed for any type of \fC\fBSchedulable\fP\fP, event or process\&. Since \fC\fBEventNote\fP\fP are tightly coupled with the \fC\fBEventList\fP\fP, a change of the \fC\fBEventList\fP\fP might alo force the \fC\fBEventNote\fP\fP to contain other information especially concerning the data structures used in the \fC\fBEventList\fP\fP as well\&. To adopt the \fCEvent notes\fP extend them to carry the specific data and methods you need for a possible change of the \fC\fBEventList\fP\fP\&. The implementation here includes data and methods for event information only, since the default implementation of class \fCEventVector\fP needs no special information stored inside the \fCEvent notes\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Tim Lechler 
+.PP
+modified by Justin Neumann
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.core\&.simulator\&.EventNote\&.EventNote (\fBEntity\fPwho1, \fBEntity\fPwho2, \fBEntity\fPwho3, \fBEventAbstract\fPwhat, \fBTimeInstant\fPwhen, inthowImportant, \fBSchedulable\fPsource)"
+Event notes can only be created if all relevant data can be supplied at creation time\&. Note that all relevant associations of the given Schedulables towards this event-note are built in this constructor ensuring that each scheduled \fBSchedulable\fP has access to its associated \fBEventNote\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwho1\fP \fBEntity\fP : The first entity that is scheduled to be change during the course of the event or the \fBSimProcess\fP (or null, if such an entity is not defined) 
+.br
+\fIwho2\fP \fBEntity\fP : The second entity that is scheduled to be change during the course of the event or the \fBSimProcess\fP (or null, if such an entity is not defined) 
+.br
+\fIwho3\fP \fBEntity\fP : The third entity that is scheduled to be change during the course of the event or the \fBSimProcess\fP (or null, if such an entity is not defined) 
+.br
+\fIwhat\fP Event : The type of Event that scheduled to happen to the \fBEntity\fP or entities 
+.br
+\fIwhen\fP \fBTimeInstant\fP : The point of time that this event-note is supposed to be processed by the scheduling mechanism 
+.br
+\fIhowImportant\fP int : The scheduling priority of this event note 
+.br
+\fIsource\fP \fBSchedulable\fP : The \fBSchedulable\fP responsible for creating this event note 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int desmoj\&.core\&.simulator\&.EventNote\&.compareTo (\fBEventNote\fPnote)"
+Compares the given \fBEventNote\fP to this event-note\&. This method implements the Comparable<EventNote> Interface
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP The event-note to be compared to this event-note
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Returns a negative integer, zero, or a positive integer as this event-note is before, at the same time, or after the given \fBEventNote\fP\&. 
+.RE
+.PP
+
+.SS "\fBEventNote\fP desmoj\&.core\&.simulator\&.EventNote\&.copy (\fBSchedulable\fPsource)"
+Copies the event-note\&. WARNING: No additional reference is set to linked \fBEntity\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsource\fP \fBSchedulable\fP : The \fBSchedulable\fP responsible for copying this event note
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBEntity\fP associated to this event-note 
+.RE
+.PP
+
+.SS "boolean desmoj\&.core\&.simulator\&.EventNote\&.equals (Objectobject)"
+Returns whether this \fC\fBEventNote\fP\fP equals another one or not\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP or \fCfalse\fP\&. 
+.RE
+.PP
+
+.SS "\fBEntity\fP desmoj\&.core\&.simulator\&.EventNote\&.getEntity1 ()"
+Returns the entity that is associated with this event-note\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The \fBEntity\fP associated to this event-note 
+.RE
+.PP
+
+.SS "\fBEntity\fP desmoj\&.core\&.simulator\&.EventNote\&.getEntity2 ()"
+Returns the entity that is associated with this event-note\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The \fBEntity\fP associated to this event-note 
+.RE
+.PP
+
+.SS "\fBEntity\fP desmoj\&.core\&.simulator\&.EventNote\&.getEntity3 ()"
+Returns the entity that is associated with this event-note\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The \fBEntity\fP associated to this event-note 
+.RE
+.PP
+
+.SS "\fBEventAbstract\fP desmoj\&.core\&.simulator\&.EventNote\&.getEvent ()"
+Returns the event associated with this event-note\&.
+.PP
+\fBReturns:\fP
+.RS 4
+Event : The event associated with this event-note 
+.RE
+.PP
+
+.SS "long desmoj\&.core\&.simulator\&.EventNote\&.getNumberOfEntities ()"
+Returns the number of included entities\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fCint\fP : The number of entities 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.EventNote\&.getPriority ()"
+Returns the priority of this event-note\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int : The scheduling priority of this \fBEventNote\fP 
+.RE
+.PP
+
+.SS "\fBSchedulable\fP desmoj\&.core\&.simulator\&.EventNote\&.getSource ()"
+Returns the \fBSchedulable\fP that has created this event note\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBEntity\fP : The \fBSchedulable\fP that has created this event note 
+.RE
+.PP
+
+.SS "\fBTimeInstant\fP desmoj\&.core\&.simulator\&.EventNote\&.getTime ()"
+Returns the point of time associated with this event-note\&.
+.PP
+\fBReturns:\fP
+.RS 4
+\fBTimeInstant\fP : Point of time in simulation associated with this \fBEventNote\fP 
+.RE
+.PP
+
+.SS "int desmoj\&.core\&.simulator\&.EventNote\&.hashCode ()"
+Returns a hash code value for the object\&. This method overrides java\&.lang\&.Object\&.hashCode() to support efficient treatment in HashMaps\&.
+.PP
+\fBReturns:\fP
+.RS 4
+: int: A hash code value for this \fBEventNote\fP\&. 
+.RE
+.PP
+
+.SS "String desmoj\&.core\&.simulator\&.EventNote\&.toString ()"
+Returns a string representing the elements bundled in this event-note\&. It calls the \fC\fBtoString()\fP\fP methods of every element putting each in brackets containing one or two letters to indicate the type of element\&. 
+.PP
+.PD 0
+.IP "\(bu" 2
+En: \fBEntity\fP, \fBSimProcess\fP or \fCnull\fP 
+.IP "\(bu" 2
+Ev: Event, external event or \fCnull\fP 
+.IP "\(bu" 2
+t: simulation time 
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+java\&.lang\&.String : String representing the contained elements\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

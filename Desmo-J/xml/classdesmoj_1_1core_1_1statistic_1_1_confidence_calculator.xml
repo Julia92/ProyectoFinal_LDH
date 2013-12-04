@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.5">
+  <compounddef id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kind="class" prot="public">
+    <compoundname>desmoj::core::statistic::ConfidenceCalculator</compoundname>
+    <basecompoundref refid="classdesmoj_1_1core_1_1statistic_1_1_tally" prot="public" virt="non-virtual">desmoj.core.statistic.Tally</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a54766af4304287590189ec5352336e96" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.ConfidenceCalculator._confidenceLevel</definition>
+        <argsstring></argsstring>
+        <name>_confidenceLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The confidence level </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="40" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ac57198bd94f329643f21a21141767c19" prot="private" static="no" mutable="no">
+        <type><ref refid="interfaceorg_1_1apache_1_1commons_1_1math_1_1distribution_1_1_t_distribution" kindref="compound">TDistribution</ref></type>
+        <definition>TDistribution desmoj.core.statistic.ConfidenceCalculator._tDistribution</definition>
+        <argsstring></argsstring>
+        <name>_tDistribution</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The tDistribution for the t-quantile </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="45" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a45cdca27a2b9b73979cf313b0d6ca4df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.ConfidenceCalculator.ConfidenceCalculator</definition>
+        <argsstring>(Model ownerModel, String name, ValueSupplier valSup, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>ConfidenceCalculator</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></type>
+          <declname>valSup</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref> object that is connected to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>. The confidence level is set to 0.95.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref> is associated to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref> object </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>valSup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> : The <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> providing the value for this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref>. The given <ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref> will be observed by this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref> object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="67" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="67" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1abca782eb1e4af9d41f46ef98814ae0d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>desmoj.core.statistic.ConfidenceCalculator.ConfidenceCalculator</definition>
+        <argsstring>(Model ownerModel, String name, boolean showInReport, boolean showInTrace)</argsstring>
+        <name>ConfidenceCalculator</name>
+        <param>
+          <type><ref refid="classdesmoj_1_1core_1_1simulator_1_1_model" kindref="compound">Model</ref></type>
+          <declname>ownerModel</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInReport</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>showInTrace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for a <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref> object that has no connection to a <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_value_supplier" kindref="compound">ValueSupplier</ref></computeroutput>. The confidence level is set to 0.95.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ownerModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Model : The model this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref> is associated to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>java.lang.String : The name of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref> object </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInReport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>showInTrace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean : Flag for showing the trace output of this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="91" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="91" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a4c520ee53c7a0c89737cdcb338230720" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdesmoj_1_1core_1_1report_1_1_reporter" kindref="compound">desmoj.core.report.Reporter</ref></type>
+        <definition>desmoj.core.report.Reporter desmoj.core.statistic.ConfidenceCalculator.createReporter</definition>
+        <argsstring>()</argsstring>
+        <name>createReporter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a Reporter to produce a report about this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref>.</para><para><simplesect kind="return"><para>desmoj.report.Reporter : The Reporter for this <ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="105" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="105" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ad7dee9a84e8a7d8ae5a5aa1c8705c129" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void desmoj.core.statistic.ConfidenceCalculator.setConfidenceLevel</definition>
+        <argsstring>(double level)</argsstring>
+        <name>setConfidenceLevel</name>
+        <param>
+          <type>double</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the confidence level; default value is 0.95.</para><para>Note: The confidence interval computation assumes that the input values are (approximately) identically and independently distributed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double : the confidence level </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="118" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="118" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a7f4367aa26b0e3720561abf4cb4ab071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.ConfidenceCalculator.getConfidenceLevel</definition>
+        <argsstring>()</argsstring>
+        <name>getConfidenceLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the confidence level.</para><para><simplesect kind="return"><para>double : the confidence level </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="127" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="127" bodyend="129"/>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" compoundref="_statistic_object_8java" startline="176" endline="178">desmoj.core.statistic.StatisticObject.round</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ae361014bfd2a1077ebb44e3b8b0b51b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.ConfidenceCalculator.getConfidenceIntervalOfMeanUpperBound</definition>
+        <argsstring>()</argsstring>
+        <name>getConfidenceIntervalOfMeanUpperBound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the upper bound of the confidence interval of the mean.</para><para><simplesect kind="return"><para>double : The upper bound of the confidence interval of the mean </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="136" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="136" bodyend="152"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" compoundref="_statistic_object_8java" startline="60">desmoj.core.statistic.StatisticObject.UNDEFINED</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" compoundref="_statistic_object_8java" startline="176" endline="178">desmoj.core.statistic.StatisticObject.round</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a5579903777e94f57d5d7634572bc8b08" compoundref="_tally_8java" startline="122" endline="137">desmoj.core.statistic.Tally.getMean</references>
+      </memberdef>
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1af7d4b111855b79618c3ebe0a1236c386" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.ConfidenceCalculator.getConfidenceIntervalOfMeanLowerBound</definition>
+        <argsstring>()</argsstring>
+        <name>getConfidenceIntervalOfMeanLowerBound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the lower bound of the confidence interval of the mean.</para><para><simplesect kind="return"><para>double : The lower bound of the confidence interval of the mean </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="159" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="159" bodyend="174"/>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" compoundref="_reportable_8java" startline="221" endline="225">desmoj.core.simulator.Reportable.getObservations</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" compoundref="_model_component_8java" startline="433" endline="440">desmoj.core.simulator.ModelComponent.sendWarning</references>
+        <references refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" compoundref="_named_object_8java" startline="60" endline="64">desmoj.core.simulator.NamedObject.getName</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" compoundref="_statistic_object_8java" startline="60">desmoj.core.statistic.StatisticObject.UNDEFINED</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" compoundref="_statistic_object_8java" startline="176" endline="178">desmoj.core.statistic.StatisticObject.round</references>
+        <references refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a5579903777e94f57d5d7634572bc8b08" compoundref="_tally_8java" startline="122" endline="137">desmoj.core.statistic.Tally.getMean</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ac55617b60a488ecf550ac2e9c5464d2e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double desmoj.core.statistic.ConfidenceCalculator.calcConfidenceIntervalHalfWidth</definition>
+        <argsstring>()</argsstring>
+        <name>calcConfidenceIntervalHalfWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal helper method to determine the confidence interval half width.</para><para><simplesect kind="return"><para>double : The half width of the confidence interval </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="181" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="181" bodyend="200"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref></computeroutput> class has the same functionality as the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_tally" kindref="compound">Tally</ref></computeroutput> class. Additionally, it calculates a confidence interval for the mean of the samples passed to the <computeroutput><ref refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator" kindref="compound">ConfidenceCalculator</ref></computeroutput>. Note that the confidence interval computation assumes that the samples are (approximately) identically and independently distributed. Observe that the confidence interval estimations of this class are meaningless should this assumption not hold!</para><para><simplesect kind="see"><para><ref refid="classdesmoj_1_1core_1_1statistic_1_1_tally" kindref="compound">Tally</ref> </para></simplesect>
+<simplesect kind="version"><para>DESMO-J, Ver. 2.4.0 copyright (c) 2013 </para></simplesect>
+<simplesect kind="author"><para>Soenke Claassen </para><simplesectsep/><para>based on DESMO-C from Thomas Schniewind, 1998 <verbatim>    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.</verbatim> </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="6585">
+        <label>desmoj.core.statistic.ValueStatistics</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics"/>
+        <childnode refid="6586" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6584">
+        <label>desmoj.core.statistic.Tally</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_tally"/>
+        <childnode refid="6585" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6588">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="6589" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6583">
+        <label>desmoj.core.statistic.ConfidenceCalculator</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator"/>
+        <childnode refid="6584" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6591">
+        <label>Observer</label>
+      </node>
+      <node id="6590">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="6589">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="6590" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6586">
+        <label>desmoj.core.statistic.StatisticObjectSupportingTimeSpans</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans"/>
+        <childnode refid="6587" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6591" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6587">
+        <label>desmoj.core.statistic.StatisticObject</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object"/>
+        <childnode refid="6588" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6591" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6594">
+        <label>desmoj.core.statistic.ValueStatistics</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics"/>
+        <childnode refid="6595" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6593">
+        <label>desmoj.core.statistic.Tally</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_tally"/>
+        <childnode refid="6594" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6597">
+        <label>desmoj.core.simulator.Reportable</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_reportable"/>
+        <childnode refid="6598" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6592">
+        <label>desmoj.core.statistic.ConfidenceCalculator</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator"/>
+        <childnode refid="6593" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6600">
+        <label>Observer</label>
+      </node>
+      <node id="6599">
+        <label>desmoj.core.simulator.NamedObject</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_named_object"/>
+      </node>
+      <node id="6598">
+        <label>desmoj.core.simulator.ModelComponent</label>
+        <link refid="classdesmoj_1_1core_1_1simulator_1_1_model_component"/>
+        <childnode refid="6599" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6595">
+        <label>desmoj.core.statistic.StatisticObjectSupportingTimeSpans</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans"/>
+        <childnode refid="6596" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6600" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6596">
+        <label>desmoj.core.statistic.StatisticObject</label>
+        <link refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object"/>
+        <childnode refid="6597" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6600" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" line="35" column="1" bodyfile="C:/Users/JulyaMaria/Desktop/Desmo-J/desmoj/core/statistic/ConfidenceCalculator.java" bodystart="35" bodyend="201"/>
+    <listofallmembers>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a54766af4304287590189ec5352336e96" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>_confidenceLevel</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ac57198bd94f329643f21a21141767c19" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>_tDistribution</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ac55617b60a488ecf550ac2e9c5464d2e" prot="private" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>calcConfidenceIntervalHalfWidth</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a45cdca27a2b9b73979cf313b0d6ca4df" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>ConfidenceCalculator</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1abca782eb1e4af9d41f46ef98814ae0d3" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>ConfidenceCalculator</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1ab7ab331cc0c15d207ee7e729d975ca44" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>convertToDouble</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a028f8ce4665d78bf9edda702fad7267d" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>createDefaultReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a4c520ee53c7a0c89737cdcb338230720" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>createReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a688d6118562cbded287a5d171066ca92" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>current</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae353aab435136723e1a7d1c42dda8dad" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentEntity</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab600b81dd6917d39f6d1906291c88ddc" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentEntityAll</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a4c380d388796d394658b74a52729e357" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentEvent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a51650fb980fb8a4d3f222745568ccbd2" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentlySendDebugNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae29e454ff09e1db4d515bf152f63005f" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentlySendTraceNotes</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a85f7422c8d80bff9ba212802bafaa972" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b36a67ebaf5e398ee105f93e36a04f5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentSimProcess</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1af0d4a6a43bf6fa9f3d0fd67dbab3173c" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>currentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a71e8397d0794c3d4d651bd256b1c315e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>debugIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a7113458fc59cdee2499f3de5f92ca305" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>debugOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1afe07d0e2e3b4426d4eb6d64e299e032b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>debugOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0840571ecd061707131b9c1c3d0ce4b1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>epsilon</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1ac8261fd4bbe26b674cb7842c883572e0" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>FRACTION_DIGITS</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1af7d4b111855b79618c3ebe0a1236c386" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getConfidenceIntervalOfMeanLowerBound</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ae361014bfd2a1077ebb44e3b8b0b51b4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getConfidenceIntervalOfMeanUpperBound</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1a7f4367aa26b0e3720561abf4cb4ab071" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getConfidenceLevel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1af23ef1a96f91b67bf5038af9dacc88ee" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4bdd12493e2fc0f031f06c6dd363df31" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a04f54a5bde8f704a51789e563feaf81c" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getLastValue</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a9b55d2c9c95264c1617ea062052131c9" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getMaximum</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a5579903777e94f57d5d7634572bc8b08" prot="public" virt="virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getMean</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aad8587e2ef044281bf62c499ef14ccb3" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getMinimum</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae10e186b44bc8c7d8ce122ab31f47424" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getModel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7d82f78d7d70a9bafc4035093fa82d78" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a2049d115bbcfc9f62bd4fd05d37d10f7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1ad05b1d8a0cf3bf55a90c063de1dac17d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getQuotedName</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1ab560818c50e082943674224abd1f20cf" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1a374cf2275d8637a8177c78461db0f0ec" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getShowTimeSpansInReport</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a0daef9e4da772b80e985121404533dae" prot="public" virt="virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getStdDev</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1ad29c53cc766919ab631b06bba959b5f0" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getUnit</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a6bdd9ff905bf18a27d2c890ab1729de4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getUnitText</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1aec498abda3f582314d72e2e64c0891c4" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>getValueSupplier</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4e1ae55c79e94ebcd29aa5977ccca543" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a68a2afe0ea1749d55a88807174ece697" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>incrementObservations</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aead800160d623a2a037f30890de23f4b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>isExperimentCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ac25c9968348a5df2058318bde909c3d7" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>isModelCompatible</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a5539ecf03ab39ac7fc746dbbffbd83b1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a0c36ace52619116594addca0435def59" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>ModelComponent</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a5ab5401ac6ecfa5235d3e1e42db7ed78" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>NamedObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a93c3f5e46d4dbedb9c20b4fdbd946722" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>PRECISION</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6bb3e686d851dbd973dcfa2d44f485d1" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>presentTime</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1a7c1181260b6a847650de2c777368cf00" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>rename</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acd824db6fee6310c0d797aa3ab5e1d50" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>Reportable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1acf2cc241c09db3cc102627b074437709" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>reportIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1aa523ddc5f647e7cb1329167e3ff982a5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>reportOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1afcf05e0b131fb9d062555c7701d14199" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>reportOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a706b743d693cea53a2ac557071e32afb" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>reset</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a692e70493310a8ece9cdef9d92e993bc" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>resetAt</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a3f0eb72348466ee48bdfeea9ffcf6d83" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>round</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1abe4ffb61a276a2ad6e207f29fea19bf2" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>sendDebugNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ae79ce99b4611b1692303ccf9a5a56fa6" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>sendMessage</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1ab663d6499da74089983fa064b148f582" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>sendTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a56a7c99c4bc8ba186804c2b47f51e5de" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>sendWarning</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_confidence_calculator_1ad7dee9a84e8a7d8ae5a5aa1c8705c129" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>setConfidenceLevel</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a0434c3c526a9037b0ac4fa52faf59d43" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>setCorrespondingSchedulable</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a9630fda949ac272cc49935aa3516e1eb" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>setDescription</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a37c7ffb0374d37f3af154224afb57aca" prot="package" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>setOwner</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_reportable_1a4db11882fd14bd226bc238253b0a0395" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>setReporter</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1a149f0fb237b3f2b6904179565ff1dc70" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>setShowTimeSpansInReport</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a292db67353902f20898927e3f57e6f9e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>setUnit</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1aee6f49721ac0abf35e72e91e3c7be14d" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a2a32d8f53583e6b579bbf313df069eb5" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>skipTraceNote</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a7e94f385b55730e93c48236172b61057" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>StatisticObject</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_supporting_time_spans_1aa2e15461f63f3ce99ccc48236fb68f9e" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>StatisticObjectSupportingTimeSpans</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a838aeb20f535aec8c85e84713562dc8b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>Tally</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1af048c6256f3efaa2d2d59aaa937a2e72" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>Tally</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_named_object_1aacf054c11802fbf5749f0a51da29483b" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>toString</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a6b0ad611e69fe3297c92ff8f36356e90" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>traceIsOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a3b4643f6998be3fd4838277696f99198" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>traceOff</name></member>
+      <member refid="classdesmoj_1_1core_1_1simulator_1_1_model_component_1a168a0fd189a11ac0b49142ee9e6d1c92" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>traceOn</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1aa01ed975ec3ae1a711112bb7477f908e" prot="protected" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>traceUpdate</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_statistic_object_1a9e3ff8d361832be4982d2b299797bb26" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>UNDEFINED</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a9cca246b0091b007ddf11b240f9fc0be" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a93eebd530a03e90a618d29f3741579cb" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_tally_1a72292bd505c7a145e9f6f6d078140c34" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a755c1f1eb9e2f6c6888488b760a0e0cb" prot="public" virt="virtual" ambiguityscope="desmoj::core::statistic::ValueStatistics."><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>update</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a78d9c13180096b2b5449dc0142b34e80" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>ValueStatistics</name></member>
+      <member refid="classdesmoj_1_1core_1_1statistic_1_1_value_statistics_1a1ab58f4b4457195329039f2a0337adb4" prot="public" virt="non-virtual"><scope>desmoj::core::statistic::ConfidenceCalculator</scope><name>ValueStatistics</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

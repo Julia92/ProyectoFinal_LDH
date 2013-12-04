@@ -1,0 +1,247 @@
+\section{desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$ Class Reference}
+\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e}\index{desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+
+
+Inheritance diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_procd0780a8942218b29cc4093e4b5457c78}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc7640a15799d1f0319f9f23a5a02cf5fd}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Process\-Coop} ({\bf desmoj.\-core.\-simulator.\-Model} owner, String name, boolean show\-In\-Trace)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf activate} ({\bf Time\-Span} dt)
+\item 
+void {\bf activate\-After} ({\bf Schedulable} after)
+\item 
+void {\bf activate\-Before} ({\bf Schedulable} before)
+\item 
+abstract void {\bf cooperation} (M master, S slave)
+\item 
+int {\bf get\-Priority} ()
+\item 
+void {\bf hold} ({\bf Time\-Span} dt)
+\item 
+void {\bf hold} ({\bf Sim\-Time} dt)
+\item 
+void {\bf passivate} ()
+\item 
+void {\bf re\-Activate} ({\bf Time\-Span} dt)
+\item 
+void {\bf set\-Priority} (int new\-Priority)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Process\-Coop is the object representing the process cooperation between two processes. It is intended that this process cooperation is used with the {\ttfamily Wait\-Queue} construct, where one process is the master which really executes the cooperation and the other process is the slave waiting for a master to lead him through the cooperation. That means that during the cooperation the master is active and the slave is passive. The action carried out for the two processes together is described in the virtual method {\ttfamily cooperation}, which is to be implemented by the user building the model. This class is encapsulating the cooperation of (at least) these two processes. When using the Wait\-Queue construct the master will be activated after the cooperation is done and the slave will be activated after the master (if it has not been activated during the cooperation already).
+
+\begin{DoxySeeAlso}{See Also}
+desmoj.\-core.\-advanced\-Modelling\-Features.\-Wait\-Queue
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen 
+
+based on D\-E\-S\-M\-O-\/\-C from Thomas Schniewind, 1998
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!Process\-Coop@{Process\-Coop}}
+\index{Process\-Coop@{Process\-Coop}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{Process\-Coop}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.Process\-Coop (
+\begin{DoxyParamCaption}
+\item[{{\bf desmoj.\-core.\-simulator.\-Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_acc4c2f39c0ea82da05df8f13728cb1ce}
+Constructor for a Process\-Coop where a master and a slave process are cooperating.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Model \-: The model this Process\-Coop is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The Process\-Coop's name \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for trace to produce trace messages. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!activate@{activate}}
+\index{activate@{activate}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{activate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_ada89eb8a7d4bd5d5b8beccf06c7fcd6b}
+Activates (schedules) the current Sim\-Process at the current Simulation time plus the offset {\ttfamily dt}. This method is passed through to the currently running master process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time\-Span \-: The offset to the time now, when the current process is to be activated. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!activate\-After@{activate\-After}}
+\index{activate\-After@{activate\-After}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{activate\-After}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.activate\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{after}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_a72f7f64db168b8744a70865d2a7f89d9}
+Schedules the current Sim\-Process to be activated directly after the given Schedulable, which itself is already scheduled. Please make sure that the Schedulable given as parameter is actually scheduled. This method is passed through to the currently running master process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em after} & Schedulable \-: The Schedulable the currently running process should be scheduled after. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!activate\-Before@{activate\-Before}}
+\index{activate\-Before@{activate\-Before}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{activate\-Before}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.activate\-Before (
+\begin{DoxyParamCaption}
+\item[{{\bf Schedulable}}]{before}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_a9727b7a97b6344e351195ae1c59c2551}
+Schedules the current Sim\-Process to be activated directly before the given Schedulable, which itself is already scheduled. Please make sure that the Schedulable given as parameter is actually scheduled. This method is passed through to the currently running master process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em before} & Schedulable \-: The Schedulable the currently running process should be scheduled before. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!cooperation@{cooperation}}
+\index{cooperation@{cooperation}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{cooperation}]{\setlength{\rightskip}{0pt plus 5cm}abstract void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.cooperation (
+\begin{DoxyParamCaption}
+\item[{M}]{master, }
+\item[{S}]{slave}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_ac0afe4307583b6bdce822d1e9422a92f}
+The user building the model has to implement this method in a subclass. Here the action of the cooperation carried out by the master process will be described. If simulation time is used to perform some action the user has to model this by calling the method {\ttfamily \doxyref{hold(\-Time\-Span dt)}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_adc52f52b6c680f27de50589b539f8766}}. The user (the one who is building the model) is responsible to implement this correctly in this {\ttfamily \doxyref{cooperation()}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_ac0afe4307583b6bdce822d1e9422a92f}} method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em master} & Sim\-Process \-: The master process which really carries out the cooperation. \\
+\hline
+{\em slave} & Sim\-Process \-: The slave process which is lead through the cooperation by the master. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!get\-Priority@{get\-Priority}}
+\index{get\-Priority@{get\-Priority}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{get\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.get\-Priority (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_a0022f31499c4fc082681dbbccb097b15}
+Returns the priority of the current Sim\-Process (usually the master process). Default priority is zero. Higher priorities are positive, lower priorities negative. The priority determines the position in a waiting queue. This method is passed through to the currently running master process.
+
+\begin{DoxyReturn}{Returns}
+int \-: The priority of the Sim\-Process. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!hold@{hold}}
+\index{hold@{hold}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{hold}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.hold (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_adc52f52b6c680f27de50589b539f8766}
+Holds the current Sim\-Process for the given time dt. Hold is used to simulate a time period during which the process is working on something in reality. But in the simulation the process is not active. Only the result is important for the simulation. (So the simulation time will be set to the new value and all the attributes which have changed during this time period are changed.) This method is passed through to the currently running master process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & desmoj.\-Time\-Span \-: The current Sim\-Process will be passivated during this time period. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!hold@{hold}}
+\index{hold@{hold}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{hold}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.hold (
+\begin{DoxyParamCaption}
+\item[{{\bf Sim\-Time}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_aff19fe8da58fa034f34ce7f5ec1196cc}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]This methode is replaced by \doxyref{hold(\-Time\-Span dt)}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_adc52f52b6c680f27de50589b539f8766}.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & desmoj.\-Time\-Span \-: The current Sim\-Process will be passivated during this time period. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_aff19fe8da58fa034f34ce7f5ec1196cc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!passivate@{passivate}}
+\index{passivate@{passivate}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{passivate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.passivate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_abd36ca8dcb5e90e3a6cbf8fd1a32ea6a}
+Passivates the current Sim\-Process for an unknown time period. It can only be activated by other objects of the simulation (Sim\-Processes or Entities). This method is passed through to the currently running master process. \index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!re\-Activate@{re\-Activate}}
+\index{re\-Activate@{re\-Activate}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{re\-Activate}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.re\-Activate (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_affc65ee00dec6d275b501a145081ff61}
+Reactivates (reschedules) the current Sim\-Process at the current point of simulation time plus the offset dt. This method is passed through to the currently running master process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time\-Span \-: The offset to the time now, when the current process is to be reactivated. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}!set\-Priority@{set\-Priority}}
+\index{set\-Priority@{set\-Priority}!desmoj::core::advancedModellingFeatures::ProcessCoop< M extends SimProcess, S extends SimProcess >@{desmoj\-::core\-::advanced\-Modelling\-Features\-::\-Process\-Coop$<$ M extends Sim\-Process, S extends Sim\-Process $>$}}
+\subsubsection[{set\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop$<$ M extends {\bf Sim\-Process}, S extends {\bf Sim\-Process} $>$.set\-Priority (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-Priority}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1advanced_modelling_features_1_1_process_coop_3_01_m_01extends_01_sim_proc8d233602a6898155d4f1d00fb715483e_a69b3900e997141b6389fe61b3aa53636}
+Sets the priority of the current Sim\-Process to a new integer value. Zero is the default priority. Negative priorities are lower, positive priorities are higher. All values should be inside the range defined by Java's integral {\ttfamily integer} data type. The priority determines the position in a waiting-\/queue. This method is passed through to the currently running master process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Priority} & int \-: The new priority value. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/advanced\-Modelling\-Features/Process\-Coop.\-java\end{DoxyCompactItemize}

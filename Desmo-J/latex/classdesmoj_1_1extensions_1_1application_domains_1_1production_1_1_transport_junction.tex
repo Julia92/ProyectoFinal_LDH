@@ -1,0 +1,382 @@
+\section{desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction Class Reference}
+\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}\index{desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction@{desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction}}
+
+
+Inheritance diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Transport\-Junction} ({\bf Model} owner, String name, int m\-Sort\-Order, int m\-Q\-Capacity, int s\-Sort\-Order, int s\-Q\-Capacity, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+{\bf Transport\-Junction} ({\bf Model} owner, String name, boolean show\-In\-Report, boolean show\-In\-Trace)
+\item 
+synchronized {\bf Sim\-Process}[$\,$] {\bf available\-Set} (Condition cond)
+\item 
+{\bf Transporter} {\bf avail\-Transporter} (Condition cond)
+\item 
+boolean {\bf cooperate} ({\bf Transportation} transportation)
+\item 
+boolean {\bf cooperate} ({\bf Transportation} transportation, Condition cond)
+\item 
+{\bf desmoj.\-core.\-report.\-Reporter} {\bf create\-Reporter} ()
+\item 
+boolean {\bf get\-Pass\-By} ()
+\item 
+void {\bf set\-Pass\-By} (boolean new\-Pass\-By)
+\item 
+boolean {\bf transport} ({\bf Transportation} transportation)
+\item 
+boolean {\bf transport} ({\bf Transportation} transportation, Condition cond)
+\item 
+boolean {\bf wait\-On\-Coop} ()
+\item 
+boolean {\bf wait\-On\-Transport} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} is the place where {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} s pick up the goods to move them around in a manufacturing system. The goods are normally modeled as some kind of {\ttfamily Sim\-Process} es. So what happens at the \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} is some kind of Rendez-\/vous synchronisation, where {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} s meet the goods to carry them around. There is one wait queue for the masters ({\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}}s) and one queue for the slaves ({\ttfamily Sim\-Process} es), where they have to wait for each other to cooperate. The {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} s are the masters which perform the transportation. The corporate transportation process is described in the method {\ttfamily cooperation} in a subclass of {\ttfamily \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation}}. The goods ({\ttfamily Sim\-Process} es) transported as slaves keep still during the transport and will be reactivated thereafter. The main difference to a normal {\ttfamily Wait\-Queue} is, that in this case one master ({\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}}) can cooperate with more than one slave process at a time. The number of slaves processes which will be transported togehter will be determined by the master {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} process. It depends on the number of available slaves and will be between the min\-Load and the capacity of the {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}}. Note that a {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} with a large minimum\-Load in front of the wait queue might block all following {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} s in the queue until enough goods are available to satisfy his minimum load. Use different priorities for the different {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} s to cope with this problem. Or set the pass\-By flag to {\ttfamily true} to make it possible for transporters with a low minimum\-Load to pass by the other transporters. Use the methods {\ttfamily \doxyref{set\-Pass\-By()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_aeebcbec5f1690a85811b86b37c3755fa}} and {\ttfamily \doxyref{get\-Pass\-By()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a2daffded1a01863da48b3db2ea9b76e0}}. The first sort criteria for the queues is always highest priorities first, the second queueing discipline of the underlying queues and the capacity limit can be determined by the user (default is F\-I\-F\-O and unlimited capacity). \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} is derived from {\ttfamily Wait\-Queue} which in turn is derived from {\ttfamily Queue\-Based}, which provides all the statistical functionality for the queues.
+
+\begin{DoxySeeAlso}{See Also}
+desmoj.\-core.\-advanced\-Modelling\-Features.\-Wait\-Queue 
+
+\doxyref{desmoj.\-core.\-simulator.\-Queue\-Based}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based} 
+
+desmoj.\-core.\-advanced\-Modelling\-Features.\-Process\-Coop
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Soenke Claassen
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!Transport\-Junction@{Transport\-Junction}}
+\index{Transport\-Junction@{Transport\-Junction}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{Transport\-Junction}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-Transport\-Junction (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{int}]{m\-Sort\-Order, }
+\item[{int}]{m\-Q\-Capacity, }
+\item[{int}]{s\-Sort\-Order, }
+\item[{int}]{s\-Q\-Capacity, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a22b7e0b9dfacdfb5e2c96d8eb4c96122}
+Constructor for a \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}. There are two waiting-\/queues constructed, one internal {\ttfamily Queue\-List} for the {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} s (masters) and one separate {\ttfamily Process\-Queue} for the slave processes. The queueing discipline and the capacity limit of the underlying queues can be chosen. Highest priority are always first in the queues.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The name of this \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}. \\
+\hline
+{\em m\-Sort\-Order} & int \-: determines the sort order of the underlying master queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em m\-Q\-Capacity} & int \-: The capacity of the master queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em s\-Sort\-Order} & int \-: determines the sort order of the underlying slave queue implementation. Choose a constant from {\ttfamily Queue\-Based} like {\ttfamily \doxyref{Queue\-Based.\-F\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a20088d8d7196b2688cbea9d313b13098}} or {\ttfamily \doxyref{Queue\-Based.\-L\-I\-F\-O}{p.}{classdesmoj_1_1core_1_1simulator_1_1_queue_based_a3b5be66f9f00e1689906f32c952fc4e2}} or ... \\
+\hline
+{\em s\-Q\-Capacity} & int \-: The capacity of the slave queue, that is how many processes can be enqueued. Zero (0) means unlimited capacity. \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if trace messages of this \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} should be displayed in the trace file. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!Transport\-Junction@{Transport\-Junction}}
+\index{Transport\-Junction@{Transport\-Junction}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{Transport\-Junction}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-Transport\-Junction (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Report, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a673553db2725c7568767aaeed4c17f92}
+Constructor for a \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}. There are two waiting-\/queues constructed, one internal {\ttfamily Queue\-List} for the {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} s (masters) and one separate {\ttfamily Process\-Queue} for the slave processes. Both queues have a F\-I\-F\-O sort order and no capacity limit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & desmoj.\-Model \-: The model this \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} is associated to. \\
+\hline
+{\em name} & java.\-lang.\-String \-: The \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}'s name \\
+\hline
+{\em show\-In\-Report} & boolean \-: Flag, if \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} should produce a report or not. \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag, if trace messages of this \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction} should be displayed in the trace file. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!available\-Set@{available\-Set}}
+\index{available\-Set@{available\-Set}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{available\-Set}]{\setlength{\rightskip}{0pt plus 5cm}synchronized {\bf Sim\-Process} [$\,$] desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-available\-Set (
+\begin{DoxyParamCaption}
+\item[{Condition}]{cond}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_abc39dc8391f039408d0fa4f454c0a02f}
+Returns an array of available slave Sim\-Processes which comply to a given condition at this moment.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-Sim\-Process[] \-: The array of available slave Sim\-Processes which comply to the given condition. If no suitable Sim\-Process is available {\ttfamily null} will be returned. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cond} & desmoj.\-Condition \-: The condition to which the sim-\/processes we are looking for must comply. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!avail\-Transporter@{avail\-Transporter}}
+\index{avail\-Transporter@{avail\-Transporter}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{avail\-Transporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Transporter} desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-avail\-Transporter (
+\begin{DoxyParamCaption}
+\item[{Condition}]{cond}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a6b765c23d1e0ceae0e83b7d86fe9f6ef}
+Returns a transporter process waiting in the transporter (master) queue complying to the given condition. If there is no such transporter waiting {\ttfamily null} is returned.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter} \-: Returns the first transporter in the master queue which complies to the given condition. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cond} & Condition \-: The Condition {\ttfamily cond} is describing the condition to which the trasnporter must comply to. This has to be implemented by the user in the class\-: {\ttfamily Condition} in the method\-: {\ttfamily check()}. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!cooperate@{cooperate}}
+\index{cooperate@{cooperate}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{cooperate}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-cooperate (
+\begin{DoxyParamCaption}
+\item[{{\bf Transportation}}]{transportation}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_af7d0ada4356d0bfc963cb3d4b8bec581}
+This method is inherited from the class {\ttfamily Wait\-Queue} and will be overwritten here to use the more suitable method {\ttfamily \doxyref{transport(\-Transportation)}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_adbfb0502448d2d78fba156a1576f38fc}}. If the capacity limit of the master queue is reached, the process will not be enqueued and {\ttfamily false} returned.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process can be enqueued successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the master queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em transportation} & \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} \-: The transportation process transportation is describing the joint action of the processes. The transport to be carried out has to be implemented by the user in the class\-: {\ttfamily \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation}} in the method\-: {\ttfamily cooperation()}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_af7d0ada4356d0bfc963cb3d4b8bec581_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!cooperate@{cooperate}}
+\index{cooperate@{cooperate}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{cooperate}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-cooperate (
+\begin{DoxyParamCaption}
+\item[{{\bf Transportation}}]{transportation, }
+\item[{Condition}]{cond}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_aeb8eee5c265bd9d2eaee9993a31a0c37}
+This method is inherited from the class {\ttfamily Wait\-Queue} and will be overwritten here to use the more suitable method {\ttfamily \doxyref{transport(\-Transportation, Condition)}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_aa8b2177dc55f0fd90a87578f72c61395}}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process can be enqueued successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the master queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em transportation} & \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} \-: The transportation process transportation is describing the joint action of the processes. The transport to be carried out has to be implemented by the user in the class\-: {\ttfamily \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation}} in the method\-: {\ttfamily cooperation()}. \\
+\hline
+{\em cond} & Condition \-: The Condition {\ttfamily cond} is describing the condition to which the slave process must comply to. This has to be implemented by the user in the class\-: {\ttfamily Condition} in the method\-: {\ttfamily check()}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_aeb8eee5c265bd9d2eaee9993a31a0c37_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!create\-Reporter@{create\-Reporter}}
+\index{create\-Reporter@{create\-Reporter}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{create\-Reporter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf desmoj.\-core.\-report.\-Reporter} desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-create\-Reporter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a41a50ae46d994d8a9817d232f16d4b1d}
+Returns a Reporter to produce a report about this \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}.
+
+\begin{DoxyReturn}{Returns}
+desmoj.\-report.\-Reporter \-: The Reporter for the queues inside this \doxyref{Transport\-Junction}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction}. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!get\-Pass\-By@{get\-Pass\-By}}
+\index{get\-Pass\-By@{get\-Pass\-By}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{get\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-get\-Pass\-By (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a2daffded1a01863da48b3db2ea9b76e0}
+Returns whether a transporter can pass by other transporters which are enqueued before him in the queue.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Indicates whether transporters can pass by other transporters which are enqueued before them in the queue. 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!set\-Pass\-By@{set\-Pass\-By}}
+\index{set\-Pass\-By@{set\-Pass\-By}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{set\-Pass\-By}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-set\-Pass\-By (
+\begin{DoxyParamCaption}
+\item[{boolean}]{new\-Pass\-By}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_aeebcbec5f1690a85811b86b37c3755fa}
+Sets the flag pass\-By to a new value. Pass\-By is indicating whether transporters can pass by other transporters which are enqueued before them in the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-Pass\-By} & boolean \-: The new value of pass\-By. Set it to {\ttfamily true} if you want transporters to pass by other transporters which are enqueued before them in the queue. Set it to {\ttfamily false} if you don't want transporters to overtake other transporters in the queue. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!transport@{transport}}
+\index{transport@{transport}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{transport}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-transport (
+\begin{DoxyParamCaption}
+\item[{{\bf Transportation}}]{transportation}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_adbfb0502448d2d78fba156a1576f38fc}
+This method is to be called from a {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} which wants to transport goods as a master. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in the master waiting-\/queue, until enough suitable slaves are available. If the capacity limit of the master queue is reached, the process will not be enqueued and {\ttfamily false} returned. When enough suitable slaves are available their {\ttfamily prepare\-Transport()} method (in the class {\ttfamily Sim\-Process}) will be called. During the transportation process the master process is the only active one. The slave process is passive and will be reactivated after the transportation is done.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process can be enqueued successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the master queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em transportation} & \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} \-: The transportation process transportation is describing the joint action of the processes. The transportation to be carried out has to be implemented by the user in the class\-: {\ttfamily \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation}} in the method\-: {\ttfamily \doxyref{transport()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_adbfb0502448d2d78fba156a1576f38fc}}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_adbfb0502448d2d78fba156a1576f38fc_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!transport@{transport}}
+\index{transport@{transport}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{transport}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-transport (
+\begin{DoxyParamCaption}
+\item[{{\bf Transportation}}]{transportation, }
+\item[{Condition}]{cond}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_aa8b2177dc55f0fd90a87578f72c61395}
+This method is to be called from a {\ttfamily \doxyref{Transporter}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transporter}} who wants to transport goods which comply to a certain condition. The condition must be specified in the method {\ttfamily check()} in a class derived from {\ttfamily Condition}. If not enough suitable goods (slave processes) are available at the moment, the transporter process will be stored in the master waiting-\/queue, until enough suitable slaves are available. If the capacity limit of the master queue is reached, the process will not be enqueued and {\ttfamily false} returned. When enough suitable slaves are available their {\ttfamily prepare\-Transport()} method (in the class {\ttfamily Sim\-Process}) will be called. During the transportation process the master process is the only active one. The slave process is passive and will be reactivated after the transportation is done.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process can be enqueued successfully, {\ttfamily false} otherwise (i.\-e. capacity limit of the master queue is reached). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em transportation} & \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation} \-: The transportation process is describing the joint action of the processes. The transportation to be carried out has to be implemented by the user in the class\-: {\ttfamily \doxyref{Transportation}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transportation}} in the method\-: {\ttfamily \doxyref{transport()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_adbfb0502448d2d78fba156a1576f38fc}}. \\
+\hline
+{\em cond} & Condition \-: The Condition {\ttfamily cond} is describing the condition to which the slave process must comply. This has to be implemented by the user in the class\-: {\ttfamily Condition} in the method\-: {\ttfamily check()}. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_aa8b2177dc55f0fd90a87578f72c61395_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!wait\-On\-Coop@{wait\-On\-Coop}}
+\index{wait\-On\-Coop@{wait\-On\-Coop}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{wait\-On\-Coop}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-wait\-On\-Coop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_ab327af024c86693fc0e0dabe6fd6f077}
+This method is inherited from the class {\ttfamily Wait\-Queue} and will be overwritten here to use the more suitable method {\ttfamily \doxyref{wait\-On\-Transport()}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a8d47967bb4a89b0ff98838140f7a9636}}.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process requesting the transportation has been transported successfully to his destination, {\ttfamily false} otherwise (i.\-e. capacity limit of the slave queue is reached). 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_ab327af024c86693fc0e0dabe6fd6f077_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}!wait\-On\-Transport@{wait\-On\-Transport}}
+\index{wait\-On\-Transport@{wait\-On\-Transport}!desmoj::extensions::applicationDomains::production::TransportJunction@{desmoj\-::extensions\-::application\-Domains\-::production\-::\-Transport\-Junction}}
+\subsubsection[{wait\-On\-Transport}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-extensions.\-application\-Domains.\-production.\-Transport\-Junction.\-wait\-On\-Transport (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a8d47967bb4a89b0ff98838140f7a9636}
+This method is called from a sim-\/process which wants to be transported as a slave. If no suitable master process (transporter) is available at the moment, the slave process will be stored in the slave queue, until a suitable master (transporter) is available. If the capacity limit of the slave queue is reached, the process will not be enqueued and {\ttfamily false} will be returned. During the transportation the master process (transporter) is the only active one. The slave process is passive and will be reactivated after the transportation is done.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if the process requesting the transportation has been transported successfully to his destination, {\ttfamily false} otherwise (i.\-e. capacity limit of the slave queue is reached). 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1_transport_junction_a8d47967bb4a89b0ff98838140f7a9636_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/application\-Domains/production/Transport\-Junction.\-java\end{DoxyCompactItemize}

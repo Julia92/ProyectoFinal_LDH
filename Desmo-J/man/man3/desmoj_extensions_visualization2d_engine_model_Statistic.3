@@ -1,0 +1,497 @@
+.TH "desmoj.extensions.visualization2d.engine.model.Statistic" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.visualization2d.engine.model.Statistic \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBValuesAtTime\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStatistic\fP (\fBModel\fP model, String id, int typeData, int typeIndex, boolean aggregate, long timeLow, long timeHigh, double valueLow, double valueHigh, int histogramCells)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP \fBgetModel\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetId\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetName\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetName\fP (String name)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP (double value, long time)  throws ModelException"
+.br
+.ti -1c
+.RI "boolean \fBhasValue\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetTypeData\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetTypeIndex\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBhasHistogramSupport\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetValueLow\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetValueHigh\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetTimeLow\fP ()"
+.br
+.ti -1c
+.RI "long \fBgetTimeHigh\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetLastValue\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "double \fBgetMin\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "double \fBgetMax\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "double \fBgetMean\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "double \fBgetStdDev\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "long \fBgetFirstTime\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "long \fBgetLastTime\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "long \fBgetObservationLength\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "TimeSeries \fBgetTimeSerie\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "XYSeries \fBgetObservationSerie\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "XIntervalSeries \fBgetHistogram\fP ()  throws ModelException"
+.br
+.ti -1c
+.RI "double \fBgetHistogramIntervalLength\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetHistogramLow\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetHistogramHigh\fP ()"
+.br
+.ti -1c
+.RI "\fBGrafic\fP \fBcreateGrafic\fP (String viewId, int x, int y, int animationType, boolean isIntValue, Dimension deltaSize, boolean infopane)  throws ModelException"
+.br
+.ti -1c
+.RI "\fBdesmoj\&.extensions\&.visualization2d\&.engine\&.modelGrafic\&.Grafic\fP \fBgetGrafic\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBDATA_TimeSeries\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBDATA_Observations\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBINDEX_None\fP = 0"
+.br
+.ti -1c
+.RI "static final int \fBINDEX_Min_Max\fP = 1"
+.br
+.ti -1c
+.RI "static final int \fBINDEX_Mean_StdDev\fP = 2"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to store a time series(typeData = DATA_TimeSeries) or a observation series (typeData = DATA_Observations)\&. In a time series, for every observed time, you have exactly one value\&. In a observation series, you can have more than one value at one time\&. E\&.g\&. At one time, you have 2 events with different values\&. On the fly, the indexes: INDEX_None, INDEX_Min_Max, INDEX_Mean_StdDev are supported\&. For visualization you must use the class StatisticGrafic\&. The data are stored in data structures of the jFreeChart Library\&. For histogram support the number of histogram-cells specified by constructor must greater than 0\&.
+.PP
+\fBVersion:\fP
+.RS 4
+DESMO-J, Ver\&. 2\&.4\&.0 copyright (c) 2013 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+christian.mueller@th-wildau.de For information about subproject: desmoj\&.extensions\&.visualization2d please have a look at: http://www.th-wildau.de/cmueller/Desmo-J/Visualization2d/
+.RE
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.Statistic (\fBModel\fPmodel, Stringid, inttypeData, inttypeIndex, booleanaggregate, longtimeLow, longtimeHigh, doublevalueLow, doublevalueHigh, inthistogramCells)"
+Constructor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP used animation\&.model\&.Model 
+.br
+\fIid\fP must be unique 
+.br
+\fItypeData\fP one of the following values: Statistic\&.DATA_Observations Statistic\&.DATA_TimeSeries 
+.br
+\fItypeIndex\fP one of the following values: Statistic\&.INDEX_None Statistic\&.INDEX_Min_Max Statistic\&.INDEX_Mean_StdDev 
+.br
+\fIaggregate\fP true: the values will be aggregated false: the original values will be used 
+.br
+\fItimeLow\fP lowest expected time, will be changed when a lower time is observed\&. Used to avoid axis changes\&. 
+.br
+\fItimeHigh\fP highest expected time, will be changed when a higher time is observed\&. Used to avoid axis changes\&. 
+.br
+\fIvalueLow\fP lowest expected value, will be changed when a lower value is observed\&. Used to avoid axis changes\&. 
+.br
+\fIvalueHigh\fP highest expected value, will be changed when a higher value is observed\&. Used to avoid axis changes\&. 
+.br
+\fIhistogramCells\fP No\&. of histogram cells between valueLow and valueHigh\&. Every cell has the same length\&. For values outside of [valueLow, valueHigh] additional cells will be created\&. When <= 0, no histogram data support\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBGrafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.createGrafic (StringviewId, intx, inty, intanimationType, booleanisIntValue, DimensiondeltaSize, booleaninfopane) throws \fBModelException\fP"
+build an instance of StatisticGrafic 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIviewId\fP Id of view 
+.br
+\fIx\fP x Coordinate of Middle point 
+.br
+\fIy\fP y Coordinate of Middle point 
+.br
+\fIanimationType\fP Possible values: StatisticGrafic\&.ANIMATION_LastValue, StatisticGrafic\&.ANIMATION_TimeValueDiagram StatisticGrafic\&.ANIMATION_Histogram 
+.br
+\fIisIntValue\fP In typeAnimation == StatisticGrafic\&.ANIMATION_LastValue value is shown as integer\&. 
+.br
+\fIdeltaSize\fP Each animation type has a default size\&. This size can be incremented/decremented by deltaSize\&. Null means no change\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getFirstTime () throws \fBModelException\fP"
+get first observation time 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP no observation is stored\&. 
+.RE
+.PP
+
+.SS "\fBdesmoj\&.extensions\&.visualization2d\&.engine\&.modelGrafic\&.Grafic\fP desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getGrafic ()"
+get an existing StatisticGrafic instance\&. 
+.PP
+Implements \fBdesmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Basic\fP\&.
+.SS "XIntervalSeries desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getHistogram () throws \fBModelException\fP"
+get histogram in jFreeChart data structure\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP histogramCells > 0 (in constructor) 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getHistogramHigh ()"
+get highest border of highest histogram cell 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getHistogramIntervalLength ()"
+get length of one histogram cell 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getHistogramLow ()"
+get lowest border of lowest histogram cell 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getLastTime () throws \fBModelException\fP"
+get last observation time 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP no observation is stored\&. 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getLastValue () throws \fBModelException\fP"
+get last stored value 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP no value stored 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getMax () throws \fBModelException\fP"
+get max value 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP typeIndex != Statistic\&.INDEX_Min_Max 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getMean () throws \fBModelException\fP"
+get mean for typeData = Statistic\&.DATA_Observations, all values have the same weight\&. for typeData = Statistic\&.DATA_TimeSeries, the time depended mean is computed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP typeIndex != Statistic\&.INDEX_Mean_StdDev 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getMin () throws \fBModelException\fP"
+get min value 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP typeIndex != Statistic\&.INDEX_Min_Max 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getObservationLength () throws \fBModelException\fP"
+get length of observation time 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP no observation is stored\&. 
+.RE
+.PP
+
+.SS "XYSeries desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getObservationSerie () throws \fBModelException\fP"
+get observation series in jFreeChart data structure\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP typeData != Statistic\&.DATA_Observations 
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getStdDev () throws \fBModelException\fP"
+get standard deviation for typeData = Statistic\&.DATA_Observations, all values have the same weight\&. for typeData = Statistic\&.DATA_TimeSeries, the time depended standard deviation is computed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP typeIndex != Statistic\&.INDEX_Mean_StdDev 
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getTimeHigh ()"
+get high value of time axis 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "long desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getTimeLow ()"
+get low value of time axis 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "TimeSeries desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getTimeSerie () throws \fBModelException\fP"
+get time series in jFreeChart data structure\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP,when\fP typeData != Statistic\&.DATA_TimeSeries 
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getTypeData ()"
+gets TypeData\&. Possible values: Statistic\&.DATA_Observations or Statistic\&.DATA_TimeSeries 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getTypeIndex ()"
+gets TypeData\&. Possible values: Statistic\&.INDEX_None, Statistic\&.INDEX_Min_Max or Statistic\&.INDEX_Mean_StdDev 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getValueHigh ()"
+get high value of value axis 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "double desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.getValueLow ()"
+get low value of value axis 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.hasHistogramSupport ()"
+when no\&. of histogram cells greater zero 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.hasValue ()"
+true when one or more points stored\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.reset ()"
+reset statistic object, used by warnup called from Model\&.resetStatistic(\&.\&.\&.) 
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.setName (Stringname)"
+Possibility to specify a name of a instance\&. This name is shown in StatisticGrafic 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.visualization2d\&.engine\&.model\&.Statistic\&.update (doublevalue, longtime) throws \fBModelException\fP"
+add a new point to the time/observation series\&. For time series the times must strictly increasing\&. For observation series the times must (not strictly)increasing\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP 
+.br
+\fItime\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBModelException\fP\fP when times are not (strictly) increasing\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

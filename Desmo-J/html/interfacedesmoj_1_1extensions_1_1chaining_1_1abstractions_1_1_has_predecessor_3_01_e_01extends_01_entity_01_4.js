@@ -1,0 +1,4 @@
+var interfacedesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_has_predecessor_3_01_e_01extends_01_entity_01_4 =
+[
+    [ "getStartEvent", "interfacedesmoj_1_1extensions_1_1chaining_1_1abstractions_1_1_has_predecessor_3_01_e_01extends_01_entity_01_4.html#ade751c0d0cbcd2f30e65babca528e6be", null ]
+];

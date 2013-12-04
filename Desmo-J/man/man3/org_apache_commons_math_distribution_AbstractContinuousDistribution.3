@@ -1,0 +1,133 @@
+.TH "org.apache.commons.math.distribution.AbstractContinuousDistribution" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.AbstractContinuousDistribution \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ContinuousDistribution\fP, and Serializable\&.
+.PP
+Inherited by \fBorg\&.apache\&.commons\&.math\&.distribution\&.CauchyDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ChiSquaredDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.GammaDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.NormalDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.WeibullDistributionImpl\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBinverseCumulativeProbability\fP (final double p)  throws MathException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAbstractContinuousDistribution\fP ()"
+.br
+.ti -1c
+.RI "abstract double \fBgetInitialDomain\fP (double p)"
+.br
+.ti -1c
+.RI "abstract double \fBgetDomainLowerBound\fP (double p)"
+.br
+.ti -1c
+.RI "abstract double \fBgetDomainUpperBound\fP (double p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for continuous distributions\&. Default implementations are provided for some of the methods that do not vary from distribution to distribution\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+506600 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2007-02-12 12:35:59 -0700 (Mon, 12 Feb 2007) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\&.AbstractContinuousDistribution ()\fC [protected]\fP"
+Default constructor\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "abstract double org\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\&.getDomainLowerBound (doublep)\fC [protected]\fP, \fC [pure virtual]\fP"
+Access the domain value lower bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value lower bound, i\&.e\&. P(X < \fIlower bound\fP) < \fCp\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.NormalDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.GammaDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.WeibullDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.CauchyDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ChiSquaredDistributionImpl\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\fP\&.
+.SS "abstract double org\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\&.getDomainUpperBound (doublep)\fC [protected]\fP, \fC [pure virtual]\fP"
+Access the domain value upper bound, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value upper bound, i\&.e\&. P(X < \fIupper bound\fP) > \fCp\fP 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.NormalDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.GammaDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.CauchyDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.WeibullDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ChiSquaredDistributionImpl\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\fP\&.
+.SS "abstract double org\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\&.getInitialDomain (doublep)\fC [protected]\fP, \fC [pure virtual]\fP"
+Access the initial domain value, based on \fCp\fP, used to bracket a CDF root\&. This method is used by \fBinverseCumulativeProbability(double)\fP to find critical values\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+initial domain value 
+.RE
+.PP
+
+.PP
+Implemented in \fBorg\&.apache\&.commons\&.math\&.distribution\&.NormalDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.GammaDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.CauchyDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.WeibullDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ChiSquaredDistributionImpl\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.TDistributionImpl\fP, and \fBorg\&.apache\&.commons\&.math\&.distribution\&.FDistributionImpl\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\&.inverseCumulativeProbability (final doublep) throws \fBMathException\fP"
+For this distribution, X, this method returns the critical point x, such that P(X < x) = \fCp\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+x, such that P(X < x) = \fCp\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the inverse cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if \fCp\fP is not a valid probability\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

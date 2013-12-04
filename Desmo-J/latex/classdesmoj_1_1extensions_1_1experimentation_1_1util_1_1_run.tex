@@ -1,0 +1,200 @@
+\section{desmoj.\-extensions.\-experimentation.\-util.\-Run Class Reference}
+\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run}\index{desmoj.\-extensions.\-experimentation.\-util.\-Run@{desmoj.\-extensions.\-experimentation.\-util.\-Run}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Run} ({\bf Model} default\-Model, {\bf Experiment\-Runner} default\-Exp\-Runner, Map default\-Exp\-Settings, Map default\-Model\-Params, int number)
+\item 
+{\bf Run} ({\bf Model} m, {\bf Experiment\-Runner} exp)
+\item 
+{\bf Run} ()
+\item 
+{\bf Model} {\bf get\-Model} ()
+\item 
+void {\bf read\-From\-Node} (Element e)
+\item 
+{\bf Experiment\-Runner} {\bf get\-Experiment\-Runner} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bf read\-Param\-List} (Node src, Map dst)
+\item 
+static void {\bfseries main} (String[$\,$] args)  throws Exception \label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_a6cd8ac7b888a2f4099ba102ea246c9d3}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String {\bfseries U\-N\-D\-E\-F\-I\-N\-E\-D} = \char`\"{}U\-N\-D\-E\-F\char`\"{}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_a28eefe1159e4f4ef8f2d9822ef212a44}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Experiment\-Runner} {\bf create\-Default\-Experiment\-Runner} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class representing a parametrized simulation run. The parameters can be read from an X\-M\-L file. The X\-M\-L file must start with a $<$run$>$tag. This tag contains model and experiment parameter specifications (tags $<$model$>$and $<$exp$>$). Each parameter specification is stated in the form 
+\begin{DoxyParams}{Parameters}
+{\em ...} & .\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Nicolas Knaak
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!Run@{Run}}
+\index{Run@{Run}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{Run}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-experimentation.\-util.\-Run.\-Run (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{default\-Model, }
+\item[{{\bf Experiment\-Runner}}]{default\-Exp\-Runner, }
+\item[{Map}]{default\-Exp\-Settings, }
+\item[{Map}]{default\-Model\-Params, }
+\item[{int}]{number}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_af323f63584b47adf875d46b898e78d53}
+Creates a new run. This constructor is mainly called from the class \doxyref{Batch\-Runner}{p.}{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_batch_runner}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em default\-Model} & the model to run an experiment with \\
+\hline
+{\em default\-Exp\-Runner} & the experiment runner used for running the experiment \\
+\hline
+{\em default\-Exp\-Settings} & the experiment parameter settings \\
+\hline
+{\em default\-Model\-Params} & the model parameter settings \\
+\hline
+{\em number} & internal number of the run (only important if used with batches) \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!Run@{Run}}
+\index{Run@{Run}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{Run}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-experimentation.\-util.\-Run.\-Run (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{m, }
+\item[{{\bf Experiment\-Runner}}]{exp}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_a3abdd98d3fad6eff3ec775b6dba9d87f}
+Creates a new run without changing model and experiment parameter settings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & the model to run an experiment with \\
+\hline
+{\em exp} & the experiment runner used for running the experiment. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!Run@{Run}}
+\index{Run@{Run}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{Run}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-extensions.\-experimentation.\-util.\-Run.\-Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_a7ec4bbcc392d22917434a1eb61b48892}
+Creates a new empty run. 
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!create\-Default\-Experiment\-Runner@{create\-Default\-Experiment\-Runner}}
+\index{create\-Default\-Experiment\-Runner@{create\-Default\-Experiment\-Runner}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{create\-Default\-Experiment\-Runner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment\-Runner} desmoj.\-extensions.\-experimentation.\-util.\-Run.\-create\-Default\-Experiment\-Runner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_a769c8af5fcd66f544245cf7e202a0560}
+Creates a default desmoj.\-util.\-Experiment\-Runner. This method might be overridden by subclasses.
+
+\begin{DoxyReturn}{Returns}
+the experiment runner 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!get\-Experiment\-Runner@{get\-Experiment\-Runner}}
+\index{get\-Experiment\-Runner@{get\-Experiment\-Runner}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{get\-Experiment\-Runner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Experiment\-Runner} desmoj.\-extensions.\-experimentation.\-util.\-Run.\-get\-Experiment\-Runner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_aae177ffa3e49403a339bfe59f8bac785}
+\begin{DoxyReturn}{Returns}
+the experiment runner used to run this experiment 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_aae177ffa3e49403a339bfe59f8bac785_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!get\-Model@{get\-Model}}
+\index{get\-Model@{get\-Model}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{get\-Model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} desmoj.\-extensions.\-experimentation.\-util.\-Run.\-get\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_a6682fe8dcea51fe43304dbb6c9fe3b32}
+\begin{DoxyReturn}{Returns}
+the model an experiment is run with 
+\end{DoxyReturn}
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!read\-From\-Node@{read\-From\-Node}}
+\index{read\-From\-Node@{read\-From\-Node}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{read\-From\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-extensions.\-experimentation.\-util.\-Run.\-read\-From\-Node (
+\begin{DoxyParamCaption}
+\item[{Element}]{e}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_aeabcf1fd3cf7ed74ccc609c248643291}
+Reads a run from a D\-O\-M node representing an X\-M\-L parameter file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the D\-O\-M node to read the run from \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_aeabcf1fd3cf7ed74ccc609c248643291_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::extensions\-::experimentation\-::util\-::\-Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}!read\-Param\-List@{read\-Param\-List}}
+\index{read\-Param\-List@{read\-Param\-List}!desmoj::extensions::experimentation::util::Run@{desmoj\-::extensions\-::experimentation\-::util\-::\-Run}}
+\subsubsection[{read\-Param\-List}]{\setlength{\rightskip}{0pt plus 5cm}static void desmoj.\-extensions.\-experimentation.\-util.\-Run.\-read\-Param\-List (
+\begin{DoxyParamCaption}
+\item[{Node}]{src, }
+\item[{Map}]{dst}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1extensions_1_1experimentation_1_1util_1_1_run_a23dc3dc33fcf8b1447e36485fc768956}
+Reads a parameter list from a D\-O\-M node to a java.\-util.\-Map. In the map each setting is stored as a key (name of the parameter) and value pair.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & a D\-O\-M node containing X\-M\-L based parameter settings \\
+\hline
+{\em dst} & a java.\-uztil.\-Map to copy the parameter settings to. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/extensions/experimentation/util/Run.\-java\end{DoxyCompactItemize}

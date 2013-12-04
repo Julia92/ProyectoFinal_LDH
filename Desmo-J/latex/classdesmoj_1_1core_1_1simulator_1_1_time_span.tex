@@ -1,0 +1,535 @@
+\section{desmoj.\-core.\-simulator.\-Time\-Span Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_time_span}\index{desmoj.\-core.\-simulator.\-Time\-Span@{desmoj.\-core.\-simulator.\-Time\-Span}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Time\-Span\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Time\-Span\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Builder}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Time\-Span} (long duration, Time\-Unit unit)
+\item 
+{\bf Time\-Span} (long duration)
+\item 
+{\bf Time\-Span} (double duration, Time\-Unit unit)
+\item 
+{\bf Time\-Span} (double duration)
+\item 
+long {\bf get\-Time\-In\-Epsilon} ()
+\item 
+long {\bf get\-Time\-Truncated} (Time\-Unit unit)
+\item 
+long {\bf get\-Time\-Truncated} ()
+\item 
+long {\bf get\-Time\-Rounded} (Time\-Unit unit)
+\item 
+long {\bf get\-Time\-Rounded} ()
+\item 
+double {\bf get\-Time\-As\-Double} (Time\-Unit unit)
+\item 
+double {\bf get\-Time\-As\-Double} ()
+\item 
+boolean {\bf is\-Shorter\-Or\-Equal} ({\bf Time\-Span} a, {\bf Time\-Span} b)
+\item 
+boolean {\bf equals} (Object obj)
+\item 
+int {\bf hash\-Code} ()
+\item 
+int {\bf compare\-To} ({\bf Time\-Span} another\-Time\-Span)
+\item 
+String {\bf to\-String} ()
+\item 
+String {\bf to\-String} (int digits)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static boolean {\bf is\-Longer} ({\bf Time\-Span} a, {\bf Time\-Span} b)
+\item 
+static boolean {\bf is\-Longer\-Or\-Equal} ({\bf Time\-Span} a, {\bf Time\-Span} b)
+\item 
+static boolean {\bf is\-Shorter} ({\bf Time\-Span} a, {\bf Time\-Span} b)
+\item 
+static boolean {\bf is\-Equal} ({\bf Time\-Span} a, {\bf Time\-Span} b)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final {\bf Time\-Span} {\bf Z\-E\-R\-O} = new {\bf Time\-Span}(0, M\-I\-C\-R\-O\-S\-E\-C\-O\-N\-D\-S)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents spans of simulation time. Each span of simulation time is represented by an individual object of this class and offers its own methods for arithmetic operations and comparison. Ensures that only valid spans of time are generated.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Felix Klueckmann \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!Time\-Span@{Time\-Span}}
+\index{Time\-Span@{Time\-Span}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{Time\-Span}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Span.\-Time\-Span (
+\begin{DoxyParamCaption}
+\item[{long}]{duration, }
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a91d330171903026a7abc87d021329444}
+Constructs a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with the given time value in the time unit of the given parameter. It represents a time span in simulation time. Note that trying to create a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with a negative value will stop the simulation immediately. The simulation will also stop immediately if the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} is larger than Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E-\/1 (in the unit of epsilon).
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & long \-: The time value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \\
+\hline
+{\em unit} & Time\-Unit\-: the Time\-Unit \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!Time\-Span@{Time\-Span}}
+\index{Time\-Span@{Time\-Span}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{Time\-Span}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Span.\-Time\-Span (
+\begin{DoxyParamCaption}
+\item[{long}]{duration}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a62419547161463e11400be5894bb847a}
+Constructs a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with the given time value in the time unit of the reference time. It represents a time span in simulation time. Note that trying to create a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with a negative value will stop the simulation immediately. The simulation will also stop immediately if the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} is larger than Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E-\/1 (in the unit of epsilon).
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & long \-: The time value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} in the time unit of the reference time. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!Time\-Span@{Time\-Span}}
+\index{Time\-Span@{Time\-Span}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{Time\-Span}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Span.\-Time\-Span (
+\begin{DoxyParamCaption}
+\item[{double}]{duration, }
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_ae2736439cd7b143aa9111a62704fb9d9}
+Constructs a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with the given time value in the given time\-Unit. It represents a time span in simulation time. Note that trying to create a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with a negative value will stop the simulation immediately. The simulation will also stop immediately if the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} is larger than Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E-\/1 (in the unit of epsilon).
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & double \-: The time value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} in the time unit of the reference time. \\
+\hline
+{\em unit} & Time\-Unit \-: the time unit \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span_ae2736439cd7b143aa9111a62704fb9d9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!Time\-Span@{Time\-Span}}
+\index{Time\-Span@{Time\-Span}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{Time\-Span}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Time\-Span.\-Time\-Span (
+\begin{DoxyParamCaption}
+\item[{double}]{duration}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a81e724c56ae04cb58c8f9cfcc15d33a9}
+Constructs a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with the given time value in the time unit of the reference time. It represents a time span in simulation time. Note that trying to create a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object with a negative value will stop the simulation immediately.\-The simulation will also stop immediately if the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} is larger than Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E-\/1 (in the unit of epsilon).
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & double \-: The time value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} in the time unit of the reference time. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!compare\-To@{compare\-To}}
+\index{compare\-To@{compare\-To}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{compare\-To}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Time\-Span.\-compare\-To (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{another\-Time\-Span}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a38159ec958f56114a11376929a0a82fe}
+Compares the given \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} to this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}. This method implements the Comparable$<$\-Time\-Span$>$ Interface
+
+
+\begin{DoxyParams}{Parameters}
+{\em another\-Time\-Span} & The \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} to be compared to this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int\-: Returns a negative integer, zero, or a positive integer as this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} is shorter than, equal to, or longer than the given parameter. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span_a38159ec958f56114a11376929a0a82fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!equals@{equals}}
+\index{equals@{equals}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Time\-Span.\-equals (
+\begin{DoxyParamCaption}
+\item[{Object}]{obj}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_aa15785f0e56b88a05d7b5d8cf2d42ee5}
+Indicates whether this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} is equal to the given parameter. Returns true if the obj argument is a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} and is of equal length as this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}; false otherwise. This method overrides java.\-lang.\-Object.\-equals()
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & the reference object with which to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the obj argument is a \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} and is of equal length as this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}; false otherwise. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span_aa15785f0e56b88a05d7b5d8cf2d42ee5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!get\-Time\-As\-Double@{get\-Time\-As\-Double}}
+\index{get\-Time\-As\-Double@{get\-Time\-As\-Double}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{get\-Time\-As\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Time\-Span.\-get\-Time\-As\-Double (
+\begin{DoxyParamCaption}
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a1db2d4f36404bdd311140bb41965663e}
+Returns the value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a double type in the time unit given as a parameter.
+
+\begin{DoxyReturn}{Returns}
+double\-: the time value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a double type in the time unit given as a parameter 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span_a1db2d4f36404bdd311140bb41965663e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!get\-Time\-As\-Double@{get\-Time\-As\-Double}}
+\index{get\-Time\-As\-Double@{get\-Time\-As\-Double}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{get\-Time\-As\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double desmoj.\-core.\-simulator.\-Time\-Span.\-get\-Time\-As\-Double (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a10fe4a818876081c11033381f465ed5f}
+Returns the value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a double type in the time unit of the reference time.
+
+\begin{DoxyReturn}{Returns}
+double\-: the time value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a double type in the time unit given as a parameter 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!get\-Time\-In\-Epsilon@{get\-Time\-In\-Epsilon}}
+\index{get\-Time\-In\-Epsilon@{get\-Time\-In\-Epsilon}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{get\-Time\-In\-Epsilon}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Span.\-get\-Time\-In\-Epsilon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_ac36d88a5ee03cc79f324d2261b3532ee}
+Returns the value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit of epsilon
+
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit of epsilon 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!get\-Time\-Rounded@{get\-Time\-Rounded}}
+\index{get\-Time\-Rounded@{get\-Time\-Rounded}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{get\-Time\-Rounded}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Span.\-get\-Time\-Rounded (
+\begin{DoxyParamCaption}
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_ace3226c65d5d702ad3be367db864cc03}
+Returns the value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit given as a parameter. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em unit} & \-: the Time\-Unit\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span_ace3226c65d5d702ad3be367db864cc03_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!get\-Time\-Rounded@{get\-Time\-Rounded}}
+\index{get\-Time\-Rounded@{get\-Time\-Rounded}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{get\-Time\-Rounded}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Span.\-get\-Time\-Rounded (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a6472badcf3a26c59b96b1e0308480654}
+Returns the value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit of the reference time. If the parameter has a coarser granularity than epsilon the returned value will be rounded, so lose precision.
+
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!get\-Time\-Truncated@{get\-Time\-Truncated}}
+\index{get\-Time\-Truncated@{get\-Time\-Truncated}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{get\-Time\-Truncated}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Span.\-get\-Time\-Truncated (
+\begin{DoxyParamCaption}
+\item[{Time\-Unit}]{unit}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a185b30c902c79d82363bf401f5bbec9c}
+Returns the value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit given as a parameter. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em unit} & \-: the Time\-Unit\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!get\-Time\-Truncated@{get\-Time\-Truncated}}
+\index{get\-Time\-Truncated@{get\-Time\-Truncated}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{get\-Time\-Truncated}]{\setlength{\rightskip}{0pt plus 5cm}long desmoj.\-core.\-simulator.\-Time\-Span.\-get\-Time\-Truncated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_ab33266f8ad9e4d2846bdcba6a3ba5e45}
+Returns the value of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit of the reference time. If the parameter has a coarser granularity than epsilon the returned value will be truncated, so lose precision.
+
+\begin{DoxyReturn}{Returns}
+long\-: the time value of the \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} object as a long type in the time unit given as a parameter or Long.\-M\-I\-N\-\_\-\-V\-A\-L\-U\-E if conversion would negatively overflow, or Long.\-M\-A\-X\-\_\-\-V\-A\-L\-U\-E if it would positively overflow. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!hash\-Code@{hash\-Code}}
+\index{hash\-Code@{hash\-Code}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{hash\-Code}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-simulator.\-Time\-Span.\-hash\-Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a552508fa7d55226cc1ba5c7a7f81b426}
+Returns a hash code value for the object. This methode overides java.\-lang.\-Object.\-hash\-Code().The method is supported for the benefit of hashtables such as those provided by java.\-util.\-Hashtable.
+
+\begin{DoxyReturn}{Returns}
+int\-: a hash code value for this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!is\-Equal@{is\-Equal}}
+\index{is\-Equal@{is\-Equal}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{is\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Span.\-is\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{a, }
+\item[{{\bf Time\-Span}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_aea72f8b618d0b39fb6d11ca4ebe45349}
+Indicates whether \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} a is equal to \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} b, i.\-e. they are of equal length.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}\-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}\-: second comparand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a is equal to b; false otherwise. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!is\-Longer@{is\-Longer}}
+\index{is\-Longer@{is\-Longer}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{is\-Longer}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Span.\-is\-Longer (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{a, }
+\item[{{\bf Time\-Span}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a694402ecab96e164fc71fb223aac025c}
+Checks if the first of two spans of simulation time is longer than the second. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}} i.\-e. {\ttfamily Time\-Span.\-is\-Longer(a,b)} where a and b are valid \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is longer than b 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: second comparand \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!is\-Longer\-Or\-Equal@{is\-Longer\-Or\-Equal}}
+\index{is\-Longer\-Or\-Equal@{is\-Longer\-Or\-Equal}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{is\-Longer\-Or\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Span.\-is\-Longer\-Or\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{a, }
+\item[{{\bf Time\-Span}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a3613d3d033d95f94c098fe4b7703e98b}
+Checks if the first of two spans of simulation time is longer than the second or equal to the second. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}} i.\-e. {\ttfamily Time\-Span.\-is\-Longer(a,b)} where a and b are valid \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is longer than b or equal to b. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: second comparand \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span_a3613d3d033d95f94c098fe4b7703e98b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!is\-Shorter@{is\-Shorter}}
+\index{is\-Shorter@{is\-Shorter}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{is\-Shorter}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-simulator.\-Time\-Span.\-is\-Shorter (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{a, }
+\item[{{\bf Time\-Span}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a3a9a2028e5f6bd624c4fd03d83e186d6}
+Checks if the first of two spans of simulation time is shorter than the second. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}} i.\-e. {\ttfamily Time\-Span.\-is\-Shorter(a,b)} where a and b are valid \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is shorter than b 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: second comparand \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!is\-Shorter\-Or\-Equal@{is\-Shorter\-Or\-Equal}}
+\index{is\-Shorter\-Or\-Equal@{is\-Shorter\-Or\-Equal}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{is\-Shorter\-Or\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Time\-Span.\-is\-Shorter\-Or\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\-Span}}]{a, }
+\item[{{\bf Time\-Span}}]{b}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a86da1ab160e8799e446482a8660d0cec}
+Checks if the first of two spans of simulation time is shorter than the second or equal to the second. Note that this is a static method available through calling the class {\ttfamily \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}} i.\-e. {\ttfamily Time\-Span.\-is\-Shorter\-Or\-Equal(a,b)} where a and b are valid \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} objects.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: True if a is shorter than b or equal to b. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: first comparand \\
+\hline
+{\em b} & \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} \-: second comparand \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_time_span_a86da1ab160e8799e446482a8660d0cec_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Time\-Span.\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a96f15733ce23c091995adb818e62f333}
+Returns the String Representation of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span}.
+
+\begin{DoxySeeAlso}{See Also}
+java.\-lang.\-Object\-::to\-String() 
+\end{DoxySeeAlso}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-simulator.\-Time\-Span.\-to\-String (
+\begin{DoxyParamCaption}
+\item[{int}]{digits}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a6f2702127d1faa22c15add54b1e134f3}
+Returns the String Representation of this \doxyref{Time\-Span}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_span} according to the \doxyref{Time\-Formatter}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_time_formatter}, truncating digits after the decimal point if necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em digits} & Maximum number of digits after decimal point\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+java.\-lang.\-Object\-::to\-String() 
+
+\doxyref{desmoj.\-core.\-simulator.\-Time\-Formatter}{p.}{interfacedesmoj_1_1core_1_1simulator_1_1_time_formatter} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Time\-Span@{desmoj\-::core\-::simulator\-::\-Time\-Span}!Z\-E\-R\-O@{Z\-E\-R\-O}}
+\index{Z\-E\-R\-O@{Z\-E\-R\-O}!desmoj::core::simulator::TimeSpan@{desmoj\-::core\-::simulator\-::\-Time\-Span}}
+\subsubsection[{Z\-E\-R\-O}]{\setlength{\rightskip}{0pt plus 5cm}final {\bf Time\-Span} desmoj.\-core.\-simulator.\-Time\-Span.\-Z\-E\-R\-O = new {\bf Time\-Span}(0, M\-I\-C\-R\-O\-S\-E\-C\-O\-N\-D\-S)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1simulator_1_1_time_span_a669fdfd1dcc1238af159ca1685107186}
+Z\-E\-R\-O defines the value for scheduling an object immediately, even replacing the current \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Time\-Span.\-java\end{DoxyCompactItemize}

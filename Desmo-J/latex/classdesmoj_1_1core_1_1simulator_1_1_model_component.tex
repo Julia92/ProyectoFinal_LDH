@@ -1,0 +1,605 @@
+\section{desmoj.\-core.\-simulator.\-Model\-Component Class Reference}
+\label{classdesmoj_1_1core_1_1simulator_1_1_model_component}\index{desmoj.\-core.\-simulator.\-Model\-Component@{desmoj.\-core.\-simulator.\-Model\-Component}}
+
+
+Inheritance diagram for desmoj.\-core.\-simulator.\-Model\-Component\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-simulator.\-Model\-Component\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Model\-Component} ({\bf Model} owner\-Model, String name)
+\item 
+{\bf Model\-Component} ({\bf Model} owner\-Model, String name, boolean show\-In\-Trace)
+\item 
+{\bf Schedulable} {\bf current} ()
+\item 
+{\bf Entity} {\bf current\-Entity} ()
+\item 
+List$<$ {\bf Entity} $>$ {\bf current\-Entity\-All} ()
+\item 
+{\bf Event\-Abstract} {\bf current\-Event} ()
+\item 
+{\bf Model} {\bf current\-Model} ()
+\item 
+{\bf Sim\-Process} {\bf current\-Sim\-Process} ()
+\item 
+{\bf Sim\-Time} {\bf current\-Time} ()
+\item 
+{\bf Time\-Instant} {\bf present\-Time} ()
+\item 
+boolean {\bf debug\-Is\-On} ()
+\item 
+void {\bf debug\-Off} ()
+\item 
+void {\bf debug\-On} ()
+\item 
+{\bf Sim\-Time} {\bf epsilon} ()
+\item 
+{\bf Model} {\bf get\-Model} ()
+\item 
+boolean {\bf is\-Experiment\-Compatible} ({\bf Model\-Component} other)
+\item 
+boolean {\bf is\-Model\-Compatible} ({\bf Model\-Component} other)
+\item 
+void {\bf send\-Debug\-Note} (String description)
+\item 
+void {\bf send\-Message} ({\bf Message} m)
+\item 
+void {\bf send\-Trace\-Note} (String description)
+\item 
+void {\bf send\-Warning} (String description, String location, String reason, String prevention)
+\item 
+void {\bf skip\-Trace\-Note} ()
+\item 
+void {\bf skip\-Trace\-Note} (int num\-Skipped)
+\item 
+boolean {\bf trace\-Is\-On} ()
+\item 
+void {\bf trace\-Off} ()
+\item 
+void {\bf trace\-On} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean {\bf currently\-Send\-Debug\-Notes} ()
+\item 
+boolean {\bf currently\-Send\-Trace\-Notes} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encapsulates all information relevant to each component of a model. Its basic intention is to connect each modelcomponent to a single \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} object as the owner of this modelcomponent. Through this connection all relevant information about that \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} can be retrieved. It is part of the composite design pattern as described in [Gamm97] page 163 in which it represents the component class.
+
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler \begin{DoxyVerb}    Licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied. See the License for the specific language governing
+    permissions and limitations under the License.\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!Model\-Component@{Model\-Component}}
+\index{Model\-Component@{Model\-Component}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{Model\-Component}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Model\-Component.\-Model\-Component (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a5539ecf03ab39ac7fc746dbbffbd83b1}
+Constructs a modelcomponent with the given String as name and the given model as the associated owner of this component. Components can only be created after the corresponding model object has been instantiated. The default preset for the show\-In\-Trace option is {\ttfamily false}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of the component \\
+\hline
+{\em owner\-Model} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this component is associated to. \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!Model\-Component@{Model\-Component}}
+\index{Model\-Component@{Model\-Component}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{Model\-Component}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-simulator.\-Model\-Component.\-Model\-Component (
+\begin{DoxyParamCaption}
+\item[{{\bf Model}}]{owner\-Model, }
+\item[{String}]{name, }
+\item[{boolean}]{show\-In\-Trace}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a0c36ace52619116594addca0435def59}
+Constructs a modelcomponent with the given String as name and the given model as the associated owner of this component. Components can thus only be created after the corresponding model object has been instantiated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & java.\-lang.\-String \-: The name of the component \\
+\hline
+{\em owner\-Model} & \doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model this component is associated to \\
+\hline
+{\em show\-In\-Trace} & boolean \-: Flag for showing component in trace-\/files. Set it to {\ttfamily true} if component should show up in trace. Set it to {\ttfamily false} if component should not be shown in trace. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!current@{current}}
+\index{current@{current}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{current}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Schedulable} desmoj.\-core.\-simulator.\-Model\-Component.\-current (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a688d6118562cbded287a5d171066ca92}
+Returns the currently active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object that is handled by the scheduler.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} \-: The current \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} object. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!current\-Entity@{current\-Entity}}
+\index{current\-Entity@{current\-Entity}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{current\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} desmoj.\-core.\-simulator.\-Model\-Component.\-current\-Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_ae353aab435136723e1a7d1c42dda8dad}
+Returns the currently active \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity}. Returns {\ttfamily null} if the current \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} happens to be an external event or a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. Note that in case the current Event refers to more than one entity ({\ttfamily Event\-Two\-Entitties}, {\ttfamily Event\-Three\-Entitties}), only the first entity is returned; to obtain all such entities, use {\ttfamily get\-All\-Current\-Entities()} instead.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} \-: The currently active \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} or {\ttfamily null} in case of an external event or a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} being the currently active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!current\-Entity\-All@{current\-Entity\-All}}
+\index{current\-Entity\-All@{current\-Entity\-All}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{current\-Entity\-All}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Entity}$>$ desmoj.\-core.\-simulator.\-Model\-Component.\-current\-Entity\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_ab600b81dd6917d39f6d1906291c88ddc}
+Returns the currently active entities. Returns an empty list if the current \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} happens to be an external event or a \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}.
+
+\begin{DoxyReturn}{Returns}
+List$<$\-Entity$>$ \-: A list containing the currently active entities 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!current\-Event@{current\-Event}}
+\index{current\-Event@{current\-Event}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{current\-Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Abstract} desmoj.\-core.\-simulator.\-Model\-Component.\-current\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a4c380d388796d394658b74a52729e357}
+Returns the currently active Event that is handled by the scheduler. It returns {\ttfamily null} if a process Event is the current active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable}, thus no Event is active.
+
+\begin{DoxyReturn}{Returns}
+Event \-: The current active Event or {\ttfamily null} if the current active \doxyref{Schedulable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_schedulable} is a process 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!currently\-Send\-Debug\-Notes@{currently\-Send\-Debug\-Notes}}
+\index{currently\-Send\-Debug\-Notes@{currently\-Send\-Debug\-Notes}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{currently\-Send\-Debug\-Notes}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model\-Component.\-currently\-Send\-Debug\-Notes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a51650fb980fb8a4d3f222745568ccbd2}
+returns true if this model component should currently send debug notes (i.\-e. experiment and the component are both in debug mode).
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_a51650fb980fb8a4d3f222745568ccbd2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!currently\-Send\-Trace\-Notes@{currently\-Send\-Trace\-Notes}}
+\index{currently\-Send\-Trace\-Notes@{currently\-Send\-Trace\-Notes}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{currently\-Send\-Trace\-Notes}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model\-Component.\-currently\-Send\-Trace\-Notes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_ae29e454ff09e1db4d515bf152f63005f}
+returns true if this model component should currently send trace notes (i.\-e. experiment and the component are both in trace mode).
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_ae29e454ff09e1db4d515bf152f63005f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!current\-Model@{current\-Model}}
+\index{current\-Model@{current\-Model}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{current\-Model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} desmoj.\-core.\-simulator.\-Model\-Component.\-current\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a85f7422c8d80bff9ba212802bafaa972}
+Returns the model that the currently active Event or \doxyref{Entity}{p.}{classdesmoj_1_1core_1_1simulator_1_1_entity} handled by the scheduler belongs to or the main model connected to the experiment, if no model can be returned by the scheduler.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The current active or the main model connected to the experiment, if no model can be returned by the scheduler 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_a85f7422c8d80bff9ba212802bafaa972_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!current\-Sim\-Process@{current\-Sim\-Process}}
+\index{current\-Sim\-Process@{current\-Sim\-Process}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{current\-Sim\-Process}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Process} desmoj.\-core.\-simulator.\-Model\-Component.\-current\-Sim\-Process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a3b36a67ebaf5e398ee105f93e36a04f5}
+Returns the currently active \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} that is handled by the scheduler.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process} \-: The current active \doxyref{Sim\-Process}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_process}. 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!current\-Time@{current\-Time}}
+\index{current\-Time@{current\-Time}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{current\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Time} desmoj.\-core.\-simulator.\-Model\-Component.\-current\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_af0d4a6a43bf6fa9f3d0fd67dbab3173c}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Replaced by \doxyref{present\-Time()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_a6bb3e686d851dbd973dcfa2d44f485d1}. Returns the current simulation time as displayed by the simulation clock responsible for this modelcomponent.\end{DoxyRefDesc}
+
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Sim\-Time}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_time} \-: The current simulation time 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!debug\-Is\-On@{debug\-Is\-On}}
+\index{debug\-Is\-On@{debug\-Is\-On}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{debug\-Is\-On}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model\-Component.\-debug\-Is\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a71e8397d0794c3d4d651bd256b1c315e}
+Shows if this modelcomponent currently produces debug output.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: true, if modelcomponent shows in debug, false if not 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!debug\-Off@{debug\-Off}}
+\index{debug\-Off@{debug\-Off}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{debug\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-debug\-Off (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a7113458fc59cdee2499f3de5f92ca305}
+Switches off debug output for this modelcomponent. Does nothing if trace is already switched off. \index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!debug\-On@{debug\-On}}
+\index{debug\-On@{debug\-On}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{debug\-On}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-debug\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_afe07d0e2e3b4426d4eb6d64e299e032b}
+Switches on debug output for this modelcomponent. Does nothing if debug is already switched on. \index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{epsilon}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sim\-Time} desmoj.\-core.\-simulator.\-Model\-Component.\-epsilon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a0840571ecd061707131b9c1c3d0ce4b1}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{Time\-Operations.\-get\-Epsilon()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_operations_a23d08192c3ff02e60548d6edf9c767d9}. Returns the minimum distinguishable span of simulation time for this experiment.\end{DoxyRefDesc}
+
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Sim\-Time}{p.}{classdesmoj_1_1core_1_1simulator_1_1_sim_time} \-: The minimum ditinguishable span of simulation time 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_a0840571ecd061707131b9c1c3d0ce4b1_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!get\-Model@{get\-Model}}
+\index{get\-Model@{get\-Model}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{get\-Model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} desmoj.\-core.\-simulator.\-Model\-Component.\-get\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_ae10e186b44bc8c7d8ce122ab31f47424}
+Returns the model that owns this component.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Model}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model} \-: The model that this component is associated to 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!is\-Experiment\-Compatible@{is\-Experiment\-Compatible}}
+\index{is\-Experiment\-Compatible@{is\-Experiment\-Compatible}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{is\-Experiment\-Compatible}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model\-Component.\-is\-Experiment\-Compatible (
+\begin{DoxyParamCaption}
+\item[{{\bf Model\-Component}}]{other}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_aead800160d623a2a037f30890de23f4b}
+Tests if the modelcomponent given as parameter is a component of the same experiment as this modelcomponent.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: true, if this modelcomponent belongs to the same experiment as this modelcomponent, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxyref{Model\-Component}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component} \-: the other modelcomponent to check compatibility with \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_aead800160d623a2a037f30890de23f4b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!is\-Model\-Compatible@{is\-Model\-Compatible}}
+\index{is\-Model\-Compatible@{is\-Model\-Compatible}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{is\-Model\-Compatible}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model\-Component.\-is\-Model\-Compatible (
+\begin{DoxyParamCaption}
+\item[{{\bf Model\-Component}}]{other}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_ac25c9968348a5df2058318bde909c3d7}
+Tests if the modelcomponent given as parameter is a component of the same model as this modelcomponent.
+
+\begin{DoxyReturn}{Returns}
+boolean \-:{\ttfamily true}, if this modelcomponent belongs to the same model as the given modelcomponent, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxyref{Model\-Component}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component} \-: the other modelcomponent to check compatibility with \\
+\hline
+\end{DoxyParams}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!present\-Time@{present\-Time}}
+\index{present\-Time@{present\-Time}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{present\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time\-Instant} desmoj.\-core.\-simulator.\-Model\-Component.\-present\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a6bb3e686d851dbd973dcfa2d44f485d1}
+Returns the current simulation time as displayed by the simulation clock responsible for this modelcomponent.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{Time\-Instant}{p.}{classdesmoj_1_1core_1_1simulator_1_1_time_instant} \-: The current point of simulation time 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!send\-Debug\-Note@{send\-Debug\-Note}}
+\index{send\-Debug\-Note@{send\-Debug\-Note}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{send\-Debug\-Note}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-send\-Debug\-Note (
+\begin{DoxyParamCaption}
+\item[{String}]{description}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_abe4ffb61a276a2ad6e207f29fea19bf2}
+Creates and sends a debugnote to the experiment's messagedistributor. Debugnotes express the internal state of a modelcomponent to visualize the changes of state to help find bugs. Classes {\ttfamily \doxyref{Scheduler}{p.}{classdesmoj_1_1core_1_1simulator_1_1_scheduler}} and {\ttfamily Queue} both produce debugnotes if set to do so representing the data stored inside them. The information about the simulation time is extracted from the experiment and must not be given as a parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & java.\-lang.\-String \-: The description of a modelcomponent's internal state to be passed with this debugnote \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_abe4ffb61a276a2ad6e207f29fea19bf2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!send\-Message@{send\-Message}}
+\index{send\-Message@{send\-Message}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{send\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-send\-Message (
+\begin{DoxyParamCaption}
+\item[{{\bf Message}}]{m}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_ae79ce99b4611b1692303ccf9a5a56fa6}
+Sends a message to the messagedistributor handled by the experiment. This modelcomponent must already be connected to an experiment in order to have a messagedistributor available to send this message to and an appropriate messagereceiver must already be registered at the messagedistributor to receive that type of message passed on to it. If no messaging subsystem is available to this modelcomponent, then the mesage is printed to the standard {\ttfamily out} printstream as configured in the local Java runtime environment of the computer this simulation is running on. Note that there are shorthands for sending the standard D\-E\-S\-M\-O-\/\-J messages. These methods create and send the appropriate Message on-\/the-\/fly\-: 
+\begin{DoxyItemize}
+\item {\ttfamily \doxyref{send\-Trace\-Note()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_ab663d6499da74089983fa064b148f582}$<$/clode$>$ to send a tracenote }
+\item {\ttfamily {\ttfamily \doxyref{send\-Debug\-Note()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_abe4ffb61a276a2ad6e207f29fea19bf2}} to send the data needed to debug models }
+\item {\ttfamily {\ttfamily \doxyref{send\-Warning()}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_a56a7c99c4bc8ba186804c2b47f51e5de}} to send an errormessage that does not stop the experiment }
+\end{DoxyItemize}
+
+{\ttfamily 
+\begin{DoxyParams}{Parameters}
+{\em m} & Message \-: The message to be transmitted \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{Model\-Component\-::send\-Trace\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_ab663d6499da74089983fa064b148f582} 
+
+\doxyref{Model\-Component\-::send\-Debug\-Note}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_abe4ffb61a276a2ad6e207f29fea19bf2} 
+
+\doxyref{Model\-Component\-::send\-Warning}{p.}{classdesmoj_1_1core_1_1simulator_1_1_model_component_a56a7c99c4bc8ba186804c2b47f51e5de} 
+\end{DoxySeeAlso}
+}
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_ae79ce99b4611b1692303ccf9a5a56fa6_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!send\-Trace\-Note@{send\-Trace\-Note}}
+\index{send\-Trace\-Note@{send\-Trace\-Note}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{send\-Trace\-Note}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-send\-Trace\-Note (
+\begin{DoxyParamCaption}
+\item[{String}]{description}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_ab663d6499da74089983fa064b148f582}
+Creates and sends a tracenote to the experiment's messagedistributor. The information about the simulation time, model and component producing this tracenote is extracted from the experiment and must not be given as parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & java.\-lang.\-String \-: The description of the tracenote \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_ab663d6499da74089983fa064b148f582_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!send\-Warning@{send\-Warning}}
+\index{send\-Warning@{send\-Warning}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{send\-Warning}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-send\-Warning (
+\begin{DoxyParamCaption}
+\item[{String}]{description, }
+\item[{String}]{location, }
+\item[{String}]{reason, }
+\item[{String}]{prevention}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a56a7c99c4bc8ba186804c2b47f51e5de}
+Creates and sends an error message to warn about a erroneous condition in the D\-E\-S\-M\-O-\/\-J framework to the experiment's messagedistributor. Be sure to have a correct location, since the object and method that the error becomes apparent is not necessary the location it was produced in. The information about the simulation time is extracted from the \doxyref{Experiment}{p.}{classdesmoj_1_1core_1_1simulator_1_1_experiment} and must not be given as a parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & java.\-lang.\-String \-: The description of the error that occured \\
+\hline
+{\em location} & java.\-lang.\-String \-: The class and method the error occured in \\
+\hline
+{\em reason} & java.\-lang.\-String \-: The reason most probably responsible for the error to occur \\
+\hline
+{\em prevention} & java.\-lang.\-String \-: The measures a user should take to prevent this warning to be issued again \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_a56a7c99c4bc8ba186804c2b47f51e5de_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!skip\-Trace\-Note@{skip\-Trace\-Note}}
+\index{skip\-Trace\-Note@{skip\-Trace\-Note}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{skip\-Trace\-Note}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-skip\-Trace\-Note (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_aee6f49721ac0abf35e72e91e3c7be14d}
+Skips the next tracenote. The next tracenote produced by any object in the D\-E\-S\-M\-O-\/\-J framework will not be distributed by the experiment's messagemanager. This is necessary for some operations to hide the framework's actions and thus not confuse the modeller. \index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!skip\-Trace\-Note@{skip\-Trace\-Note}}
+\index{skip\-Trace\-Note@{skip\-Trace\-Note}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{skip\-Trace\-Note}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-skip\-Trace\-Note (
+\begin{DoxyParamCaption}
+\item[{int}]{num\-Skipped}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a2a32d8f53583e6b579bbf313df069eb5}
+Skips the next number of tracenotes. The next -\/num\-Skipped -\/ number of tracenotes produced by any object in the D\-E\-S\-M\-O-\/\-J framework will not be distributed by the experiment's messagemanager. This is necessary for some operations to hide the framework's actions and thus not confuse the modeller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\-Skipped} & int \-: The number of future tracenotes to be skipped \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1simulator_1_1_model_component_a2a32d8f53583e6b579bbf313df069eb5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!trace\-Is\-On@{trace\-Is\-On}}
+\index{trace\-Is\-On@{trace\-Is\-On}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{trace\-Is\-On}]{\setlength{\rightskip}{0pt plus 5cm}boolean desmoj.\-core.\-simulator.\-Model\-Component.\-trace\-Is\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a6b0ad611e69fe3297c92ff8f36356e90}
+Shows if this modelcomponent currently produces trace output.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: true, if modelcomponent shows in trace, false if not 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!trace\-Off@{trace\-Off}}
+\index{trace\-Off@{trace\-Off}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{trace\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-trace\-Off (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a3b4643f6998be3fd4838277696f99198}
+Switches off trace output for this modelcomponent. Does nothing if trace is already switched off. \index{desmoj\-::core\-::simulator\-::\-Model\-Component@{desmoj\-::core\-::simulator\-::\-Model\-Component}!trace\-On@{trace\-On}}
+\index{trace\-On@{trace\-On}!desmoj::core::simulator::ModelComponent@{desmoj\-::core\-::simulator\-::\-Model\-Component}}
+\subsubsection[{trace\-On}]{\setlength{\rightskip}{0pt plus 5cm}void desmoj.\-core.\-simulator.\-Model\-Component.\-trace\-On (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1simulator_1_1_model_component_a168a0fd189a11ac0b49142ee9e6d1c92}
+Switches on trace output for this modelcomponent. Does nothing if trace is already switched on. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/simulator/Model\-Component.\-java\end{DoxyCompactItemize}

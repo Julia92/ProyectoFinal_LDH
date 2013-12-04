@@ -1,0 +1,384 @@
+\section{desmoj.\-core.\-report.\-Reporter Class Reference}
+\label{classdesmoj_1_1core_1_1report_1_1_reporter}\index{desmoj.\-core.\-report.\-Reporter@{desmoj.\-core.\-report.\-Reporter}}
+
+
+Inheritance diagram for desmoj.\-core.\-report.\-Reporter\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classdesmoj_1_1core_1_1report_1_1_reporter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for desmoj.\-core.\-report.\-Reporter\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classdesmoj_1_1core_1_1report_1_1_reporter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Reporter} ({\bf Reportable} information\-Source)
+\item 
+String[$\,$] {\bf get\-Column\-Titles} ()
+\item 
+abstract String[$\,$] {\bf get\-Entries} ()
+\item 
+int {\bf get\-Group\-I\-D} ()
+\item 
+String {\bf get\-Heading} ()
+\item 
+{\bf Model} {\bf get\-Model} ()
+\item 
+{\bf Reportable} {\bf get\-Reportable} ()
+\item 
+int {\bf num\-Columns} ()
+\item 
+String {\bf get\-Description} ()
+\item 
+boolean {\bfseries is\-Continuing\-Reporter} ()\label{classdesmoj_1_1core_1_1report_1_1_reporter_a5bebe14fb84776e462fd5fcb0c6a618f}
+
+\item 
+boolean {\bfseries is\-Two\-Row\-Reporter} ()\label{classdesmoj_1_1core_1_1report_1_1_reporter_a92320e2691c6ab46c2c529e88aa0381e}
+
+\item 
+int {\bfseries get\-Num\-Of\-Slave\-Queues} ()\label{classdesmoj_1_1core_1_1report_1_1_reporter_a7153f6b86f0828fceb22d6dc4cbd159b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static boolean {\bf is\-Equal} ({\bf Reporter} a, {\bf Reporter} b)
+\item 
+static boolean {\bf is\-Larger} ({\bf Reporter} a, {\bf Reporter} b)
+\item 
+static boolean {\bf is\-Other\-Group} ({\bf Reporter} a, {\bf Reporter} b)
+\item 
+static boolean {\bf is\-Same\-Group} ({\bf Reporter} a, {\bf Reporter} b)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf group\-I\-D}
+\item 
+String[$\,$] {\bf columns}
+\item 
+String[$\,$] {\bf entries}
+\item 
+String {\bf group\-Heading}
+\item 
+{\bf Reportable} {\bf source}
+\item 
+int {\bf num\-Columns}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Declares the basic methods needed for reporter to be able to print reports about a model component. Since individual components need individual reports each component has to specify a special reporter to print its data. Derive from this class to implement the reporter for the specific {\ttfamily Reportable} class.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{desmoj.\-core.\-simulator.\-Reportable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_reportable}
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+D\-E\-S\-M\-O-\/\-J, Ver. 2.\-4.\-0 copyright (c) 2013 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Tim Lechler
+\end{DoxyAuthor}
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at {\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!Reporter@{Reporter}}
+\index{Reporter@{Reporter}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{Reporter}]{\setlength{\rightskip}{0pt plus 5cm}desmoj.\-core.\-report.\-Reporter.\-Reporter (
+\begin{DoxyParamCaption}
+\item[{{\bf Reportable}}]{information\-Source}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a740b62b5c04057d90bc3022c8a005620}
+Creates a reporter for the given reportable information source.
+
+
+\begin{DoxyParams}{Parameters}
+{\em information\-Source} & desmoj.\-report.\-Reportable \-: The source of information to report about \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!get\-Column\-Titles@{get\-Column\-Titles}}
+\index{get\-Column\-Titles@{get\-Column\-Titles}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{get\-Column\-Titles}]{\setlength{\rightskip}{0pt plus 5cm}String [$\,$] desmoj.\-core.\-report.\-Reporter.\-get\-Column\-Titles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a5a3711d41a050bc85f653d3f11a9447f}
+Returns an array of Strings each containing the title for the corresponding entry in array {\ttfamily entries[]}.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String[] \-: Array containing column titles 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!get\-Description@{get\-Description}}
+\index{get\-Description@{get\-Description}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{get\-Description}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-report.\-Reporter.\-get\-Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_ab366aa7a60fa41a8e9b4a9f52bb27ad6}
+Get an optional description of this \doxyref{Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_reporter}'s Reportable to be included in the report. Default is null. \begin{DoxyReturn}{Returns}
+String \-: Description 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!get\-Entries@{get\-Entries}}
+\index{get\-Entries@{get\-Entries}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{get\-Entries}]{\setlength{\rightskip}{0pt plus 5cm}abstract String [$\,$] desmoj.\-core.\-report.\-Reporter.\-get\-Entries (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a71de3ce8913223162a1a04b141369e01}
+Returns an array of strings each containing the data for the corresponding column in array {\ttfamily columns[]}. Implement this method the an array of the same length as the columntitles is produced containing the data at the point of time this method is called by someone else to produce up-\/to-\/date information.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String[] \-: Array containing the data for reporting 
+\end{DoxyReturn}
+
+
+Implemented in {\bf desmoj.\-core.\-report.\-Data\-List\-Tally\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_data_list_tally_reporter_a6c3b83197d53528d50a0c82da55f0c19}, {\bf desmoj.\-core.\-report.\-Histogram\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_histogram_reporter_a0762be3df99a10514d7f89af8a3d95ba}, {\bf desmoj.\-core.\-report.\-Histogram\-Accumulate\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_histogram_accumulate_reporter_aceb75076f0f323ac08caffc775f6abfd}, {\bf desmoj.\-core.\-report.\-Data\-List\-Histogram\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_data_list_histogram_reporter_a6c3b4929e7ddcb0416f63c7ffc837457}, {\bf desmoj.\-core.\-report.\-Text\-Histogram\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_text_histogram_reporter_a4a4fbd0ba3f725032e1976d2eaf2a06c}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-report.\-Stock\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1report_1_1_stock_reporter_a1b4d053ef0d10b5cb33c2e3b423d2a46}, {\bf desmoj.\-core.\-report.\-Model\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_model_reporter_ae2008ad89a8170a59d83f30cf5e63478}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-report.\-Cranes\-System\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1report_1_1_cranes_system_reporter_a174f165aadf90a51d83c41954956f64c}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-report.\-T\-S\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1report_1_1_t_s_reporter_a23796868ce1d50b1d63c744d48b2835c}, {\bf desmoj.\-extensions.\-chaining.\-report.\-Flex\-Reporter\-Builder.\-Flex\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1chaining_1_1report_1_1_flex_reporter_builder_1_1_flex_reporter_ab6872476671fd6580c1d162969be0ea8}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-report.\-Work\-Station\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1report_1_1_work_station_reporter_a836208ca9578431bfb68efa6e0f9bcc3}, {\bf desmoj.\-extensions.\-chaining.\-report.\-Smart\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1chaining_1_1report_1_1_smart_reporter_a0411d552ab686db4185afb866f2ec2ef}, {\bf desmoj.\-core.\-report.\-Table\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_table_reporter_ad1a4bc6e76033dd7630e283e19a655d3}, {\bf desmoj.\-core.\-report.\-Aggregate\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_aggregate_reporter_add77ec591f3b4f3fbbb088ce49163126}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-report.\-Wait\-Queue\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1report_1_1_wait_queue_reporter_acab1cfcca848efab1adaca37b98a9c5b}, {\bf desmoj.\-core.\-report.\-Count\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_count_reporter_a141c1b47d04449a36d89fbda402836b9}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-report.\-Transport\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1report_1_1_transport_reporter_a1a7a423f51a3048e87e8921b02c4e160}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-report.\-Resource\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1report_1_1_resource_reporter_a27574f713dffe393a22a843264e20690}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-report.\-Bin\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1report_1_1_bin_reporter_ad4d1d86eab2288ca5b87a8369026b245}, {\bf desmoj.\-core.\-report.\-Accumulate\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_accumulate_reporter_a4a7f3b27ae5f3d6763beceaea0bf91de}, {\bf desmoj.\-core.\-report.\-Confidence\-Calculator\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_confidence_calculator_reporter_a4a5d613464a17778aa4814b6bb65d197}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-report.\-Berth\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1report_1_1_berth_reporter_af5d7e192ac26ed87fa33a5e8e5a3dc9b}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-report.\-Block\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1report_1_1_block_reporter_accdc6603ba1e47b3ecab2e0b79c7e251}, {\bf desmoj.\-extensions.\-application\-Domains.\-production.\-report.\-Entrepot\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1production_1_1report_1_1_entrepot_reporter_a280b31b5c33c612f757b84829d2f4006}, {\bf desmoj.\-core.\-advanced\-Modelling\-Features.\-report.\-Cond\-Queue\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1advanced_modelling_features_1_1report_1_1_cond_queue_reporter_afaa53343d7dde63c6a0b6baac58907a2}, {\bf desmoj.\-core.\-report.\-Process\-Queue\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_process_queue_reporter_a2dc98ffbb2b484115e933d72d94f4db0}, {\bf desmoj.\-core.\-report.\-Tally\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_tally_reporter_a5e2092bbf8da5a13900c377b29ede2b9}, {\bf desmoj.\-extensions.\-application\-Domains.\-harbour.\-report.\-Yard\-Reporter} \doxyref{}{p.}{classdesmoj_1_1extensions_1_1application_domains_1_1harbour_1_1report_1_1_yard_reporter_a143102423726559ba29720a723aac4a9}, {\bf desmoj.\-core.\-report.\-Queue\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_queue_reporter_a87f8cd3a37bc2065cb366581bd354692}, {\bf desmoj.\-core.\-report.\-Regression\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_regression_reporter_a50dd8ee9fb56588321b1ee42051f10f3}, {\bf desmoj.\-core.\-report.\-Bool\-Statistic\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_bool_statistic_reporter_ae536d500f992bb51fe68eb8e0f09cfd8}, {\bf desmoj.\-core.\-report.\-Standard\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_standard_reporter_a1090ec988860265029cf64a69a8344fc}, {\bf desmoj.\-core.\-report.\-Distribution\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_distribution_reporter_a7b167adb1bc510f4886a9d719dc11a53}, {\bf desmoj.\-core.\-report.\-Discrete\-Dist\-Empirical\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_discrete_dist_empirical_reporter_a79b179b22a4832e334c4e684139d19e4}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Beta\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_beta_reporter_ace7464737090f7af29d5c1baf6ec5eba}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Gamma\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_gamma_reporter_a447693c39840e671830c1a4abf6a9e43}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Constant\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_constant_reporter_ac813863aa509bb60a19abd3271a5df9c}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Empirical\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_empirical_reporter_ad272f47077c38684f9dd4183cffc5c34}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Expon\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_expon_reporter_a4a495488184ef3c67998f28c5d986670}, {\bf desmoj.\-core.\-report.\-Discrete\-Dist\-Constant\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_discrete_dist_constant_reporter_a710c7df20ac785561a8ea4238046327a}, {\bf desmoj.\-core.\-report.\-Entity\-Dist\-Empirical\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_entity_dist_empirical_reporter_adb0db9f132cea5db7996d072fc40bd3e}, {\bf desmoj.\-core.\-report.\-Entity\-Dist\-Uniform\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_entity_dist_uniform_reporter_a169c46f28ffc49f633ebd45df2a4dae4}, {\bf desmoj.\-core.\-report.\-Bool\-Dist\-Bernoulli\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_bool_dist_bernoulli_reporter_aba2ffbc3da3889bc53b1250b538a02b9}, {\bf desmoj.\-core.\-report.\-Bool\-Dist\-Constant\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_bool_dist_constant_reporter_a275e64cc61cd2d416871e4cd2c3a1662}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Aggregate\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_aggregate_reporter_ad8ce25d28acd3a71dcf26e4632a45933}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Custom\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_custom_reporter_aa0a6e000448be9e16e19a35ad4b5f2e4}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Erlang\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_erlang_reporter_a331eec55e57c5d694928f670cf9ac68e}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Normal\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_normal_reporter_a5a03d2e2890bf173e897f959a14d8bd2}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Triangular\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_triangular_reporter_afa77471f44c7b171c64bbbee41627dde}, {\bf desmoj.\-core.\-report.\-Cont\-Dist\-Uniform\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_cont_dist_uniform_reporter_add8dd58e554053f7eb7d0d37e23c7322}, {\bf desmoj.\-core.\-report.\-Discrete\-Dist\-Binomial\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_discrete_dist_binomial_reporter_a864c25d9a91e92a2f60f059ba9905cb2}, {\bf desmoj.\-core.\-report.\-Discrete\-Dist\-Geo\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_discrete_dist_geo_reporter_a4313eae95299f3a8c9ad56643be22d7c}, {\bf desmoj.\-core.\-report.\-Discrete\-Dist\-Hypergeo\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_discrete_dist_hypergeo_reporter_a06693a468aae09bc2266cdafe46a756f}, {\bf desmoj.\-core.\-report.\-Discrete\-Dist\-Poisson\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_discrete_dist_poisson_reporter_a626bc4e151bf4bf0609dc972c3777ca7}, {\bf desmoj.\-core.\-report.\-Discrete\-Dist\-Uniform\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_discrete_dist_uniform_reporter_aab3d46afe72c85e3ef3640c3b32486d0}, {\bf desmoj.\-core.\-report.\-Tally\-Time\-Span\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_tally_time_span_reporter_a4c2bdf0abf5c533a44993c70408aa4d5}, and {\bf desmoj.\-core.\-report.\-Series\-Reporter} \doxyref{}{p.}{classdesmoj_1_1core_1_1report_1_1_series_reporter_ab2f8c349438808e81e5015ad8ccf2f77}.
+
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!get\-Group\-I\-D@{get\-Group\-I\-D}}
+\index{get\-Group\-I\-D@{get\-Group\-I\-D}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{get\-Group\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-report.\-Reporter.\-get\-Group\-I\-D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_adb734310842c813d10a7b9a30788b027}
+Returns the I\-D of the group this reporter belongs to. The group-\/\-I\-D is used to give reporters a key to be ordered by. This allows reporters of the same group to be printed together in one table in a report file.
+
+\begin{DoxyReturn}{Returns}
+int \-: The reporter's group I\-D 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!get\-Heading@{get\-Heading}}
+\index{get\-Heading@{get\-Heading}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{get\-Heading}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-report.\-Reporter.\-get\-Heading (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a38a74151900165d125c879a3ebe66820}
+Returns the heading for the group this reporter belongs to. This can easily be used as a heading in the reporter to introduce a new group of reporters.
+
+\begin{DoxyReturn}{Returns}
+java.\-lang.\-String \-: The group heading for this group of reporters 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!get\-Model@{get\-Model}}
+\index{get\-Model@{get\-Model}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{get\-Model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} desmoj.\-core.\-report.\-Reporter.\-get\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_aab65fb0303af7f8852b227a48da9604c}
+Returns the Model that the Reportable belongs to that this reporter produces a report about.
+
+\begin{DoxyReturn}{Returns}
+Model \-: The Model the reporter's reportable belongs to 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!get\-Reportable@{get\-Reportable}}
+\index{get\-Reportable@{get\-Reportable}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{get\-Reportable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reportable} desmoj.\-core.\-report.\-Reporter.\-get\-Reportable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a4d242eea1ef33d0040e4f18ed1946487}
+Returns the reportable object that this reporter contains informations about.
+
+\begin{DoxyReturn}{Returns}
+\doxyref{desmoj.\-core.\-simulator.\-Reportable}{p.}{classdesmoj_1_1core_1_1simulator_1_1_reportable} \-: The reportable this reporter carries information about 
+\end{DoxyReturn}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!is\-Equal@{is\-Equal}}
+\index{is\-Equal@{is\-Equal}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{is\-Equal}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-report.\-Reporter.\-is\-Equal (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{a, }
+\item[{{\bf Reporter}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a8c79ac45ec6fb1c1338aaf5c013aa367}
+Compares the I\-D's of the two given reporters and returns {\ttfamily true} if both have the same I\-D, {\ttfamily false} if their I\-D's are different.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if both reporter's I\-D's are the same, {\ttfamily false} if not 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & desmoj.\-report.\-Reporter \-: comparand a \\
+\hline
+{\em b} & desmoj.\-report.\-Reporter \-: comparand b \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_reporter_a8c79ac45ec6fb1c1338aaf5c013aa367_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!is\-Larger@{is\-Larger}}
+\index{is\-Larger@{is\-Larger}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{is\-Larger}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-report.\-Reporter.\-is\-Larger (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{a, }
+\item[{{\bf Reporter}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a61685140a0617f81314554c5e7f4fde9}
+Compares the I\-D's of the two given reporters and returns {\ttfamily true} if reporter 'a' has a higher I\-D than reporter 'b', {\ttfamily false} if not.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if reporter 'a' has a higher I\-D than reporter 'b', {\ttfamily false} if not 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & desmoj.\-report.\-Reporter \-: comparand a \\
+\hline
+{\em b} & desmoj.\-report.\-Reporter \-: comparand b \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_reporter_a61685140a0617f81314554c5e7f4fde9_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!is\-Other\-Group@{is\-Other\-Group}}
+\index{is\-Other\-Group@{is\-Other\-Group}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{is\-Other\-Group}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-report.\-Reporter.\-is\-Other\-Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{a, }
+\item[{{\bf Reporter}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_acba6cda2eb4e4fcce49a62bc223cf0e8}
+Compares the I\-D's of the two given reporters and returns {\ttfamily true} if reporter 'a' belongs to a different group of I\-D's than reporter 'b', {\ttfamily false} if not.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if reporter 'a' has an I\-D belonging to a different group than reporter 'b', {\ttfamily false} if not 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & desmoj.\-report.\-Reporter \-: comparand a \\
+\hline
+{\em b} & desmoj.\-report.\-Reporter \-: comparand b \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_reporter_acba6cda2eb4e4fcce49a62bc223cf0e8_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!is\-Same\-Group@{is\-Same\-Group}}
+\index{is\-Same\-Group@{is\-Same\-Group}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{is\-Same\-Group}]{\setlength{\rightskip}{0pt plus 5cm}static boolean desmoj.\-core.\-report.\-Reporter.\-is\-Same\-Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Reporter}}]{a, }
+\item[{{\bf Reporter}}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a9587f042062225c3dd342e620223f657}
+Compares the I\-D's of the two given reporters and returns {\ttfamily true} if reporter 'a' belongs to the same group of I\-D's as reporter 'b', {\ttfamily false} if not.
+
+\begin{DoxyReturn}{Returns}
+boolean \-: Is {\ttfamily true} if reporter 'a' has an I\-D belonging to the same group as reporter 'b', {\ttfamily false} if not 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & desmoj.\-report.\-Reporter \-: comparand a \\
+\hline
+{\em b} & desmoj.\-report.\-Reporter \-: comparand b \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdesmoj_1_1core_1_1report_1_1_reporter_a9587f042062225c3dd342e620223f657_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!num\-Columns@{num\-Columns}}
+\index{num\-Columns@{num\-Columns}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{num\-Columns}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-report.\-Reporter.\-num\-Columns (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classdesmoj_1_1core_1_1report_1_1_reporter_aacc08e2ef088b98f549bcd55bc914477}
+Returns the number of columns or data this reporter is containing.
+
+\begin{DoxyReturn}{Returns}
+int \-: The number of columns/data this reporter is containing 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!columns@{columns}}
+\index{columns@{columns}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{columns}]{\setlength{\rightskip}{0pt plus 5cm}String [$\,$] desmoj.\-core.\-report.\-Reporter.\-columns\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a7a7e5f0d04ab060fcf192484db91524d}
+The column headings of this reporter. Reporters of the same group always have the same column headings. Entries should contain in the elements in the same order as the {\ttfamily entries[]}. \index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!entries@{entries}}
+\index{entries@{entries}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{entries}]{\setlength{\rightskip}{0pt plus 5cm}String [$\,$] desmoj.\-core.\-report.\-Reporter.\-entries\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a332f56f03e90929f99d48dac7ab650d3}
+The data entries of this reporter. Reporters of the same group always have the same number of entries. Entries should contain in the data elements in the same order as defined in the {\ttfamily columns[]} array. \index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!group\-Heading@{group\-Heading}}
+\index{group\-Heading@{group\-Heading}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{group\-Heading}]{\setlength{\rightskip}{0pt plus 5cm}String desmoj.\-core.\-report.\-Reporter.\-group\-Heading\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_a0ca40a92aaaf9c6e1fe0c9fa2424b5e5}
+The group's heading of this class of reporters. The String containe here is used as a table heading. All reporters of the same group must have the same group heading. \index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!group\-I\-D@{group\-I\-D}}
+\index{group\-I\-D@{group\-I\-D}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{group\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-report.\-Reporter.\-group\-I\-D\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_af2cbf1d099b90f3e47a1608d9f5ef3b4}
+The group-\/id of the reporters of this class. This I\-D resembles group-\/identification and ordering information inside a group. The H\-T\-M\-L output classes order {\ttfamily Reporters} by groups of hundred I\-D numbers. So i.\-e. all {\ttfamily Distributions} have {\ttfamily Reporters} with Group\-I\-D's in the range between 100 and 199. Highest numbers are always listed first. If in a sequence of {\ttfamily Reporters} its Group\-I\-D is in another century range, the H\-T\-M\-L output will automatically insert a horizontal ruler and a new heading to indicate the new group of {\ttfamily Reportable Model\-Components}. 
+
+ \begin{table}[h]\begin{TabularC}{2}
+\hline
+\rowcolor{lightgray}{\bf Group\-I\-D range }&{\bf Reportables  }\\\cline{1-2}
+2147483647 &\doxyref{Model\-Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_model_reporter}. Highest number possible, so always first in order. Ensures that Sub\-Model\-Reporter will be printed before other Reportables in the main model report.  \\\cline{1-2}
+2000000000 &Simulationrun\-Reporter, including Experiment duration and other important information referring to the experiment as whole.  \\\cline{1-2}
+1800 + &Free for additional Reporters of new constructs that will be listed before the {\ttfamily Statistic\-Objects} used in a {\ttfamily Model}.   \\\cline{1-2}
+1300 -\/ 1799 &Reporters for {\ttfamily Statistic\-Objects} as the {\ttfamily Accumulate, Tally, Text\-Histogram, Histogram, Regression} and {\ttfamily Count}, which will be listed before the process synchronisation constructs used in the {\ttfamily Model}.  \\\cline{1-2}
+400 -\/ 1299 &Additional Reporters for process synchronisation constructs as the {\ttfamily Bin, Stock, Entrepot, Res, Cond\-Queue, Wait\-Queue, Transporter} and {\ttfamily Work\-Station}, which will be listed before the {\ttfamily Queues} used in a {\ttfamily Model}.  \\\cline{1-2}
+300 -\/ 399 &Free for additional Reporters of new constructs that will be listed before the {\ttfamily Queues} used in a {\ttfamily Model}.  \\\cline{1-2}
+200 -\/ 299 &Queues. Queue will be sorted first, Process\-Queue last  \\\cline{1-2}
+100 -\/ 199 &Distributions. The generic {\ttfamily \doxyref{Distribution\-Reporter}{p.}{classdesmoj_1_1core_1_1report_1_1_distribution_reporter}} will be last with its Group\-I\-D of 100.  \\\cline{1-2}
+1-\/99 &Free for additional Reporters of new constructs that will be listed after the {\ttfamily Queues} used in a {\ttfamily Model}.  \\\cline{1-2}
+\end{TabularC}
+\centering
+\caption{Reserved Group\-I\-D ranges }
+\end{table}
+ \index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!num\-Columns@{num\-Columns}}
+\index{num\-Columns@{num\-Columns}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{num\-Columns}]{\setlength{\rightskip}{0pt plus 5cm}int desmoj.\-core.\-report.\-Reporter.\-num\-Columns\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_afc579f1d4a239c9e16e0daca31246265}
+The number of columns this reporter produces. \index{desmoj\-::core\-::report\-::\-Reporter@{desmoj\-::core\-::report\-::\-Reporter}!source@{source}}
+\index{source@{source}!desmoj::core::report::Reporter@{desmoj\-::core\-::report\-::\-Reporter}}
+\subsubsection[{source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reportable} desmoj.\-core.\-report.\-Reporter.\-source\hspace{0.3cm}{\ttfamily [protected]}}\label{classdesmoj_1_1core_1_1report_1_1_reporter_ae3c27825cd5df200f428c2599fea9cd5}
+The Reportable that this reporter generates the report about 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Julya\-Maria/\-Desktop/\-Desmo-\/\-J/desmoj/core/report/Reporter.\-java\end{DoxyCompactItemize}

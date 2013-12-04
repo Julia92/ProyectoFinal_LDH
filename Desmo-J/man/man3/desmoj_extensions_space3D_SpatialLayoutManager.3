@@ -1,0 +1,247 @@
+.TH "desmoj.extensions.space3D.SpatialLayoutManager" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+desmoj.extensions.space3D.SpatialLayoutManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaddSpatialObject\fP (String name, \fBSpatialObject\fP spatialObject)"
+.br
+.ti -1c
+.RI "void \fBaddTrack\fP (\fBTrack\fP track)"
+.br
+.ti -1c
+.RI "\fBSpatialObject\fP \fBgetSpatialObject\fP (String objectName)"
+.br
+.ti -1c
+.RI "\fBTrack\fP \fBgetTrack\fP (\fBMovableSpatialObject\fP mover, \fBSpatialObject\fP destination)"
+.br
+.ti -1c
+.RI "\fBTrack\fP \fBgetTrack\fP (\fBSpatialObject\fP startLocation, String exitPointName, \fBSpatialObject\fP destinationLocation, String entryPointName)"
+.br
+.ti -1c
+.RI "\fBTrack\fP \fBgetTrack\fP (String name)"
+.br
+.ti -1c
+.RI "\fBSimpleTrack\fP \fBgetTrackStraightTo\fP (\fBMovableSpatialObject\fP mover, String exitPoint, \fBSpatialObject\fP destination, String entryPoint)"
+.br
+.ti -1c
+.RI "\fBSimpleTrack\fP \fBgetTrackStraightTo\fP (\fBMovableSpatialObject\fP mover, String exitPoint, \fBExtendedLength\fP x, \fBExtendedLength\fP y, \fBExtendedLength\fP z)"
+.br
+.ti -1c
+.RI "Iterator< \fBTrack\fP > \fBgetTracksIterator\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBremoveTrack\fP (\fBTrack\fP track)"
+.br
+.ti -1c
+.RI "void \fBsetTrace\fP (boolean showInTrace)"
+.br
+.ti -1c
+.RI "boolean \fBshowTrace\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBSpatialLayoutManager\fP \fBgetSpatialLayoutManager\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class organizes the layout files and \fBTrack\fP objects\&. This instance manages all the tracks in this model\&. Models can be insert and removed during the simulation\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Fred Sun 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.addSpatialObject (Stringname, \fBSpatialObject\fPspatialObject)"
+Register a new \fBSpatialObject\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the \fBSpatialObject\fP\&. 
+.br
+\fIspatialObject\fP The \fBSpatialObject\fP to be registered\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.addTrack (\fBTrack\fPtrack)"
+Register a new track\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrack\fP The track to be registered\&. 
+.RE
+.PP
+
+.SS "static \fBSpatialLayoutManager\fP desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getSpatialLayoutManager ()\fC [static]\fP"
+Returns the singleton \fBSpatialLayoutManager\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBSpatialLayoutManager\fP 
+.RE
+.PP
+
+.SS "\fBSpatialObject\fP desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getSpatialObject (StringobjectName)"
+Returns the \fBSpatialObject\fP with the specified name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobjectName\fP The name of the \fBSpatialObject\fP to be get\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBSpatialObject\fP with the specified name\&. 
+.RE
+.PP
+
+.SS "\fBTrack\fP desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getTrack (\fBMovableSpatialObject\fPmover, \fBSpatialObject\fPdestination)"
+Gets a registered track which leads the moving object to the destiny\&. If no appropriate track between them can be found, null will be returned\&. If the moving object isn't located at any \fBSpatialObject\fP, a \fBSimpleTrack\fP which leads it directly to the destiny will be generated and returned\&.  The parameter destiny must be specified\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImover\fP The object which should move to the destiny\&. 
+.br
+\fIdestination\fP The destiny the mover should move to\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A track which lead the mover to the destiny\&. Null, if the mover is located at a \fBSpatialObject\fP and no track between it and the destiny is found\&. 
+.RE
+.PP
+
+.SS "\fBTrack\fP desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getTrack (\fBSpatialObject\fPstartLocation, StringexitPointName, \fBSpatialObject\fPdestinationLocation, StringentryPointName)"
+Gets the track base on the given start- and destination location\&. The specific entry and exit point are optional\&. If it's given, they also will be considered as a search condition\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstartLocation\fP The start location\&. 
+.br
+\fIexitPointName\fP The exit point at the start location\&. 
+.br
+\fIdestinationLocation\fP The destination location\&. 
+.br
+\fIentryPointName\fP The entry point at the destination location\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The track which matches the given parameter 
+.RE
+.PP
+
+.SS "\fBTrack\fP desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getTrack (Stringname)"
+Search through the registered tracks for a track with the given name\&. If none of the registered track has the given name, null will be returned\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the track which should be get\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The track with the specified name\&. Null, if there is none\&. 
+.RE
+.PP
+
+.SS "Iterator<\fBTrack\fP> desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getTracksIterator ()"
+Get an iterator of all the tracks managed by this layout manager\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+An iterator of all the tracks registered\&. 
+.RE
+.PP
+
+.SS "\fBSimpleTrack\fP desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getTrackStraightTo (\fBMovableSpatialObject\fPmover, StringexitPoint, \fBSpatialObject\fPdestination, StringentryPoint)"
+Generates a \fBSimpleTrack\fP which leads directly to the given destination\&. If the mover object is currently at a \fBSpatialObject\fP (current location), an exit point of this \fBSpatialObject\fP can be specified as start position of the track\&. Otherwise the position of the current location will be the start position\&. If the mover isn't at any \fBSpatialObject\fP, its current position will be the start position of the track\&. The entry point of the destination location can also be specified\&. If this parameter is set to null, the position of the destination location will be used as the destination position of the generated \fBSimpleTrack\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fImover\fP The object which should move to the given position\&. 
+.br
+\fIexitPoint\fP The specific exit point which should be the start position of the generated track\&. 
+.br
+\fIdestination\fP The destination object the mover should steered directly into\&. 
+.br
+\fIentryPoint\fP The specific entry point of the destination object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBSimpleTrack\fP which lead the mover object directly to the given destination\&. 
+.RE
+.PP
+
+.SS "\fBSimpleTrack\fP desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.getTrackStraightTo (\fBMovableSpatialObject\fPmover, StringexitPoint, \fBExtendedLength\fPx, \fBExtendedLength\fPy, \fBExtendedLength\fPz)"
+Generates a \fBSimpleTrack\fP which leads directly to the given position\&. If the mover object is currently at a \fBSpatialObject\fP (current location), an exit point of this \fBSpatialObject\fP can be specified as start position of the track\&. Otherwise the position of the current location will be the start position\&. If the mover isn't at any \fBSpatialObject\fP, its current position will be the start position of the track\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImover\fP The object which should move to the given position\&. 
+.br
+\fIexitPoint\fP The specific exit point which should be the start position of the generated track\&. 
+.br
+\fIx\fP The x-coordinate of the destiny position\&. 
+.br
+\fIy\fP The y-coordinate of the destiny position\&. 
+.br
+\fIz\fP The z-coordinate of the destiny position\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBSimpleTrack\fP which lead the mover object directly to the given position\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.removeTrack (\fBTrack\fPtrack)"
+Removes a specific track from the layout manager\&. If the same track exist more than once in the track list of the manager, the first one will be removed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItrack\fP The track to be removed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True, if the layout manager contains the given track\&. False, if it doesn't\&. 
+.RE
+.PP
+
+.SS "void desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.setTrace (booleanshowInTrace)"
+Sets the flag, whether the tracks generated from this class should be traced or not\&. At constructing of these tracks, the showInTrace flag will be set with this value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIshowInTrace\fP The showInTrace flag which will be forwarded at to the constructor of the \fBTrack\fP\&. 
+.RE
+.PP
+
+.SS "boolean desmoj\&.extensions\&.space3D\&.SpatialLayoutManager\&.showTrace ()"
+Gets whether the showInTrace flag will be set at generating a new \fBTrack\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the generated tracks will be traced\&. False, if not\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.

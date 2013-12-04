@@ -1,0 +1,206 @@
+.TH "org.apache.commons.math.distribution.ExponentialDistributionImpl" 3 "Wed Dec 4 2013" "Version 1.0" "Desmo-J" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+org.apache.commons.math.distribution.ExponentialDistributionImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP, \fBorg\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistribution\fP, and Serializable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBExponentialDistributionImpl\fP (double mean)"
+.br
+.ti -1c
+.RI "void \fBsetMean\fP (double mean)"
+.br
+.ti -1c
+.RI "double \fBgetMean\fP ()"
+.br
+.ti -1c
+.RI "double \fBcumulativeProbability\fP (double x)  throws MathException"
+.br
+.ti -1c
+.RI "double \fBinverseCumulativeProbability\fP (double p)  throws MathException "
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBgetDomainLowerBound\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBgetDomainUpperBound\fP (double p)"
+.br
+.ti -1c
+.RI "double \fBgetInitialDomain\fP (double p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The default implementation of \fBExponentialDistribution\fP\&.
+.PP
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision:\fP
+.RS 4
+617953 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+2008-02-02 22:54:00 -0700 (Sat, 02 Feb 2008) 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.ExponentialDistributionImpl (doublemean)"
+Create a exponential distribution with the given mean\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImean\fP mean of this distribution\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.cumulativeProbability (doublex) throws \fBMathException\fP"
+For this disbution, X, this method returns P(X < x)\&.
+.PP
+The implementation of this method is based on: 
+.PD 0
+
+.IP "\(bu" 2
+\fCExponential Distribution\fP, equation (1)\&. 
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value at which the CDF is evaluated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+CDF for this distribution\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.Distribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.getDomainLowerBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value lower bound, based on \fCp\fP, used to bracket a CDF root\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value lower bound, i\&.e\&. P(X < \fIlower bound\fP) < \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.getDomainUpperBound (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the domain value upper bound, based on \fCp\fP, used to bracket a CDF root\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+domain value upper bound, i\&.e\&. P(X < \fIupper bound\fP) > \fCp\fP 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.getInitialDomain (doublep)\fC [protected]\fP, \fC [virtual]\fP"
+Access the initial domain value, based on \fCp\fP, used to bracket a CDF root\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability for the critical value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+initial domain value 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.AbstractContinuousDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.getMean ()"
+Access the mean\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the mean\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistribution\fP\&.
+.SS "double org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.inverseCumulativeProbability (doublep) throws \fBMathException\fP"
+For this distribution, X, this method returns the critical point x, such that P(X < x) = \fCp\fP\&. 
+.PP
+Returns 0 for p=0 and \fCDouble\&.POSITIVE_INFINITY\fP for p=1\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP the desired probability 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+x, such that P(X < x) = \fCp\fP 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBMathException\fP\fP if the inverse cumulative probability can not be computed due to convergence or other numerical errors\&. 
+.br
+\fIIllegalArgumentException\fP if p < 0 or p > 1\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.ContinuousDistribution\fP\&.
+.SS "void org\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistributionImpl\&.setMean (doublemean)"
+Modify the mean\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImean\fP the new mean\&. 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIIllegalArgumentException\fP if \fCmean\fP is not positive\&. 
+.RE
+.PP
+
+.PP
+Implements \fBorg\&.apache\&.commons\&.math\&.distribution\&.ExponentialDistribution\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Desmo-J from the source code\&.
